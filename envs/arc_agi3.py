@@ -94,7 +94,7 @@ class ArcAgi3(Environment):
         self.level_actions = [0] * len(self.baseline)
         self.brief = f"""A video game on a 64x64 grid of coloured cells (colours are hex digits 0-f). Nobody has told \
 you the rules or the goal. The game has {self.win_levels} levels; you advance by completing the current level. \
-The actions you can send: {", ".join(self.action_names())}. RESET restarts the current level. You see the screen \
+The actions you can send: {", ".join(self.action_names())}. RESET restarts the current level; when the state is GAME_OVER, only RESET works. You see the screen \
 after every action. Every action counts against your budget, so be economical: find out what the actions do, \
 work out what completes a level, then complete it in as few actions as you can."""
         self.probe_format = f"""probe:       {{"actions": ["ACTION1", "CLICK 12 30", ...]}}   (1 to {self.max_actions} actions, run in order from the current screen)
@@ -111,7 +111,8 @@ observation: {{"steps": [{{"changes": {{"row,col": new colour as a hex digit, ..
         self.history = []
 
     def _read(self, o):
-        self.frame = frame_rows(o.frame[-1])
+        if o.frame:                      # the toolkit sends no frame for an action it ignores: the screen stays
+            self.frame = frame_rows(o.frame[-1])
         self.levels = int(o.levels_completed)
         self.win_levels = int(o.win_levels)
         self.state = o.state.name
@@ -146,6 +147,8 @@ observation: {{"steps": [{{"changes": {{"row,col": new colour as a hex digit, ..
                     return f"bad click {a!r}: use 'CLICK x y' with 0 <= x, y < 64" if 6 in self.available else "this game has no CLICK"
             elif a not in ok:
                 return f"unknown action {a!r}; allowed: {', '.join(self.action_names())}"
+        if self.state == "GAME_OVER" and acts and acts[0] != "RESET":
+            return "the game is over (GAME_OVER): the first action must be RESET"
         if self.state == "WIN":
             return "the game is already won"
         return None
@@ -160,6 +163,9 @@ observation: {{"steps": [{{"changes": {{"row,col": new colour as a hex digit, ..
         steps = []
         for a in p["actions"]:
             before, level_before = self.frame, self.levels
+            if self.state == "GAME_OVER" and a != "RESET":     # only RESET works now; nothing is sent or counted
+                steps.append({"changes": {}, "levels": self.levels, "state": self.state, "error": "GAME_OVER: only RESET works"})
+                break
             o = self._send(a)
             self.actions_used += 1
             self.level_actions[min(level_before, len(self.level_actions) - 1)] += 1
@@ -178,7 +184,8 @@ observation: {{"steps": [{{"changes": {{"row,col": new colour as a hex digit, ..
         return {"steps": steps}
 
     def cost(self, p, obs):
-        return len(obs.get("steps", []))
+        """Actions sent to the game (an action refused because the game is over isn't sent)."""
+        return sum(1 for st in obs.get("steps", []) if not str(st.get("error", "")).startswith("GAME_OVER"))
 
     def compare(self, pred, obs):
         """Per action: changed cells (overlap of the two change sets), levels and state; averaged over actions."""
@@ -202,7 +209,8 @@ observation: {{"steps": [{{"changes": {{"row,col": new colour as a hex digit, ..
         names = [n for n in self.action_names() if n not in ("RESET", "CLICK x y")]
         clicks = [f"CLICK {x} {y}" for x, y in objects(self.frame, 20)] if 6 in self.available else []
         pool = names + clicks or ["RESET"]
-        return {"actions": [rng.choice(pool) for _ in range(rng.randint(1, min(4, self.max_actions)))]}
+        acts = [rng.choice(pool) for _ in range(rng.randint(1, min(4, self.max_actions)))]
+        return {"actions": (["RESET"] + acts)[:self.max_actions] if self.state == "GAME_OVER" else acts}
 
     # ------------------------------------------------------------------ for stateful engines
     def view_state(self):
@@ -249,6 +257,8 @@ observation: {{"steps": [{{"changes": {{"row,col": new colour as a hex digit, ..
         return self.max_actions
 
     def plan_actions(self):
+        if self.state == "GAME_OVER":    # only RESET works: leave the choice to the experimenter
+            return []
         names = [n for n in self.action_names() if n not in ("RESET", "CLICK x y")]
         clicks = [f"CLICK {x} {y}" for x, y in objects(self.frame, 12)] if 6 in self.available else []
         return names + clicks
@@ -283,6 +293,8 @@ observation: {{"steps": [{{"changes": {{"row,col": new colour as a hex digit, ..
         for e in entries:
             for a in e["probe"]["actions"]:
                 before = self.levels
+                if self.state == "GAME_OVER" and a != "RESET":    # as in probe(): refused, never sent
+                    break
                 o = self._send(a)
                 self.actions_used += 1
                 self.level_actions[min(before, len(self.level_actions) - 1)] += 1
