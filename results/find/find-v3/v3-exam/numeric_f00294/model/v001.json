@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I noticed the offset differs by sign: positive inputs get roughly +17, negative inputs get roughly \u22128, so I modeled f(x) = x + 17.2 for x \u2265 0 and x \u2212 8 for x < 0 (boundary at 0, offsets are best-fit averages from E1).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 177, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -1,0 +1,31 @@
+Helix Probe v3 on 'find_numeric_f00030': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 180 (fit 0.000 -> 1.000); held-out 24%
+[2] E2 learn: Does the function have a distinct flat/plateau region or sharp tr...(+80 chars)  (v1 predicted it: match 1.00; cost 20, spent 30)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 40)
+[4] E4 learn: Is there a sharp dip/spike near x=0 (the model currently misses t...(+62 chars)  (v1 predicted it: match 0.90; cost 20, spent 60)
+      model v2 by the updater: fit 1.00, size 217 (fit 0.975 -> 1.000); held-out 4%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.90; cost 10, spent 70)
+      updater: keep
+[6] E6 learn: How does the baseline (non-dip) behavior vary with x across the n...(+97 chars)  (v2 predicted it: match 0.80; cost 20, spent 90)
+      updater's fix not kept: its fit is 0.825, the current model's is 0.950
+      updater's fix not kept: its fit is 0.767, the current model's is 0.950
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 514)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.90; cost 10, spent 100)
+[8] E8 learn: Is the baseline a simple linear tilt across the whole range, or d...(+129 chars)  (v2 predicted it: match 0.85; cost 20, spent 120)
+      model v3 by the updater: fit 1.00, size 404 (fit 0.931 -> 1.000); held-out 100%
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 130)
+      model v4 by the theorist: fit 1.00, size 514 (on trial it predicted 1.00 of 3 new experiments, the current model 0.92); held-out 100%
+[10] E10 learn: Does the central dip have a smooth, symmetric shape around x=0, o...(+119 chars)  (v4 predicted it: match 1.00; cost 20, spent 150)
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 160)
+[12] E12 learn: Is the large-|x| baseline exactly symmetric in x (same value at +...(+94 chars)  (v4 predicted it: match 1.00; cost 20, spent 180)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.00, size 380)
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 190)
+[14] E14 learn: Does the model's single Gaussian dip correctly capture the dip's ...(+171 chars)  (v4 predicted it: match 1.00; cost 20, spent 210)
+[15] E15 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 220)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 1.00
+[16] E16 learn: Does the central dip have a sharp, narrow minimum near |x|~0.8-1....(+212 chars)  (v4 predicted it: match 1.00; cost 20, spent 240)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00030", "experiments": 16, "cost": 240, "model_version": 4, "model_role": "theorist", "fit": 1.0, "size": 514, "exam": null, "heldout": 1.0, "llm_calls": 18, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

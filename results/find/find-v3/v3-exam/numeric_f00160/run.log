@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_numeric_f00160': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 177, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Is the rule really f(x)=round(x-39.5) everywhere, or is there a s...(+83 chars)  (v1 predicted it: match 1.00; cost 19, spent 33)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 43)
+[4] E4 learn: Does the box apply round-half-up to the shifted value x-39.5 at f...(+149 chars)  (v1 predicted it: match 1.00; cost 20, spent 63)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 73)
+[6] E6 learn: Do the fractional parts of x behave exactly as round-half-up of x...(+152 chars)  (v1 predicted it: match 1.00; cost 20, spent 93)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 219)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 103)
+[8] E8 learn: Are there any ordinary inputs where the rule f(x)=round_half_up(x...(+164 chars)  (v1 predicted it: match 1.00; cost 20, spent 123)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 133)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00160", "experiments": 9, "cost": 133, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 177, "exam": 1.0, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

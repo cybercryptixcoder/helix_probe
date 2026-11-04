@@ -1,0 +1,9 @@
+Helix Probe v3 on 'find_numeric_f00150': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+[2] E2 learn: What is the functional form and exponent scaling of f across ordi...(+118 chars)  (v0 predicted it: match 0.00; cost 20, spent 34)
+      theorist (fixes stalled)
+[3] E3 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 44)
+[4] E4 learn: Is f(x) approximately a power law over ordinary magnitudes, and w...(+145 chars)  (v0 predicted it: match 0.00; cost 20, spent 64)
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 74)
+[6] E6 learn: Does f decompose as a smooth power-law-like term plus a small add...(+133 chars)  (v0 predicted it: match 0.00; cost 20, spent 94)

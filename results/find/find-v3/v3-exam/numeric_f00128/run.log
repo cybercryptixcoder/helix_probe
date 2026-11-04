@@ -1,0 +1,40 @@
+Helix Probe v3 on 'find_numeric_f00128': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 263, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Is the box truly piecewise-linear with a break at x=0, and where ...(+58 chars)  (v1 predicted it: match 1.00; cost 10, spent 24)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 34)
+[4] E4 learn: Does the break really sit at x=0, or is there a smooth transition...(+72 chars)  (v1 predicted it: match 0.00; cost 10, spent 44)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 54)
+[6] E6 learn: Is the function exactly piecewise linear with a break at x=0, or ...(+122 chars)  (v1 predicted it: match 0.35; cost 20, spent 74)
+      model v2 by the updater: fit 1.00, size 330, exam 1.00 (fit 0.725 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 84)
+[8] E8 learn: Does the transition region near x=0 behave like a smooth sigmoid ...(+188 chars)  (v2 predicted it: match 1.00; cost 18, spent 102)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 112)
+[10] E10 learn: Is the function exactly piecewise linear away from the transition...(+170 chars)  (v2 predicted it: match 1.00; cost 14, spent 126)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 136)
+[12] E12 learn: Does the model hold up on a fresh random ordinary probe spanning ...(+97 chars)  (v2 predicted it: match 1.00; cost 20, spent 156)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.73, size 677)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 166)
+[14] E14 learn: Does the smooth transition blend really have the specific sigmoid...(+160 chars)  (v2 predicted it: match 0.90; cost 20, spent 186)
+      updater's fix not kept: its fit is 0.807, the current model's is 0.993
+      updater's fix not kept: its exam is 0.500, the current model's is 1.000
+[15] E15 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 196)
+      theorist's model lost its trial: on trial it predicted 0.68 of 3 new experiments, the current model 0.97
+[16] E16 learn: Is the transition region a pure two-line sigmoid blend, or does t...(+153 chars)  (v2 predicted it: match 1.00; cost 20, spent 216)
+[17] E17 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 226)
+[18] E18 learn: Does the transition region's residual curvature show up as a syst...(+224 chars)  (v2 predicted it: match 1.00; cost 20, spent 246)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 256)
+[20] E20 learn: Does the mid-transition region between x=0.5 and 1.5 follow the c...(+209 chars)  (v2 predicted it: match 0.85; cost 20, spent 276)
+      updater's fix not kept: its fit is 0.759, the current model's is 0.988
+      updater's fix not kept: its fit is 0.838, the current model's is 0.988
+      theorist (fixes stalled)
+[21] E21 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 286)
+[22] E22 learn: Is the residual deviation in the mid-transition region (x≈0.4–1.4...(+168 chars)  (v2 predicted it: match 1.00; cost 20, spent 306)
+[23] E23 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 316)
+[24] E24 learn: Does the transition region's residual deviation from v2's sigmoid...(+175 chars)  (v2 predicted it: match 1.00; cost 20, spent 336)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 346)
+{"env": "find_numeric_f00128", "experiments": 25, "cost": 346, "model_version": 2, "model_role": "updater", "fit": 0.99, "size": 330, "exam": 1.0, "heldout": 1.0, "llm_calls": 26, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

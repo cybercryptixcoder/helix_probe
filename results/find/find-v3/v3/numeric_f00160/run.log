@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_numeric_f00160': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 131 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does f(x) = floor(x - 39) hold across the whole range, including ...(+90 chars)  (v1 predicted it: match 1.00; cost 20, spent 30)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 40)
+[4] E4 learn: Does the floor(x-39) law hold at fine sub-integer granularity and...(+147 chars)  (v1 predicted it: match 1.00; cost 20, spent 60)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 70)
+[6] E6 learn: Does the floor(x-39) law hold at a dense set of ordinary random p...(+152 chars)  (v1 predicted it: match 1.00; cost 20, spent 90)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 218)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 100)
+[8] E8 learn: Does the floor(x-39) law hold at exact integer boundaries and jus...(+148 chars)  (v1 predicted it: match 1.00; cost 20, spent 120)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 130)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00160", "experiments": 9, "cost": 130, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 131, "exam": null, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

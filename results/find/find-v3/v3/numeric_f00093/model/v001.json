@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with a least-squares linear fit to E1, since the data shows a clear negative linear trend (y falls as x rises). This is a first hypothesis; the slope and intercept are estimated from the single experiment.", "exam": 0.0, "fit": 0.4, "fit_exact": 0.0, "size": 507, "matches": [0.4], "made_at": 1, "heldout": 0.0}

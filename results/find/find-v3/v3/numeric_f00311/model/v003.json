@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I moved the region boundary from -10 to -9.5: E4 shows -9.5 still returns ~8 while -9.25 already follows the linear rule, so the threshold sits between them (I chose -9.5 as the cutoff).", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 181, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 0.99}

@@ -1,0 +1,17 @@
+Helix Probe v3 on 'find_numeric_f00065': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 0.30, size 152, exam 0.42 (exam 0.000 -> 0.425); held-out 0%
+[2] E2 learn: Does the function follow a smooth nonlinear curve across the whol...(+87 chars)  (v1 predicted it: match 0.35; cost 17, spent 31)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.425
+      model v2 by the updater: fit 1.00, size 212, exam 1.00 (exam 0.425 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 41)
+[4] E4 learn: Are the two linear branches exactly straight over the full ordina...(+106 chars)  (v2 predicted it: match 1.00; cost 20, spent 61)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 71)
+[6] E6 learn: Is the function exactly piecewise linear with a single kink at x=...(+77 chars)  (v2 predicted it: match 1.00; cost 14, spent 85)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 95)
+[8] E8 learn: Is the kink exactly at x=0, or is the transition region slightly ...(+87 chars)  (v2 predicted it: match 1.00; cost 18, spent 113)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 123)
+[10] E10 learn: Do the two linear branches hold exactly out to the extreme ends o...(+106 chars)  (v2 predicted it: match 1.00; cost 16, spent 139)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00065", "experiments": 10, "cost": 139, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 212, "exam": 1.0, "heldout": 1.0, "llm_calls": 9, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I moved the boundary from -20 to -10: E2 shows the constant ~8 region extends through x=-10 (7.89) and -12 (7.80), while x=-8 already follows the linear rule (84.8). The transition is sharp, between -10 and -8.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 180, "matches": [1.0, 1.0], "made_at": 2, "heldout": 0.98}

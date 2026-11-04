@@ -1,0 +1,4 @@
+Helix Probe v3 on 'find_numeric_f00294': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 177, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Is the function's behavior at x=0 continuous with the positive br...(+88 chars)  (v1 predicted it: match 0.93; cost 15, spent 29)

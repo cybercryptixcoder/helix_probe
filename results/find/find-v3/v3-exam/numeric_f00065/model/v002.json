@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I replaced the crude linear guess with a piecewise-linear model: the slope is about -1.75 for x\u22640 and -2.5 for x>0, both passing through y(0)\u2248-8.67, which matches every point in E1 and E2.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 212, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

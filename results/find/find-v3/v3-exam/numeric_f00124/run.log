@@ -1,0 +1,45 @@
+Helix Probe v3 on 'find_numeric_f00124': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 0.30, size 1042, exam 0.15 (exam 0.000 -> 0.150); held-out 0%
+[2] E2 learn: Does the function depend only on |x| (symmetric) or is there a sy...(+109 chars)  (v1 predicted it: match 0.10; cost 20, spent 34)
+      model v2 by the updater: fit 1.00, size 1523, exam 1.00 (exam 0.150 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 44)
+[4] E4 learn: Does the function have a distinct piecewise form (e.g. different ...(+123 chars)  (v2 predicted it: match 0.50; cost 20, spent 64)
+      model v3 by the updater: fit 0.95, size 1785, exam 1.00 (fit 0.875 -> 0.950); held-out 100%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 74)
+[6] E6 learn: Is the region just below x=0 (between -1.5 and 0) a smooth quadra...(+124 chars)  (v3 predicted it: match 0.05; cost 20, spent 94)
+      updater's fix not kept: its fit is 0.792, the current model's is 0.808
+      model v4 by the updater: fit 0.97, size 2621, exam 1.00 (fit 0.808 -> 0.967); held-out 100%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 104)
+[8] E8 learn: Does the V-shaped kink near x=-1.1 persist as a genuine sharp ver...(+222 chars)  (v4 predicted it: match 0.80; cost 20, spent 124)
+      updater's fix not kept: its fit is 0.881, the current model's is 0.950
+      model v5 by the updater: fit 0.97, size 2460, exam 1.00 (fit 0.950 -> 0.969); held-out 100%
+[9] E9 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 134)
+[10] E10 learn: Is the transition from the V-shaped kink region to the positive q...(+132 chars)  (v5 predicted it: match 1.00; cost 20, spent 154)
+[11] E11 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 164)
+[12] E12 learn: Does the V-shaped kink region extend to the left of x=-1.5 (repla...(+100 chars)  (v5 predicted it: match 1.00; cost 20, spent 184)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 194)
+[14] E14 learn: Is the region just left of x=0 (between about -0.05 and 0) a cont...(+137 chars)  (v5 predicted it: match 1.00; cost 20, spent 214)
+[15] E15 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 224)
+[16] E16 learn: What exactly is the shape of the V-region between x=-1.5 and x=0 ...(+99 chars)  (v5 predicted it: match 0.50; cost 20, spent 244)
+      updater's fix not kept: its fit is 0.884, the current model's is 0.953
+      updater's fix not kept: its fit is 0.947, the current model's is 0.953
+[17] E17 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 254)
+[18] E18 learn: Is the feature near x=0 (the sharp kink where the V-region meets ...(+183 chars)  (v5 predicted it: match 1.00; cost 20, spent 274)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 284)
+[20] E20 learn: Within the V-region, is the left branch truly linear or does it c...(+132 chars)  (v5 predicted it: match 0.50; cost 20, spent 304)
+      model v6 by the updater: fit 0.95, size 2472, exam 1.00 (fit 0.938 -> 0.948); held-out 100%
+[21] E21 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 314)
+[22] E22 learn: Does the smooth V-region fit hold across the full transition zone...(+234 chars)  (v6 predicted it: match 0.90; cost 20, spent 334)
+      updater's fix not kept: same scores and not smaller (2728 vs 2472 chars)
+      updater's fix not kept: same scores and not smaller (2728 vs 2472 chars)
+[23] E23 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 344)
+[24] E24 learn: Is the V-region's minimum and the left branch shape near x=-1.08 ...(+209 chars)  (v6 predicted it: match 0.55; cost 20, spent 364)
+      updater's fix not kept: same scores and not smaller (2490 vs 2472 chars)
+      updater's fix not kept: same scores and not smaller (2923 vs 2472 chars)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 374)
+{"env": "find_numeric_f00124", "experiments": 25, "cost": 374, "model_version": 6, "model_role": "updater", "fit": 0.9359999999999999, "size": 2472, "exam": 1.0, "heldout": 1.0, "llm_calls": 30, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

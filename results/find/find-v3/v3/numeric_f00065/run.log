@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_numeric_f00065': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.30, size 257 (fit 0.000 -> 0.300); held-out 0%
+[2] E2 learn: Is f(x) really odd (f(-x) = -f(x)), and what is the shape near th...(+66 chars)  (v1 predicted it: match 0.12; cost 16, spent 26)
+      model v2 by the updater: fit 1.00, size 312 (fit 0.212 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 36)
+[4] E4 learn: The model assumes a single kink at x=0 with constant slopes, but ...(+216 chars)  (v2 predicted it: match 1.00; cost 20, spent 56)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 66)
+[6] E6 learn: Do the piecewise-linear slopes and intercept hold exactly across ...(+153 chars)  (v2 predicted it: match 1.00; cost 20, spent 86)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 96)
+[8] E8 learn: Does the piecewise-linear model hold at the very edges and just p...(+109 chars)  (v2 predicted it: match 1.00; cost 20, spent 116)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 126)
+[10] E10 learn: Does the model's linear fit hold in the mid-positive region aroun...(+107 chars)  (v2 predicted it: match 1.00; cost 20, spent 146)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00065", "experiments": 10, "cost": 146, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 312, "exam": null, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
