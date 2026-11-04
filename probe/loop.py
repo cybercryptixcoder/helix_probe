@@ -285,9 +285,13 @@ class Run:
         self.model.matches.append(match)
         self.model.fit = mean(self.model.matches)
         self.model.fit_exact = mean([m >= OK for m in self.model.matches])
-        if self.trial:
-            self.judge_trial(pred, obs)
         return e
+
+    def after_experiment(self, e):
+        """Judge a theory on trial against this experiment (called once the experiment is logged, so the log reads
+        in order: the experiment, then the verdict it caused)."""
+        if self.trial:
+            self.judge_trial(e["model_prediction"], e["observation"])
 
     # --------------------------------------------------------------------------------------------- the roles
     def propose(self, n):
@@ -388,6 +392,7 @@ class Run:
         reached = goal is not None and _safe_check(goal, e["observation"])
         self.log(f"[{n}] {e['id']} {kind}: {P.clip(e['question'], 80)}  (v{e['model_version']} predicted it: "
                  f"match {e['match']:.2f}; cost {e['cost']}, spent {self.spent()})" + ("  GOAL REACHED" if reached else ""))
+        self.after_experiment(e)
         if e["match"] < OK:
             self.stall = 0 if self.update(e) else self.stall + 1
         due = self.cfg.theorist_every and n % self.cfg.theorist_every == 0
@@ -420,6 +425,7 @@ class Run:
             e = self.run_experiment("goal", f"goal {n}: {task.description[:80]} | {reply.get('question', '')}", chosen)
             ok = _safe_check(task, e["observation"])
             self.log(f"[goal {n} try {t + 1}] {e['id']} {'REACHED' if ok else 'missed'} (model match {e['match']:.2f})")
+            self.after_experiment(e)
             if e["match"] < OK:
                 self.update(e)
             self.curve(f"goal{n}", "goal", f"{e['id']} {'reached' if ok else 'missed'}")

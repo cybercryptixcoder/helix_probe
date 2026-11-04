@@ -19,7 +19,8 @@ Nobody has told you how it works. Every press counts against your budget. The go
              (the model's predict() also receives "lamp", "door" and "history": every action since the last RESET)
 observation: {"steps": [{"lamp": "on" or "off", "door": "open" or "closed"}, ...]}   (one per action)"""
 
-    def __init__(self):
+    def __init__(self, goal="1"):
+        self.use_goal = goal not in ("0", "no", "false")      # goal=0: pure learning, no goal and never done
         self.count, self.door = 0, "closed"
         self.history = []
 
@@ -68,10 +69,12 @@ observation: {"steps": [{"lamp": "on" or "off", "door": "open" or "closed"}, ...
                 self._do(a)
 
     def goal(self):
+        if not self.use_goal:
+            return None
         return None if self.door == "open" else Task("Open the door.", lambda o: any(s["door"] == "open" for s in o["steps"]))
 
     def done(self):
-        return self.door == "open"
+        return self.use_goal and self.door == "open"
 
     max_probe = 4
 
