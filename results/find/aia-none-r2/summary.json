@@ -1,0 +1,16 @@
+{
+ "numeric": {
+  "n": 40,
+  "score": 0.375,
+  "experiments": 8.35,
+  "inputs": 90.35,
+  "answered": 0.825
+ },
+ "strings": {
+  "n": 40,
+  "score": 0.3975,
+  "experiments": 3.875,
+  "inputs": 37.5,
+  "answered": 1.0
+ }
+}
