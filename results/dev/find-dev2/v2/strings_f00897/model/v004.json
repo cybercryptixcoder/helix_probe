@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "Changed the first-character +2 range from `a-u`/`A-U` to `a-v`/`A-V`: E4 shows `v->x` and `V->X` (+2), so v belongs in the +2 region, with w and beyond (+4) as the cutoff.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 352, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

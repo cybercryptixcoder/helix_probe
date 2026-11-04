@@ -1,0 +1,10 @@
+{
+ "fid": "f00677",
+ "type": "compose",
+ "params": [
+  [],
+  "xG"
+ ],
+ "name": "shift_last_letter_forward_two;string_concatenate;compose_1input_1input((), xG)",
+ "dir": "f00677"
+}

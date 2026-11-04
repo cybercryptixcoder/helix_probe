@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "Each lowercase letter is shifted forward by 2 in the alphabet (a\u2192c, e\u2192g, h\u2192j), wrapping around [E1, E2]",
+  "Uppercase letters are shifted forward by 2 as well (HELLO\u2192JELLO) [E1]",
+  "Digits, punctuation, and spaces are left unchanged [E1]",
+  "The shift is a uniform Caesar +2 on letters regardless of position or vowel/consonant status [E2]"
+ ],
+ "notes": "E2 shows every letter shifts by +2, not +1: a\u2192c, e\u2192g, i\u2192k, o\u2192q, u\u2192w, b\u2192d, c\u2192e, d\u2192f, and he\u2192je, ae\u2192ce all confirm a uniform +2 Caesar shift. Updated the shift amount from 1 to 2.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.4,
+  0.8
+ ],
+ "made_at": 2
+}

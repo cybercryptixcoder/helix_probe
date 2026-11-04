@@ -1,0 +1,31 @@
+{
+ "version": 5,
+ "beliefs": [
+  "Button A moves +y by 1 when unobstructed [E1, E3]",
+  "Button B moves +x by 2 when unobstructed [E1, E8]",
+  "Button C moves +x by 1 when unobstructed [E1]",
+  "Button D moves -y by 2 when unobstructed [E1]",
+  "Button E moves -x by 2 when unobstructed [E1]",
+  "From (5,5), C moves -x by 1 (to (4,5)), so C's direction depends on position [E7]",
+  "From (5,5), A is blocked (stays put) [E4, E6]",
+  "From (4,8), A is blocked (stays put) [E2]",
+  "Some cells are walls; the character cannot enter or stand on them [library, E4]",
+  "At least one button behaves differently depending on position [library, E7]",
+  "From (5,5), E moves +y by 2 (to (5,7)), not -x by 2, so E's direction also depends on position [E8]",
+  "The exact wall layout and the position-dependent rules for C and E are unknown; (5,6) may be a wall? [E5, E7]"
+ ],
+ "notes": "E8 shows E from (5,5) goes to (5,7), i.e. +y by 2, not -x by 2; added a position-dependent E rule at (5,5). B still works normally there, so the anomaly is button-specific, not a general wall at (5,5).",
+ "fit": 0.75,
+ "heldout": 0.09,
+ "matches": [
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.875
+ ],
+ "made_at": 8
+}

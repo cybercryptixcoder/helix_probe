@@ -1,0 +1,16 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) is null for all x <= 0 [E1]",
+  "For x > 0, f(x) = 1.1 + 141.0873 * log2(x) exactly [E1, E2]",
+  "The curve is logarithmic (not logistic); the apparent saturation was just log growth [E1, E2]"
+ ],
+ "notes": "Discovered f(x) is exactly linear in log2(x): f(x)=1.1+141.0873*log2(x) fits all 30 observed points. Replaced the wrong logistic fit.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

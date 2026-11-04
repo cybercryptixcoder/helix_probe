@@ -1,0 +1,18 @@
+{
+ "env": "find_numeric_f00411",
+ "experiments": 20,
+ "model_version": 1,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 21,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f(x) = 2.5*x + 12 for x != 0, matching all nonzero points [E1]",
+  "f(0) = 444.28, a large spike at exactly x=0 [E1]",
+  "The spike is isolated to x=0; nearby values follow the linear rule [E1]"
+ ]
+}

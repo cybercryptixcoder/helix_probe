@@ -1,0 +1,32 @@
+{
+ "fid": "f00700",
+ "kind": "code",
+ "type": "ceil",
+ "params": [
+  null,
+  [
+   1.0,
+   -2.5
+  ]
+ ],
+ "name": "ceil;square_wave;sum_two(None, (1.0, -2.5))",
+ "dir": "f00700",
+ "approx_mse_error": "not trained",
+ "corruption_type": "interval_inside",
+ "corruption_params": {
+  "std": 0.49,
+  "boundary": [
+   32.9,
+   46.413570289255176
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "normal",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": 0.0,
+ "error_corrupted_code_generated": 0.0
+}

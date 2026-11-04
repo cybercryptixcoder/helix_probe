@@ -1,0 +1,14 @@
+{
+ "version": 1,
+ "beliefs": [
+  "The box shifts each character forward by a fixed offset in the ASCII/codepoint ordering: 'a'->'i' (+8), 'A'->'I' (+8), '1'->'9' (+8), ' '->'(' (+8), '!'->')' (+8) [E1]",
+  "The shift is +8 for every character, applied independently to each character of the input [E1]"
+ ],
+ "notes": "All ten observations are consistent with adding 8 to each character's codepoint: a->i, A->I, 1->9, space->(, !->), ab->ij, 'a b'->'i(j', Hello->Pmttw, 123->9:;, a1!->i9). Implemented as chr(ord(c)+8) per character.",
+ "fit": 1.0,
+ "heldout": 0.14,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

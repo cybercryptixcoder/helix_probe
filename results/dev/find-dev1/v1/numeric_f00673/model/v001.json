@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is roughly even: f(-x) \u2248 f(x) for all sampled x [E1]",
+  "f grows quadratically away from 0: f(x) \u2248 0.13\u00b7x\u00b2 (e.g. f(128)\u22482151, 128\u00b2\u00b70.1313\u22482151) [E1]",
+  "f has a small dip near x=0: f(0)\u22480.76 rather than 0, and f(\u00b11)\u224816 slightly above the quadratic trend [E1]",
+  "the exact form near 0 is uncertain; possibly a shifted quadratic like a\u00b7x\u00b2+b with small b, or a tiny special interval around 0?"
+ ],
+ "notes": "First model: even, quadratic growth ~0.131\u00b7x\u00b2, with a small offset near 0. Fit a\u00b7x\u00b2+b to the data.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3
+ ],
+ "made_at": 1
+}

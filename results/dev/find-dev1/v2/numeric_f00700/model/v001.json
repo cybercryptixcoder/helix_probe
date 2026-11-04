@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found the piecewise rule: for large positive x, y=x+1; for large negative x, y=x-1; but near zero there are flat plateaus (y=2 on (0,1], y=-1 on (-1,0]) \u2014 consistent with all 20 points in E1.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 255, "matches": [1.0], "made_at": 1, "heldout": 1.0}

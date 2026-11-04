@@ -1,0 +1,18 @@
+{
+ "env": "find_numeric_f00020",
+ "experiments": 20,
+ "model_version": 1,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 22,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f is roughly constant near 81 across most of [-128,127], with a sharp rise only near the upper end (x=127 gives 88.6) [E1]",
+  "The small wiggles (~80.88-81.10) look like noise around a flat baseline of ~81 [E1]",
+  "There may be a distinct region near x\u2248127 where f rises above baseline; the breakpoint location is uncertain [E1]"
+ ]
+}

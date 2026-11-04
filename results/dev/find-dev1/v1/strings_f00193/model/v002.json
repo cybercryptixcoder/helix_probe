@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) = g(x) + 'JTQL', where 'JTQL' is a fixed suffix appended to a transformed x [E1]",
+  "g applies a Caesar shift of -2 on lowercase letters (a->y, b->z, c->a, ..., z->x) [E1, E2]",
+  "g applies a Caesar shift of -2 on uppercase letters (A->Y, B->Z, C->A, ..., Z->X) [E1, E2]",
+  "Digits, symbols, and spaces are unchanged by g [E1]",
+  "Empty string maps to 'HTQL', so g('')='H' \u2014 an extra 'H' appears when input is empty [E1]"
+ ],
+ "notes": "E2 shows a uniform -2 Caesar shift on both cases (b->z, c->a, z->x, e->c, l->j, B->Z, C->A, Z->X), not just isolated substitutions; replaced the lookup table with modular shift.",
+ "fit": 0.5,
+ "heldout": 0.0,
+ "matches": [
+  0.5,
+  1.0
+ ],
+ "made_at": 2
+}

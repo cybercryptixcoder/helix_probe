@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "E5 shows the switch dramatically changes y (from ~c to ~11\u2212c), so I added a switch-on branch for y; the size formula still fits E5 well (1.45 vs 1.4), so I left it unchanged.", "exam": 0.5, "fit": 0.9333333333333333, "fit_exact": 0.8, "size": 380, "matches": [1.0, 1.0, 1.0, 1.0, 0.6666666666666666], "made_at": 5, "heldout": 0.02}

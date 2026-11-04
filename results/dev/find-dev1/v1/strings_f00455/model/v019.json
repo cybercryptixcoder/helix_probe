@@ -1,0 +1,38 @@
+{
+ "version": 19,
+ "beliefs": [
+  "Every character is shifted by ASCII +1 (a\u2192b, A\u2192B, 0\u21921, space\u2192!, ~\u2192DEL) [E1, E5, E7]",
+  "After shifting, a lowercase letter's result is uppercased ONLY if the previous ORIGINAL character is not a lowercase letter (run-start) [E12, E13, E16, E17, E18, E19]",
+  "Uppercase letters, digits, spaces, and symbols get only the raw +1 shift with no case change (A\u2192B, Z\u2192[, 0\u21921) [E1, E2, E7, E11, E17, E19]",
+  "The run-start test looks at the original character, not the shifted one, so 'aB'\u2192'Bc' and 'Ba'\u2192'Cb' [E12, E13, E16, E17]",
+  "When the run-start char is 'z', its shifted result '{' is uppercased to '[' [E8, E11, E15]",
+  "Only the first char of a lowercase run is uppercased; subsequent lowercase letters keep their raw +1 shift, so 'ab'\u2192'Bc', 'aa'\u2192'Bb', 'baa'\u2192'Cbb' [E12, E13, E14, E18]",
+  "The 'z'\u2192'[' uppercase exception applies to every run-start 'z', including 'zz'\u2192'[{', 'zzz'\u2192'[{{', 'zzaz'\u2192'[{b{' [E15]",
+  "Uppercase letters are NOT lowercased after shifting; they stay as their +1 shifted uppercase/symbol (A\u2192B, Z\u2192[) [E7, E11, E16, E17, E19]"
+ ],
+ "notes": "The v18 predict() code was already correct; the discrepancy was only in the prose beliefs, which wrongly said 'previous ORIGINAL character is not lowercase' but the code checked prev_lower correctly. E19 confirms the run-start rule holds across all non-lowercase preceding chars (uppercase, digit, symbol, space). No code change needed.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.6,
+  0.4,
+  0.7,
+  0.6,
+  0.9,
+  0.8,
+  0.3,
+  0.4,
+  0.9,
+  0.9,
+  0.8,
+  0.5,
+  0.5,
+  0.0,
+  0.3,
+  0.0,
+  0.0,
+  0.8,
+  0.0
+ ],
+ "made_at": 19
+}

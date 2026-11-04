@@ -1,0 +1,30 @@
+Helix Probe v2 on 'find_numeric_f00020': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 random probe (baseline)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 84 (exam 0.000 -> 1.000); held-out 81%
+[2] E2 random probe (baseline)  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 1.00, size 281 (fit 0.950 -> 1.000); held-out 95%
+[3] E3 random probe (baseline)  (v2 predicted it: match 1.00)
+[4] E4 random probe (baseline)  (v2 predicted it: match 1.00)
+[5] E5 random probe (baseline)  (v2 predicted it: match 1.00)
+[6] E6 random probe (baseline)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (498 vs 281 chars)
+[7] E7 random probe (baseline)  (v2 predicted it: match 1.00)
+[8] E8 random probe (baseline)  (v2 predicted it: match 1.00)
+[9] E9 random probe (baseline)  (v2 predicted it: match 1.00)
+[10] E10 random probe (baseline)  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 1.00, size 279 (fit 0.990 -> 1.000); held-out 100%
+[11] E11 random probe (baseline)  (v3 predicted it: match 1.00)
+[12] E12 random probe (baseline)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (425 vs 279 chars)
+[13] E13 random probe (baseline)  (v3 predicted it: match 1.00)
+[14] E14 random probe (baseline)  (v3 predicted it: match 1.00)
+[15] E15 random probe (baseline)  (v3 predicted it: match 1.00)
+[16] E16 random probe (baseline)  (v3 predicted it: match 1.00)
+[17] E17 random probe (baseline)  (v3 predicted it: match 1.00)
+[18] E18 random probe (baseline)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (1497 vs 279 chars)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00020", "experiments": 18, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 279, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

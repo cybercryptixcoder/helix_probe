@@ -1,0 +1,16 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f adds 1 to the ASCII code of every character, not just letters (a\u2192b, z\u2192{, A\u2192B, Z\u2192[, space\u2192!, digit\u2192next digit) [E1, E2]",
+  "Because it's a raw +1 on all characters, 'z' becomes '{' and 'Z' becomes '[' rather than wrapping to 'a'/'A' [E2]",
+  "Case is preserved trivially since each char shifts independently [E1, E2]"
+ ],
+ "notes": "The outputs show every character (letters, digits, spaces, punctuation) incremented by one in ASCII: 'z'\u2192'{', 'Z'\u2192'[', ' '\u2192'!', '9'\u2192':', '!'\u2192'\"'. So it's a blanket +1 on ord(ch), not an alphabet shift with wraparound.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.4,
+  0.2
+ ],
+ "made_at": 2
+}

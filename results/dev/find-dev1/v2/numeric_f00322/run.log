@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00322': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like across the full input range, including sign, magnitud...(+30 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 64 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does f return 53.0 at non-grid, fractional, and extreme values not yet test...(+75 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is f truly constant at 53 everywhere, or does it deviate at a tiny, non-rep...(+158 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does f remain exactly 53.0 at a dense set of random irrational/awkward deci...(+86 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does f deviate from 53.0 at inputs outside the tested decimal/float range b...(+228 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does f ever deviate from 53.0 at inputs outside the tested decimal/float ra...(+233 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (84 vs 64 chars)
+[7] E7 Does f stay at 53.0 across a very fine sweep of consecutive integer and hal...(+129 chars)  (v1 predicted it: match 1.00)
+[8] E8 Is f constant at 53.0 at every representable double in [-128,128], includin...(+151 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does f remain 53.0 at points extremely close to the boundaries -128 and 128...(+130 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00322", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 64, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

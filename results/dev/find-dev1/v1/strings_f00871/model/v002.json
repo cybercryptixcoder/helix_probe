@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "The box reverses the input string [E1, E2]",
+  "After reversing, the box appends 'I' unless the reversed string already ends in 'I', in which case nothing is appended [E2]",
+  "Reversal preserves case, digits, punctuation, and spaces exactly [E1, E2]",
+  "Empty input yields just 'I' [E1]"
+ ],
+ "notes": "E2 shows f('I')='I' not 'II', so the trailing 'I' is only appended when the reversed string doesn't already end in 'I'. All other cases still match reverse+append.",
+ "fit": 0.5,
+ "heldout": 0.0,
+ "matches": [
+  0.8,
+  1.0
+ ],
+ "made_at": 2
+}

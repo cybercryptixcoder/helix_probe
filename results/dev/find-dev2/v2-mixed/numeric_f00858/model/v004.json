@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "I tightened the threshold from 1.8 to 1.875: E6 shows the transition happens between 1.85 (still 1) and 1.9 (0), on both sides symmetrically, so the boundary is ~1.875 rather than 1.8.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 125, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

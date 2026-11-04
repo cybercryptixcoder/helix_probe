@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to a constant 53.0, since E1 shows f returns 53.0 across all 20 sampled values spanning [-128, 128] with both signs and magnitudes.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 64, "matches": [1.0], "made_at": 1, "heldout": 1.0}

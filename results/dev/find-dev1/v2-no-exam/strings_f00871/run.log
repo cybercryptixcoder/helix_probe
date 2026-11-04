@@ -1,0 +1,24 @@
+Helix Probe v2 on 'find_strings_f00871': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 With no prior data at all, what does f do to the most basic input classes: ...(+95 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 0.90, size 84 (fit 0.000 -> 0.900); held-out 0%
+[2] E2 Does the transform insert the 'I' at the end only after reversing, or is 'I...(+165 chars)  (v1 predicted it: match 0.40)
+      model v2 by the updater: exam 0.00, fit 1.00, size 177 (fit 0.650 -> 1.000); held-out 100%
+[3] E3 How are multiple consecutive spaces, leading/trailing whitespace, and mixed...(+96 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the transform reverse each whitespace-separated token in place (as mod...(+183 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the transform treat non-ASCII/Unicode characters, combining marks, and...(+221 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the transform treat the 'I' suffix as part of the token-reversal (i.e....(+122 chars)  (v2 predicted it: match 0.40)
+      model v3 by the updater: exam 0.00, fit 1.00, size 238 (fit 0.900 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (456 vs 238 chars)
+[7] E7 Does the 'ends with I' suppression check happen on the reversed token strin...(+275 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the 'append I unless the result already ends with I' rule actually loo...(+248 chars)  (v3 predicted it: match 1.00)
+[9] E9 Does the model handle inputs where the final token is exactly 'I' but the j...(+298 chars)  (v3 predicted it: match 1.00)
+[10] E10 Is the 'ends with I' suppression check applied to the final character of th...(+188 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the appended 'I' marker interact with token reversal when the input co...(+173 chars)  (v3 predicted it: match 1.00)
+[12] E12 Does the 'ends with I' suppression check look at the last character of the ...(+131 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.567, the current model's is 1.000
+[13] E13 Does the 'append I unless the output ends with I' rule apply to the whole f...(+289 chars)  (v3 predicted it: match 1.00)
+[14] E14 Does the 'ends with I' suppression check apply to the whole joined string, ...(+322 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00871", "experiments": 14, "exam_probes": 0, "model_version": 3, "model_role": "updater", "exam": 0.0, "fit": 1.0, "size": 238, "heldout": 1.0, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

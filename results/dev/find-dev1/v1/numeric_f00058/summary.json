@@ -1,0 +1,26 @@
+{
+ "env": "find_numeric_f00058",
+ "experiments": 20,
+ "model_version": 7,
+ "fit": 0.9,
+ "heldout": 1.0,
+ "llm_calls": 35,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f(x) = -84.3663 on the plateau [-51.2, 50.75] inclusive [E2, E5, E6, E10, E15]",
+  "On the negative side the plateau ends sharply near x=-51.2; f(-51.25)=-82.45 and f(-51.1)=-84.37 [E10]",
+  "Just below the negative plateau edge f rises steeply with slope ~4400 starting at x\u2248-51.2 [E6, E10]",
+  "From x\u2248-52 to -100 the negative side is linear with slope ~4403 per unit [E1, E6, E9]",
+  "Beyond x=-100 the negative side continues with the same slope ~4403 through -128 [E9]",
+  "On the positive side the plateau ends sharply between 50.74 and 50.76: f(50.74)=-84.37, f(50.76)=-83.06 [E15]",
+  "From x=50.75 to 51.0 the positive side rises linearly with slope ~4158 per unit (f(51.0)=12.41) [E13, E14, E15]",
+  "From x=51 to 56 the positive side rises with the same slope ~4158 per unit [E3, E4, E13, E14]",
+  "At x=57 the positive-side slope jumps to ~1139.8, then ~1202.9 through 60, then ~1302.7 through 62, and keeps increasing beyond [E4]",
+  "From x=72 to 128 the positive side is exactly linear with slope ~4158 per unit (f(100)=149963, f(128)=258084) [E11, E12]",
+  "The positive side between 56 and 72 is piecewise-linear over observed knots; exact form uncertain [E4]?"
+ ]
+}

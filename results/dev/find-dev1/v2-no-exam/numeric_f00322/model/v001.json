@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with a constant function returning 53.0 for every input, since E1 shows f(x)=53 across the entire tested domain from -128 to 128, with no variation by sign, magnitude, or region.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 64, "matches": [1.0], "made_at": 1, "heldout": 1.0}

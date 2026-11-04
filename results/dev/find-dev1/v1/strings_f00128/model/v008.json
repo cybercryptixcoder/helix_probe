@@ -1,0 +1,35 @@
+{
+ "version": 8,
+ "beliefs": [
+  "For strings of length 1, the single character is lowercased and '10' is prepended [E2, E4, E8]",
+  "For strings of length >=2, the first character is titlecased (str.title(), which may expand to multiple chars like '\u00df'->'Ss', '\ufb01'->'Fi', '\u01c6'->'\u01c5') [E1, E2, E4, E9, E11]",
+  "All characters after the first are lowercased [E1, E2, E3]",
+  "The '10' is inserted at index floor(len/2) computed on the ORIGINAL string length, before any case transformation [E2, E4, E5, E6, E7, E9, E12, E13]",
+  "The rest-of-string lowercasing happens BEFORE insertion, so the index refers to the lowercased-rest string but the length used is the original length [E13]",
+  "Order of operations: lowercase rest, insert '10' at floor(original_len/2), then titlecase the first character (which may grow the string) [E9, E13]",
+  "For '\u00dfabc' -> 'Ssa10bc': '10' goes at index 2 (floor(4/2)), then '\u00df'->'Ss' expands [E9]",
+  "For 'A\u0130xy' -> 'Ai\u030710xy': rest '\u0130xy' lowercases to 'i\u0307xy' (length 4), '10' inserted at floor(4/2)=2 of original length 4, giving 'Ai\u030710xy' [E13]",
+  "For 'A\u0130BC' -> 'Ai\u030710bc': rest '\u0130BC' lowercases to 'i\u0307bc' (length 4), '10' at index floor(4/2)=2, giving 'Ai\u030710bc' [E13]",
+  "For '\u01c6abc' -> '\u01c5a10bc': titlecase of '\u01c6' is '\u01c5' (not upper '\u01c4') [E9, E11]",
+  "For '\ufb01abc' -> 'Fia10bc' and '\ufb00ab' -> 'Ff10ab': titlecase expands ligatures [E9, E11]"
+ ],
+ "notes": "E13 shows the insertion index uses the ORIGINAL string length (not the post-lowercase length), and the rest is lowercased before insertion. Fixed predict() to compute idx from len(s) and lowercase the rest before inserting.",
+ "fit": 0.9230769230769231,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.6
+ ],
+ "made_at": 13
+}

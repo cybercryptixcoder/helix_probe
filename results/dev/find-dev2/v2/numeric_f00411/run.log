@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00411': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What is the basic shape of f over the ordinary input range, and does it hav...(+45 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 434 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 How does f behave in the transition region between the left line and right ...(+152 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the transition between the two linear regimes a smooth/rounded interval ...(+144 chars)  (v1 predicted it: match 1.00)
+[4] E4 Check whether the two linear regimes hold exactly far from zero and whether...(+117 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the spike at x=0 have any width or asymmetry, and are there other isol...(+215 chars)  (v1 predicted it: match 1.00)
+[6] E6 Are there additional isolated exception points (spikes) on the linear branc...(+116 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v2 by the theorist: exam 1.00, fit 1.00, size 401 (same scores, smaller (434 -> 401 chars)); held-out 100%
+[7] E7 Are the two linear branches exactly y=14.2+2.6x (x<0) and y=9.4+2.6x (x>0) ...(+192 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does f have any other special behavior besides the isolated spike at x=0 — ...(+223 chars)  (v2 predicted it: match 1.00)
+[9] E9 Is f exactly piecewise linear with the stated slopes/intercepts across the ...(+141 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00411", "experiments": 9, "exam_probes": 4, "model_version": 2, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 401, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

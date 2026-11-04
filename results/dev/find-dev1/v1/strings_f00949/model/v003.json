@@ -1,0 +1,19 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f inserts a 2-char token into the input at position len//2 [E1, E2, E3]",
+  "The token is 'I8' when len//2 is even, '8I' when len//2 is odd [E2, E3]",
+  "Empty string gives '8I' (len//2=0 even would give I8, so empty is special) [E1]",
+  "Position is len//2 for all lengths 1-11 observed [E1, E2, E3]",
+  "Orientation depends only on len//2 parity, not on character content (letters/spaces/digits all agree) [E3]"
+ ],
+ "notes": "Fixed orientation rule: token is I8 when len//2 is even, 8I when odd (previous version had it backwards for odd positions). Empty string remains a special case returning '8I'.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.8,
+  0.6,
+  0.4
+ ],
+ "made_at": 3
+}

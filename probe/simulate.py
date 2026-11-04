@@ -14,7 +14,8 @@ import tempfile
 RUNNER = r'''
 import json, sys, traceback
 src = open(sys.argv[1]).read()
-probes = json.load(sys.stdin)
+probes, path = json.load(sys.stdin)
+sys.path[:0] = [p for p in path if p not in sys.path]   # -I hides user site-packages
 ns = {"__name__": "model"}
 out = {"error": None, "predictions": []}
 try:
@@ -50,7 +51,7 @@ def predict_many(code: str, probes: list[dict], timeout: float = 30.0) -> tuple[
         with open(runner_path, "w") as f:
             f.write(RUNNER)
         try:
-            r = subprocess.run([sys.executable, "-I", runner_path, model_path], input=json.dumps(probes),
+            r = subprocess.run([sys.executable, "-I", runner_path, model_path], input=json.dumps([probes, [p for p in sys.path if p]]),
                                capture_output=True, text=True, timeout=timeout, cwd=d)
         except subprocess.TimeoutExpired:
             return [None] * len(probes), f"the model took longer than {timeout:.0f} s on {len(probes)} probes"

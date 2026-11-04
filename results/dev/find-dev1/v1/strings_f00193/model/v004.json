@@ -1,0 +1,24 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f(x) = g(x) + 'JTQL' where 'JTQL' is a fixed suffix [E1, E5]",
+  "g shifts only the first character of the input by -2 in the alphabet (lowercase a->y, uppercase A->Y), leaving the rest unchanged [E1, E2, E3, E4]",
+  "The first-character shift wraps around: a->y, b->z, c->a, z->x [E1, E2]",
+  "Digits, symbols, spaces, and all non-first characters are unchanged [E1, E3, E4, E6]",
+  "Empty string maps to 'H' with no suffix appended, i.e. 'H' [E1, E7]",
+  "The suffix 'JTQL' is appended to every non-empty input regardless of content [E1, E5, E7]"
+ ],
+ "notes": "Fixed the empty-string case: it returns just 'H' with no 'JTQL' suffix, as E7 confirms. Everything else in v3 already matched.",
+ "fit": 0.7142857142857143,
+ "heldout": 1.0,
+ "matches": [
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9
+ ],
+ "made_at": 7
+}

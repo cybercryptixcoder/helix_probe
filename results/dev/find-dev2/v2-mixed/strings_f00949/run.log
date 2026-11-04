@@ -1,0 +1,17 @@
+Helix Probe v2 on 'find_strings_f00949': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.50, fit 1.00, size 240 (exam 0.000 -> 0.500); held-out 1%
+[2] E2 Does the inserted token depend on the character at the split point for non-...(+86 chars)  (v1 predicted it: match 0.50)
+      model v2 by the updater: exam 1.00, fit 1.00, size 226 (exam 0.500 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Does the inserted token depend on the parity of the length (I8 for odd, 8I ...(+158 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the inserted token's orientation (I8 vs 8I) depend on the parity of le...(+213 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (378 vs 226 chars)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 For ordinary strings of even and odd length, does the token orientation alw...(+144 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Does the model still hold for ordinary strings containing spaces, punctuati...(+120 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00949", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 226, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

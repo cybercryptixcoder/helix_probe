@@ -1,0 +1,31 @@
+Helix Probe v2 on 'find_strings_f00128': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary lowercase words, mixed-case words, digits,...(+89 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.25, fit 0.80, size 630 (exam 0.000 -> 0.250); held-out 0%
+[2] E2 Does the '10' go after the first vowel in pure-letter words, or is it tied ...(+115 chars)  (v1 predicted it: match 0.10)
+      model v2 by the updater: exam 0.96, fit 0.90, size 260 (exam 0.250 -> 0.958); held-out 86%
+[3] E3 Does the model's len//2 insertion rule hold for longer ordinary phrases, mu...(+167 chars)  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 1.00, size 253 (exam 0.958 -> 1.000); held-out 100%
+[4] E4 Does the insertion rule use the length of the original string or of the low...(+118 chars)  (v3 predicted it: match 1.00)
+[5] E5 Does the insertion position depend on the length of the ORIGINAL string (be...(+240 chars)  (v3 predicted it: match 1.00)
+[6] E6 Does the model hold for single-word inputs of varying length where the midp...(+165 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.958, the current model's is 1.000
+[7] E7 Do non-ASCII/Unicode characters and accented letters get lowercased and cou...(+91 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the rule hold for ordinary inputs containing tabs, multiple consecutiv...(+153 chars)  (v3 predicted it: match 1.00)
+[9] E9 Does the box apply Python-style lowercasing (which can change string length...(+155 chars)  (v3 predicted it: match 0.30)
+[10] E10 Does the box capitalize the first character after lowercasing using Python'...(+307 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the box lowercase-then-insert-then-capitalize using Python semantics f...(+356 chars)  (v3 predicted it: match 0.30)
+      model v4 by the updater: exam 1.00, fit 1.00, size 181 (fit 0.873 -> 1.000); held-out 100%
+[12] E12 For ordinary inputs, does the insertion position use len//2 of the original...(+245 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.958, the current model's is 1.000
+[13] E13 Does the capitalize step apply after insertion to the first character of th...(+260 chars)  (v4 predicted it: match 1.00)
+[14] E14 Does the capitalize step only affect the very first character of the final ...(+213 chars)  (v4 predicted it: match 1.00)
+[15] E15 For ordinary inputs whose midpoint insertion lands inside a word or between...(+244 chars)  (v4 predicted it: match 1.00)
+[16] E16 Does the box apply str.capitalize() semantics (first character titlecased, ...(+233 chars)  (v4 predicted it: match 1.00)
+[17] E17 Does the box insert '10' at len//2 measured on the original string even whe...(+172 chars)  (v4 predicted it: match 1.00)
+[18] E18 Does the box's rule (insert '10' at len//2 of the original string, then str...(+169 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+[19] E19 Does the box's capitalize step use Python's full Unicode titlecase mapping ...(+190 chars)  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00128", "experiments": 19, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 181, "heldout": 1.0, "llm_calls": 30, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

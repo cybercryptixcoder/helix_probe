@@ -1,0 +1,55 @@
+Helix Probe v2 on 'knob_box': 0 experiments so far, model v0, exam of 6, held-out set of 100
+[1] E1 What does the dot look like at a baseline setting with all dials at their m...(+31 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 1.00, size 112 (fit 0.000 -> 1.000); held-out 0%
+[2] E2 Does the c dial affect x, y, or size when a and b stay at their middle valu...(+25 chars)  (v1 predicted it: match 0.33)
+      model v2 by the updater: exam 0.00, fit 1.00, size 166 (fit 0.667 -> 1.000); held-out 0%
+[3] E3 Does the switch affect any of x, y, or size at the baseline setting where a...(+35 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the a dial affect y or size (not just x) when b and c are at their mid...(+33 chars)  (v2 predicted it: match 0.33)
+      updater's model not kept: its fit is 0.750, the current model's is 0.833
+      updater's model not kept: its fit is 0.750, the current model's is 0.833
+[5] E5 Does the a dial affect size (and is x simply a-5 rather than a), when b and...(+52 chars)  (v2 predicted it: match 0.33)
+      model v3 by the updater: exam 0.06, fit 0.93, size 251 (exam 0.000 -> 0.056); held-out 0%
+[6] E6 Does the b dial add to y linearly (and leave size unchanged) when a and c a...(+48 chars)  (v3 predicted it: match 0.33)
+      model v4 by the updater: exam 0.44, fit 1.00, size 319 (exam 0.056 -> 0.444); held-out 1%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.167, the current model's is 0.444
+[7] E7 Does the b dial affect y or size at all, and is its effect on x linear, whe...(+37 chars)  (v4 predicted it: match 1.00)
+[8] E8 Does the a dial's effect on x continue as a straight line beyond a=10, and ...(+65 chars)  (v4 predicted it: match 0.33)
+      updater's model not kept: its exam is 0.333, the current model's is 0.444
+      model v5 by the updater: exam 0.44, fit 1.00, size 313 (fit 0.917 -> 1.000); held-out 2%
+[9] E9 Does the b dial's shift of x happen before or after the saturation at x=10,...(+97 chars)  (v5 predicted it: match 1.00)
+[10] E10 Is the b dial's shift of x applied after saturation (so it can pull x below...(+70 chars)  (v5 predicted it: match 0.67)
+      model v6 by the updater: exam 0.50, fit 1.00, size 313 (exam 0.444 -> 0.500); held-out 6%
+[11] E11 Does the b dial shift x before saturation when a is low (so b can raise x a...(+50 chars)  (v6 predicted it: match 1.00)
+[12] E12 Does the b dial shift x before saturation when a is at an ordinary high val...(+80 chars)  (v6 predicted it: match 0.67)
+      model v7 by the updater: exam 0.56, fit 1.00, size 307 (exam 0.500 -> 0.556); held-out 11%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.222, the current model's is 0.556
+[13] E13 Does the b dial affect y or size at all when a is low (a=0), a region not y...(+35 chars)  (v7 predicted it: match 1.00)
+[14] E14 Does the c dial scale y linearly across its full range when a is high (so y...(+118 chars)  (v7 predicted it: match 0.67)
+      model v8 by the updater: exam 0.56, fit 1.00, size 319 (fit 0.976 -> 1.000); held-out 15%
+[15] E15 Does the c dial affect x at all, and does the a dial's effect on x saturate...(+112 chars)  (v8 predicted it: match 0.67)
+      model v9 by the updater: exam 0.67, fit 1.00, size 322 (exam 0.556 -> 0.667); held-out 21%
+[16] E16 Does the a dial's effect on x saturate at 10 for a high value of a with b a...(+61 chars)  (v9 predicted it: match 1.00)
+[17] E17 Does the b dial affect y or size when a is high (a=10) and c is off-center,...(+79 chars)  (v9 predicted it: match 1.00)
+[18] E18 Does the b dial affect size when a is off-center (a=0) and c is at its midd...(+53 chars)  (v9 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (330 vs 322 chars)
+[19] E19 Does the b dial shift x before saturation when a is high (a=9), i.e. is x =...(+83 chars)  (v9 predicted it: match 1.00)
+[20] E20 Does the b dial affect y or size when a is at an intermediate off-center va...(+111 chars)  (v9 predicted it: match 1.00)
+[21] E21 Does the size depend on b at all, tested at an off-center a and off-center ...(+84 chars)  (v9 predicted it: match 0.67)
+      model v10 by the updater: exam 0.83, fit 1.00, size 297 (exam 0.667 -> 0.833); held-out 45%
+[22] E22 Does the size depend on a and c through |a-c|, or is it really a function o...(+118 chars)  (v10 predicted it: match 1.00)
+[23] E23 Does the size formula |a-c| hold when both a and c are on the same side of ...(+89 chars)  (v10 predicted it: match 1.00)
+[24] E24 Does the size depend on b at all when a and c are both off-center but on th...(+109 chars)  (v10 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v11 by the theorist: exam 0.83, fit 1.00, size 285 (same scores, smaller (297 -> 285 chars)); held-out 45%
+[25] E25 Does the b dial affect size when a is at its middle value (a=5) and c is of...(+96 chars)  (v11 predicted it: match 1.00)
+[goal 1 try 1] E26 REACHED (model match 1.00)
+[goal 2 try 1] E27 REACHED (model match 1.00)
+[goal 3 try 1] E28 REACHED (model match 1.00)
+[goal 4 try 1] E29 missed (model match 1.00)
+[goal 4 try 2] E30 REACHED (model match 1.00)
+[goal 5 try 1] E31 REACHED (model match 1.00)
+{"env": "knob_box", "experiments": 31, "exam_probes": 6, "model_version": 11, "model_role": "theorist", "exam": 0.8333333333333334, "fit": 1.0, "size": 285, "heldout": 0.45, "llm_calls": 48, "goals": {"tried": 5, "reached": 5, "tries_used": [1, 1, 1, 2, 1]}}
+run folder: runs/v2-knob-s1

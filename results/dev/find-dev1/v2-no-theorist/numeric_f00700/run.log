@@ -1,0 +1,13 @@
+Helix Probe v2 on 'find_numeric_f00700': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What is the basic shape and scale of f across the full allowed input range,...(+59 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 226 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 How does f behave on small positive and negative non-integer values near ze...(+79 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the model's ceil-based step rule hold at fine fractional resolution ac...(+114 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the ceil-based step rule extend to non-integer values far from the tes...(+173 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the step rule hold for tiny magnitudes (sub-unit) on both sides of zer...(+192 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the sign split happen exactly at x=0, or is there a small interval aro...(+133 chars)  (v1 predicted it: match 1.00)
+[7] E7 Is f's step rule based on ceil(x) with a sign-dependent offset, or could th...(+213 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does f stay finite and follow the ceil-based rule at extreme magnitudes nea...(+125 chars)  (v1 predicted it: match 1.00)
+[9] E9 Is the rule exactly ceil(x)±1 everywhere, or could it actually be a roundin...(+192 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00700", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 226, "heldout": 1.0, "llm_calls": 10, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

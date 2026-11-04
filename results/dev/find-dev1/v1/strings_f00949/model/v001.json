@@ -1,0 +1,24 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f inserts the fixed string 'I8' into the input at a position that depends on the input [E1]",
+  "For 'hello' and 'Hello' the insertion is after 2 chars: 'heI8llo' [E1]",
+  "For 'two words' insertion is after 4 chars (after 'two '): 'two I8words' [E1]",
+  "For '12345' insertion is after 2 chars: '12I8345' [E1]",
+  "For 'A1!' insertion is after 1 char: 'AI81!' [E1]",
+  "For 'a b c' insertion is after 2 chars: 'a I8b c' [E1]",
+  "For empty string the result is '8I' \u2014 insertion at position 0 gives 'I8' not '8I', so empty is special [E1]",
+  "For 'HELLO WORLD' insertion is after 5 chars: 'HELLOI8 WORLD' [E1]",
+  "For 'abc123' insertion is after 3 chars: 'abc8I123' \u2014 note '8I' not 'I8' here [E1]",
+  "For '  ' (two spaces) result is ' 8I ' \u2014 insertion after 1 char with '8I' [E1]",
+  "The inserted token is sometimes 'I8' and sometimes '8I', so the insertion position and token orientation both vary [E1]",
+  "Insertion position seems related to length or content in a way not yet pinned down? [E1]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.8
+ ],
+ "made_at": 1
+}

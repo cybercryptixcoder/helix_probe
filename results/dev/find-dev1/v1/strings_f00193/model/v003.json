@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f(x) = g(x) + 'JTQL' where 'JTQL' is a fixed suffix [E1]",
+  "g shifts only the first character of the input by -2 in the alphabet (lowercase a->y, uppercase A->Y), leaving the rest unchanged [E1, E2, E3]",
+  "The first-character shift wraps around: a->y, b->z, c->a, z->x [E1, E2]",
+  "Digits, symbols, spaces, and all non-first characters are unchanged [E1, E3]",
+  "Empty string maps to 'H' + 'JTQL' = 'HTQL' [E1]",
+  "The first-character shift applies only if the first char is a letter; otherwise the string is unchanged before the suffix? [E1]"
+ ],
+ "notes": "",
+ "fit": 0.6666666666666666,
+ "heldout": 1.0,
+ "matches": [
+  0.9,
+  1.0,
+  1.0
+ ],
+ "made_at": 3
+}

@@ -1,0 +1,21 @@
+{
+ "env": "find_strings_f00983",
+ "experiments": 20,
+ "model_version": 6,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 29,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "The box shifts each character forward by 8 codepoints, applied independently per character [E1, E2, E3, E6, E8]",
+  "The shift applies uniformly across ASCII, Latin-1, and multi-byte ranges including surrogates and near U+10FFFF [E6, E8]",
+  "A character 't' (0x74) is always deleted (maps to empty string), regardless of context [E13, E14, E15]",
+  "A space (0x20) shifts to '(' (0x28) like any other character; the '(' seen in earlier probes came from spaces, not from '|' or 't' [E12, E14, E15]",
+  "A character '|' (0x7C) always shifts to 0x84 like any other character; there is no special '(' rule for '|' [E5, E7, E12, E15]",
+  "All other characters including '~' (0x7E -> 0x86) follow the uniform +8 rule [E7, E9, E10, E11]"
+ ]
+}

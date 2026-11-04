@@ -1,0 +1,10 @@
+{
+ "fid": "f00751",
+ "type": "compose",
+ "params": [
+  [],
+  "i"
+ ],
+ "name": "string_strip;insert_letter;compose_1input_1input((), i)",
+ "dir": "f00751"
+}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "The box computes `1.1 + 141.0873\u00b7log2(x)` for positive x and is undefined for x \u2264 0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 221, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

@@ -1,0 +1,10 @@
+{
+ "fid": "f00193",
+ "type": "compose",
+ "params": [
+  [],
+  "JTQL"
+ ],
+ "name": "shift_first_letter_backward_two;string_concatenate;compose_1input_1input((), JTQL)",
+ "dir": "f00193"
+}

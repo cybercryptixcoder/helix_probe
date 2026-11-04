@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00949': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Does the box transform or classify strings at all, and how does it react to...(+101 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 217 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the insertion point depend on character count including or excluding s...(+98 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the insertion marker depend on the parity of the string's character co...(+118 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the marker's position depend on character count when the string contai...(+137 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the insertion point use Python-style code-point indexing (slicing) or ...(+178 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the box insert the marker at a fixed position based on the original le...(+170 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (534 vs 217 chars)
+[7] E7 Does the marker insertion use the string's length in code points, or in gra...(+107 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the box insert the marker into the raw string, or does it first do som...(+215 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the box treat the marker insertion as a single operation on the raw st...(+189 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00949", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 217, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

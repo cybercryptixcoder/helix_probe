@@ -1,0 +1,22 @@
+{
+ "version": 3,
+ "beliefs": [
+  "From (4,4): A moves +y (up 1), B moves +x by 2, C moves +x by 1, D moves -y by 2, E moves -x by 2 [E1]",
+  "Button A moves up 1 from (4,4), (4,7), and (5,4), but is blocked at (4,8) and from (5,5) [E1, E2, E3, E4, E5]",
+  "Some cells are walls; the character cannot enter or stand on them [library, E4]",
+  "At least one button behaves differently depending on position, consistent with wall blocking [library, E4]",
+  "(5,5) is standable (A from (5,4) lands there), so A from (5,5) is blocked because (5,6) is a wall [E5]",
+  "The exact wall layout is unknown; (5,6) is a wall or blocks A, and (4,8) blocks A [E2, E5]?"
+ ],
+ "notes": "E5 shows (5,5) is standable (A from (5,4) reaches it), so the block at (5,5) must be (5,6) being a wall; moved the wall from (5,5) to (5,6) in predict().",
+ "fit": 0.8,
+ "heldout": 0.08,
+ "matches": [
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 5
+}

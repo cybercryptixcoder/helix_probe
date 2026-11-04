@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I added a threshold ramp for x > ~105 (to capture 115\u219284.3, 125\u219287.9), a local bump near x=-5, and a dip near 0, replacing the flat constant while keeping the ~81 baseline.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 319, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is roughly constant near 81 across most of [-128,127], with a sharp rise only near the upper end (x=127 gives 88.6) [E1]",
+  "The small wiggles (~80.88-81.10) look like noise around a flat baseline of ~81 [E1]",
+  "There may be a distinct region near x\u2248127 where f rises above baseline; the breakpoint location is uncertain [E1]"
+ ],
+ "notes": "Set baseline ~81 with small noise; add a rising region near the top end since only x=127 deviates strongly. Need finer probes near 100-128 and check whether there's a matching feature at the low end.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

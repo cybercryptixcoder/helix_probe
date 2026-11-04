@@ -1,0 +1,1 @@
+{"version": 5, "role": "updater", "notes": "This is much simpler than v4 (which had the complex run-detection logic). Let me verify it against all", "exam": 0.75, "fit": 1.0, "fit_exact": 1.0, "size": 554, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 12, "heldout": 0.14}

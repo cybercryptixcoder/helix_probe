@@ -1,0 +1,63 @@
+Helix Probe v2 on 'scrambled_grid': 0 experiments so far, model v0, exam of 6, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.67, fit 0.64, size 442 (exam 0.000 -> 0.667); held-out 2%
+[2] E2 Does pressing B move the character at all, and if so how, when starting fro...(+24 chars)  (v1 predicted it: match 0.75)
+      updater's model not kept: its exam is 0.625, the current model's is 0.667
+      updater's model not kept: its exam is 0.625, the current model's is 0.667
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.50)
+      model v2 by the updater: exam 0.72, fit 0.86, size 456 (exam 0.667 -> 0.720); held-out 14%
+[4] E4 Does a single press of C on an ordinary interior cell move left by 1, testi...(+94 chars)  (v2 predicted it: match 0.75)
+      updater's model not kept: its exam is 0.715, the current model's is 0.720
+      model v3 by the updater: exam 0.72, fit 0.89, size 593 (fit 0.830 -> 0.893); held-out 14%
+[5] E5 a random ordinary probe  (v3 predicted it: match 0.60)
+      model v4 by the updater: exam 0.83, fit 0.95, size 919 (exam 0.720 -> 0.830); held-out 63%
+[6] E6 Does C move left by 1 on an ordinary interior cell away from the top edge, ...(+86 chars)  (v4 predicted it: match 0.75)
+      model v5 by the updater: exam 0.83, fit 0.92, size 1004 (fit 0.917 -> 0.923); held-out 62%
+      theorist (every 6 steps)
+      model v6 by the theorist: exam 0.87, fit 1.00, size 807 (exam 0.830 -> 0.872); held-out 67%
+[7] E7 a random ordinary probe  (v6 predicted it: match 1.00)
+[8] E8 Does B move right by exactly 2 when unobstructed, or does it stop after 1 w...(+317 chars)  (v6 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v6 predicted it: match 1.00)
+[10] E10 Does B always move right by exactly 2 (as seen at (2,2)->(4,2), (4,4)->(6,4...(+241 chars)  (v6 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v6 predicted it: match 1.00)
+[12] E12 Is B a clean +2 right shift on a cell whose two right neighbours are clear,...(+80 chars)  (v6 predicted it: match 0.75)
+      model v7 by the updater: exam 0.87, fit 1.00, size 815 (fit 0.979 -> 1.000); held-out 71%
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v7 predicted it: match 1.00)
+[14] E14 Does B move right by exactly 1 when the cell two to the right is a wall, or...(+117 chars)  (v7 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v7 predicted it: match 1.00)
+[16] E16 Does B move right by exactly 2 when both cells to the right are free, or do...(+131 chars)  (v7 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v7 predicted it: match 1.00)
+[18] E18 Does A move up by exactly 1 when unobstructed, or can it move more than one...(+81 chars)  (v7 predicted it: match 1.00)
+      theorist (every 6 steps)
+[19] E19 a random ordinary probe  (v7 predicted it: match 0.88)
+      updater's model not kept: its exam is 0.830, the current model's is 0.872
+      model v8 by the updater: exam 1.00, fit 1.00, size 961 (exam 0.872 -> 1.000); held-out 79%
+[20] E20 Does D move down 2 whenever y>=5 and both cells below are free, or was E19'...(+155 chars)  (v8 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v8 predicted it: match 1.00)
+[22] E22 Does D move down 2 whenever both cells below are free and y>=5, or did E19/...(+289 chars)  (v8 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v8 predicted it: match 1.00)
+[24] E24 Does D move down 2 (rather than 1) at y=5 when both cells below are free, c...(+49 chars)  (v8 predicted it: match 1.00)
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v8 predicted it: match 1.00)
+[26] E26 Does the double-step D at high y depend on y>=5 specifically, or on the pre...(+91 chars)  (v8 predicted it: match 1.00)
+[27] E27 a random ordinary probe  (v8 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+[goal 1 try 1] E28 missed (model match 1.00)
+[goal 1 try 2] E29 missed (model match 1.00)
+[goal 1 try 3] E30 REACHED (model match 1.00)
+[goal 2 try 1] E31 missed (model match 0.92)
+      model v9 by the updater: exam 1.00, fit 1.00, size 953 (fit 0.997 -> 1.000); held-out 87%
+[goal 2 try 2] E32 missed (model match 1.00)
+[goal 2 try 3] E33 missed (model match 1.00)
+[goal 3 try 1] E34 missed (model match 1.00)
+[goal 3 try 2] E35 missed (model match 1.00)
+[goal 3 try 3] E36 missed (model match 1.00)
+[goal 4 try 1] E37 missed (model match 0.83)
+      updater's model not kept: its exam is 0.988, the current model's is 1.000
+      updater's model not kept: its exam is 0.988, the current model's is 1.000
+[goal 4 try 2] E38 REACHED (model match 1.00)
+[goal 5 try 1] E39 missed (model match 1.00)
+[goal 5 try 2] E40 REACHED (model match 1.00)
+{"env": "scrambled_grid", "experiments": 40, "exam_probes": 6, "model_version": 9, "model_role": "updater", "exam": 1.0, "fit": 0.9958333333333333, "size": 953, "heldout": 0.87, "llm_calls": 44, "goals": {"tried": 5, "reached": 3, "tries_used": [3, null, null, 2, 2]}}
+run folder: runs/v2m-grid

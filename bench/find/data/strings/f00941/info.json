@@ -1,0 +1,10 @@
+{
+ "fid": "f00941",
+ "type": "compose",
+ "params": [
+  [],
+  "ny"
+ ],
+ "name": "string_lstrip;string_concatenate;compose_1input_1input((), ny)",
+ "dir": "f00941"
+}

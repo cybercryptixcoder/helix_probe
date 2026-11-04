@@ -1,0 +1,28 @@
+Helix Probe on 'find_numeric_f00700': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the full domain, sampling distinct ranges to r...(+49 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.95 (was 0.00), held-out 100%
+[2] E2 Where exactly does the function switch behavior around zero, and what are t...(+48 chars)  model v1 match 0.15
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.55), held-out 100%
+[3] E3 What happens exactly at the boundary x=1: is f(1) on the x+1 branch (=2) or...(+98 chars)  model v2 match 0.56
+      model v3: fit 100% (was 67%), mean match 1.00 (was 0.85), held-out 100%
+[4] E4 Where exactly does the constant-3 region above x=1 end and the x+1 branch begin?  model v3 match 0.56
+      model v4: fit 100% (was 75%), mean match 1.00 (was 0.89), held-out 100%
+[5] E5 Is f(x) for x > 2 really ceil(x)+1, or is it a floor/step function like flo...(+66 chars)  model v4 match 1.00
+[6] E6 Does f(x) equal ceil(x)+1 or floor(x)+1 for large positive x just above an ...(+64 chars)  model v4 match 1.00
+[7] E7 Does the step/ceil structure continue unchanged for negative x below -1, or...(+89 chars)  model v4 match 0.50
+      revision rejected: mean match 0.86 < 0.93
+      model v5: fit 100% (was 86%), mean match 1.00 (was 0.93), held-out 100%
+[8] E8 Does the negative-side step formula ceil(x)-1 hold exactly at and just abov...(+165 chars)  model v5 match 1.00
+[9] E9 What happens in the untested gap just below -1 (e.g. x = -1.0 to -0.9999 bo...(+114 chars)  model v5 match 1.00
+[10] E10 Does the middle piece really stay constant at f=2 on 0<x<=1 and f=3 on 1<x<...(+94 chars)  model v5 match 1.00
+[11] E11 Does the x>2 branch f(x)=ceil(x)+1 hold exactly at the integer boundaries 3...(+123 chars)  model v5 match 1.00
+[12] E12 Does the x>2 branch f(x)=ceil(x)+1 continue unchanged all the way to the up...(+115 chars)  model v5 match 1.00
+[13] E13 Does the middle piece really stay constant at f=2 for 0<x<=1 and f=3 for 1<...(+171 chars)  model v5 match 1.00
+[14] E14 Does the x>2 branch f(x)=ceil(x)+1 hold for x just above 2 at non-integer, ...(+125 chars)  model v5 match 1.00
+[15] E15 Does the negative branch f(x)=ceil(x)-1 continue unchanged down to the lowe...(+86 chars)  model v5 match 1.00
+[16] E16 Is the function symmetric under some transformation (e.g. f(-x) vs -f(x) or...(+115 chars)  model v5 match 1.00
+[17] E17 Are there any hidden substructure or non-constant behavior inside the middl...(+119 chars)  model v5 match 1.00
+[18] E18 Do the integer boundaries x=0, x=1, x=2 (where the middle plateau pieces me...(+117 chars)  model v5 match 1.00
+[19] E19 Is the function truly constant on the whole middle plateau 0<x<=1 and 1<x<=...(+120 chars)  model v5 match 1.00
+[20] E20 Does f behave as a plain step function at the exact lower domain edge x=-12...(+77 chars)  model v5 match 1.00
+{"env": "find_numeric_f00700", "experiments": 20, "model_version": 5, "fit": 1.0, "heldout": 1.0, "llm_calls": 27, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

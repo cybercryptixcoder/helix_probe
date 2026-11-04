@@ -1,0 +1,26 @@
+{
+ "version": 9,
+ "beliefs": [
+  "Each character is shifted by ASCII +1 (a\u2192b, A\u2192B, 0\u21921, space\u2192!, ~\u2192DEL) [E1, E5, E7]",
+  "After the +1 shift, if the original character was a lowercase letter (a\u2013z), the shifted result is uppercased (a\u2192B, b\u2192C, y\u2192Z, z\u2192[) [E2, E6, E7, E8]",
+  "Uppercase letters, digits, spaces, and symbols get only the raw +1 shift with no case change (A\u2192B, Z\u2192[, 0\u21921) [E1, E2, E7]",
+  "The uppercase step applies only to results of original lowercase letters, so a shifted uppercase letter like Z\u2192[ stays as '[' and is not uppercased [E7]",
+  "The uppercase step applies even when the shifted result is not a lowercase letter, so z\u2192[ (not {) and y\u2192Z [E8]",
+  "Only the first character of a lowercase run gets uppercased because subsequent shifted chars are already uppercase; e.g. ab\u2192Bc, not BC [E9]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.4,
+  0.2,
+  0.7,
+  0.6,
+  0.9,
+  0.4,
+  0.1,
+  0.4,
+  0.2
+ ],
+ "made_at": 9
+}

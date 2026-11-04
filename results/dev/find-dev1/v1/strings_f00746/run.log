@@ -1,0 +1,32 @@
+Helix Probe on 'find_strings_f00746': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a basic lowercase word, an uppercase word, a word with a ...(+48 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.20 (was 0.00), held-out 0%
+[2] E2 Which letters does f shift, and by how much? E1 changed h→j, e→l, l→l, o→o ...(+189 chars)  model v1 match 0.00
+      model v2: fit 0% (was 0%), mean match 0.60 (was 0.10), held-out 0%
+[3] E3 Does f shift every letter by +2 (including consonants like b, c, d), and ho...(+114 chars)  model v2 match 0.40
+      model v3: fit 0% (was 0%), mean match 0.53 (was 0.53), held-out 0%
+[4] E4 Does f transform every character (as E1's hello→jello and E3's abc→cbc sugg...(+106 chars)  model v3 match 0.60
+      model v4: fit 0% (was 0%), mean match 0.55 (was 0.55), held-out 0%
+[5] E5 Does f transform only the first character in all cases, or does it also aff...(+131 chars)  model v4 match 0.80
+      model v5: fit 100% (was 0%), mean match 1.00 (was 0.60), held-out 21%
+[6] E6 Does the shift-by-2 rule at position 0 also apply to the last letters of th...(+147 chars)  model v5 match 1.00
+[7] E7 Does the first-character-only shift-by-2 rule hold for empty strings, singl...(+144 chars)  model v5 match 0.90
+      model v6: fit 86% (was 86%), mean match 0.99 (was 0.99), held-out 21%
+[8] E8 Does f really leave a leading space unchanged (E7 got 0.90, with ' '→'' obs...(+132 chars)  model v6 match 0.70
+      model v7: fit 100% (was 75%), mean match 1.00 (was 0.95), held-out 21%
+[9] E9 Does a leading space get stripped before the first-character shift, so that...(+117 chars)  model v7 match 1.00
+[10] E10 Does f strip only a single leading space (not all leading whitespace), and ...(+143 chars)  model v7 match 1.00
+[11] E11 Is it really the first character of the whole string that gets shifted, or ...(+151 chars)  model v7 match 1.00
+[12] E12 Does the first-character shift apply when the string begins with a non-lett...(+136 chars)  model v7 match 1.00
+[13] E13 Does a leading space really get stripped, or is it actually kept and the wh...(+114 chars)  model v7 match 1.00
+[14] E14 Does the leading-space behavior change when the first non-space character i...(+203 chars)  model v7 match 1.00
+[15] E15 Does the first-character shift-by-2 apply to non-ASCII characters (e.g. acc...(+83 chars)  model v7 match 0.20
+      model v8: fit 87% (was 93%), mean match 0.97 (was 0.95), held-out 21%
+[16] E16 When a string begins with a space, is the leading space actually stripped i...(+143 chars)  model v8 match 0.60
+      model v9: fit 100% (was 81%), mean match 1.00 (was 0.95), held-out 21%
+[17] E17 Does the 'all-spaces → empty string' rule apply to any whitespace-only stri...(+99 chars)  model v9 match 0.20
+      model v10: fit 100% (was 94%), mean match 1.00 (was 0.95), held-out 21%
+[18] E18 Is the non-ASCII shift-by-2 applied only to letters (isalpha) or to every n...(+134 chars)  model v10 match 1.00
+[19] E19 Does the non-ASCII shift-by-2 rule apply to non-letter characters that are ...(+176 chars)  model v10 match 1.00
+[20] E20 Does the non-ASCII shift-by-2 apply to letters that are not alphabetic unde...(+242 chars)  model v10 match 1.00
+{"env": "find_strings_f00746", "experiments": 20, "model_version": 10, "fit": 1.0, "heldout": 0.21, "llm_calls": 30, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,41 @@
+{
+ "version": 9,
+ "beliefs": [
+  "For strings of length 1, the single character is lowercased and '10' is prepended [E2, E4, E8]",
+  "For strings of length >=2, the first character is titlecased (str.title(), which may expand to multiple chars like '\u00df'->'Ss', '\ufb01'->'Fi', '\u01c6'->'\u01c5') [E1, E2, E4, E9, E11]",
+  "All characters after the first are lowercased [E1, E2, E3]",
+  "The '10' is inserted at index floor(len/2) computed on the ORIGINAL string length [E2, E4, E5, E6, E7, E9, E12, E13]",
+  "The insertion index refers to positions in the ORIGINAL string, so when the first char expands (titlecase) or the rest expands (lowercase of '\u0130'), the '10' lands after the same number of original characters, not after the same number of output characters [E13, E16]",
+  "Order of operations: lowercase rest, insert '10' at floor(original_len/2) measured in original characters, then titlecase the first character (which may grow the string) [E9, E13, E16]",
+  "For '\u00dfabc' -> 'Ssa10bc': '10' goes at index 2 (floor(4/2)), then '\u00df'->'Ss' expands [E9]",
+  "For 'A\u0130xy' -> 'Ai\u030710xy': rest '\u0130xy' lowercases to 'i\u0307xy', '10' inserted at floor(4/2)=2 of original length 4, giving 'Ai\u030710xy' [E13]",
+  "For 'A\u0130BC' -> 'Ai\u030710bc': rest '\u0130BC' lowercases to 'i\u0307bc' (length 4), '10' at index floor(4/2)=2, giving 'Ai\u030710bc' [E13]",
+  "For '\u0130\u0130\u0130\u0130' -> '\u0130i\u030710i\u0307i\u0307': first char '\u0130' titlecases to '\u0130' (length 1), rest '\u0130\u0130\u0130' lowercases to 'i\u0307i\u0307i\u0307' (length 6), but '10' is inserted after 2 original characters (floor(4/2)), i.e. after first char + first rest char, giving '\u0130i\u0307' + '10' + 'i\u0307i\u0307' [E16]",
+  "For '\u0130\u0130ab' -> '\u0130i\u030710ab': '10' inserted after 2 original characters (first char + first rest char) [E16]",
+  "For 'a\u0130\u0130b' -> 'Ai\u030710i\u0307b': first char 'a'->'A', rest '\u0130\u0130b'->'i\u0307i\u0307b', '10' after 2 original chars (A + first i\u0307) [E16]",
+  "For '\u01c6abc' -> '\u01c5a10bc': titlecase of '\u01c6' is '\u01c5' (not upper '\u01c4') [E9, E11]",
+  "For '\ufb01abc' -> 'Fia10bc' and '\ufb00ab' -> 'Ff10ab': titlecase expands ligatures [E9, E11]"
+ ],
+ "notes": "The key fix: the insertion index counts ORIGINAL characters, not output characters. So build the output by walking original characters: titlecase the first original char, lowercase each subsequent original char (which may expand), and insert '10' after floor(len/2) original characters have been consumed. This explains E16 where '\u0130\u0130\u0130\u0130' gives '\u0130i\u030710i\u0307i\u0307' (10 after 2 original chars, not after 2 output chars).",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 16
+}

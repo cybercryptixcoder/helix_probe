@@ -1,0 +1,39 @@
+Helix Probe v2 on 'find_numeric_f00058': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like across the full input range, including any regime cha...(+24 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.45, fit 0.79, size 1531 (exam 0.000 -> 0.450); held-out 0%
+[2] E2 Where exactly does the flat region end and the growth begin on each side, a...(+51 chars)  (v1 predicted it: match 0.56)
+      model v2 by the updater: exam 0.45, fit 0.87, size 1024 (fit 0.673 -> 0.868); held-out 0%
+[3] E3 Where exactly does the flat region end and growth begin on each side, and i...(+73 chars)  (v2 predicted it: match 0.15)
+      model v3 by the updater: exam 0.50, fit 0.95, size 1006 (exam 0.450 -> 0.500); held-out 0%
+[4] E4 How does the function transition from the flat region to growth on each sid...(+93 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.275, the current model's is 0.500
+      model v4 by the updater: exam 0.68, fit 0.97, size 1030 (exam 0.500 -> 0.675); held-out 5%
+[5] E5 Is the flat region exactly |x|<=36 with a sharp onset, and does the growth ...(+128 chars)  (v4 predicted it: match 1.00)
+[6] E6 What is the exact onset threshold and shape of the growth just beyond the f...(+154 chars)  (v4 predicted it: match 0.80)
+      model v5 by the updater: exam 1.00, fit 0.97, size 998 (exam 0.675 -> 1.000); held-out 98%
+[7] E7 What is the exact onset threshold and the shape of the growth curve just be...(+117 chars)  (v5 predicted it: match 0.60)
+      model v6 by the updater: exam 1.00, fit 0.94, size 1137 (fit 0.914 -> 0.943); held-out 98%
+[8] E8 What is the exact shape of the growth curve between |x|=64 and |x|=96, wher...(+100 chars)  (v6 predicted it: match 1.00)
+[9] E9 Is the growth curve on each side of the flat region smooth and monotone all...(+195 chars)  (v6 predicted it: match 0.95)
+      model v7 by the updater: exam 1.00, fit 0.99, size 1460 (fit 0.950 -> 0.994); held-out 98%
+[10] E10 Is the flat region's value exactly -84.3663 everywhere inside |x|<=51, and ...(+178 chars)  (v7 predicted it: match 0.95)
+      updater's model not kept: its fit is 0.985, the current model's is 0.990
+      updater's model not kept: same scores and not smaller (1752 vs 1460 chars)
+[11] E11 What is the exact fine-grained shape of the growth curve between |x|=51 and...(+289 chars)  (v7 predicted it: match 0.80)
+      updater's model not kept: its fit is 0.945, the current model's is 0.973
+      model v8 by the updater: exam 1.00, fit 0.99, size 1707 (fit 0.973 -> 0.991); held-out 98%
+[12] E12 Are the far tails (|x| between 96 and 128) truly linear/extrapolating as th...(+139 chars)  (v8 predicted it: match 1.00)
+[13] E13 The model places the flat-region edge between 51 and 51.05 on the positive ...(+305 chars)  (v8 predicted it: match 0.60)
+      model v9 by the updater: exam 1.00, fit 0.99, size 1845 (fit 0.962 -> 0.992); held-out 98%
+[14] E14 Does the flat region's value stay exactly -84.3663 right up to the onset on...(+121 chars)  (v9 predicted it: match 0.75)
+      model v10 by the updater: exam 1.00, fit 1.00, size 1972 (fit 0.975 -> 1.000); held-out 98%
+[15] E15 Does the growth curve continue to be exactly linear in |x| beyond |x|=128 (...(+165 chars)  (v10 predicted it: match 1.00)
+[16] E16 How does f behave in the mid-range |x| between 16 and 32, where no experime...(+181 chars)  (v10 predicted it: match 1.00)
+[17] E17 Is the flat region's boundary on the positive side exactly at 50.6 (sharp o...(+125 chars)  (v10 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (1972 vs 1972 chars)
+      updater's model not kept: same scores and not smaller (1972 vs 1972 chars)
+[18] E18 How exactly does the negative-side onset behave between |x|=51.2 and |x|=51...(+99 chars)  (v10 predicted it: match 0.85)
+      model v11 by the updater: exam 1.00, fit 1.00, size 2198 (fit 0.986 -> 1.000); held-out 98%
+[19] E19 Is the flat region truly flat everywhere between |x|=32 and |x|=50, includi...(+178 chars)  (v11 predicted it: match 1.00)
+[20] E20 Is the transition into growth on each side a smooth continuous ramp (as the...(+216 chars)  (v11 predicted it: match 1.00)
+{"env": "find_numeric_f00058", "experiments": 20, "exam_probes": 4, "model_version": 11, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 2198, "heldout": 0.98, "llm_calls": 37, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

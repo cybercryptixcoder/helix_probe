@@ -1,0 +1,13 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) returns the constant 53.0 for every x tested across the full domain [-128, 127] [E1]"
+ ],
+ "notes": "All 19 sampled points, spanning negative, zero, and positive values, returned exactly 53.0, so the simplest consistent model is a constant function.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

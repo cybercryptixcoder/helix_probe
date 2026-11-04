@@ -1,0 +1,70 @@
+def predict(probe):
+    try:
+        xs = probe.get("x", [])
+        FLAT = -84.3663
+        # Positive-side knots (x, y) from E3/E4, sorted
+        pos_knots = [
+            (50.0, FLAT),
+            (51.0, 12.4118),
+            (52.0, 428.046),
+            (53.0, 843.6803),
+            (54.0, 1259.3145),
+            (55.0, 1674.9487),
+            (56.0, 2090.5829),
+            (57.0, 3230.3677),
+            (58.0, 4433.2432),
+            (59.0, 5636.1187),
+            (60.0, 6838.9942),
+            (61.0, 8041.8696),
+            (62.0, 10136.592),
+            (63.0, 13053.9381),
+            (64.0, 15971.2842),
+            (65.0, 18888.6303),
+            (66.0, 21805.9764),
+            (68.0, 28208.669),
+            (70.0, 35110.0497),
+            (72.0, 42011.4303),
+            (100.0, 149963.3997),
+            (127.0, 254222.5291),
+            (128.0, 258083.9783),
+        ]
+        # Negative-side knots (x, y) from E1, sorted by x
+        neg_knots = [
+            (-128.0, 326549.8085),
+            (-100.0, 203265.332),
+            (-64.0, 44756.7193),
+            (-32.0, FLAT),
+        ]
+
+        def interp(knots, x):
+            # knots sorted by x ascending
+            if x <= knots[0][0]:
+                (x0, y0), (x1, y1) = knots[0], knots[1]
+                return y0 + (y1 - y0) * (x - x0) / (x1 - x0)
+            if x >= knots[-1][0]:
+                (x0, y0), (x1, y1) = knots[-2], knots[-1]
+                return y1 + (y1 - y0) * (x - x1) / (x1 - x0)
+            for i in range(len(knots) - 1):
+                x0, y0 = knots[i]
+                x1, y1 = knots[i + 1]
+                if x0 <= x <= x1:
+                    if x1 == x0:
+                        return y0
+                    return y0 + (y1 - y0) * (x - x0) / (x1 - x0)
+            return knots[-1][1]
+
+        ys = []
+        for x in xs:
+            if x is None:
+                ys.append(None)
+                continue
+            x = float(x)
+            if -32.0 <= x <= 50.0:
+                ys.append(FLAT)
+            elif x > 50.0:
+                ys.append(interp(pos_knots, x))
+            else:
+                ys.append(interp(neg_knots, x))
+        return {"y": ys}
+    except Exception:
+        return {"y": [None for _ in probe.get("x", [])]}

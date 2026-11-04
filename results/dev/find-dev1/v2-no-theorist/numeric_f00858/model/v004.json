@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "E4 showed the interval is wider than \u00b11.75 \u2014 the value is still 1 at \u00b11.85 and 0 at \u00b11.9, so I moved the boundary to the midpoint \u00b11.875 (marked as a guess).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 180, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

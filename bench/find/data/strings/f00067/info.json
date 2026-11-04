@@ -1,0 +1,10 @@
+{
+ "fid": "f00067",
+ "type": "compose",
+ "params": [
+  [],
+  []
+ ],
+ "name": "reverse_words;duplicate_last_letter;compose_1input_1input((), ())",
+ "dir": "f00067"
+}

@@ -1,0 +1,41 @@
+Helix Probe v2 on 'find_numeric_f00058': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like across the full input range, sampling both signs and ...(+45 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.35, fit 1.00, size 650 (exam 0.000 -> 0.350); held-out 0%
+[2] E2 Is the flat region exactly a constant, or does it hide a small-amplitude st...(+124 chars)  (v1 predicted it: match 0.95)
+      updater's model not kept: same scores and not smaller (650 vs 650 chars)
+      updater's model not kept: same scores and not smaller (650 vs 650 chars)
+[3] E3 Where exactly does the transition from the flat -84.3663 region to the stee...(+89 chars)  (v1 predicted it: match 0.30)
+      model v2 by the updater: exam 0.55, fit 1.00, size 708 (exam 0.350 -> 0.550); held-out 2%
+[4] E4 Where exactly does the flat region end and the growth begin on each side, a...(+64 chars)  (v2 predicted it: match 0.65)
+      updater's model not kept: its exam is 0.325, the current model's is 0.550
+      model v3 by the updater: exam 0.65, fit 0.89, size 814 (exam 0.550 -> 0.650); held-out 2%
+[5] E5 What is the exact shape of the growth curve just past the onset on each sid...(+62 chars)  (v3 predicted it: match 0.55)
+      updater's model not kept: its exam is 0.550, the current model's is 0.650
+      model v4 by the updater: exam 0.68, fit 0.87, size 814 (exam 0.650 -> 0.675); held-out 7%
+[6] E6 How does the growth curve behave between the onset (~50) and 64, and betwee...(+137 chars)  (v4 predicted it: match 0.75)
+      model v5 by the updater: exam 0.88, fit 1.00, size 1433 (exam 0.675 -> 0.875); held-out 25%
+      theorist (every 6 steps)
+      model v6 by the theorist: exam 1.00, fit 1.00, size 1809 (exam 0.875 -> 1.000); held-out 100%
+[7] E7 Is the flat region's boundary exactly symmetric and sharp at |x|≈50.5, and ...(+131 chars)  (v6 predicted it: match 0.80)
+      model v7 by the updater: exam 1.00, fit 0.99, size 1965 (fit 0.971 -> 0.993); held-out 100%
+[8] E8 What is the exact functional form of the growth curve on the negative side ...(+187 chars)  (v7 predicted it: match 1.00)
+[9] E9 Is the growth curve on each side of the dead zone a smooth monotone power l...(+187 chars)  (v7 predicted it: match 1.00)
+[10] E10 Is the growth curve a single smooth power law all the way to the domain edg...(+152 chars)  (v7 predicted it: match 1.00)
+[11] E11 Does the dead zone and the onset of growth shift or soften near the exact b...(+139 chars)  (v7 predicted it: match 0.69)
+      model v8 by the updater: exam 1.00, fit 1.00, size 3159 (fit 0.967 -> 1.000); held-out 100%
+[12] E12 What is the exact shape of the onset transition on the negative side betwee...(+193 chars)  (v8 predicted it: match 0.95)
+      model v9 by the updater: exam 1.00, fit 1.00, size 3181 (fit 0.996 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.250, the current model's is 1.000
+[13] E13 Is the dead zone exactly flat at -84.3663 across its whole interior, or doe...(+147 chars)  (v9 predicted it: match 1.00)
+[14] E14 Is the dead zone actually a hard clamp at -84.3663, or does it hide a tiny ...(+176 chars)  (v9 predicted it: match 1.00)
+[15] E15 Does the growth curve on each side have the same underlying functional form...(+301 chars)  (v9 predicted it: match 1.00)
+[16] E16 Is the far tail on each side still a smooth power law beyond the last measu...(+192 chars)  (v9 predicted it: match 1.00)
+[17] E17 What is the exact shape of the growth curve immediately past the positive o...(+242 chars)  (v9 predicted it: match 0.90)
+      model v10 by the updater: exam 1.00, fit 1.00, size 3552 (fit 0.994 -> 1.000); held-out 100%
+[18] E18 Does the negative-side onset region hide finer structure than the current a...(+182 chars)  (v10 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.575, the current model's is 1.000
+[19] E19 Is the negative-side onset truly a sharp dead-zone edge at -51.20 (flat unt...(+198 chars)  (v10 predicted it: match 1.00)
+[20] E20 Is the dead-zone boundary on the positive side a hard edge exactly at 50.75...(+184 chars)  (v10 predicted it: match 1.00)
+{"env": "find_numeric_f00058", "experiments": 20, "exam_probes": 4, "model_version": 10, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 3552, "heldout": 1.0, "llm_calls": 37, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,15 @@
+step,kind,experiments,box_probes,model_version,model_role,exam,fit,size,arrival_last10,heldout,llm_calls,note
+1,learn,1,1,1,updater,0.000,1.000,428,0.00,1.000,2,E1
+2,learn,2,2,1,updater,0.000,1.000,428,0.50,1.000,3,E2
+3,learn,3,3,1,updater,0.000,1.000,428,0.67,1.000,4,E3
+4,learn,4,4,1,updater,0.000,1.000,428,0.75,1.000,5,E4
+5,learn,5,5,1,updater,0.000,1.000,428,0.80,1.000,6,E5
+6,learn,6,6,2,theorist,0.000,1.000,736,0.67,1.000,10,E6
+7,learn,7,7,2,theorist,0.000,1.000,736,0.71,1.000,11,E7
+8,learn,8,8,2,theorist,0.000,1.000,736,0.75,1.000,12,E8
+9,learn,9,9,2,theorist,0.000,1.000,736,0.78,1.000,13,E9
+10,learn,10,10,2,theorist,0.000,1.000,736,0.80,1.000,14,E10
+11,learn,11,11,2,theorist,0.000,1.000,736,0.90,1.000,15,E11
+12,learn,12,12,3,theorist,0.000,1.000,703,0.90,1.000,17,E12
+13,learn,13,13,3,theorist,0.000,1.000,703,0.90,1.000,18,E13
+14,learn,14,14,3,theorist,0.000,1.000,703,0.90,1.000,19,E14

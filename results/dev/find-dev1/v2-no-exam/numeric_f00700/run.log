@@ -1,0 +1,19 @@
+Helix Probe v2 on 'find_numeric_f00700': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 Does f behave like a simple smooth function (constant, linear, or polynomia...(+127 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 0.95, size 171 (fit 0.000 -> 0.950); held-out 100%
+[2] E2 Is the jump between x=-1 and x=0 a genuine discontinuity of +3, or does the...(+103 chars)  (v1 predicted it: match 0.13)
+      updater: keep
+[3] E3 Is the step near zero at x=-0.5 (jump from -1 to +2) a sharp discontinuity,...(+103 chars)  (v1 predicted it: match 0.20)
+      model v2 by the updater: exam 0.00, fit 1.00, size 209 (fit 0.428 -> 1.000); held-out 100%
+[4] E4 Are there any other discontinuities or deviations from f(x)=ceil(x)+1 (x>0)...(+145 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the formula f(x)=ceil(x)+1 (x>0) / ceil(x)-1 (x<=0) hold exactly at in...(+149 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the step in the positive branch really occur at integer boundaries (ce...(+157 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.719, the current model's is 1.000
+[7] E7 Does the model hold for tiny fractional offsets just below/above integers a...(+165 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the function remain exactly ceil(x)+1 / ceil(x)-1 at extremely small f...(+259 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the small step at x=0 behave exactly as the model says (f(0)=-1, f(0+)...(+125 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the function's behavior change outside the tested range — specifically...(+211 chars)  (v2 predicted it: match 1.00)
+[11] E11 Does the function ever return a non-integer (fractional) output, or is it a...(+113 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00700", "experiments": 11, "exam_probes": 0, "model_version": 2, "model_role": "updater", "exam": 0.0, "fit": 1.0, "size": 209, "heldout": 1.0, "llm_calls": 15, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

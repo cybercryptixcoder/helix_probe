@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box returned 53.0 for every input across the entire domain, so the simplest consistent model is a constant function.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 64, "matches": [1.0], "made_at": 1, "heldout": 1.0}

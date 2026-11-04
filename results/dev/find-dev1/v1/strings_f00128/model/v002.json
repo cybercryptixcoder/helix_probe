@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f inserts '10' after the first character, but the first character is uppercased (not lowercased) [E1, E2]",
+  "The rest of the string is lowercased [E1, E2]",
+  "For a leading space, the space is treated as the first character and preserved, with '10' inserted after it [E2]",
+  "For a leading digit, '10' is inserted after it and the digit is unchanged [E2]",
+  "For a leading symbol like '!', it is preserved and '10' inserted after it [E1, E2]"
+ ],
+ "notes": "First character is uppercased (not lowercased) and preserved; '10' inserted after it; remainder lowercased. Leading space/digit/symbol are kept as-is as the first char.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.1,
+  0.8
+ ],
+ "made_at": 2
+}

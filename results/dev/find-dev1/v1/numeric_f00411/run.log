@@ -1,0 +1,23 @@
+Helix Probe on 'find_numeric_f00411': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, including sign, magnitude, a...(+24 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Is the special value at x=0 an isolated spike, or does the function behave ...(+41 chars)  model v1 match 1.00
+[3] E3 Does the linear rule hold exactly at the edges of the domain and at larger ...(+90 chars)  model v1 match 1.00
+[4] E4 Is the x=0 spike truly isolated to a single point, or is the model wrong ab...(+90 chars)  model v1 match 1.00
+[5] E5 Does f have any other special behavior at or near the domain edges (x=±128)...(+133 chars)  model v1 match 1.00
+[6] E6 Is the value exactly at x=0 really 444.28 (a single-point spike), or is it ...(+73 chars)  model v1 match 1.00
+[7] E7 Is the x=0 spike exactly 444.28 at the single point 0, or could there be ad...(+128 chars)  model v1 match 1.00
+[8] E8 Is the x=0 spike exactly 444.28 only at the single real value 0, or does it...(+144 chars)  model v1 match 1.00
+[9] E9 Does the linear rule hold on a dense, non-dyadic set of ordinary points acr...(+170 chars)  model v1 match 1.00
+[10] E10 Is the x=0 spike truly a single exact point, or does f return the same larg...(+108 chars)  model v1 match 1.00
+[11] E11 Does the two-branch linear rule really switch exactly at x=0, or is there a...(+172 chars)  model v1 match 1.00
+[12] E12 Is the two-branch linear rule exact at x-values whose floating-point produc...(+171 chars)  model v1 match 1.00
+[13] E13 Does the jump at x=0 behave like a step (value depends only on sign) or is ...(+158 chars)  model v1 match 1.00
+[14] E14 Does f stay exactly on the two-branch linear rule for very large and asymme...(+145 chars)  model v1 match 1.00
+[15] E15 Does f follow the two-branch linear rule at non-representable, high-precisi...(+206 chars)  model v1 match 1.00
+[16] E16 Does f follow the two-branch linear rule at negative inputs just below zero...(+235 chars)  model v1 match 1.00
+[17] E17 Does the two-branch linear rule hold exactly at x=0-adjacent values on the ...(+197 chars)  model v1 match 1.00
+[18] E18 Is the x=0 spike value exactly 444.28, or does it depend on how 0 is approa...(+117 chars)  model v1 match 1.00
+[19] E19 Is the x=0 spike really a single exact point, or does f return 444.28 for a...(+275 chars)  model v1 match 1.00
+[20] E20 Is the x=0 spike value 444.28 truly constant, or does it vary with the sign...(+202 chars)  model v1 match 1.00
+{"env": "find_numeric_f00411", "experiments": 20, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 21, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,36 @@
+{
+ "fid": "f00367",
+ "kind": "code",
+ "type": "linear",
+ "params": [
+  [
+   2.4,
+   9.8
+  ],
+  [
+   -9.9,
+   1.9,
+   24.3
+  ]
+ ],
+ "name": "linear;step;sum_two((2.4, 9.8), (-9.9, 1.9, 24.3))",
+ "dir": "f00367",
+ "approx_mse_error": "not trained",
+ "corruption_type": "interval_inside",
+ "corruption_params": {
+  "std": 6.7500000000000275,
+  "boundary": [
+   -19.5,
+   -11.91675919849585
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "normal",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": -2.220446049250313e-18,
+ "error_corrupted_code_generated": -2.220446049250313e-18
+}

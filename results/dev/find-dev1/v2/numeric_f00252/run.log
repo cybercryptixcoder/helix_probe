@@ -1,0 +1,23 @@
+Helix Probe v2 on 'find_numeric_f00252': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Map the overall shape of f across the entire domain, including sign, magnit...(+128 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.57, fit 0.55, size 183 (exam 0.000 -> 0.575); held-out 0%
+[2] E2 Does the linear rule f(x)=141.0873x+1.1 extend to large positive x, or does...(+90 chars)  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 1.00, fit 0.95, size 367 (exam 0.575 -> 1.000); held-out 96%
+[3] E3 Is the log2 rule exact between x=1 and x=2 and between x=2 and x=96, and do...(+86 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the log2 rule hold exactly for non-integer x well above 1 (e.g., x=1.5...(+115 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the box behave differently for very small positive x (between 0 and 1)...(+119 chars)  (v2 predicted it: match 0.20)
+      model v3 by the updater: exam 1.00, fit 1.00, size 295 (fit 0.820 -> 1.000); held-out 100%
+[6] E6 How does f behave for negative x, and does the null region extend everywher...(+134 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (471 vs 295 chars)
+[7] E7 Is the logarithmic branch exactly f(x)=141.0873*log2(x)+1.1 for tiny positi...(+143 chars)  (v3 predicted it: match 1.00)
+[8] E8 Is the log2 branch really exact all the way down to the smallest positive x...(+111 chars)  (v3 predicted it: match 1.00)
+[9] E9 Does the box have any other branch or anomaly near the domain edges or at s...(+143 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the log2 branch hold exactly at very large positive x near the upper d...(+162 chars)  (v3 predicted it: match 1.00)
+[11] E11 Is the branch boundary exactly at x=0, or does the log2 branch actually ext...(+96 chars)  (v3 predicted it: match 1.00)
+[12] E12 Does the exact log2 formula f(x)=141.0873*log2(x)+1.1 hold at many scattere...(+180 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (522 vs 295 chars)
+[13] E13 Does f(x) equal 141.0873*log2(x)+1.1 for all positive x, or is there a hidd...(+181 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00252", "experiments": 13, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 295, "heldout": 1.0, "llm_calls": 18, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

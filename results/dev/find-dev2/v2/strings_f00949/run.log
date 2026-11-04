@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00949': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to plain lowercase words, mixed-case words, and a simp...(+24 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 264 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the insertion point depend on the length of the whole string, and does...(+146 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the insertion point and I8/8I ordering depend on the string length alo...(+205 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the insertion rule still hold for longer ordinary sentences and multi-...(+150 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the insertion rule hold for ordinary mixed strings combining uppercase...(+129 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the midpoint insertion rule still hold for longer, ordinary natural-la...(+153 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (417 vs 264 chars)
+[7] E7 Does the midpoint rule hold for empty strings and single-character strings,...(+156 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the midpoint insertion rule hold for ordinary word-like and phrase-lik...(+189 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the midpoint insertion rule hold for a broader set of ordinary sentenc...(+128 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00949", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 264, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

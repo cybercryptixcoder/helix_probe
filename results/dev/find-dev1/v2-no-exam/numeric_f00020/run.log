@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00020': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 Since nothing is known about f, sample a broad spread of x values across th...(+91 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 1.00, size 301 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 Where exactly does the flat ~81 baseline end and the sharp rise to ~89 begi...(+56 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the ~81 baseline truly flat across the whole negative-to-mid range, or d...(+80 chars)  (v1 predicted it: match 1.00)
+[4] E4 Is the ~89 level at x=128 the top of a plateau, or does f keep rising (or d...(+81 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the ramp continue rising past x=128 as a linear trend (implying f is a...(+185 chars)  (v1 predicted it: match 1.00)
+[6] E6 What exactly happens between x=96 and x=112 where the flat baseline turns i...(+118 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (814 vs 301 chars)
+[7] E7 Does the rise continue past x=128, or does f peak and turn over near the to...(+44 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the function have any structure on the far-left side or beyond the neg...(+150 chars)  (v1 predicted it: match 1.00)
+[9] E9 Is the peak near x=128 a smooth rounded maximum, and does f actually turn o...(+89 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00020", "experiments": 9, "exam_probes": 0, "model_version": 1, "model_role": "updater", "exam": 0.0, "fit": 1.0, "size": 301, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

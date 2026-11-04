@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to a rule: f returns 1 only for x \u2208 {-1, 0, 1} and 0 everywhere else, based on E1 where exactly those three inputs gave 1.0.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 91, "matches": [1.0], "made_at": 1, "heldout": 0.85}

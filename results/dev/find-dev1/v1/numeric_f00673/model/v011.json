@@ -1,0 +1,36 @@
+{
+ "version": 11,
+ "beliefs": [
+  "The mean of f is essentially 16.79\u00b7|x| across the whole domain, including |x|<1 and large |x| [E14, E15, E16, E17, E18]",
+  "There is call-to-call noise everywhere, not a deterministic function of x; repeating the same x gives different values each call [E8, E10, E11, E12, E17, E18, E19]",
+  "At large |x| the noise is multiplicative, roughly 0.5-1% relative scatter, so spread grows with |x| [E14, E15, E16]",
+  "At small |x| (|x|<1) the noise is larger in relative terms (a few percent) and its absolute spread shrinks with |x|, roughly proportional to |x| [E17, E18]",
+  "The erratic near-zero behavior decays smoothly toward the clean line as |x| grows through 0.5-2; at x=0.6 relative scatter is ~10-15% and at x=1.2 it is ~5% [E19]",
+  "The relative noise appears to decrease monotonically with |x|, from a few percent near |x|~0.1 down to ~0.5-1% at large |x| [E17, E18, E19, E15, E16]"
+ ],
+ "notes": "Kept the 16.79|x| mean (confirmed by E15-E19 means) and the call-to-call noise finding from E19. Replaced the flat prediction with a mean plus a relative-noise model whose relative amplitude decreases with |x| (larger near zero, ~0.5-1% at large |x|), matching the observed spreads in E17-E19 and E15-E16.",
+ "fit": 0.2631578947368421,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.5,
+  0.7,
+  0.4,
+  0.15,
+  0.5,
+  0.4,
+  0.45,
+  0.35,
+  0.6,
+  0.4,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  0.45,
+  0.35,
+  0.6
+ ],
+ "made_at": 19
+}

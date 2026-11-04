@@ -1,0 +1,90 @@
+Helix Probe on 'scrambled_grid': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does a single press of each button do from a central open cell, and do...(+55 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.80 (was 0.00), held-out 8%
+[2] E2 Does button A move the character up by 1 from a cell near the top edge (y=8...(+51 chars)  model v1 match 1.00
+[3] E3 Is button A's upward move blocked only at the top edge (y=8), or does it al...(+64 chars)  model v1 match 1.00
+[4] E4 Does button A move the character up by exactly 1 from an interior cell (5,5...(+88 chars)  model v1 match 0.75
+      model v2: fit 50% (was 50%), mean match 0.89 (was 0.89), held-out 8%
+[5] E5 Does button A from (5,5) stay in place because (5,6) is a wall, or because ...(+73 chars)  model v2 match 0.75
+      model v3: fit 80% (was 40%), mean match 0.96 (was 0.86), held-out 8%
+[6] E6 Is the A-block at (5,5) caused specifically by a wall at (5,6), or does A g...(+72 chars)  model v3 match 1.00
+[7] E7 Does button C move +x by 1 from (5,5) (landing on the suspected wall at (5,...(+95 chars)  model v3 match 0.75
+      model v4: fit 86% (was 71%), mean match 0.97 (was 0.94), held-out 9%
+[8] E8 Is the anomaly at (5,5) specific to C (a position-dependent C rule), or is ...(+88 chars)  model v4 match 0.88
+      model v5: fit 75% (was 75%), mean match 0.96 (was 0.96), held-out 9%
+[9] E9 Does button E move -x by 2 or +y by 2 from an ordinary interior cell other ...(+45 chars)  model v5 match 0.75
+      model v6: fit 78% (was 67%), mean match 0.96 (was 0.94), held-out 9%
+[10] E10 Does the C button's anomalous direction also occur from (4,5), the cell C l...(+73 chars)  model v6 match 0.75
+      model v7: fit 80% (was 70%), mean match 0.97 (was 0.94), held-out 9%
+[11] E11 Does button E's +y-by-2 behavior seen at (5,5) also occur at (5,4), or is E...(+38 chars)  model v7 match 0.50
+      model v8: fit 82% (was 73%), mean match 0.97 (was 0.93), held-out 9%
+[12] E12 Does the anomalous C behavior (moving -x instead of +x) extend further west...(+84 chars)  model v8 match 0.75
+      model v9: fit 83% (was 75%), mean match 0.97 (was 0.95), held-out 9%
+[13] E13 Does the reverse-C region on row 5 extend further west to x=2, i.e. is (2,5...(+84 chars)  model v9 match 1.00
+[14] E14 Does button E from (5,5) always move +y by 2, or was that behavior actually...(+124 chars)  model v9 match 0.75
+      model v10: fit 86% (was 79%), mean match 0.98 (was 0.96), held-out 9%
+[15] E15 Does button E from (7,5) move +y by 2 (as in E8 after B landed there), or d...(+127 chars)  model v10 match 0.75
+      model v11: fit 93% (was 80%), mean match 0.99 (was 0.96), held-out 9%
+[16] E16 In the failing E1 sequence, after A B C the character is at (5,5); does the...(+137 chars)  model v11 match 1.00
+[17] E17 In the failing E1 sequence, after ABC the character is at (5,5); the model ...(+172 chars)  model v11 match 0.75
+      model v12: fit 94% (was 88%), mean match 0.99 (was 0.97), held-out 9%
+[18] E18 In the failing E1 sequence, after ABC the character is at (5,5); E17 showed...(+166 chars)  model v12 match 1.00
+[19] E19 In the failing E1 sequence, after A B C D the character is at (5,3); does t...(+142 chars)  model v12 match 0.75
+      model v13: fit 95% (was 89%), mean match 0.99 (was 0.98), held-out 9%
+[20] E20 Does button E's +y-by-2 anomaly also occur at (6,5), just east of the known...(+66 chars)  model v13 match 0.75
+      model v14: fit 100% (was 90%), mean match 1.00 (was 0.98), held-out 11%
+[21] E21 Is button E's anomaly confined to a small cluster around (5,5), or does E f...(+127 chars)  model v14 match 0.50
+      model v15: fit 100% (was 95%), mean match 1.00 (was 0.98), held-out 11%
+[22] E22 Does button E's anomaly at (5,3) and (3,5) come from a symmetric pair of di...(+118 chars)  model v15 match 0.50
+      model v16: fit 100% (was 95%), mean match 1.00 (was 0.98), held-out 11%
+[23] E23 Does button E's diagonal anomaly extend to the cell (4,3), just southwest o...(+89 chars)  model v16 match 0.75
+      model v17: fit 100% (was 96%), mean match 1.00 (was 0.99), held-out 11%
+[24] E24 Does button E's diagonal anomaly also occur at (7,3), extending the anomalo...(+71 chars)  model v17 match 0.50
+      model v18: fit 100% (was 96%), mean match 1.00 (was 0.98), held-out 11%
+[25] E25 Does button E's diagonal anomaly extend to the cell (2,5), just west of the...(+68 chars)  model v18 match 0.50
+      revision rejected: mean match 0.89 < 0.98
+      model v19: fit 100% (was 96%), mean match 1.00 (was 0.98), held-out 11%
+[26] E26 Does the E-diagonal anomaly extend to the cell (4,5), which is in the rever...(+115 chars)  model v19 match 1.00
+[27] E27 Does the E-diagonal anomaly extend to (8,3), continuing the pattern along r...(+112 chars)  model v19 match 0.50
+      revision rejected: mean match 0.97 < 0.98
+      revision rejected: mean match 0.79 < 0.98
+[28] E28 Does the E diagonal jump on the anti-diagonal x+y=11 extend to (7,4), i.e. ...(+79 chars)  model v19 match 0.50
+      revision rejected: mean match 0.87 < 0.96
+      model v20: fit 100% (was 93%), mean match 1.00 (was 0.96), held-out 12%
+[29] E29 Does button E's diagonal anomaly also occur at (6,4), a cell on anti-diagon...(+99 chars)  model v20 match 0.75
+      revision rejected: mean match 0.79 < 0.99
+      revision rejected: mean match 0.77 < 0.99
+[30] E30 Does E's diagonal anomaly at (6,4) follow a consistent rule — jumping along...(+262 chars)  model v20 match 1.00
+[goal 1 try 1] E31 missed (model match 0.75)
+      model v21: fit 97% (was 94%), mean match 0.99 (was 0.98), held-out 12%
+[goal 1 try 2] E32 missed (model match 0.80)
+      model v22: fit 94% (was 94%), mean match 0.99 (was 0.99), held-out 13%
+[goal 1 try 3] E33 missed (model match 0.92)
+      model v23: fit 91% (was 91%), mean match 0.99 (was 0.99), held-out 13%
+[goal 2 try 1] E34 missed (model match 0.56)
+      model v24: fit 88% (was 88%), mean match 0.99 (was 0.98), held-out 13%
+[goal 2 try 2] E35 missed (model match 0.62)
+      revision rejected: mean match 0.97 < 0.98
+      model v25: fit 89% (was 86%), mean match 0.99 (was 0.98), held-out 13%
+[goal 2 try 3] E36 missed (model match 0.83)
+      model v26: fit 89% (was 86%), mean match 0.99 (was 0.98), held-out 14%
+[goal 3 try 1] E37 missed (model match 0.75)
+      model v27: fit 89% (was 86%), mean match 0.99 (was 0.98), held-out 14%
+[goal 3 try 2] E38 missed (model match 0.79)
+      model v28: fit 89% (was 87%), mean match 0.99 (was 0.98), held-out 15%
+[goal 3 try 3] E39 missed (model match 0.93)
+      model v29: fit 87% (was 87%), mean match 0.99 (was 0.99), held-out 15%
+[goal 4 try 1] E40 missed (model match 1.00)
+[goal 4 try 2] E41 missed (model match 0.92)
+      revision rejected: mean match 0.98 < 0.99
+      model v30: fit 88% (was 85%), mean match 0.99 (was 0.99), held-out 15%
+[goal 4 try 3] E42 REACHED (model match 0.92)
+      model v31: fit 88% (was 86%), mean match 0.99 (was 0.99), held-out 15%
+[goal 5 try 1] E43 missed (model match 1.00)
+[goal 5 try 2] E44 missed (model match 0.93)
+      model v32: fit 93% (was 86%), mean match 0.99 (was 0.99), held-out 15%
+[goal 5 try 3] E45 missed (model match 0.92)
+      revision rejected: mean match 0.99 < 0.99
+      revision rejected: mean match 0.99 < 0.99
+{"env": "scrambled_grid", "experiments": 45, "model_version": 32, "fit": 0.9111111111111111, "heldout": 0.15, "llm_calls": 87, "goals": {"tried": 5, "reached": 1, "tries_used": [null, null, null, 3, null]}}
+run folder: runs/live-grid

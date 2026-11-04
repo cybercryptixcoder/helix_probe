@@ -1,0 +1,22 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f is even: f(-x)=f(x) to within noise [E1, E2, E3]",
+  "For |x| >= ~1, f is essentially linear: f(x) \u2248 16.79\u00b7|x| (f(128)=2151, 16.79\u00b7128=2149; f(96)=1611, 16.79\u00b796=1612; f(48)=806, 16.79\u00b748=806) [E1, E2]",
+  "The linear slope is slightly sublinear at very large |x|: f(127)=2131.6 vs 16.79\u00b7127=2132, and f(128)=2151.2 vs 2149 \u2014 close enough to linear [E1]",
+  "There is a special interval roughly |x| < 1 where f deviates strongly from the linear law, with a sharp dip near x=0 [E3]",
+  "Inside the special interval f is non-monotonic and noisy: f(0)=0.755, but f(\u00b10.05)\u22480.33-0.42, f(\u00b10.1)\u22480.49-1.65, f(\u00b10.15)\u22480.33-0.38, f(\u00b10.3)\u22484.6-6.0, f(\u00b10.4)\u22485.2-6.7, f(\u00b10.6)\u224810-12, f(\u00b10.75)\u224811.5-12.6, f(\u00b10.9)\u224814-15 [E3]",
+  "The near-zero region is noisy/erratic (e.g. f(0.1)=1.65 vs f(0.15)=0.33), so exact values there are unpredictable; only the envelope is captured [E3]",
+  "Outside |x|<1 the linear law 16.79\u00b7|x| fits well (f(1.2)=21.0 vs 20.1, f(1.8)=29.0 vs 30.2, f(2.2)=37.6 vs 36.9, f(2.8)=47.3 vs 47.0) [E3]",
+  "The transition from the near-zero dip to the linear regime happens around |x|\u22480.5-1 [E3]"
+ ],
+ "notes": "Replaced the quadratic+small-bump model with a linear law 16.79\u00b7|x| for |x|>=~1, and a noisy near-zero region modeled as a smooth ramp that dips to ~0.75 at 0 and rises to meet the linear law by |x|\u22481; the erratic values near 0 are treated as noise.",
+ "fit": 0.6666666666666666,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.45
+ ],
+ "made_at": 3
+}

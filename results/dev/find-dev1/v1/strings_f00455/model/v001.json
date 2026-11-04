@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f shifts every letter forward by one in the alphabet, preserving case (a\u2192b, z\u2192a, A\u2192B, Z\u2192A) [E1]",
+  "Non-letter characters (digits, spaces, punctuation) are passed through unchanged [E1]",
+  "Case is not normalized: 'hello', 'Hello', 'HELLO' all map to 'Ifmmp' because each letter shifts independently [E1]"
+ ],
+ "notes": "All observed outputs are consistent with a Caesar shift of +1 applied only to alphabetic characters, leaving digits, spaces, and punctuation untouched. I'll implement that as the model.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.1
+ ],
+ "made_at": 1
+}

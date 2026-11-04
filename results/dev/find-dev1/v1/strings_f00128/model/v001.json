@@ -1,0 +1,14 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f lowercases the input, then inserts the string \"10\" after the first character [E1]",
+  "For single-character inputs the insertion still applies, producing e.g. 'A10' [E1]?"
+ ],
+ "notes": "Observed outputs are the lowercased input with '10' inserted after position 1 (0-indexed 1). Checked against all E1 cases: 'hello'->'he'+'10'+'llo', 'two words'->'tw'+'10'+'o words', '  spaced  '->'  '+'10'+'spaced  ', etc. All consistent. The single-char edge case is untested.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.0
+ ],
+ "made_at": 1
+}

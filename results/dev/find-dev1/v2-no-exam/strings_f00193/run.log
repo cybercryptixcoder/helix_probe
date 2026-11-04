@@ -1,0 +1,24 @@
+Helix Probe v2 on 'find_strings_f00193': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 What is the most basic behavior of f on simple, diverse inputs: plain lower...(+124 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 1.00, size 428 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 Does the transformation depend on the first character only, or does it also...(+98 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the 'shift first character by -2' rule apply to the first character of...(+228 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the transformation shift only the first character, or does it also app...(+163 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the appended suffix depend on the input's first character or on the pr...(+267 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the model's rule hold for non-ASCII/Unicode characters and multi-byte ...(+134 chars)  (v1 predicted it: match 0.40)
+      updater's model not kept: its fit is 0.700, the current model's is 0.900
+      updater's model not kept: its fit is 0.700, the current model's is 0.900
+      theorist (every 6 steps)
+      model v2 by the theorist: exam 0.00, fit 1.00, size 736 (fit 0.900 -> 1.000); held-out 100%
+[7] E7 Does the first-character rule use Unicode code-point −2 for all non-ASCII l...(+200 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the shift apply to the first character of the input (before appending ...(+413 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the -2 code-point shift for non-ASCII letters apply to the first chara...(+305 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the first character of the appended suffix get shifted when the input'...(+373 chars)  (v2 predicted it: match 1.00)
+[11] E11 Does the shift target position 0 of input+'JTQL' by Unicode letter-ness (is...(+464 chars)  (v2 predicted it: match 1.00)
+[12] E12 Does the -2 shift for non-ASCII letters operate on Unicode code points even...(+263 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v3 by the theorist: exam 0.00, fit 1.00, size 703 (same scores, smaller (736 -> 703 chars)); held-out 100%
+[13] E13 Does the -2 shift apply only to the first character, or could there be addi...(+288 chars)  (v3 predicted it: match 1.00)
+[14] E14 Does the -2 shift only apply to a first character that is a Unicode letter ...(+342 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00193", "experiments": 14, "exam_probes": 0, "model_version": 3, "model_role": "theorist", "exam": 0.0, "fit": 1.0, "size": 703, "heldout": 1.0, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

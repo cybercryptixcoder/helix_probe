@@ -1,0 +1,46 @@
+Helix Probe v2 on 'find_numeric_f00673': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do across the whole input range, especially at large negative, ...(+87 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.42, fit 0.55, size 329 (exam 0.000 -> 0.425); held-out 0%
+[2] E2 How does f behave between x=0 and x=1, and is the near-zero region a smooth...(+60 chars)  (v1 predicted it: match 0.33)
+      updater's model not kept: same scores and not smaller (395 vs 329 chars)
+[3] E3 Is the odd-looking dip near x=-1.5..-0.5 (where f is much lower than the li...(+156 chars)  (v1 predicted it: match 0.15)
+      updater's model not kept: same scores and not smaller (329 vs 329 chars)
+      model v2 by the updater: exam 1.00, fit 0.71, size 382 (exam 0.425 -> 1.000); held-out 100%
+[4] E4 Is f even (f(-x)=f(x)) everywhere, and does the near-zero quadratic branch ...(+80 chars)  (v2 predicted it: match 0.33)
+      model v3 by the updater: exam 1.00, fit 0.70, size 328 (fit 0.619 -> 0.703); held-out 100%
+[5] E5 Is the dip near |x|≈1 a real feature of |x|, or is the function actually a ...(+215 chars)  (v3 predicted it: match 0.70)
+      updater's model not kept: its fit is 0.679, the current model's is 0.702
+      updater's model not kept: its fit is 0.701, the current model's is 0.702
+[6] E6 Does the function's shape depend only on |x| (even, with a dip near |x|≈1),...(+141 chars)  (v3 predicted it: match 1.00)
+[7] E7 Is the dip near |x|≈1 a genuine feature of the function, or is the function...(+207 chars)  (v3 predicted it: match 0.95)
+      updater's model not kept: its fit is 0.757, the current model's is 0.780
+      updater's model not kept: same scores and not smaller (328 vs 328 chars)
+[8] E8 Is the dip near |x|≈1 a real dip in the magnitude function, or is f actuall...(+99 chars)  (v3 predicted it: match 0.75)
+      updater's model not kept: its fit is 0.661, the current model's is 0.776
+      updater's model not kept: its fit is 0.549, the current model's is 0.776
+[9] E9 Is the near-zero behaviour a power law (|x|^p) or a smooth quadratic/linear...(+112 chars)  (v3 predicted it: match 0.40)
+      updater's model not kept: its fit is 0.506, the current model's is 0.735
+      updater's model not kept: its fit is 0.728, the current model's is 0.735
+[10] E10 Does the function have a genuine localized feature (dip/plateau) near |x|≈1...(+262 chars)  (v3 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.643, the current model's is 0.751
+      updater's model not kept: its fit is 0.704, the current model's is 0.751
+[11] E11 Is the near-zero behavior a clean power law |x|^p (with p<1) or a smooth bl...(+146 chars)  (v3 predicted it: match 0.60)
+      updater's model not kept: its fit is 0.631, the current model's is 0.737
+      updater's model not kept: its fit is 0.663, the current model's is 0.737
+[12] E12 Is f truly even, or does the dip/feature near |x|≈1 shift or differ between...(+179 chars)  (v3 predicted it: match 0.55)
+      updater's model not kept: its fit is 0.637, the current model's is 0.722
+[13] E13 Is the dip near |x|≈1 actually an additive localized notch on top of a smoo...(+171 chars)  (v3 predicted it: match 1.00)
+[14] E14 Is the apparent dip near |x|≈1 a real localized notch, or just noise on a s...(+139 chars)  (v3 predicted it: match 0.70)
+      model v4 by the updater: exam 1.00, fit 0.78, size 329 (fit 0.740 -> 0.779); held-out 100%
+[15] E15 Is the model's near-zero power law (16.8*|x|^0.75) correct, or does f actua...(+192 chars)  (v4 predicted it: match 0.10)
+      model v5 by the updater: exam 1.00, fit 0.74, size 206 (fit 0.734 -> 0.744); held-out 100%
+[16] E16 Is f(x) exactly proportional to |x| (linear, f(x)=k|x|) at large |x|, or do...(+129 chars)  (v5 predicted it: match 1.00)
+[17] E17 Is the near-zero region truly noisy/zero-centered (so f(0)≈0 with additive ...(+202 chars)  (v5 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (206 vs 206 chars)
+      updater's model not kept: its fit is 0.692, the current model's is 0.715
+[18] E18 Is f(x) exactly linear (f(x)=k|x|) at large |x|, or does the ratio f(x)/|x|...(+108 chars)  (v5 predicted it: match 1.00)
+[19] E19 Does f have a genuine localized dip/notch near |x|≈1 (where the ratio f(x)/...(+225 chars)  (v5 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.630, the current model's is 0.740
+      updater's model not kept: same scores and not smaller (206 vs 206 chars)
+[20] E20 Does the ratio f(x)/|x| settle to a constant slope at large |x|, or does it...(+173 chars)  (v5 predicted it: match 1.00)
+{"env": "find_numeric_f00673", "experiments": 20, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 0.7530555555555556, "size": 206, "heldout": 1.0, "llm_calls": 47, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

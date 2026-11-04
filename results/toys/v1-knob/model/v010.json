@@ -1,0 +1,30 @@
+{
+ "version": 10,
+ "beliefs": [
+  "With all controls at minimum and switch off, the dot is at (0,0) with size 1.0 [E1]",
+  "Dial a moves the dot in x and increases size: x=2a and size contribution 0.5a [E3]",
+  "Dial b moves the dot in x negatively: x=-b, size unchanged [E4]",
+  "Dial c moves the dot in y and increases size: y=c and size contribution 0.5c [E5]",
+  "Switch on with all dials at minimum moves the dot to y=10, leaving x and size unchanged [E2]",
+  "Switch on reflects c about 5: y = 10 - c (E6: c=5\u21925, E7: c=3\u21927, E8: c=8\u21922) [E2,E6,E7,E8]",
+  "Size combines a and c by taking the larger contribution, not adding: size = 1 + 0.5*max(a,c) (E9: a=4,c=8\u21923.0, not 7.0) [E9]",
+  "How size combines when switch is on is assumed same max rule; untested with switch on and both a,c nonzero?"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 0.69,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 11
+}

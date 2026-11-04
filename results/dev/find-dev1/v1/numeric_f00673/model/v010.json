@@ -1,0 +1,37 @@
+{
+ "version": 10,
+ "beliefs": [
+  "f is even in distribution: f(-x) and f(x) share the same mean and spread, though individual noisy calls differ [E1, E2, E9, E14]",
+  "The mean of f is essentially 16.79\u00b7|x| across the whole domain, with no detectable sublinearity up to |x|=128 [E14, E15, E16]",
+  "There is call-to-call noise everywhere, including large |x|; it is multiplicative, roughly 0.5-1% relative scatter, so spread grows with |x| [E14, E15, E16]",
+  "At large |x| the mean matches 16.79\u00b7|x| closely (e.g. ~537.3 at x=32, ~1075.2 at x=64), so the linear law holds with no offset [E16]",
+  "Inside |x|<1 the mean is also close to 16.79\u00b7|x| (mean ~0.9 at x=0.1, ~8.4 at x=0.5, ~3.5 at x=0.2, ~14.1 at x=0.8), so the linear law holds there too [E17, E18]",
+  "Inside |x|<1 the noise amplitude is roughly proportional to |x| (spread ~0.6 at x=0.1, ~0.7 at x=0.5, ~1.1 at x=0.2, ~1.3 at x=0.8) rather than a fixed absolute scatter [E17, E18]",
+  "The noise is not deterministic in x; repeating the same x gives different values each call [E8, E10, E11, E12, E17, E18]",
+  "The relative noise is larger at small |x| (a few percent) than at large |x| (~0.5-1%), so it is not a single constant relative scatter [E17, E18 vs E15, E16]"
+ ],
+ "notes": "Kept the linear mean 16.79|x| (E18 confirms means ~3.5 at 0.2 and ~14.1 at 0.8, matching 16.79|x|), and kept predict() as the deterministic mean since the box is noisy and no single call can be matched exactly; the earlier v9 already does this and scored 0.62.",
+ "fit": 0.2777777777777778,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.5,
+  0.7,
+  0.4,
+  0.15,
+  0.5,
+  0.4,
+  0.45,
+  0.35,
+  0.6,
+  0.4,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  0.45,
+  0.35
+ ],
+ "made_at": 18
+}

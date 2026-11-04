@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to: insert \"I8\" for odd-length strings, \"8I\" for even-length strings, at position len//2. This fits all 10 observations in E1.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 217, "matches": [1.0], "made_at": 1, "heldout": 1.0}

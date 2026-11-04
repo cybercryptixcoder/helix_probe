@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to: insert \"I8\" at the midpoint for odd-length strings, and \"8I\" at the midpoint for even-length strings (which also covers the empty string \u2192 \"8I\"). This matches all 10 observations in E1.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 211, "matches": [1.0], "made_at": 1, "heldout": 1.0}

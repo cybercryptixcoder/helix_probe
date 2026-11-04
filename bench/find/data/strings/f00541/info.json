@@ -1,0 +1,10 @@
+{
+ "fid": "f00541",
+ "type": "compose",
+ "params": [
+  "H",
+  []
+ ],
+ "name": "remove_substring;string_strip;compose_1input_1input(H, ())",
+ "dir": "f00541"
+}

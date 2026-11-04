@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is undefined (null) for all x <= 0 [E1]",
+  "For x > 0, f(x) rises steeply then saturates: values 1.1, 142.19, 283.27, 424.36, 565.45, 706.54, 847.62, 938.46, 975.57, 988.71 at x=1,2,4,8,16,32,64,100,120,128 [E1]",
+  "The output looks like a saturating (logistic/sigmoid-like) curve scaled to a max near ~1000, with f(1)\u22481.1 and f(128)\u2248988.7 [E1]",
+  "Exact functional form is uncertain; a logistic fit a/(1+exp(-k(x-x0))) with a\u22481000, k\u22480.1, x0\u2248-1.1 roughly matches but needs refinement [E1]?"
+ ],
+ "notes": "First model: null for x<=0, and a saturating sigmoid-like curve for x>0 fit to the observed points. The exact parameters are approximate; more probes near the transition (x=1..4) and far tail would pin it down.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.6
+ ],
+ "made_at": 1
+}

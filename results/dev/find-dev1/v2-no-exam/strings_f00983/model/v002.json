@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I removed the `% 128` wraparound: E2 shows `z`\u2192`\\u0082` (130), `~`\u2192`\\u0086`, and `\\u007f`\u2192`\\u0087`, all above 127, so the shift is a plain `ord(c)+8` with no modular reduction.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 151, "matches": [1.0, 1.0], "made_at": 2, "heldout": 0.14}

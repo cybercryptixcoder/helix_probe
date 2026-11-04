@@ -1,0 +1,35 @@
+{
+ "fid": "f00150",
+ "kind": "code",
+ "type": "ceil",
+ "params": [
+  null,
+  [
+   2.2,
+   -1.7,
+   -4.0,
+   2.6,
+   -4.3,
+   5.0
+  ]
+ ],
+ "name": "ceil;polynomial;multiply_two(None, [2.2, -1.7, -4.0, 2.6, -4.3, 5.0])",
+ "dir": "f00150",
+ "approx_mse_error": 3.7239476288071916e+23,
+ "corruption_type": "interval_smaller",
+ "corruption_params": {
+  "std": 332299242011.0393,
+  "boundary": [
+   -31.4
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "uniform",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": 0.0,
+ "error_corrupted_code_generated": 0.0
+}

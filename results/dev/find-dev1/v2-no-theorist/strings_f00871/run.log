@@ -1,0 +1,28 @@
+Helix Probe v2 on 'find_strings_f00871': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to the simplest possible inputs: empty string, single ...(+111 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.62, fit 1.00, size 177 (exam 0.000 -> 0.625); held-out 6%
+[2] E2 Does the box strip all spaces from the reversed string, or only certain spa...(+97 chars)  (v1 predicted it: match 0.30)
+      updater's model not kept: same scores and not smaller (201 vs 177 chars)
+      model v2 by the updater: exam 0.62, fit 0.65, size 173 (same scores, smaller (177 -> 173 chars)); held-out 6%
+[3] E3 How are runs of internal spaces handled, and is whitespace only collapsed a...(+80 chars)  (v2 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (186 vs 173 chars)
+      updater's model not kept: same scores and not smaller (186 vs 173 chars)
+[4] E4 How does the box treat internal whitespace runs and tabs — does it collapse...(+191 chars)  (v2 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (186 vs 173 chars)
+      updater's model not kept: same scores and not smaller (186 vs 173 chars)
+[5] E5 Does the box collapse internal whitespace runs to a single space and strip ...(+176 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 1.00, fit 1.00, size 183 (exam 0.625 -> 1.000); held-out 100%
+[6] E6 Does the box reverse the order of whitespace-separated tokens (as the curre...(+141 chars)  (v3 predicted it: match 1.00)
+[7] E7 Does the box reverse the whole string's character order when there is no wh...(+140 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the box append the 'I' suffix to the final output even when the input ...(+253 chars)  (v3 predicted it: match 0.40)
+      model v4 by the updater: exam 1.00, fit 1.00, size 244 (fit 0.925 -> 1.000); held-out 100%
+[9] E9 Does the box treat the 'I' suffix as an ordinary character for reversal pur...(+232 chars)  (v4 predicted it: match 1.00)
+[10] E10 Does the box reverse the order of whitespace-separated tokens or only rever...(+198 chars)  (v4 predicted it: match 1.00)
+[11] E11 Does the box's 'I'-suffix rule depend on the last character of the final re...(+181 chars)  (v4 predicted it: match 1.00)
+[12] E12 Does the box's reversal operate on Unicode code points or on grapheme clust...(+196 chars)  (v4 predicted it: match 1.00)
+[13] E13 How does the box handle whitespace-only or empty tokens/inputs when combine...(+181 chars)  (v4 predicted it: match 1.00)
+[14] E14 Does the box always append 'I' after reversal, or does it append 'I' before...(+174 chars)  (v4 predicted it: match 1.00)
+[15] E15 Does the box's 'I'-suffix rule trigger based on the final character of the ...(+327 chars)  (v4 predicted it: match 1.00)
+[16] E16 Does the box's tokenization treat other Unicode whitespace (non-breaking sp...(+233 chars)  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00871", "experiments": 16, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 244, "heldout": 1.0, "llm_calls": 25, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

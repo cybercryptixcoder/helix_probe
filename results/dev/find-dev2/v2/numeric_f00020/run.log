@@ -1,0 +1,14 @@
+Helix Probe v2 on 'find_numeric_f00020': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like at typical, evenly spaced points across the domain, t...(+68 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 321 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 What is the exact shape of the transition near x=120 — is it a sharp step, ...(+60 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the transition near x=120 continue linearly beyond 128, and does the b...(+61 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the linear rise continue smoothly through the whole domain, and is the...(+87 chars)  (v1 predicted it: match 1.00)
+[5] E5 Is the rise actually a smooth curve (e.g. sigmoid or quadratic) rather than...(+82 chars)  (v1 predicted it: match 1.00)
+[6] E6 Is the transition near x=120 a smooth saturating curve (e.g. logistic/sigmo...(+143 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+[7] E7 Is the transition near x=120 actually a smooth sigmoid-like curve symmetric...(+139 chars)  (v1 predicted it: match 1.00)
+[8] E8 Is the flat baseline truly constant (~81) across the whole negative side an...(+165 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the rise continue smoothly past 128 (i.e., is the curve still steepeni...(+153 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00020", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 321, "heldout": 1.0, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

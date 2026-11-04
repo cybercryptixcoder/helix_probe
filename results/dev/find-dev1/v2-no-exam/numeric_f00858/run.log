@@ -1,0 +1,23 @@
+Helix Probe v2 on 'find_numeric_f00858': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 What basic shape does f have across the whole domain, and are there any reg...(+65 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 1.00, size 91 (fit 0.000 -> 1.000); held-out 85%
+[2] E2 Are the nonzero values exactly at the integers -1, 0, 1, or is there a broa...(+86 chars)  (v1 predicted it: match 0.23)
+      model v2 by the updater: exam 0.00, fit 1.00, size 92 (fit 0.615 -> 1.000); held-out 96%
+[3] E3 Where exactly does the plateau end on both sides — is the boundary at ±1.5,...(+92 chars)  (v2 predicted it: match 0.80)
+      model v3 by the updater: exam 0.00, fit 1.00, size 92 (fit 0.933 -> 1.000); held-out 97%
+[4] E4 Where exactly does the plateau end on the right side between 1.5 and 2.0, a...(+101 chars)  (v3 predicted it: match 0.50)
+      model v4 by the updater: exam 0.00, fit 1.00, size 94 (fit 0.875 -> 1.000); held-out 100%
+[5] E5 Is the plateau boundary a hard threshold at ±1.85–1.9, or does it depend on...(+150 chars)  (v4 predicted it: match 1.00)
+[6] E6 Are the plateau edges exactly symmetric and hard at ±1.85, and is the funct...(+87 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (534 vs 94 chars)
+[7] E7 Does the plateau really vanish for x slightly beyond ±1.85, or could there ...(+155 chars)  (v4 predicted it: match 1.00)
+[8] E8 Is the plateau boundary a simple hard threshold in x, or could it depend on...(+172 chars)  (v4 predicted it: match 1.00)
+[9] E9 Is the transition at the plateau edges a sharp step in x, or does it depend...(+154 chars)  (v4 predicted it: match 1.00)
+[10] E10 Is the plateau truly a constant 1, or does f vary inside [-1.85,1.85] (e.g....(+86 chars)  (v4 predicted it: match 1.00)
+[11] E11 Does the plateau boundary depend on scale or periodicity at much finer reso...(+161 chars)  (v4 predicted it: match 1.00)
+[12] E12 Is the 0/1 plateau exactly symmetric and hard at ±1.85, or does the boundar...(+138 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (365 vs 94 chars)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00858", "experiments": 12, "exam_probes": 0, "model_version": 4, "model_role": "updater", "exam": 0.0, "fit": 1.0, "size": 94, "heldout": 1.0, "llm_calls": 18, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

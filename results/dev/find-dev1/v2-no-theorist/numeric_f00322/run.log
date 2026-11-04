@@ -1,0 +1,13 @@
+Helix Probe v2 on 'find_numeric_f00322': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What is the broad shape of f across the whole domain, including sign, magni...(+45 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 64 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is f truly constant at 53 everywhere, or does it change at very fine scales...(+59 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does f differ from 53.0 at extreme boundary values or at exact endpoints of...(+169 chars)  (v1 predicted it: match 1.00)
+[4] E4 Is f exactly constant at 53.0, or could it be a value like 53 plus a tiny p...(+146 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does f remain exactly 53.0 at irrational/non-grid values and at values just...(+142 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does f deviate from 53.0 at very large-magnitude non-integer values or near...(+126 chars)  (v1 predicted it: match 1.00)
+[7] E7 Does f ever return anything other than 53.0 when probed at many distinct va...(+189 chars)  (v1 predicted it: match 1.00)
+[8] E8 Is f still exactly 53.0 at highly irregular, widely scattered, non-grid val...(+168 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does f depend on x only through a coarse quantization/rounding (e.g., floor...(+122 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00322", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 64, "heldout": 1.0, "llm_calls": 10, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

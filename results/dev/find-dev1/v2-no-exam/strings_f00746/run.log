@@ -1,0 +1,8 @@
+Helix Probe v2 on 'find_strings_f00746': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 How does f treat basic strings of different categories (plain lowercase wor...(+162 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 1.00, size 495 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 Does the letter shift apply only to the first character, or to every letter...(+76 chars)  (v1 predicted it: match 1.00)
+[3] E3 How does the first-character letter shift behave at the alphabet boundaries...(+119 chars)  (v1 predicted it: match 0.80)
+      model v2 by the updater: exam 0.00, fit 1.00, size 571 (fit 0.933 -> 1.000); held-out 100%
+[4] E4 Does the first-character shift apply to non-ASCII letters by codepoint+2 fo...(+125 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the model's rule hold when the first character is a letter that is als...(+241 chars)  (v2 predicted it: match 1.00)

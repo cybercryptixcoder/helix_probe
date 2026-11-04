@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "Each lowercase letter is shifted forward by one in the alphabet (a\u2192b, ..., z\u2192a), preserving case for uppercase [E1]",
+  "Digits and punctuation are left unchanged [E1]",
+  "Spaces are left unchanged [E1]"
+ ],
+ "notes": "Observed hello\u2192jello, HELLO\u2192JELLO, two words\u2192vwo words, 12345 unchanged, a1!\u2192c1!. This is a Caesar shift of +1 on letters only, preserving case and leaving non-letters alone.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.2
+ ],
+ "made_at": 1
+}

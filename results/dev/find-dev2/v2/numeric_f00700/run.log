@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00700': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Does f behave like a simple smooth function (e.g., linear/quadratic) across...(+60 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 249 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Do the rounding boundaries sit exactly at integers on the positive side (e....(+180 chars)  (v1 predicted it: match 1.00)
+[3] E3 Are the integer-boundary values exactly on the ceil rule at larger magnitud...(+94 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the sign-based offset apply exactly at the integer boundary x=0 and at...(+108 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the rule hold on ordinary non-boundary values across a wide range, inc...(+141 chars)  (v1 predicted it: match 1.00)
+[6] E6 Do the ceil-based rules hold on a dense spread of ordinary fractional and i...(+157 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (460 vs 249 chars)
+[7] E7 Does the ceil(x)±1 rule hold for ordinary values very close to integers (wi...(+113 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the ceil(x)±1 rule hold for values very close to zero on both sides an...(+132 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the ceil(x)±1 rule hold for a random spread of ordinary fractional val...(+164 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00700", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 249, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

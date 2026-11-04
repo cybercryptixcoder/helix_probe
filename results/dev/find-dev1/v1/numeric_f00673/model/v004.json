@@ -1,0 +1,22 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f is even: f(-x)=f(x) to within noise [E1, E2, E3]",
+  "For |x| >= ~1, f is essentially linear: f(x) \u2248 16.79\u00b7|x| [E1, E2, E3]",
+  "The linear slope is slightly sublinear at very large |x|: f(127)=2131.6 vs 16.79\u00b7127=2132, f(128)=2151.2 vs 2149 [E1]",
+  "There is a special interval roughly |x| < 1 where f deviates from the linear law, with a dip near x=0 [E3, E4]",
+  "Inside |x|<1 the function is mostly monotone increasing but with a small dip/plateau near x\u22480.04-0.08 and x\u22480.15-0.22 (values ~0.3-0.5), then rises smoothly to meet the linear law at |x|=1 [E3, E4]",
+  "The near-zero region is noisy/erratic (e.g. f(0.1)=1.65 vs f(0.15)=0.33), so exact values there are unpredictable; only the envelope is captured [E3, E4]",
+  "The transition from the near-zero dip to the linear regime happens around |x|\u22480.5-1 [E3, E4]"
+ ],
+ "notes": "E4 shows the near-zero region is mostly a smooth monotone rise (not a symmetric quadratic dip), with a small erratic dip near 0.04-0.08 and 0.15-0.22. Replaced the x^1.5 ramp with a smoother monotone ramp that better matches E4's envelope, keeping the erratic near-zero caveat.",
+ "fit": 0.5,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.7,
+  0.65
+ ],
+ "made_at": 4
+}

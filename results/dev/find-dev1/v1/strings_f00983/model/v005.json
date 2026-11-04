@@ -1,0 +1,30 @@
+{
+ "version": 5,
+ "beliefs": [
+  "The box shifts each character forward by 8 codepoints, applied independently per character [E1, E2, E3, E6, E8]",
+  "The shift applies uniformly across ASCII, Latin-1, and multi-byte ranges including surrogates and near U+10FFFF [E6, E8]",
+  "A character 't' (0x74) is deleted (maps to empty string) rather than shifted, regardless of context [E13, E14]",
+  "A character '|' (0x7C) maps to '(' (0x28) only when it is the first character or immediately follows a space; otherwise it shifts to 0x84 [E12, E13, E14]",
+  "All other characters including '~' (0x7E -> 0x86) follow the uniform +8 rule [E7, E9, E10, E11]"
+ ],
+ "notes": "E14 shows 't' always deletes (never maps to '('), while '|' keeps its first-or-after-space -> '(' rule; the previous model wrongly applied the '(' rule to 't'.",
+ "fit": 0.6428571428571429,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  0.5,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  0.5,
+  1.0,
+  0.7
+ ],
+ "made_at": 14
+}

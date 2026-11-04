@@ -1,0 +1,36 @@
+{
+ "fid": "f00182",
+ "kind": "code",
+ "type": "relu",
+ "params": [
+  [
+   -8.1,
+   5.2,
+   0.1
+  ],
+  [
+   -14.4,
+   6.0,
+   0.7
+  ]
+ ],
+ "name": "relu;relu;sum_two((-8.1, 5.2, 0.1), (-14.4, 6.0, 0.7))",
+ "dir": "f00182",
+ "approx_mse_error": "not trained",
+ "corruption_type": "interval_larger",
+ "corruption_params": {
+  "std": -281.98181818181837,
+  "boundary": [
+   -35.4
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "uniform",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": 2.255973186038318e-16,
+ "error_corrupted_code_generated": 2.255973186038318e-16
+}

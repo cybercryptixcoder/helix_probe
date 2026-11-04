@@ -1,0 +1,38 @@
+Helix Probe v2 on 'find_strings_f00455': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 What does the box do to basic strings — identity, case change, reversal, le...(+80 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 0.20, size 418 (fit 0.000 -> 0.200); held-out 0%
+[2] E2 Does the shift apply to every character by its ASCII code (so digits, space...(+131 chars)  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 0.00, fit 0.55, size 202 (fit 0.100 -> 0.550); held-out 1%
+[3] E3 Does the +1 shift apply to non-ASCII / multi-byte characters (emoji, accent...(+166 chars)  (v2 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (202 vs 202 chars)
+[4] E4 Does the +1 shift apply per Unicode code point (including astral/emoji and ...(+124 chars)  (v2 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (276 vs 202 chars)
+      theorist (updater stalled)
+[5] E5 Does the box shift per Unicode code point rather than per UTF-16 code unit,...(+92 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 0.00, fit 0.50, size 340 (fit 0.480 -> 0.500); held-out 1%
+[6] E6 Does the shift apply to every code point uniformly, or are there exceptions...(+202 chars)  (v3 predicted it: match 0.30)
+      updater's model not kept: same scores and not smaller (343 vs 340 chars)
+      updater's model not kept: same scores and not smaller (340 vs 340 chars)
+      theorist (every 6 steps)
+      model v4 by the theorist: exam 0.00, fit 0.70, size 802 (fit 0.467 -> 0.700); held-out 1%
+[7] E7 Does the box treat surrogate pairs as a single code point (so a lone surrog...(+344 chars)  (v4 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (802 vs 802 chars)
+      model v5 by the updater: exam 0.00, fit 1.00, size 673 (fit 0.729 -> 1.000); held-out 100%
+[8] E8 Does the capitalize-first step run before the +1 shift on every code point,...(+228 chars)  (v5 predicted it: match 1.00)
+[9] E9 Does the box's capitalize step use Python's str.capitalize() semantics exac...(+217 chars)  (v5 predicted it: match 1.00)
+[10] E10 Does the capitalize step operate on the whole string before any UTF-16 surr...(+308 chars)  (v5 predicted it: match 1.00)
+[11] E11 Does the box's capitalize step use full Unicode case mapping that can chang...(+149 chars)  (v5 predicted it: match 1.00)
+[12] E12 Does the box apply Python's str.capitalize() only to the first 'character' ...(+308 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+[13] E13 Does the box's capitalize step interact with the +1 shift when the capitali...(+258 chars)  (v5 predicted it: match 0.90)
+      updater: keep
+[14] E14 Does the box's capitalize step apply Python str.capitalize() to the whole s...(+307 chars)  (v5 predicted it: match 1.00)
+[15] E15 The model predicts E13 partially wrong (0.90); test whether the UTF-16 enco...(+298 chars)  (v5 predicted it: match 1.00)
+[16] E16 Does the box's capitalize step, when applied to a string whose first charac...(+370 chars)  (v5 predicted it: match 1.00)
+[17] E17 Does the box's capitalize step interact with the +1 shift for characters wh...(+356 chars)  (v5 predicted it: match 1.00)
+[18] E18 Does the UTF-16 encode/decode recombination step happen at all, or is it an...(+282 chars)  (v5 predicted it: match 0.90)
+      updater: keep
+      theorist (every 6 steps)
+[19] E19 Does the box's capitalize step treat a leading lone low surrogate (or leadi...(+289 chars)  (v5 predicted it: match 1.00)
+[20] E20 Does the box's capitalize step treat a leading lone high surrogate followed...(+353 chars)  (v5 predicted it: match 1.00)
+{"env": "find_strings_f00455", "experiments": 20, "exam_probes": 0, "model_version": 5, "model_role": "updater", "exam": 0.0, "fit": 0.99, "size": 673, "heldout": 1.0, "llm_calls": 37, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

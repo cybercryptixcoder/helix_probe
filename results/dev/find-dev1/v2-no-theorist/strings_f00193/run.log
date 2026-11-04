@@ -1,0 +1,24 @@
+Helix Probe v2 on 'find_strings_f00193': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Does the box simply echo its input, transform it in some way, or return a f...(+95 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 394 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the -2 shift apply only to the first character, or to every character ...(+90 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the -2 shift apply to the first character of every string, or only to ...(+149 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the box transform only the first character of the whole input string, ...(+192 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the -2 shift wrap around the alphabet correctly for letters near the s...(+239 chars)  (v1 predicted it: match 0.80)
+      updater's model not kept: its exam is 0.708, the current model's is 1.000
+      model v2 by the updater: exam 1.00, fit 1.00, size 510 (fit 0.960 -> 1.000); held-out 100%
+[6] E6 Does the -2 shift apply to Unicode letters beyond Latin-1 (e.g. Greek, Cyri...(+101 chars)  (v2 predicted it: match 1.00)
+[7] E7 Does the box shift the first character by -2 code points even when that cha...(+176 chars)  (v2 predicted it: match 1.00)
+[8] E8 Is the appended suffix really the constant 'JTQL', or is it derived from th...(+212 chars)  (v2 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (510 vs 510 chars)
+      model v3 by the updater: exam 1.00, fit 1.00, size 435 (fit 0.988 -> 1.000); held-out 100%
+[9] E9 Does the -2 shift apply to the first character when it is a letter whose co...(+503 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the box really append the literal constant 'JTQL', or does it append a...(+361 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the -2 shift apply to the first character when that character is a let...(+276 chars)  (v3 predicted it: match 1.00)
+[12] E12 Does the -2 shift on the first character wrap alphabetically for non-ASCII ...(+195 chars)  (v3 predicted it: match 1.00)
+[13] E13 Does the box append 'JTQL' literally even when the input contains character...(+246 chars)  (v3 predicted it: match 1.00)
+[14] E14 Does the -2 shift on the first character apply to non-ASCII letters by raw ...(+336 chars)  (v3 predicted it: match 1.00)
+[15] E15 Is the shift applied to the first code point of the input always a raw -2 c...(+210 chars)  (v3 predicted it: match 1.00)
+[16] E16 Is the -2 shift on the first character truly a raw code-point subtraction f...(+318 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00193", "experiments": 16, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 435, "heldout": 1.0, "llm_calls": 21, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

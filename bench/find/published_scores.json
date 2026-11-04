@@ -1,0 +1,1391 @@
+{
+ "gpt-3.5-turbo": {
+  "numeric": {
+   "f00003": {
+    "score": 0.0,
+    "nmse": 22772.772237860372,
+    "error": null
+   },
+   "f00030": {
+    "score": 0.0,
+    "nmse": 0.21450600034382425,
+    "error": null
+   },
+   "f00033": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00065": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00085": {
+    "score": 0.0,
+    "nmse": 0.48975679201802474,
+    "error": null
+   },
+   "f00093": {
+    "score": 0.0,
+    "nmse": 0.22883303944935152,
+    "error": null
+   },
+   "f00124": {
+    "score": 0.0,
+    "nmse": 6.885779382148659e+100,
+    "error": null
+   },
+   "f00128": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00132": {
+    "score": 0.0,
+    "nmse": null,
+    "error": "NameError: name 'a' is not defined"
+   },
+   "f00136": {
+    "score": 0.0,
+    "nmse": 853.6361333608448,
+    "error": null
+   },
+   "f00150": {
+    "score": 0.0,
+    "nmse": null,
+    "error": "NameError: name 'x' is not defined"
+   },
+   "f00160": {
+    "score": 0.0,
+    "nmse": 1399907.1478679634,
+    "error": null
+   },
+   "f00182": {
+    "score": 0.0,
+    "nmse": 0.9224087400394753,
+    "error": null
+   },
+   "f00287": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00294": {
+    "score": 1.0,
+    "nmse": 0.00013370273883857745,
+    "error": null
+   },
+   "f00311": {
+    "score": 0.0,
+    "nmse": 0.7542196700023324,
+    "error": null
+   },
+   "f00344": {
+    "score": 0.0,
+    "nmse": null,
+    "error": "NameError: name 'FUNCTION_IMPLEMENTATION_HERE' is not defined"
+   },
+   "f00366": {
+    "score": 0.0,
+    "nmse": 5440.03431661527,
+    "error": null
+   },
+   "f00367": {
+    "score": 0.0,
+    "nmse": 0.999744578669197,
+    "error": null
+   },
+   "f00469": {
+    "score": 0.0,
+    "nmse": 1.0,
+    "error": null
+   },
+   "f00470": {
+    "score": 0.0,
+    "nmse": 0.9999999923781984,
+    "error": null
+   },
+   "f00493": {
+    "score": 0.0,
+    "nmse": 36033292.82417234,
+    "error": null
+   },
+   "f00524": {
+    "score": 0.0,
+    "nmse": 1.0,
+    "error": null
+   },
+   "f00529": {
+    "score": 1.0,
+    "nmse": 8.729947657058804e-05,
+    "error": null
+   },
+   "f00550": {
+    "score": 0.0,
+    "nmse": 1.0,
+    "error": null
+   },
+   "f00595": {
+    "score": 1.0,
+    "nmse": 0.008906743270222879,
+    "error": null
+   },
+   "f00630": {
+    "score": 0.0,
+    "nmse": 1.5296757666309801,
+    "error": null
+   },
+   "f00657": {
+    "score": 1.0,
+    "nmse": 0.0,
+    "error": null
+   },
+   "f00683": {
+    "score": 0.0,
+    "nmse": 2.5237801581701826,
+    "error": null
+   },
+   "f00737": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00778": {
+    "score": 0.0,
+    "nmse": 1.5787870102472283,
+    "error": null
+   },
+   "f00794": {
+    "score": 0.0,
+    "nmse": 2.1688678008798886e+108,
+    "error": null
+   },
+   "f00809": {
+    "score": 0.0,
+    "nmse": 108.29257720623119,
+    "error": null
+   },
+   "f00855": {
+    "score": 1.0,
+    "nmse": 4.9872824298039995e-05,
+    "error": null
+   },
+   "f00871": {
+    "score": 0.0,
+    "nmse": null,
+    "error": "unusable outputs"
+   },
+   "f00879": {
+    "score": 0.0,
+    "nmse": 1.471566655424368,
+    "error": null
+   },
+   "f00902": {
+    "score": 0.0,
+    "nmse": 0.9999999482420611,
+    "error": null
+   },
+   "f00942": {
+    "score": 0.0,
+    "nmse": 5.69668001708921,
+    "error": null
+   },
+   "f00970": {
+    "score": 0.0,
+    "nmse": null,
+    "error": "SyntaxError: invalid syntax (candidate.py, line 8)"
+   },
+   "f00991": {
+    "score": 0.0,
+    "nmse": null,
+    "error": "NameError: name 'a' is not defined"
+   }
+  },
+  "strings": {
+   "f00019": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00020": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00047": {
+    "score": 0.3,
+    "error": null
+   },
+   "f00056": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00067": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00085": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00099": {
+    "score": 0.9,
+    "error": null
+   },
+   "f00142": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00163": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00166": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00170": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00233": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00241": {
+    "score": 0.2,
+    "error": null
+   },
+   "f00243": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00308": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00323": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00346": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00352": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00387": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00410": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00436": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00444": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00478": {
+    "score": 0.4,
+    "error": null
+   },
+   "f00539": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00541": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00542": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00546": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00612": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00614": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00634": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00677": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00751": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00776": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00785": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00795": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00865": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00898": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00904": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00941": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00944": {
+    "score": 0.2,
+    "error": null
+   }
+  }
+ },
+ "gpt-4": {
+  "numeric": {
+   "f00003": {
+    "score": 0.0,
+    "nmse": 0.31715545531848965,
+    "error": null
+   },
+   "f00030": {
+    "score": 0.0,
+    "nmse": 0.2437016190534527,
+    "error": null
+   },
+   "f00033": {
+    "score": 0.0,
+    "nmse": 43.437717421384086,
+    "error": null
+   },
+   "f00065": {
+    "score": 1.0,
+    "nmse": 0.03247063708127564,
+    "error": null
+   },
+   "f00085": {
+    "score": 0.0,
+    "nmse": 0.49071514226839946,
+    "error": null
+   },
+   "f00093": {
+    "score": 0.0,
+    "nmse": 14.443982021749576,
+    "error": null
+   },
+   "f00124": {
+    "score": 0.0,
+    "nmse": 0.7428300245300029,
+    "error": null
+   },
+   "f00128": {
+    "score": 0.0,
+    "nmse": 0.30672131829510674,
+    "error": null
+   },
+   "f00132": {
+    "score": 1.0,
+    "nmse": 1.350012662278047e-05,
+    "error": null
+   },
+   "f00136": {
+    "score": 0.0,
+    "nmse": null,
+    "error": "NameError: name 'np' is not defined"
+   },
+   "f00150": {
+    "score": 0.0,
+    "nmse": 1.000000001334811,
+    "error": null
+   },
+   "f00160": {
+    "score": 1.0,
+    "nmse": 3.5604927721996724e-05,
+    "error": null
+   },
+   "f00182": {
+    "score": 0.0,
+    "nmse": 0.20549663039522098,
+    "error": null
+   },
+   "f00287": {
+    "score": 0.0,
+    "nmse": 0.5370853339972682,
+    "error": null
+   },
+   "f00294": {
+    "score": 0.0,
+    "nmse": 0.2679010048381096,
+    "error": null
+   },
+   "f00311": {
+    "score": 0.0,
+    "nmse": 0.587063068497495,
+    "error": null
+   },
+   "f00344": {
+    "score": 0.0,
+    "nmse": 0.9890975992440969,
+    "error": null
+   },
+   "f00366": {
+    "score": 1.0,
+    "nmse": 0.0002705188551642055,
+    "error": null
+   },
+   "f00367": {
+    "score": 0.0,
+    "nmse": 0.16876223183689384,
+    "error": null
+   },
+   "f00469": {
+    "score": 0.0,
+    "nmse": 32.0,
+    "error": null
+   },
+   "f00470": {
+    "score": 0.0,
+    "nmse": 575.1209563301323,
+    "error": null
+   },
+   "f00493": {
+    "score": 0.0,
+    "nmse": 1.0000058666532454,
+    "error": null
+   },
+   "f00524": {
+    "score": 0.0,
+    "nmse": 1.0,
+    "error": null
+   },
+   "f00529": {
+    "score": 0.0,
+    "nmse": 61266.78106580397,
+    "error": null
+   },
+   "f00550": {
+    "score": 0.0,
+    "nmse": null,
+    "error": "NameError: name 'a' is not defined"
+   },
+   "f00595": {
+    "score": 1.0,
+    "nmse": 0.00970157364347346,
+    "error": null
+   },
+   "f00630": {
+    "score": 1.0,
+    "nmse": 1.7122154803128586e-32,
+    "error": null
+   },
+   "f00657": {
+    "score": 1.0,
+    "nmse": 0.0,
+    "error": null
+   },
+   "f00683": {
+    "score": 0.0,
+    "nmse": 3.0919271853797716,
+    "error": null
+   },
+   "f00737": {
+    "score": 0.0,
+    "nmse": null,
+    "error": "NameError: name 'math' is not defined"
+   },
+   "f00778": {
+    "score": 0.0,
+    "nmse": 1.0650453077271733,
+    "error": null
+   },
+   "f00794": {
+    "score": 0.0,
+    "nmse": 1460.645834122416,
+    "error": null
+   },
+   "f00809": {
+    "score": 0.0,
+    "nmse": 53.76256418528515,
+    "error": null
+   },
+   "f00855": {
+    "score": 1.0,
+    "nmse": 2.4936412149019997e-05,
+    "error": null
+   },
+   "f00871": {
+    "score": 0.0,
+    "nmse": 0.46529589635989527,
+    "error": null
+   },
+   "f00879": {
+    "score": 0.0,
+    "nmse": 0.5754873966941231,
+    "error": null
+   },
+   "f00902": {
+    "score": 0.0,
+    "nmse": 0.20488785797928083,
+    "error": null
+   },
+   "f00942": {
+    "score": 0.0,
+    "nmse": 0.17736837586726784,
+    "error": null
+   },
+   "f00970": {
+    "score": 0.0,
+    "nmse": 91.01598319855742,
+    "error": null
+   },
+   "f00991": {
+    "score": 0.0,
+    "nmse": 1.7968483244425075,
+    "error": null
+   }
+  },
+  "strings": {
+   "f00019": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00020": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00047": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00056": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00067": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00085": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00099": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00142": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00163": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00166": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00170": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00233": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00241": {
+    "score": 0.2,
+    "error": null
+   },
+   "f00243": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00308": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00323": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00346": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00352": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00387": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00410": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00436": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00444": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00478": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00539": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00541": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00542": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00546": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00612": {
+    "score": 0.0,
+    "error": "KeyError: 'duplicate_vowels'"
+   },
+   "f00614": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00634": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00677": {
+    "score": 0.0,
+    "error": "KeyError: '\"'"
+   },
+   "f00751": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00776": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00785": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00795": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00865": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00898": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00904": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00941": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00944": {
+    "score": 0.2,
+    "error": null
+   }
+  }
+ },
+ "llama-2-13b": {
+  "numeric": {
+   "f00003": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00030": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00033": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00065": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00085": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00093": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00124": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00128": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00132": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00136": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00150": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00160": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00182": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00287": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00294": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00311": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00344": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00366": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00367": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00469": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00470": {
+    "score": 0.0,
+    "nmse": 3.313883707121413e+84,
+    "error": null
+   },
+   "f00493": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00524": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00529": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00550": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00595": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00630": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00657": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00683": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00737": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00778": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00794": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00809": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00855": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00871": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00879": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00902": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00942": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00970": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00991": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   }
+  },
+  "strings": {
+   "f00019": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00047": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00056": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00067": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00085": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00099": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00142": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00163": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00166": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00170": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00233": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00241": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00243": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00346": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00352": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00387": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00436": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00444": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00478": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00539": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00541": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00542": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00546": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00612": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00614": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00634": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00677": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00751": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00776": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00785": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00795": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00865": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00898": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00904": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00941": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00944": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   }
+  }
+ },
+ "llama-2-70b": {
+  "numeric": {
+   "f00003": {
+    "score": 0.0,
+    "nmse": 0.9997242105107624,
+    "error": null
+   },
+   "f00030": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00033": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00065": {
+    "score": 0.0,
+    "nmse": 2158.010347731247,
+    "error": null
+   },
+   "f00085": {
+    "score": 0.0,
+    "nmse": 1.0000671646141737,
+    "error": null
+   },
+   "f00093": {
+    "score": 0.0,
+    "nmse": null,
+    "error": "SyntaxError: expected '(' (candidate.py, line 15)"
+   },
+   "f00124": {
+    "score": 0.0,
+    "nmse": 0.9871382329771764,
+    "error": null
+   },
+   "f00128": {
+    "score": 0.0,
+    "nmse": 1.1443900937857348,
+    "error": null
+   },
+   "f00132": {
+    "score": 0.0,
+    "nmse": 0.3330694761361942,
+    "error": null
+   },
+   "f00136": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00150": {
+    "score": 0.0,
+    "nmse": 1.0000000000001048,
+    "error": null
+   },
+   "f00160": {
+    "score": 0.0,
+    "nmse": 0.5735689759212614,
+    "error": null
+   },
+   "f00182": {
+    "score": 0.0,
+    "nmse": 1.2276468489041257,
+    "error": null
+   },
+   "f00287": {
+    "score": 0.0,
+    "nmse": 1.1298593476923886,
+    "error": null
+   },
+   "f00294": {
+    "score": 1.0,
+    "nmse": 0.024927979710264784,
+    "error": null
+   },
+   "f00311": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00344": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00366": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00367": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00469": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00470": {
+    "score": 0.0,
+    "nmse": 0.9999999998772349,
+    "error": null
+   },
+   "f00493": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00524": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00529": {
+    "score": 0.0,
+    "nmse": 1.3682649986744145e+72,
+    "error": null
+   },
+   "f00550": {
+    "score": 0.0,
+    "nmse": 389134.17213186057,
+    "error": null
+   },
+   "f00595": {
+    "score": 0.0,
+    "nmse": 9693.862368323673,
+    "error": null
+   },
+   "f00630": {
+    "score": 0.0,
+    "nmse": 1.7888445988145862,
+    "error": null
+   },
+   "f00657": {
+    "score": 0.0,
+    "nmse": 2.0,
+    "error": null
+   },
+   "f00683": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00737": {
+    "score": 0.0,
+    "nmse": 64652.41269168068,
+    "error": null
+   },
+   "f00778": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00794": {
+    "score": 0.0,
+    "nmse": 4718.4235319477375,
+    "error": null
+   },
+   "f00809": {
+    "score": 0.0,
+    "nmse": 57232134.56695274,
+    "error": null
+   },
+   "f00855": {
+    "score": 0.0,
+    "nmse": 9.71577477432547,
+    "error": null
+   },
+   "f00871": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00879": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00902": {
+    "score": 0.0,
+    "nmse": 0.9999335496100742,
+    "error": null
+   },
+   "f00942": {
+    "score": 0.0,
+    "nmse": 1.5463299884527044,
+    "error": null
+   },
+   "f00970": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00991": {
+    "score": 0.0,
+    "nmse": 0.9574564113248675,
+    "error": null
+   }
+  },
+  "strings": {
+   "f00019": {
+    "score": 0.3,
+    "error": null
+   },
+   "f00020": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00047": {
+    "score": 0.3,
+    "error": null
+   },
+   "f00056": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00067": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00085": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00099": {
+    "score": 0.0,
+    "error": "TypeError: f() missing 1 required positional argument: 'y'"
+   },
+   "f00142": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00163": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00166": {
+    "score": 0.4,
+    "error": null
+   },
+   "f00170": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00233": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00241": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00243": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00308": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00323": {
+    "score": 0.0,
+    "error": "IndentationError: expected an indented block after 'else' statement on line 11 (candidate.py, line 11)"
+   },
+   "f00346": {
+    "score": 0.2,
+    "error": null
+   },
+   "f00352": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00387": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00410": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00436": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00444": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00478": {
+    "score": 0.4,
+    "error": null
+   },
+   "f00539": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00541": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00542": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00546": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00612": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00614": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00634": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00677": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00751": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00776": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00785": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00795": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00865": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00898": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00904": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   },
+   "f00941": {
+    "score": 0.0,
+    "error": null
+   },
+   "f00944": {
+    "score": 0.0,
+    "error": "no function in code.py"
+   }
+  }
+ }
+}

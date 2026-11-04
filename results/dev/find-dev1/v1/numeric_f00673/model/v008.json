@@ -1,0 +1,33 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f is even in distribution: f(-x) and f(x) have the same mean and spread, though individual noisy calls differ [E1, E2, E9]",
+  "For |x| >= ~1, f is essentially linear: f(x) \u2248 16.8\u00b7|x|, with slight sublinearity at very large |x| [E1]",
+  "There is a special interval roughly |x| < 1 where f deviates from the linear law, with a dip near x=0 [E3, E4, E5]",
+  "Inside |x|<1 the function is call-to-call noisy: repeating the same x gives different values each call [E8, E10, E11, E12]",
+  "The noise is not deterministic in x; scatter at fixed x (e.g. 0.05 gives -0.09 to 3.1) is comparable to scatter across nearby x [E11, E12]",
+  "The mean of f in the special interval rises roughly linearly from ~0 at 0 to ~16.8 at 1 [E5, E7, E8]",
+  "Noise magnitude grows with |x| in the special interval (small near 0, larger near 1) [E8, E11, E12]",
+  "The erratic behavior is NOT confined to |x|<1: repeated calls at 0.95, 1.05, and even 1.5 show scatter comparable to the special interval, so noise persists past 1 [E13]",
+  "The mean at |x|>=1 is close to 16.8|x| but individual calls scatter by roughly \u00b11 to \u00b12, growing slowly with |x| [E13]"
+ ],
+ "notes": "E13 shows call-to-call scatter at 0.95, 1.05, and 1.5 (spreads ~1-2), so the 'clean linear regime' belief is wrong: noise continues past 1. I keep the mean ramp 16.79|x| everywhere but now report the mean (best point estimate) and note noise persists; predict() still returns the mean since noise is unpredictable, but the belief set now reflects that |x|>=1 is also noisy.",
+ "fit": 0.15384615384615385,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.5,
+  0.7,
+  0.4,
+  0.15,
+  0.5,
+  0.4,
+  0.45,
+  0.35,
+  0.6,
+  0.4,
+  0.9
+ ],
+ "made_at": 13
+}

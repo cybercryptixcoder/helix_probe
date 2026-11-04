@@ -1,0 +1,29 @@
+{
+ "fid": "f00673",
+ "kind": "code",
+ "type": "simple",
+ "params": [
+  16.8,
+  2.1
+ ],
+ "name": "absolute((16.8, 2.1))",
+ "dir": "f00673",
+ "approx_mse_error": "not trained",
+ "corruption_type": "interval_inside",
+ "corruption_params": {
+  "std": 850.5848484848485,
+  "boundary": [
+   96.5,
+   107.01762159821828
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "normal",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": -2.0999999999999743,
+ "error_corrupted_code_generated": -2.0999999999999743
+}

@@ -1,0 +1,25 @@
+{
+ "version": 6,
+ "beliefs": [
+  "With all controls at minimum and switch off, the dot is at (0,0) with size 1.0 [E1]",
+  "Switch on with all dials at minimum moves the dot to y=10, leaving x and size unchanged [E2]",
+  "Dial a moves the dot in x and increases size: a=5 gives x=10 and size=3.5, suggesting x=2a and size=1+0.5a [E3]",
+  "Dial b moves the dot in x negatively: b=5 gives x=-5 with size unchanged, suggesting x=-b [E4]",
+  "Dial c moves the dot in y and increases size: c=5 gives y=5 and size=3.5, suggesting y=c and size=1+0.5c [E5]",
+  "The switch does not add to y when c is nonzero; c=5 with switch on gives y=5, not 15 [E6]",
+  "How the switch combines with c is still unclear: it may set y to max(c,10) or only apply when c=0 [E2, E6]",
+  "How a and c combine on size (additive vs max) is still unknown?"
+ ],
+ "notes": "E6 shows the switch does not simply add 10 to y when c is nonzero. I changed the switch rule to y = max(c, 10) when on, which fits both E2 (c=0 -> 10) and E6 (c=5 -> 5), but this is a best guess.",
+ "fit": 0.8333333333333334,
+ "heldout": 0.02,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.6666666666666666
+ ],
+ "made_at": 6
+}

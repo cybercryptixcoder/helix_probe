@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I modeled the box as piecewise: linear (slope \u224816.8) for |x|\u22651 and quadratic near zero with a small offset, matching E1's pattern where values grow linearly at large magnitudes but flatten quadratically inside (-1,1).", "exam": 0.425, "fit": 0.55, "fit_exact": 0.0, "size": 329, "matches": [0.55], "made_at": 1, "heldout": 0.0}

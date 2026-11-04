@@ -1,0 +1,29 @@
+{
+ "version": 7,
+ "beliefs": [
+  "For strings of length 1, the single character is lowercased and '10' is prepended [E2, E4, E8]",
+  "For strings of length >=2, the first character is titlecased (str.title(), which may expand to multiple chars like '\u00df'->'Ss', '\ufb01'->'Fi', '\u01c6'->'\u01c5') [E1, E2, E4, E9]",
+  "All characters after the first are lowercased [E1, E2, E3]",
+  "The '10' is inserted at index floor(len/2) of the original string length, computed on the lowercased-rest string BEFORE titlecasing the first char [E2, E4, E5, E6, E7, E9]",
+  "Order of operations: lowercase rest, insert '10' at floor(len/2), then titlecase the first character (which may grow the string) [E9]",
+  "For '\u00dfabc' -> 'Ssa10bc': '10' goes at index 2 (floor(4/2)), then '\u00df'->'Ss' expands [E9]",
+  "For '\u00df\u00df' -> 'Ss10\u00df': '10' at index 1, then '\u00df'->'Ss' [E9]",
+  "For '\u01c6abc' -> '\u01c5a10bc': titlecase of '\u01c6' is '\u01c5' (not upper '\u01c4') [E9]",
+  "For '\ufb01abc' -> 'Fia10bc' and '\ufb00ab' -> 'Ff10ab': titlecase expands ligatures [E9]"
+ ],
+ "notes": "E9 revealed the first char is titlecased (not uppercased) and that '10' insertion uses the original length on the pre-titlecase string, then the first char is titlecased last (allowing length expansion).",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 9
+}

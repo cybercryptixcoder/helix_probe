@@ -1,0 +1,10 @@
+{
+ "fid": "f00898",
+ "type": "compose",
+ "params": [
+  [],
+  "f"
+ ],
+ "name": "duplicate_last_letter;insert_letter;compose_1input_1input((), f)",
+ "dir": "f00898"
+}

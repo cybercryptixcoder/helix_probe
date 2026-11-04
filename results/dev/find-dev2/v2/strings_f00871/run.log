@@ -1,0 +1,26 @@
+Helix Probe v2 on 'find_strings_f00871': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary short inputs: plain lowercase words, words...(+61 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.38, fit 0.70, size 203 (exam 0.000 -> 0.375); held-out 0%
+[2] E2 Does the box reverse only the characters, or does it also reverse word orde...(+111 chars)  (v1 predicted it: match 0.30)
+      model v2 by the updater: exam 1.00, fit 1.00, size 260 (exam 0.375 -> 1.000); held-out 100%
+[3] E3 Does the box treat punctuation as part of the word, or as a separate token,...(+182 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the box treat tabs, newlines, and other whitespace as word separators ...(+151 chars)  (v2 predicted it: match 1.00)
+[5] E5 How does the box handle words that are purely punctuation or contain punctu...(+137 chars)  (v2 predicted it: match 1.00)
+[6] E6 How does the box handle mixed-case words, digits attached to letters, and p...(+185 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (620 vs 260 chars)
+[7] E7 Does the box reverse the order of characters within each whitespace-separat...(+183 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the box always append a trailing 'I', or does it append something else...(+189 chars)  (v2 predicted it: match 0.40)
+      model v3 by the updater: exam 1.00, fit 1.00, size 333 (fit 0.925 -> 1.000); held-out 100%
+[9] E9 Does the box append 'I' based on whether the final reversed string ends wit...(+196 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the box's 'no extra I' rule depend on the final reversed string ending...(+231 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the box use Python-style split() on all whitespace (so leading/trailin...(+200 chars)  (v3 predicted it: match 1.00)
+[12] E12 Does the trailing-I rule depend only on whether the joined reversed result ...(+206 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (761 vs 333 chars)
+[13] E13 Does the trailing-I suppression rule depend on the final joined result endi...(+186 chars)  (v3 predicted it: match 1.00)
+[14] E14 Does the trailing-I suppression rule look only at whether the final charact...(+407 chars)  (v3 predicted it: match 1.00)
+[15] E15 Does the trailing-I suppression rule compare the final character of the joi...(+217 chars)  (v3 predicted it: match 1.00)
+[16] E16 Does the trailing-I suppression rule fire based on the exact final characte...(+244 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00871", "experiments": 16, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 333, "heldout": 1.0, "llm_calls": 21, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

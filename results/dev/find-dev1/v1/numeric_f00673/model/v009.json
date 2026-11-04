@@ -1,0 +1,36 @@
+{
+ "version": 9,
+ "beliefs": [
+  "f is even in distribution: f(-x) and f(x) share the same mean and spread, though individual noisy calls differ [E1, E2, E9, E14]",
+  "The mean of f is essentially 16.79\u00b7|x| across the whole domain, with no detectable sublinearity up to |x|=128 [E14, E15, E16]",
+  "There is call-to-call noise everywhere, including large |x|; it is multiplicative, roughly 0.5-1% relative scatter, so spread grows with |x| [E14, E15, E16]",
+  "At large |x| the mean matches 16.79\u00b7|x| closely (e.g. ~537.3 at x=32, ~1075.2 at x=64), so the linear law holds with no offset [E16]",
+  "Inside |x|<1 the mean is also close to 16.79\u00b7|x| (mean ~0.9 at x=0.1, ~8.4 at x=0.5), so the linear law holds there too [E17]",
+  "Inside |x|<1 the noise amplitude is roughly proportional to |x| (spread ~0.6 at x=0.1, ~0.7 at x=0.5) rather than a fixed absolute scatter [E17]",
+  "The noise is not deterministic in x; repeating the same x gives different values each call [E8, E10, E11, E12, E17]",
+  "The relative noise is larger at small |x| (a few percent) than at large |x| (~0.5-1%), so it is not a single constant relative scatter [E17 vs E15, E16]"
+ ],
+ "notes": "Replaced the dip/sublinearity story with a clean 16.79|x| mean plus multiplicative call-to-call noise everywhere; noise is relatively larger at small |x| and settles to ~0.5-1% at large |x|. predict() returns the mean (deterministic) since noise is unpredictable per call.",
+ "fit": 0.29411764705882354,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.5,
+  0.7,
+  0.4,
+  0.15,
+  0.5,
+  0.4,
+  0.45,
+  0.35,
+  0.6,
+  0.4,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  0.45
+ ],
+ "made_at": 17
+}

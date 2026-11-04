@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00020': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What is the basic shape and scale of f across the full input range, includi...(+46 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 394 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the sharp rise near x=128 a narrow boundary effect confined to the very ...(+108 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the sharp rise near x=128 also occur symmetrically near x=-128, and wh...(+84 chars)  (v1 predicted it: match 1.00)
+[4] E4 Is the small dip/trough near x=0 real, and what is the exact shape of the i...(+58 chars)  (v1 predicted it: match 1.00)
+[5] E5 Is the sharp rise near x=128 a smooth function of x (so that intermediate v...(+174 chars)  (v1 predicted it: match 1.00)
+[6] E6 What is the exact functional form of the upper ramp near x=128 — is it line...(+67 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (945 vs 394 chars)
+[7] E7 Is the upper ramp near x=128 exactly linear with a single threshold, and wh...(+179 chars)  (v1 predicted it: match 1.00)
+[8] E8 Is the upper ramp exactly linear all the way to the domain edge, or does it...(+120 chars)  (v1 predicted it: match 1.00)
+[9] E9 What is the precise shape and extent of the interior dip near x=0 — is it a...(+84 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00020", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 394, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

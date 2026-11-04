@@ -1,0 +1,10 @@
+{
+ "fid": "f00546",
+ "type": "compose",
+ "params": [
+  [],
+  "AKml"
+ ],
+ "name": "reverse_words;string_concatenate;compose_1input_1input((), AKml)",
+ "dir": "f00546"
+}

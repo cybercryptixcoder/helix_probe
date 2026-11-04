@@ -1,0 +1,10 @@
+{
+ "fid": "f00795",
+ "type": "compose",
+ "params": [
+  [],
+  2
+ ],
+ "name": "shift_last_letter_forward_two;insert_number;compose_1input_1input((), 2)",
+ "dir": "f00795"
+}

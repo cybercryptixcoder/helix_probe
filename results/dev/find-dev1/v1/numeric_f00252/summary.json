@@ -1,0 +1,18 @@
+{
+ "env": "find_numeric_f00252",
+ "experiments": 20,
+ "model_version": 2,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 24,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f(x) is null for all x <= 0 [E1]",
+  "For x > 0, f(x) = 1.1 + 141.0873 * log2(x) exactly [E1, E2]",
+  "The curve is logarithmic (not logistic); the apparent saturation was just log growth [E1, E2]"
+ ]
+}

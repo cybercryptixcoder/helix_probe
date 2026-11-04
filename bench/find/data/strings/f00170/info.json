@@ -1,0 +1,10 @@
+{
+ "fid": "f00170",
+ "type": "compose",
+ "params": [
+  [],
+  "k"
+ ],
+ "name": "reverse_string;string_concatenate;compose_1input_1input((), k)",
+ "dir": "f00170"
+}

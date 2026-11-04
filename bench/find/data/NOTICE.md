@@ -1,0 +1,1 @@
+Functions and evaluation data from FIND (Schwettmann, Rott Shaham, Materzynska, Chowdhury, Li, Andreas, Bau, Torralba; NeurIPS 2023 Datasets and Benchmarks), https://github.com/multimodal-interpretability/FIND, released under the MIT License. Numeric MLP weights converted from the released .pt files; everything else unchanged.

@@ -1,0 +1,48 @@
+Helix Probe on 'find_numeric_f00673': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, sampling widely to reveal ov...(+37 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.30 (was 0.00), held-out 0%
+[2] E2 Is f exactly even and is the near-zero behavior a smooth quadratic a·x²+b, ...(+50 chars)  model v1 match 0.20
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.25), held-out 100%
+[3] E3 How does f behave on the fine-grained region between 0 and 1 (and its negat...(+79 chars)  model v2 match 0.45
+      model v3: fit 67% (was 67%), mean match 0.82 (was 0.82), held-out 100%
+[4] E4 Is the near-zero erratic behavior actually a smooth oscillatory (e.g. trigo...(+106 chars)  model v3 match 0.35
+      model v4: fit 50% (was 50%), mean match 0.84 (was 0.70), held-out 100%
+[5] E5 Is the erratic near-zero behavior (0 to 1) a smooth high-frequency oscillat...(+53 chars)  model v4 match 0.30
+      model v5: fit 40% (was 40%), mean match 0.74 (was 0.73), held-out 100%
+[6] E6 Is the near-zero irregularity actually a deterministic high-frequency oscil...(+128 chars)  model v5 match 0.25
+      revision rejected: mean match 0.62 < 0.66
+      revision rejected: mean match 0.62 < 0.66
+[7] E7 Is the irregular near-zero region actually a sum of the linear term 16.8|x|...(+161 chars)  model v5 match 0.45
+      revision rejected: mean match 0.61 < 0.63
+      model v6: fit 29% (was 29%), mean match 0.63 (was 0.63), held-out 100%
+[8] E8 Is the near-zero irregularity a deterministic function of |x| that is stabl...(+94 chars)  model v6 match 0.40
+      revision rejected: mean match 0.58 < 0.60
+      revision rejected: mean match 0.53 < 0.60
+[9] E9 Is the near-zero irregularity equally strong at negative x (i.e., is f trul...(+72 chars)  model v6 match 0.40
+      revision rejected: mean match 0.51 < 0.58
+      revision rejected: mean match 0.56 < 0.58
+[10] E10 Is the near-zero irregularity repeatable at the same x across calls (determ...(+102 chars)  model v6 match 0.30
+      revision rejected: mean match 0.51 < 0.55
+      revision rejected: mean match 0.47 < 0.55
+[11] E11 Is the near-zero irregularity a deterministic function of |x| that is stabl...(+219 chars)  model v6 match 0.45
+      revision rejected: mean match 0.52 < 0.54
+      revision rejected: mean match 0.40 < 0.54
+[12] E12 Is the near-zero irregularity a deterministic function of x (same value eve...(+195 chars)  model v6 match 0.25
+      revision rejected: mean match 0.42 < 0.52
+      model v7: fit 17% (was 17%), mean match 0.54 (was 0.52), held-out 100%
+[13] E13 Is the erratic behavior confined to |x|<1, or does it persist past 1 (where...(+166 chars)  model v7 match 0.90
+      model v8: fit 15% (was 15%), mean match 0.57 (was 0.57), held-out 100%
+[14] E14 Is the call-to-call noise present across the entire domain (including large...(+126 chars)  model v8 match 1.00
+[15] E15 Is the call-to-call noise amplitude at large |x| proportional to |x| (multi...(+212 chars)  model v8 match 1.00
+[16] E16 Is the noise at large |x| purely multiplicative (spread proportional to |x|...(+325 chars)  model v8 match 1.00
+[17] E17 Is the call-to-call noise in the |x|<1 region purely additive (fixed spread...(+213 chars)  model v8 match 0.45
+      model v9: fit 29% (was 29%), mean match 0.64 (was 0.64), held-out 100%
+[18] E18 Is the mean of f in the |x|<1 region actually 16.79|x| (as assumed) or is i...(+200 chars)  model v9 match 0.35
+      revision rejected: mean match 0.48 < 0.62
+      model v10: fit 28% (was 28%), mean match 0.62 (was 0.62), held-out 100%
+[19] E19 Is the erratic near-zero behavior a deterministic function of x that repeat...(+130 chars)  model v10 match 0.60
+      model v11: fit 26% (was 26%), mean match 0.62 (was 0.62), held-out 100%
+[20] E20 Is the erratic near-zero behavior a deterministic, repeatable function of |...(+221 chars)  model v11 match 0.40
+      revision rejected: mean match 0.59 < 0.61
+      revision rejected: mean match 0.54 < 0.61
+{"env": "find_numeric_f00673", "experiments": 20, "model_version": 11, "fit": 0.25, "heldout": 1.0, "llm_calls": 46, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

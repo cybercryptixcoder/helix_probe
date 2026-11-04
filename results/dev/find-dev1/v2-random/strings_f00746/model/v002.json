@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the shift from +1 to +2 (all evidence shows +2, e.g. a\u2192c, H\u2192J, Z\u2192B) and added trailing-whitespace stripping (E2/E3 show trailing spaces removed).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 427, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 1.0}

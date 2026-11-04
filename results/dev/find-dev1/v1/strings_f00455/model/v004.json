@@ -1,0 +1,19 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f maps every lowercase letter to the next uppercase letter in ASCII: a\u2192B, m\u2192N, z\u2192{ [E1, E2, E3, E4]",
+  "f maps every uppercase letter to the next uppercase letter in ASCII: A\u2192B, M\u2192N, Z\u2192[ [E1, E2, E3, E4]",
+  "f maps digits and punctuation by raw ASCII +1: 0\u21921, 9\u2192:, space\u2192!, @\u2192A, `\u2192a [E1, E2, E3, E4]",
+  "There is no case preservation and no wrapping: the shift is simply ord(ch)+1 for every character [E1, E2, E3, E4]"
+ ],
+ "notes": "All evidence is consistent with raw ASCII +1 on every character; my earlier v3 mistakenly tried case-preserving Caesar shifts. Reverted to the simple uniform ord+1 rule.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.4,
+  0.2,
+  0.5,
+  0.4
+ ],
+ "made_at": 4
+}

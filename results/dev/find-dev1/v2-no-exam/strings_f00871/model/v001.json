@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box reverses each input string and appends \"I\" \u2014 every observed output is exactly the input reversed plus a trailing \"I\" (e.g. \"Hello\" \u2192 \"olleH\"+\"I\"). I replaced the empty model with this rule.", "exam": 0.0, "fit": 0.9, "fit_exact": 0.0, "size": 84, "matches": [0.9], "made_at": 1, "heldout": 0.0}

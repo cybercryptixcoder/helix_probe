@@ -1,0 +1,14 @@
+{
+ "version": 1,
+ "beliefs": [
+  "With all controls at minimum and switch off, the dot is at (0,0) with size 1.0 [E1]",
+  "The effect of a, b, c, and switch on x, y, size is still unknown; baseline is the only data point so far?"
+ ],
+ "notes": "Only one experiment exists, so I record the baseline and leave the control effects as an open question rather than guessing.",
+ "fit": 1.0,
+ "heldout": 0.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

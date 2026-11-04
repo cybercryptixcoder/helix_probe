@@ -1,0 +1,23 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f applies a uniform +2 ASCII shift to every character, including letters, digits, punctuation, space, and high characters [E1, E2, E3, E4, E5, E6]",
+  "Lowercase letters cross into punctuation: y->{, z->| [E5]",
+  "Uppercase letters cross into punctuation: Z->\\, Y->[ [E2, E4]",
+  "Digits cross into punctuation: 9->; [E3]",
+  "Space becomes $ and punctuation shifts by +2 (e.g. !->%, ~->\\u0082) [E2, E3, E4, E6]",
+  "Characters near DEL shift past it: \\u007f->\\u0081, \\u0080->\\u0082 [E6]"
+ ],
+ "notes": "The uniform +2 shift was already correct in principle; my earlier predictions were wrong because I had mistakenly applied class-specific wrapping in the code. E6 confirms space->$, ~->\\u0082, and DEL/high chars shift by +2 with no wrapping.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.2,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "made_at": 6
+}

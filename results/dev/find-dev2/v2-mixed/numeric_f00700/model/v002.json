@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed only the `x == 0` case: E2 shows f(0.0) = -1, not 1. This fits the negative-integer rule (floor(0) - 1 = -1), so 0 belongs with the negative branch. All other rules are confirmed by E1 and E2.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 293, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

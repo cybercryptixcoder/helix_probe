@@ -1,0 +1,23 @@
+{
+ "env": "scrambled_grid",
+ "experiments": 40,
+ "exam_probes": 6,
+ "model_version": 9,
+ "model_role": "updater",
+ "exam": 1.0,
+ "fit": 0.9958333333333333,
+ "size": 953,
+ "heldout": 0.87,
+ "llm_calls": 44,
+ "goals": {
+  "tried": 5,
+  "reached": 3,
+  "tries_used": [
+   3,
+   null,
+   null,
+   2,
+   2
+  ]
+ }
+}
