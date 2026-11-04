@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "Changed from empty to a model: the observations show f rounds away from zero (ceil for positives, floor for negatives), matching all 10 points in E1.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 217, "matches": [1.0], "made_at": 1, "heldout": 0.66}

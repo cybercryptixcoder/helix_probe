@@ -1,0 +1,40 @@
+Helix Probe v3 on 'find_numeric_f00524': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 176 (fit 0.000 -> 1.000); held-out 78%
+[2] E2 learn: Is the nonzero output a narrow special case near x=3, or does f p...(+135 chars)  (v1 predicted it: match 0.50; cost 20, spent 30)
+      model v2 by the updater: fit 1.00, size 243 (fit 0.750 -> 1.000); held-out 86%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.90; cost 10, spent 40)
+      model v3 by the updater: fit 1.00, size 236 (fit 0.967 -> 1.000); held-out 98%
+[4] E4 learn: Does f round toward zero or use ceil for non-integer inputs, and ...(+77 chars)  (v3 predicted it: match 0.85; cost 20, spent 60)
+      model v4 by the updater: fit 1.00, size 257 (fit 0.963 -> 1.000); held-out 99%
+[5] E5 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 70)
+[6] E6 learn: Are the exact boundaries at ±4.5 as the model assumes, or is the ...(+163 chars)  (v4 predicted it: match 0.85; cost 20, spent 90)
+      model v5 by the updater: fit 1.00, size 280 (fit 0.975 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 436)
+[7] E7 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 100)
+[8] E8 learn: Is the positive band's upper edge exactly 4.3 (inclusive) or slig...(+140 chars)  (v5 predicted it: match 0.60; cost 20, spent 120)
+      model v6 by the updater: fit 0.99, size 282 (fit 0.950 -> 0.988); held-out 100%
+[9] E9 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 130)
+      theorist's model lost its trial: on trial it predicted 0.87 of 3 new experiments, the current model 0.87
+[10] E10 learn: Does the positive band's upper edge lie between 4.39 and 4.4, and...(+142 chars)  (v6 predicted it: match 0.90; cost 20, spent 150)
+      updater's fix not kept: its fit is 0.960, the current model's is 0.980
+      model v7 by the updater: fit 1.00, size 282 (fit 0.980 -> 1.000); held-out 100%
+[11] E11 learn: a random ordinary probe  (v7 predicted it: match 1.00; cost 10, spent 160)
+[12] E12 learn: Are there any nonzero outputs outside the bands near ±4, e.g. nea...(+133 chars)  (v7 predicted it: match 0.90; cost 20, spent 180)
+      model v8 by the updater: fit 1.00, size 282 (fit 0.992 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.82, size 418)
+[13] E13 learn: a random ordinary probe  (v8 predicted it: match 1.00; cost 10, spent 190)
+[14] E14 learn: Are there any nonzero outputs at all for x in the ordinary interi...(+268 chars)  (v8 predicted it: match 1.00; cost 20, spent 210)
+[15] E15 learn: a random ordinary probe  (v8 predicted it: match 1.00; cost 10, spent 220)
+      theorist's model lost its trial: on trial it predicted 0.90 of 3 new experiments, the current model 1.00
+[16] E16 learn: Does the model's formula hold exactly at the band edges and at ha...(+236 chars)  (v8 predicted it: match 1.00; cost 20, spent 240)
+[17] E17 learn: a random ordinary probe  (v8 predicted it: match 1.00; cost 10, spent 250)
+[18] E18 learn: Does the band edge depend on the integer part only — i.e. is f(x)...(+211 chars)  (v8 predicted it: match 1.00; cost 20, spent 270)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 456)
+[19] E19 learn: a random ordinary probe  (v8 predicted it: match 1.00; cost 10, spent 280)
+[20] E20 learn: Does f behave as a pure 'ceil(x) on the two bands, else 0' rule a...(+267 chars)  (v8 predicted it: match 1.00; cost 20, spent 300)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00524", "experiments": 20, "cost": 300, "model_version": 8, "model_role": "updater", "fit": 1.0, "size": 282, "exam": null, "heldout": 1.0, "llm_calls": 22, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,25 @@
+Helix Probe v3 on 'find_numeric_f00550': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 63 (fit 0.000 -> 1.000); held-out 92%
+[2] E2 learn: Does f(x) stay exactly zero at a spread of ordinary values not ye...(+71 chars)  (v1 predicted it: match 0.85; cost 20, spent 30)
+      model v2 by the updater: fit 1.00, size 409 (fit 0.925 -> 1.000); held-out 94%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 40)
+[4] E4 learn: Is the nonzero region exactly the open interval (-1, 1), and what...(+93 chars)  (v2 predicted it: match 0.44; cost 16, spent 56)
+      model v3 by the updater: fit 1.00, size 248 (fit 0.859 -> 1.000); held-out 99%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 66)
+[6] E6 learn: Where exactly is the boundary between the nonzero quadratic regio...(+92 chars)  (v3 predicted it: match 0.88; cost 16, spent 82)
+      model v4 by the updater: fit 1.00, size 249 (fit 0.979 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 343)
+[7] E7 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 92)
+[8] E8 learn: Is the nonzero region exactly |x| <= 0.8, and does the quadratic ...(+104 chars)  (v4 predicted it: match 1.00; cost 16, spent 108)
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 118)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Is the nonzero region truly bounded by |x| <= 0.8, and does the q...(+210 chars)  (v4 predicted it: match 1.00; cost 20, spent 138)
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 148)
+[12] E12 learn: Are there any nonzero outputs just outside the established |x| <=...(+149 chars)  (v4 predicted it: match 1.00; cost 20, spent 168)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 178)
+[14] E14 learn: The quadratic region has only been sampled at |x| <= 0.8, but is ...(+228 chars)  (v4 predicted it: match 1.00; cost 20, spent 198)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00550", "experiments": 14, "cost": 198, "model_version": 4, "model_role": "updater", "fit": 1.0, "size": 249, "exam": null, "heldout": 1.0, "llm_calls": 14, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

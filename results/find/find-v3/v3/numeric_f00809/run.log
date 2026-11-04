@@ -1,0 +1,6 @@
+Helix Probe v3 on 'find_numeric_f00809': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: How does f behave on a dense sweep of ordinary inputs, including ...(+90 chars)  (v0 predicted it: match 0.00; cost 20, spent 30)
+      updater's fix not kept: same scores and not smaller (97 vs 33 chars)
+      model v1 by the updater: fit 0.05, size 227 (fit 0.000 -> 0.050); held-out 0%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 40)

@@ -1,0 +1,43 @@
+Helix Probe v3 on 'find_numeric_f00683': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: Is f approximately quadratic (y ≈ 0.148·x² + small linear/constan...(+105 chars)  (v0 predicted it: match 0.00; cost 10, spent 20)
+      updater's fix not kept: same scores and not smaller (237 vs 33 chars)
+      model v1 by the updater: fit 0.95, size 189 (fit 0.000 -> 0.950); held-out 92%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 30)
+[4] E4 learn: Is the negative-side behaviour piecewise (a kink near x≈-10 to -1...(+94 chars)  (v1 predicted it: match 0.25; cost 20, spent 50)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 60)
+[6] E6 learn: Does the negative side follow a single quadratic (or smooth curve...(+101 chars)  (v1 predicted it: match 0.15; cost 20, spent 80)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.97, size 615)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 90)
+[8] E8 learn: Does the negative side follow a smooth quadratic curve, and what ...(+111 chars)  (v1 predicted it: match 0.05; cost 20, spent 110)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 120)
+      model v2 by the theorist: fit 0.98, size 615 (on trial it predicted 0.98 of 3 new experiments, the current model 0.68); held-out 100%
+[10] E10 learn: On the negative side, is the curve a smooth quadratic (concave up...(+78 chars)  (v2 predicted it: match 0.35; cost 20, spent 140)
+      model v3 by the updater: fit 0.92, size 609 (same scores, smaller (615 -> 609 chars)); held-out 100%
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 150)
+[12] E12 learn: Is the positive side of f a single straight line 13.1x-3.5, or do...(+135 chars)  (v3 predicted it: match 1.00; cost 20, spent 170)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 180)
+[14] E14 learn: Does the positive branch really change slope near x=1 (the model'...(+192 chars)  (v3 predicted it: match 0.30; cost 20, spent 200)
+      model v4 by the updater: fit 0.89, size 491 (fit 0.889 -> 0.893); held-out 100%
+[15] E15 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 210)
+[16] E16 learn: Is the negative side near zero actually flat at ~-11 (as E14 sugg...(+218 chars)  (v4 predicted it: match 0.50; cost 20, spent 230)
+      updater's fix not kept: its fit is 0.844, the current model's is 0.875
+      updater's fix not kept: its fit is 0.869, the current model's is 0.875
+[17] E17 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 240)
+[18] E18 learn: Is the negative side near zero actually flat at ~-11 (E14/E16) or...(+209 chars)  (v4 predicted it: match 0.80; cost 20, spent 260)
+      model v5 by the updater: fit 0.88, size 475 (same scores, smaller (491 -> 475 chars)); held-out 100%
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 270)
+[20] E20 learn: Does the negative-side branch really follow a single line with sl...(+146 chars)  (v5 predicted it: match 0.90; cost 20, spent 290)
+      updater's fix not kept: same scores and not smaller (475 vs 475 chars)
+[21] E21 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 300)
+[22] E22 learn: On the positive side, is f a clean single line 13.1x-3.5 across t...(+142 chars)  (v5 predicted it: match 1.00; cost 20, spent 320)
+[23] E23 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 330)
+[24] E24 learn: Is the negative-side branch for x < -1 a clean line, and does the...(+156 chars)  (v5 predicted it: match 0.45; cost 20, spent 350)
+      updater's fix not kept: same scores and not smaller (475 vs 475 chars)
+      updater's fix not kept: its fit is 0.835, the current model's is 0.881
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 360)
+{"env": "find_numeric_f00683", "experiments": 25, "cost": 360, "model_version": 5, "model_role": "updater", "fit": 0.8859999999999999, "size": 475, "exam": null, "heldout": 1.0, "llm_calls": 35, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

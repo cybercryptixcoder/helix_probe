@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the model to reflect that f(x) is zero for |x| \u2265 1 but takes nonzero values inside (-1, 1) [E2], using a rough quadratic placeholder for the inner region since the exact form isn't yet pinned down.", "exam": 1.0, "fit": 0.95, "fit_exact": 0.5, "size": 214, "matches": [1.0, 0.9], "made_at": 2, "heldout": 0.96}

@@ -1,0 +1,1 @@
+{"version": 8, "role": "updater", "notes": "Changed the upper edge from 4.36 to 4.35: E12 shows 4.35\u21925 and 4.36\u21920, so the inclusive cutoff is exactly 4.35 (and symmetric at -4.35), not 4.36 as v7 assumed.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 282, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 12, "heldout": 1.0}

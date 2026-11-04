@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found that outputs are null for x \u2264 0 and follow y \u2248 9.1\u00b7ln(x) \u2212 7.8 for x > 0 (fits all five non-null points in E1 to ~0.02). The constants are uncertain, so I've marked the log fit as a hypothesis.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 255, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -1,0 +1,17 @@
+{
+ "env": "find_numeric_f00344",
+ "experiments": 25,
+ "cost": 374,
+ "model_version": 1,
+ "model_role": "theorist",
+ "fit": 0.664,
+ "size": 1568,
+ "exam": 0.42500000000000004,
+ "heldout": 0.0,
+ "llm_calls": 72,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ }
+}

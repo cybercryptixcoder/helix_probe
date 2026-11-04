@@ -1,0 +1,19 @@
+Helix Probe v3 on 'find_numeric_f00529': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      updater's fix not kept: same scores and not smaller (212 vs 33 chars)
+      model v1 by the updater: fit 1.00, size 226, exam 1.00 (exam 0.000 -> 1.000); held-out 95%
+[2] E2 learn: Is the step exactly at x=0, and is the small dip at x=2.9 a local...(+47 chars)  (v1 predicted it: match 0.81; cost 16, spent 30)
+      model v2 by the updater: fit 1.00, size 164, exam 1.00 (fit 0.906 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 40)
+[4] E4 learn: Is the transition from -7.9 to -6.9 a single logistic step center...(+116 chars)  (v2 predicted it: match 1.00; cost 20, spent 60)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 70)
+[6] E6 learn: Is the transition truly a single logistic step centered at 1.5 wi...(+191 chars)  (v2 predicted it: match 1.00; cost 20, spent 90)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 452)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 100)
+[8] E8 learn: Does the transition stay a clean single logistic step at the edge...(+180 chars)  (v2 predicted it: match 1.00; cost 20, spent 120)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 130)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Is the transition a true logistic in the tails where the differen...(+165 chars)  (v2 predicted it: match 1.00; cost 20, spent 150)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00529", "experiments": 10, "cost": 150, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 164, "exam": 1.0, "heldout": 1.0, "llm_calls": 9, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

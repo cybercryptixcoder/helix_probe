@@ -38,3 +38,5 @@ Helix Probe v3 on 'find_numeric_f00470': 0 experiments so far, model v0, spent 4
 [24] E24 learn: What is the exact shape of the small-|x| region on the negative s...(+185 chars)  (v4 predicted it: match 0.50; cost 20, spent 364)
       model v5 by the updater: fit 0.95, size 6105, exam 1.00 (fit 0.908 -> 0.952); held-out 100%
       theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 374)
+{"env": "find_numeric_f00470", "experiments": 25, "cost": 374, "model_version": 5, "model_role": "updater", "fit": 0.9540000000000001, "size": 6105, "exam": 1.0, "heldout": 1.0, "llm_calls": 44, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

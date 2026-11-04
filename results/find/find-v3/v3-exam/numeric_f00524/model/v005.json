@@ -1,0 +1,1 @@
+{"version": 5, "role": "updater", "notes": "I changed the cutoff from 4.5 to 4.2: E6 shows 4.4 and 4.49 give 0 while 4.1 gives 5, so the active region ends between 4.1 and 4.4 (I picked 4.2 as the midpoint, marked uncertain).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 208, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 0.98}

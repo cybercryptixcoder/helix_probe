@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the boundary condition at x = 0: E2 shows f(0.0) = +18, so zero belongs to the \"negative\" branch. The rule is now \"-18 if x > 0 else +18\" rather than \"-18 if x >= 0 else +18\".", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 84, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

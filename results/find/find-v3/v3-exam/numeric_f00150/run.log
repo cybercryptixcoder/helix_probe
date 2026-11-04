@@ -33,3 +33,7 @@ Helix Probe v3 on 'find_numeric_f00150': 0 experiments so far, model v0, spent 4
 [22] E22 learn: Is f(x) exactly c*x^5 with c=2.5 over the whole ordinary range (i...(+102 chars)  (v0 predicted it: match 0.00; cost 20, spent 334)
       theorist (fixes stalled)
 [23] E23 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 344)
+[24] E24 learn: Is the small-|x| behavior (the ripple around the c*x^5 baseline) ...(+172 chars)  (v0 predicted it: match 0.00; cost 20, spent 364)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 374)
+{"env": "find_numeric_f00150", "experiments": 25, "cost": 374, "model_version": 0, "model_role": "start", "fit": 0.0, "size": 33, "exam": 0.0, "heldout": 0.0, "llm_calls": 74, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

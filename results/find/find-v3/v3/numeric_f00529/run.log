@@ -1,0 +1,18 @@
+Helix Probe v3 on 'find_numeric_f00529': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 275 (fit 0.000 -> 1.000); held-out 95%
+[2] E2 learn: Is the transition actually sigmoidal (smooth, gradually rising) o...(+57 chars)  (v1 predicted it: match 0.71; cost 14, spent 24)
+      model v2 by the updater: fit 1.00, size 299 (fit 0.857 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 34)
+[4] E4 learn: Does the transition's shape (center, steepness, or plateau levels...(+105 chars)  (v2 predicted it: match 1.00; cost 20, spent 54)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 64)
+[6] E6 learn: Is the value at x=1.2 consistent with the sigmoid fit, and does t...(+101 chars)  (v2 predicted it: match 1.00; cost 20, spent 84)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 531)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 94)
+[8] E8 learn: Are the two plateau levels exactly -7.9 and -6.9 across the full ...(+140 chars)  (v2 predicted it: match 1.00; cost 20, spent 114)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 124)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the transition region shift or change shape for negative-sid...(+146 chars)  (v2 predicted it: match 1.00; cost 20, spent 144)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00529", "experiments": 10, "cost": 144, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 299, "exam": null, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

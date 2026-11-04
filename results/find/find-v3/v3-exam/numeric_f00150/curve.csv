@@ -21,3 +21,6 @@ step,kind,experiments,cost,model_version,model_role,fit,size,exam,arrival_last10
 20,learn,20,304,0,start,0.000,33,0.000,0.00,0.000,60,E20
 21,learn,21,314,0,start,0.000,33,0.000,0.00,0.000,62,E21
 22,learn,22,334,0,start,0.000,33,0.000,0.00,0.000,66,E22
+23,learn,23,344,0,start,0.000,33,0.000,0.00,0.000,68,E23
+24,learn,24,364,0,start,0.000,33,0.000,0.00,0.000,72,E24
+25,learn,25,374,0,start,0.000,33,0.000,0.00,0.000,74,E25

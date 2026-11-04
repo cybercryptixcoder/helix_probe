@@ -1,0 +1,34 @@
+Helix Probe v3 on 'find_numeric_f00778': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 1082, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the function reduce to a pure odd cubic (a*x^3 + c*x) with n...(+162 chars)  (v1 predicted it: match 1.00; cost 20, spent 34)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 44)
+[4] E4 learn: Is the function exactly y = a*x^3 + c*x (pure odd cubic) across t...(+245 chars)  (v1 predicted it: match 1.00; cost 20, spent 64)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 74)
+[6] E6 learn: Is the small-magnitude behavior (|x| below about 1.5, where E4 sh...(+205 chars)  (v1 predicted it: match 0.10; cost 20, spent 94)
+      model v2 by the updater: fit 0.85, size 236, exam 1.00 (same scores, smaller (1082 -> 236 chars)); held-out 100%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 104)
+[8] E8 learn: Is the small-|x| region a flat noisy plateau around +3.3, or does...(+183 chars)  (v2 predicted it: match 0.00; cost 20, spent 124)
+      model v3 by the updater: fit 0.76, size 220, exam 1.00 (same scores, smaller (236 -> 220 chars)); held-out 100%
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 134)
+[10] E10 learn: Does the noisy small-|x| region have a sharp boundary near |x|=1....(+143 chars)  (v3 predicted it: match 0.00; cost 16, spent 150)
+      updater's fix not kept: same scores and not smaller (293 vs 220 chars)
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 160)
+[12] E12 learn: Is the noisy small-|x| region really a plateau around +3.3, or do...(+174 chars)  (v3 predicted it: match 0.12; cost 16, spent 176)
+      updater's fix not kept: same scores and not smaller (220 vs 220 chars)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 186)
+[14] E14 learn: Is the small-|x| behavior a noisy additive term on top of the cub...(+97 chars)  (v3 predicted it: match 0.00; cost 16, spent 202)
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 212)
+[16] E16 learn: Within the noisy small-|x| region, is the underlying behavior a c...(+146 chars)  (v3 predicted it: match 0.00; cost 20, spent 232)
+      model v4 by the updater: fit 0.64, size 327, exam 1.00 (fit 0.639 -> 0.643); held-out 100%
+[17] E17 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 242)
+[18] E18 learn: Does the noisy small-|x| region end exactly at |x|=1.5 (with the ...(+189 chars)  (v4 predicted it: match 0.05; cost 20, spent 262)
+      updater's fix not kept: its fit is 0.624, the current model's is 0.630
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 272)
+[20] E20 learn: Is the noisy small-|x| region a flat plateau ~3.3, or does the de...(+111 chars)  (v4 predicted it: match 0.20; cost 20, spent 292)
+      updater's fix not kept: its fit is 0.616, the current model's is 0.627
+      updater's fix not kept: its fit is 0.616, the current model's is 0.627
+      theorist (fixes stalled)

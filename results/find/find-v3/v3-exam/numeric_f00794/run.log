@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_numeric_f00794': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+[2] E2 learn: Does f look like a simple periodic/oscillatory function of x? Sam...(+157 chars)  (v0 predicted it: match 0.00; cost 15, spent 29)
+      model v1 by the updater: fit 0.50, size 361, exam 0.10 (exam 0.000 -> 0.100); held-out 0%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 39)
+      updater's fix not kept: its exam is 0.075, the current model's is 0.100
+      updater's fix not kept: its exam is 0.050, the current model's is 0.100
+[4] E4 learn: Is the output a function of x alone with a smooth periodic compon...(+195 chars)  (v1 predicted it: match 0.00; cost 20, spent 59)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+      model v2 by the updater: fit 0.29, size 609, exam 0.10 (fit 0.250 -> 0.287); held-out 0%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 69)
+[6] E6 learn: Is the small oscillatory component outside the central interval a...(+215 chars)  (v2 predicted it: match 0.00; cost 20, spent 89)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+      updater's fix not kept: its exam is 0.075, the current model's is 0.100
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 99)

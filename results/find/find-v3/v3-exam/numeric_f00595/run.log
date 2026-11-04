@@ -1,0 +1,45 @@
+Helix Probe v3 on 'find_numeric_f00595': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 272, exam 0.97 (exam 0.000 -> 0.975); held-out 60%
+[2] E2 learn: Does the box behave differently between -128 and 128, especially ...(+93 chars)  (v1 predicted it: match 0.90; cost 20, spent 34)
+      model v2 by the updater: fit 1.00, size 302, exam 0.97 (fit 0.950 -> 1.000); held-out 66%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 44)
+[4] E4 learn: Are there any values where the model's floor(x)±1 rule fails, par...(+120 chars)  (v2 predicted it: match 1.00; cost 20, spent 64)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 74)
+[6] E6 learn: Does the floor(x)±1 rule hold for ordinary non-integer values ver...(+79 chars)  (v2 predicted it: match 1.00; cost 20, spent 94)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 315)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 104)
+[8] E8 learn: Does the floor(x)±1 rule hold for ordinary non-integer values in ...(+113 chars)  (v2 predicted it: match 1.00; cost 20, spent 124)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 134)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the floor(x)±1 rule hold for ordinary values just below zero...(+195 chars)  (v2 predicted it: match 1.00; cost 20, spent 154)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 164)
+[12] E12 learn: Does the floor(x)±1 rule hold for ordinary non-integer values in ...(+113 chars)  (v2 predicted it: match 1.00; cost 20, spent 184)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.97, size 304)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 194)
+[14] E14 learn: Does the floor(x)±1 rule hold for a fresh batch of ordinary rando...(+173 chars)  (v2 predicted it: match 1.00; cost 20, spent 214)
+[15] E15 learn: a random ordinary probe  (v2 predicted it: match 0.90; cost 10, spent 224)
+      theorist's model lost its trial: on trial it predicted 0.97 of 3 new experiments, the current model 0.97
+      model v3 by the updater: fit 1.00, size 377, exam 0.97 (fit 0.993 -> 1.000); held-out 66%
+[16] E16 learn: Is the anomaly at x=40.1 an isolated point, or does a narrow inte...(+81 chars)  (v3 predicted it: match 0.10; cost 20, spent 244)
+      model v4 by the updater: fit 1.00, size 382, exam 0.97 (fit 0.944 -> 0.997); held-out 72%
+[17] E17 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 254)
+[18] E18 learn: Where exactly are the boundaries of the anomalous interval around...(+72 chars)  (v4 predicted it: match 0.25; cost 20, spent 274)
+      model v5 by the updater: fit 0.99, size 381, exam 1.00 (exam 0.975 -> 1.000); held-out 78%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 358)
+[19] E19 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 284)
+[20] E20 learn: Does the anomalous low-value interval around x=40 extend below 37...(+104 chars)  (v5 predicted it: match 0.45; cost 20, spent 304)
+      model v6 by the updater: fit 0.99, size 381, exam 1.00 (fit 0.968 -> 0.995); held-out 91%
+[21] E21 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 314)
+      model v7 by the theorist: fit 0.99, size 358, exam 1.00 (on trial it predicted 0.95 of 3 new experiments, the current model 0.82); held-out 85%
+[22] E22 learn: Where exactly does the anomalous noisy interval begin on the low ...(+119 chars)  (v7 predicted it: match 0.30; cost 20, spent 334)
+      model v8 by the updater: fit 1.00, size 359, exam 1.00 (fit 0.961 -> 1.000); held-out 100%
+[23] E23 learn: a random ordinary probe  (v8 predicted it: match 1.00; cost 10, spent 344)
+[24] E24 learn: Does the anomalous noisy interval's lower boundary lie exactly at...(+86 chars)  (v8 predicted it: match 0.75; cost 20, spent 364)
+      model v9 by the updater: fit 1.00, size 360, exam 1.00 (fit 0.990 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v9 predicted it: match 1.00; cost 10, spent 374)
+{"env": "find_numeric_f00595", "experiments": 25, "cost": 374, "model_version": 9, "model_role": "updater", "fit": 1.0, "size": 360, "exam": 1.0, "heldout": 1.0, "llm_calls": 24, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

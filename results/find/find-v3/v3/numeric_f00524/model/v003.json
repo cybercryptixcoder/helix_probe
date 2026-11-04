@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "Changed rounding from round-half-up (`floor(x+0.5)`) to `ceil`: E3 shows 1.2\u21922, which only ceiling explains while still matching all integer and half-integer evidence in E2.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 236, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 0.98}
