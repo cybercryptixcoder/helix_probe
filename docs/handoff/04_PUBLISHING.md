@@ -101,6 +101,19 @@ worth doing until goal discovery works (`05_NEXT_STEPS.md`).
 | AutumnBench (ICML 2026) | 43 grid worlds | "learn the world, then do tasks"; humans beat frontier models. Its interpreter needs building for ARM |
 | Automata Wiki | state machines of real protocols | compares against classic L*/TTT/L# learners on experiments needed |
 
+### P5. Weight-space interpretability with a weak model (new; see `10_INTERPRETABILITY_TRACK.md`)
+
+- **Reference:** MIT CSAIL's "Sparks of Weight-Space Programming" (Nov 2, 2026; a blog post, unreviewed). GPT-6
+  Astra:
+  - named the game behind 4 of 4 policy networks from their weights;
+  - fixed a stuck policy (0% to 100%);
+  - raised Qwen3.5-0.8B's MATH-500 from 7.9% to 48.1% by editing 0.016% of weights, with the big gain only at 50
+    forward passes.
+- **Candidate claim:** a flash model with thinking off, in Helix Probe's loop (with a library of known circuit types,
+  and interventions as probes), approaches that on a replicated task. It would be reported next to the same model
+  reading the weights in one shot.
+- **Status:** a direction to discuss, not yet designed. It is timely, because the reference is days old.
+
 ## What not to claim
 
 - **"Beats GPT-4 on FIND"** as a headline. It mostly measures a newer model.
