@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with the exact cubic that fits nearly all evidence, plus a constant-value anomaly interval around x\u2208[100,110] where E3's three points sit (boundaries uncertain, marked with `?`).", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 222, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 0.7}

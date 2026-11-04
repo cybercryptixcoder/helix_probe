@@ -1,0 +1,2 @@
+{"since": 2, "decided_at": 5, "theirs": [0.7, 1.0, 0.8], "ours": [0.0, 0.0, 1.0], "won": true, "fit": 0.9, "size": 482}
+{"since": 18, "decided_at": 21, "theirs": [1.0, 0.95, 1.0], "ours": [1.0, 0.95, 1.0], "won": false, "fit": 0.9976190476190476, "size": 387}

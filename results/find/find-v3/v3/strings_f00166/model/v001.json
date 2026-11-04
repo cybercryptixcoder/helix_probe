@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The only evidence so far (E1) shows every input returned exactly unchanged, so the simplest hypothesis is that the box is the identity function. I replaced the empty model with that.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 65, "matches": [1.0], "made_at": 1, "heldout": 0.15}

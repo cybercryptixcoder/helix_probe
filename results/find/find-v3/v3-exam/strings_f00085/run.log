@@ -1,0 +1,14 @@
+Helix Probe v3 on 'find_strings_f00085': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 1.00, size 470, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the insertion point depend on character count alone, and how...(+75 chars)  (v1 predicted it: match 1.00; cost 10, spent 20)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 26)
+[4] E4 learn: Does the last-character shift apply to the last character of the ...(+161 chars)  (v1 predicted it: match 1.00; cost 10, spent 36)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 42)
+[6] E6 learn: Does the last-character shift apply to uppercase letters that are...(+213 chars)  (v1 predicted it: match 1.00; cost 10, spent 52)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 58)
+[8] E8 learn: Does the last-character alphabet shift wrap around from 'z' to 'a...(+180 chars)  (v1 predicted it: match 1.00; cost 10, spent 68)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 74)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00085", "experiments": 9, "cost": 74, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 470, "exam": 1.0, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

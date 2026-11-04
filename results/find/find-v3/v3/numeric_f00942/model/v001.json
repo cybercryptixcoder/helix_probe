@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found f is piecewise linear: slope -35.72 with intercept -17.1 for x<0, slope -404.2 with intercept -154.8 for x>0, and a special value -5401.17 at x=0. This fits all 22 data points exactly.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 244, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

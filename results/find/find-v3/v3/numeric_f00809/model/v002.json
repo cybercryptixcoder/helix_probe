@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I added a magnitude envelope so outputs shrink near x=0 and for large |x| (matching E2/E4 where |x|>80 gives |y|<0.01), while keeping the pseudo-noise core since no smooth deterministic trend is visible.", "exam": 0.0, "fit": 0.0625, "fit_exact": 0.0, "size": 419, "matches": [0.1, 0.05, 0.0, 0.1], "made_at": 4, "heldout": 0.0}

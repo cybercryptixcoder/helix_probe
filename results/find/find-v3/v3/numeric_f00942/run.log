@@ -1,0 +1,17 @@
+Helix Probe v3 on 'find_numeric_f00942': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: Does f behave like a cubic polynomial (e.g. -0.05*x^3 + ...) or s...(+75 chars)  (v0 predicted it: match 0.00; cost 12, spent 22)
+      model v1 by the updater: fit 1.00, size 244 (fit 0.000 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 32)
+[4] E4 learn: Is the piecewise-linear model valid for ordinary inputs near the ...(+139 chars)  (v1 predicted it: match 1.00; cost 18, spent 50)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 60)
+[6] E6 learn: Does the piecewise-linear model hold at the extreme edges and jus...(+135 chars)  (v1 predicted it: match 1.00; cost 20, spent 80)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.07, size 235)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 90)
+[8] E8 learn: Is the function exactly piecewise linear with a discontinuity at ...(+167 chars)  (v1 predicted it: match 1.00; cost 20, spent 110)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 120)
+      theorist's model lost its trial: on trial it predicted 0.10 of 3 new experiments, the current model 1.00
+[10] E10 learn: Are there any ordinary inputs strictly between the already-sample...(+161 chars)  (v1 predicted it: match 1.00; cost 20, spent 140)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00942", "experiments": 10, "cost": 140, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 244, "exam": null, "heldout": 1.0, "llm_calls": 9, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

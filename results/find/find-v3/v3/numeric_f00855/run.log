@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_numeric_f00855': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 179 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the bump near x≈3 have sharp boundaries, and is it a single ...(+43 chars)  (v1 predicted it: match 1.00; cost 10, spent 20)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 30)
+[4] E4 learn: Is the elevated region near x≈3 actually a wider interval (or mul...(+78 chars)  (v1 predicted it: match 1.00; cost 20, spent 50)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 60)
+[6] E6 learn: Where exactly are the boundaries of the elevated (26) region, and...(+57 chars)  (v1 predicted it: match 1.00; cost 20, spent 80)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 607)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 90)
+[8] E8 learn: Is the elevated region a single contiguous interval, and where ex...(+95 chars)  (v1 predicted it: match 1.00; cost 20, spent 110)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 120)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00855", "experiments": 9, "cost": 120, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 179, "exam": null, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

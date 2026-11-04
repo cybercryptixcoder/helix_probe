@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found the box is piecewise linear with a break at x=0: slope -404.2 with intercept -154.8 for x\u22650, and slope -35.72 with intercept -17.1 for x<0. Both fits reproduce all 10 observed values exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 197, "matches": [1.0], "made_at": 1, "heldout": 1.0}

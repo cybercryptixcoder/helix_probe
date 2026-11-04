@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I added the two rules the evidence reveals: insert \"4\" at the midpoint (`len//2`), and increment the final character by one alphabet position (with wrap as a best guess for z/Z).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 470, "matches": [1.0], "made_at": 1, "heldout": 1.0}

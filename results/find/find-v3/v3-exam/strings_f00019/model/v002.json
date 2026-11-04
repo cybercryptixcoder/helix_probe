@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "The box simply increments the final character of each string when it is an ASCII letter (z\u2192a, Z\u2192A), leaving everything else unchanged.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 407, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 9, "heldout": 1.0}

@@ -1,0 +1,1 @@
+{"version": 5, "role": "updater", "notes": "E6 showed the linear region ends before 2.12/-2.12, contradicting v4's 2.15 guess; combined with E4 (2.1 still linear), I narrowed the cutoffs to \u00b12.11.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 190, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 0.7}

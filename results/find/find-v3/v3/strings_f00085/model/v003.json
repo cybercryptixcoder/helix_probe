@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I changed the letter increment to wrap around the alphabet (z\u2192a, Z\u2192A) instead of blindly adding 1 in ASCII, which E8 showed was wrong (z\u2192a, not z\u2192{).", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 450, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 8, "heldout": 1.0}

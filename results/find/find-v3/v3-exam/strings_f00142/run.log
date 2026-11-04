@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_strings_f00142': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 0.83, size 165, exam 1.00 (exam 0.000 -> 1.000); held-out 91%
+[2] E2 learn: Does f apply the +5 shift and the appended 'W' to ordinary lowerc...(+143 chars)  (v1 predicted it: match 1.00; cost 10, spent 20)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 26)
+[4] E4 learn: Does the box always append a trailing 'W', even for the empty str...(+118 chars)  (v1 predicted it: match 1.00; cost 10, spent 36)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 42)
+[6] E6 learn: Does the +5 shift wrap around within the printable ASCII range (o...(+181 chars)  (v1 predicted it: match 1.00; cost 10, spent 52)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.97, size 200)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 58)
+[8] E8 learn: Do ordinary inputs that already end in letters near the shift bou...(+169 chars)  (v1 predicted it: match 1.00; cost 10, spent 68)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 74)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00142", "experiments": 9, "cost": 74, "model_version": 1, "model_role": "updater", "fit": 0.9814814814814815, "size": 165, "exam": 1.0, "heldout": 0.91, "llm_calls": 7, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

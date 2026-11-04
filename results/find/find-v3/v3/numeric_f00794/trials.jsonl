@@ -1,2 +1,4 @@
 {"since": 4, "decided_at": 7, "theirs": [0.0, 1.0, 0.0], "ours": [0.0, 1.0, 0.1], "won": false, "fit": 0.2857142857142857, "size": 442}
 {"since": 7, "decided_at": 10, "theirs": [1.0, 0.0, 0.0], "ours": [1.0, 0.0, 0.05], "won": false, "fit": 0.3, "size": 437}
+{"since": 10, "decided_at": 13, "theirs": [0.0, 0.1, 0.0], "ours": [0.0, 0.0, 0.0], "won": true, "fit": 0.24615384615384617, "size": 360}
+{"since": 16, "decided_at": 19, "theirs": [0.1, 0.0, 0.0], "ours": [0.1, 0.0, 0.0], "won": false, "fit": 0.1763157894736842, "size": 439}

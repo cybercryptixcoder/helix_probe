@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_numeric_f00855': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 64, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Is the output 25 everywhere except in a narrow band around x≈3, a...(+25 chars)  (v1 predicted it: match 1.00; cost 20, spent 34)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 44)
+[4] E4 learn: Where exactly does the output switch between 26 and 25 on the pos...(+96 chars)  (v1 predicted it: match 1.00; cost 20, spent 64)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 74)
+[6] E6 learn: Does the elevated band (output 26) extend to negative x beyond -2...(+111 chars)  (v1 predicted it: match 1.00; cost 20, spent 94)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 382)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 104)
+[8] E8 learn: Is the output 26 region a single contiguous interval on the negat...(+139 chars)  (v1 predicted it: match 1.00; cost 20, spent 124)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 134)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00855", "experiments": 9, "cost": 134, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 64, "exam": 1.0, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

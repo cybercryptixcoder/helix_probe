@@ -1,0 +1,24 @@
+Helix Probe v3 on 'find_numeric_f00991': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 163 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does f behave exactly as a two-piece linear function with a kink ...(+172 chars)  (v1 predicted it: match 1.00; cost 17, spent 27)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 37)
+[4] E4 learn: Does the two-piece linear model with a kink at 0 hold exactly at ...(+235 chars)  (v1 predicted it: match 1.00; cost 20, spent 57)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 67)
+[6] E6 learn: Is the apparent x=0 value of 2.5 a genuine point value (i.e., doe...(+203 chars)  (v1 predicted it: match 0.92; cost 13, spent 80)
+      model v2 by the updater: fit 1.00, size 189 (fit 0.987 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 498)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 90)
+[8] E8 learn: Does the two-piece linear model with the special x=0 value hold a...(+178 chars)  (v2 predicted it: match 1.00; cost 20, spent 110)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 120)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the two-piece linear form with the special x=0 value continu...(+187 chars)  (v2 predicted it: match 1.00; cost 20, spent 140)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 150)
+[12] E12 learn: Are there any additional breakpoints or nonlinear behavior in the...(+151 chars)  (v2 predicted it: match 1.00; cost 20, spent 170)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 325)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 180)
+[14] E14 learn: Does the two-piece linear form hold on a fresh random ordinary pr...(+125 chars)  (v2 predicted it: match 1.00; cost 20, spent 200)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00991", "experiments": 14, "cost": 200, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 189, "exam": null, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to: reverse each input string, then insert the character \"2\" at position (length+1)//2. This matches all six E1 observations exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 186, "matches": [1.0], "made_at": 1, "heldout": 1.0}

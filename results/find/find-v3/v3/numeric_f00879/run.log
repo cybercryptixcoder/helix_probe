@@ -1,0 +1,38 @@
+Helix Probe v3 on 'find_numeric_f00879': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: Does f depend only on x through a simple periodic/trig-like map, ...(+178 chars)  (v0 predicted it: match 0.00; cost 20, spent 30)
+      theorist (fixes stalled)
+[3] E3 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 40)
+[4] E4 learn: How does f behave between the sampled grid points, and is the app...(+88 chars)  (v0 predicted it: match 0.00; cost 20, spent 60)
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 70)
+      model v1 by the updater: fit 0.01, size 2919 (fit 0.000 -> 0.010); held-out 0%
+[6] E6 learn: Is the oscillation periodic in x with a fixed period, and what is...(+108 chars)  (v1 predicted it: match 0.15; cost 20, spent 90)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 100)
+      theorist (fixes stalled)
+[8] E8 learn: Is the rapid variation near x=0 caused by a genuinely high-freque...(+262 chars)  (v1 predicted it: match 0.00; cost 20, spent 120)
+      model v2 by the updater: fit 0.04, size 447 (fit 0.025 -> 0.038); held-out 0%
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 130)
+[10] E10 learn: Do the fast wiggles seen in E6/E8 persist at the same period and ...(+217 chars)  (v2 predicted it: match 0.00; cost 20, spent 150)
+      updater's fix not kept: its fit is 0.025, the current model's is 0.030
+      updater's fix not kept: its fit is 0.015, the current model's is 0.030
+      theorist (fixes stalled)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 160)
+[12] E12 learn: Is the fine-grained structure between neighboring integer x value...(+261 chars)  (v2 predicted it: match 0.05; cost 20, spent 180)
+      model v3 by the updater: fit 0.07, size 271 (fit 0.029 -> 0.071); held-out 0%
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 0.00; cost 10, spent 190)
+      updater's fix not kept: its fit is 0.031, the current model's is 0.065
+[14] E14 learn: Is the output a smooth deterministic function of x (so nearby x g...(+178 chars)  (v3 predicted it: match 0.00; cost 20, spent 210)
+      model v4 by the updater: fit 0.07, size 282 (fit 0.061 -> 0.075); held-out 0%
+[15] E15 learn: a random ordinary probe  (v4 predicted it: match 0.10; cost 10, spent 220)
+      updater's fix not kept: its fit is 0.043, the current model's is 0.077
+      updater's fix not kept: its fit is 0.057, the current model's is 0.077
+[16] E16 learn: Is the fine-scale jitter truly random/noisy (so no deterministic ...(+278 chars)  (v4 predicted it: match 0.05; cost 20, spent 240)
+      updater's fix not kept: its fit is 0.044, the current model's is 0.075
+      updater's fix not kept: its fit is 0.031, the current model's is 0.075
+      theorist (fixes stalled)
+[17] E17 learn: a random ordinary probe  (v4 predicted it: match 0.20; cost 10, spent 250)
+      updater's fix not kept: its fit is 0.032, the current model's is 0.082
+      updater's fix not kept: same scores and not smaller (282 vs 282 chars)

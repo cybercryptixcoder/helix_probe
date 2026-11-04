@@ -26,3 +26,43 @@ Helix Probe v3 on 'find_numeric_f00794': 0 experiments so far, model v0, spent 0
 [11] E11 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 160)
       model v3 by the updater: fit 0.31, size 311 (fit 0.300 -> 0.309); held-out 0%
 [12] E12 learn: Is f(x) a phase-shifted sine (e.g. sin((x+phi) degrees)) rather t...(+72 chars)  (v3 predicted it: match 0.00; cost 20, spent 180)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 0.00; cost 10, spent 190)
+      model v4 by the theorist: fit 0.25, size 360 (on trial it predicted 0.03 of 3 new experiments, the current model 0.00); held-out 0%
+      updater's fix not kept: same scores and not smaller (395 vs 360 chars)
+[14] E14 learn: Is the ordinary (nonzero) output actually sin(x) in degrees, or a...(+138 chars)  (v4 predicted it: match 0.05; cost 20, spent 210)
+      updater's fix not kept: same scores and not smaller (405 vs 360 chars)
+      model v5 by the updater: fit 0.23, size 273 (same scores, smaller (360 -> 273 chars)); held-out 0%
+[15] E15 learn: a random ordinary probe  (v5 predicted it: match 0.00; cost 10, spent 220)
+      updater's fix not kept: same scores and not smaller (273 vs 273 chars)
+      updater's fix not kept: same scores and not smaller (350 vs 273 chars)
+[16] E16 learn: Does the ordinary nonzero output repeat exactly for the same x ac...(+130 chars)  (v5 predicted it: match 0.00; cost 20, spent 240)
+      updater's fix not kept: same scores and not smaller (318 vs 273 chars)
+      updater's fix not kept: same scores and not smaller (273 vs 273 chars)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.20, size 439)
+[17] E17 learn: a random ordinary probe  (v5 predicted it: match 0.10; cost 10, spent 250)
+      updater's fix not kept: same scores and not smaller (374 vs 273 chars)
+      updater's fix not kept: same scores and not smaller (374 vs 273 chars)
+[18] E18 learn: Is the ordinary (nonzero) output a deterministic function of x at...(+200 chars)  (v5 predicted it: match 0.00; cost 20, spent 270)
+      model v6 by the updater: fit 0.19, size 383 (fit 0.186 -> 0.189); held-out 0%
+[19] E19 learn: a random ordinary probe  (v6 predicted it: match 0.00; cost 10, spent 280)
+      theorist's model lost its trial: on trial it predicted 0.03 of 3 new experiments, the current model 0.03
+      updater's fix not kept: same scores and not smaller (383 vs 383 chars)
+      updater: keep
+[20] E20 learn: Is the ordinary nonzero output completely independent per call (p...(+204 chars)  (v6 predicted it: match 0.00; cost 20, spent 300)
+      updater's fix not kept: same scores and not smaller (383 vs 383 chars)
+      model v7 by the updater: fit 0.18, size 413 (fit 0.170 -> 0.180); held-out 0%
+[21] E21 learn: a random ordinary probe  (v7 predicted it: match 0.00; cost 10, spent 310)
+      model v8 by the updater: fit 0.19, size 413 (fit 0.171 -> 0.188); held-out 0%
+[22] E22 learn: Does the ordinary nonzero output depend on x at all, or is it pur...(+177 chars)  (v8 predicted it: match 0.00; cost 20, spent 330)
+      updater's fix not kept: its fit is 0.164, the current model's is 0.180
+      updater's fix not kept: its fit is 0.175, the current model's is 0.180
+[23] E23 learn: a random ordinary probe  (v8 predicted it: match 0.00; cost 10, spent 340)
+      model v9 by the updater: fit 0.18, size 413 (fit 0.172 -> 0.176); held-out 0%
+[24] E24 learn: Is the near-zero spike region a narrow interval around 0 (and if ...(+147 chars)  (v9 predicted it: match 0.20; cost 20, spent 360)
+      model v10 by the updater: fit 0.18, size 419 (fit 0.177 -> 0.183); held-out 0%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.16, size 380)
+[25] E25 learn: a random ordinary probe  (v10 predicted it: match 0.00; cost 10, spent 370)
+      model v11 by the updater: fit 0.18, size 419 (fit 0.176 -> 0.182); held-out 0%
+{"env": "find_numeric_f00794", "experiments": 25, "cost": 370, "model_version": 11, "model_role": "updater", "fit": 0.182, "size": 419, "exam": null, "heldout": 0.0, "llm_calls": 57, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

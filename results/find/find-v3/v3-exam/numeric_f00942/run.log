@@ -1,0 +1,18 @@
+Helix Probe v3 on 'find_numeric_f00942': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 197, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Is the function truly piecewise-linear with a break at x=0, or do...(+69 chars)  (v1 predicted it: match 0.93; cost 15, spent 29)
+      model v2 by the updater: fit 1.00, size 250, exam 1.00 (fit 0.967 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 39)
+[4] E4 learn: Does the x=0 special value belong only to the exact point x=0, or...(+104 chars)  (v2 predicted it: match 1.00; cost 15, spent 54)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 64)
+[6] E6 learn: Are there any other special points or a small interval of unusual...(+126 chars)  (v2 predicted it: match 1.00; cost 18, spent 82)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 470)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 92)
+[8] E8 learn: Does the positive branch stay linear all the way to the largest o...(+133 chars)  (v2 predicted it: match 1.00; cost 8, spent 100)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 110)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the model hold for a fresh random set of ordinary inputs spr...(+95 chars)  (v2 predicted it: match 1.00; cost 20, spent 130)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00942", "experiments": 10, "cost": 130, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 250, "exam": 1.0, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

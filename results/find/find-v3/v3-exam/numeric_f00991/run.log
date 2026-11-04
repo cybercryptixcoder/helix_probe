@@ -1,0 +1,18 @@
+Helix Probe v3 on 'find_numeric_f00991': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 190, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the piecewise split really happen at x=0, and what is f at a...(+118 chars)  (v1 predicted it: match 0.95; cost 20, spent 34)
+      model v2 by the updater: fit 1.00, size 189, exam 1.00 (fit 0.975 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 44)
+[4] E4 learn: Is the function exactly linear on each side of x=0, or does it be...(+110 chars)  (v2 predicted it: match 1.00; cost 20, spent 64)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 74)
+[6] E6 learn: Does the function continue its exact linear branches all the way ...(+148 chars)  (v2 predicted it: match 1.00; cost 20, spent 94)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 197)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 104)
+[8] E8 learn: Is the small deviation near the domain edges (seen at x=128 and x...(+115 chars)  (v2 predicted it: match 1.00; cost 16, spent 120)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 130)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Is the function exactly the two-line piecewise formula everywhere...(+117 chars)  (v2 predicted it: match 1.00; cost 20, spent 150)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00991", "experiments": 10, "cost": 150, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 189, "exam": 1.0, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

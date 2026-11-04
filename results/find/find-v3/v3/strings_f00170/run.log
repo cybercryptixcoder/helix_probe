@@ -1,0 +1,5 @@
+Helix Probe v3 on 'find_strings_f00170': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 84 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the output always prepend 'k' and reverse the input, or is t...(+128 chars)  (v1 predicted it: match 1.00; cost 10, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 22)

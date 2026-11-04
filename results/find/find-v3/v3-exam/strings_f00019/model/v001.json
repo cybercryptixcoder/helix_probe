@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to increment the final character of each string by one ASCII step, but only when it's a letter (digits and symbols left alone, as \"abc123\" shows), with a guessed wrap-around for 'z'/'Z'.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 448, "matches": [1.0], "made_at": 1, "heldout": 1.0}

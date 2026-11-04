@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to increment the final character by one alphabet position (case-preserving, non-letters unchanged), which explains every output in E1 including the unchanged `\"abc123\"`.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 360, "matches": [1.0], "made_at": 1, "heldout": 1.0}

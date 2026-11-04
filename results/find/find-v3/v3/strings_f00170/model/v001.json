@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to the rule `'k' + reverse(input)`, which matches all six observations in E1 exactly (including case, spaces, and digits being preserved).", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 84, "matches": [1.0], "made_at": 1, "heldout": 1.0}

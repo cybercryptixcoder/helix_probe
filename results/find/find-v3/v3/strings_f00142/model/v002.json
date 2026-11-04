@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the append rule: E4's `\"lowerUPPER\"` produced `\"qt|jwZUUJW\"` (no doubled W), so the box only appends \"W\" when the shifted result doesn't already end in \"W\".", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 264, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}
