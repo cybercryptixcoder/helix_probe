@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I inferred two rules from E1: the first character is shifted forward by 2 in the alphabet (a\u2192c, t\u2192v, d\u2192f, M\u2192O), and all spaces are removed. Everything else is left unchanged.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 422, "matches": [1.0], "made_at": 1, "heldout": 0.85}

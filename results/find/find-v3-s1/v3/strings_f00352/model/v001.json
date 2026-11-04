@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to appending \"T\" to each input, since every observed output in E1 is exactly the input with a trailing \"T\".", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 78, "matches": [1.0], "made_at": 1, "heldout": 1.0}

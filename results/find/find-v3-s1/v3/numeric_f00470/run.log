@@ -30,3 +30,11 @@ Helix Probe v3 on 'find_numeric_f00470': 0 experiments so far, model v0, spent 0
 [20] E20 learn: Does f(x) factor cleanly as x^3 times a sign-dependent exponentia...(+125 chars)  (v0 predicted it: match 0.00; cost 20, spent 300)
       theorist (fixes stalled)
 [21] E21 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 310)
+[22] E22 learn: Is the sign-dependent exponential envelope symmetric (same consta...(+198 chars)  (v0 predicted it: match 0.00; cost 20, spent 330)
+      theorist (fixes stalled)
+[23] E23 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 340)
+[24] E24 learn: Using ordinary mid-range inputs, can we confirm the functional fo...(+132 chars)  (v0 predicted it: match 0.00; cost 20, spent 360)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.36, size 862)
+[25] E25 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 370)
+{"env": "find_numeric_f00470", "experiments": 25, "cost": 370, "model_version": 0, "model_role": "start", "fit": 0.0, "size": 33, "exam": null, "heldout": 0.0, "llm_calls": 74, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

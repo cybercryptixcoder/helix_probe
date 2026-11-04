@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I removed all spaces and then capitalized the first character while lowercasing the rest, which matches every output in E1 (e.g. \"test caseMiXeD\" \u2192 \"Testcasemixed\", \"data a Python \" \u2192 \"Dataapython\").", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 202, "matches": [1.0], "made_at": 1, "heldout": 0.2}

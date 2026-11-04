@@ -1,0 +1,23 @@
+Helix Probe v3 on 'find_strings_f00346': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 422 (fit 0.000 -> 1.000); held-out 85%
+[2] E2 learn: Does the operation apply to every word (e.g. each word's first le...(+153 chars)  (v1 predicted it: match 1.00; cost 10, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 22)
+[4] E4 learn: Does the first-character shift apply to the first non-space chara...(+107 chars)  (v1 predicted it: match 1.00; cost 10, spent 32)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 38)
+[6] E6 learn: Does the +2 shift apply only to the first character of the whole ...(+192 chars)  (v1 predicted it: match 0.90; cost 10, spent 48)
+      model v2 by the updater: fit 1.00, size 449 (fit 0.983 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 541)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the +2 first-character shift apply to the first character of...(+238 chars)  (v2 predicted it: match 1.00; cost 10, spent 64)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 70)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the +2 first-letter shift apply to the first letter of each ...(+223 chars)  (v2 predicted it: match 1.00; cost 10, spent 80)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 86)
+[12] E12 learn: Does the +2 first-letter shift ever apply to a letter after an in...(+161 chars)  (v2 predicted it: match 1.00; cost 10, spent 96)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 102)
+[14] E14 learn: Does the +2 first-letter shift apply to the first letter of the w...(+169 chars)  (v2 predicted it: match 1.00; cost 10, spent 112)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00346", "experiments": 14, "cost": 112, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 449, "exam": null, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

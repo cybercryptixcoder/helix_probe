@@ -59,3 +59,16 @@ Helix Probe v3 on 'find_numeric_f00809': 0 experiments so far, model v0, spent 0
       updater's fix not kept: its fit is 0.102, the current model's is 0.107
       updater's fix not kept: its fit is 0.102, the current model's is 0.107
 [22] E22 learn: Does the central-region value depend on x through its fractional ...(+144 chars)  (v4 predicted it: match 0.05; cost 20, spent 330)
+      updater's fix not kept: its fit is 0.095, the current model's is 0.105
+      model v5 by the updater: fit 0.11, size 406 (fit 0.105 -> 0.114); held-out 0%
+[23] E23 learn: a random ordinary probe  (v5 predicted it: match 0.20; cost 10, spent 340)
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+[24] E24 learn: Is the central-region output actually a deterministic function of...(+204 chars)  (v5 predicted it: match 0.00; cost 20, spent 360)
+      updater's fix not kept: its fit is 0.108, the current model's is 0.113
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v5 predicted it: match 0.40; cost 10, spent 370)
+      updater's fix not kept: its fit is 0.122, the current model's is 0.124
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+{"env": "find_numeric_f00809", "experiments": 25, "cost": 370, "model_version": 5, "model_role": "updater", "fit": 0.124, "size": 406, "exam": null, "heldout": 0.0, "llm_calls": 71, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "theorist", "notes": "The box reverses the entire input string and then applies `str.capitalize()` to the result: the first character (if a letter) is uppercased and all remaining characters are lowercased.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 225, "matches": [1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 5, "heldout": 1.0}

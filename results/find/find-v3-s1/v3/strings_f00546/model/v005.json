@@ -1,0 +1,1 @@
+{"version": 5, "role": "theorist", "notes": "The main idea: split the input into words, reverse each word, and insert", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 594, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 9, "heldout": 1.0}

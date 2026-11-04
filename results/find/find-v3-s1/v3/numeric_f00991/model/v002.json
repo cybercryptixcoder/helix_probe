@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the x=0 case: E2 shows f(0)=2.5, which matches the negative branch's value at 0 (not the positive branch's -2.5). So the `x <= 0` branch now covers zero, giving 2.5.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 189, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

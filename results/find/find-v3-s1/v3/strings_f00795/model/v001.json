@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found two rules from E1: insert `'2'` at index `len(s)//2`, and shift the final character forward by 2 in the alphabet (non-letters unchanged). Both fit all six examples exactly.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 503, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -1,0 +1,14 @@
+Helix Probe v3 on 'find_strings_f00539': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 353 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the deduplication treat uppercase and lowercase letters as t...(+82 chars)  (v1 predicted it: match 1.00; cost 10, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 22)
+[4] E4 learn: Does the deduplication count characters across the whole string r...(+213 chars)  (v1 predicted it: match 1.00; cost 10, spent 32)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 38)
+[6] E6 learn: Does the deduplication and appended-h rule behave the same on str...(+134 chars)  (v1 predicted it: match 1.00; cost 10, spent 48)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the model hold up on ordinary multi-word phrases with repeat...(+213 chars)  (v1 predicted it: match 1.00; cost 10, spent 64)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 70)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00539", "experiments": 9, "cost": 70, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 353, "exam": null, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

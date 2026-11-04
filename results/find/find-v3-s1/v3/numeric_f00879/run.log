@@ -11,3 +11,54 @@ Helix Probe v3 on 'find_numeric_f00879': 0 experiments so far, model v0, spent 0
       updater: keep
       theorist (every 6 experiments)
 [7] E7 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 100)
+[8] E8 learn: Does f have a piecewise/regime structure with a different behavio...(+181 chars)  (v1 predicted it: match 0.00; cost 20, spent 120)
+      updater's fix not kept: its fit is 0.031, the current model's is 0.044
+      model v2 by the updater: fit 0.05, size 493 (fit 0.044 -> 0.050); held-out 0%
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 130)
+      updater's fix not kept: same scores and not smaller (493 vs 493 chars)
+[10] E10 learn: Is the negative region (x < ~-30) a genuinely different regime — ...(+165 chars)  (v2 predicted it: match 0.00; cost 20, spent 150)
+      theorist (fixes stalled)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 0.20; cost 10, spent 160)
+[12] E12 learn: Does the positive-side oscillation have a stable period and ampli...(+156 chars)  (v2 predicted it: match 0.00; cost 20, spent 180)
+      updater's fix not kept: same scores and not smaller (493 vs 493 chars)
+      updater's fix not kept: same scores and not smaller (493 vs 493 chars)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.05, size 620)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 190)
+[14] E14 learn: Does the positive-side oscillation have a consistent period/ampli...(+177 chars)  (v2 predicted it: match 0.05; cost 20, spent 210)
+[15] E15 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 220)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 0.05
+      updater's fix not kept: its fit is 0.047, the current model's is 0.057
+      theorist (fixes stalled)
+[16] E16 learn: Is there a regime change near x = -20 to -30 (the transition betw...(+138 chars)  (v2 predicted it: match 0.05; cost 20, spent 240)
+      model v3 by the updater: fit 0.07, size 555 (fit 0.056 -> 0.066); held-out 0%
+[17] E17 learn: a random ordinary probe  (v3 predicted it: match 0.00; cost 10, spent 250)
+      updater's fix not kept: same scores and not smaller (555 vs 555 chars)
+      model v4 by the updater: fit 0.07, size 546 (fit 0.062 -> 0.068); held-out 0%
+[18] E18 learn: When the positive-side oscillation is sampled densely at a fine s...(+128 chars)  (v4 predicted it: match 0.15; cost 20, spent 270)
+      updater's fix not kept: its fit is 0.053, the current model's is 0.072
+      updater: keep
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v4 predicted it: match 0.10; cost 10, spent 280)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.06, size 543)
+[20] E20 learn: Do the negative-region outputs depend on x only through a smooth ...(+163 chars)  (v4 predicted it: match 0.00; cost 20, spent 300)
+      updater's fix not kept: its fit is 0.057, the current model's is 0.070
+      updater: keep
+[21] E21 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 310)
+      updater: keep
+[22] E22 learn: Does the output depend on x through a clean periodic function wit...(+149 chars)  (v4 predicted it: match 0.05; cost 20, spent 330)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 0.02
+      updater: keep
+      theorist (fixes stalled)
+[23] E23 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 340)
+      updater's fix not kept: its fit is 0.048, the current model's is 0.063
+      updater: keep
+[24] E24 learn: Does the output on the positive side follow a stable periodic pat...(+174 chars)  (v4 predicted it: match 0.05; cost 20, spent 360)
+      model v5 by the updater: fit 0.07, size 224 (fit 0.062 -> 0.071); held-out 0%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.02, size 461)
+[25] E25 learn: a random ordinary probe  (v5 predicted it: match 0.00; cost 10, spent 370)
+      updater's fix not kept: its fit is 0.038, the current model's is 0.068
+      updater's fix not kept: same scores and not smaller (224 vs 224 chars)
+{"env": "find_numeric_f00879", "experiments": 25, "cost": 370, "model_version": 5, "model_role": "updater", "fit": 0.068, "size": 224, "exam": null, "heldout": 0.0, "llm_calls": 66, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

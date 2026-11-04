@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "Main idea: the box inserts the letter \"i\" into the exact middle of each input string (at floor(len/2)).", "exam": 0.0, "fit": 0.8333333333333334, "fit_exact": 0.4, "size": 172, "matches": [0.6666666666666666, 1.0, 0.8333333333333334, 1.0, 0.6666666666666666], "made_at": 5, "heldout": 0.02}

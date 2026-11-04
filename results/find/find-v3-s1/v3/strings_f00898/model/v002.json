@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I replaced the word-based insertion rule with a simple midpoint rule: insert 'f' at index floor(len/2) and append the last character. This fits all of E1 and E2.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 218, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

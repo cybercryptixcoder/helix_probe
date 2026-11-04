@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to: reverse the input string, then insert `\"2\"` at the midpoint (split position = ceil(len/2)), which reproduces all six E1 outputs exactly.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 196, "matches": [1.0], "made_at": 1, "heldout": 1.0}
