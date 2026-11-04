@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I added the special case at x == 0: E4 shows f(0.0) = 898156.8, distinct from both the positive branch (52.2) and negative branch (-14.96), while all nonzero values down to \u00b10.001 still follow the sign rule.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 224, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

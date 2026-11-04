@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "python\nimport math\n\ndef predict(probe):\n    # f(x) = -1.7 + 1.8x - 3.3", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 214, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

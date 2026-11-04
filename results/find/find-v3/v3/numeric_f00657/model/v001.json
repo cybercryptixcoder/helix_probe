@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to a sign-based rule: every observed output is \u00b118, and the sign is opposite to the sign of the input (positive x \u2192 -18, negative x \u2192 +18). This fits all 10 points in E1.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 85, "matches": [1.0], "made_at": 1, "heldout": 1.0}

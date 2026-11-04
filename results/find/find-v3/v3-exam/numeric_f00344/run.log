@@ -25,3 +25,20 @@ Helix Probe v3 on 'find_numeric_f00344': 0 experiments so far, model v0, spent 4
 [16] E16 learn: On the negative side, does the minimum near x=-2 sit exactly at x...(+124 chars)  (v0 predicted it: match 0.00; cost 20, spent 244)
 [17] E17 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 254)
       model v1 by the theorist: fit 0.70, size 1568, exam 0.43 (on trial it predicted 0.55 of 3 new experiments, the current model 0.00); held-out 0%
+[18] E18 learn: Does the positive branch follow y = c + (x+a)^2*exp(k*x) with a s...(+172 chars)  (v1 predicted it: match 1.00; cost 20, spent 274)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v1 predicted it: match 0.60; cost 10, spent 284)
+      theorist (fixes stalled)
+[20] E20 learn: Does the positive branch follow a single clean (x+a)^2*exp(k*x)+d...(+154 chars)  (v1 predicted it: match 0.80; cost 20, spent 304)
+[21] E21 learn: a random ordinary probe  (v1 predicted it: match 0.20; cost 10, spent 314)
+      theorist (fixes stalled)
+[22] E22 learn: On the negative branch, where exactly does the saturation at ≈-2....(+216 chars)  (v1 predicted it: match 0.40; cost 20, spent 334)
+[23] E23 learn: a random ordinary probe  (v1 predicted it: match 0.80; cost 10, spent 344)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.425
+      theorist (fixes stalled)
+[24] E24 learn: What is the exact functional form of the negative branch between ...(+133 chars)  (v1 predicted it: match 0.35; cost 20, spent 364)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.425
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.73, size 917)
+[25] E25 learn: a random ordinary probe  (v1 predicted it: match 0.50; cost 10, spent 374)
+{"env": "find_numeric_f00344", "experiments": 25, "cost": 374, "model_version": 1, "model_role": "theorist", "fit": 0.664, "size": 1568, "exam": 0.42500000000000004, "heldout": 0.0, "llm_calls": 72, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

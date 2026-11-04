@@ -1,0 +1,1 @@
+{"version": 6, "role": "updater", "notes": "I widened the band edges from \u00b14.3 to \u00b14.39: E8 shows 4.39\u21925 and -4.39\u2192-4 while 4.4\u21920 and -4.4\u21920, so the true cutoffs sit just below \u00b14.4, not at \u00b14.3.", "exam": 0.0, "fit": 0.9875, "fit_exact": 0.875, "size": 282, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.9], "made_at": 8, "heldout": 1.0}

@@ -1,0 +1,28 @@
+Helix Probe v3 on 'find_numeric_f00794': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.10, size 214 (fit 0.000 -> 0.100); held-out 0%
+[2] E2 learn: Does f(x) follow sin(x) exactly across the domain, or does it swi...(+88 chars)  (v1 predicted it: match 0.95; cost 20, spent 30)
+      model v2 by the updater: fit 0.55, size 296 (fit 0.525 -> 0.550); held-out 0%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 40)
+[4] E4 learn: Is the model's sign/phase wrong for positive x in the upper range...(+110 chars)  (v2 predicted it: match 0.05; cost 20, spent 60)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.25, size 442)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 70)
+[6] E6 learn: Is f(x) = sin(x) with the argument in degrees rather than radians...(+78 chars)  (v2 predicted it: match 1.00; cost 20, spent 90)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 100)
+      theorist's model lost its trial: on trial it predicted 0.33 of 3 new experiments, the current model 0.37
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.29, size 437)
+[8] E8 learn: Does f(x) equal sin(x) with x interpreted in degrees (i.e. sin(x*...(+109 chars)  (v2 predicted it: match 1.00; cost 20, spent 120)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 130)
+      updater's fix not kept: same scores and not smaller (307 vs 296 chars)
+      updater's fix not kept: same scores and not smaller (311 vs 296 chars)
+[10] E10 learn: Does f(x) equal sin(x degrees) for ordinary nonzero values, i.e. ...(+75 chars)  (v2 predicted it: match 0.05; cost 20, spent 150)
+      theorist's model lost its trial: on trial it predicted 0.33 of 3 new experiments, the current model 0.35
+      updater's fix not kept: same scores and not smaller (307 vs 296 chars)
+      updater's fix not kept: same scores and not smaller (308 vs 296 chars)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.31, size 360)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 160)
+      model v3 by the updater: fit 0.31, size 311 (fit 0.300 -> 0.309); held-out 0%
+[12] E12 learn: Is f(x) a phase-shifted sine (e.g. sin((x+phi) degrees)) rather t...(+72 chars)  (v3 predicted it: match 0.00; cost 20, spent 180)

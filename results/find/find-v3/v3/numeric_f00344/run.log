@@ -24,3 +24,19 @@ Helix Probe v3 on 'find_numeric_f00344': 0 experiments so far, model v0, spent 0
 [16] E16 learn: Do ordinary mid-range positive and negative inputs follow a pure ...(+146 chars)  (v0 predicted it: match 0.00; cost 20, spent 240)
       theorist (fixes stalled)
 [17] E17 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 250)
+[18] E18 learn: Does the function follow a single clean cubic on each side of x=0...(+174 chars)  (v0 predicted it: match 0.00; cost 20, spent 270)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 280)
+[20] E20 learn: Do the ordinary mid-range values follow the exact cubic f(x)=a*x^...(+150 chars)  (v0 predicted it: match 0.00; cost 20, spent 300)
+      model v1 by the updater: fit 0.96, size 273 (fit 0.000 -> 0.960); held-out 17%
+[21] E21 learn: a random ordinary probe  (v1 predicted it: match 0.80; cost 10, spent 310)
+[22] E22 learn: The current model fails badly on large-magnitude negative inputs ...(+244 chars)  (v1 predicted it: match 0.00; cost 20, spent 330)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 1.00, size 2338)
+[23] E23 learn: a random ordinary probe  (v1 predicted it: match 0.80; cost 10, spent 340)
+      model v2 by the updater: fit 1.00, size 379 (fit 0.904 -> 1.000); held-out 90%
+[24] E24 learn: Where exactly does the negative-side clamp boundary lie, between ...(+93 chars)  (v2 predicted it: match 0.85; cost 20, spent 360)
+      model v3 by the updater: fit 1.00, size 399 (fit 0.994 -> 1.000); held-out 100%
+[25] E25 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 370)
+      theorist's model lost its trial: on trial it predicted 0.63 of 3 new experiments, the current model 0.88
+{"env": "find_numeric_f00344", "experiments": 25, "cost": 370, "model_version": 3, "model_role": "updater", "fit": 1.0, "size": 399, "exam": null, "heldout": 1.0, "llm_calls": 68, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

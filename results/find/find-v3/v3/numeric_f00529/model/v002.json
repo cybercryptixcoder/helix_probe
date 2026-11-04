@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "The transition is a sigmoid centered at x=1.5 (not x=0) with slope ~4.64, so the midpoint sits at -7.4 and the curve only reaches -6.9 near x=3. E2's data pins down both the center and the steepness precisely.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 299, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

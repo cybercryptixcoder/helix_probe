@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to a simple sign rule: the output is always \u00b118, negative when x is positive and positive when x is negative \u2014 which fits all ten points in E1.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 124, "matches": [1.0], "made_at": 1, "heldout": 1.0}

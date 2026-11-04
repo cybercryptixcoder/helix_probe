@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with `f(x) = sin(x)` (radians, rounded to 4 decimals), since every output in E1 matches sine exactly to the observed precision.", "exam": 0.0, "fit": 0.1, "fit_exact": 0.0, "size": 214, "matches": [0.1], "made_at": 1, "heldout": 0.0}

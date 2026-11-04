@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the zero case: E2 shows f(0) = 898156.8, not the positive-branch value. The sign rule holds for all nonzero x (including tiny values like \u00b10.01), so the only exception is the single point x = 0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 224, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

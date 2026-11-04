@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Replaced the sign-step + dip hack with a single logistic curve `-7.9 + 1/(1+exp(-4.65*(x-1.5)))`, which fits every point in E2 (including the exact -7.4 at x=1.5 and the 2.9 dip) and E1 to 4 decimals.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 164, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

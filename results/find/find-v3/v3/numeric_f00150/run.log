@@ -33,3 +33,7 @@ Helix Probe v3 on 'find_numeric_f00150': 0 experiments so far, model v0, spent 0
 [22] E22 learn: On ordinary mid-range inputs where the small-|x| sign-flip region...(+281 chars)  (v0 predicted it: match 0.00; cost 20, spent 330)
       theorist (fixes stalled)
 [23] E23 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 340)
+[24] E24 learn: On ordinary mid-range |x| from 20 to 40, does f(x) equal x^5 time...(+194 chars)  (v0 predicted it: match 0.00; cost 20, spent 360)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 370)
+{"env": "find_numeric_f00150", "experiments": 25, "cost": 370, "model_version": 0, "model_role": "start", "fit": 0.0, "size": 33, "exam": null, "heldout": 0.0, "llm_calls": 74, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
