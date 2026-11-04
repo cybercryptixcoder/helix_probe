@@ -1,0 +1,54 @@
+Helix Probe on 'find_numeric_f00003': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, and is it smooth or does it ...(+22 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.60 (was 0.00), held-out 0%
+[2] E2 How does f behave inside the flat-looking region — is it truly constant, or...(+70 chars)  model v1 match 0.44
+      model v2: fit 0% (was 0%), mean match 0.69 (was 0.52), held-out 0%
+[3] E3 Where exactly does the plateau end on the right, and what is the shape of t...(+60 chars)  model v2 match 0.13
+      model v3: fit 0% (was 0%), mean match 0.54 (was 0.50), held-out 0%
+[4] E4 What is the exact shape of the left transition zone between x=-30 and x=-15...(+45 chars)  model v3 match 0.95
+      revision rejected: mean match 0.43 < 0.64
+      model v4: fit 0% (was 0%), mean match 0.66 (was 0.64), held-out 0%
+[5] E5 Where exactly does the left plateau edge sit between x=-21 and x=-19.5, and...(+41 chars)  model v4 match 0.50
+      revision rejected: mean match 0.52 < 0.62
+      revision rejected: mean match 0.45 < 0.62
+[6] E6 Is the left transition exactly linear in x (slope ~41.12 per unit) from x=-...(+92 chars)  model v4 match 0.00
+      revision rejected: mean match 0.52 < 0.52
+      model v5: fit 17% (was 0%), mean match 0.65 (was 0.52), held-out 4%
+[7] E7 Does the right side behave like a single smooth curve (e.g., quadratic) acr...(+110 chars)  model v5 match 1.00
+[8] E8 Is the far-left region (beyond the sampled transition points) smooth like t...(+144 chars)  model v5 match 0.30
+      model v6: fit 50% (was 25%), mean match 0.76 (was 0.65), held-out 100%
+[9] E9 What is the exact shape of the right transition just past x=3.75 — is it li...(+136 chars)  model v6 match 0.11
+      revision rejected: mean match 0.55 < 0.69
+      model v7: fit 44% (was 44%), mean match 0.75 (was 0.69), held-out 99%
+[10] E10 What is the exact shape of the left transition between x=-21 and x=-20.1 — ...(+83 chars)  model v7 match 0.00
+      model v8: fit 50% (was 40%), mean match 0.74 (was 0.67), held-out 99%
+[11] E11 Is the right side beyond the plateau one single quadratic, or does it chang...(+103 chars)  model v8 match 0.70
+      revision rejected: mean match 0.72 < 0.74
+      model v9: fit 45% (was 45%), mean match 0.74 (was 0.74), held-out 99%
+[12] E12 Is the left transition from x=-21 to the plateau truly linear with slope ~4...(+98 chars)  model v9 match 0.25
+      model v10: fit 42% (was 42%), mean match 0.70 (was 0.70), held-out 99%
+[13] E13 What is the exact shape of the right transition between x=3.75 and x=4.2 — ...(+91 chars)  model v10 match 0.70
+      model v11: fit 38% (was 38%), mean match 0.70 (was 0.70), held-out 99%
+[14] E14 Is the left transition truly linear with slope ~41.12 all the way from x=-2...(+98 chars)  model v11 match 0.55
+      model v12: fit 43% (was 36%), mean match 0.82 (was 0.69), held-out 99%
+[15] E15 Is the right-side rise after the plateau a single quadratic, or does it swi...(+58 chars)  model v12 match 0.50
+      model v13: fit 33% (was 40%), mean match 0.82 (was 0.80), held-out 32%
+[16] E16 Is the right side beyond x=20 a single quadratic through (10,650.4807),(20,...(+131 chars)  model v13 match 0.90
+      model v14: fit 44% (was 31%), mean match 0.85 (was 0.83), held-out 65%
+[17] E17 What is the exact shape of the right transition between x=4.2 and x=5.0 — d...(+153 chars)  model v14 match 0.05
+      revision rejected: mean match 0.77 < 0.80
+      model v15: fit 47% (was 41%), mean match 0.87 (was 0.80), held-out 65%
+[18] E18 What is the exact shape of the left transition between x=-21 and x=-20.16 —...(+152 chars)  model v15 match 0.90
+      model v16: fit 44% (was 44%), mean match 0.88 (was 0.87), held-out 65%
+[19] E19 What is the exact shape of the left transition just below x=-21 (from -22 t...(+107 chars)  model v16 match 1.00
+[20] E20 Is the left transition really piecewise linear with a slope change at x=-20...(+79 chars)  model v16 match 1.00
+[21] E21 Is the left transition between x=-21 and x=-20.16 a single straight line (s...(+102 chars)  model v16 match 0.90
+      model v17: fit 76% (was 48%), mean match 0.96 (was 0.89), held-out 65%
+[22] E22 What is the exact shape of the right transition between x=3.81 and x=4.2 — ...(+99 chars)  model v17 match 0.94
+      model v18: fit 77% (was 73%), mean match 0.96 (was 0.96), held-out 100%
+[23] E23 Between x=4.2 and x=5.0, is the rise really a straight line of slope ~78.5 ...(+138 chars)  model v18 match 0.25
+      model v19: fit 74% (was 74%), mean match 0.97 (was 0.93), held-out 100%
+[24] E24 What is the exact shape of the right-side rise between x=5.0 and x=10 — is ...(+97 chars)  model v19 match 0.15
+      model v20: fit 88% (was 71%), mean match 0.99 (was 0.94), held-out 100%
+[25] E25 Does the right-side rise keep the same linear slope (~104.5) from x=5.5 to ...(+109 chars)  model v20 match 1.00
+{"env": "find_numeric_f00003", "experiments": 25, "model_version": 20, "fit": 0.88, "heldout": 1.0, "llm_calls": 52, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

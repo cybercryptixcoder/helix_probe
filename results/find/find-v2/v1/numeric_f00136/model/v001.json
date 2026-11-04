@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is small in magnitude everywhere, roughly within \u00b10.1 over [-128,128] [E1]",
+  "f is near zero at x=0 and slightly negative just to the right of 0, positive just to the left [E1]",
+  "f has a dip near x=-16 (value ~0.015) and rises toward x=-2 (~0.078), then drops sharply through 0 to a minimum near x=1 (~-0.095) [E1]",
+  "f oscillates with a long wavelength, rising again toward x=128 (~0.057) after a trough near x=16 (~-0.013) [E1]",
+  "the shape suggests a sum of a few sinusoids (different frequencies/amplitudes) plus a small offset; exact form unknown?"
+ ],
+ "notes": "First model: fit a smooth oscillatory function to the 17 points. I use a small Fourier-like combination of sines/cosines plus constant, tuned to match the observed values, since the data shows multiple bumps and a sharp sign change near 0.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.058823529411764705
+ ],
+ "made_at": 1
+}

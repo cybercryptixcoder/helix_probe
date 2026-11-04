@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is flat at about -20.45 on an interval roughly from -20 to 2, and rises sharply outside it [E1]",
+  "Outside the flat interval f grows roughly quadratically with |x|, reaching ~24839 at x=-128 and ~39006 at x=128 [E1]",
+  "The curve is asymmetric: the right side rises faster than the left (39006 at 128 vs 24839 at -128) [E1]",
+  "The transition out of the flat region is smooth but steep near x=5 and x=-20 [E1]"
+ ],
+ "notes": "First model: a constant plateau near -20.45 on [-20,2] with quadratic growth outside, fit separately for left and right sides using the observed points.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.6
+ ],
+ "made_at": 1
+}

@@ -1,0 +1,32 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f is well approximated by a straight line with slope ~4.71 and intercept ~3.92 across the whole range [E11, E1, E2]",
+  "There is a small smooth S-shaped correction near zero: negative on the negative side, positive on the positive side, decaying to zero by |x|~2 [E16, E12, E10]",
+  "The correction is NOT a tanh of width ~1; it is much narrower \u2014 the data show a nearly linear ramp through zero with slope ~5.4 locally, and the deviation from the global line is roughly \u00b10.5 at |x|~0.5 and ~0 by |x|~1.5 [E16, E15, E14]",
+  "The near-zero region has a slightly steeper local slope (~5.4) than the far-field slope (~4.71), suggesting a small localized bump/ramp rather than a shelf [E16, E15, E14, E13]",
+  "The exact functional form of the near-zero correction is still not pinned down; a narrow Gaussian-derivative-like bump centered at 0 fits the observed pattern best so far [E16]?"
+ ],
+ "notes": "E16 shows the correction is much narrower than tanh(x/0.9): deviations are ~0.5 at |x|=0.5 and near zero by |x|=1.5, with local slope ~5.4 near zero. Replaced the tanh correction with a narrow Gaussian-derivative bump to match this width and sign pattern.",
+ "fit": 0.3125,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  0.65,
+  0.9,
+  0.9,
+  0.95,
+  0.5,
+  1.0,
+  0.75,
+  0.7,
+  0.6,
+  0.55,
+  0.65
+ ],
+ "made_at": 16
+}

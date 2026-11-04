@@ -1,0 +1,24 @@
+Helix Probe v2 on 'find_numeric_f00128': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like across the ordinary input range on a coarse grid, to ...(+60 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 1146 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 What is the fine structure of the curve between x=0 and x=16, where the coa...(+71 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the function's fine structure well captured between x=16 and x=64, and d...(+78 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the function's behavior near the origin have a genuinely smooth, symme...(+178 chars)  (v1 predicted it: match 0.85)
+      model v2 by the updater: exam 1.00, fit 1.00, size 1474 (fit 0.963 -> 1.000); held-out 100%
+[5] E5 Is the function exactly linear in the far positive tail (x>=64) and far neg...(+154 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the function have a small-scale oscillation or fine wiggling (MLP arti...(+177 chars)  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 1.00, size 1795 (fit 0.983 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.683, the current model's is 1.000
+[7] E7 Are there any remaining deviations from a smooth monotone curve in the mode...(+160 chars)  (v3 predicted it: match 1.00)
+[8] E8 How does the curve behave between the coarse anchors at x=-0.5 to -0.25 and...(+186 chars)  (v3 predicted it: match 1.00)
+[9] E9 Is the curve smooth (single MLP-like transition) between x=5 and x=16 and b...(+201 chars)  (v3 predicted it: match 1.00)
+[10] E10 Are there any deviations from smooth monotone behavior in the remaining spa...(+195 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the function have any hidden kink or curvature in the still-sparsely-a...(+157 chars)  (v3 predicted it: match 1.00)
+[12] E12 The model fits every point so far but uses piecewise-linear interpolation b...(+243 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.654, the current model's is 1.000
+[13] E13 Does the transition region around x=0.4 to 0.65 (where the slope changes ra...(+140 chars)  (v3 predicted it: match 1.00)
+[14] E14 Does the curve have subtle curvature in the transition region between x=1.2...(+146 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00128", "experiments": 14, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 1795, "heldout": 1.0, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

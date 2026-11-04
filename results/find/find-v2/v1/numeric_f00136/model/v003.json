@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f is small in magnitude everywhere, roughly within \u00b10.1 over [-128,128] [E1]",
+  "f has a broad plateau near 0.078 for x in roughly [-2.0,-1.0], very flat there [E1, E2, E3]",
+  "left of the plateau, f declines smoothly: ~0.0706 at -3, 0.0628 at -4, 0.0589 at -4.5, continuing down toward 0.048 at -128 [E1, E3]",
+  "f passes through ~0 at x=0 and drops to a minimum ~-0.095 near x=1 [E1, E2]",
+  "right of x=1, f rises smoothly from -0.095 toward positive values, reaching ~0.057 at x=128 with a shallow trough near x=16 (~-0.013) [E1]",
+  "the transition through 0 is smooth (cosine-like) between x=-1 and x=1, not a sharp kink [E2]"
+ ],
+ "notes": "Fixed the left side: instead of a Gaussian bump centered at -1, the plateau is flat from ~-2 to -1 and declines smoothly further left (E3 shows 0.0589 at -4.5, not 0.077). Kept the central cosine transition and right-side rise from E1/E2.",
+ "fit": 0.3333333333333333,
+ "heldout": 0.0,
+ "matches": [
+  0.35294117647058826,
+  0.4666666666666667,
+  1.0
+ ],
+ "made_at": 3
+}

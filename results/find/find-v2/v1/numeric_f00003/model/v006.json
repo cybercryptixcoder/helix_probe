@@ -1,0 +1,27 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f is flat at -20.4469 on the central interval [-20.1, 3.75] [E1, E2, E3, E5, E6]",
+  "Left plateau edge is at x=-20.1; for -20.1<x<-20.05 f is still plateau, and the linear rise starts at x=-20.1 with slope ~41.12 [E5, E6]",
+  "Left linear rise: f(x) = -20.4469 + 41.12*(x+20.1) holds from x=-21 up to x=-20.1 (values 12.9172 at -21 down to -20.4469 at -20.1) [E5, E6]",
+  "For x<-21 the left side is a smooth convex curve, not piecewise linear; it passes through (-21,12.9172),(-22,54.0378),(-25,204.0128),(-30,548.2541),(-40,1531.8654),(-60,4736.4186),(-128,24838.9457) [E4, E8, E1]",
+  "Right plateau edge at x=3.75; for x>3.75 f rises smoothly and is well fit by a single quadratic through (4,-12.9234),(10,650.4807),(128,39006.1248) [E3, E7, E1]",
+  "Right side quadratic matches E7 (15..115) and E1 far points to within ~1% [E7, E1]",
+  "Left and right sides are asymmetric: left is steeper far out, right is quadratic [E1]",
+  "Exact functional form of left outer region is uncertain; using a smooth interpolation through the sampled points? [E4, E8]"
+ ],
+ "notes": "Replaced left piecewise-linear with a smooth monotone interpolation through the dense E4/E8 samples (and E1 far points), since E8 shows the left side is a smooth convex curve. Kept the linear segment [-21,-20.1] and the right quadratic.",
+ "fit": 0.5,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.5333333333333333,
+  0.9,
+  0.55,
+  0.1,
+  1.0,
+  1.0
+ ],
+ "made_at": 8
+}

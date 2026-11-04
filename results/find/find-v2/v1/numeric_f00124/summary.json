@@ -1,0 +1,22 @@
+{
+ "env": "find_numeric_f00124",
+ "experiments": 25,
+ "model_version": 12,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 42,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "On x>=0, f(x) = 106.06 + 111.43*x is accurate to ~0.1% across 0 to 127, including x=0 [E1, E2, E3, E12]",
+  "On x<=-2, f(x) = 26.07*|x| - 25.4 is accurate to ~0.1% across |x| from 2 to 128 [E5, E6, E3, E4, E14]",
+  "The negative branch has a smooth minimum near |x|=1.07 with f\u22486.37 [E7, E9, E10, E13, E20, E21]",
+  "Between |x|=1.07 and |x|=2 the trough rises smoothly and joins the linear law at |x|=2 (f(-1.5)=13.66, f(-1.8)=21.48, f(-1.98)=26.18) [E13, E14, E15, E20, E22]",
+  "For |x| between 0 and 1, f falls from ~106 at x=0 to ~6.85 at |x|=1, with slope steepening with |x| (f(-0.5)=50.34, f(-0.65)=33.62, f(-0.85)=14.04, f(-0.99)=7.05) [E8, E9, E10, E11, E16, E17, E18, E19, E21]",
+  "The trough between |x|=1.07 and 2 is very close to a parabola in |x| but with slight residual curvature; a cubic through dense points fits better than a pure quadratic [E13, E20, E22, E23]?",
+  "The near-zero negative fall between |x|=0 and 1 is a smooth curve; a quartic through dense observed points captures it to ~1% [E16, E17, E18, E19, E21]"
+ ]
+}

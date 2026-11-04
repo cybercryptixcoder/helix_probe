@@ -1,0 +1,23 @@
+{
+ "version": 5,
+ "beliefs": [
+  "For x < -2, f is a straight line with slope exactly -0.57 per unit x, anchored at f(-2)=-2.5588 [E1, E4, E5]",
+  "The far-left branch is a single straight line: slope -0.57 holds from -128 to -2 (f(-128)=76.1256 matches -2.5588+(-0.57)(-126)) [E4, E5]",
+  "Between x=-2 and x=0 the slope steepens smoothly from about -2.5 to about -3.5, so the near-zero segment is not a single straight line but a curve [E6]",
+  "f(0)=-8.8302 and the local slope near x=0 is about -3.5 [E1, E6]",
+  "For x>5 the branch is piecewise linear with slope ~-3.05 near 5, ~-2.05 near 5.5-12, and ~-0.97 beyond 12 [E2, E3]",
+  "The kink at x=5 is a genuine vertex where the steep near-zero curve joins the x>5 branch, with f(5)=-25.4152 [E3]"
+ ],
+ "notes": "Fixed the far-left anchor (was -2.2302, should be -2.5588) and replaced the single steep line for -2<x<0 with a curve matching E6's observed values; kept the x>5 piecewise-linear fit which already matched E2/E3.",
+ "fit": 0.3333333333333333,
+ "heldout": 0.0,
+ "matches": [
+  0.42105263157894735,
+  0.75,
+  1.0,
+  0.0625,
+  0.05,
+  1.0
+ ],
+ "made_at": 6
+}

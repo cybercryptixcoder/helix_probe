@@ -1,0 +1,25 @@
+Helix Probe v2 on 'find_numeric_f00128': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.08, fit 0.20, size 274 (exam 0.000 -> 0.075); held-out 0%
+[2] E2 Sample the curve more finely across the whole ordinary range, especially ne...(+125 chars)  (v1 predicted it: match 0.35)
+      model v2 by the updater: exam 1.00, fit 1.00, size 357 (exam 0.075 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 What happens in the transition region around x=0, where the left and right ...(+95 chars)  (v2 predicted it: match 0.69)
+      model v3 by the updater: exam 1.00, fit 1.00, size 876 (fit 0.923 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 Does the transition region behave as a smooth sigmoid blend between the two...(+200 chars)  (v3 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Do the two linear branches and the transition region hold up at the far edg...(+154 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 Does the smooth transition region have any fine structure or asymmetry that...(+163 chars)  (v3 predicted it: match 0.85)
+      model v4 by the updater: exam 1.00, fit 1.00, size 1548 (fit 0.985 -> 1.000); held-out 100%
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 The transition region is only sampled at coarse grid points; does the curve...(+178 chars)  (v4 predicted it: match 1.00)
+[13] E13 a random ordinary probe  (v4 predicted it: match 1.00)
+[14] E14 Does the steep transition around x=0.6-0.7 contain a sharp kink or step (as...(+226 chars)  (v4 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v4 predicted it: match 1.00)
+[16] E16 Is the box's behavior on the ordinary bulk of the domain fully captured by ...(+152 chars)  (v4 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v4 predicted it: match 1.00)
+[18] E18 The model fits the transition with a piecewise-linear interpolation through...(+273 chars)  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00128", "experiments": 18, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 1548, "heldout": 1.0, "llm_calls": 14, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

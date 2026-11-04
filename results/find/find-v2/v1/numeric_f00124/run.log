@@ -1,0 +1,44 @@
+Helix Probe on 'find_numeric_f00124': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, especially at the extremes a...(+44 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.25 (was 0.00), held-out 0%
+[2] E2 How does f behave on a fine grid between x=0 and x=8, to pin down the near-...(+63 chars)  model v1 match 0.20
+      model v2: fit 0% (was 0%), mean match 0.75 (was 0.23), held-out 0%
+[3] E3 Is f exactly linear on x>0 (constant slope 111.4) and on x<0 (constant slop...(+70 chars)  model v2 match 0.80
+      model v3: fit 0% (was 0%), mean match 0.77 (was 0.77), held-out 0%
+[4] E4 Is the negative branch of f exactly linear (slope ~25.8) across the whole n...(+100 chars)  model v3 match 0.25
+      model v4: fit 75% (was 0%), mean match 0.99 (was 0.64), held-out 100%
+[5] E5 Is the negative branch exactly linear in |x| for |x|>=2 (so f(-x) = a - b*x...(+136 chars)  model v4 match 1.00
+[6] E6 On the negative side, does f(x) follow exactly the linear law f(x) = 26.07*...(+137 chars)  model v4 match 1.00
+[7] E7 Does the negative branch follow exactly f(x)=26.07*|x|-25.4 for very small ...(+115 chars)  model v4 match 0.65
+      model v5: fit 71% (was 71%), mean match 0.94 (was 0.94), held-out 100%
+[8] E8 What is the exact shape of the near-zero negative curve between x=-0.05 and...(+72 chars)  model v5 match 0.35
+      model v6: fit 75% (was 62%), mean match 0.91 (was 0.87), held-out 100%
+[9] E9 Where exactly does the near-zero negative curve bottom out, and does it mat...(+214 chars)  model v6 match 0.30
+      revision rejected: mean match 0.84 < 0.84
+      model v7: fit 67% (was 67%), mean match 0.87 (was 0.84), held-out 100%
+[10] E10 Is the near-zero negative branch (|x| from 0 to 1) actually a straight line...(+145 chars)  model v7 match 0.65
+      model v8: fit 60% (was 60%), mean match 0.84 (was 0.84), held-out 100%
+[11] E11 Does the near-zero negative branch follow a smooth curve that I can pin dow...(+136 chars)  model v8 match 1.00
+[12] E12 Is the positive branch exactly linear all the way to x=0 (i.e. does f(0)=10...(+140 chars)  model v8 match 1.00
+[13] E13 The trough between |x|=1 and |x|=2 is badly fit (E7 shows my quadratic is f...(+182 chars)  model v8 match 0.30
+      revision rejected: mean match 0.80 < 0.83
+      revision rejected: mean match 0.82 < 0.83
+[14] E14 Does the trough between |x|=1 and |x|=2 follow a smooth parabola that joins...(+167 chars)  model v8 match 0.70
+      model v9: fit 71% (was 57%), mean match 0.90 (was 0.82), held-out 100%
+[15] E15 Is the trough between |x|=1.05 and |x|=2 exactly a parabola in |x|, and doe...(+180 chars)  model v9 match 1.00
+[16] E16 Is the near-zero negative fall (|x| from 0 to 1) exactly a quadratic/cubic ...(+144 chars)  model v9 match 1.00
+[17] E17 Does the near-zero negative fall (|x| from 0 to 1) follow a single smooth a...(+132 chars)  model v9 match 0.25
+      revision rejected: mean match 0.87 < 0.87
+      revision rejected: mean match 0.86 < 0.87
+[18] E18 Is the near-zero negative fall (|x| from 0 to 1) a single smooth analytic c...(+172 chars)  model v9 match 1.00
+[19] E19 Is the near-zero negative fall (|x| from 0 to 1) an exact quadratic in |x|,...(+111 chars)  model v9 match 0.25
+      model v10: fit 79% (was 68%), mean match 0.97 (was 0.85), held-out 100%
+[20] E20 Is the trough bottom (|x| between 1.0 and 1.2) a smooth minimum at |x|≈1.06...(+155 chars)  model v10 match 0.60
+      model v11: fit 85% (was 75%), mean match 0.97 (was 0.95), held-out 100%
+[21] E21 Is the near-zero negative fall (|x| from 0 to ~1) a single smooth analytic ...(+161 chars)  model v11 match 1.00
+[22] E22 Is the trough between |x|=1.07 and |x|=2 exactly a parabola in |x| (as I as...(+190 chars)  model v11 match 1.00
+[23] E23 Is the trough between |x|=1.07 and |x|=2 exactly a parabola in |x|, or is t...(+173 chars)  model v11 match 0.89
+      model v12: fit 100% (was 83%), mean match 1.00 (was 0.97), held-out 100%
+[24] E24 What does f do at x exactly 0 and just below it (x=-0.001 to -0.05), where ...(+149 chars)  model v12 match 1.00
+[25] E25 Where exactly does the negative branch's rising trough hand off to the line...(+149 chars)  model v12 match 1.00
+{"env": "find_numeric_f00124", "experiments": 25, "model_version": 12, "fit": 1.0, "heldout": 1.0, "llm_calls": 42, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,28 @@
+{
+ "version": 9,
+ "beliefs": [
+  "For x <= -2, f is a smooth curve (not a line); piecewise-linear knots from E11 fit it well [E4, E5, E10, E11]",
+  "Between x=-2 and x=0 the slope steepens smoothly; f(0)=-8.8302 with local slope ~-3.5 [E1, E6]",
+  "For 0<x<5 the segment is essentially straight with slope ~-3.317, reaching f(5)=-25.4152 [E7, E9]",
+  "For 5<x<=12 the branch is a straight line with slope ~-2.05: f(5.5)=-26.9386, f(12)=-38.0921, and midpoints like f(6)=-28.462, f(7)=-31.5088 lie on it [E2, E12]",
+  "For x>12 the branch flattens progressively; piecewise-linear knots from E8 are used [E8]"
+ ],
+ "notes": "E12 shows the 5.5-12 region is a straight line with slope (f(12)-f(5.5))/6.5 = -1.7158, not the -2.05 I had; replaced the 5.5-12 knots with a single line from (5.5,-26.9386) to (12,-38.0921).",
+ "fit": 0.8333333333333334,
+ "heldout": 0.93,
+ "matches": [
+  1.0,
+  0.875,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7272727272727273
+ ],
+ "made_at": 12
+}

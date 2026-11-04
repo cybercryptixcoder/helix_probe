@@ -1,0 +1,36 @@
+Helix Probe v2 on 'find_numeric_f00124': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 833 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the function exactly a piecewise quadratic with a discontinuity or diffe...(+66 chars)  (v1 predicted it: match 0.90)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Does the function have a smooth, simple form across the whole domain (e.g. ...(+145 chars)  (v1 predicted it: match 0.90)
+      updater's model not kept: its exam is 0.475, the current model's is 1.000
+[5] E5 a random ordinary probe  (v1 predicted it: match 1.00)
+[6] E6 What is the exact shape of the small-|x| region on the negative side, where...(+232 chars)  (v1 predicted it: match 0.50)
+      updater's model not kept: its exam is 0.700, the current model's is 1.000
+      updater's model not kept: its exam is 0.450, the current model's is 1.000
+[7] E7 a random ordinary probe  (v1 predicted it: match 1.00)
+[8] E8 What is the exact functional form on the negative side between x=-3 and x=-...(+172 chars)  (v1 predicted it: match 0.85)
+      model v2 by the updater: exam 1.00, fit 0.98, size 958 (fit 0.894 -> 0.981); held-out 100%
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Is the central linear segment exactly linear across its whole span [-1, 0.5...(+102 chars)  (v2 predicted it: match 0.92)
+      model v3 by the updater: exam 1.00, fit 1.00, size 1100 (fit 0.977 -> 1.000); held-out 100%
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 Does the positive-side quadratic hold exactly (no bend/kink) between x=0.5 ...(+146 chars)  (v3 predicted it: match 1.00)
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+[14] E14 Is the negative-side quadratic exactly a*x^2 (pure, no linear term) across ...(+159 chars)  (v3 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v3 predicted it: match 1.00)
+[16] E16 The model's left transition bend on [-1,-0.6] is a fitted quadratic that di...(+190 chars)  (v3 predicted it: match 0.95)
+      model v4 by the updater: exam 1.00, fit 1.00, size 1098 (same scores, smaller (1100 -> 1098 chars)); held-out 100%
+[17] E17 a random ordinary probe  (v4 predicted it: match 1.00)
+[18] E18 The transition bend on [-1,-0.6] is the only region the model still gets wr...(+226 chars)  (v4 predicted it: match 1.00)
+[19] E19 a random ordinary probe  (v4 predicted it: match 1.00)
+[20] E20 Does the model's linear region really extend all the way to x=-0.6, or does...(+134 chars)  (v4 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v4 predicted it: match 1.00)
+[22] E22 Where exactly does the left quadratic-to-linear transition join the linear ...(+100 chars)  (v4 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v4 predicted it: match 1.00)
+[24] E24 What is the exact shape of the left transition bend between the negative qu...(+162 chars)  (v4 predicted it: match 0.75)
+      updater's model not kept: its fit is 0.975, the current model's is 0.987
+      model v5 by the updater: exam 1.00, fit 1.00, size 1773 (fit 0.987 -> 1.000); held-out 100%
+[25] E25 a random ordinary probe  (v5 predicted it: match 1.00)
+{"env": "find_numeric_f00124", "experiments": 25, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 1773, "heldout": 1.0, "llm_calls": 27, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

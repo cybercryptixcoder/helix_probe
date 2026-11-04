@@ -1,0 +1,27 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f is small in magnitude everywhere, roughly within \u00b10.1 over [-128,128] [E1]",
+  "f has a broad plateau near 0.078 for x in roughly [-2.0,-1.0], very flat there [E1, E2, E3]",
+  "left of the plateau, f declines smoothly: ~0.0706 at -3, 0.0628 at -4, 0.0589 at -4.5, 0.055 at -5, 0.0471 at -6 [E1, E3, E5, E6]",
+  "f has a local minimum ~0.0142 near x=-14, then rises on both sides (toward ~0.0156 at -18 and ~0.0471 at -6) [E6]",
+  "far left, f declines monotonically from ~0.0156 at -18 down to ~0.0479 at -128, nearly linear with slope ~0.00029 per unit [E1, E5]",
+  "f passes through ~0 at x=0 and drops to a minimum ~-0.095 near x=1 [E1, E2]",
+  "right of x=1, f rises smoothly and monotonically from -0.095 toward ~0.057 at x=128; no oscillatory trough near x=16 [E1, E4]",
+  "the transition through 0 is smooth (cosine-like) between x=-1 and x=1, not a sharp kink [E2]",
+  "right-side rise points: -0.0466 at 3, -0.0208 at 12, 0.0003 at 24, 0.0176 at 56, 0.048 at 112 [E4]",
+  "the left branch between -18 and -6 is not linear: it dips to a minimum near -14 and rises steeply toward -6 [E6]"
+ ],
+ "notes": "Replaced the linear -18..-2 left branch with a piecewise fit: linear decline -18->-14 to a min ~0.0142, then a smooth rise -14->-6->-2 matching E6 points; kept plateau, transition, and right-side fits.",
+ "fit": 0.3333333333333333,
+ "heldout": 0.0,
+ "matches": [
+  0.5882352941176471,
+  0.6,
+  1.0,
+  0.0,
+  1.0,
+  0.65
+ ],
+ "made_at": 6
+}

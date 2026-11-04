@@ -1,0 +1,26 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f is piecewise-linear with two slopes: ~4.69 per unit on the far negative side and ~4.71 per unit on the far positive side, meeting at a kink near x=0 [E1, E2, E3, E7, E8, E9]",
+  "The negative-side line is f(x)\u22484.69*x+6.0 for x<0, and the positive-side line is f(x)\u22484.71*x+3.92 for x>0, so the kink is at (0, 3.92) [E7, E8, E9, E10]",
+  "The transition is sharp (a true kink at x=0), not a smooth sigmoid: E10 shows constant slope ~4.71 on each side of 0 [E10]",
+  "Near x=0 the two lines differ by a small offset (~2.08) that vanishes as |x| grows, consistent with a kink at x=0 [E5, E7]",
+  "The exact kink location may be slightly off from x=0 but is close enough that a kink at 0 fits all data [E8, E10]?"
+ ],
+ "notes": "Replaced the smooth Gaussian dip with a two-line piecewise model: negative side slope 4.69 intercept 6.0, positive side slope 4.71 intercept 3.92, kink at x=0. This matches E7/E8/E9/E10 slopes and fixes the far-field values that the Gaussian was distorting.",
+ "fit": 0.3,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  0.85,
+  0.6,
+  0.5,
+  0.6,
+  0.45,
+  0.5,
+  0.4
+ ],
+ "made_at": 10
+}

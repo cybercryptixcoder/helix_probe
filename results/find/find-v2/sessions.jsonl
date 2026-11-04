@@ -1,0 +1,1 @@
+{"t": "2026-11-04 00:40:38 EST", "name": "find-v2", "arms": ["v2", "v2-directed", "v2-random", "v2-no-theorist", "v1"], "steps": 25, "exam": 4, "workers": 6, "fake": false, "commit": "e7a85ee07a23fd05d286d48ba7405ae1eaf1319c", "python": "3.12.3", "machine": "aarch64", "cpus": 2, "mem_total_mb": 11925, "disk_free_mb": 19484}

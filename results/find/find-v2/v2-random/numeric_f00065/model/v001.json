@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found the box is piecewise linear with a kink at x=0: slope -2.5 for x>0 and -1.75 for x<0, both with intercept -8.6 (continuous at 0). This fits all 10 points in E1 to within ~0.2.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 180, "matches": [1.0], "made_at": 1, "heldout": 1.0}

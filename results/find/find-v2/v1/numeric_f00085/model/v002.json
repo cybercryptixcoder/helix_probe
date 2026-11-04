@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-4, 4], then grows quadratically outside that interval [E2]",
+  "Outside the flat region, f(x) \u2248 3.088*x^2 - 2.5*x - 22.8 fits well (e.g. f(16)\u2248857, f(64)\u224814111, f(128)\u224850593) [E1, E2]",
+  "The flat interval is symmetric: f(-4)=f(4)=-22.8021 and f(-8)=21.82, f(8)=132.19 [E2]",
+  "The quadratic coefficient is slightly larger than 3.088 at large |x| (f(128)=50593 vs 3.088*128^2=50593) \u2014 consistent with pure quadratic [E1, E2]"
+ ],
+ "notes": "Discovered a flat plateau at -22.8021 for |x|<=4; outside it the quadratic a*x^2+b*x+c with a\u22483.088, b\u2248-2.5, c\u2248-22.8 matches. Replaced the pure quadratic with a clamped piecewise model.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.55,
+  0.9
+ ],
+ "made_at": 2
+}

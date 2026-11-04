@@ -1,0 +1,26 @@
+Helix Probe v2 on 'find_numeric_f00132': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like across the ordinary input range, and where does its behavior change?  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 201 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the ~4-unit offset at x=0 a genuine additive constant (making f non-odd)...(+100 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the ~4-unit offset at zero a smooth localized bump, or does the function...(+86 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the function remain exactly linear with slope ~4.7 and intercept ~3.9 ...(+140 chars)  (v1 predicted it: match 1.00)
+[5] E5 Is the function's odd-looking offset near zero actually a sum of a linear t...(+167 chars)  (v1 predicted it: match 1.00)
+[6] E6 Is the small ~4-unit offset at x=0 a localized even bump (symmetric feature...(+177 chars)  (v1 predicted it: match 0.85)
+      updater's model not kept: its fit is 0.792, the current model's is 0.975
+      theorist (every 6 steps)
+      model v2 by the theorist: exam 1.00, fit 0.98, size 331 (fit 0.975 -> 0.983); held-out 100%
+[7] E7 Does the current model's small residual error near zero come from a narrow ...(+219 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the small residual near zero come from a narrow even bump centered at ...(+104 chars)  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 1.00, size 375 (fit 0.975 -> 1.000); held-out 100%
+[9] E9 Is the positive bump near x=-0.8 real and symmetric/asymmetric, and does th...(+143 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the localized feature near x=0 extend symmetrically to the positive si...(+223 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the localized dip/bump structure near x=0 have any additional asymmetr...(+210 chars)  (v3 predicted it: match 1.00)
+[12] E12 Does the localized feature near x=0 have a symmetric positive-side counterp...(+189 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (1331 vs 375 chars)
+[13] E13 Does the localized feature near x=0 have a symmetric positive-side counterp...(+184 chars)  (v3 predicted it: match 1.00)
+[14] E14 Is the far-field behavior exactly linear with slope 4.7 and intercept 4.25 ...(+249 chars)  (v3 predicted it: match 1.00)
+[15] E15 Is the residual structure (the dip near 0 and bump near -0.8) fully capture...(+197 chars)  (v3 predicted it: match 1.00)
+[16] E16 Is the positive-side residual near x=0.5-1.0 truly a small negative dip (as...(+185 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00132", "experiments": 16, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 375, "heldout": 1.0, "llm_calls": 22, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

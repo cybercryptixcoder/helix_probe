@@ -1,0 +1,22 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f is small in magnitude everywhere, roughly within \u00b10.1 over [-128,128] [E1]",
+  "f has a broad plateau near 0.078 for x in roughly [-2.0,-1.0], very flat there [E1, E2, E3]",
+  "left of the plateau, f declines smoothly: ~0.0706 at -3, 0.0628 at -4, 0.0589 at -4.5, continuing down toward 0.048 at -128 [E1, E3]",
+  "f passes through ~0 at x=0 and drops to a minimum ~-0.095 near x=1 [E1, E2]",
+  "right of x=1, f rises smoothly and monotonically from -0.095 toward ~0.057 at x=128; there is NO oscillatory trough near x=16 \u2014 earlier apparent trough was coarse sampling [E1, E4]",
+  "the transition through 0 is smooth (cosine-like) between x=-1 and x=1, not a sharp kink [E2]",
+  "the right-side rise is roughly linear in log-ish fashion: -0.0466 at 3, -0.0208 at 12, 0.0003 at 24, 0.0176 at 56, 0.048 at 112 [E4]"
+ ],
+ "notes": "Removed the spurious sinusoidal trough on the right side; E4 shows a clean monotone rise. Refit right side as smooth saturating rise through the E4 points, and tightened left-side decline to match E3.",
+ "fit": 0.25,
+ "heldout": 0.0,
+ "matches": [
+  0.35294117647058826,
+  0.5333333333333333,
+  1.0,
+  0.0
+ ],
+ "made_at": 4
+}

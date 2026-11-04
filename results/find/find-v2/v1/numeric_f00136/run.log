@@ -1,0 +1,41 @@
+Helix Probe on 'find_numeric_f00136': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do at the origin and across the full input range, including lar...(+32 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.06 (was 0.00), held-out 0%
+[2] E2 Is f smooth and monotone-free between the sampled points near the sharp tra...(+116 chars)  model v1 match 0.07
+      revision rejected: mean match 0.03 < 0.06
+      model v2: fit 0% (was 0%), mean match 0.35 (was 0.06), held-out 0%
+[3] E3 Does the flat plateau near x=-1 extend further left than -1.5 (e.g., to -2,...(+93 chars)  model v2 match 0.72
+      model v3: fit 33% (was 0%), mean match 0.61 (was 0.47), held-out 0%
+[4] E4 Does the right-hand side of f really contain a shallow oscillatory trough n...(+74 chars)  model v3 match 0.06
+      model v4: fit 25% (was 25%), mean match 0.47 (was 0.47), held-out 0%
+[5] E5 How does f behave on the far left beyond -128's neighborhood — is the rise ...(+123 chars)  model v4 match 0.25
+      model v5: fit 0% (was 20%), mean match 0.55 (was 0.43), held-out 0%
+[6] E6 What happens to f between x=-18 (minimum ~0.0156) and x=-6 (~0.0471), and d...(+89 chars)  model v5 match 0.05
+      model v6: fit 33% (was 0%), mean match 0.64 (was 0.47), held-out 0%
+[7] E7 Does the left branch really dip to a minimum near x=-14, and how does it jo...(+79 chars)  model v6 match 0.50
+      revision rejected: mean match 0.61 < 0.62
+      revision rejected: mean match 0.61 < 0.62
+[8] E8 Over the untested left tail between x=-20 and x=-18, does the minimum near ...(+185 chars)  model v6 match 1.00
+[9] E9 Where exactly does the transition between the left branch and the plateau o...(+70 chars)  model v6 match 1.00
+[10] E10 What is the exact shape of the right-hand branch between x=1 and x=24, wher...(+143 chars)  model v6 match 0.25
+      model v7: fit 60% (was 40%), mean match 0.85 (was 0.66), held-out 66%
+[11] E11 The model's cosine transition through zero is wrong (predicts -0.0087 at 0,...(+149 chars)  model v7 match 0.47
+      model v8: fit 55% (was 55%), mean match 0.84 (was 0.82), held-out 66%
+[12] E12 What is the exact shape of the transition between the plateau (x=-2 to -1) ...(+99 chars)  model v8 match 0.60
+      model v9: fit 75% (was 50%), mean match 0.90 (was 0.82), held-out 69%
+[13] E13 My model badly misses the left branch between x=-14 and x=-6 (E6/E7): is th...(+183 chars)  model v9 match 0.30
+      model v10: fit 69% (was 69%), mean match 0.91 (was 0.86), held-out 80%
+[14] E14 My model badly misses the left branch between x=-14 and x=-6 (E6/E7/E13): i...(+195 chars)  model v10 match 0.55
+      model v11: fit 100% (was 64%), mean match 1.00 (was 0.89), held-out 94%
+[15] E15 How does the sharp near-vertical drop between x=-0.85 (0.0773) and x=-0.8 (...(+158 chars)  model v11 match 1.00
+[16] E16 How does f behave between x=-24 and x=-20, i.e. does the near-linear far-le...(+111 chars)  model v11 match 1.00
+[17] E17 Does the far-left near-linear decline continue smoothly below x=-24 (untest...(+132 chars)  model v11 match 1.00
+[18] E18 What does f do on the completely untested right tail between x=24 and x=56 ...(+83 chars)  model v11 match 1.00
+[19] E19 Does the steep drop just right of the plateau continue smoothly below x=-0....(+129 chars)  model v11 match 1.00
+[20] E20 How does f behave on the untested stretch between x=-0.55 and x=-0.25, wher...(+120 chars)  model v11 match 1.00
+[21] E21 How does f behave on the completely untested stretch between x=-0.16 and x=...(+142 chars)  model v11 match 1.00
+[22] E22 What does f do on the completely untested stretch between x=0.04 and x=0.5,...(+157 chars)  model v11 match 1.00
+[23] E23 Does the steep near-vertical drop around x=-0.8 actually continue as a shar...(+198 chars)  model v11 match 1.00
+[24] E24 How does f behave on the completely untested mid-right stretch between x=56...(+156 chars)  model v11 match 1.00
+[25] E25 What does f do on the completely untested stretch between x=0.62 and x=1.0 ...(+193 chars)  model v11 match 1.00
+{"env": "find_numeric_f00136", "experiments": 25, "model_version": 11, "fit": 1.0, "heldout": 0.94, "llm_calls": 39, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

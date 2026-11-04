@@ -1,0 +1,10 @@
+step,kind,experiments,box_probes,model_version,model_role,exam,fit,size,arrival_last10,heldout,llm_calls,note
+1,learn,1,5,1,updater,0.825,0.941,362,0.00,0.250,2,E1
+2,learn,2,6,1,updater,0.825,0.971,362,0.50,0.250,3,E2
+3,learn,3,7,1,updater,0.825,0.980,362,0.67,0.250,4,E3
+4,learn,4,8,1,updater,0.825,0.985,362,0.75,0.250,6,E4
+5,learn,5,9,1,updater,0.825,0.988,362,0.80,0.250,7,E5
+6,learn,6,10,2,theorist,1.000,1.000,797,0.83,1.000,9,E6
+7,learn,7,11,2,theorist,1.000,1.000,797,0.86,1.000,10,E7
+8,learn,8,12,2,theorist,1.000,1.000,797,0.88,1.000,11,E8
+9,learn,9,13,2,theorist,1.000,1.000,797,0.89,1.000,12,E9

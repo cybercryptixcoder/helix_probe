@@ -1,0 +1,19 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in roughly [-6, 5.5], since f(-6), f(5.5), f(-5.5) are all -22.8021 [E3]",
+  "The flat interval extends at least to -6 and 5.5; its true endpoints are still unknown, but f(6)=-8.5526 shows the right edge is between 5.5 and 6 [E3]",
+  "Outside the flat interval f grows quadratically; f(8)=132.19, f(16)=857.05, f(64)=14110.97, f(128)=50592.64 [E1, E2]",
+  "The quadratic is asymmetric: f(-8)=21.82 vs f(8)=132.19, and f(-128)=51222.63 vs f(128)=50592.64, so a linear term is present [E1, E2]",
+  "A single quadratic a*x^2+b*x+c with a\u22483.088, b\u2248-2.5 fits large |x| but not the near-plateau region, so the transition shape is still uncertain [E1, E2, E3]"
+ ],
+ "notes": "E3 shows the flat region is much wider than [-4,4]: it covers at least [-6, 5.5] and f(6)=-8.5526 is the first non-flat point seen. I widened the plateau to [-6, 5.5] and kept the quadratic outside, acknowledging the exact edges and transition shape are still unknown.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.55,
+  0.9,
+  0.95
+ ],
+ "made_at": 3
+}

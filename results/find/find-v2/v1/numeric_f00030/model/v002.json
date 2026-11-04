@@ -1,0 +1,23 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f is smooth and slowly varying over the whole domain, ranging roughly from -1.81 to -1.47 [E1, E2, E3, E6]",
+  "f has a broad U-shape with a minimum near x=0 and rising toward both endpoints, reaching about -1.47 at x=-128 and -1.51 at x=128 [E1]",
+  "there is a narrow central structure: two notches near x=\u00b10.8 (reaching about -1.814) with a small local bump at x=0 (about -1.756) [E2, E3, E4, E5]",
+  "the central fine structure is nearly symmetric about x=0, with notch minima at x\u2248-0.8 and x\u2248+0.8 [E4, E5]",
+  "the mid-range (|x| from ~4 to ~30) rises smoothly from about -1.69 near |x|=4.5 to about -1.63 at |x|=30, consistent with a broad U plus the central notches [E6]",
+  "the broad U curvature is much shallower than v1 assumed: at |x|=30 f is only ~-1.63, not ~-1.78 [E6]"
+ ],
+ "notes": "Replaced the too-steep parabola with a shallow broad U plus two Gaussian notches near x=\u00b10.8 and a small central bump, matching E1-E6.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 6
+}

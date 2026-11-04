@@ -1,0 +1,65 @@
+Helix Probe on 'find_numeric_f00085': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, especially at a coarse grid ...(+93 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.55 (was 0.00), held-out 0%
+[2] E2 Is f exactly quadratic across the domain, or does the residual structure (e...(+143 chars)  model v1 match 0.90
+      model v2: fit 0% (was 0%), mean match 0.73 (was 0.73), held-out 0%
+[3] E3 Exactly where does the flat interval end on each side, and what does f do r...(+23 chars)  model v2 match 0.20
+      model v3: fit 0% (was 0%), mean match 0.80 (was 0.55), held-out 0%
+[4] E4 Where exactly does the flat interval end on the right side, and does the tr...(+115 chars)  model v3 match 0.09
+      model v4: fit 25% (was 0%), mean match 0.68 (was 0.62), held-out 0%
+[5] E5 Where exactly does the left edge of the flat interval lie, and is the left ...(+61 chars)  model v4 match 0.36
+      model v5: fit 20% (was 20%), mean match 0.73 (was 0.62), held-out 0%
+[6] E6 Is the right transition exactly linear from x=6 to x=8, and where precisely...(+58 chars)  model v5 match 0.09
+      model v6: fit 33% (was 17%), mean match 0.85 (was 0.62), held-out 0%
+[7] E7 Is the quadratic outside the transition bands exactly a*x^2 + b*x + c with ...(+125 chars)  model v6 match 0.80
+      revision rejected: mean match 0.74 < 0.84
+      model v7: fit 29% (was 29%), mean match 0.84 (was 0.84), held-out 0%
+[8] E8 Does the far-field behavior follow one single quadratic a*x^2+b*x+c across ...(+124 chars)  model v7 match 0.55
+      revision rejected: mean match 0.65 < 0.80
+      model v8: fit 25% (was 25%), mean match 0.80 (was 0.80), held-out 0%
+[9] E9 Are the far-field values on the negative side exactly a single quadratic, a...(+102 chars)  model v8 match 0.65
+      model v9: fit 22% (was 22%), mean match 0.79 (was 0.79), held-out 0%
+[10] E10 Does the far-field follow one exact quadratic a*x^2+b*x+c on the negative s...(+108 chars)  model v9 match 0.60
+      revision rejected: mean match 0.70 < 0.77
+      model v10: fit 20% (was 20%), mean match 0.77 (was 0.77), held-out 0%
+[11] E11 Is the right transition exactly linear from x=5.8 to x=8, and does it end s...(+86 chars)  model v10 match 0.75
+      model v11: fit 18% (was 18%), mean match 0.77 (was 0.77), held-out 0%
+[12] E12 Is the far-field really a single quadratic a*x^2+b*x+c, or does the MLP hav...(+88 chars)  model v11 match 0.60
+      revision rejected: mean match 0.00 < 0.75
+      model v12: fit 17% (was 17%), mean match 0.75 (was 0.75), held-out 0%
+[13] E13 Is the far field on the positive side a single exact quadratic a*x^2+b*x+c,...(+101 chars)  model v12 match 0.60
+      revision rejected: mean match 0.66 < 0.74
+      model v13: fit 15% (was 15%), mean match 0.74 (was 0.74), held-out 0%
+[14] E14 Is the far field exactly a single quadratic a*x^2+b*x+c, or does the MLP ad...(+252 chars)  model v13 match 0.45
+      model v14: fit 14% (was 14%), mean match 0.74 (was 0.72), held-out 0%
+[15] E15 What is the exact far-field functional form on the negative side—does a qua...(+87 chars)  model v14 match 0.00
+      revision rejected: mean match 0.64 < 0.69
+      revision rejected: mean match 0.64 < 0.69
+[16] E16 What is the exact far-field form on the negative side — is it a clean quart...(+124 chars)  model v14 match 0.25
+      revision rejected: mean match 0.59 < 0.66
+      revision rejected: mean match 0.51 < 0.66
+[17] E17 Does the far field on the positive side follow the same quartic form a*x^4+...(+124 chars)  model v14 match 0.50
+      model v15: fit 12% (was 12%), mean match 0.65 (was 0.65), held-out 0%
+[18] E18 Is the far field on the positive side exactly a quadratic a*x^2+b*x+c (as E...(+147 chars)  model v15 match 0.44
+      revision rejected: mean match 0.63 < 0.64
+      model v16: fit 11% (was 11%), mean match 0.64 (was 0.64), held-out 0%
+[19] E19 Is the positive far field (x>8) exactly a quadratic a*x^2+b*x+c, and what a...(+132 chars)  model v16 match 0.60
+      revision rejected: mean match 0.62 < 0.64
+      revision rejected: mean match 0.62 < 0.64
+[20] E20 Is the positive far field (x>8) exactly a quadratic a*x^2+b*x+c, and what a...(+142 chars)  model v16 match 0.29
+      model v17: fit 10% (was 10%), mean match 0.62 (was 0.62), held-out 0%
+[21] E21 What are the true coefficients of the negative far field if it is a quartic...(+98 chars)  model v17 match 0.45
+      model v18: fit 38% (was 10%), mean match 0.83 (was 0.62), held-out 2%
+[22] E22 Is the far field on the positive side (x>8) exactly the quadratic 3*x^2 - 2...(+120 chars)  model v18 match 0.70
+      revision rejected: mean match 0.38 < 0.82
+      model v19: fit 36% (was 36%), mean match 0.82 (was 0.82), held-out 2%
+[23] E23 Is the positive far field (x>8) exactly the quadratic 3*x^2 - 2.5*x - 22.8,...(+192 chars)  model v19 match 0.60
+      revision rejected: mean match 0.48 < 0.81
+      model kept (v19)
+[24] E24 Is the far field on the positive side (x>8) exactly the quadratic 3*x^2 - 2...(+146 chars)  model v19 match 0.60
+      revision rejected: mean match 0.55 < 0.80
+      model kept (v19)
+[25] E25 Is the far field on the positive side (x>8) exactly the quadratic 3*x^2 - 2...(+147 chars)  model v19 match 0.60
+      revision rejected: mean match 0.54 < 0.80
+      revision rejected: mean match 0.52 < 0.80
+{"env": "find_numeric_f00085", "experiments": 25, "model_version": 19, "fit": 0.32, "heldout": 0.02, "llm_calls": 63, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

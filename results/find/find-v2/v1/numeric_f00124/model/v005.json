@@ -1,0 +1,23 @@
+{
+ "version": 5,
+ "beliefs": [
+  "On x>=0, f(x) = 106.06 + 111.43*x is accurate to ~0.1% across 0.1 to 127 [E1, E2, E3]",
+  "On x<=-2, f(x) = 26.07*|x| - 25.4 is accurate to ~0.1% across |x| from 2 to 128 [E5, E6, E3, E4]",
+  "The negative branch is NOT linear below |x|=2: observed f(-1.1)=6.44, f(-1.9)=24.09, f(-0.5)=50.34, f(-0.1)=94.91, f(0)=~106 \u2014 a smooth curve rising to ~106 at 0 [E2, E3, E4, E7]",
+  "The near-zero negative curve is close to a quadratic in |x|: fitting f(-0.1)=94.91, f(-1)=6.85, f(-2)=26.70 gives roughly f(x) \u2248 106 - 160*|x| + 60*|x|^2, but the exact shape is uncertain [E2, E3, E4, E7]",
+  "f(0)\u2248106 is a spike; the positive branch extrapolates to ~106 at x=0 and the negative curve also rises to ~106 at x=0 [E1, E3]"
+ ],
+ "notes": "Extended the linear negative law to |x|>=2 (it holds to 0.1% per E5/E6), and refit the near-zero negative curve to the new E7 points plus E2/E3/E4, which show a smooth rise to ~106 at 0 rather than the previous dip.",
+ "fit": 0.7142857142857143,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.95,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.65
+ ],
+ "made_at": 7
+}

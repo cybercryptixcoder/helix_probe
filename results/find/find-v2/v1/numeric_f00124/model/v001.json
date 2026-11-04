@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is roughly a smooth even function of x with a large quadratic-ish growth away from zero [E1]",
+  "f has a local minimum near x=0 with f(0)\u2248106, not zero, suggesting a bump/dip structure near the origin [E1]",
+  "f is asymmetric: f(-x) is smaller than f(x) for the same |x| (e.g. f(-128)=3312 vs f(128)=14369) [E1]",
+  "the near-zero behavior differs from the far-field quadratic growth, so there may be a small interval where a different term dominates [E1]"
+ ],
+ "notes": "Fit a smooth model: large-scale growth looks like a*x^2 plus a linear tilt, with a local dip near zero. I'll use a quadratic-plus-linear-plus-Gaussian-dip form and calibrate constants to E1.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.25
+ ],
+ "made_at": 1
+}

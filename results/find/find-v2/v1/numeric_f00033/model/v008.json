@@ -1,0 +1,34 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f is a smooth bump peaked near x=-0.02 with peak ~0.389 [E4, E5, E11]",
+  "the bump's right flank is a single Gaussian with sigma\u22481.17 centered at 0: f(1)=0.255, f(2)=0.12, f(3)=0.033, f(3.8)=0.0127 [E1, E2, E12, E13]",
+  "the bump's left flank is a narrower Gaussian with sigma\u22481.05: f(-1)=0.197, f(-2)=0.058, f(-3)=0.008 [E3, E6, E8]",
+  "the bump is essentially zero beyond |x|\u22487 on both sides [E2, E3]",
+  "both sides have a broad negative dip centered near |x|\u224812, min ~-0.006 on the right and ~-0.0005 on the left [E7, E8, E9, E10]",
+  "the right side has a second shallower dip near x\u224817-19 (min ~-0.003) [E9, E10]",
+  "the left side has a matching shallower dip near |x|\u224817-19 (min ~-0.001) [E10]",
+  "beyond |x|\u224822 both sides flatten to a shallow plateau ~-0.0004, with left slightly deeper (~-0.0032 at |x|=45-50) [E7, E8, E9]",
+  "the far-left tail deepens monotonically to ~-0.0032 at |x|\u224845-50 while the far-right stays ~-0.0004 [E8, E9]",
+  "noise is small; values are smooth and consistent [E1, E2, E3]"
+ ],
+ "notes": "Refit the right flank Gaussian (sigma 1.17, center 0) to match E12/E13 exactly; the previous model overpredicted the right flank by ~30% because it used a too-large sigma and center offset. Left flank sigma tightened to 1.05.",
+ "fit": 0.07692307692307693,
+ "heldout": 0.01,
+ "matches": [
+  0.75,
+  0.55,
+  0.6,
+  0.5,
+  0.85,
+  0.3,
+  0.2,
+  0.75,
+  0.2,
+  0.2,
+  1.0,
+  0.15,
+  0.16666666666666666
+ ],
+ "made_at": 13
+}

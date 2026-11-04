@@ -1,0 +1,25 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f is small in magnitude everywhere, roughly within \u00b10.1 over [-128,128] [E1]",
+  "f has a broad plateau near 0.078 for x in roughly [-2.0,-1.0], very flat there [E1, E2, E3]",
+  "left of the plateau, f declines smoothly: ~0.0706 at -3, 0.0628 at -4, 0.0589 at -4.5, 0.055 at -5, 0.0471 at -6 [E1, E3, E5]",
+  "far left, f declines monotonically from ~0.0471 at -6 down to ~0.0156 at -18, then rises again toward ~0.0479 at -128; minimum near x=-18 [E1, E5]",
+  "f passes through ~0 at x=0 and drops to a minimum ~-0.095 near x=1 [E1, E2]",
+  "right of x=1, f rises smoothly and monotonically from -0.095 toward ~0.057 at x=128; no oscillatory trough near x=16 [E1, E4]",
+  "the transition through 0 is smooth (cosine-like) between x=-1 and x=1, not a sharp kink [E2]",
+  "right-side rise points: -0.0466 at 3, -0.0208 at 12, 0.0003 at 24, 0.0176 at 56, 0.048 at 112 [E4]",
+  "left-side far branch is nearly linear in x: slope ~0.000225 per unit (from -6 to -18 drop, and -18 to -128 rise) [E5]"
+ ],
+ "notes": "Replaced the far-left blend with a V-shape: linear decline from -2 to a minimum near -18, then linear rise to -128. Also fixed the right-side exponential which was too slow (predicted -0.083 at x=3 vs observed -0.0466).",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.47058823529411764,
+  0.6,
+  0.8333333333333334,
+  0.0,
+  0.85
+ ],
+ "made_at": 5
+}

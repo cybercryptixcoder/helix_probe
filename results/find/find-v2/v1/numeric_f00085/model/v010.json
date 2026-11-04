@@ -1,0 +1,27 @@
+{
+ "version": 10,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-7.25, 5.75] [E3, E4, E5, E6]",
+  "The right edge of the plateau is between 5.75 and 5.8; f(5.75)=-22.8021 and f(5.8)=-22.6269 begins the ramp [E4, E6]",
+  "The right transition is a linear ramp from x=5.8 to x=8.0 with slope ~70.37 per unit (f(5.8)=-22.6269 to f(8)=132.1905) [E4, E6]",
+  "The left transition is a linear ramp from x=-8.0 to x=-7.25 with slope ~-59.5 per unit (f(-8)=21.8213 to f(-7.25)=-22.8021) [E5]",
+  "Outside the transition bands f is a single quadratic a*x^2+b*x+c; fitting E10's far-field points gives a~3.088, b~-2.5, c~-22.8, but residuals grow with |x| suggesting mild higher-order terms [E1, E2, E7, E8, E9, E10]",
+  "The quadratic under-predicts mid-range and far-field (e.g. f(16)=857.05 vs 727.7; f(-127)=50632 vs 50101), so the MLP's quadratic has extra curvature beyond a*x^2+b*x+c [E1, E2, E9]"
+ ],
+ "notes": "",
+ "fit": 0.2,
+ "heldout": 0.0,
+ "matches": [
+  0.55,
+  0.9,
+  1.0,
+  1.0,
+  0.8181818181818182,
+  0.8181818181818182,
+  0.8,
+  0.55,
+  0.65,
+  0.6
+ ],
+ "made_at": 10
+}

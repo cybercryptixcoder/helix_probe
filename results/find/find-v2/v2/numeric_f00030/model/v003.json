@@ -1,0 +1,1 @@
+{"version": 3, "role": "theorist", "notes": "The box is a broad, slightly asymmetric V-shaped baseline (linear in |x| plus a small linear tilt) with a narrow Gaussian dip centered at x=0, consistent with an MLP approximating that composite shape.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 560, "matches": [1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 5, "heldout": 1.0}

@@ -1,0 +1,35 @@
+{
+ "version": 15,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-7.25, 5.75] [E3, E4, E5, E6, E11]",
+  "The right transition is exactly linear from x=5.8 to x=8.0 with slope ~70.37 per unit (f(5.8)=-22.6269 to f(8)=132.1905) [E4, E6, E11]",
+  "The right transition ends sharply at x=8.0; f(8.01)=132.8942 shows the far-field resumes immediately past 8 [E11]",
+  "The left transition is a linear ramp from x=-8.0 to x=-7.25 with slope ~-59.5 per unit (f(-8)=21.8213 to f(-7.25)=-22.8021) [E5]",
+  "The far field is NOT a single quadratic; it is well fit by a quartic a*x^4 + b*x^2 + d*x + c on both sides [E14, E15, E16, E17]",
+  "The far-field quartic coefficients are approximately a~1.8e-4, b~3.0, d~-2.5, c~-22.8, with the even part dominating [E14, E15, E16, E17]",
+  "f(128)=50592.6 and f(-128)=51222.6 differ by ~630, consistent with a small odd term d*x on top of the even quartic [E12, E15, E17]"
+ ],
+ "notes": "",
+ "fit": 0.11764705882352941,
+ "heldout": 0.0,
+ "matches": [
+  0.55,
+  0.85,
+  1.0,
+  1.0,
+  0.8181818181818182,
+  0.9090909090909091,
+  0.85,
+  0.6,
+  0.8,
+  0.5,
+  0.75,
+  0.6,
+  0.6,
+  0.55,
+  0.0,
+  0.25,
+  0.5
+ ],
+ "made_at": 17
+}

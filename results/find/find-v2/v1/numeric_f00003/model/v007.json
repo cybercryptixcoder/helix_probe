@@ -1,0 +1,26 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f is flat at -20.4469 on the central interval [-20.1, 3.75] [E1, E2, E3, E5, E6, E9]",
+  "Left transition is linear with slope ~41.12 from x=-21 to x=-20.1, reaching plateau at -20.1 [E5, E6]",
+  "For x<-21 the left side is a smooth convex curve through (-21,12.9172),(-22,54.0378),(-25,204.0128),(-30,548.2541),(-40,1531.8654),(-60,4736.4186),(-128,24838.9457) [E4, E8, E1]",
+  "Right transition just past 3.75 is linear with slope ~36.18 from 3.75 to 4.2, then curves upward [E9]",
+  "Right side from x=4.2 onward is well fit by a single quadratic through (4.2,-5.6859),(10,650.4807),(128,39006.1248) [E3, E7, E9, E1]",
+  "Left and right sides are asymmetric: left is steeper far out, right is quadratic [E1]"
+ ],
+ "notes": "Replaced the right-side quadratic (which was anchored at x=4 and gave wrong values near 4-5) with a linear segment 3.75-4.2 plus a quadratic anchored at 4.2, 10, 128; kept left interpolation but fixed the -21 to -20.1 linear segment which was previously mis-signed.",
+ "fit": 0.4444444444444444,
+ "heldout": 0.99,
+ "matches": [
+  1.0,
+  1.0,
+  0.6,
+  0.9,
+  0.55,
+  0.1,
+  1.0,
+  1.0,
+  0.5555555555555556
+ ],
+ "made_at": 9
+}

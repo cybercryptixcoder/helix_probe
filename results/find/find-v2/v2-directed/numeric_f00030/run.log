@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00030': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Sample the function at evenly spaced ordinary points across the whole domai...(+99 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.82, fit 0.94, size 362 (exam 0.000 -> 0.825); held-out 25%
+[2] E2 Is the apparent notch at x=0 a genuine narrow dip, or an artifact of one no...(+76 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the sharp dip around x=0 (values near -1.79 to -1.81 at |x|≈0.5–1) a rea...(+165 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the fine structure near x=0 have a sharp central dip at exactly 0 (as ...(+134 chars)  (v1 predicted it: match 1.00)
+[5] E5 How does the fine structure near x=0 behave between |x|=1 and |x|=2 — speci...(+165 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the fine structure near x=0 (the ~-1.81 troughs at |x|≈0.7-0.8 and the...(+119 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v2 by the theorist: exam 1.00, fit 1.00, size 797 (exam 0.825 -> 1.000); held-out 100%
+[7] E7 The model assumes a smooth monotone recovery from the central dip out to |x...(+196 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the smooth outer trend (|x|>=2) continue as a simple near-linear rise ...(+166 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the outer trend continue as a smooth near-linear rise beyond |x|=2 all...(+119 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00030", "experiments": 9, "exam_probes": 4, "model_version": 2, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 797, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,26 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f is monotone decreasing across the whole domain [E1,E2,E3,E4,E5,E6]",
+  "f(0) \u2248 5.42 and f crosses zero near x \u2248 0.65 [E1,E3,E4]",
+  "f is NOT odd: there is a large additive offset c \u2248 5.4, and the negative side is much smaller in magnitude than the positive side [E2,E5,E6]",
+  "f is not antisymmetric about a shifted center either; the asymmetry is a genuine even component [E6]",
+  "On the positive side f grows roughly linearly with slope \u2248 -16.8 for x>1, with a softened region near zero [E1,E4]",
+  "On the negative side f grows roughly linearly with slope \u2248 -6.8 for x<-1 (much shallower than positive side) [E1,E2,E5,E6]",
+  "Near zero the negative side is nearly flat: f(-0.05)\u22485.56, f(-0.5)\u22486.84, f(-1)\u22489.35, so slope \u2248 -7 near zero on negative side [E5,E6]",
+  "Near zero the positive side drops steeply: f(0.25)\u22484.42, f(0.5)\u22482.12, f(1)\u2248-5.32, slope \u2248 -16.8 near zero [E3,E4]",
+  "Best model: f(x) \u2248 c + a(x) where a(x) = -16.8*x for x>0 and a(x) = -6.8*x for x<0, each softened near zero [E1,E4,E5,E6]"
+ ],
+ "notes": "The negative side has slope ~-6.8 (not -16.8), so f is not odd. Model as piecewise linear with different slopes on each side, softened near zero, plus offset c=5.42.",
+ "fit": 0.8333333333333334,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.85,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 6
+}

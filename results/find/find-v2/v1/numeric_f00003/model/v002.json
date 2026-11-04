@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f is exactly flat at -20.4469 on a central interval roughly [-20, 3] [E1, E2]",
+  "Outside the flat interval f rises steeply and smoothly, roughly quadratically with |x|, reaching ~24839 at x=-128 and ~39006 at x=128 [E1]",
+  "The right side rises faster than the left (39006 at 128 vs 24839 at -128) [E1]",
+  "The left transition is gradual: at x=-22 y=54, x=-25 y=204, x=-30 y=548, so the plateau edge on the left is near x=-20 [E2]",
+  "The right transition is sharp: at x=3 y=-20.45 (still flat) but x=4 y=-12.92 and x=5 y=48.4, so the right plateau edge is near x=3 [E2]",
+  "The exact shape of the transition zones (smooth step vs quadratic onset) is not yet pinned down? [E1, E2]"
+ ],
+ "notes": "Left edge is near -20 (not -20 with quadratic already at -22), right edge near 3 (not 2). Shifted plateau bounds and used quadratic fits anchored at the plateau edges; left side needs a smaller coefficient to match E2 points.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.6,
+  0.7777777777777778
+ ],
+ "made_at": 2
+}

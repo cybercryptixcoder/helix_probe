@@ -1,0 +1,30 @@
+{
+ "version": 7,
+ "beliefs": [
+  "For x <= -2, f is a straight line with slope -0.57 and intercept such that f(-2)=-2.5588, i.e. f(x) = -2.5588 - 0.57*(x+2) [E4, E5, E10]",
+  "The far-left branch is a single straight line from -128 to -2: f(-128)=76.1256 matches -2.5588 - 0.57*(-126) [E10]",
+  "Between x=-2 and x=0 the slope steepens smoothly from about -2.5 to about -3.5, so the near-zero segment is a curve, not a single line [E6]",
+  "f(0)=-8.8302 and the local slope near x=0 is about -3.5 [E1, E6]",
+  "For 0<x<5 the segment is essentially straight with slope ~-3.34, reaching f(5)=-25.4152 [E7, E9]",
+  "The kink at x=5 is a genuine vertex where the steep near-zero curve joins the x>5 branch, with f(5)=-25.4152 [E3]",
+  "For 5<x<=12 the branch is straight with slope ~-2.05 (f(5.5)=-26.9386, f(12)=-38.0921) [E2, E3]",
+  "For x>12 the branch bends and flattens progressively: slope ~-1.69 from 12 to 20, ~-0.50 from 20 to 30, ~-0.38 from 30 to 40, ~-0.36 from 40 to 50, ~-0.18 from 50 to 60, then ~-0.18 continuing, flattening toward ~-0.14 near x=128 [E8]",
+  "The far-right branch is not a single straight line; it flattens progressively, so a piecewise-linear approximation with several knots is needed [E8]"
+ ],
+ "notes": "Fixed the far-left branch: the slope -0.57 was right but the intercept was wrong (I had anchored at the wrong point). Corrected to f(x) = -2.5588 - 0.57*(x+2), which matches E10 exactly at every point. Also tightened the 0..5 slope to -3.317 and the 5..5.5 region to match E7/E9.",
+ "fit": 0.5,
+ "heldout": 0.0,
+ "matches": [
+  0.631578947368421,
+  0.875,
+  1.0,
+  0.0625,
+  0.05,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.0625
+ ],
+ "made_at": 10
+}

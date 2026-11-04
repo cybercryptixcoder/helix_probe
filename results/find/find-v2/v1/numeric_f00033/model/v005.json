@@ -1,0 +1,29 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f is a smooth bump peaked near x=-0.04 with peak ~0.389 [E4, E5]",
+  "the bump is asymmetric: left flank narrower than right (f(-1)=0.197 vs f(1)=0.255; f(-2)=0.058 vs f(2)=0.12) [E1, E4]",
+  "right flank falls like a Gaussian with sigma\u22481.55 (f(1.5)=0.1875, f(2.5)=0.064, f(3)=0.033) [E2]",
+  "left flank falls faster, roughly Gaussian with sigma\u22481.0 (f(-0.5)=0.305, f(-1)=0.197, f(-1.5)=0.105, f(-2)=0.058) [E3, E6]",
+  "the bump is essentially zero beyond |x|\u22487 on both sides [E2, E3]",
+  "there is a broad negative dip centered near |x|\u224811-13 on the RIGHT side, min ~-0.006 at x\u224812, width sigma\u22484 [E7, E9]",
+  "on the LEFT side the negative tail is much shallower and monotone: ~-0.0004 at |x|=10-11, growing to ~-0.0032 at |x|=45-50, no local dip [E7, E8, E9]",
+  "the left tail keeps decreasing (more negative) out to |x|\u224850, suggesting a very broad shallow negative component on the left [E8, E9]",
+  "noise is small; values are smooth and consistent [E1, E2, E3]"
+ ],
+ "notes": "Replaced the symmetric single-dip tail with an asymmetric model: right side a Gaussian dip at |x|\u224812 (sigma\u22484), left side a shallow monotone negative ramp that deepens with |x|. Kept the asymmetric Gaussian bump core.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.8,
+  0.55,
+  0.5,
+  0.4,
+  0.8,
+  0.35,
+  0.0,
+  0.8,
+  0.15
+ ],
+ "made_at": 9
+}

@@ -1,0 +1,25 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-7.25, 5.75] [E3, E4, E5, E6]",
+  "The right edge of the plateau is between 5.75 and 5.8; f(5.75)=-22.8021 and f(5.8)=-22.6269 begins the ramp [E4, E6]",
+  "The right transition is a linear ramp from x=5.8 to x=8.0 with slope ~70.37 per unit (f(5.8)=-22.6269 to f(8)=132.1905) [E4, E6]",
+  "The left transition is a linear ramp from x=-8.0 to x=-7.25 with slope ~-59.5 per unit (f(-8)=21.8213 to f(-7.25)=-22.8021) [E5]",
+  "Outside the transition bands f is a single quadratic a*x^2+b*x+c with a~3.088, b~-2.5, c~-22.8; the asymmetry comes from the linear term b, not separate coefficients [E1, E2, E7, E8]",
+  "The quadratic fits the far field well but slightly under-predicts mid-range (f(16)=857.05 vs 727.7), suggesting the MLP's quadratic is approximate or has mild higher-order terms [E1, E2]"
+ ],
+ "notes": "Reverted to v7's structure (single quadratic plus plateau and two linear ramps) since the rejected attempt broke previously-correct experiments; kept the same coefficients that gave 0.80 average match.",
+ "fit": 0.25,
+ "heldout": 0.0,
+ "matches": [
+  0.55,
+  0.9,
+  1.0,
+  1.0,
+  0.8181818181818182,
+  0.8181818181818182,
+  0.8,
+  0.55
+ ],
+ "made_at": 8
+}

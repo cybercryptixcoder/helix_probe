@@ -1,0 +1,31 @@
+{
+ "version": 11,
+ "beliefs": [
+  "f is flat at -20.4469 on the central interval [-20.1, 3.81] [E1, E2, E3, E5, E6, E9, E10, E12, E13]",
+  "Left transition from x=-21 to x=-20.1 is linear with slope ~41.12 per unit, reaching plateau at -20.1 [E5, E6, E10, E12]",
+  "For x<-21 the left side is a smooth convex curve through (-21,12.9172),(-22,54.0378),(-25,204.0128),(-30,548.2541),(-40,1531.8654),(-60,4736.4186),(-128,24838.9457) [E4, E8, E1]",
+  "Right transition from x=3.81 to x=4.2 is linear with slope ~37.04 per unit, reaching -5.6859 at 4.2 [E9, E3, E11, E13]",
+  "Right side from x=4.2 onward is a single quadratic through (4.2,-5.6859),(10,650.4807),(128,39006.1248) [E3, E7, E9, E11, E1]",
+  "Left and right sides are asymmetric: left is steeper far out, right is quadratic [E1]",
+  "The right transition may curve slightly near x=4.29-4.32 where observed values deviate from linear? [E13]"
+ ],
+ "notes": "Shifted right plateau edge from 3.75 to 3.81 (E13 shows flat through 3.78, dropping at 3.81), and recomputed right transition slope to (20.4469-5.6859)/(4.2-3.81)=37.04. The E13 tail at 4.29-4.32 deviates from both linear and the quadratic, so I flag it as uncertain but keep linear+quadratic as best guess.",
+ "fit": 0.38461538461538464,
+ "heldout": 0.99,
+ "matches": [
+  1.0,
+  1.0,
+  0.6,
+  1.0,
+  0.65,
+  0.25,
+  1.0,
+  1.0,
+  0.5555555555555556,
+  0.35,
+  0.7,
+  0.25,
+  0.8
+ ],
+ "made_at": 13
+}

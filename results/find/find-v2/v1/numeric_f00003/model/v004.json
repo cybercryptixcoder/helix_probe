@@ -1,0 +1,23 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f is flat at -20.4469 on the central interval [-20, 3.75] [E1, E2, E3, E4]",
+  "The right plateau edge is between x=3.75 and x=4.0 [E3]",
+  "On the right, y+20.4469 is quadratic with a=63.05, b=-562.5, matching x=5..10 exactly [E3]",
+  "The left transition is a smooth quadratic rise from the plateau edge near x=-20.5 [E4]",
+  "Left transition values: x=-21 gives 12.9172, x=-22 gives 54.0378, x=-25 gives 204.0128, x=-30 gives 548.2541 [E4]",
+  "The left and right sides are asymmetric; left is gentler than right [E1]",
+  "Far left reaches ~24839 at x=-128 and far right ~39006 at x=128 [E1]",
+  "The left transition shape is not perfectly quadratic; exact form still uncertain? [E4]"
+ ],
+ "notes": "Kept the plateau and right quadratic; the left transition is close to quadratic but E4 shows slight curvature mismatch. I'll fit left side with a quadratic anchored at plateau edge x=-20.5 and through (-30,548.2541) and (-128,24838.9457), which should improve over the previous -22 anchor.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.5,
+  0.8888888888888888,
+  0.3333333333333333,
+  0.9
+ ],
+ "made_at": 4
+}

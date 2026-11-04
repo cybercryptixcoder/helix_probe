@@ -1,0 +1,43 @@
+{
+ "version": 14,
+ "beliefs": [
+  "f is a smooth bump peaked at x=0 with peak ~0.389 [E4, E5, E11]",
+  "the right flank is nearly linear from x=0.4 to x=1.35: slope \u2248 -0.135, f(0.4)=0.3361, f(1.35)=0.2078 [E18]",
+  "the right flank continues smoothly: f(1.6)=0.174, f(2)=0.1132, f(3)=0.0327, f(4.2)=0.0071, f(5.6)=0.0005 [E15, E16]",
+  "the left flank is nearly linear from x=-0.5 to x=-1.0: slope \u2248 -0.216, f(-0.5)=0.3052, f(-1.0)=0.1972 [E17, E19]",
+  "the left flank then drops steeply: f(-1.4)=0.1218, f(-2)=0.0575, f(-3)=0.008, then flattens to a small positive tail ~0.004-0.005 out to x=-4.5 [E6, E17]",
+  "the bump is essentially zero beyond |x|\u22487 on both sides [E2, E3]",
+  "the right side has a broad negative dip centered near x\u224812 (min ~-0.0061 at x=12) [E7, E9, E10]",
+  "the left side has a much shallower dip near |x|\u224812 (min ~-0.0005) [E8, E9, E10]",
+  "the right side has a second shallower dip near x\u224817-19 (min ~-0.003) [E9, E10]",
+  "the left side has a matching shallower dip near |x|\u224817-19 (min ~-0.001) [E10]",
+  "beyond |x|\u224822 the right side is a flat plateau ~-0.0004 [E7, E9, E14]",
+  "the left tail deepens monotonically from ~-0.0014 at |x|=22 to ~-0.0044 at |x|=128 [E8, E9, E14]",
+  "noise is small; values are smooth and consistent [E1, E2, E3]"
+ ],
+ "notes": "Replaced the Gaussian left flank with a piecewise-linear left flank (slope -0.216 from -0.5 to -1.0) matching E19, and re-anchored the right flank linear segment on E18; kept the far-tail dip structure.",
+ "fit": 0.15789473684210525,
+ "heldout": 0.04,
+ "matches": [
+  0.95,
+  0.8,
+  0.7,
+  0.95,
+  1.0,
+  0.15,
+  0.25,
+  0.85,
+  0.2,
+  0.25,
+  1.0,
+  0.5,
+  0.4166666666666667,
+  0.2,
+  0.3,
+  0.4,
+  0.5,
+  1.0,
+  0.8
+ ],
+ "made_at": 19
+}

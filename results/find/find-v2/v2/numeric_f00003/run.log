@@ -1,0 +1,41 @@
+Helix Probe v2 on 'find_numeric_f00003': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.93, fit 0.90, size 471 (exam 0.000 -> 0.925); held-out 29%
+[2] E2 Where exactly does the function switch between its negative-x quadratic bra...(+90 chars)  (v1 predicted it: match 0.40)
+      model v2 by the updater: exam 0.93, fit 1.00, size 582 (fit 0.650 -> 1.000); held-out 23%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 0.95, fit 1.00, size 715 (exam 0.925 -> 0.950); held-out 62%
+[4] E4 Are the branch boundaries on the positive side (linear126→quad2.3667 near x...(+133 chars)  (v3 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 Does the negative-x quadratic hold cleanly for x just below the floor bound...(+73 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v3 predicted it: match 0.90)
+      model v4 by the updater: exam 1.00, fit 1.00, size 778 (exam 0.950 -> 1.000); held-out 100%
+[8] E8 Do the positive-x branches hold cleanly across the range where the model sw...(+155 chars)  (v4 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v4 predicted it: match 1.00)
+[10] E10 Does the function actually have a flat floor between about -20.3 and 4.68, ...(+129 chars)  (v4 predicted it: match 0.80)
+      model v5 by the updater: exam 1.00, fit 0.98, size 777 (same scores, smaller (778 -> 777 chars)); held-out 100%
+[11] E11 a random ordinary probe  (v5 predicted it: match 1.00)
+[12] E12 Does the flat floor region really extend from about -20.3 up to 4, and wher...(+139 chars)  (v5 predicted it: match 0.55)
+      updater's model not kept: same scores and not smaller (777 vs 777 chars)
+      updater's model not kept: same scores and not smaller (777 vs 777 chars)
+      theorist (every 6 steps)
+      model v6 by the theorist: exam 1.00, fit 1.00, size 2597 (fit 0.946 -> 1.000); held-out 100%
+[13] E13 a random ordinary probe  (v6 predicted it: match 1.00)
+[14] E14 Is the right-side rise between x=4 and x=5 a smooth curve or does it have a...(+195 chars)  (v6 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v6 predicted it: match 1.00)
+[16] E16 Does the left-side boundary transition from the flat floor at -20.4469 to t...(+140 chars)  (v6 predicted it: match 0.85)
+      model v7 by the updater: exam 1.00, fit 1.00, size 3197 (fit 0.991 -> 1.000); held-out 100%
+[17] E17 a random ordinary probe  (v7 predicted it: match 1.00)
+[18] E18 Where exactly does the flat floor end on the right side (between 3.8 and 4....(+165 chars)  (v7 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.525, the current model's is 1.000
+[19] E19 a random ordinary probe  (v7 predicted it: match 1.00)
+[20] E20 Are there small residual deviations between the piecewise-linear/quadratic ...(+205 chars)  (v7 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v7 predicted it: match 1.00)
+[22] E22 The model reproduces all notebook points but interpolates between sparse an...(+252 chars)  (v7 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v7 predicted it: match 1.00)
+[24] E24 Does the true MLP curve deviate from the current piecewise-linear anchor in...(+203 chars)  (v7 predicted it: match 1.00)
+      theorist (every 6 steps)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00003", "experiments": 24, "exam_probes": 4, "model_version": 7, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 3197, "heldout": 1.0, "llm_calls": 24, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

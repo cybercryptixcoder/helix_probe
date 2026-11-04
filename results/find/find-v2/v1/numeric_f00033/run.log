@@ -1,0 +1,62 @@
+Helix Probe on 'find_numeric_f00033': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the full domain, especially at widely spaced p...(+89 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.40 (was 0.00), held-out 0%
+[2] E2 Is the right-hand side of the bump a clean Gaussian with sigma≈2, or is it ...(+115 chars)  model v1 match 0.40
+      revision rejected: mean match 0.38 < 0.40
+      model v2: fit 0% (was 0%), mean match 0.50 (was 0.40), held-out 0%
+[3] E3 Is the bump symmetric around x=0 or shifted, and does the left side follow ...(+100 chars)  model v2 match 0.15
+      model v3: fit 0% (was 0%), mean match 0.55 (was 0.38), held-out 0%
+[4] E4 Is the bump's peak actually at x=0, or slightly shifted, and how sharp is t...(+25 chars)  model v3 match 0.45
+      revision rejected: mean match 0.51 < 0.53
+      revision rejected: mean match 0.51 < 0.53
+[5] E5 What is the exact shape of the peak near x=0 — is the maximum slightly left...(+116 chars)  model v3 match 0.80
+      revision rejected: mean match 0.57 < 0.58
+      revision rejected: mean match 0.57 < 0.58
+[6] E6 Does the left flank of the bump actually follow a Gaussian with sigma≈1.05,...(+128 chars)  model v3 match 0.30
+      model v4: fit 0% (was 0%), mean match 0.53 (was 0.53), held-out 0%
+[7] E7 Does the far tail behave like a smooth symmetric decay (small negative dip ...(+154 chars)  model v4 match 0.10
+      revision rejected: mean match 0.42 < 0.47
+      revision rejected: mean match 0.45 < 0.47
+[8] E8 How does the negative-side far tail actually decay — is the negative dip sy...(+141 chars)  model v4 match 0.70
+      revision rejected: mean match 0.41 < 0.50
+      revision rejected: mean match 0.48 < 0.50
+[9] E9 Is the far tail a single broad negative dip centered near |x|≈11-13 on both...(+162 chars)  model v4 match 0.00
+      revision rejected: mean match 0.25 < 0.44
+      model v5: fit 0% (was 0%), mean match 0.48 (was 0.44), held-out 0%
+[10] E10 Does the negative side-lobe structure on the right (a dip near x≈12 plus a ...(+177 chars)  model v5 match 0.15
+      model v6: fit 0% (was 0%), mean match 0.48 (was 0.45), held-out 0%
+[11] E11 Is the bump's peak located exactly at x=0 (or slightly off), and does the t...(+125 chars)  model v6 match 0.95
+      revision rejected: mean match 0.51 < 0.52
+      revision rejected: mean match 0.49 < 0.52
+[12] E12 Is the bump's right flank a single Gaussian, or does it have a different fu...(+157 chars)  model v6 match 0.00
+      model v7: fit 8% (was 0%), mean match 0.50 (was 0.48), held-out 1%
+[13] E13 Is the bump's right flank consistent with the observed values at x=0.6, 1.0...(+138 chars)  model v7 match 0.17
+      model v8: fit 8% (was 8%), mean match 0.48 (was 0.47), held-out 1%
+[14] E14 How does the far tail behave between |x|=22 and |x|=128 — is it a flat plat...(+121 chars)  model v8 match 0.15
+      model v9: fit 7% (was 7%), mean match 0.47 (was 0.45), held-out 1%
+[15] E15 Is the right flank of the bump a single Gaussian, or does f have a much wid...(+166 chars)  model v9 match 0.05
+      model v10: fit 0% (was 7%), mean match 0.45 (was 0.44), held-out 0%
+[16] E16 Does the right flank of the bump follow a single Gaussian, and if so what i...(+197 chars)  model v10 match 0.25
+      model v11: fit 0% (was 0%), mean match 0.52 (was 0.44), held-out 1%
+[17] E17 Is the main bump actually asymmetric (left flank narrower than right) or is...(+212 chars)  model v11 match 0.30
+      revision rejected: mean match 0.47 < 0.50
+      model v12: fit 0% (was 0%), mean match 0.51 (was 0.50), held-out 2%
+[18] E18 What is the exact functional form of the right flank of the bump between x=...(+169 chars)  model v12 match 0.00
+      revision rejected: mean match 0.44 < 0.49
+      model v13: fit 22% (was 0%), mean match 0.55 (was 0.49), held-out 2%
+[19] E19 What is the exact shape of the left flank between x=-0.5 and x=-1.0 at fine...(+92 chars)  model v13 match 0.70
+      model v14: fit 16% (was 21%), mean match 0.59 (was 0.55), held-out 4%
+[20] E20 My model badly misses the left flank between x=-1.0 and x=-2.6 (it predicts...(+237 chars)  model v14 match 0.20
+      model v15: fit 80% (was 15%), mean match 0.84 (was 0.57), held-out 10%
+[21] E21 Where exactly does the left-hand negative dip peak and how wide is it — is ...(+158 chars)  model v15 match 0.80
+      model v16: fit 81% (was 76%), mean match 0.89 (was 0.84), held-out 10%
+[22] E22 Is the negative dip on the left side (|x|≈8-22) actually just a monotone ra...(+207 chars)  model v16 match 0.75
+      revision rejected: mean match 0.85 < 0.88
+      revision rejected: mean match 0.85 < 0.88
+[23] E23 Does the right-hand negative dip really center at x=12 with depth -0.0061 a...(+176 chars)  model v16 match 0.00
+      model v17: fit 78% (was 74%), mean match 0.95 (was 0.85), held-out 15%
+[24] E24 Where exactly does the left-side negative tail flatten into a plateau — is ...(+194 chars)  model v17 match 0.10
+      model v18: fit 79% (was 75%), mean match 0.98 (was 0.91), held-out 20%
+[25] E25 On the right-hand side, where exactly does the small negative dip begin and...(+174 chars)  model v18 match 0.65
+      model v19: fit 84% (was 76%), mean match 0.98 (was 0.96), held-out 50%
+{"env": "find_numeric_f00033", "experiments": 25, "model_version": 19, "fit": 0.84, "heldout": 0.5, "llm_calls": 60, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

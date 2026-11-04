@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f is a smooth bump peaked near x=0 with peak ~0.39 at x=0, near-zero beyond |x|>16 [E1]",
+  "f is asymmetric: left side drops faster than right (f(-1)=0.197 vs f(1)=0.255, f(-2)=0.0575 vs f(2)=0.12) [E1]",
+  "right side of bump is narrower than sigma=2: f(1.5)=0.1875, f(2.5)=0.0642, f(3)=0.0327 [E2]",
+  "far tails are slightly negative, reaching ~-0.006 around x=10-12 then returning near 0 at large |x| [E1, E2]",
+  "noise level is small; values are smooth and consistent [E1, E2]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.45,
+  0.55
+ ],
+ "made_at": 2
+}

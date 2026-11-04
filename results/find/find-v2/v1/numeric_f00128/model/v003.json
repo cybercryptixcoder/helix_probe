@@ -1,0 +1,22 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f is smooth and monotone decreasing across the whole domain [E1,E2,E3,E4,E5]",
+  "f(0) \u2248 5.42 and f crosses zero near x \u2248 0.65 [E1,E3,E4]",
+  "f is roughly odd with a positive additive offset c \u2248 5.4: f(x) \u2248 g(x) + c where g is odd [E2,E3,E5]",
+  "The odd part g is close to linear with slope \u2248 -16.8 at large |x| but softer near zero [E1,E2,E4,E5]",
+  "Near zero the odd part g has small slope: g(0.25)\u2248-1.0, g(0.5)\u2248-3.3, g(1)\u2248-10.7, so g \u2248 -16.8*x only kicks in beyond |x|\u22481 [E3,E4,E5]",
+  "Best fit: f(x) \u2248 c + s(x) where s(x) = -16.8*x for |x|>1 and a softer odd function (e.g. -16.8*x*tanh-like) for |x|<1 [E4,E5]"
+ ],
+ "notes": "",
+ "fit": 0.2,
+ "heldout": 0.0,
+ "matches": [
+  0.65,
+  0.6,
+  0.5,
+  1.0,
+  0.3
+ ],
+ "made_at": 5
+}

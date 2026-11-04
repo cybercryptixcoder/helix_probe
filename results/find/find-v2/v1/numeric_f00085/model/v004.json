@@ -1,0 +1,21 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-6, 5.75], since f(-6), f(5.5), f(5.75) are all -22.8021 [E3, E4]",
+  "The right edge of the flat interval is between 5.75 and 6.0; f(6)=-8.5526 shows the transition begins there [E4]",
+  "Between x=6 and x=8 the function rises linearly with slope ~17.593 per unit (f(6)=-8.5526 to f(8)=132.1905), i.e. f(x)\u224817.593*x-114.11 in that band [E4]",
+  "Outside the plateau and transition, f grows quadratically; f(8)=132.19, f(16)=857.05, f(64)=14110.97, f(128)=50592.64 [E1, E2]",
+  "The quadratic is asymmetric: f(-8)=21.82 vs f(8)=132.19, and f(-128)=51222.63 vs f(128)=50592.64, so a linear term is present [E1, E2]",
+  "The left edge of the plateau and the exact transition shape on the left side are still unknown; f(-8)=21.82 suggests a similar linear ramp near x=-8 [E1, E2]?"
+ ],
+ "notes": "E4 shows the right transition is a linear ramp from x=6 to x=8 (slope ~17.59), not a jump to the quadratic; I replaced the plateau edge at 5.5 with 5.75 and added a linear ramp segment on the right. The left side is still uncertain, so I keep a linear ramp guess there too.",
+ "fit": 0.25,
+ "heldout": 0.0,
+ "matches": [
+  0.55,
+  0.9,
+  1.0,
+  0.2727272727272727
+ ],
+ "made_at": 4
+}

@@ -1,0 +1,26 @@
+Helix Probe v2 on 'find_numeric_f00136': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f(x) look like across the full ordinary input range, especially w...(+68 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.60, fit 0.60, size 813 (exam 0.000 -> 0.600); held-out 0%
+[2] E2 How does f behave on the positive side and near the zero crossing between -...(+41 chars)  (v1 predicted it: match 0.30)
+      model v2 by the updater: exam 0.97, fit 1.00, size 1157 (exam 0.600 -> 0.975); held-out 64%
+[3] E3 What is the exact shape of the central peak/trough region between x=-4 and ...(+121 chars)  (v2 predicted it: match 0.95)
+      model v3 by the updater: exam 0.97, fit 1.00, size 1302 (fit 0.983 -> 1.000); held-out 65%
+[4] E4 Is the curve between the sampled knots smooth and monotone, or are there sm...(+113 chars)  (v3 predicted it: match 1.00)
+[5] E5 Are there additional small wiggles or non-monotonicities in the tails and f...(+142 chars)  (v3 predicted it: match 0.80)
+      model v4 by the updater: exam 1.00, fit 1.00, size 1545 (exam 0.975 -> 1.000); held-out 94%
+[6] E6 Does the model's piecewise-linear interpolation miss smooth curvature in th...(+151 chars)  (v4 predicted it: match 0.95)
+      model v5 by the updater: exam 1.00, fit 1.00, size 2027 (fit 0.992 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.983, the current model's is 1.000
+[7] E7 Are there residual smooth-curvature or non-monotonic effects in the central...(+209 chars)  (v5 predicted it: match 1.00)
+[8] E8 Does the piecewise-linear model miss smooth curvature in the far-left tail ...(+109 chars)  (v5 predicted it: match 1.00)
+[9] E9 Does the smooth MLP curve have residual curvature or a subtle non-monotonic...(+155 chars)  (v5 predicted it: match 1.00)
+[10] E10 Does the model miss fine smooth curvature in the mid-left tail and mid-righ...(+170 chars)  (v5 predicted it: match 1.00)
+[11] E11 Does the model miss fine smooth curvature in the central trough region betw...(+193 chars)  (v5 predicted it: match 1.00)
+[12] E12 Does the model miss smooth curvature in the trough's left descent (x=-0.75 ...(+116 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.987, the current model's is 1.000
+[13] E13 Does the model miss fine curvature in the peak's right shoulder and the tro...(+133 chars)  (v5 predicted it: match 1.00)
+[14] E14 Does the model miss smooth curvature in the far-right tail (x=24 to 62) bet...(+155 chars)  (v5 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00136", "experiments": 14, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 2027, "heldout": 1.0, "llm_calls": 21, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

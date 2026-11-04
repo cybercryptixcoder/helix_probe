@@ -1,0 +1,22 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f is exactly flat at -20.4469 on a central interval roughly [-20, 3] [E1, E2, E3]",
+  "The right plateau edge is between x=3.75 and x=4.0; f(3.75)=-20.4469 and f(4.0)=-12.9234 [E3]",
+  "Just past the right edge the rise is smooth and roughly quadratic: differences grow ~linearly (9.0, 17.0, 17.6, 17.6, 47.5, 50.1, 126.1, 126.1, 126.1, 126.1) [E3]",
+  "On the right, f is nearly exactly quadratic: y+20.4469 at x=5,6,7,8,9,10 gives 68.8,166.5,292.6,418.7,544.8,670.9, i.e. increments of ~126.1 per unit x, consistent with a=63.05, b=-562.5 [E3]",
+  "Outside the flat interval f rises steeply and smoothly, reaching ~24839 at x=-128 and ~39006 at x=128 [E1]",
+  "The right side rises faster than the left (39006 at 128 vs 24839 at -128) [E1]",
+  "The left transition is gradual: at x=-22 y=54, x=-25 y=204, x=-30 y=548, so the plateau edge on the left is near x=-20 [E2]",
+  "The exact shape of the left transition zone (smooth step vs quadratic onset) is not yet pinned down? [E2]"
+ ],
+ "notes": "Right side is much closer to a pure quadratic than v2 assumed: fit a,b to the E3 points x=5..10 (a~63.05, b~-562.5) and anchor the plateau at x~3.9. Left side kept as prior quadratic through E2/E1 points.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.5,
+  0.7777777777777778,
+  0.3333333333333333
+ ],
+ "made_at": 3
+}

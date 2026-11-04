@@ -1,0 +1,28 @@
+{
+ "version": 6,
+ "beliefs": [
+  "For x < -2, f is a straight line with slope exactly -0.57 per unit x, anchored at f(-2)=-2.5588 [E1, E4, E5]",
+  "The far-left branch is a single straight line: slope -0.57 holds from -128 to -2 (f(-128)=76.1256 matches -2.5588+(-0.57)(-126)) [E4, E5]",
+  "Between x=-2 and x=0 the slope steepens smoothly from about -2.5 to about -3.5, so the near-zero segment is not a single straight line but a curve [E6]",
+  "f(0)=-8.8302 and the local slope near x=0 is about -3.5 [E1, E6]",
+  "For 0<x<5 the segment is essentially straight with slope ~-3.34, reaching f(5)=-25.4152 [E7]",
+  "The kink at x=5 is a genuine vertex where the steep near-zero curve joins the x>5 branch, with f(5)=-25.4152 [E3]",
+  "For 5<x<=12 the branch is straight with slope ~-2.05 (f(5.5)=-26.9386, f(12)=-38.0921) [E2, E3]",
+  "For x>12 the branch bends: slope ~-1.69 from 12 to 20, ~-0.50 from 20 to 30, ~-0.38 from 30 to 40, ~-0.36 from 40 to 50, ~-0.18 from 50 to 60, then ~-0.18 continuing, flattening toward ~-0.14 near x=128 [E8]",
+  "The far-right branch is not a single straight line; it flattens progressively, so a piecewise-linear approximation with several knots is needed [E8]"
+ ],
+ "notes": "E8 shows the far-right branch flattens (slope shrinks from ~-2.05 near 12 to ~-0.14 near 128), so I replaced the single -0.97 line beyond 12 with a multi-knot piecewise-linear fit through the observed points, and corrected the 0..5 segment slope to ~-3.34.",
+ "fit": 0.5,
+ "heldout": 0.0,
+ "matches": [
+  0.631578947368421,
+  0.875,
+  1.0,
+  0.0625,
+  0.05,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 8
+}

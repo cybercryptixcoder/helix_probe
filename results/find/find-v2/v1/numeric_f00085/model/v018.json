@@ -1,0 +1,40 @@
+{
+ "version": 18,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-7.25, 5.75] [E3, E4, E5, E6, E11]",
+  "The right transition is exactly linear from x=5.8 to x=8.0 with slope ~70.37 per unit (f(5.8)=-22.6269 to f(8)=132.1905) [E4, E6, E11]",
+  "The right transition ends sharply at x=8.0; f(8.01)=132.8942 shows the far-field resumes immediately past 8 [E11]",
+  "The left transition is a linear ramp from x=-8.0 to x=-7.25 with slope ~-59.5 per unit (f(-8)=21.8213 to f(-7.25)=-22.8021) [E5]",
+  "The positive far field (x>8) is exactly a quadratic a*x^2+b*x+c; fitting E17-E20 gives a~3.0, b~-2.5, c~-22.8 [E17, E18, E19, E20]",
+  "The negative far field (x<-8) is NOT a quartic with a*x^4 term; E21 shows f(-128)=51222.6 vs quadratic 48809, so extra term at x=128 is ~2414, not 48300 [E21]",
+  "The negative far field extra term is roughly proportional to |x|^3: at x=128 extra~2414, at x=64 extra~? \u2014 check ratio; 2414/128^3=1.15e-3, 2414/128^2=0.147 \u2014 need to determine exponent from E21 data [E21]",
+  "Both far fields share the same quadratic part 3.0*x^2 - 2.5*x - 22.8; the negative side adds a small odd/higher term [E17-E21]"
+ ],
+ "notes": "The quartic coefficient was wildly wrong (1.8e-4 gave 48300 at x=128 instead of ~2414). Refit E21: subtract quadratic 3x^2-2.5x-22.8 from observations to find the residual form. Residuals at x=-128: 51222.6-48809=2413.6; at x=-64: 14568.9-12105=2463.9; at x=-32: 3704.2-2969=735; at x=-16: 1012.6-705=307.6. Ratio 2413.6/2463.9\u22480.98 \u2014 nearly flat between -64 and -128, suggesting a term like c*x^3 or a*x^2 with sign... Actually 2413.6/128^2=0.147, 2463.9/64^2=0.601 \u2014 not x^2. 2413.6/128^3=0.00115, 2463.9/64^3=0.0094 \u2014 not x^3 either. Try |x|: 2413.6/128=18.86, 2463.9/64=38.5 \u2014 no. Try x^4 with small a: 2413.6/128^4=8.99e-6, 2463.9/64^4=1.47e-4 \u2014 inconsistent. The residual is nearly constant ~2400 for |x|>=64 but drops to ~735 at 32 and ~308 at 16. That looks like a term that saturates \u2014 perhaps the MLP's approximation. Best fit: try a*x^4+b*x^2 form. At x=128: a*2.68e8+b*16384=2413.6; at x=64: a*1.68e7+b*4096=2463.9. Solving: from second, b=(2463.9-1.68e7*a)/4096. Sub: 2.68e8*a+16384*(2463.9-1.68e7*a)/4096=2413.6 \u2192 2.68e8*a+4*(2463.9-1.68e7*a)=2413.6 \u2192 2.68e8*a+9855.6-6.72e7*a=2413.6 \u2192 2.008e8*a=-7442 \u2192 a=-3.7e-5. Then b=(2463.9+621.6)/4096=0.753. Check x=32: -3.7e-5*1.05e6+0.753*1024=-38.9+771=732 \u2713 (obs 735). Check x=16: -3.7e-5*65536+0.753*256=-2.4+192.8=190 (obs 308, off). Try including d*x: refit with three points. Use x=-128 (2413.6), x=-64 (2463.9), x=-32 (735.2). a*2.68e8+b*16384+d*(-128)=2413.6; a*1.68e7+b*4096-64d=2463.9; a*1.05e6+b*1024-32d=735.2. From eq3: d=(a*1.05e6+1024b-735.2)/32. This is getting complex \u2014 better to just fit numerically in predict via a small least-squares on stored E21 points? No, must be general. Let me just use a*x^4+b*x^2+d*x+c with c=-22.8 and fit a,b,d from E21 by hand: try a=-3.7e-5, b=0.753, d=0. Check x=-16: 190 vs 308 \u2014 off by 118. Add d: at x=-16, d*(-16) should add 118 \u2192 d=-7.4. Then at x=-128: -7.4*(-128)=947 added \u2192 2413.6+947=3360, too big. So d small. The x=16 point may be in transition influence. Use only |x|>=32 for fit: a=-3.7e-5, b=0.753, d=0, c=-22.8. Check x=-48: -3.7e-5*5.3e6+0.753*2304=-196+1735=1539 (obs 8241.7-3*2304+2.5*48-22.8=8241.7-6912+120-22.8=1427 \u2014 close-ish). Good enough as best guess.",
+ "fit": 0.38095238095238093,
+ "heldout": 0.02,
+ "matches": [
+  0.7,
+  0.9,
+  1.0,
+  1.0,
+  0.8181818181818182,
+  0.9090909090909091,
+  1.0,
+  1.0,
+  0.95,
+  1.0,
+  0.75,
+  0.8,
+  0.5,
+  0.9,
+  1.0,
+  1.0,
+  0.4444444444444444,
+  0.5,
+  0.5,
+  0.7142857142857143,
+  1.0
+ ],
+ "made_at": 21
+}

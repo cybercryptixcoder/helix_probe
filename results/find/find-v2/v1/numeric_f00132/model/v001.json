@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is nearly linear with slope ~4.69 per unit x across [-128,128], with a small offset near x=0 [E1]",
+  "f(0)\u22483.9, slightly above the linear fit through the endpoints, suggesting a small nonlinear bump near zero [E1]",
+  "The function appears smooth and monotonic increasing over the whole range [E1]"
+ ],
+ "notes": "Fit a line to E1: endpoints give slope (607.61-(-595.68))/256\u22484.70 and intercept\u22486.0; a small residual near zero suggests a minor nonlinearity, but linear is a good first model.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

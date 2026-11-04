@@ -1,0 +1,66 @@
+Helix Probe v2 on 'find_numeric_f00033': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.12, fit 0.60, size 332 (exam 0.000 -> 0.125); held-out 0%
+[2] E2 Is the output a smooth Gaussian bump centered at x=3 with width ~2, or is t...(+119 chars)  (v1 predicted it: match 0.35)
+      model v2 by the updater: exam 0.15, fit 0.47, size 515 (exam 0.125 -> 0.150); held-out 0%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 0.15, fit 0.63, size 515 (fit 0.617 -> 0.633); held-out 0%
+[4] E4 Where exactly is the positive spike centered and how wide is it, since the ...(+190 chars)  (v3 predicted it: match 0.18)
+      updater's model not kept: its fit is 0.495, the current model's is 0.520
+      model v4 by the updater: exam 0.15, fit 0.58, size 619 (fit 0.520 -> 0.578); held-out 0%
+[5] E5 a random ordinary probe  (v4 predicted it: match 0.10)
+      model v5 by the updater: exam 0.33, fit 0.39, size 780 (exam 0.150 -> 0.325); held-out 0%
+[6] E6 Is the positive bump's left flank wider than its right flank as assumed, an...(+165 chars)  (v5 predicted it: match 0.50)
+      model v6 by the updater: exam 0.33, fit 0.44, size 780 (fit 0.412 -> 0.436); held-out 1%
+[7] E7 a random ordinary probe  (v6 predicted it: match 0.10)
+      model v7 by the updater: exam 0.50, fit 0.52, size 784 (exam 0.325 -> 0.500); held-out 2%
+[8] E8 What is the exact shape of the central positive bump on its left flank betw...(+179 chars)  (v7 predicted it: match 0.45)
+      updater's model not kept: same scores and not smaller (784 vs 784 chars)
+      model v8 by the updater: exam 0.50, fit 0.53, size 859 (fit 0.508 -> 0.533); held-out 2%
+[9] E9 a random ordinary probe  (v8 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (859 vs 859 chars)
+      updater's model not kept: same scores and not smaller (859 vs 859 chars)
+[10] E10 What is the true shape of the central bump on both flanks and the negative ...(+157 chars)  (v8 predicted it: match 0.35)
+      model v9 by the updater: exam 0.50, fit 0.57, size 860 (fit 0.541 -> 0.572); held-out 1%
+[11] E11 a random ordinary probe  (v9 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.575, the current model's is 0.602
+      updater's model not kept: same scores and not smaller (860 vs 860 chars)
+[12] E12 Does the central positive bump's right flank have a small secondary shoulde...(+153 chars)  (v9 predicted it: match 0.10)
+      updater's model not kept: its fit is 0.536, the current model's is 0.560
+      updater's model not kept: same scores and not smaller (860 vs 860 chars)
+[13] E13 a random ordinary probe  (v9 predicted it: match 0.30)
+      updater's model not kept: its fit is 0.506, the current model's is 0.540
+      model v10 by the updater: exam 0.50, fit 0.56, size 860 (fit 0.540 -> 0.563); held-out 1%
+[14] E14 What is the exact shape of the central bump between x=0 and x=1.4 (the regi...(+145 chars)  (v10 predicted it: match 0.42)
+      updater's model not kept: its exam is 0.150, the current model's is 0.500
+      model v11 by the updater: exam 0.50, fit 0.62, size 1112 (fit 0.553 -> 0.624); held-out 5%
+[15] E15 a random ordinary probe  (v11 predicted it: match 0.20)
+      updater's model not kept: its exam is 0.450, the current model's is 0.500
+      updater's model not kept: same scores and not smaller (1112 vs 1112 chars)
+[16] E16 What is the exact shape of the negative trough between x=8 and x=20, and do...(+68 chars)  (v11 predicted it: match 0.35)
+      updater's model not kept: its fit is 0.562, the current model's is 0.580
+      updater's model not kept: its fit is 0.562, the current model's is 0.580
+[17] E17 a random ordinary probe  (v11 predicted it: match 0.20)
+      model v12 by the updater: exam 0.65, fit 0.59, size 1250 (exam 0.500 -> 0.650); held-out 5%
+[18] E18 Does the model's assumed smooth Gaussian decay on the central bump's right ...(+195 chars)  (v12 predicted it: match 0.10)
+      model v13 by the updater: exam 0.67, fit 0.56, size 1172 (exam 0.650 -> 0.675); held-out 7%
+[19] E19 a random ordinary probe  (v13 predicted it: match 0.40)
+      updater's model not kept: its exam is 0.650, the current model's is 0.675
+      updater's model not kept: its fit is 0.526, the current model's is 0.552
+[20] E20 The model badly mispredicts the bump flanks and the trough, and E19 shows a...(+189 chars)  (v13 predicted it: match 0.15)
+      model v14 by the updater: exam 0.67, fit 0.56, size 1332 (fit 0.532 -> 0.562); held-out 7%
+[21] E21 a random ordinary probe  (v14 predicted it: match 0.50)
+      updater's model not kept: its exam is 0.650, the current model's is 0.675
+      updater's model not kept: same scores and not smaller (1332 vs 1332 chars)
+[22] E22 What is the true shape of the negative trough region between x=8 and x=22 (...(+132 chars)  (v14 predicted it: match 0.15)
+      updater's model not kept: its exam is 0.650, the current model's is 0.675
+      model v15 by the updater: exam 0.67, fit 0.58, size 1332 (fit 0.540 -> 0.577); held-out 8%
+[23] E23 a random ordinary probe  (v15 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (1332 vs 1332 chars)
+      updater's model not kept: same scores and not smaller (1332 vs 1332 chars)
+[24] E24 Does the central bump's right flank follow a smooth exponential decay all t...(+138 chars)  (v15 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.650, the current model's is 0.675
+      updater's model not kept: its fit is 0.541, the current model's is 0.547
+[25] E25 a random ordinary probe  (v15 predicted it: match 0.40)
+      updater's model not kept: its fit is 0.539, the current model's is 0.541
+{"env": "find_numeric_f00033", "experiments": 25, "exam_probes": 4, "model_version": 15, "model_role": "updater", "exam": 0.6749999999999999, "fit": 0.5414545454545455, "size": 1332, "heldout": 0.08, "llm_calls": 53, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

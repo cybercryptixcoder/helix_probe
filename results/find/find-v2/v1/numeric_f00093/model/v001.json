@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is roughly linear and decreasing over the whole domain, slope about -0.57 per unit x [E1]",
+  "There is a steeper segment near x=0 (from about -2 to 5) where f drops faster, suggesting a special interval around zero [E1]",
+  "f(0) \u2248 -8.83, not 0, so the line is offset [E1]"
+ ],
+ "notes": "Fitted a piecewise-linear model: gentle slope outside a small interval near 0, steeper slope inside it, matching the observed points.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.15789473684210525
+ ],
+ "made_at": 1
+}

@@ -1,0 +1,25 @@
+{
+ "version": 7,
+ "beliefs": [
+  "On x>=0, f(x) = 106.06 + 111.43*x is accurate to ~0.1% across 0.1 to 127 [E1, E2, E3]",
+  "On x<=-2, f(x) = 26.07*|x| - 25.4 is accurate to ~0.1% across |x| from 2 to 128 [E5, E6, E3, E4]",
+  "The negative branch has a smooth trough bottoming near |x|=1.05 with f(-1.05)=6.37, rising to f(-2)=26.7 [E7, E9]",
+  "For |x| between 0 and 1, f falls from ~106 at x=0 to ~6.85 at |x|=1, but not linearly: slope steepens with |x| (f(-0.5)=50.34, f(-0.62)=36.97, f(-0.9)=10.63) [E8, E9]",
+  "f(0)\u2248106 is a spike; both branches approach ~106 at x=0 [E1, E3]"
+ ],
+ "notes": "Replaced the linear near-zero negative branch with a quadratic fit through E8/E9 points (f(-0.5)=50.34, f(-0.62)=36.97, f(-0.9)=10.63, f(-1)=6.85), and refit the trough using E9's dense sweep with bottom near |x|=1.05.",
+ "fit": 0.6666666666666666,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.75,
+  0.7,
+  0.35
+ ],
+ "made_at": 9
+}

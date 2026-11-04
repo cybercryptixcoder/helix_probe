@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with a linear fit: the data is nearly a straight line with slope \u22484.7 and a small positive intercept \u22484.0, so `f(x) \u2248 4.7x + 4.0` captures the overall shape across the whole range.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 201, "matches": [1.0], "made_at": 1, "heldout": 1.0}

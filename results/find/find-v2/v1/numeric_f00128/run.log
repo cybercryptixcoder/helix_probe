@@ -1,0 +1,44 @@
+Helix Probe on 'find_numeric_f00128': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, sampled coarsely to reveal o...(+57 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.60 (was 0.00), held-out 0%
+[2] E2 Is the function exactly odd (f(-x) = -f(x)) or does it have a systematic of...(+44 chars)  model v1 match 0.55
+      model kept (v1)
+[3] E3 Is f really a smooth cubic-like curve, or does it have a piecewise break/fl...(+92 chars)  model v1 match 0.15
+      model v2: fit 0% (was 0%), mean match 0.43 (was 0.43), held-out 0%
+[4] E4 What is the exact shape of f near zero on the positive side — does the addi...(+85 chars)  model v2 match 0.85
+      revision rejected: mean match 0.25 < 0.54
+      revision rejected: mean match 0.36 < 0.54
+[5] E5 What does f look like on the negative side near zero (x from -0.05 to -1) —...(+71 chars)  model v2 match 0.15
+      revision rejected: mean match 0.39 < 0.46
+      model v3: fit 20% (was 0%), mean match 0.61 (was 0.46), held-out 0%
+[6] E6 Is the function antisymmetric about a shifted center (i.e. f(x) = h(x - x0)...(+122 chars)  model v3 match 0.30
+      model v4: fit 83% (was 17%), mean match 0.97 (was 0.56), held-out 100%
+[7] E7 Does the positive side follow a pure linear law f(x) = c + b*x for large x ...(+78 chars)  model v4 match 1.00
+[8] E8 Does the positive side really become exactly linear (slope -16.9, intercept...(+145 chars)  model v4 match 1.00
+[9] E9 My model is off by up to ~2.3 in the mid-range on both sides (e.g. f(-1.5),...(+172 chars)  model v4 match 0.80
+      revision rejected: mean match 0.66 < 0.96
+      revision rejected: mean match 0.82 < 0.96
+[10] E10 Is the positive-side law exactly f(x) = 11.0 - 16.9*x (as suggested by larg...(+136 chars)  model v4 match 1.00
+[11] E11 Where exactly does the positive-side curve transition from the softened nea...(+120 chars)  model v4 match 0.25
+      model v5: fit 82% (was 73%), mean match 0.98 (was 0.90), held-out 100%
+[12] E12 Is the negative side's linear law exactly f(x) = -6.8*x + 5.42 (slope -6.8,...(+122 chars)  model v5 match 1.00
+[13] E13 Does the positive-side transition zone's residual (where my model is off by...(+186 chars)  model v5 match 1.00
+[14] E14 On the negative side, where exactly does the exact linear law -6.8x+5.42 be...(+161 chars)  model v5 match 1.00
+[15] E15 What is the exact shape of the positive-side curve in the transition zone x...(+159 chars)  model v5 match 0.55
+      model kept (v5)
+[16] E16 The negative-side linear law -6.8x+5.42 is confirmed to x=-25; does it hold...(+127 chars)  model v5 match 1.00
+[17] E17 Does the positive-side linear law f(x)=11.0-16.9x hold exactly near x=2.0-2...(+149 chars)  model v5 match 1.00
+[18] E18 My model's positive-side transition is wrong by up to ~1 unit around x=1.0-...(+249 chars)  model v5 match 0.15
+      revision rejected: mean match 0.90 < 0.91
+      revision rejected: mean match 0.87 < 0.91
+[19] E19 What is the exact shape of the positive-side near-zero steep region between...(+163 chars)  model v5 match 0.30
+      model v6: fit 84% (was 74%), mean match 0.95 (was 0.88), held-out 100%
+[20] E20 Does the positive-side curve follow a single clean linear law from x=1.0 on...(+162 chars)  model v6 match 0.85
+      model v7: fit 90% (was 80%), mean match 0.97 (was 0.94), held-out 100%
+[21] E21 Is the positive-side curve from x=1.0 to x=2.0 a smooth curve (no kink) tha...(+149 chars)  model v7 match 1.00
+[22] E22 What is the exact shape of the negative-side curve between x=-1.0 and x=-0....(+163 chars)  model v7 match 1.00
+[23] E23 My v7 model still misses the positive-side near-zero curve (E19 residuals u...(+245 chars)  model v7 match 0.60
+      model v8: fit 100% (was 87%), mean match 1.00 (was 0.96), held-out 100%
+[24] E24 Is the positive-side near-zero branch [0,1) actually a smooth cubic, or doe...(+198 chars)  model v8 match 1.00
+[25] E25 Does the positive-side near-zero branch [0,1) remain a single smooth cubic ...(+185 chars)  model v8 match 1.00
+{"env": "find_numeric_f00128", "experiments": 25, "model_version": 8, "fit": 1.0, "heldout": 1.0, "llm_calls": 42, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
