@@ -28,3 +28,16 @@ Helix Probe v3 on 'find_numeric_f00493': 0 experiments so far, model v0, spent 0
 [17] E17 learn: a random ordinary probe  (v1 predicted it: match 0.40; cost 10, spent 250)
 [18] E18 learn: Does the function actually behave like a power law with exponent ...(+342 chars)  (v1 predicted it: match 0.30; cost 20, spent 270)
       theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v1 predicted it: match 0.60; cost 10, spent 280)
+      updater's fix not kept: its fit is 0.500, the current model's is 0.600
+      updater's fix not kept: its fit is 0.553, the current model's is 0.600
+[20] E20 learn: Do the observed outputs factor as f(x) = g(x) + h(x) where h is a...(+147 chars)  (v1 predicted it: match 0.00; cost 20, spent 300)
+      theorist (fixes stalled)
+[21] E21 learn: a random ordinary probe  (v1 predicted it: match 0.60; cost 10, spent 310)
+[22] E22 learn: Is the sign of f(x) simply the sign of x for all |x|>1, i.e. does...(+183 chars)  (v1 predicted it: match 0.90; cost 20, spent 330)
+      theorist (fixes stalled)
+[23] E23 learn: a random ordinary probe  (v1 predicted it: match 0.80; cost 10, spent 340)
+[24] E24 learn: For ordinary mid-range inputs, is the output an exact odd power l...(+187 chars)  (v1 predicted it: match 0.50; cost 20, spent 360)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v1 predicted it: match 0.80; cost 10, spent 370)
+{"env": "find_numeric_f00493", "experiments": 25, "cost": 370, "model_version": 1, "model_role": "updater", "fit": 0.6, "size": 1221, "exam": null, "heldout": 0.02, "llm_calls": 73, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

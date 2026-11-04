@@ -6,8 +6,8 @@ Sample: `bench/find/data`; up to 25 learn steps per function; exam of 4 probes (
 
 | who | n | final | at 3 | at 10 | experiments | inputs | LLM calls | cost | held-out |
 |---|---|---|---|---|---|---|---|---|---|
-| v3-exam | 29 | **0.97** | 0.79 | 0.90 | 17.8 | 292 | 24 | $2.84 | 0.90 |
-| v3 | 30 | **0.93** | 0.80 | 0.87 | 16.6 | 237 | 24 | $2.86 | 0.91 |
+| v3-exam | 38 | **0.92** | 0.74 | 0.84 | 18.3 | 299 | 27 | $4.04 | 0.86 |
+| v3 | 39 | **0.85** | 0.72 | 0.79 | 17.5 | 250 | 28 | $4.15 | 0.82 |
 | published: gpt-4 | 40 | **0.20** | - | - | 3.2 | 24 | - | - | - |
 | published: gpt-3.5-turbo | 40 | **0.12** | - | - | 1.2 | 8 | - | - | - |
 | published: llama-2-70b | 40 | **0.03** | - | - | 7.4 | 2 | - | - | - |
@@ -17,6 +17,8 @@ Sample: `bench/find/data`; up to 25 learn steps per function; exam of 4 probes (
 
 | who | n | final | at 3 | at 10 | experiments | inputs | LLM calls | cost | held-out |
 |---|---|---|---|---|---|---|---|---|---|
+| v3 | 9 | **1.00** | 0.98 | 1.00 | 11.4 | 90 | 10 | $0.15 | 1.00 |
+| v3-exam | 9 | **1.00** | 1.00 | 1.00 | 10.0 | 102 | 8 | $0.12 | 0.99 |
 | published: gpt-3.5-turbo | 40 | **0.05** | - | - | 2.4 | 4 | - | - | - |
 | published: llama-2-70b | 40 | **0.04** | - | - | 2.9 | 4 | - | - | - |
 | published: gpt-4 | 40 | **0.01** | - | - | 3.0 | 15 | - | - | - |

@@ -1,0 +1,6 @@
+Helix Probe v3 on 'find_strings_f00166': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 1.00, size 65, exam 0.79 (exam 0.000 -> 0.792); held-out 15%
+[2] E2 learn: Does the box ever change case, trim or normalize whitespace, or a...(+94 chars)  (v1 predicted it: match 0.90; cost 10, spent 20)
+      model v2 by the updater: fit 1.00, size 222, exam 0.79 (fit 0.950 -> 1.000); held-out 15%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.83; cost 6, spent 26)

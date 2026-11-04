@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the insertion index from `len//2` to `(len+1)//2` (ceil of half), which matches all E2 cases including odd-length strings like \"a\"\u2192\"a2\" and \"abc\"\u2192\"cb2a\", and remains consistent with E1.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 194, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

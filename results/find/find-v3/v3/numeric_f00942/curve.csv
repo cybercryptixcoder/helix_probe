@@ -1,0 +1,11 @@
+step,kind,experiments,cost,model_version,model_role,fit,size,exam,arrival_last10,heldout,llm_calls,note
+1,learn,1,10,0,start,0.000,33,0.000,0.00,0.000,2,E1
+2,learn,2,22,1,updater,1.000,244,0.000,0.00,1.000,4,E2
+3,learn,3,32,1,updater,1.000,244,0.000,0.33,1.000,4,E3
+4,learn,4,50,1,updater,1.000,244,0.000,0.50,1.000,5,E4
+5,learn,5,60,1,updater,1.000,244,0.000,0.60,1.000,5,E5
+6,learn,6,80,1,updater,1.000,244,0.000,0.67,1.000,7,E6
+7,learn,7,90,1,updater,1.000,244,0.000,0.71,1.000,7,E7
+8,learn,8,110,1,updater,1.000,244,0.000,0.75,1.000,8,E8
+9,learn,9,120,1,updater,1.000,244,0.000,0.78,1.000,8,E9
+10,learn,10,140,1,updater,1.000,244,0.000,0.80,1.000,9,E10

@@ -1,0 +1,15 @@
+Helix Probe v3 on 'find_strings_f00166': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 65 (fit 0.000 -> 1.000); held-out 15%
+[2] E2 learn: Does f leave ordinary inputs unchanged across a wider variety of ...(+121 chars)  (v1 predicted it: match 0.70; cost 10, spent 16)
+      updater's fix not kept: same scores and not smaller (167 vs 65 chars)
+      updater's fix not kept: same scores and not smaller (348 vs 65 chars)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.83; cost 6, spent 22)
+      updater's fix not kept: same scores and not smaller (154 vs 65 chars)
+      updater's fix not kept: its fit is 0.411, the current model's is 0.844
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 1.00, size 433)
+[4] E4 learn: Does the box insert a 'k' after certain letters (like 'x' in 'exa...(+92 chars)  (v1 predicted it: match 0.60; cost 10, spent 32)
+      updater's fix not kept: its fit is 0.758, the current model's is 0.783
+      updater's fix not kept: its fit is 0.758, the current model's is 0.783
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 0.67; cost 6, spent 38)

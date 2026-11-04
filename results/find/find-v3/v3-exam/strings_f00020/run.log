@@ -1,0 +1,15 @@
+Helix Probe v3 on 'find_strings_f00020': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 1.00, size 210, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the insertion index depend on character content (e.g., lette...(+116 chars)  (v1 predicted it: match 1.00; cost 9, spent 19)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 25)
+[4] E4 learn: Does the rule hold for strings of lengths 7-10 and for single-cha...(+127 chars)  (v1 predicted it: match 1.00; cost 10, spent 35)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 41)
+[6] E6 learn: Does the rule (insert '5' at index (len+1)//2, then append the la...(+199 chars)  (v1 predicted it: match 1.00; cost 10, spent 51)
+      theorist (every 6 experiments)
+      theorist's model not tried: its exam is 0.250, the current model's is 1.000
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 57)
+[8] E8 learn: Do strings whose length parity and content vary (including a sing...(+215 chars)  (v1 predicted it: match 1.00; cost 10, spent 67)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 73)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00020", "experiments": 9, "cost": 73, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 210, "exam": 1.0, "heldout": 1.0, "llm_calls": 7, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

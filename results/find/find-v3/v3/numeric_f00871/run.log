@@ -1,0 +1,64 @@
+Helix Probe v3 on 'find_numeric_f00871': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 63 (fit 0.000 -> 1.000); held-out 55%
+[2] E2 learn: Does f depend on x at all, or is it identically zero across a spr...(+97 chars)  (v1 predicted it: match 0.67; cost 15, spent 25)
+      model v2 by the updater: fit 1.00, size 188 (fit 0.833 -> 1.000); held-out 62%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.90; cost 10, spent 35)
+      updater's fix not kept: its fit is 0.656, the current model's is 0.967
+      model v3 by the updater: fit 1.00, size 188 (fit 0.967 -> 1.000); held-out 70%
+[4] E4 learn: Where exactly does the linear region 5.2 - 2.5x end on each side,...(+29 chars)  (v3 predicted it: match 0.95; cost 20, spent 55)
+      model v4 by the updater: fit 1.00, size 190 (fit 0.988 -> 1.000); held-out 70%
+[5] E5 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 65)
+[6] E6 learn: Are the left and right cutoffs exactly where the model guesses (-...(+86 chars)  (v4 predicted it: match 0.50; cost 8, spent 73)
+      model v5 by the updater: fit 1.00, size 190 (fit 0.917 -> 1.000); held-out 70%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 493)
+[7] E7 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 83)
+[8] E8 learn: Is the linear region really exactly [-2.1, 2.1], i.e., does f sta...(+57 chars)  (v5 predicted it: match 0.75; cost 8, spent 91)
+      model v6 by the updater: fit 1.00, size 188 (fit 0.969 -> 1.000); held-out 70%
+[9] E9 learn: a random ordinary probe  (v6 predicted it: match 0.90; cost 10, spent 101)
+      theorist's model lost its trial: on trial it predicted 0.88 of 3 new experiments, the current model 0.88
+      model v7 by the updater: fit 1.00, size 253 (fit 0.989 -> 1.000); held-out 70%
+[10] E10 learn: Is the nonzero value at x=-79.1 part of a genuine second active r...(+58 chars)  (v7 predicted it: match 0.00; cost 11, spent 112)
+      updater's fix not kept: its fit is 0.890, the current model's is 0.900
+      model v8 by the updater: fit 0.91, size 251 (fit 0.900 -> 0.909); held-out 70%
+[11] E11 learn: a random ordinary probe  (v8 predicted it: match 1.00; cost 10, spent 122)
+[12] E12 learn: Is the nonzero reading near x=-79.1 a genuine narrow second linea...(+139 chars)  (v8 predicted it: match 0.05; cost 20, spent 142)
+      model v9 by the updater: fit 0.85, size 251 (fit 0.845 -> 0.849); held-out 70%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.83, size 659)
+[13] E13 learn: a random ordinary probe  (v9 predicted it: match 1.00; cost 10, spent 152)
+[14] E14 learn: Is the noisy nonzero band near x=-79.1 a genuine narrow active in...(+147 chars)  (v9 predicted it: match 0.10; cost 20, spent 172)
+      model v10 by the updater: fit 0.81, size 251 (fit 0.806 -> 0.810); held-out 70%
+[15] E15 learn: a random ordinary probe  (v10 predicted it: match 0.80; cost 10, spent 182)
+      theorist's model lost its trial: on trial it predicted 0.62 of 3 new experiments, the current model 0.63
+      updater's fix not kept: same scores and not smaller (251 vs 251 chars)
+      updater's fix not kept: same scores and not smaller (251 vs 251 chars)
+[16] E16 learn: Does the noisy nonzero band near x=-79.1 actually extend continuo...(+115 chars)  (v10 predicted it: match 0.45; cost 20, spent 202)
+      model v11 by the updater: fit 0.79, size 251 (fit 0.787 -> 0.790); held-out 70%
+[17] E17 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 10, spent 212)
+[18] E18 learn: Is the noisy nonzero region near x=-79 actually a broad interval ...(+206 chars)  (v11 predicted it: match 0.35; cost 20, spent 232)
+      updater's fix not kept: its fit is 0.774, the current model's is 0.777
+      updater's fix not kept: its fit is 0.774, the current model's is 0.777
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 10, spent 242)
+[20] E20 learn: Does the noisy nonzero band near x=-79 extend as a continuous int...(+135 chars)  (v11 predicted it: match 0.20; cost 20, spent 262)
+      updater's fix not kept: its fit is 0.732, the current model's is 0.760
+      updater's fix not kept: its fit is 0.735, the current model's is 0.760
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.72, size 534)
+[21] E21 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 10, spent 272)
+[22] E22 learn: Is the noisy nonzero band near x=-79 actually a smooth function o...(+230 chars)  (v11 predicted it: match 0.05; cost 20, spent 292)
+      updater's fix not kept: its fit is 0.736, the current model's is 0.738
+      updater's fix not kept: its fit is 0.713, the current model's is 0.738
+[23] E23 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 10, spent 302)
+      theorist's model lost its trial: on trial it predicted 0.67 of 3 new experiments, the current model 0.68
+[24] E24 learn: Does the noisy nonzero band near x=-79 have a sharp left edge som...(+142 chars)  (v11 predicted it: match 0.00; cost 20, spent 322)
+      updater's fix not kept: its fit is 0.700, the current model's is 0.718
+      updater's fix not kept: its fit is 0.710, the current model's is 0.718
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.69, size 611)
+[25] E25 learn: a random ordinary probe  (v11 predicted it: match 0.90; cost 10, spent 332)
+      updater's fix not kept: its fit is 0.712, the current model's is 0.726
+      updater's fix not kept: its fit is 0.720, the current model's is 0.726
+{"env": "find_numeric_f00871", "experiments": 25, "cost": 332, "model_version": 11, "model_role": "updater", "fit": 0.7256363636363636, "size": 251, "exam": null, "heldout": 0.7, "llm_calls": 42, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

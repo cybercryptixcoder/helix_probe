@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box simply reverses each input string. Every observed output in E1 is the exact character-wise reversal of its input (including spaces and case), so I replaced the empty model with `s[::-1]` applied to each input.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 78, "matches": [1.0], "made_at": 1, "heldout": 0.21}

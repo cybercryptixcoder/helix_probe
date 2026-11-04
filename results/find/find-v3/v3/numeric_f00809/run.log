@@ -4,3 +4,78 @@ Helix Probe v3 on 'find_numeric_f00809': 0 experiments so far, model v0, spent 0
       updater's fix not kept: same scores and not smaller (97 vs 33 chars)
       model v1 by the updater: fit 0.05, size 227 (fit 0.000 -> 0.050); held-out 0%
 [3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 40)
+[4] E4 learn: Do the outputs depend on x through a smooth deterministic functio...(+216 chars)  (v1 predicted it: match 0.05; cost 20, spent 60)
+      model v2 by the updater: fit 0.06, size 419 (fit 0.038 -> 0.062); held-out 0%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 70)
+      updater's fix not kept: same scores and not smaller (419 vs 419 chars)
+      updater's fix not kept: same scores and not smaller (419 vs 419 chars)
+[6] E6 learn: Does the output depend smoothly on x at fine scale (so nearby inp...(+179 chars)  (v2 predicted it: match 0.05; cost 20, spent 90)
+      updater's fix not kept: its fit is 0.033, the current model's is 0.050
+      updater's fix not kept: its fit is 0.033, the current model's is 0.050
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 100)
+      updater's fix not kept: its fit is 0.014, the current model's is 0.043
+      updater's fix not kept: same scores and not smaller (419 vs 419 chars)
+[8] E8 learn: Is the output a smooth deterministic function of x at a moderate ...(+121 chars)  (v2 predicted it: match 0.05; cost 20, spent 120)
+      updater's fix not kept: same scores and not smaller (437 vs 419 chars)
+      theorist (fixes stalled)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 130)
+      updater's fix not kept: same scores and not smaller (419 vs 419 chars)
+      updater's fix not kept: same scores and not smaller (419 vs 419 chars)
+[10] E10 learn: Does f have a smooth, structured component when sampled at fine s...(+142 chars)  (v2 predicted it: match 0.00; cost 20, spent 150)
+      updater's fix not kept: same scores and not smaller (437 vs 419 chars)
+      updater's fix not kept: its fit is 0.030, the current model's is 0.035
+      theorist (fixes stalled)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 160)
+      updater's fix not kept: its fit is 0.036, the current model's is 0.041
+      updater's fix not kept: its fit is 0.036, the current model's is 0.041
+[12] E12 learn: Do nearby ordinary inputs give similar outputs when sampled at ve...(+186 chars)  (v2 predicted it: match 0.00; cost 20, spent 180)
+      updater's fix not kept: its fit is 0.029, the current model's is 0.037
+      updater's fix not kept: its fit is 0.029, the current model's is 0.037
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.01, size 798)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 190)
+      updater's fix not kept: same scores and not smaller (437 vs 419 chars)
+      model v3 by the updater: fit 0.03, size 227 (same scores, smaller (419 -> 227 chars)); held-out 0%
+[14] E14 learn: Do outputs depend on x at all through a low-frequency (period ~20...(+135 chars)  (v3 predicted it: match 0.05; cost 20, spent 210)
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 0.00; cost 10, spent 220)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 0.02
+      model v4 by the updater: fit 0.11, size 366 (fit 0.033 -> 0.113); held-out 0%
+[16] E16 learn: Is the apparent 'tiny output' region on the negative side actuall...(+188 chars)  (v4 predicted it: match 0.30; cost 20, spent 240)
+      updater's fix not kept: same scores and not smaller (371 vs 366 chars)
+      updater's fix not kept: same scores and not smaller (366 vs 366 chars)
+[17] E17 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 250)
+      updater's fix not kept: its fit is 0.106, the current model's is 0.118
+      updater's fix not kept: same scores and not smaller (369 vs 366 chars)
+      theorist (fixes stalled)
+[18] E18 learn: Is the 'tiny output' region on the negative side a smooth decayin...(+181 chars)  (v4 predicted it: match 0.50; cost 20, spent 270)
+      updater's fix not kept: same scores and not smaller (367 vs 366 chars)
+      updater's fix not kept: same scores and not smaller (367 vs 366 chars)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v4 predicted it: match 0.20; cost 10, spent 280)
+      updater's fix not kept: same scores and not smaller (367 vs 366 chars)
+      updater's fix not kept: same scores and not smaller (367 vs 366 chars)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.13, size 675)
+[20] E20 learn: Is the tiny-output region on the negative side a hard threshold n...(+164 chars)  (v4 predicted it: match 0.30; cost 20, spent 300)
+      updater's fix not kept: same scores and not smaller (368 vs 366 chars)
+      model v5 by the updater: fit 0.15, size 362 (same scores, smaller (366 -> 362 chars)); held-out 0%
+[21] E21 learn: a random ordinary probe  (v5 predicted it: match 0.20; cost 10, spent 310)
+      updater's fix not kept: its fit is 0.148, the current model's is 0.152
+      updater: keep
+[22] E22 learn: Does the ordinary output scatter change character across the mid-...(+112 chars)  (v5 predicted it: match 0.05; cost 20, spent 330)
+      theorist's model lost its trial: on trial it predicted 0.15 of 3 new experiments, the current model 0.18
+      updater's fix not kept: same scores and not smaller (362 vs 362 chars)
+      updater's fix not kept: same scores and not smaller (362 vs 362 chars)
+      theorist (fixes stalled)
+[23] E23 learn: a random ordinary probe  (v5 predicted it: match 0.30; cost 10, spent 340)
+      updater's fix not kept: same scores and not smaller (362 vs 362 chars)
+      updater's fix not kept: same scores and not smaller (363 vs 362 chars)
+[24] E24 learn: Is the ordinary scatter truly memoryless noise (so outputs at ide...(+195 chars)  (v5 predicted it: match 0.10; cost 20, spent 360)
+      updater's fix not kept: its fit is 0.148, the current model's is 0.152
+      updater's fix not kept: same scores and not smaller (362 vs 362 chars)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v5 predicted it: match 0.40; cost 10, spent 370)
+      updater's fix not kept: its fit is 0.158, the current model's is 0.162
+      updater's fix not kept: same scores and not smaller (362 vs 362 chars)
+{"env": "find_numeric_f00809", "experiments": 25, "cost": 370, "model_version": 5, "model_role": "updater", "fit": 0.162, "size": 362, "exam": null, "heldout": 0.0, "llm_calls": 69, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

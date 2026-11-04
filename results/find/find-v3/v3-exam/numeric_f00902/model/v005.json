@@ -1,0 +1,1 @@
+{"version": 5, "role": "updater", "notes": "E6 shows x=117.5 is still anomalous (7772.9982) and x=118 is cubic (2167729.4), so the upper boundary lies between 117.5 and 118, not at 117. I moved the interval's upper edge to 117.5.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 237, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 0.98}

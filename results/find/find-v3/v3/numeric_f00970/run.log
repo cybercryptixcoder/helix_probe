@@ -1,0 +1,87 @@
+Helix Probe v3 on 'find_numeric_f00970': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: How does f behave across the full input range, especially near x=...(+118 chars)  (v0 predicted it: match 0.00; cost 20, spent 30)
+      model v1 by the updater: fit 0.20, size 323 (fit 0.000 -> 0.200); held-out 0%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.10; cost 10, spent 40)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+[4] E4 learn: Where exactly does the high plateau begin and end, and is the bas...(+60 chars)  (v1 predicted it: match 0.30; cost 20, spent 60)
+      model v2 by the updater: fit 0.28, size 324 (fit 0.200 -> 0.275); held-out 0%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 70)
+      updater's fix not kept: its fit is 0.200, the current model's is 0.220
+      updater's fix not kept: its fit is 0.200, the current model's is 0.220
+[6] E6 learn: Is the high plateau's left edge a sharp boundary between -3.0 and...(+83 chars)  (v2 predicted it: match 0.55; cost 20, spent 90)
+      model v3 by the updater: fit 0.28, size 323 (fit 0.275 -> 0.283); held-out 0%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.14, size 567)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 0.00; cost 10, spent 100)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      updater's fix not kept: its fit is 0.221, the current model's is 0.243
+[8] E8 learn: Is the baseline outside the plateau truly structureless noise, or...(+70 chars)  (v3 predicted it: match 0.00; cost 20, spent 120)
+      updater's fix not kept: its fit is 0.194, the current model's is 0.212
+      updater's fix not kept: its fit is 0.188, the current model's is 0.212
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 0.10; cost 10, spent 130)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 0.03
+      updater's fix not kept: its fit is 0.150, the current model's is 0.200
+      updater's fix not kept: its fit is 0.194, the current model's is 0.200
+      theorist (fixes stalled)
+[10] E10 learn: Does the outside-plateau baseline have any smooth structure in th...(+122 chars)  (v3 predicted it: match 0.05; cost 20, spent 150)
+      updater's fix not kept: its fit is 0.175, the current model's is 0.185
+      updater's fix not kept: its fit is 0.175, the current model's is 0.185
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 0.10; cost 10, spent 160)
+      updater's fix not kept: its fit is 0.168, the current model's is 0.177
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      theorist (fixes stalled)
+[12] E12 learn: Does the outside-plateau baseline have any repeatable smooth stru...(+109 chars)  (v3 predicted it: match 0.00; cost 20, spent 180)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 0.00; cost 10, spent 190)
+      updater's fix not kept: its fit is 0.131, the current model's is 0.150
+      model v4 by the updater: fit 0.15, size 323 (fit 0.150 -> 0.154); held-out 0%
+[14] E14 learn: Is the high plateau value actually a constant ~12, or does it var...(+131 chars)  (v4 predicted it: match 0.62; cost 13, spent 203)
+      updater's fix not kept: its fit is 0.174, the current model's is 0.187
+      updater's fix not kept: its fit is 0.163, the current model's is 0.187
+[15] E15 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 213)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      updater's fix not kept: its fit is 0.164, the current model's is 0.174
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.15, size 193)
+[16] E16 learn: Is the outside-plateau baseline truly independent noise around a ...(+162 chars)  (v4 predicted it: match 0.00; cost 20, spent 233)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+[17] E17 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 243)
+      updater's fix not kept: its fit is 0.135, the current model's is 0.154
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+[18] E18 learn: Does the outside-plateau region contain a repeatable non-random c...(+143 chars)  (v4 predicted it: match 0.05; cost 20, spent 263)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 0.02
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.13, size 186)
+[19] E19 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 273)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+[20] E20 learn: Does the high plateau extend beyond the tested edges — specifical...(+178 chars)  (v4 predicted it: match 0.10; cost 20, spent 293)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      updater's fix not kept: its fit is 0.133, the current model's is 0.138
+[21] E21 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 303)
+      theorist's model lost its trial: on trial it predicted 0.03 of 3 new experiments, the current model 0.03
+      updater's fix not kept: its fit is 0.122, the current model's is 0.132
+      updater's fix not kept: its fit is 0.122, the current model's is 0.132
+      theorist (fixes stalled)
+[22] E22 learn: Is the outside-plateau output a deterministic function of x (e.g....(+128 chars)  (v4 predicted it: match 0.00; cost 20, spent 323)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+[23] E23 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 333)
+      updater's fix not kept: same scores and not smaller (323 vs 323 chars)
+      updater's fix not kept: its fit is 0.118, the current model's is 0.120
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.11, size 323)
+[24] E24 learn: Is the outside-plateau output repeatable for identical or nearby ...(+92 chars)  (v4 predicted it: match 0.00; cost 20, spent 353)
+      updater's fix not kept: its fit is 0.113, the current model's is 0.115
+      updater's fix not kept: its fit is 0.113, the current model's is 0.115
+[25] E25 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 363)
+      updater's fix not kept: its fit is 0.109, the current model's is 0.111
+      updater's fix not kept: its fit is 0.097, the current model's is 0.111
+{"env": "find_numeric_f00970", "experiments": 25, "cost": 363, "model_version": 4, "model_role": "updater", "fit": 0.11061538461538462, "size": 323, "exam": null, "heldout": 0.0, "llm_calls": 67, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

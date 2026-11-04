@@ -1,0 +1,87 @@
+Helix Probe v3 on 'find_numeric_f00809': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+[2] E2 learn: Does the box behave like a smooth nonlinear function of x alone (...(+118 chars)  (v0 predicted it: match 0.00; cost 20, spent 34)
+      model v1 by the updater: fit 0.00, size 215, exam 0.05 (exam 0.000 -> 0.050); held-out 0%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.10; cost 10, spent 44)
+[4] E4 learn: Is the output a smooth function of x alone, or does it depend on ...(+215 chars)  (v1 predicted it: match 0.00; cost 20, spent 64)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 74)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+[6] E6 learn: Do the outputs depend on x only through its fractional part / mod...(+138 chars)  (v1 predicted it: match 0.00; cost 20, spent 94)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 0.10; cost 10, spent 104)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+[8] E8 learn: Does f depend on x only through a smooth oscillation whose phase/...(+240 chars)  (v1 predicted it: match 0.00; cost 20, spent 124)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.03, size 607)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 134)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+      updater's fix not kept: its exam is 0.000, the current model's is 0.050
+[10] E10 learn: Is f(x) a smooth deterministic function of x alone, or is the out...(+132 chars)  (v1 predicted it: match 0.05; cost 20, spent 154)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.050
+      model v2 by the updater: fit 0.04, size 485, exam 0.05 (fit 0.025 -> 0.040); held-out 0%
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 164)
+      model v3 by the theorist: fit 0.03, size 607, exam 0.08 (on trial it predicted 0.03 of 3 new experiments, the current model 0.02); held-out 0%
+      model v4 by the updater: fit 0.10, size 731, exam 0.33 (exam 0.075 -> 0.325); held-out 0%
+[12] E12 learn: Is the output a deterministic function of x's exact value, or doe...(+237 chars)  (v4 predicted it: match 0.10; cost 20, spent 184)
+      updater's fix not kept: same scores and not smaller (731 vs 731 chars)
+      updater's fix not kept: its exam is 0.275, the current model's is 0.325
+      theorist (every 6 experiments)
+      theorist's model not tried: its exam is 0.000, the current model's is 0.325
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 0.10; cost 10, spent 194)
+      model v5 by the updater: fit 0.11, size 732, exam 0.33 (fit 0.104 -> 0.108); held-out 0%
+[14] E14 learn: Does the output depend on x through its sign/absolute value (e.g....(+111 chars)  (v5 predicted it: match 0.10; cost 20, spent 214)
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+[15] E15 learn: a random ordinary probe  (v5 predicted it: match 0.30; cost 10, spent 224)
+      updater: keep
+      theorist (fixes stalled)
+[16] E16 learn: Does the output depend deterministically on x at all, or is it pu...(+125 chars)  (v5 predicted it: match 0.10; cost 20, spent 244)
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      updater's fix not kept: same scores and not smaller (732 vs 732 chars)
+[17] E17 learn: a random ordinary probe  (v5 predicted it: match 0.00; cost 10, spent 254)
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      theorist (fixes stalled)
+      theorist's model not tried: its exam is 0.000, the current model's is 0.325
+[18] E18 learn: Is the output deterministic given x, or does the same x give diff...(+83 chars)  (v5 predicted it: match 0.15; cost 20, spent 274)
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      theorist (every 6 experiments)
+      theorist's model not tried: its exam is 0.275, the current model's is 0.325
+[19] E19 learn: a random ordinary probe  (v5 predicted it: match 0.10; cost 10, spent 284)
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      theorist (fixes stalled)
+[20] E20 learn: Do the outputs depend smoothly on x at a fine scale, or is the no...(+100 chars)  (v5 predicted it: match 0.00; cost 20, spent 304)
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      updater's fix not kept: its fit is 0.083, the current model's is 0.107
+[21] E21 learn: a random ordinary probe  (v5 predicted it: match 0.30; cost 10, spent 314)
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      theorist (fixes stalled)
+      theorist's model not tried: its exam is 0.300, the current model's is 0.325
+[22] E22 learn: Do repeated calls with identical x values give identical outputs ...(+153 chars)  (v5 predicted it: match 0.05; cost 20, spent 334)
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+[23] E23 learn: a random ordinary probe  (v5 predicted it: match 0.40; cost 10, spent 344)
+      updater's fix not kept: its exam is 0.275, the current model's is 0.325
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      theorist (fixes stalled)
+[24] E24 learn: Is the ordinary-region output truly unstructured noise, or does i...(+152 chars)  (v5 predicted it: match 0.45; cost 20, spent 364)
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      updater's fix not kept: same scores and not smaller (732 vs 732 chars)
+      theorist (every 6 experiments)
+      theorist's model not tried: its exam is 0.250, the current model's is 0.325
+[25] E25 learn: a random ordinary probe  (v5 predicted it: match 0.40; cost 10, spent 374)
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      updater's fix not kept: its exam is 0.300, the current model's is 0.325
+      theorist (fixes stalled)
+{"env": "find_numeric_f00809", "experiments": 25, "cost": 374, "model_version": 5, "model_role": "updater", "fit": 0.15, "size": 732, "exam": 0.325, "heldout": 0.0, "llm_calls": 70, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with two rules derived from E1: insert `'4'` at the midpoint, and bump the final character up one ASCII step only when it's a letter (the digit-ending case `abc123` shows non-letters are left alone).", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 306, "matches": [1.0], "made_at": 1, "heldout": 0.83}

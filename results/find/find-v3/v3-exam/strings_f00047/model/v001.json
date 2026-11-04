@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to lowercase the entire string and then uppercase only the first character, which matches all six E1 outputs (including the leading-space case, where the space stays and the following letter remains lowercase).", "exam": 0.75, "fit": 1.0, "fit_exact": 1.0, "size": 185, "matches": [1.0], "made_at": 1, "heldout": 0.21}

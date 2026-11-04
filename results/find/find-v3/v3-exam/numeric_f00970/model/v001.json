@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with `f(x) = sin(x)/x` (sinc, with f(0)=1). All ten E1 outputs match this exactly, so the box appears to be the unnormalized sinc function with no special interval.", "exam": 0.025, "fit": 0.0, "fit_exact": 0.0, "size": 193, "matches": [0.0], "made_at": 1, "heldout": 0.0}

@@ -14,3 +14,65 @@ Helix Probe v3 on 'find_numeric_f00794': 0 experiments so far, model v0, spent 4
       updater's fix not kept: its exam is 0.075, the current model's is 0.100
       theorist (every 6 experiments)
 [7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 99)
+[8] E8 learn: Is the small oscillatory component outside the central interval p...(+111 chars)  (v2 predicted it: match 0.00; cost 20, spent 119)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+      theorist (fixes stalled)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 129)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+[10] E10 learn: Does the small oscillatory component outside the central interval...(+214 chars)  (v2 predicted it: match 0.05; cost 20, spent 149)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+      theorist (fixes stalled)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 159)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+[12] E12 learn: Is the small oscillatory component a function of |x| or of x, and...(+204 chars)  (v2 predicted it: match 0.00; cost 16, spent 175)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.100
+      updater's fix not kept: its exam is 0.075, the current model's is 0.100
+      theorist (every 6 experiments)
+      theorist's model not tried: its exam is 0.075, the current model's is 0.100
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 185)
+      updater's fix not kept: its exam is 0.075, the current model's is 0.100
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+[14] E14 learn: Is the small oscillatory component outside the central interval a...(+221 chars)  (v2 predicted it: match 0.05; cost 20, spent 205)
+      updater's fix not kept: its exam is 0.075, the current model's is 0.100
+      theorist (fixes stalled)
+      theorist's model not tried: its exam is 0.075, the current model's is 0.100
+[15] E15 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 215)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+      updater's fix not kept: its exam is 0.025, the current model's is 0.100
+[16] E16 learn: Does the small oscillatory component outside the central interval...(+146 chars)  (v2 predicted it: match 0.05; cost 20, spent 235)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+      theorist (fixes stalled)
+[17] E17 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 245)
+      updater's fix not kept: its exam is 0.075, the current model's is 0.100
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+[18] E18 learn: Is the outside-interval oscillation actually a deterministic high...(+99 chars)  (v2 predicted it: match 0.05; cost 20, spent 265)
+      updater's fix not kept: its exam is 0.075, the current model's is 0.100
+      updater's fix not kept: its exam is 0.025, the current model's is 0.100
+      theorist (every 6 experiments)
+      theorist's model not tried: its exam is 0.025, the current model's is 0.100
+[19] E19 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 275)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+      updater's fix not kept: its exam is 0.075, the current model's is 0.100
+[20] E20 learn: Is the outside-central-interval oscillation a function of x alone...(+138 chars)  (v2 predicted it: match 0.05; cost 20, spent 295)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+      updater's fix not kept: its exam is 0.075, the current model's is 0.100
+      theorist (fixes stalled)
+      theorist's model not tried: its exam is 0.000, the current model's is 0.100
+[21] E21 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 305)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.100
+      updater's fix not kept: its exam is 0.025, the current model's is 0.100
+[22] E22 learn: Is the outside-central-interval oscillation a deterministic funct...(+164 chars)  (v2 predicted it: match 0.10; cost 20, spent 325)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.100
+      updater's fix not kept: its exam is 0.025, the current model's is 0.100
+      theorist (fixes stalled)
+[23] E23 learn: a random ordinary probe  (v2 predicted it: match 0.20; cost 10, spent 335)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.100
+[24] E24 learn: Is the outside-central-interval oscillation deterministic and hig...(+148 chars)  (v2 predicted it: match 0.00; cost 20, spent 355)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.100
+      updater's fix not kept: its exam is 0.025, the current model's is 0.100
+      theorist (every 6 experiments)
+      theorist's model not tried: its exam is 0.075, the current model's is 0.100
+[25] E25 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 365)
+      updater's fix not kept: its exam is 0.075, the current model's is 0.100
+      updater's fix not kept: its exam is 0.000, the current model's is 0.100
+{"env": "find_numeric_f00794", "experiments": 25, "cost": 365, "model_version": 2, "model_role": "updater", "fit": 0.096, "size": 609, "exam": 0.1, "heldout": 0.0, "llm_calls": 71, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

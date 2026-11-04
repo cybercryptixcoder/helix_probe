@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to reverse each input string, which explains every output in E1 (including the palindrome \"level\" and the trailing space from the leading-space input).", "exam": 0.75, "fit": 1.0, "fit_exact": 1.0, "size": 78, "matches": [1.0], "made_at": 1, "heldout": 0.21}

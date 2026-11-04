@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "This is a clean rule: Caesar shift +5 on every character, then append \"W\".", "exam": 0.0, "fit": 0.8333333333333334, "fit_exact": 0.0, "size": 114, "matches": [0.8333333333333334], "made_at": 1, "heldout": 0.91}

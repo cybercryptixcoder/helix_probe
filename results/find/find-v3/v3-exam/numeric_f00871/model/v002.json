@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I replaced the constant-zero model with a piecewise rule: a linear region f(x) = 5.2 \u2212 2.5\u00b7x on [\u22122, 2], and zero outside it, which fits every point in E2 (including the asymmetry at \u00b12) and all of E1.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 184, "matches": [1.0, 1.0], "made_at": 2, "heldout": 0.69}

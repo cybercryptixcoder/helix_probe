@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "I added the far-negative region (x < -75) where outputs are tiny positive and slowly increasing, based on E2/E5/E9/E11. Elsewhere it remains hash-based noise.", "exam": 0.325, "fit": 0.10454545454545454, "fit_exact": 0.0, "size": 731, "matches": [0.0, 0.15, 0.0, 0.05, 0.1, 0.1, 0.1, 0.15, 0.3, 0.0, 0.2], "made_at": 11, "heldout": 0.0}

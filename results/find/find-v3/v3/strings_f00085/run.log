@@ -1,0 +1,29 @@
+Helix Probe v3 on 'find_strings_f00085': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 306 (fit 0.000 -> 1.000); held-out 83%
+[2] E2 learn: Does the insertion index depend on the original string length or ...(+177 chars)  (v1 predicted it: match 1.00; cost 10, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 22)
+[4] E4 learn: Does the final-character increment apply to the last character of...(+163 chars)  (v1 predicted it: match 0.50; cost 10, spent 32)
+      updater's fix not kept: same scores and not smaller (342 vs 306 chars)
+      model v2 by the updater: fit 0.88, size 292 (same scores, smaller (306 -> 292 chars)); held-out 83%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 38)
+[6] E6 learn: Does the final-character increment apply when the last character ...(+312 chars)  (v2 predicted it: match 1.00; cost 10, spent 48)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 640)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the final-character increment wrap or behave specially for l...(+146 chars)  (v2 predicted it: match 0.00; cost 10, spent 64)
+      model v3 by the updater: fit 1.00, size 450 (fit 0.812 -> 1.000); held-out 100%
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 70)
+      model v4 by the theorist: fit 1.00, size 640 (on trial it predicted 1.00 of 3 new experiments, the current model 0.67); held-out 100%
+[10] E10 learn: Does the final-character increment apply only to the very last ch...(+137 chars)  (v4 predicted it: match 1.00; cost 8, spent 78)
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 6, spent 84)
+[12] E12 learn: Does the final-character increment apply when the last character ...(+135 chars)  (v4 predicted it: match 1.00; cost 10, spent 94)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 645)
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 6, spent 100)
+[14] E14 learn: Does the model hold for ordinary strings with mixed case, digits,...(+189 chars)  (v4 predicted it: match 1.00; cost 10, spent 110)
+[15] E15 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 6, spent 116)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[16] E16 learn: Does the model hold when the insertion point falls exactly at a s...(+150 chars)  (v4 predicted it: match 1.00; cost 10, spent 126)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00085", "experiments": 16, "cost": 126, "model_version": 4, "model_role": "theorist", "fit": 1.0, "size": 640, "exam": null, "heldout": 1.0, "llm_calls": 14, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

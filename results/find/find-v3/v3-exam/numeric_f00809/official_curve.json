@@ -1,0 +1,59 @@
+{
+ "category": "numeric",
+ "fid": "f00809",
+ "experiments": 25,
+ "exam_probes": 4,
+ "n_versions": 6,
+ "inputs_total": 410,
+ "final": 0.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "start",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 40
+  },
+  {
+   "version": 1,
+   "role": "updater",
+   "experiments": 2,
+   "score": 0.0,
+   "nmse": 1.5557382739754724,
+   "inputs": 70
+  },
+  {
+   "version": 2,
+   "role": "updater",
+   "experiments": 10,
+   "score": 0.0,
+   "nmse": 3.225006058629991,
+   "inputs": 190
+  },
+  {
+   "version": 3,
+   "role": "theorist",
+   "experiments": 11,
+   "score": 0.0,
+   "nmse": 4.297224720298532,
+   "inputs": 200
+  },
+  {
+   "version": 4,
+   "role": "updater",
+   "experiments": 11,
+   "score": 0.0,
+   "nmse": 3.4328835162638254,
+   "inputs": 200
+  },
+  {
+   "version": 5,
+   "role": "updater",
+   "experiments": 13,
+   "score": 0.0,
+   "nmse": 3.5353916470825424,
+   "inputs": 230
+  }
+ ]
+}

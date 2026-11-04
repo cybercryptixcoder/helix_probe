@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "The only error was at x=0: the box returns a distinct value (-5401.17) there rather than following either linear branch. I added an explicit x=0 case; both linear branches already matched E1 and E2 exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 250, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}
