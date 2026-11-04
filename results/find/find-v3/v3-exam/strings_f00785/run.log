@@ -1,0 +1,39 @@
+Helix Probe v3 on 'find_strings_f00785': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 1.00, size 433, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the box transform only the first character (as the model ass...(+117 chars)  (v1 predicted it: match 1.00; cost 10, spent 20)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 26)
+[4] E4 learn: Does the box shift only the first character, or does it also shif...(+133 chars)  (v1 predicted it: match 0.90; cost 10, spent 36)
+      updater's fix not kept: same scores and not smaller (433 vs 433 chars)
+      updater's fix not kept: same scores and not smaller (433 vs 433 chars)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 42)
+[6] E6 learn: Does the 'append y unless already ending in y' rule apply to the ...(+186 chars)  (v1 predicted it: match 0.90; cost 10, spent 52)
+      model v2 by the updater: fit 1.00, size 433, exam 1.00 (fit 0.967 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 569)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 58)
+[8] E8 learn: Does the box append 'y' based on the original string's last chara...(+191 chars)  (v2 predicted it: match 1.00; cost 10, spent 68)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 74)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the 'append y unless original ends in y' rule hold for ordin...(+157 chars)  (v2 predicted it: match 1.00; cost 10, spent 84)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 90)
+[12] E12 learn: Does the first-character shift apply when the first character is ...(+170 chars)  (v2 predicted it: match 1.00; cost 10, spent 100)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 538)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 106)
+[14] E14 learn: Does the first-character shift and the append-y rule behave the s...(+150 chars)  (v2 predicted it: match 0.90; cost 10, spent 116)
+      model v3 by the updater: fit 1.00, size 435, exam 1.00 (fit 0.993 -> 1.000); held-out 100%
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 122)
+      theorist's model lost its trial: on trial it predicted 0.97 of 3 new experiments, the current model 0.97
+[16] E16 learn: Does the first-character shift apply to a leading uppercase lette...(+154 chars)  (v3 predicted it: match 1.00; cost 10, spent 132)
+[17] E17 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 138)
+[18] E18 learn: Does the first-character shift apply when the first character is ...(+175 chars)  (v3 predicted it: match 1.00; cost 10, spent 148)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 459)
+[19] E19 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 154)
+[20] E20 learn: Does the first-character shift and the append-y rule behave the s...(+246 chars)  (v3 predicted it: match 1.00; cost 10, spent 164)
+[21] E21 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 170)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[22] E22 learn: Does the box shift only the very first character even when the st...(+175 chars)  (v3 predicted it: match 1.00; cost 10, spent 180)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00785", "experiments": 22, "cost": 180, "model_version": 3, "model_role": "updater", "fit": 1.0, "size": 435, "exam": 1.0, "heldout": 1.0, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I changed the model to strip all whitespace characters (tabs and newlines too, not just spaces) before reversing, since E4 showed `\"a\\tb\"`\u2192`\"ba\"` and `\"a\\nb\"`\u2192`\"ba\"`.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 111, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "Changed the whitespace handling from removing only spaces to removing all whitespace (tabs, newlines, etc.), since E4 showed `\"a\\tb\"` and `\"a\\nb\"` both become `\"ba\"`.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 112, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

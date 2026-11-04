@@ -1,0 +1,22 @@
+Helix Probe v3 on 'find_strings_f00751': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 0.33, size 470 (fit 0.000 -> 0.333); held-out 0%
+[2] E2 learn: Does the inserted 'i' go before 'f' regardless of position, or is...(+173 chars)  (v1 predicted it: match 0.20; cost 10, spent 16)
+      model v2 by the updater: fit 0.27, size 363 (same scores, smaller (470 -> 363 chars)); held-out 0%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.33; cost 6, spent 22)
+[4] E4 learn: Does the 'i' get inserted after the first vowel of each word, or ...(+159 chars)  (v2 predicted it: match 0.00; cost 10, spent 32)
+      updater's fix not kept: same scores and not smaller (363 vs 363 chars)
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 6, spent 38)
+      updater's fix not kept: same scores and not smaller (363 vs 363 chars)
+[6] E6 learn: Does the 'i' get inserted after the first vowel of each whitespac...(+186 chars)  (v2 predicted it: match 0.00; cost 10, spent 48)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 6, spent 54)
+[8] E8 learn: Does the insertion happen after the first vowel of each whitespac...(+166 chars)  (v2 predicted it: match 0.00; cost 10, spent 64)
+      theorist (fixes stalled)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 6, spent 70)
+      model v3 by the updater: fit 0.13, size 386 (fit 0.096 -> 0.126); held-out 0%
+[10] E10 learn: Does the insertion happen after the first vowel of each whitespac...(+151 chars)  (v3 predicted it: match 0.40; cost 10, spent 80)
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 0.17; cost 6, spent 86)
+      theorist (fixes stalled)
+[12] E12 learn: Does the 'insert i after the first vowel' rule apply to a token's...(+206 chars)  (v3 predicted it: match 0.30; cost 10, spent 96)

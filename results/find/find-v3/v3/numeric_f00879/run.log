@@ -36,3 +36,34 @@ Helix Probe v3 on 'find_numeric_f00879': 0 experiments so far, model v0, spent 0
 [17] E17 learn: a random ordinary probe  (v4 predicted it: match 0.20; cost 10, spent 250)
       updater's fix not kept: its fit is 0.032, the current model's is 0.082
       updater's fix not kept: same scores and not smaller (282 vs 282 chars)
+[18] E18 learn: At a fresh ordinary location x≈-90 (untested region), does the lo...(+134 chars)  (v4 predicted it: match 0.05; cost 20, spent 270)
+      updater's fix not kept: its fit is 0.058, the current model's is 0.081
+      updater's fix not kept: its fit is 0.047, the current model's is 0.081
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.04, size 96)
+[19] E19 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 280)
+      updater's fix not kept: its fit is 0.018, the current model's is 0.076
+      updater's fix not kept: its fit is 0.021, the current model's is 0.076
+[20] E20 learn: Does the local mean of the fast jitter continue to rise smoothly ...(+184 chars)  (v4 predicted it: match 0.05; cost 20, spent 300)
+      updater's fix not kept: its fit is 0.045, the current model's is 0.075
+      updater's fix not kept: its fit is 0.043, the current model's is 0.075
+[21] E21 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 310)
+      theorist's model lost its trial: on trial it predicted 0.02 of 3 new experiments, the current model 0.02
+      updater's fix not kept: its fit is 0.052, the current model's is 0.071
+      theorist (fixes stalled)
+[22] E22 learn: Does the slow trend have the same sign and roughly linear slope a...(+105 chars)  (v4 predicted it: match 0.05; cost 20, spent 330)
+      updater's fix not kept: its fit is 0.057, the current model's is 0.070
+      updater's fix not kept: its fit is 0.045, the current model's is 0.070
+[23] E23 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 340)
+      updater's fix not kept: its fit is 0.026, the current model's is 0.067
+      updater's fix not kept: its fit is 0.033, the current model's is 0.067
+      theorist (fixes stalled)
+[24] E24 learn: At ordinary coarse spacing, does the output depend on x only thro...(+178 chars)  (v4 predicted it: match 0.00; cost 20, spent 360)
+      updater's fix not kept: its fit is 0.021, the current model's is 0.065
+      updater's fix not kept: its fit is 0.046, the current model's is 0.065
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v4 predicted it: match 0.20; cost 10, spent 370)
+      updater's fix not kept: its fit is 0.036, the current model's is 0.070
+      updater's fix not kept: its fit is 0.044, the current model's is 0.070
+      theorist (fixes stalled)
+{"env": "find_numeric_f00879", "experiments": 25, "cost": 370, "model_version": 4, "model_role": "updater", "fit": 0.07, "size": 282, "exam": null, "heldout": 0.0, "llm_calls": 70, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

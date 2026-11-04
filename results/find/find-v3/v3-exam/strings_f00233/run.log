@@ -1,0 +1,18 @@
+Helix Probe v3 on 'find_strings_f00233': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 0.00, size 140, exam 0.04 (exam 0.000 -> 0.042); held-out 0%
+[2] E2 learn: Does the box reverse the whole string and swap case (as modeled),...(+231 chars)  (v1 predicted it: match 0.00; cost 10, spent 20)
+      model v2 by the updater: fit 1.00, size 142, exam 1.00 (exam 0.042 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 26)
+[4] E4 learn: Does the transform reverse the whole string and then capitalize o...(+144 chars)  (v2 predicted it: match 1.00; cost 10, spent 36)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 42)
+[6] E6 learn: Does the transform capitalize the first character of the reversed...(+229 chars)  (v2 predicted it: match 1.00; cost 10, spent 52)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 234)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 58)
+[8] E8 learn: Does the transform treat non-ASCII/Unicode letters (accents, non-...(+119 chars)  (v2 predicted it: match 1.00; cost 10, spent 68)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 74)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the transform reverse by characters (code points) even when ...(+206 chars)  (v2 predicted it: match 1.00; cost 10, spent 84)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00233", "experiments": 10, "cost": 84, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 142, "exam": 1.0, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

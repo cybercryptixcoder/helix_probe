@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to append \"T\" to each input, since all six outputs in E1 are exactly the input with a trailing \"T\" added.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 78, "matches": [1.0], "made_at": 1, "heldout": 1.0}

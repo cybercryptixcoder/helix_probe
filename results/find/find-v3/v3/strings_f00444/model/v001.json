@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from an empty predictor to one that strips surrounding whitespace and, when the input contains spaces (multiple words), reverses the word order \u2014 matching all six outputs in E1.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 200, "matches": [1.0], "made_at": 1, "heldout": 0.74}

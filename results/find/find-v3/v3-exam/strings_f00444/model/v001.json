@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to reverse word order (splitting on whitespace and rejoining with single spaces), which explains every output in E1 including the stripped leading space and the unchanged single-word inputs.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 162, "matches": [1.0], "made_at": 1, "heldout": 1.0}

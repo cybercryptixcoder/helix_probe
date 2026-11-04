@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_strings_f00795': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 424 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the inserted character and last-character shift depend on th...(+128 chars)  (v1 predicted it: match 1.00; cost 10, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 22)
+[4] E4 learn: Does the last-character shift apply only to letters, and how are ...(+96 chars)  (v1 predicted it: match 1.00; cost 10, spent 32)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 38)
+[6] E6 learn: Does the last-character letter shift happen before or after the '...(+169 chars)  (v1 predicted it: match 1.00; cost 10, spent 48)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 538)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the '2' insertion position use the original string length, a...(+139 chars)  (v1 predicted it: match 1.00; cost 10, spent 64)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 70)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00795", "experiments": 9, "cost": 70, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 424, "exam": null, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

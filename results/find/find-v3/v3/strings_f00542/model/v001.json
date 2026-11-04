@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from a no-op to a full-string reversal: every observed output in E1 is exactly its input reversed (including spaces and case preserved), so the mechanism is simply `s[::-1]`.", "exam": 0.0, "fit": 0.3333333333333333, "fit_exact": 0.0, "size": 78, "matches": [0.3333333333333333], "made_at": 1, "heldout": 0.0}

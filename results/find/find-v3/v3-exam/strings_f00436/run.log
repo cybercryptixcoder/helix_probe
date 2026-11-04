@@ -1,0 +1,29 @@
+Helix Probe v3 on 'find_strings_f00436': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 0.67, size 275, exam 0.38 (exam 0.000 -> 0.375); held-out 0%
+[2] E2 learn: Determine where the 'I' is inserted in multi-word strings: is it ...(+93 chars)  (v1 predicted it: match 0.00; cost 6, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.67; cost 6, spent 22)
+      theorist (fixes stalled)
+[4] E4 learn: How is the 'I' insertion position determined for multi-word strin...(+107 chars)  (v1 predicted it: match 0.50; cost 8, spent 30)
+      model v2 by the updater: fit 1.00, size 233, exam 0.96 (exam 0.375 -> 0.958); held-out 75%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 36)
+[6] E6 learn: Does the insertion index floor(len(s)/2) depend on the original s...(+125 chars)  (v2 predicted it: match 1.00; cost 10, spent 46)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 52)
+[8] E8 learn: Does the 'I' insertion index use the length of the original strin...(+141 chars)  (v2 predicted it: match 1.00; cost 10, spent 62)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 68)
+[10] E10 learn: Does the insertion index use the original string length including...(+164 chars)  (v2 predicted it: match 0.38; cost 8, spent 76)
+      updater's fix not kept: same scores and not smaller (233 vs 233 chars)
+      model v3 by the updater: fit 1.00, size 204, exam 1.00 (exam 0.958 -> 1.000); held-out 100%
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 82)
+[12] E12 learn: Does the model handle punctuation-only or symbol-heavy ordinary s...(+154 chars)  (v3 predicted it: match 1.00; cost 10, spent 92)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 98)
+[14] E14 learn: Does the 'I' insertion index use the length of the original strin...(+199 chars)  (v3 predicted it: match 1.00; cost 8, spent 106)
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 112)
+[16] E16 learn: Does the reversal-on-split treat a single leading/trailing space ...(+202 chars)  (v3 predicted it: match 1.00; cost 10, spent 122)
+[17] E17 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 128)
+[18] E18 learn: Does the box insert 'I' based on the character length of the orig...(+167 chars)  (v3 predicted it: match 1.00; cost 10, spent 138)
+      theorist (every 6 experiments)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00436", "experiments": 18, "cost": 138, "model_version": 3, "model_role": "updater", "fit": 1.0, "size": 204, "exam": 1.0, "heldout": 1.0, "llm_calls": 22, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

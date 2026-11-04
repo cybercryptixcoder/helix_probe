@@ -21,3 +21,6 @@ step,kind,experiments,cost,model_version,model_role,fit,size,exam,arrival_last10
 20,learn,20,304,5,updater,0.163,287,0.075,0.00,0.000,55,E20
 21,learn,21,314,5,updater,0.155,287,0.075,0.00,0.000,58,E21
 22,learn,22,334,5,updater,0.148,287,0.075,0.00,0.000,61,E22
+23,learn,23,344,5,updater,0.141,287,0.075,0.00,0.000,64,E23
+24,learn,24,364,5,updater,0.158,287,0.075,0.00,0.000,68,E24
+25,learn,25,374,5,updater,0.152,287,0.075,0.00,0.000,71,E25

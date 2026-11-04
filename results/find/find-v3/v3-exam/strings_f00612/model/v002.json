@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "The box shifts every character up by one Unicode code point (a Caesar shift of +1), then inserts a literal `\"Y\"` at index `len(x)//2` of the shifted string.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 236, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 9, "heldout": 1.0}

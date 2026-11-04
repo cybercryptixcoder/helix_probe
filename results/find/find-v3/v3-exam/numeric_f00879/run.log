@@ -61,3 +61,9 @@ Helix Probe v3 on 'find_numeric_f00879': 0 experiments so far, model v0, spent 4
       updater's fix not kept: its exam is 0.000, the current model's is 0.125
       updater's fix not kept: same scores and not smaller (229 vs 229 chars)
 [24] E24 learn: Does f depend on x through a periodic/oscillatory function of mod...(+181 chars)  (v6 predicted it: match 0.10; cost 20, spent 350)
+      updater's fix not kept: same scores and not smaller (229 vs 229 chars)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v6 predicted it: match 0.00; cost 10, spent 360)
+      updater's fix not kept: its exam is 0.000, the current model's is 0.125
+      updater: keep
+{"env": "find_numeric_f00879", "experiments": 25, "cost": 360, "model_version": 6, "model_role": "updater", "fit": 0.060500000000000005, "size": 229, "exam": 0.125, "heldout": 0.0, "llm_calls": 69, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,30 @@
+Helix Probe v3 on 'find_strings_f00542': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 0.33, size 78 (fit 0.000 -> 0.333); held-out 0%
+[2] E2 learn: Does the box reverse character order only, or does it also proces...(+129 chars)  (v1 predicted it: match 0.50; cost 10, spent 16)
+      model v2 by the updater: fit 0.52, size 223 (fit 0.417 -> 0.517); held-out 0%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.33; cost 6, spent 22)
+      updater's fix not kept: same scores and not smaller (223 vs 223 chars)
+      updater's fix not kept: same scores and not smaller (223 vs 223 chars)
+[4] E4 learn: Does the box split on non-space whitespace or punctuation, or onl...(+68 chars)  (v2 predicted it: match 0.30; cost 10, spent 32)
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.33; cost 6, spent 38)
+      updater's fix not kept: its fit is 0.393, the current model's is 0.400
+[6] E6 learn: Does the box split on any whitespace (tabs, newlines) rather than...(+59 chars)  (v2 predicted it: match 0.00; cost 10, spent 48)
+      updater's fix not kept: its fit is 0.328, the current model's is 0.333
+      model v3 by the updater: fit 0.56, size 187 (fit 0.333 -> 0.561); held-out 1%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 0.33; cost 6, spent 54)
+[8] E8 learn: Does the box drop short tokens (like single-letter words) or othe...(+129 chars)  (v3 predicted it: match 0.50; cost 10, spent 64)
+      theorist (fixes stalled)
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 0.33; cost 6, spent 70)
+[10] E10 learn: Does the box keep only some tokens (e.g. drop short words) and re...(+106 chars)  (v3 predicted it: match 0.20; cost 10, spent 80)
+      theorist (fixes stalled)
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 0.17; cost 6, spent 86)
+[12] E12 learn: Does the box reverse the whole string after joining tokens with s...(+271 chars)  (v3 predicted it: match 0.50; cost 10, spent 96)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 0.17; cost 6, spent 102)
+[14] E14 learn: When multiple words are present, does the box reverse the entire ...(+163 chars)  (v3 predicted it: match 0.20; cost 10, spent 112)
+      theorist (fixes stalled)
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 0.83; cost 6, spent 118)
+[16] E16 learn: For multi-word inputs, is the output formed by reversing the enti...(+196 chars)  (v3 predicted it: match 0.00; cost 10, spent 128)

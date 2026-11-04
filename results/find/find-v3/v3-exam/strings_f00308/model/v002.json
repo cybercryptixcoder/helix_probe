@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed the removal rule from only ASCII spaces to all whitespace characters (`\\s`), since E2 showed tabs, newlines, and `\\r\\n` are all stripped too.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 102, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

@@ -1,0 +1,28 @@
+Helix Probe v3 on 'find_strings_f00243': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      updater's fix not kept: same scores and not smaller (218 vs 33 chars)
+      model v1 by the updater: fit 1.00, size 195 (fit 0.000 -> 1.000); held-out 88%
+[2] E2 learn: Does the middle-insertion rule count spaces in the length, or rem...(+80 chars)  (v1 predicted it: match 1.00; cost 10, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 22)
+[4] E4 learn: Does the box insert Z at the midpoint of the space-free string fo...(+116 chars)  (v1 predicted it: match 1.00; cost 10, spent 32)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 38)
+[6] E6 learn: Does the box insert Z at the midpoint of the space-free string wh...(+173 chars)  (v1 predicted it: match 1.00; cost 10, spent 48)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 226)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the midpoint insertion count characters after removing only ...(+150 chars)  (v1 predicted it: match 0.00; cost 10, spent 64)
+      model v2 by the updater: fit 1.00, size 212 (fit 0.875 -> 1.000); held-out 100%
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 70)
+      theorist's model lost its trial: on trial it predicted 0.67 of 3 new experiments, the current model 0.67
+[10] E10 learn: Does the box treat other Unicode whitespace-like characters (non-...(+132 chars)  (v2 predicted it: match 1.00; cost 10, spent 80)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 86)
+[12] E12 learn: Does the midpoint insertion use floor(len/2) even when the whites...(+137 chars)  (v2 predicted it: match 1.00; cost 10, spent 96)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 227)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 102)
+[14] E14 learn: Do the box's whitespace-free length and midpoint insertion count ...(+141 chars)  (v2 predicted it: match 1.00; cost 10, spent 112)
+[15] E15 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 118)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[16] E16 learn: Does the box treat only whitespace as removable (leaving all othe...(+224 chars)  (v2 predicted it: match 1.00; cost 10, spent 128)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00243", "experiments": 16, "cost": 128, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 212, "exam": null, "heldout": 1.0, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

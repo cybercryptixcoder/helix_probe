@@ -1,0 +1,37 @@
+Helix Probe v3 on 'find_strings_f00541': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 192 (fit 0.000 -> 1.000); held-out 12%
+[2] E2 learn: Does the function drop the first character of any string that sta...(+98 chars)  (v1 predicted it: match 1.00; cost 10, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.83; cost 6, spent 22)
+      model v2 by the updater: fit 1.00, size 225 (fit 0.944 -> 1.000); held-out 90%
+[4] E4 learn: Does the function strip only a single leading 'H', or all leading...(+65 chars)  (v2 predicted it: match 0.40; cost 10, spent 32)
+      model v3 by the updater: fit 0.95, size 204 (fit 0.850 -> 0.950); held-out 90%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 0.83; cost 6, spent 38)
+      model v4 by the updater: fit 0.98, size 195 (fit 0.927 -> 0.980); held-out 100%
+[6] E6 learn: Does the function remove every 'H' anywhere in the string (not ju...(+165 chars)  (v4 predicted it: match 0.80; cost 10, spent 48)
+      model v5 by the updater: fit 1.00, size 168 (fit 0.950 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 230)
+[7] E7 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the function strip leading/trailing spaces only when they ar...(+130 chars)  (v5 predicted it: match 1.00; cost 10, spent 64)
+[9] E9 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 6, spent 70)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the function treat 'H' removal and space stripping as indepe...(+138 chars)  (v5 predicted it: match 1.00; cost 10, spent 80)
+[11] E11 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 6, spent 86)
+[12] E12 learn: Does the function strip only plain ASCII spaces at the edges, or ...(+85 chars)  (v5 predicted it: match 0.50; cost 10, spent 96)
+      model v6 by the updater: fit 1.00, size 165 (fit 0.958 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 177)
+[13] E13 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 6, spent 102)
+[14] E14 learn: Does the function strip other whitespace characters like tabs/new...(+181 chars)  (v6 predicted it: match 1.00; cost 10, spent 112)
+[15] E15 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 6, spent 118)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[16] E16 learn: Does the function remove lowercase 'h' anywhere, or only uppercas...(+118 chars)  (v6 predicted it: match 1.00; cost 10, spent 128)
+[17] E17 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 6, spent 134)
+[18] E18 learn: Does the function remove only uppercase 'H' or also other upperca...(+120 chars)  (v6 predicted it: match 1.00; cost 10, spent 144)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 254)
+[19] E19 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 6, spent 150)
+[20] E20 learn: Does the function strip other whitespace like tabs/newlines only ...(+161 chars)  (v6 predicted it: match 1.00; cost 10, spent 160)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00541", "experiments": 20, "cost": 160, "model_version": 6, "model_role": "updater", "fit": 1.0, "size": 165, "exam": null, "heldout": 1.0, "llm_calls": 22, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

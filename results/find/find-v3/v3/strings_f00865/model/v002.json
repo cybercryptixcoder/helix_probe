@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "The box shifts the first character back by two positions in the alphabet (wrapping around), and only when that first character is an ASCII letter; otherwise the string is returned unchanged.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 417, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 9, "heldout": 1.0}

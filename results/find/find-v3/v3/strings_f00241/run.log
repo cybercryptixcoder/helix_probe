@@ -1,0 +1,38 @@
+Helix Probe v3 on 'find_strings_f00241': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 65 (fit 0.000 -> 1.000); held-out 93%
+[2] E2 learn: Does f change case, whitespace, or digits, or is it truly identit...(+56 chars)  (v1 predicted it: match 1.00; cost 10, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 22)
+[4] E4 learn: Does f behave as identity on ordinary word-like inputs that inclu...(+117 chars)  (v1 predicted it: match 1.00; cost 10, spent 32)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 0.83; cost 6, spent 38)
+      model v2 by the updater: fit 1.00, size 169 (fit 0.967 -> 1.000); held-out 98%
+[6] E6 learn: Is the D→J change specific to a final 'D' only, or does it apply ...(+61 chars)  (v2 predicted it: match 0.40; cost 10, spent 48)
+      model v3 by the updater: fit 1.00, size 130 (fit 0.900 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 228)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the D→J rule apply to uppercase D only when adjacent to othe...(+176 chars)  (v3 predicted it: match 1.00; cost 10, spent 64)
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 70)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the D→J replacement apply to the letter D inside longer, ord...(+159 chars)  (v3 predicted it: match 1.00; cost 10, spent 80)
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 86)
+[12] E12 learn: Does the D→J replacement also apply to lowercase 'd', or to other...(+96 chars)  (v3 predicted it: match 1.00; cost 10, spent 96)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 90)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 102)
+[14] E14 learn: Does the D→J rule apply to 'D' inside longer words with surroundi...(+188 chars)  (v3 predicted it: match 0.90; cost 10, spent 112)
+      model v4 by the updater: fit 1.00, size 175 (fit 0.993 -> 1.000); held-out 100%
+[15] E15 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 6, spent 118)
+      theorist's model lost its trial: on trial it predicted 0.97 of 3 new experiments, the current model 0.97
+[16] E16 learn: Does the uppercase-B deletion generalize to other uppercase lette...(+172 chars)  (v4 predicted it: match 1.00; cost 10, spent 128)
+[17] E17 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 6, spent 134)
+[18] E18 learn: Does the box apply any other letter-to-letter substitutions (beyo...(+201 chars)  (v4 predicted it: match 1.00; cost 10, spent 144)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 186)
+[19] E19 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 6, spent 150)
+[20] E20 learn: Does the box apply any other uppercase-letter substitutions on or...(+185 chars)  (v4 predicted it: match 1.00; cost 10, spent 160)
+[21] E21 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 6, spent 166)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[22] E22 learn: Is the uppercase-B deletion truly universal (B removed anywhere, ...(+136 chars)  (v4 predicted it: match 1.00; cost 10, spent 176)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00241", "experiments": 22, "cost": 176, "model_version": 4, "model_role": "updater", "fit": 1.0, "size": 175, "exam": null, "heldout": 1.0, "llm_calls": 18, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
