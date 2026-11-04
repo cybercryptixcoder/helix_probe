@@ -88,5 +88,9 @@ observation: {"y": [f(1.5), f(-20), f(64)]}   (in the same order; null where f i
                 ok += abs(p - o) <= 0.05 * abs(o) + 0.02 * rms + 1e-6
         return ok / len(ys) if ys else 1.0
 
+    def cost(self, p, obs):
+        """FIND's unit of budget: inputs sent to the function."""
+        return len(p.get("x") or [])
+
     def random_probe(self, rng):
         return {"x": [round(rng.uniform(-128, 128), 1) for _ in range(10)]}

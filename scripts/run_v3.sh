@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
-# Helix Probe v3 job (docs/V3_JOB.md). Waits for the find-v2 job to finish, then runs three stages in order (aia, arc, find):
+# Helix Probe v3 job (docs/V3_JOB.md). Waits for the find-v2 job to finish, then runs these stages in order:
 #   1. aia    FIND's own agent protocol (bench/find/aia.py) with OUR model on the same 80 FIND functions: the
 #             same-model control (is Helix Probe's edge the loop, or just a newer model?)
-#   2. arc    Helix Probe v3 on the 25 public ARC-AGI-3 games, scored with the toolkit's official calculator
-#   3. find   Helix Probe v3 on the 80 FIND functions, arms FIND_ARMS, scored with FIND's official metric
+#   2. find   Helix Probe v3 on the 80 FIND functions, arms FIND_ARMS, scored with FIND's official metric
+#   3. aia2   the AIA control again (run-to-run variance of the baseline)
+#   4. find2  Helix Probe v3 again with another seed (run-to-run variance of ours)
+#   5. arc    Helix Probe v3 on the 25 public ARC-AGI-3 games, scored with the toolkit's official calculator
+#   then:     bench/find/compare.py: the paired, budget-matched comparison, pushed to results/find/compare-*.md
 #
 #   cd /home/ubuntu/helix_probe && git pull && setsid nohup bash scripts/run_v3.sh > v3_job.log 2>&1 < /dev/null &
 #
@@ -19,7 +22,7 @@
 #   - a stop signal (kill -TERM) lets every run finish its step and save, then pushes, then exits;
 #   - no cron job, no timer, no watchdog.
 #
-# Settings: STAGES ["aia arc find"]  WAIT_FOR [runs/find/.find-v2.lock]  FIND_ARMS ["v3 v3-exam v3-random v3-no-theorist"]
+# Settings: STAGES ["aia find aia2 find2 arc"]  FIND2_ARMS [v3]  WAIT_FOR [runs/find/.find-v2.lock]  FIND_ARMS ["v3 v3-exam v3-random v3-no-theorist"]
 #   FIND_STEPS [25]  AIA_EFFORT [none]  ARC_ARMS [v3]  ARC_BUDGET_X [3]  ARC_STEPS [400]  WORKERS [6]  ARC_WORKERS [13]
 #   PUSH [1]  PUSH_MIN [30]  FAKE [0]  PYTHON [python3]
 #
@@ -31,12 +34,13 @@ if [ -z "${V3_SNAPSHOT:-}" ]; then
     && V3_SNAPSHOT=1 exec bash "runs/.v3_job_snapshot.sh" "$@"
 fi
 PY="${PYTHON:-$(command -v python3 || command -v python)}"
-STAGES="${STAGES:-aia arc find}"
+STAGES="${STAGES:-aia find aia2 find2 arc}"
 WAIT_FOR="${WAIT_FOR:-runs/find/.find-v2.lock}"
 FIND_ARMS="${FIND_ARMS:-v3 v3-exam v3-random v3-no-theorist}"
 FIND_STEPS="${FIND_STEPS:-25}"
 AIA_EFFORT="${AIA_EFFORT:-none}"
 ARC_ARMS="${ARC_ARMS:-v3}"
+FIND2_ARMS="${FIND2_ARMS:-v3}"
 ARC_BUDGET_X="${ARC_BUDGET_X:-3}"
 ARC_STEPS="${ARC_STEPS:-400}"
 WORKERS="${WORKERS:-6}"
@@ -55,8 +59,10 @@ exec 8> "runs/.v3-job$TAG.lock"
 flock -n 8 || { echo "== the v3 job is already running (runs/.v3-job$TAG.lock is held); this copy exits and changes nothing"; exit 0; }
 
 # where each stage lives: its working folder (runs/) and what is pushed (results/)
-runs_of()    { case $1 in aia) echo "results/find/aia-$AIA_EFFORT$TAG";; find) echo "runs/find/find-v3$TAG";; arc) echo "runs/arc/arc-v3$TAG";; esac; }
-results_of() { case $1 in aia) echo "results/find/aia-$AIA_EFFORT$TAG";; find) echo "results/find/find-v3$TAG";; arc) echo "results/arc/arc-v3$TAG";; esac; }
+runs_of()    { case $1 in aia) echo "results/find/aia-$AIA_EFFORT$TAG";; aia2) echo "results/find/aia-$AIA_EFFORT-r2$TAG";;
+                 find) echo "runs/find/find-v3$TAG";; find2) echo "runs/find/find-v3-s1$TAG";; arc) echo "runs/arc/arc-v3$TAG";; esac; }
+results_of() { case $1 in aia|aia2) runs_of "$1";; find) echo "results/find/find-v3$TAG";; find2) echo "results/find/find-v3-s1$TAG";;
+                 arc) echo "results/arc/arc-v3$TAG";; esac; }
 [ "$FAKE" = "1" ] && results_of() { echo "runs/fake-results/$1"; } && runs_of() { [ "$1" = aia ] && echo "runs/fake-results/aia" || echo "runs/fake/$1"; }
 
 echo "== Helix Probe v3 job: stages $STAGES"
@@ -95,7 +101,7 @@ git_push() {   # path message
 }
 publish() {   # stage message
   local r; r="$(results_of "$1")"
-  if [ "$1" != "aia" ]; then
+  if [[ "$1" != aia* ]]; then
     "$PY" bench/find/publish.py "$(runs_of "$1")" "$r" 2>&1 | tail -1 || echo "   (publishing failed; the runs are fine)"
   fi
   git_push "$r" "$2"
@@ -103,8 +109,8 @@ publish() {   # stage message
 status() {   # stage
   local d; d="$(runs_of "$1")"
   case $1 in
-    aia)  echo "   [$(date +%H:%M)] aia: $(ls "$d"/*/result.json 2>/dev/null | wc -l) of 80 functions done" ;;
-    find) "$PY" bench/find/status.py "$d" 2>/dev/null | head -12 ;;
+    aia*) echo "   [$(date +%H:%M)] $1: $(ls "$d"/*/result.json 2>/dev/null | wc -l) of 80 functions done" ;;
+    find*) "$PY" bench/find/status.py "$d" 2>/dev/null | head -12 ;;
     arc)  echo "   [$(date +%H:%M)] arc: $(ls "$d"/*/*/summary.json 2>/dev/null | wc -l) games with a summary"; \
           "$PY" bench/arc/run.py --out "$d" --report 2>/dev/null | tail -n +4 ;;
   esac
@@ -154,6 +160,17 @@ if [ "$PUSH" = "1" ]; then
   echo "   GitHub: can push"
 fi
 
+# take fixes pushed since the job started, but only if they pass the same crash test; otherwise go back.
+# Called after the wait and before every stage, so a fix made while one stage runs reaches the next.
+pull_fixes() {   # why
+  [ "$PUSH" = "1" ] && [ "${PULL_FIXES:-1}" = "1" ] || return 0
+  local OLD; OLD=$(git rev-parse HEAD)
+  if git pull -q --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" 2>/dev/null && [ "$(git rev-parse HEAD)" != "$OLD" ]; then
+    if crash_test; then echo "   pulled $(git rev-parse --short HEAD) (fixes $1); crash test passed"
+    else echo "   pulled $(git rev-parse --short HEAD) but its crash test failed: back to $OLD"; git reset -q --hard "$OLD"; fi
+  fi
+}
+
 # ------------------------------------------------------------------ wait for the find-v2 job
 if [ -e "$WAIT_FOR" ]; then
   exec 7< "$WAIT_FOR"
@@ -163,24 +180,39 @@ if [ -e "$WAIT_FOR" ]; then
   done
   exec 7<&-
   echo "== $(date +%H:%M): $WAIT_FOR is free"
-  # take any fixes pushed while this job waited, but only if they pass the same crash test; otherwise go back
-  if [ "$PUSH" = "1" ] && [ "${PULL_AFTER_WAIT:-1}" = "1" ]; then
-    OLD=$(git rev-parse HEAD)
-    if git pull -q --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" 2>/dev/null && [ "$(git rev-parse HEAD)" != "$OLD" ]; then
-      if crash_test; then echo "   pulled $(git rev-parse --short HEAD) (fixes made while waiting); crash test passed"
-      else echo "   pulled $(git rev-parse --short HEAD) but its crash test failed: back to $OLD"; git reset -q --hard "$OLD"; fi
-    fi
-  fi
+  pull_fixes "made while waiting"
   echo "== starting"
 fi
+
+# ------------------------------------------------------------------ the fair FIND comparison (after aia and find)
+# Helix Probe (v3, its repeat, and v2 from find-v2) against the same model in FIND's protocol, once per AIA run
+compare_all() {
+  [ "$STOPPING" = "0" ] && [ -f "$(results_of find)/DONE" ] || return 0
+  HELIX="$(runs_of find)"
+  [ -f "$(results_of find2)/DONE" ] && HELIX="$HELIX $(runs_of find2)"
+  [ -d runs/find/find-v2 ] && HELIX="$HELIX runs/find/find-v2"
+  for a in aia aia2; do
+    AR="$(results_of $a)"; [ -f "$AR/DONE" ] || continue
+    CMP="results/find/compare-v3-$a$TAG.md"; [ "$FAKE" = "1" ] && CMP="runs/fake-results/compare-$a.md"
+    if "$PY" bench/find/compare.py --helix $HELIX --aia "$AR" --out "$CMP" > /dev/null 2>&1; then
+      echo "== the fair FIND comparison against $a (Helix Probe vs the same model in FIND's protocol): $CMP"
+      sed -n '/^| Helix/,$p' "$CMP" | head -16 | sed 's/^/   /'
+      git_push "$(dirname "$CMP")" "Helix Probe v3 job: the fair FIND comparison ($a)"
+    else
+      echo "   (the comparison against $a failed; the runs are fine: python bench/find/compare.py --helix $HELIX --aia $AR)"
+    fi
+  done
+}
 
 # ------------------------------------------------------------------ the stages
 for stage in $STAGES; do
   [ "$STOPPING" = "1" ] && break
   R="$(results_of "$stage")"; D="$(runs_of "$stage")"; LOG="runs/v3-$stage$TAG.log"
   if [ -f "$R/DONE" ]; then echo "== stage $stage: already done ($R/DONE); skipped"; continue; fi
+  [ "$stage" = "arc" ] && compare_all       # the FIND result is pushed before the long ARC stage starts
+  pull_fixes "pushed before stage $stage"
   mkdir -p "$R" "$D"
-  if [ "$stage" != "aia" ] && [ -d "$R" ] && [ -z "$(ls "$D"/*/*/notebook.jsonl 2>/dev/null)" ] && [ -n "$(ls "$R"/*/*/notebook.jsonl 2>/dev/null)" ]; then
+  if [[ "$stage" != aia* ]] && [ -d "$R" ] && [ -z "$(ls "$D"/*/*/notebook.jsonl 2>/dev/null)" ] && [ -n "$(ls "$R"/*/*/notebook.jsonl 2>/dev/null)" ]; then
     echo "== stage $stage: no local runs but GitHub has some: rebuilding $D from $R"
     "$PY" bench/restore.py "$R" "$D"
   fi
@@ -194,13 +226,14 @@ open(f, "a").write(json.dumps({"t": time.strftime("%Y-%m-%d %H:%M:%S %Z"), "stag
     ("FIND_ARMS", "FIND_STEPS", "AIA_EFFORT", "ARC_ARMS", "ARC_BUDGET_X", "ARC_STEPS", "WORKERS", "ARC_WORKERS")}}) + "\n")
 PY
   case $stage in
-    aia)  CMD=("$PY" -u bench/find/aia.py --out "$D" --effort "$AIA_EFFORT" --workers "$WORKERS") ;;
+    aia|aia2) CMD=("$PY" -u bench/find/aia.py --out "$D" --effort "$AIA_EFFORT" --workers "$WORKERS") ;;
     find) CMD=("$PY" -u bench/find/run.py --out "$D" --data bench/find/data --arms $FIND_ARMS --steps "$FIND_STEPS" --workers "$WORKERS") ;;
+    find2) CMD=("$PY" -u bench/find/run.py --out "$D" --data bench/find/data --arms $FIND2_ARMS --steps "$FIND_STEPS" --workers "$WORKERS" --seed 1) ;;
     arc)  CMD=("$PY" -u bench/arc/run.py --out "$D" --arms $ARC_ARMS --budget-x "$ARC_BUDGET_X" --steps "$ARC_STEPS" --workers "$ARC_WORKERS") ;;
   esac
   [ "$FAKE" = "1" ] && case $stage in
-    aia)  echo "   (fake mode: the aia stage needs a real model; skipped)"; touch "$R/DONE"; continue ;;
-    find) CMD+=(--fake --limit 1 --steps 3) ;;
+    aia*) echo "   (fake mode: the $stage stage needs a real model; skipped)"; touch "$R/DONE"; continue ;;
+    find*) CMD+=(--fake --limit 1 --steps 3) ;;
     arc)  CMD=("$PY" -u bench/arc/run.py --out "$D" --games ls20 g50t --steps 3 --workers 2 --fake) ;;
   esac
   ( SL=""; trap 'kill ${SL:-} 2>/dev/null; exit 0' TERM INT HUP
@@ -228,6 +261,8 @@ PY
   publish "$stage" "Helix Probe v3 job, $stage: $( [ -f "$R/DONE" ] && echo finished || echo stopped )"
   [ -f "$R/DONE" ] || break
 done
+
+compare_all
 
 if [ "$STOPPING" = "1" ]; then
   echo "== stopped before the job finished; run this script again to continue it"

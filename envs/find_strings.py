@@ -63,6 +63,10 @@ observation: {"outputs": [f("hello"), f("two words"), f("A1!")]}   (in the same 
             return 0.0
         return sum(p == o for p, o in zip(ps, ys)) / len(ys) if ys else 1.0
 
+    def cost(self, p, obs):
+        """FIND's unit of budget: inputs sent to the function."""
+        return len(p.get("inputs") or [])
+
     def random_probe(self, rng):
         def one():
             r = rng.random()
