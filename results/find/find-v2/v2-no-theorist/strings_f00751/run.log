@@ -35,3 +35,6 @@ Helix Probe v2 on 'find_strings_f00751': 0 experiments so far, model v0, exam of
 [21] E21 a random ordinary probe  (v6 predicted it: match 0.17)
 [22] E22 Does the box insert 'i' after a vowel run only when the vowel is not the fi...(+218 chars)  (v6 predicted it: match 1.00)
 [23] E23 a random ordinary probe  (v6 predicted it: match 0.17)
+[24] E24 Does the box insert 'i' after a vowel at the end of a word when that vowel ...(+164 chars)  (v6 predicted it: match 0.10)
+[25] E25 a random ordinary probe  (v6 predicted it: match 0.00)
+{"env": "find_strings_f00751", "experiments": 25, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 0.20833333333333331, "fit": 0.10533333333333333, "size": 737, "heldout": 0.0, "llm_calls": 57, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

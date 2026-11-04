@@ -94,15 +94,15 @@
   {
    "who": "v2-no-theorist",
    "category": "strings",
-   "n": 39,
-   "final": 0.9333333333333333,
-   "at3": 0.8384615384615385,
-   "at10": 0.9,
-   "experiments": 12.487179487179487,
-   "inputs": 122.25641025641026,
-   "calls": 11.153846153846153,
-   "usd": 1.044517632,
-   "heldout": 0.9438461538461539
+   "n": 40,
+   "final": 0.91,
+   "at3": 0.8175,
+   "at10": 0.8775,
+   "experiments": 12.8,
+   "inputs": 124.75,
+   "calls": 12.3,
+   "usd": 1.363431432,
+   "heldout": 0.92025
   },
   {
    "who": "v2-random",
@@ -5211,6 +5211,22 @@
    "tokens_in": 5954,
    "tokens_out": 877,
    "usd": 0.0024246479999999997
+  },
+  {
+   "arm": "v2-no-theorist",
+   "category": "strings",
+   "fid": "f00751",
+   "final": 0.0,
+   "at3": 0.0,
+   "at10": 0.0,
+   "experiments": 25,
+   "exam_probes": 4,
+   "inputs": 222,
+   "heldout": 0.0,
+   "calls": 57,
+   "tokens_in": 216546,
+   "tokens_out": 213977,
+   "usd": 0.3189138
   },
   {
    "arm": "v2-no-theorist",
