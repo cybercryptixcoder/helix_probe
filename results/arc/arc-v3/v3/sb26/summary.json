@@ -1,0 +1,44 @@
+{
+ "env": "arc_sb26",
+ "experiments": 100,
+ "cost": 290,
+ "model_version": 18,
+ "model_role": "updater",
+ "fit": 0.9640870914273109,
+ "size": 6052,
+ "exam": null,
+ "heldout": null,
+ "llm_calls": 149,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "box_score": {
+  "game": "sb26-7fbdac44",
+  "score": 0.0,
+  "levels_completed": 0,
+  "levels": 8,
+  "actions": 290,
+  "level_actions": [
+   290,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "baseline": [
+   18,
+   28,
+   18,
+   19,
+   31,
+   23,
+   58,
+   18
+  ]
+ }
+}

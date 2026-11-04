@@ -115,3 +115,101 @@ Helix Probe v3 on 'arc_sb26': 0 experiments so far, model v0, spent 0
       theorist's model on trial for 3 experiments (fit 0.80, size 3964)
 [55] E55 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 2, spent 173)
 [56] E56 learn: Does ACTION7 swap the MID inner with tile1's inner only when tile...(+141 chars)  (v11 predicted it: match 0.71; cost 5, spent 178)
+[57] E57 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 4, spent 182)
+      theorist's model lost its trial: on trial it predicted 0.77 of 3 new experiments, the current model 0.90
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.74, size 3404)
+[58] E58 learn: Does clicking a bottom tile that is currently selected while the ...(+166 chars)  (v11 predicted it: match 1.00; cost 5, spent 187)
+[59] E59 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 3, spent 190)
+[60] E60 learn: Does clicking MID (32,30) when nothing is selected actually selec...(+187 chars)  (v11 predicted it: match 1.00; cost 3, spent 193)
+      theorist's model lost its trial: on trial it predicted 0.61 of 3 new experiments, the current model 1.00
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.72, size 4860)
+[61] E61 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 1, spent 194)
+[62] E62 learn: Does the goal require the row-53 counter to reach a particular po...(+126 chars)  (v11 predicted it: match 1.00; cost 4, spent 198)
+[63] E63 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 3, spent 201)
+      theorist's model lost its trial: on trial it predicted 0.86 of 3 new experiments, the current model 1.00
+[64] E64 learn: Does the row-53 counter reaching column 0 (leftmost) or wrapping ...(+136 chars)  (v11 predicted it: match 1.00; cost 8, spent 209)
+[65] E65 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 3, spent 212)
+[66] E66 learn: Does ACTION7 swap MID inner with tile1's inner regardless of whic...(+97 chars)  (v11 predicted it: match 0.50; cost 2, spent 214)
+      updater's fix not kept: its fit is 0.976, the current model's is 0.976
+      updater's fix not kept: same scores and not smaller (4513 vs 4513 chars)
+      theorist (every 6 experiments)
+[67] E67 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 2, spent 216)
+[68] E68 learn: Does ACTION7 swap MID's inner with the currently-selected bottom ...(+103 chars)  (v11 predicted it: match 0.62; cost 4, spent 220)
+      model v12 by the updater: fit 0.97, size 4583 (fit 0.972 -> 0.973)
+[69] E69 learn: a random ordinary probe  (v12 predicted it: match 0.50; cost 1, spent 221)
+      updater's fix not kept: same scores and not smaller (4629 vs 4583 chars)
+      model v13 by the updater: fit 0.97, size 4612 (fit 0.966 -> 0.974)
+[70] E70 learn: Does the goal depend on matching the four bottom tiles' inner col...(+180 chars)  (v13 predicted it: match 0.99; cost 7, spent 228)
+      updater's fix not kept: its fit is 0.970, the current model's is 0.975
+[71] E71 learn: a random ordinary probe  (v13 predicted it: match 0.82; cost 2, spent 230)
+      updater's fix not kept: its fit is 0.967, the current model's is 0.972
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.56, size 4957)
+[72] E72 learn: With the MID inner currently 'b' (from E71) and nothing selected,...(+171 chars)  (v13 predicted it: match 0.50; cost 2, spent 232)
+      updater's fix not kept: same scores and not smaller (4612 vs 4612 chars)
+[73] E73 learn: a random ordinary probe  (v13 predicted it: match 1.00; cost 1, spent 233)
+[74] E74 learn: Does ACTION7 swap MID's inner with the selected bottom tile's inn...(+171 chars)  (v13 predicted it: match 0.72; cost 3, spent 236)
+      theorist's model lost its trial: on trial it predicted 0.34 of 3 new experiments, the current model 0.74
+      model v14 by the updater: fit 0.97, size 4697 (fit 0.963 -> 0.967)
+[75] E75 learn: a random ordinary probe  (v14 predicted it: match 1.00; cost 1, spent 237)
+[76] E76 learn: When a bottom tile is selected and ACTION7 is pressed, does ACTIO...(+276 chars)  (v14 predicted it: match 0.97; cost 4, spent 241)
+      updater's fix not kept: its fit is 0.963, the current model's is 0.968
+      updater's fix not kept: its fit is 0.963, the current model's is 0.968
+[77] E77 learn: a random ordinary probe  (v14 predicted it: match 1.00; cost 2, spent 243)
+[78] E78 learn: With nothing selected and MID inner currently '9' (from E73 leavi...(+200 chars)  (v14 predicted it: match 0.82; cost 2, spent 245)
+      updater's fix not kept: its fit is 0.961, the current model's is 0.967
+      updater's fix not kept: its fit is 0.961, the current model's is 0.967
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.78, size 2640)
+[79] E79 learn: a random ordinary probe  (v14 predicted it: match 1.00; cost 1, spent 246)
+[80] E80 learn: With MID inner currently '9' (from E78) and nothing selected, doe...(+202 chars)  (v14 predicted it: match 0.75; cost 2, spent 248)
+      updater's fix not kept: its fit is 0.959, the current model's is 0.964
+      updater's fix not kept: its fit is 0.959, the current model's is 0.964
+[81] E81 learn: a random ordinary probe  (v14 predicted it: match 1.00; cost 1, spent 249)
+      theorist's model lost its trial: on trial it predicted 0.69 of 3 new experiments, the current model 0.92
+[82] E82 learn: Does ACTION7 swap MID's inner with the currently-selected bottom ...(+139 chars)  (v14 predicted it: match 0.88; cost 1, spent 250)
+      updater's fix not kept: its fit is 0.956, the current model's is 0.964
+      updater's fix not kept: its fit is 0.956, the current model's is 0.964
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.77, size 3282)
+[83] E83 learn: a random ordinary probe  (v14 predicted it: match 1.00; cost 1, spent 251)
+[84] E84 learn: With nothing selected and MID inner currently 'b' (E83 left MID i...(+235 chars)  (v14 predicted it: match 0.94; cost 2, spent 253)
+      updater's fix not kept: its fit is 0.955, the current model's is 0.964
+      updater's fix not kept: its fit is 0.955, the current model's is 0.964
+[85] E85 learn: a random ordinary probe  (v14 predicted it: match 1.00; cost 1, spent 254)
+      theorist's model lost its trial: on trial it predicted 0.71 of 3 new experiments, the current model 0.98
+[86] E86 learn: When ACTION7 is pressed with a bottom tile selected but MID's inn...(+210 chars)  (v14 predicted it: match 0.82; cost 4, spent 258)
+      model v15 by the updater: fit 0.97, size 4653 (fit 0.963 -> 0.966)
+[87] E87 learn: a random ordinary probe  (v15 predicted it: match 1.00; cost 2, spent 260)
+[88] E88 learn: With a bottom tile selected (tile2, border 0) and MID's inner cur...(+208 chars)  (v15 predicted it: match 0.73; cost 2, spent 262)
+[89] E89 learn: a random ordinary probe  (v15 predicted it: match 1.00; cost 2, spent 264)
+[90] E90 learn: Does ACTION7, when a bottom tile is selected, swap MID's inner wi...(+237 chars)  (v15 predicted it: match 0.83; cost 3, spent 267)
+      updater's fix not kept: its fit is 0.953, the current model's is 0.962
+      updater's fix not kept: its fit is 0.950, the current model's is 0.962
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.79, size 3648)
+[91] E91 learn: a random ordinary probe  (v15 predicted it: match 1.00; cost 1, spent 268)
+[92] E92 learn: Does ACTION7 swap MID's inner with the currently-selected bottom ...(+144 chars)  (v15 predicted it: match 0.83; cost 3, spent 271)
+      updater's fix not kept: its fit is 0.950, the current model's is 0.961
+      updater's fix not kept: its fit is 0.950, the current model's is 0.961
+[93] E93 learn: a random ordinary probe  (v15 predicted it: match 1.00; cost 4, spent 275)
+      theorist's model lost its trial: on trial it predicted 0.85 of 3 new experiments, the current model 0.94
+[94] E94 learn: When a bottom tile is selected and ACTION7 is pressed, does ACTIO...(+174 chars)  (v15 predicted it: match 0.87; cost 3, spent 278)
+      updater's fix not kept: its fit is 0.949, the current model's is 0.961
+      updater's fix not kept: its fit is 0.949, the current model's is 0.961
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.80, size 5129)
+[95] E95 learn: a random ordinary probe  (v15 predicted it: match 1.00; cost 2, spent 280)
+[96] E96 learn: Does ACTION7 with nothing selected swap MID's inner with the tile...(+236 chars)  (v15 predicted it: match 1.00; cost 4, spent 284)
+[97] E97 learn: a random ordinary probe  (v15 predicted it: match 0.88; cost 2, spent 286)
+      theorist's model lost its trial: on trial it predicted 0.67 of 3 new experiments, the current model 0.96
+      model v16 by the updater: fit 0.96, size 5167 (fit 0.961 -> 0.962)
+[98] E98 learn: Reset the level after GAME_OVER and confirm the fresh level-1 sta...(+122 chars)  (v16 predicted it: match 0.50; cost 1, spent 287)
+      model v17 by the updater: fit 0.96, size 5967 (fit 0.957 -> 0.962)
+[99] E99 learn: a random ordinary probe  (v17 predicted it: match 1.00; cost 1, spent 288)
+[100] E100 learn: Does ACTION7 with nothing selected swap MID's inner with the tile...(+159 chars)  (v17 predicted it: match 0.75; cost 2, spent 290)
+      updater's fix not kept: its fit is 0.949, the current model's is 0.961
+      model v18 by the updater: fit 0.96, size 6052 (fit 0.961 -> 0.964)
+{"env": "arc_sb26", "experiments": 100, "cost": 290, "model_version": 18, "model_role": "updater", "fit": 0.9640870914273109, "size": 6052, "exam": null, "heldout": null, "llm_calls": 149, "goals": {"tried": 0, "reached": 0, "tries_used": []}, "box_score": {"game": "sb26-7fbdac44", "score": 0.0, "levels_completed": 0, "levels": 8, "actions": 290, "level_actions": [290, 0, 0, 0, 0, 0, 0, 0], "baseline": [18, 28, 18, 19, 31, 23, 58, 18]}}
