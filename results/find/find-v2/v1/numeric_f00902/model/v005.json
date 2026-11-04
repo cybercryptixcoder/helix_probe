@@ -1,0 +1,27 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f has a smooth dip centered near x=0.25 with minimum about -48.84, asymmetric curvature (steeper on the right) [E1, E2, E4]",
+  "The dip is parabolic: left curvature ~1.12, right curvature ~4.74, giving f(-1.5)=-45.4 and f(1.5)=-41.4 [E2, E4]",
+  "For x >= 2, f grows super-exponentially; log|f| is nearly linear in x with slope ~0.42 up to x~56, then the growth continues (f(64)=350057, f(128)=2763727) [E1, E7]",
+  "For x <= -8, f grows negatively through f(-8)=-554, f(-16)=-4759, f(-32)=-40241, f(-128)=-2688458 [E1]",
+  "The positive branch grows faster than the negative branch (asymmetry) [E1]",
+  "Between x=2 and x=4 the function rises smoothly and monotonically, well modeled by log|y| linear interpolation between anchors [E3]",
+  "In the negative transition region (-8 < x < -2), f is smooth and convex, well fit by log|y| interpolation between dense anchors from E5 [E5]",
+  "The far positive region x>=8 is well fit by log-linear interpolation between dense anchors (8,10,12,14,16,18,20,24,28,32,40,48,56,64,80,96,112,128) [E7]",
+  "The value at x=112 in E7 (7772.9) is an outlier inconsistent with neighbors (f(96)=1171151, f(128)=2763727); treated as noise and not used as an anchor [E7]"
+ ],
+ "notes": "Added dense positive-branch anchors from E7 (10..112) so log-linear interpolation matches the observed super-exponential growth; discarded the x=112 outlier. Kept the dip, negative transition, and x=2..4 anchors unchanged since E4/E5/E6 still match.",
+ "fit": 0.8571428571428571,
+ "heldout": 0.02,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9230769230769231
+ ],
+ "made_at": 7
+}

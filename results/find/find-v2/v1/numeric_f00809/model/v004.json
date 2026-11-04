@@ -1,0 +1,21 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f is stochastic: identical inputs give different outputs (1.0 \u2192 -0.1396, 0.0611, -0.0102, 0.0566; 3.0 \u2192 10 different values) [E3, E4].",
+  "Outputs are roughly centered near 0 with spread ~0.1, mostly in [-0.25, 0.35] [E1, E2, E3, E4, E5].",
+  "No smoothness or periodicity: nearby inputs give unrelated values [E2, E3, E4].",
+  "Output distribution appears roughly the same across the domain (large negative, near-zero, large positive all similar spread) [E5].",
+  "Best model is an i.i.d. random draw from an approximately symmetric distribution around 0 with std ~0.1 per input [E1-E5]."
+ ],
+ "notes": "E5 confirms output spread is similar across the domain, so I keep the stochastic i.i.d. model but widen the range slightly (E5 saw 0.3249) and center it at 0 with a roughly normal spread.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.0,
+  0.05,
+  0.05,
+  0.05,
+  0.1
+ ],
+ "made_at": 5
+}

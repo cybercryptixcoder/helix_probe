@@ -64,3 +64,24 @@ Helix Probe v2 on 'find_numeric_f00794': 0 experiments so far, model v0, exam of
       updater's model not kept: its exam is 0.000, the current model's is 0.100
       updater's model not kept: its exam is 0.000, the current model's is 0.100
       theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.100
+[21] E21 Does the oscillatory region |x|>0.75 have a deterministic value that is rep...(+291 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[22] E22 Is the oscillatory region for |x|>0.75 a deterministic function of x at all...(+198 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.100
+[23] E23 Is the oscillatory region for |x|>0.75 reproducible at identical x when sam...(+179 chars)  (v3 predicted it: match 1.00)
+[24] E24 If the oscillatory region is genuinely random noise, what is its distributi...(+327 chars)  (v3 predicted it: match 0.15)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.100
+[25] E25 Is the plateau region near zero a deterministic smooth function of x (with ...(+169 chars)  (v3 predicted it: match 0.95)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.100
+{"env": "find_numeric_f00794", "experiments": 25, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 0.1, "fit": 0.226, "size": 2230, "heldout": 0.0, "llm_calls": 81, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

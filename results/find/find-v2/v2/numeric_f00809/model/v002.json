@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "Main idea: the outputs are small, bounded, irregular oscillations of x, so I model the box as a sum of a few sinusoids with different frequencies and a slowly varying envelope, with a mild damping for large |x|.", "exam": 0.05, "fit": 0.0, "fit_exact": 0.0, "size": 401, "matches": [0.0, 0.0, 0.0], "made_at": 3, "heldout": 0.0}

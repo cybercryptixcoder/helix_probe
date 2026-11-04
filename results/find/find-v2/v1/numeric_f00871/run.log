@@ -1,0 +1,36 @@
+Helix Probe on 'find_numeric_f00871': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, including sign, magnitude, a...(+25 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 63%
+[2] E2 Is the interior of the active interval exactly linear, and where precisely ...(+39 chars)  model v1 match 0.95
+      model v2: fit 50% (was 50%), mean match 0.97 (was 0.97), held-out 63%
+[3] E3 Is the output exactly 0 for x >= 4, or does it continue the line's negative...(+72 chars)  model v2 match 0.95
+      model v3: fit 67% (was 33%), mean match 0.98 (was 0.97), held-out 63%
+[4] E4 Exactly where between x=2.09 and x=2.1 does the negative line value stop be...(+55 chars)  model v3 match 0.56
+      model v4: fit 50% (was 50%), mean match 0.97 (was 0.88), held-out 63%
+[5] E5 Is f(x) exactly zero for all x outside (-4,4), or is there some other struc...(+161 chars)  model v4 match 0.83
+      model v5: fit 40% (was 40%), mean match 0.96 (was 0.94), held-out 63%
+[6] E6 Where exactly does the active linear region begin on the left, i.e. between...(+61 chars)  model v5 match 0.50
+      model v6: fit 67% (was 33%), mean match 0.98 (was 0.88), held-out 67%
+[7] E7 Exactly where between x=-2.5 and x=-2.0 does the active linear region begin...(+53 chars)  model v6 match 0.20
+      model v7: fit 57% (was 57%), mean match 0.98 (was 0.87), held-out 69%
+[8] E8 Does the active region actually start near x=-2.1 (as E7 suggests) rather t...(+149 chars)  model v7 match 0.95
+      model v8: fit 75% (was 50%), mean match 0.99 (was 0.97), held-out 69%
+[9] E9 Is the left boundary of the active region exactly at x=-2.1 (sharp step fro...(+94 chars)  model v8 match 1.00
+[10] E10 Is the reported negative value at x=2.1 (observed -0.05 in E2) a real conti...(+175 chars)  model v8 match 0.95
+      model v9: fit 100% (was 70%), mean match 1.00 (was 0.98), held-out 69%
+[11] E11 Does the active line really extend unchanged all the way to the right bound...(+186 chars)  model v9 match 1.00
+[12] E12 Does the active line's slope/offset stay exactly f(x)=5.2-2.5x in the inter...(+117 chars)  model v9 match 1.00
+[13] E13 Is f(x) exactly 0 everywhere outside the active interval, including very la...(+180 chars)  model v9 match 1.00
+[14] E14 Is the boundary behavior exactly at the left cutoff x=-2.1 a true step, or ...(+117 chars)  model v9 match 1.00
+[15] E15 Is the right boundary at x=4 a true sharp step for the line value, or is th...(+155 chars)  model v9 match 1.00
+[16] E16 Is the tiny negative value at x=2.1 exactly -0.05 as the line predicts, or ...(+108 chars)  model v9 match 1.00
+[17] E17 Is f(x) exactly the line 5.2-2.5x on the still-untested stretch of the acti...(+153 chars)  model v9 match 1.00
+[18] E18 Is f(x) exactly the line 5.2-2.5x on the last untested stretch of the activ...(+128 chars)  model v9 match 1.00
+[19] E19 Is the output exactly 0 (positive zero) or -0.0 (negative zero) in the flat...(+135 chars)  model v9 match 1.00
+[20] E20 Is the sign-of-zero pattern on the right flat region exactly tied to x>2.1 ...(+146 chars)  model v9 match 1.00
+[21] E21 Does the reported value at exactly x=2.1 depend on how the input is represe...(+109 chars)  model v9 match 1.00
+[22] E22 Does the sign of zero in the right flat region switch at exactly x=2.1 (i.e...(+124 chars)  model v9 match 1.00
+[23] E23 Is f(x) exactly the line 5.2-2.5x on the last untested stretch of the activ...(+158 chars)  model v9 match 1.00
+[24] E24 Is the reported zero in the left flat region exactly +0.0 for all x<-2.1 (i...(+214 chars)  model v9 match 1.00
+[25] E25 Does the active region's line formula f(x)=5.2-2.5x actually hold exactly o...(+290 chars)  model v9 match 1.00
+{"env": "find_numeric_f00871", "experiments": 25, "model_version": 9, "fit": 1.0, "heldout": 0.69, "llm_calls": 34, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

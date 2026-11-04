@@ -1,0 +1,25 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f is stochastic: identical inputs give different outputs (1.0 \u2192 many values; 3.0 \u2192 10 values; 5.0 \u2192 20 values; -100 \u2192 10 identical values, see next) [E3, E4, E7, E8].",
+  "For some inputs the output is constant across repeats (x=-100 \u2192 0.0059 ten times; x=-128 \u2192 0.0046; x=-127.9999 \u2192 0.0046), suggesting a deterministic/quantized region or caching [E1, E5, E8].",
+  "For most inputs outputs look like i.i.d. draws from a roughly symmetric distribution centered near 0 with std ~0.1, range about [-0.25, 0.35] [E1-E8].",
+  "No smoothness or periodicity: nearby inputs give unrelated values [E2, E3, E6].",
+  "Output spread is similar across the domain (large negative, near-zero, large positive) [E5, E8].",
+  "Whether an input is 'constant' vs 'noisy' is not yet predictable from x alone (e.g. -100 constant but -0.25 noisy; 3.0 noisy) \u2014 possibly a hidden interval or rule [E8]?"
+ ],
+ "notes": "Added the striking new fact from E8 that some inputs (like -100) return a fixed value on every repeat while others are noisy; kept the i.i.d. Gaussian model for the noisy case since it still fits the bulk of the data, and flagged the constant-vs-noisy rule as unknown.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.1,
+  0.0,
+  0.0,
+  0.0,
+  0.2,
+  0.0,
+  0.0,
+  0.5
+ ],
+ "made_at": 8
+}

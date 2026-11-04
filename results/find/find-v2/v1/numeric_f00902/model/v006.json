@@ -1,0 +1,31 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f has a smooth dip centered near x=0.25 with minimum about -48.84, asymmetric curvature (steeper on the right) [E1, E2, E4]",
+  "The dip is parabolic: left curvature ~1.12, right curvature ~4.74, giving f(-1.5)=-45.4 and f(1.5)=-41.4 [E2, E4]",
+  "The dip is slightly rounded rather than a strict parabola near the vertex, but the parabolic approximation matches to ~0.01 within |x|<0.5 [E8]",
+  "For x >= 2, f grows super-exponentially; log|f| is nearly linear in x with slope ~0.42 up to x~56, then growth continues (f(64)=350057, f(128)=2763727) [E1, E7]",
+  "For x <= -8, f grows negatively through f(-8)=-554, f(-16)=-4759, f(-32)=-40241, f(-128)=-2688458 [E1]",
+  "The positive branch grows faster than the negative branch (asymmetry) [E1]",
+  "Between x=2 and x=4 the function rises smoothly and monotonically, well modeled by log|y| linear interpolation between anchors [E3, E6]",
+  "In the negative transition region (-8 < x < -2), f is smooth and convex, well fit by log|y| interpolation between dense anchors from E5 [E5]",
+  "The far positive region x>=8 is well fit by log-linear interpolation between dense anchors EXCEPT that f is nearly constant (~7773) for 100 <= x <= 116, then jumps back to the exponential trend by x=120 [E7, E9]",
+  "There is a plateau/irregularity in the far positive region: f(x) ~ 7773 for x in [100,116], then resumes super-exponential growth (f(120)=2279279, f(124)=2513729) [E9]",
+  "The exact boundaries of the far-positive plateau are unknown; it lies somewhere between x=96 and x=120, and between x=116 and x=120 growth resumes? [E9]"
+ ],
+ "notes": "E9 shows f is nearly constant ~7773 on [100,116] then jumps back to the exponential trend by x=120, so the earlier 'x=112 outlier' was actually a plateau. Added a plateau region in predict() with log-linear interpolation from 96 to 100, flat ~7773 through 116, then log-linear back to 120/128 anchors.",
+ "fit": 1.0,
+ "heldout": 0.02,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 9
+}

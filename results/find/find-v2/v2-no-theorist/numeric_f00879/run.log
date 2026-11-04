@@ -1,0 +1,63 @@
+Helix Probe v2 on 'find_numeric_f00879': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 How does f behave on a dense sweep of ordinary inputs across the domain, to...(+93 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.03, fit 0.10, size 311 (exam 0.000 -> 0.025); held-out 0%
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.000, the current model's is 0.067
+      model v2 by the updater: exam 0.05, fit 0.02, size 317 (exam 0.025 -> 0.050); held-out 0%
+[4] E4 Is the output a smooth function of x, or does it have a sharp feature/kink ...(+179 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      model v3 by the updater: exam 0.08, fit 0.00, size 314 (exam 0.050 -> 0.075); held-out 0%
+[5] E5 a random ordinary probe  (v3 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.050, the current model's is 0.075
+      updater's model not kept: same scores and not smaller (314 vs 314 chars)
+[6] E6 Does the output depend mostly on the fractional part of x (suggesting a per...(+102 chars)  (v3 predicted it: match 0.05)
+      model v4 by the updater: exam 0.10, fit 0.03, size 253 (exam 0.075 -> 0.100); held-out 0%
+[7] E7 a random ordinary probe  (v4 predicted it: match 0.20)
+      updater's model not kept: its fit is 0.029, the current model's is 0.050
+      model v5 by the updater: exam 0.10, fit 0.09, size 252 (fit 0.050 -> 0.086); held-out 0%
+[8] E8 Does the output depend on x through a periodic function of x (e.g. sin/cos ...(+170 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+[9] E9 a random ordinary probe  (v5 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[10] E10 Is the output essentially a noisy sign/threshold function of x with no peri...(+101 chars)  (v5 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+      updater's model not kept: its fit is 0.035, the current model's is 0.075
+[11] E11 a random ordinary probe  (v5 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (252 vs 252 chars)
+[12] E12 Is the output a deterministic function of x's fractional part (periodic, pe...(+217 chars)  (v5 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.033, the current model's is 0.071
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+[13] E13 a random ordinary probe  (v5 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+[14] E14 Do the outputs depend on x through a periodic (fractional-part / trig) comp...(+165 chars)  (v5 predicted it: match 0.15)
+      updater's model not kept: its fit is 0.061, the current model's is 0.071
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[15] E15 a random ordinary probe  (v5 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+[16] E16 Is the within-sign spread of y genuine noise, or is there a hidden determin...(+131 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+      updater's model not kept: same scores and not smaller (252 vs 252 chars)
+[17] E17 a random ordinary probe  (v5 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+      updater's model not kept: same scores and not smaller (324 vs 252 chars)
+[18] E18 Does the output contain a deterministic periodic component (e.g., sin(x) or...(+147 chars)  (v5 predicted it: match 0.00)
+      model v6 by the updater: exam 0.12, fit 0.06, size 316 (exam 0.100 -> 0.125); held-out 0%
+[19] E19 a random ordinary probe  (v6 predicted it: match 0.10)
+[20] E20 Is the output determined by x's fractional part (period 1) or does it depen...(+107 chars)  (v6 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.125
+      updater's model not kept: same scores and not smaller (316 vs 316 chars)
+[21] E21 a random ordinary probe  (v6 predicted it: match 0.30)
+      updater's model not kept: its exam is 0.050, the current model's is 0.125
+[22] E22 Does the output depend on x through a combination of a slow trend and a per...(+155 chars)  (v6 predicted it: match 0.15)
+      updater's model not kept: its exam is 0.050, the current model's is 0.125
+[23] E23 a random ordinary probe  (v6 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (316 vs 316 chars)
+[24] E24 Does the output depend on x through a smooth/periodic function of the fract...(+301 chars)  (v6 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.025, the current model's is 0.125
+[25] E25 a random ordinary probe  (v6 predicted it: match 0.00)
+{"env": "find_numeric_f00879", "experiments": 25, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 0.125, "fit": 0.066, "size": 316, "heldout": 0.0, "llm_calls": 59, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

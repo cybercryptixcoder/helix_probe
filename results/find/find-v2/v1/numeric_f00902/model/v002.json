@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f has a smooth dip centered near x=0.25 with minimum about -48.84, not a flat plateau [E1, E2]",
+  "The dip is roughly parabolic: values rise on both sides of x\u22480.25, reaching about -45.4 at x=-1.5 and -41.4 at x=1.5 [E2]",
+  "For x \u2265 2, f grows super-exponentially, passing through f(2)=-32.2, f(4)=65, f(8)=751, f(16)=5839, f(32)=44854, f(64)=350057, f(128)=2763727 [E1]",
+  "For x \u2264 -8, f grows negatively, through f(-8)=-554, f(-16)=-4759, f(-32)=-40241, f(-128)=-2688458 [E1]",
+  "The positive branch grows faster than the negative branch (asymmetry) [E1]",
+  "Between the dip and the exponential branches (roughly |x| in [1.5, 8]) the function transitions smoothly; exact shape there is uncertain? [E1, E2]"
+ ],
+ "notes": "Replaced the flat-plateau near zero with a parabola centered at x\u22480.25 (min \u2248 -48.84) fit to E2 points, and kept log-space interpolation for the far branches. The transition region between the dip and the exponential branches is still approximate.",
+ "fit": 1.0,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

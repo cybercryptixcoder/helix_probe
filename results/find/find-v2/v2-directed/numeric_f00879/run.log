@@ -1,0 +1,93 @@
+Helix Probe v2 on 'find_numeric_f00879': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do across a broad range of ordinary inputs, and are there any r...(+80 chars)  (v0 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (93 vs 33 chars)
+      updater's model not kept: same scores and not smaller (97 vs 33 chars)
+[2] E2 Is the output deterministic or noisy, and does it repeat on the same ordinary inputs?  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 0.03, size 78 (fit 0.000 -> 0.026); held-out 0%
+[3] E3 Is f(x) actually a deterministic function of x at all, or is every output i...(+148 chars)  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 0.05, fit 0.03, size 247 (exam 0.000 -> 0.050); held-out 0%
+[4] E4 Is the output pure independent noise around a constant, or does the mean de...(+148 chars)  (v2 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+[5] E5 Does the mean of f(x) actually depend on x, or is the apparent trend in E3/...(+113 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 0.10, fit 0.07, size 245 (exam 0.050 -> 0.100); held-out 0%
+[6] E6 Is f(x) a smooth function of x with a characteristic shape (e.g., sign-like...(+253 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.075, the current model's is 0.100
+[7] E7 Is the mean of f(x) a smooth, monotone function of x across the full ordina...(+211 chars)  (v3 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.050, the current model's is 0.100
+[8] E8 Is the output distribution the same at every x (pure noise with no dependen...(+118 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[9] E9 Does the mean of f(x) show a smooth monotone trend across negative-to-posit...(+150 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.050, the current model's is 0.100
+[10] E10 Is the mean of f(x) flat (pure noise) or does it depend on x, and if it dep...(+214 chars)  (v3 predicted it: match 0.05)
+      model v4 by the updater: exam 0.15, fit 0.06, size 438 (exam 0.100 -> 0.150); held-out 0%
+[11] E11 What is the mean of f(x) at a set of ordinary positive and negative values,...(+144 chars)  (v4 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.025, the current model's is 0.150
+      updater's model not kept: its exam is 0.025, the current model's is 0.150
+[12] E12 What is the precise mean of f(x) at a dense set of negative and positive va...(+205 chars)  (v4 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (438 vs 438 chars)
+      updater's model not kept: its exam is 0.000, the current model's is 0.150
+      theorist (every 6 steps)
+[13] E13 Is the mean of f(x) flat at 0 for negative x and flat at ~2 for positive x,...(+180 chars)  (v4 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.025, the current model's is 0.150
+      updater's model not kept: its exam is 0.025, the current model's is 0.150
+[14] E14 Using many repeats at a few ordinary x values spanning the mid-range (x = -...(+202 chars)  (v4 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.050, the current model's is 0.150
+      updater's model not kept: its exam is 0.125, the current model's is 0.150
+      theorist (updater stalled)
+[15] E15 At large positive x (10-100), does the mean drop toward 0 (decay) or stay n...(+180 chars)  (v4 predicted it: match 0.05)
+      model v5 by the updater: exam 0.17, fit 0.06, size 254 (exam 0.150 -> 0.175); held-out 0%
+[16] E16 Does the mean of f(x) depend on x at all within the negative region and wit...(+205 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.175
+      updater's model not kept: its exam is 0.000, the current model's is 0.175
+[17] E17 Does the mean actually differ between negative and positive x at all, or is...(+142 chars)  (v5 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.075, the current model's is 0.175
+      updater's model not kept: its exam is 0.075, the current model's is 0.175
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.175
+[18] E18 Does the mean of f(x) differ between negative and positive x, and is the tr...(+140 chars)  (v5 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.175
+      updater's model not kept: its exam is 0.025, the current model's is 0.175
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.175
+[19] E19 Is the mean of f(x) actually flat at ~-1 for negative x and ~+2 for positiv...(+160 chars)  (v5 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.150, the current model's is 0.175
+      updater's model not kept: its exam is 0.125, the current model's is 0.175
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.175
+[20] E20 Is the mean actually a function of sign(x) only (flat -1 for x<0, flat +2 f...(+206 chars)  (v5 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.125, the current model's is 0.175
+      updater's model not kept: its exam is 0.150, the current model's is 0.175
+[21] E21 Does the output depend on x at all, or is f(x) pure noise with a constant (...(+130 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.150, the current model's is 0.175
+      updater's model not kept: same scores and not smaller (254 vs 254 chars)
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.075, the current model's is 0.175
+[22] E22 Is the output's mean (and spread) genuinely lower for negative x than posit...(+205 chars)  (v5 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.050, the current model's is 0.175
+      updater's model not kept: its exam is 0.050, the current model's is 0.175
+[23] E23 Does the mean of f(x) follow a smooth continuous curve across the transitio...(+162 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: its fit is 0.052, the current model's is 0.061
+      updater's model not kept: same scores and not smaller (254 vs 254 chars)
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.175
+[24] E24 Is the mean of f(x) flat and sign-determined across the whole range, or doe...(+164 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: same scores and not smaller (254 vs 254 chars)
+      updater's model not kept: its exam is 0.050, the current model's is 0.175
+      theorist (every 6 steps)
+[25] E25 Does the mean of f(x) depend on x within the negative region (e.g. is it fl...(+144 chars)  (v5 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (268 vs 254 chars)
+      updater's model not kept: same scores and not smaller (254 vs 254 chars)
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.125, the current model's is 0.175
+{"env": "find_numeric_f00879", "experiments": 25, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 0.175, "fit": 0.05800000000000001, "size": 254, "heldout": 0.0, "llm_calls": 82, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

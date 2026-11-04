@@ -1,0 +1,18 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f is not deterministic: identical inputs give different outputs (1.0 \u2192 -0.1396, 0.0611, -0.0102, 0.0566) [E3].",
+  "Outputs are small and roughly centered near 0, in about [-0.24, 0.15] [E1, E2, E3].",
+  "No smoothness or periodicity: nearby inputs give unrelated values [E2, E3].",
+  "The output looks like noise with no recoverable structure from these probes; best model is a random value in the observed range [E1, E2, E3]."
+ ],
+ "notes": "E3 shows repeated identical inputs give different outputs, so f is stochastic; replaced the deterministic hash with a random draw in the observed output range.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.05,
+  0.0,
+  0.05
+ ],
+ "made_at": 3
+}

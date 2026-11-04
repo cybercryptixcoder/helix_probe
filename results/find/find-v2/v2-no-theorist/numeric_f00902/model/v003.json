@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "Changed the threshold from 100 to 98: E4 shows f(98) and f(99) are already the constant ~7772.9, while f(96) is still cubic, so the transition lies in (96, 98].", "exam": 0.975, "fit": 0.975, "fit_exact": 0.75, "size": 302, "matches": [1.0, 1.0, 0.9, 1.0], "made_at": 4, "heldout": 0.67}

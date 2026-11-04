@@ -1,0 +1,41 @@
+{
+ "version": 14,
+ "beliefs": [
+  "For x <= -78.55, f is deterministic and smooth, increasing monotonically from 0.0046 at -128 to 0.0075 near -78.55 [E1, E5, E8, E9, E10, E12, E16, E18, E19, E20, E21, E22].",
+  "The deterministic/stochastic boundary lies between -78.55 (deterministic, 0.0075) and -78.5 (stochastic); I use -78.525 as the best guess [E20, E21].",
+  "For x >= -78.5, f is stochastic: identical inputs give different outputs, roughly symmetric around 0 with std ~0.1, range about [-0.25, 0.35] [E2, E3, E4, E6, E7, E10, E11, E12, E14, E15, E17, E20, E23].",
+  "The stochastic distribution appears the same at large positive (127), moderately negative (-60), and small inputs [E15, E17, E8, E23].",
+  "The far-negative deterministic function is smooth and monotone; a piecewise-linear fit through the measured points approximates it [E9, E10, E12, E18, E19, E20, E21, E22].",
+  "No smoothness or periodicity in the noisy region: nearby inputs give unrelated values [E2, E3, E6, E11].",
+  "The stochastic output is not exactly reproducible so exact-match scoring on noisy probes is inherently limited; the model should match the distribution, not individual draws [E15, E17, E23]?"
+ ],
+ "notes": "E22 confirms the deterministic curve is smooth and monotone with no steps; the piecewise-linear knots already match it well. E23 is just another noisy sample at -78.5, consistent with the existing N(0,0.1) model; no structural change needed, only minor knot refinement near -83.5/-81.5.",
+ "fit": 0.21739130434782608,
+ "heldout": 0.0,
+ "matches": [
+  0.1,
+  0.05,
+  0.05,
+  0.0,
+  0.2,
+  0.0,
+  0.0,
+  0.5,
+  1.0,
+  0.5,
+  0.05,
+  0.65,
+  1.0,
+  0.75,
+  0.0,
+  1.0,
+  0.05,
+  0.8,
+  1.0,
+  0.5,
+  0.8,
+  1.0,
+  0.0
+ ],
+ "made_at": 23
+}

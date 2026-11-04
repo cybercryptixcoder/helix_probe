@@ -1,0 +1,1 @@
+{"version": 5, "role": "updater", "notes": "E8 shows f(97.55) is already the constant (~7773.0), not the cubic, so the boundary is in (97.5, 97.55] rather than (97.5, 97.8]. I moved the switch threshold from 97.8 to 97.55.", "exam": 0.975, "fit": 0.975, "fit_exact": 0.75, "size": 305, "matches": [1.0, 1.0, 0.9, 1.0, 0.9, 1.0, 1.0, 1.0], "made_at": 8, "heldout": 0.68}

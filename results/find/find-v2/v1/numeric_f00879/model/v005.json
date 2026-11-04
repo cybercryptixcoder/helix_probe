@@ -1,0 +1,25 @@
+{
+ "version": 5,
+ "beliefs": [
+  "Repeated calls at the same x give different values, so f is stochastic [E3, E4]",
+  "The noise is large (spread roughly \u00b11.5 units) and roughly centered around the mean [E3, E4]",
+  "The mean is NOT monotonic in x: it is negative around x=-6 to -2 and positive around x=0 to 3 [E5]",
+  "Mean at x=-6 is about -1.6, at x=-5 about -1.3, at x=-4 about -1.0, at x=-3 about -0.2, at x=-2 about -0.1 [E5]",
+  "Mean at x=0 is about 1.7, at x=1 about 1.4, at x=2 about 2.0, at x=3 about 1.9 [E3, E4]",
+  "Mean at x=-1 is about 0.3, at x=-0.7 about -0.4, at x=0.1 about 2.2 [E3]",
+  "The mean rises from negative at x\u2264-2 to positive at x\u22650, crossing zero near x\u2248-1.5 [E5]",
+  "Exact shape of the mean curve (linear vs sigmoid vs other) is not yet pinned down under the noise?",
+  "predict() should return the conditional mean (smooth trend), not any noisy wiggle [E3, E4]"
+ ],
+ "notes": "E5 shows the mean is negative for x in [-6,-2] and rises to positive near x=0, contradicting the previous monotonic tanh centered at -0.5. Refit a smooth increasing sigmoid centered near x\u2248-1.5 with a lower floor (~-1.5) and upper level (~2.0) to match E5 and E3/E4 means.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.15,
+  0.05,
+  0.15,
+  0.1,
+  0.0
+ ],
+ "made_at": 5
+}

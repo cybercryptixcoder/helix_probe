@@ -1,0 +1,28 @@
+Helix Probe on 'find_numeric_f00855': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across a broad, evenly spaced set of inputs spanning ...(+79 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Where exactly does f switch between 25 and 26 on the negative side, and doe...(+60 chars)  model v1 match 1.00
+[3] E3 Where exactly does f switch from 25 to 26 on the negative side, between x=-...(+31 chars)  model v1 match 1.00
+[4] E4 Where exactly does the switch from 25 to 26 happen on the negative side, be...(+41 chars)  model v1 match 1.00
+[5] E5 Is the positive-side transition from 26 back to 25 also near x=3.6 (mirrori...(+71 chars)  model v1 match 1.00
+[6] E6 Is the transition from 26 back to 25 on the positive side exactly at the mi...(+123 chars)  model v1 match 1.00
+[7] E7 Where exactly on the negative side does f switch from 25 to 26, between x=-...(+26 chars)  model v1 match 1.00
+[8] E8 Where exactly does f switch from 25 to 26 on the negative side, between x=-...(+27 chars)  model v1 match 1.00
+[9] E9 Where exactly does f switch from 26 back to 25 on the positive side, betwee...(+30 chars)  model v1 match 1.00
+[10] E10 Does f stay at 26 all the way from x=-3.6 up to x=3.6 (i.e. is the central ...(+118 chars)  model v1 match 1.00
+[11] E11 Is the central plateau exactly [-3.6, 3.6], i.e. does f equal 26 at the bou...(+132 chars)  model v1 match 1.00
+[12] E12 Is the central plateau exactly [-3.6, 3.6] with a sharp jump, or does f tak...(+100 chars)  model v1 match 1.00
+[13] E13 Does f behave the same way far outside the central plateau on both sides an...(+139 chars)  model v1 match 1.00
+[14] E14 Is the central plateau exactly the closed interval [-3.6, 3.6] with a sharp...(+138 chars)  model v1 match 1.00
+[15] E15 Does f stay at 25 everywhere outside the central plateau on the negative si...(+205 chars)  model v1 match 1.00
+[16] E16 Is the plateau boundary exactly at ±3.6 with a sharp jump, and does f ever ...(+180 chars)  model v1 match 1.00
+[17] E17 Does f depend only on whether |x| <= 3.6, or does it also vary on a finer s...(+148 chars)  model v1 match 1.00
+[18] E18 Is the plateau boundary exactly at |x| = 3.6 with a sharp edge, i.e. does f...(+102 chars)  model v1 match 1.00
+[19] E19 Does f ever take a value other than exactly 25 or 26 anywhere in the domain...(+136 chars)  model v1 match 1.00
+[20] E20 Does f depend only on |x| <= 3.6 (giving 26) versus outside (25), or does i...(+141 chars)  model v1 match 1.00
+[21] E21 Does f depend only on |x| <= 3.6, or does it also change behavior for input...(+279 chars)  model v1 match 1.00
+[22] E22 Does f have a third value or different behavior at inputs between the plate...(+133 chars)  model v1 match 1.00
+[23] E23 Is the plateau boundary really a sharp jump at exactly |x| = 3.6, or is the...(+150 chars)  model v1 match 1.00
+[24] E24 Is the plateau boundary exactly at |x| = 3.6 (i.e. 26 on the closed interva...(+165 chars)  model v1 match 1.00
+[25] E25 Does f ever take a value other than 25 or 26 at non-integer or irrational-l...(+123 chars)  model v1 match 1.00
+{"env": "find_numeric_f00855", "experiments": 25, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 26, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,43 @@
+Helix Probe v2 on 'find_numeric_f00879': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 a random ordinary probe  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+      model v1 by the theorist: exam 0.00, fit 0.05, size 671 (fit 0.000 -> 0.050); held-out 0%
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.00)
+[4] E4 a random ordinary probe  (v1 predicted it: match 0.10)
+      model v2 by the updater: exam 0.00, fit 0.05, size 670 (same scores, smaller (671 -> 670 chars)); held-out 0%
+[5] E5 a random ordinary probe  (v2 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (670 vs 670 chars)
+      updater's model not kept: same scores and not smaller (670 vs 670 chars)
+[6] E6 a random ordinary probe  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 0.03, fit 0.05, size 558 (exam 0.000 -> 0.025); held-out 0%
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (794 vs 558 chars)
+[7] E7 a random ordinary probe  (v3 predicted it: match 0.10)
+[8] E8 a random ordinary probe  (v3 predicted it: match 0.20)
+      theorist (updater stalled)
+[9] E9 a random ordinary probe  (v3 predicted it: match 0.10)
+[10] E10 a random ordinary probe  (v3 predicted it: match 0.00)
+      theorist (updater stalled)
+      theorist's model not kept: its fit is 0.060, the current model's is 0.070
+[11] E11 a random ordinary probe  (v3 predicted it: match 0.00)
+[12] E12 a random ordinary probe  (v3 predicted it: match 0.00)
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v3 predicted it: match 0.00)
+[14] E14 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (558 vs 558 chars)
+      theorist (updater stalled)
+      model v4 by the theorist: exam 0.08, fit 0.04, size 547 (exam 0.025 -> 0.075); held-out 0%
+[15] E15 a random ordinary probe  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.075
+      updater's model not kept: its exam is 0.050, the current model's is 0.075
+[16] E16 a random ordinary probe  (v4 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.050, the current model's is 0.075
+      model v5 by the updater: exam 0.07, fit 0.06, size 472 (fit 0.044 -> 0.062); held-out 0%
+[17] E17 a random ordinary probe  (v5 predicted it: match 0.00)
+[18] E18 a random ordinary probe  (v5 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.050, the current model's is 0.075
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.050, the current model's is 0.075
+[19] E19 a random ordinary probe  (v5 predicted it: match 0.00)
+[20] E20 a random ordinary probe  (v5 predicted it: match 0.20)

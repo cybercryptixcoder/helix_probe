@@ -1,0 +1,22 @@
+{
+ "version": 4,
+ "beliefs": [
+  "Repeated calls at the same x give very different values, so f is stochastic with a deterministic mean component [E3, E4]",
+  "The noise is large (spread roughly \u00b11.5 units) and roughly centered around the mean [E3, E4]",
+  "The mean rises with x: strongly negative near x=-3, near 0 at x=-1, positive near x=1-3 [E1, E3, E4]",
+  "Mean at x=3 is about 1.9 and at x=-3 is about 0.17, consistent with a smooth increasing trend [E4]",
+  "The mean appears to saturate/flatten at large |x| rather than growing without bound [E1]",
+  "predict() should return the conditional mean (smooth trend), not any noisy wiggle [E3, E4]",
+  "Exact shape of the mean curve (linear vs sigmoid vs other) is not yet pinned down under the noise?"
+ ],
+ "notes": "Refit the mean trend using the observed means: ~0.17 at x=-3, ~-0.4 at x=-0.7, ~2.2 at x=0.1, ~1.6 at x=1.3, ~2.3 at x=2.4, ~1.9 at x=3, using a smooth saturating increasing curve.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.1,
+  0.1,
+  0.15,
+  0.05
+ ],
+ "made_at": 4
+}

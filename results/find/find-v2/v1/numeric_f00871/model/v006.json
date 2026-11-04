@@ -1,0 +1,24 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f(x) = 0 exactly for x <= -2.5 and for x >= 4 [E1, E3, E5, E6]",
+  "On the active interval f is a decreasing straight line f(x) = 5.2 - 2.5x [E1, E2, E6]",
+  "The left boundary of the active region lies between -2.5 and -2.0; at x=-2.5 f=0 and at x=-2.0 f=10.2 [E6]",
+  "The line crosses zero at x = 2.08, so f is positive on the active interval up to 2.08 and negative after [E2]",
+  "Negative line values are reported unclamped up to x=2.0999 (e.g. -0.0497) and clamped to -0.0 at x=2.1 and above [E4]",
+  "The right boundary of the active region is at x=4, beyond which f=0 [E3, E5]",
+  "The exact left boundary between -2.5 and -2.0 is unknown; it may be a sharp cutoff or gradual? [E6]"
+ ],
+ "notes": "",
+ "fit": 0.6666666666666666,
+ "heldout": 0.67,
+ "matches": [
+  1.0,
+  0.95,
+  1.0,
+  0.9375,
+  1.0,
+  1.0
+ ],
+ "made_at": 6
+}

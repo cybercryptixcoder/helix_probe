@@ -1,0 +1,22 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f(x) = 0 exactly for x <= -4 and for x >= 4 [E1, E3]",
+  "On (-4, 4) f is a decreasing straight line f(x) = 5.2 - 2.5x [E1, E2]",
+  "The line crosses zero at x = 2.08, so f is positive on (-4, 2.08) and negative on (2.08, 4) [E2]",
+  "For x >= 2.1 the line's negative values are clamped to 0, giving -0.0 [E4]",
+  "Between 2.08 and 2.1 the line's negative values are reported unclamped (e.g. -0.05 at x=2.1, -0.0497 at 2.0999) [E4]",
+  "The clamp onset is at exactly x = 2.1 (values up to 2.0999 unclamped, 2.1 and above clamped) [E4]",
+  "The earlier apparent onset near 2.095 was a misreading; E4 shows unclamped values through 2.0999 [E4]"
+ ],
+ "notes": "Moved the clamp threshold from ~2.095 to exactly 2.1, since E4 shows unclamped values up to 2.0999 and clamped at 2.1; also removed the special-case that let x=2.09 stay unclamped (it's naturally below 2.1 now).",
+ "fit": 0.5,
+ "heldout": 0.63,
+ "matches": [
+  1.0,
+  0.95,
+  1.0,
+  0.9375
+ ],
+ "made_at": 4
+}

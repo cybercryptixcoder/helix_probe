@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "Outputs are small and irregular, not a smooth low-order polynomial or simple linear function [E1].",
+  "Values at nearby inputs can differ in sign and magnitude unpredictably, suggesting noise or a highly oscillatory/hash-like function [E1].",
+  "No obvious symmetry: f(-x) is not consistently \u00b1f(x) [E1]."
+ ],
+ "notes": "Only one broad probe exists; outputs look essentially random in [-0.25, 0.13]. I'll model as a small pseudo-random function of x (deterministic hash-like) with no clear structure, and note uncertainty.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.05
+ ],
+ "made_at": 1
+}

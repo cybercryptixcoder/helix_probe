@@ -1,0 +1,67 @@
+Helix Probe on 'find_numeric_f00879': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do across a broad spread of the domain, including negatives, ze...(+42 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.05 (was 0.00), held-out 0%
+[2] E2 Is f(x) smooth between the coarse sample points of E1, or does it jump arou...(+82 chars)  model v1 match 0.00
+      model v2: fit 0% (was 0%), mean match 0.03 (was 0.03), held-out 0%
+[3] E3 Does f have a smooth, reproducible deterministic component at all, or are r...(+146 chars)  model v2 match 0.05
+      revision rejected: mean match 0.00 < 0.03
+      model v3: fit 0% (was 0%), mean match 0.07 (was 0.03), held-out 0%
+[4] E4 Is the apparent randomness at a fixed x real (repeated calls differ) or is ...(+128 chars)  model v3 match 0.00
+      model v4: fit 0% (was 0%), mean match 0.10 (was 0.05), held-out 0%
+[5] E5 Is the mean of f(x) a smooth increasing function of x, and what is its actu...(+118 chars)  model v4 match 0.05
+      model v5: fit 0% (was 0%), mean match 0.09 (was 0.09), held-out 0%
+[6] E6 Is the mean of f(x) actually flat/independent of x over a wide range (sugge...(+67 chars)  model v5 match 0.05
+      revision rejected: mean match 0.03 < 0.08
+      model v6: fit 0% (was 0%), mean match 0.08 (was 0.08), held-out 0%
+[7] E7 Does the conditional mean of f depend on x at all, or is every x just noise...(+93 chars)  model v6 match 0.05
+      revision rejected: mean match 0.06 < 0.08
+      model v7: fit 0% (was 0%), mean match 0.08 (was 0.08), held-out 0%
+[8] E8 Is the spread at a fixed x really large random noise, or is the apparent va...(+121 chars)  model v7 match 0.05
+      revision rejected: mean match 0.07 < 0.07
+      model v8: fit 0% (was 0%), mean match 0.07 (was 0.07), held-out 0%
+[9] E9 Does the conditional mean of f stay near zero for large negative x and larg...(+142 chars)  model v8 match 0.15
+      model v9: fit 0% (was 0%), mean match 0.08 (was 0.08), held-out 0%
+[10] E10 Is the conditional mean flat (constant) across the whole domain, or does it...(+165 chars)  model v9 match 0.05
+      revision rejected: mean match 0.03 < 0.08
+      revision rejected: mean match 0.05 < 0.08
+[11] E11 Is the conditional mean really flat (constant) far out on each side, or doe...(+135 chars)  model v9 match 0.00
+      revision rejected: mean match 0.05 < 0.07
+      revision rejected: mean match 0.04 < 0.07
+[12] E12 Do repeated calls at the same x have a stable mean at all, or is the 'mean'...(+99 chars)  model v9 match 0.00
+      model v10: fit 0% (was 0%), mean match 0.07 (was 0.07), held-out 0%
+[13] E13 Is the conditional mean at x=0 really near zero (as the 20 repeats in E12 s...(+156 chars)  model v10 match 0.10
+      revision rejected: mean match 0.02 < 0.07
+      revision rejected: mean match 0.05 < 0.07
+[14] E14 Is the conditional mean at x=2 really about +2.2 (as E13's 10 repeats sugge...(+150 chars)  model v10 match 0.00
+      revision rejected: mean match 0.04 < 0.06
+      revision rejected: mean match 0.04 < 0.06
+[15] E15 Is the conditional mean really near zero at x=0 (E12 avg -0.35, E13 avg +0....(+147 chars)  model v10 match 0.00
+      model v11: fit 0% (was 0%), mean match 0.08 (was 0.06), held-out 0%
+[16] E16 Is the conditional mean at x=0.5 really about +1.6 (E15 avg) while at x=0 i...(+158 chars)  model v11 match 0.10
+      model v12: fit 0% (was 0%), mean match 0.08 (was 0.08), held-out 0%
+[17] E17 Is there a distinct localized bump (a special interval) near x≈1-2, or is t...(+129 chars)  model v12 match 0.05
+      model v13: fit 0% (was 0%), mean match 0.08 (was 0.08), held-out 0%
+[18] E18 Is the conditional mean at x=0 really near zero, and does a sharp step occu...(+119 chars)  model v13 match 0.05
+      revision rejected: mean match 0.06 < 0.08
+      revision rejected: mean match 0.04 < 0.08
+[19] E19 Does the conditional mean jump sharply between x=0 (mean ≈ 0.17) and x=0.1 ...(+102 chars)  model v13 match 0.05
+      revision rejected: mean match 0.04 < 0.08
+      revision rejected: mean match 0.04 < 0.08
+[20] E20 Is the jump between x=0 (mean ~0.2) and x=0.1 (mean ~2.1) a true discontinu...(+155 chars)  model v13 match 0.00
+      revision rejected: mean match 0.03 < 0.07
+      revision rejected: mean match 0.04 < 0.07
+[21] E21 Is the jump between x=0 and x=0.1 a genuine step in the conditional mean, o...(+188 chars)  model v13 match 0.00
+      revision rejected: mean match 0.04 < 0.07
+      revision rejected: mean match 0.04 < 0.07
+[22] E22 Is the mean really near 0 at x=0 and near 2 at x=0.02-0.1 (a sharp step jus...(+128 chars)  model v13 match 0.05
+      revision rejected: mean match 0.04 < 0.07
+      revision rejected: mean match 0.04 < 0.07
+[23] E23 Is the mean at x=0 really near 0.2 while at x=0.01 it is near 1.5 (a sharp ...(+140 chars)  model v13 match 0.00
+      revision rejected: mean match 0.04 < 0.07
+      revision rejected: mean match 0.05 < 0.07
+[24] E24 Where exactly does the mean step from ~0 to ~2 on the positive side of x=0 ...(+160 chars)  model v13 match 0.00
+      revision rejected: mean match 0.04 < 0.06
+      model v14: fit 0% (was 0%), mean match 0.07 (was 0.06), held-out 0%
+[25] E25 Does the conditional mean stay near +2 across the whole positive plateau (x...(+206 chars)  model v14 match 0.10
+      model v15: fit 0% (was 0%), mean match 0.08 (was 0.08), held-out 0%
+{"env": "find_numeric_f00879", "experiments": 25, "model_version": 15, "fit": 0.0, "heldout": 0.0, "llm_calls": 69, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

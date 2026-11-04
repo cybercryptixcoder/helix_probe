@@ -1,0 +1,22 @@
+{
+ "env": "find_numeric_f00809",
+ "experiments": 25,
+ "model_version": 15,
+ "fit": 0.2,
+ "heldout": 0.0,
+ "llm_calls": 55,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "For x <= -78.55, f is deterministic and smooth, increasing monotonically from 0.0046 at -128 to 0.0075 near -78.55 [E1, E5, E9, E10, E12, E16, E18, E19, E20, E21, E22].",
+  "The deterministic/stochastic boundary lies between -78.55 (deterministic, 0.0075) and -78.5 (stochastic); I use -78.525 as the best guess [E20, E21].",
+  "For x >= -78.5, f is stochastic: identical inputs give different outputs, roughly symmetric around 0 with std ~0.1, range about [-0.30, 0.32] [E2, E3, E4, E6, E7, E10, E11, E12, E14, E15, E17, E20, E23, E24].",
+  "The stochastic distribution appears the same at large positive (127), moderately negative (-60), small inputs (0), and at -78.5 [E15, E17, E8, E23, E24].",
+  "The far-negative deterministic function is smooth and monotone; a piecewise-linear fit through the measured points approximates it [E9, E10, E12, E18, E19, E20, E21, E22].",
+  "No smoothness or periodicity in the noisy region: nearby inputs give unrelated values [E2, E3, E6, E11].",
+  "The stochastic output is not exactly reproducible so exact-match scoring on noisy probes is inherently limited; the model should match the distribution, not individual draws [E15, E17, E23, E24]."
+ ]
+}
