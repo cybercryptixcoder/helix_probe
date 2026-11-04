@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box is piecewise linear with slope 2.4: for x<0, y=2.4x+11.7; for x\u22650, y=2.4x+1.8. This fits all 10 points in E1 exactly (the discontinuity at 0 is the \"different interval\" behavior).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 208, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -1,0 +1,34 @@
+Helix Probe v3 on 'find_numeric_f00366': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 279 (fit 0.000 -> 1.000); held-out 82%
+[2] E2 learn: Where exactly does the transition from 8.8 (negative side) to -11...(+91 chars)  (v1 predicted it: match 0.95; cost 20, spent 30)
+      model v2 by the updater: fit 1.00, size 402 (fit 0.975 -> 1.000); held-out 98%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 40)
+[4] E4 learn: Where exactly do the two transition boundaries lie (negative side...(+111 chars)  (v2 predicted it: match 0.90; cost 20, spent 60)
+      model v3 by the updater: fit 0.99, size 318 (fit 0.975 -> 0.988); held-out 98%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 70)
+[6] E6 learn: Is the value at x=0 a true isolated spike, or does a narrow band ...(+89 chars)  (v3 predicted it: match 1.00; cost 10, spent 80)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 677)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 90)
+[8] E8 learn: Does the negative-side boundary between 8.8 and 9.8 lie between -...(+133 chars)  (v3 predicted it: match 0.50; cost 10, spent 100)
+      model v4 by the updater: fit 1.00, size 320 (fit 0.931 -> 1.000); held-out 99%
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 110)
+      model v5 by the theorist: fit 0.97, size 677 (on trial it predicted 0.90 of 3 new experiments, the current model 0.83); held-out 99%
+[10] E10 learn: Where exactly does the negative-side boundary between 9.8 and 8.8...(+118 chars)  (v5 predicted it: match 0.75; cost 20, spent 130)
+      model v6 by the updater: fit 1.00, size 593 (fit 0.945 -> 1.000); held-out 100%
+[11] E11 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 140)
+[12] E12 learn: Is the transition boundary on the negative side symmetric with th...(+115 chars)  (v6 predicted it: match 1.00; cost 20, spent 160)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 355)
+[13] E13 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 170)
+[14] E14 learn: Is the negative-side boundary really at ~4.105 (symmetric with po...(+134 chars)  (v6 predicted it: match 1.00; cost 20, spent 190)
+[15] E15 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 200)
+      model v7 by the theorist: fit 1.00, size 355 (on trial it predicted 1.00 of 3 new experiments, the current model 1.00); held-out 100%
+[16] E16 learn: Does the positive-side transition between -11.4 and -12.4 occur e...(+138 chars)  (v7 predicted it: match 1.00; cost 20, spent 220)
+[17] E17 learn: a random ordinary probe  (v7 predicted it: match 1.00; cost 10, spent 230)
+[18] E18 learn: Are there any other special values or intervals hidden inside the...(+199 chars)  (v7 predicted it: match 1.00; cost 20, spent 250)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.98, size 613)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00366", "experiments": 18, "cost": 250, "model_version": 7, "model_role": "theorist", "fit": 1.0, "size": 355, "exam": null, "heldout": 1.0, "llm_calls": 17, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

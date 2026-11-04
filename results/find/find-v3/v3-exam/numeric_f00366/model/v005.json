@@ -1,0 +1,1 @@
+{"version": 5, "role": "updater", "notes": "I moved the negative-side boundary from -1.5 to -4.25: E8 shows 9.8 holds down to x=-4.0 and 8.8 starts at x=-4.5, so the switch is between -4.0 and -4.5, not near -1.5 as v4 assumed.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 327, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 8, "heldout": 0.99}

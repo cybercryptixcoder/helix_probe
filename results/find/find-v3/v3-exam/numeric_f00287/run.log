@@ -40,3 +40,5 @@ Helix Probe v3 on 'find_numeric_f00287': 0 experiments so far, model v0, spent 4
       updater's fix not kept: same scores and not smaller (276 vs 276 chars)
       updater's fix not kept: same scores and not smaller (276 vs 276 chars)
       theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v8 predicted it: match 1.00; cost 10, spent 350)
+{"env": "find_numeric_f00287", "experiments": 25, "cost": 350, "model_version": 8, "model_role": "updater", "fit": 0.996, "size": 276, "exam": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "The only miss was at x=0: the box returns \u2212228.87 there, not the right-hand limit 1.8. So x=0 is a special isolated point, while the two linear pieces hold for x<0 and x>0 respectively.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 260, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

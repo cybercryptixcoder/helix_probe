@@ -1,0 +1,40 @@
+Helix Probe v3 on 'find_numeric_f00470': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+[2] E2 learn: Does f behave like a fixed power law (e.g. y ≈ sign(x)·|x|^p) acr...(+131 chars)  (v0 predicted it: match 0.00; cost 20, spent 34)
+      model v1 by the updater: fit 0.90, size 1666, exam 0.43 (exam 0.000 -> 0.425); held-out 0%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.60; cost 10, spent 44)
+      model v2 by the updater: fit 0.67, size 2138, exam 1.00 (exam 0.425 -> 1.000); held-out 100%
+[4] E4 learn: For small positive and negative x (|x| < 1.2), does the function ...(+167 chars)  (v2 predicted it: match 0.00; cost 20, spent 64)
+      model v3 by the updater: fit 0.60, size 2513, exam 1.00 (fit 0.500 -> 0.600); held-out 100%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 74)
+[6] E6 learn: Is the small-|x| region a smooth additive bump on top of the powe...(+196 chars)  (v3 predicted it: match 0.00; cost 20, spent 94)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 104)
+[8] E8 learn: Does the function have a smooth additive correction on top of a p...(+278 chars)  (v3 predicted it: match 0.00; cost 20, spent 124)
+      updater's fix not kept: its exam is 0.725, the current model's is 1.000
+      theorist (fixes stalled)
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 134)
+[10] E10 learn: Does the function equal a single odd power law a*x^5 + b*x^3 + c*...(+275 chars)  (v3 predicted it: match 0.00; cost 20, spent 154)
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 164)
+[12] E12 learn: Is the small-|x| region on each side a smooth polynomial (degree ...(+282 chars)  (v3 predicted it: match 0.00; cost 20, spent 184)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 194)
+[14] E14 learn: On the positive side, is the small-x region best described by a s...(+293 chars)  (v3 predicted it: match 0.00; cost 20, spent 214)
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 224)
+[16] E16 learn: Does the positive side follow a clean single power law a*x^5 + b*...(+151 chars)  (v3 predicted it: match 0.00; cost 20, spent 244)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.97, size 4803)
+[17] E17 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 254)
+[18] E18 learn: What is the exact shape of the positive-side small-x region betwe...(+131 chars)  (v3 predicted it: match 0.00; cost 20, spent 274)
+      updater's fix not kept: its fit is 0.506, the current model's is 0.522
+[19] E19 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 284)
+      model v4 by the theorist: fit 0.94, size 4803, exam 1.00 (on trial it predicted 0.80 of 3 new experiments, the current model 0.67); held-out 100%
+[20] E20 learn: Does the small-|x| region on the negative side mirror the positiv...(+117 chars)  (v4 predicted it: match 0.90; cost 20, spent 304)
+      updater's fix not kept: its fit is 0.918, the current model's is 0.938
+[21] E21 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 314)
+[22] E22 learn: Is the small-|x| region (|x|<1) on both sides an exact low-degree...(+126 chars)  (v4 predicted it: match 0.55; cost 20, spent 334)
+      theorist (fixes stalled)
+[23] E23 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 344)
+[24] E24 learn: What is the exact shape of the small-|x| region on the negative s...(+185 chars)  (v4 predicted it: match 0.50; cost 20, spent 364)
+      model v5 by the updater: fit 0.95, size 6105, exam 1.00 (fit 0.908 -> 0.952); held-out 100%
+      theorist (every 6 experiments)

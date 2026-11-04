@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I moved the boundary from -9 to -9.25: E4 shows x=-9.5 gives the small branch (~7.95) while x=-9.25 gives the linear branch (96.8), so the switch lies between them, not at -9.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 181, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

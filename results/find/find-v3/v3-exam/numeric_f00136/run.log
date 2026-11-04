@@ -30,3 +30,20 @@ Helix Probe v3 on 'find_numeric_f00136': 0 experiments so far, model v0, spent 4
       model v5 by the updater: fit 0.71, size 1167, exam 0.95 (exam 0.900 -> 0.950); held-out 21%
 [14] E14 learn: What is the fine shape of the baseline between x=-16 and x=8 (the...(+149 chars)  (v5 predicted it: match 0.40; cost 20, spent 213)
       updater's fix not kept: its fit is 0.656, the current model's is 0.685
+      model v6 by the updater: fit 1.00, size 1441, exam 1.00 (exam 0.950 -> 1.000); held-out 98%
+[15] E15 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 223)
+[16] E16 learn: Does the sharp dip near x=0..2 have an exact mirrored twin at neg...(+167 chars)  (v6 predicted it: match 0.70; cost 20, spent 243)
+      model v7 by the updater: fit 1.00, size 1795, exam 1.00 (fit 0.981 -> 1.000); held-out 100%
+[17] E17 learn: a random ordinary probe  (v7 predicted it: match 1.00; cost 10, spent 253)
+[18] E18 learn: Is the narrow dip near x=0-1 actually a smooth asymmetric notch w...(+184 chars)  (v7 predicted it: match 1.00; cost 20, spent 273)
+      theorist (every 6 experiments)
+      theorist's model not tried: its exam is 0.950, the current model's is 1.000
+[19] E19 learn: a random ordinary probe  (v7 predicted it: match 1.00; cost 10, spent 283)
+[20] E20 learn: The model interpolates the left wall of the dip with a sharp clif...(+296 chars)  (v7 predicted it: match 1.00; cost 20, spent 303)
+[21] E21 learn: a random ordinary probe  (v7 predicted it: match 1.00; cost 10, spent 313)
+[22] E22 learn: Do the small systematic residuals in the mid-range (e.g. x=-12.7 ...(+204 chars)  (v7 predicted it: match 1.00; cost 20, spent 333)
+[23] E23 learn: a random ordinary probe  (v7 predicted it: match 1.00; cost 10, spent 343)
+[24] E24 learn: Is the right baseline (x>20) truly a single straight line, or doe...(+124 chars)  (v7 predicted it: match 1.00; cost 20, spent 363)
+      theorist (every 6 experiments)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00136", "experiments": 24, "cost": 363, "model_version": 7, "model_role": "updater", "fit": 1.0, "size": 1795, "exam": 1.0, "heldout": 1.0, "llm_calls": 42, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

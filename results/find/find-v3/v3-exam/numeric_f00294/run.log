@@ -2,3 +2,17 @@ Helix Probe v3 on 'find_numeric_f00294': 0 experiments so far, model v0, spent 4
 [1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
       model v1 by the updater: fit 1.00, size 177, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
 [2] E2 learn: Is the function's behavior at x=0 continuous with the positive br...(+88 chars)  (v1 predicted it: match 0.93; cost 15, spent 29)
+      model v2 by the updater: fit 1.00, size 228, exam 1.00 (fit 0.967 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 39)
+[4] E4 learn: Do the slopes of both linear branches stay exactly 1 across the f...(+96 chars)  (v2 predicted it: match 1.00; cost 20, spent 59)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 69)
+[6] E6 learn: Is the slope exactly 1 on both branches and is the jump at zero e...(+115 chars)  (v2 predicted it: match 1.00; cost 16, spent 85)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 370)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 95)
+[8] E8 learn: Does the exact value at x=0 behave like a special isolated point,...(+83 chars)  (v2 predicted it: match 1.00; cost 11, spent 106)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 116)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Is the slope exactly 1 on both branches across a wide spread of o...(+87 chars)  (v2 predicted it: match 1.00; cost 16, spent 132)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00294", "experiments": 10, "cost": 132, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 228, "exam": 1.0, "heldout": 1.0, "llm_calls": 9, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
