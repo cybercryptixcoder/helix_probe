@@ -1,0 +1,69 @@
+Helix Probe on 'find_numeric_f00683': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, including sign, scale, and a...(+20 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.70 (was 0.00), held-out 0%
+[2] E2 Where exactly does the negative branch depart from the linear rule 1.4·x, a...(+51 chars)  model v1 match 0.15
+      model v2: fit 0% (was 0%), mean match 0.68 (was 0.42), held-out 0%
+[3] E3 Is the positive branch really the quadratic 10.4x+0.5x^2 for x>=1, or does ...(+140 chars)  model v2 match 0.60
+      model v3: fit 0% (was 0%), mean match 0.65 (was 0.65), held-out 0%
+[4] E4 Does the positive branch follow 10.4x + 0.5x^2 exactly for all x >= 1 (so t...(+126 chars)  model v3 match 0.45
+      model v4: fit 0% (was 0%), mean match 0.60 (was 0.60), held-out 0%
+[5] E5 Is the negative branch exactly the line 1.4x - 10 (with the observed scatte...(+54 chars)  model v4 match 0.85
+      revision rejected: mean match 0.61 < 0.65
+      model v5: fit 0% (was 0%), mean match 0.65 (was 0.65), held-out 0%
+[6] E6 Is the negative branch exactly 1.4x - 10, or is the scatter systematic (e.g...(+52 chars)  model v5 match 0.75
+      model v6: fit 0% (was 0%), mean match 0.67 (was 0.67), held-out 0%
+[7] E7 Is the negative branch exactly a straight line (constant slope and offset),...(+44 chars)  model v6 match 0.75
+      model v7: fit 0% (was 0%), mean match 0.68 (was 0.68), held-out 0%
+[8] E8 On the negative branch, is the systematic deviation from a straight line a ...(+231 chars)  model v7 match 0.75
+      revision rejected: mean match 0.52 < 0.69
+      model v8: fit 0% (was 0%), mean match 0.69 (was 0.69), held-out 0%
+[9] E9 Is the negative branch exactly a straight line with slope 1.4 and intercept...(+130 chars)  model v8 match 0.65
+      model v9: fit 0% (was 0%), mean match 0.68 (was 0.68), held-out 0%
+[10] E10 Is the positive branch for x>=2 really the quadratic 10.4x+0.5x^2, or does ...(+138 chars)  model v9 match 0.35
+      model v10: fit 20% (was 0%), mean match 0.80 (was 0.65), held-out 100%
+[11] E11 For x<0, is the deviation from a straight line actually a deterministic fun...(+154 chars)  model v10 match 0.60
+      revision rejected: mean match 0.65 < 0.78
+      revision rejected: mean match 0.69 < 0.78
+[12] E12 Is the negative branch a straight line plus a small periodic (fractional-pa...(+193 chars)  model v10 match 0.65
+      revision rejected: mean match 0.65 < 0.77
+      revision rejected: mean match 0.68 < 0.77
+[13] E13 On the negative branch, does f(x) equal 1.4·x - 10 exactly at integer x (wh...(+124 chars)  model v10 match 0.85
+      revision rejected: mean match 0.66 < 0.77
+      revision rejected: mean match 0.66 < 0.77
+[14] E14 Is the negative branch exactly f(x) = 1.4x - 10 plus a sawtooth depending o...(+259 chars)  model v10 match 0.80
+      revision rejected: mean match 0.70 < 0.78
+      revision rejected: mean match 0.70 < 0.78
+[15] E15 On the negative branch, is the value at integer x exactly 1.4x-10 (e.g. -12...(+180 chars)  model v10 match 0.80
+      revision rejected: mean match 0.46 < 0.78
+      revision rejected: mean match 0.49 < 0.78
+[16] E16 For x<0, is the value at integer x exactly 1.4x - 1.4 (a clean line with in...(+139 chars)  model v10 match 0.75
+      revision rejected: mean match 0.68 < 0.78
+      revision rejected: mean match 0.67 < 0.78
+[17] E17 Does the negative branch follow a clean linear law with a different interce...(+178 chars)  model v10 match 0.35
+      revision rejected: mean match 0.66 < 0.75
+      revision rejected: mean match 0.66 < 0.75
+[18] E18 Is the negative branch's deviation from 1.4x-10 driven by a periodic functi...(+147 chars)  model v10 match 0.85
+      revision rejected: mean match 0.40 < 0.76
+      revision rejected: mean match 0.70 < 0.76
+[19] E19 Is the negative branch's value at integer x exactly 1.4x - 1.4 (a clean lin...(+179 chars)  model v10 match 0.75
+      revision rejected: mean match 0.41 < 0.76
+      revision rejected: mean match 0.41 < 0.76
+[20] E20 Is the negative branch's value at a repeated non-integer x deterministic (s...(+155 chars)  model v10 match 0.85
+      revision rejected: mean match 0.69 < 0.76
+      revision rejected: mean match 0.71 < 0.76
+[21] E21 Is the negative branch's value at integer x exactly 1.4x - 1.4 (a clean lin...(+180 chars)  model v10 match 0.80
+      revision rejected: mean match 0.69 < 0.76
+      revision rejected: mean match 0.65 < 0.76
+[22] E22 At repeated non-integer points on the negative branch, is the output truly ...(+168 chars)  model v10 match 0.85
+      revision rejected: mean match 0.72 < 0.77
+      revision rejected: mean match 0.70 < 0.77
+[23] E23 Is the negative branch deterministic at all (same x always same y), or is t...(+140 chars)  model v10 match 0.75
+      revision rejected: mean match 0.48 < 0.77
+      revision rejected: mean match 0.70 < 0.77
+[24] E24 Is the negative branch's apparent noise actually a deterministic function o...(+272 chars)  model v10 match 0.70
+      revision rejected: mean match 0.57 < 0.76
+      revision rejected: mean match 0.72 < 0.76
+[25] E25 Is the negative-branch output at a fixed non-integer x truly random (varyin...(+213 chars)  model v10 match 0.55
+      revision rejected: mean match 0.54 < 0.75
+      revision rejected: mean match 0.71 < 0.75
+{"env": "find_numeric_f00683", "experiments": 25, "model_version": 10, "fit": 0.08, "heldout": 1.0, "llm_calls": 67, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

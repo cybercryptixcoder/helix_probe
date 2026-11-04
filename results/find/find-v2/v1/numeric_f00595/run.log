@@ -1,0 +1,48 @@
+Helix Probe on 'find_numeric_f00595': 0 experiments so far, model v0, held-out set of 100
+[1] E1 Does f behave like a simple, smooth function across the whole domain, or ar...(+134 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 66%
+[2] E2 Does the x+sign(x) rule hold exactly at non-integer values, and is f(0) rea...(+52 chars)  model v1 match 0.25
+      model v2: fit 100% (was 50%), mean match 1.00 (was 0.62), held-out 66%
+[3] E3 Does the floor-based rule hold for non-integer values very close to zero on...(+98 chars)  model v2 match 1.00
+[4] E4 Does the floor(x)+sign(x) rule hold at half-integer and other fractional va...(+124 chars)  model v2 match 1.00
+[5] E5 Does the floor(x)+sign(x) rule hold for fractional values between 0 and 1 (...(+112 chars)  model v2 match 1.00
+[6] E6 Does the floor(x)+sign(x) rule still hold at exact integers across the full...(+134 chars)  model v2 match 1.00
+[7] E7 Does the floor(x)+sign(x) rule hold for very small positive/negative fracti...(+158 chars)  model v2 match 1.00
+[8] E8 Does the floor(x)+sign(x) rule hold at fractional values just above and bel...(+126 chars)  model v2 match 1.00
+[9] E9 Does the floor(x)+sign(x) rule hold at the extreme fractional edges of the ...(+118 chars)  model v2 match 1.00
+[10] E10 Does the model hold at inputs outside the tested grid — very large-magnitud...(+171 chars)  model v2 match 1.00
+[11] E11 Is f(x) really defined for every real input in [-128, 128], or does it retu...(+111 chars)  model v2 match 1.00
+[12] E12 Is f truly a pure floor+sign step function, or does it track a continuous x...(+92 chars)  model v2 match 1.00
+[13] E13 Does f follow floor(x)+sign(x) at exact integers in the middle of the domai...(+146 chars)  model v2 match 1.00
+[14] E14 Does the floor(x)+sign(x) rule hold at exact half-integers (x = k + 0.5) at...(+142 chars)  model v2 match 0.95
+      model v3: fit 100% (was 93%), mean match 1.00 (was 1.00), held-out 67%
+[15] E15 How wide is the anomalous interval around x=40.5 where f deviates from floo...(+47 chars)  model v3 match 0.14
+      revision rejected: mean match 0.94 < 0.94
+      revision rejected: mean match 0.94 < 0.94
+[16] E16 How far does the anomalous region around x=40.5 extend in both directions, ...(+199 chars)  model v3 match 0.25
+      model v4: fit 88% (was 88%), mean match 0.95 (was 0.90), held-out 83%
+[17] E17 Where exactly are the left and right boundaries of the anomalous interval, ...(+75 chars)  model v4 match 0.50
+      model v5: fit 94% (was 82%), mean match 0.95 (was 0.92), held-out 85%
+[18] E18 Where is the left boundary of the anomalous interval — does f stay anomalou...(+77 chars)  model v5 match 0.55
+      model v6: fit 78% (was 89%), mean match 0.95 (was 0.93), held-out 96%
+[19] E19 Where exactly does the anomalous interval begin on the left — is the bounda...(+115 chars)  model v6 match 0.45
+      model v7: fit 95% (was 74%), mean match 0.96 (was 0.92), held-out 99%
+[20] E20 Inside the anomalous interval, is f a smooth deterministic function of x (s...(+128 chars)  model v7 match 0.30
+      revision rejected: mean match 0.90 < 0.93
+      revision rejected: mean match 0.91 < 0.93
+[21] E21 Is the anomalous region's interior actually a smooth function of x, or does...(+259 chars)  model v7 match 0.35
+      revision rejected: mean match 0.87 < 0.90
+      revision rejected: mean match 0.87 < 0.90
+[22] E22 Does the anomalous output depend on the fractional part of x (e.g. a period...(+132 chars)  model v7 match 0.35
+      revision rejected: mean match 0.84 < 0.87
+      revision rejected: mean match 0.84 < 0.87
+[23] E23 Is the anomalous interval's output a deterministic function of x that repea...(+211 chars)  model v7 match 0.90
+      revision rejected: mean match 0.84 < 0.87
+      revision rejected: mean match 0.85 < 0.87
+[24] E24 Is the anomalous output a deterministic function of x alone (so repeating t...(+80 chars)  model v7 match 0.20
+      revision rejected: mean match 0.82 < 0.85
+      revision rejected: mean match 0.82 < 0.85
+[25] E25 Is the anomalous interval's output actually a deterministic function of the...(+202 chars)  model v7 match 0.25
+      revision rejected: mean match 0.77 < 0.82
+      revision rejected: mean match 0.79 < 0.82
+{"env": "find_numeric_f00595", "experiments": 25, "model_version": 7, "fit": 0.72, "heldout": 0.99, "llm_calls": 49, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

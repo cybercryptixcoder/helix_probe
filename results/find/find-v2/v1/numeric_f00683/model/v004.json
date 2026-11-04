@@ -1,0 +1,22 @@
+{
+ "version": 4,
+ "beliefs": [
+  "For x>=1 the positive branch is 10.4\u00b7x + 0.5\u00b7x^2 exactly at integer powers and large x (1\u219210.6, 2\u219220.7, 4\u219246.9, 128\u21921671.3) [E1]",
+  "For 0<x<1 the positive branch is 10.4\u00b7x - 3.2 (0.1\u2192-2.19, 0.5\u21922.05, 0.9\u21926.29) [E2, E3]",
+  "In 1<x<2 the observed values are erratic and don't follow a smooth formula (1.05\u21929.255, 1.35\u219213.185, 1.45\u219213.495, 1.65\u219216.115, 1.9\u219220.39, 1.95\u219220.045) \u2014 looks like noise or a hidden oscillation [E3, E4]",
+  "Above x\u22482 the values again track 10.4x+0.5x^2 closely (2.1\u219224.01, 2.6\u219228.56, 3.25\u219238.075) [E4]",
+  "For x<0, f is roughly linear with slope \u22481.4 and intercept \u2248-10, but noisy (values scatter around the trend) [E1, E2]",
+  "f(0)=-383.12 is a sharp spike [E1]",
+  "The erratic 1<x<2 region is unexplained; a best guess is the quadratic plus noise? [E4]"
+ ],
+ "notes": "E4 shows the 1<x<2 region is not a smooth shifted rule; values jump around (e.g. 1.3\u219214.53 then 1.35\u219213.185). Kept the quadratic for x>=2 and the linear rule for x<1, and left the 1<x<2 band as quadratic-with-noise guess.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.65,
+  0.6,
+  0.45
+ ],
+ "made_at": 4
+}

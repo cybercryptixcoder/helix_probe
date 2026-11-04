@@ -1,0 +1,31 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f(x) = floor(x) + sign(x) for x != 0, and f(0) = -1 [E1-E13]",
+  "For positive x, f(x) = floor(x) + 1; for negative x, f(x) = floor(x) - 1 [E1-E13]",
+  "At x = 0, f(0) = -1, breaking the floor+sign pattern (which would give -1 too since floor(0)-1=-1) [E1, E2, E11]",
+  "The rule is a step function: non-integer inputs round down then add/subtract 1 [E2, E12]",
+  "Exception: f(40.5) returned -0.5767 instead of the predicted 41 \u2014 a single anomalous value, possibly noise or a special interval near x\u224840.5 [E14]",
+  "Hypothesis: there is a small interval around x\u224840.5 where f behaves differently (returns a small non-integer value)? [E14]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 0.67,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 14
+}

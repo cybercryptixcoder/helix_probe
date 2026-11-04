@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "For x>0, f(x) = 10.4\u00b7x + 0.5\u00b7x^2 holds exactly at x=1,2,4,8,16,32,64,100,128 (e.g. 1\u219210.6, 2\u219220.7, 4\u219246.9, 128\u21921671.3) [E1]",
+  "For 0<x<1 the positive branch is 10.4\u00b7x - 3.2 (0.1\u2192-2.19, 0.25\u2192-1.225, 0.5\u21922.05, 0.75\u21924.325, 0.9\u21926.29) [E2, E3]",
+  "The transition between the two positive rules is near x\u22481: f(1.0)=8.6 sits between 10.4\u00b71-3.2=7.2 and 10.4+0.5=10.9, and f(1.1)=8.91 is closer to the linear rule while f(1.25)=12.875 is closer to the quadratic [E3]",
+  "For x<0, f is roughly linear with slope \u22481.4 and intercept \u2248-10, but noisy (values scatter around the trend) [E1, E2]",
+  "f(0)=-383.12 is a sharp spike [E1]",
+  "The positive branch appears to be max(10.4x-3.2, 10.4x+0.5x^2)? \u2014 but at x=1.0 observed 8.6 is below both (7.2 and 10.9), so a smooth blend or a third rule near x\u22481 is likely [E3]"
+ ],
+ "notes": "E3 shows the quadratic does NOT hold at x=1.0 (8.6 vs 10.9) or x=1.1 (8.91 vs 12.0), but does hold at x=1.25+ (12.875 vs 13.78 close, 1.75\u219218.425 vs 19.73, 2.5\u219227.25 vs 29.125, 3\u219234.8 vs 35.7, 5\u219261 vs 64.5). Actually the quadratic overpredicts slightly at 1.25-5, suggesting the true positive rule for x\u22651 may be 10.4x+0.5x^2 minus a small correction, or the linear rule 10.4x-3.2 blended in. I'll model x<1 as 10.4x-3.2, x\u22651 as 10.4x+0.5x^2 but note the small overprediction; keep negative branch and spike.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.65,
+  0.6
+ ],
+ "made_at": 3
+}

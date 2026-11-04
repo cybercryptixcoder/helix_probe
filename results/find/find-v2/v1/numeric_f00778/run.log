@@ -1,0 +1,63 @@
+Helix Probe on 'find_numeric_f00778': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do at a broad spread of inputs, including negatives, zero, smal...(+88 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 How does f behave between the widely spaced points near zero — is there a s...(+67 chars)  model v1 match 0.25
+      model v2: fit 50% (was 50%), mean match 0.78 (was 0.62), held-out 100%
+[3] E3 What is the exact shape of the transition from the special interval to the ...(+111 chars)  model v2 match 0.70
+      revision rejected: mean match 0.70 < 0.75
+      model v3: fit 33% (was 33%), mean match 0.84 (was 0.75), held-out 100%
+[4] E4 Is the negative-side value at |x| in [0.9,1.5] actually different from the ...(+108 chars)  model v3 match 0.45
+      revision rejected: mean match 0.32 < 0.74
+      model v4: fit 25% (was 25%), mean match 0.74 (was 0.74), held-out 100%
+[5] E5 Is the region |x|<2 actually a smooth deterministic function, or is it nois...(+178 chars)  model v4 match 0.45
+      revision rejected: mean match 0.67 < 0.68
+      model v5: fit 20% (was 20%), mean match 0.69 (was 0.68), held-out 100%
+[6] E6 Is the irregular small-|x| region actually deterministic (reproducible), an...(+56 chars)  model v5 match 0.30
+      revision rejected: mean match 0.61 < 0.62
+      model v6: fit 17% (was 17%), mean match 0.62 (was 0.62), held-out 100%
+[7] E7 Is the small-|x| region truly noisy (irreproducible), or is it a determinis...(+71 chars)  model v6 match 0.40
+      model v7: fit 14% (was 14%), mean match 0.60 (was 0.59), held-out 100%
+[8] E8 Is the small-|x| region truly noisy around a smooth mean, or does the mean ...(+94 chars)  model v7 match 0.10
+      model v8: fit 12% (was 12%), mean match 0.56 (was 0.54), held-out 100%
+[9] E9 Is the mean really noisy everywhere (irreproducible), or is f actually dete...(+173 chars)  model v8 match 0.75
+      model v9: fit 0% (was 11%), mean match 0.61 (was 0.58), held-out 0%
+[10] E10 Is the mean at x=0 really ~3.7, or was that an artifact of the particular x...(+159 chars)  model v9 match 0.15
+      model v10: fit 0% (was 0%), mean match 0.58 (was 0.57), held-out 0%
+[11] E11 Is the noise at large |x| proportional to the mean (multiplicative) or fixe...(+145 chars)  model v10 match 0.90
+      revision rejected: mean match 0.48 < 0.61
+      model v11: fit 0% (was 0%), mean match 0.61 (was 0.61), held-out 0%
+[12] E12 Is the large-|x| mean exactly -3.6*x^3 (so my model's coefficient is slight...(+121 chars)  model v11 match 0.80
+      model v12: fit 25% (was 0%), mean match 0.63 (was 0.62), held-out 100%
+[13] E13 Is the small-|x| region genuinely noisy (irreproducible at identical x) or ...(+147 chars)  model v12 match 0.15
+      model v13: fit 23% (was 23%), mean match 0.59 (was 0.59), held-out 100%
+[14] E14 Is the mean in the small-|x| region actually flat/smooth as my polynomial a...(+162 chars)  model v13 match 0.25
+      revision rejected: mean match 0.54 < 0.57
+      model v14: fit 21% (was 21%), mean match 0.57 (was 0.57), held-out 100%
+[15] E15 Is the small-|x| region's mean actually flat at ~3.7, or does it have a sys...(+184 chars)  model v14 match 0.30
+      model v15: fit 20% (was 20%), mean match 0.55 (was 0.55), held-out 100%
+[16] E16 Does the mean in the small-|x| region actually have a systematic shape (e.g...(+176 chars)  model v15 match 0.20
+      model v16: fit 19% (was 19%), mean match 0.53 (was 0.53), held-out 100%
+[17] E17 Is the mean in the small-|x| region really ~3.6 near 0 but dropping to ~1 n...(+163 chars)  model v16 match 0.50
+      model v17: fit 18% (was 18%), mean match 0.52 (was 0.52), held-out 100%
+[18] E18 What is the exact mean and noise level in the transition region just inside...(+160 chars)  model v17 match 0.45
+      model v18: fit 17% (was 17%), mean match 0.55 (was 0.52), held-out 100%
+[19] E19 Is the mean in the small-|x| region really symmetric (f(-x)≈f(x)) at the sp...(+155 chars)  model v18 match 0.10
+      revision rejected: mean match 0.42 < 0.53
+      model v19: fit 16% (was 16%), mean match 0.53 (was 0.53), held-out 100%
+[20] E20 Is the small-|x| mean actually symmetric and smooth (a single curve through...(+173 chars)  model v19 match 0.15
+      revision rejected: mean match 0.47 < 0.51
+      revision rejected: mean match 0.29 < 0.51
+[21] E21 Is the mean at x=0 really about 3.0-3.5 (as the small-|x| polynomial and E1...(+142 chars)  model v19 match 0.25
+      model v20: fit 14% (was 14%), mean match 0.50 (was 0.50), held-out 100%
+[22] E22 Is the small-|x| region's mean really a symmetric plateau near 3.3, or does...(+196 chars)  model v20 match 0.15
+      model v21: fit 14% (was 14%), mean match 0.48 (was 0.48), held-out 100%
+[23] E23 Is the mean in the small-|x| region symmetric and smooth, or does it have a...(+163 chars)  model v21 match 0.10
+      revision rejected: mean match 0.22 < 0.46
+      revision rejected: mean match 0.45 < 0.46
+[24] E24 Is the small-|x| mean actually asymmetric with a real positive-side dip nea...(+148 chars)  model v21 match 0.05
+      revision rejected: mean match 0.24 < 0.45
+      revision rejected: mean match 0.35 < 0.45
+[25] E25 Is the small-|x| mean really flat at ~3.3 across the whole interior |x|<2, ...(+230 chars)  model v21 match 0.15
+      revision rejected: mean match 0.38 < 0.44
+      revision rejected: mean match 0.22 < 0.44
+{"env": "find_numeric_f00778", "experiments": 25, "model_version": 21, "fit": 0.12, "heldout": 1.0, "llm_calls": 61, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -3,3 +3,29 @@ Helix Probe on 'find_numeric_f00550': 0 experiments so far, model v0, held-out s
       model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 92%
 [2] E2 Is the nonzero value truly isolated at exactly x=0, or does f take nonzero ...(+70 chars)  model v1 match 0.35
       model v2: fit 100% (was 50%), mean match 1.00 (was 0.68), held-out 98%
+[3] E3 Where exactly does the nonzero interval end on each side, and what is the s...(+100 chars)  model v2 match 0.50
+      model v3: fit 67% (was 67%), mean match 0.98 (was 0.83), held-out 99%
+[4] E4 What is the exact shape of f between x=-0.6 and x=0 (the left shoulder), an...(+40 chars)  model v3 match 1.00
+[5] E5 How does f behave between x=-0.6 and x=-0.8, and where exactly does the lef...(+70 chars)  model v3 match 1.00
+[6] E6 Does the left side of f continue smoothly below x=-0.8 toward its zero cuto...(+39 chars)  model v3 match 1.00
+[7] E7 Where exactly on the left does f transition from the spike value near -5.25...(+94 chars)  model v3 match 1.00
+[8] E8 What is the exact shape of the right shoulder between x=0 and x=0.6, where ...(+160 chars)  model v3 match 1.00
+[9] E9 Is the nonzero interval exactly (-0.8, 0.8], i.e. does f drop to zero exact...(+72 chars)  model v3 match 0.67
+      model v4: fit 100% (was 78%), mean match 1.00 (was 0.96), held-out 100%
+[10] E10 What is the exact shape of the right shoulder between x=0.6 and x=0.8, wher...(+106 chars)  model v4 match 1.00
+[11] E11 Does the right side of f drop abruptly to zero just past x=0.8, and is the ...(+87 chars)  model v4 match 1.00
+[12] E12 Is f's interior smooth (differentiable) at the peak of the right-side dip n...(+121 chars)  model v4 match 1.00
+[13] E13 Is the left side of f near x=0 smooth and monotone like the right side, or ...(+98 chars)  model v4 match 1.00
+[14] E14 Is f's interior smooth (no hidden kink) on the right side between x=0.6 and...(+103 chars)  model v4 match 1.00
+[15] E15 Is f's interior smooth (no hidden kink) on the left side between x=-0.4 and...(+113 chars)  model v4 match 1.00
+[16] E16 Is f exactly zero everywhere outside [-0.8, 0.8], including large negative ...(+105 chars)  model v4 match 1.00
+[17] E17 Is f's behavior on the right side between x=0.45 and x=0.6 smooth and consi...(+112 chars)  model v4 match 1.00
+[18] E18 Does the nonzero interval really end exactly at x=-0.8 and x=0.8 on a finer...(+169 chars)  model v4 match 1.00
+[19] E19 Is f's interior smooth and consistent with my interpolation on the left sid...(+121 chars)  model v4 match 1.00
+[20] E20 Is f smooth and consistent with my interpolation on the right side between ...(+135 chars)  model v4 match 1.00
+[21] E21 Is the left side of f between x=-0.8 and x=-0.36 (a stretch only coarsely s...(+99 chars)  model v4 match 1.00
+[22] E22 Is f smooth and consistent with my interpolation on the right side between ...(+116 chars)  model v4 match 1.00
+[23] E23 Does f have a hidden discontinuity or kink exactly at x=0 (where the left a...(+118 chars)  model v4 match 1.00
+[24] E24 Is f continuous at the exact endpoints x=-0.8 and x=0.8, i.e. does f(-0.8) ...(+202 chars)  model v4 match 1.00
+[25] E25 Is f smooth and consistent with my interpolation on the last remaining unsa...(+192 chars)  model v4 match 1.00
+{"env": "find_numeric_f00550", "experiments": 25, "model_version": 4, "fit": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

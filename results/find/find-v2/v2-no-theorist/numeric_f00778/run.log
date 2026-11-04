@@ -1,0 +1,45 @@
+Helix Probe v2 on 'find_numeric_f00778': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 Does f behave like a cubic polynomial (y ≈ a·x^3) across ordinary inputs, a...(+42 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 280 (exam 0.000 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Does the small-|x| region contain a structured bump (e.g. Gaussian or plate...(+97 chars)  (v1 predicted it: match 0.20)
+      model v2 by the updater: exam 1.00, fit 0.84, size 280 (fit 0.800 -> 0.838); held-out 100%
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Is the small-|x| deviation a smooth structured bump or irregular noise, and...(+159 chars)  (v2 predicted it: match 0.30)
+      updater's model not kept: its fit is 0.767, the current model's is 0.775
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Is the small-|x| region truly an added positive offset (bump) on top of the...(+171 chars)  (v2 predicted it: match 0.25)
+      updater's model not kept: its fit is 0.669, the current model's is 0.738
+      updater's model not kept: its fit is 0.719, the current model's is 0.738
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Is the small-|x| deviation from the cubic an added offset (bump) or a modif...(+87 chars)  (v2 predicted it: match 0.10)
+      updater's model not kept: its fit is 0.675, the current model's is 0.700
+      model v3 by the updater: exam 1.00, fit 0.75, size 324 (fit 0.700 -> 0.750); held-out 100%
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 Does the small-|x| region behave like a noisy constant offset (~3) independ...(+181 chars)  (v3 predicted it: match 0.25)
+      updater's model not kept: its fit is 0.725, the current model's is 0.729
+      updater's model not kept: its fit is 0.688, the current model's is 0.729
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+[14] E14 Is the small-|x| deviation from the cubic a random noisy offset around ~3 (...(+187 chars)  (v3 predicted it: match 0.25)
+      updater's model not kept: its fit is 0.675, the current model's is 0.714
+      model v4 by the updater: exam 1.00, fit 0.72, size 325 (fit 0.714 -> 0.721); held-out 100%
+[15] E15 a random ordinary probe  (v4 predicted it: match 1.00)
+[16] E16 Does the small-|x| region contain a genuine structured deviation from the c...(+159 chars)  (v4 predicted it: match 0.05)
+      updater's model not kept: same scores and not smaller (325 vs 325 chars)
+      updater's model not kept: same scores and not smaller (325 vs 325 chars)
+[17] E17 a random ordinary probe  (v4 predicted it: match 1.00)
+[18] E18 Is the small-|x| region a flat noisy plateau around ~3, or does it have rep...(+148 chars)  (v4 predicted it: match 0.15)
+      updater's model not kept: its fit is 0.675, the current model's is 0.683
+[19] E19 a random ordinary probe  (v4 predicted it: match 1.00)
+[20] E20 Is the small-|x| region truly flat noise around ~3, or does it contain a re...(+133 chars)  (v4 predicted it: match 0.20)
+      updater's model not kept: same scores and not smaller (325 vs 325 chars)
+[21] E21 a random ordinary probe  (v4 predicted it: match 1.00)
+[22] E22 Does the small-|x| region's mean offset depend on the cubic term at all — i...(+261 chars)  (v4 predicted it: match 0.05)
+      updater's model not kept: same scores and not smaller (325 vs 325 chars)
+      updater's model not kept: same scores and not smaller (325 vs 325 chars)
+[23] E23 a random ordinary probe  (v4 predicted it: match 1.00)
+[24] E24 Does the small-|x| region's ~3 offset actually sit on top of the cubic (y =...(+224 chars)  (v4 predicted it: match 0.25)
+      model v5 by the updater: exam 1.00, fit 0.66, size 466 (fit 0.658 -> 0.660); held-out 100%
+[25] E25 a random ordinary probe  (v5 predicted it: match 1.00)
+{"env": "find_numeric_f00778", "experiments": 25, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 0.674, "size": 466, "heldout": 1.0, "llm_calls": 35, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

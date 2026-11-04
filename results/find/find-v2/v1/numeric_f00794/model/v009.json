@@ -1,0 +1,31 @@
+{
+ "version": 9,
+ "beliefs": [
+  "f(0)\u2248474 is an isolated spike at exactly x=0 [E1, E6, E7]",
+  "f has an elevated plateau on x in (0, ~0.75] with values ~13-14 [E2, E3, E4, E10]",
+  "The positive plateau's right edge is between 0.750 and 0.753 (f(0.750)\u224814.49, f(0.753)\u22480.33), not at 0.755 or 0.76 [E9, E10]",
+  "The positive plateau extends down to x=0.0005 (f(0.0005)\u224812.7), so there is no gap between the spike and the plateau [E4, E6]",
+  "On the negative side there is an elevated region on x in [-0.75, ~-0.001] with values ~6-7, dropping to near 0 at x=-0.8 and below [E3, E5, E6]",
+  "The negative region's right edge is very close to 0 (f(-0.001)\u22487.46, f(0.001)\u224812.64), so it nearly touches the spike [E6]",
+  "Outside the elevated regions and spike, f is small and irregular (roughly in [-1,1]) across the whole domain, including large |x| [E1, E8, E9, E10]",
+  "The plateau values fluctuate irregularly around ~13.5 with no clear trend, so a constant ~13.5 is the best simple model [E2, E3, E4]",
+  "The negative region values fluctuate irregularly around ~6.8, so a constant ~6.8 is the best simple model [E3, E5, E6]",
+  "The base-region values are essentially unpredictable noise in [-1,1]; a deterministic smooth function is only a rough stand-in [E8, E9, E10]"
+ ],
+ "notes": "Moved the positive plateau's right edge from 0.755 down to ~0.752 based on E10 (f(0.750)=14.49 elevated, f(0.753)=0.33 base), which also explains E9's f(0.752)=0.62. Kept everything else.",
+ "fit": 0.3,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  0.875,
+  0.55,
+  0.75,
+  0.4,
+  1.0,
+  1.0,
+  0.0,
+  0.0,
+  0.2
+ ],
+ "made_at": 10
+}

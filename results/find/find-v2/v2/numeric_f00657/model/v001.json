@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box returns \u00b118 with the sign flipped from the sign of x: negative inputs give +18, positive inputs give -18. I encoded `y = -18 * sign(x)` (with x=0 guessed as -18, marked uncertain).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 231, "matches": [1.0], "made_at": 1, "heldout": 1.0}

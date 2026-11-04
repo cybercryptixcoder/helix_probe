@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00630': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 203 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the output truly a two-valued sign step, or does it vary continuously wi...(+111 chars)  (v1 predicted it: match 0.95)
+      model v2 by the updater: exam 1.00, fit 1.00, size 256 (fit 0.975 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Does the sign-step rule hold uniformly across the full ordinary range, incl...(+123 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the sign-step hold exactly at the boundary between the two values, i.e...(+113 chars)  (v2 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Are there any additional special input values near zero or elsewhere in the...(+141 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Are there any other special input values besides exactly 0.0 that produce t...(+108 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00630", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 256, "heldout": 1.0, "llm_calls": 7, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

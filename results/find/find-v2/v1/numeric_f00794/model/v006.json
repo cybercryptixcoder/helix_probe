@@ -1,0 +1,25 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f(0)\u2248474 is an isolated spike at exactly x=0 [E1, E6]",
+  "f has an elevated plateau on x in (0, ~0.76] with values ~13-14, dropping to near 0 just above 0.76 (f(0.75)\u224814.5, f(0.77)\u22480.52) [E2, E3, E4]",
+  "The positive plateau extends down to x=0.0005 (f(0.0005)\u224812.7), so there is no gap between the spike and the plateau [E4, E6]",
+  "On the negative side there is an elevated region on x in [-0.75, ~-0.001] with values ~6-7, dropping to near 0 at x=-0.8 and below (f(-0.8)\u2248-0.82, f(-0.75)\u22486.47) [E3, E5, E6]",
+  "The negative region's right edge is very close to 0 (f(-0.001)\u22487.46, f(0.001)\u224812.64), so it nearly touches the spike [E6]",
+  "Outside the elevated regions and spike, f is small and irregular in [-1, 1] and beyond [E1]",
+  "The plateau values fluctuate irregularly around ~13.5 with no clear trend, so a constant ~13.5 is the best simple model [E2, E3, E4]",
+  "The negative region values fluctuate irregularly around ~6.8, so a constant ~6.8 is the best simple model [E3, E5, E6]"
+ ],
+ "notes": "Extended the negative elevated region right edge from -0.1 to just below 0 (f(-0.001)\u22487.46), and raised its constant from 6.5 to ~6.8 to match E6 values.",
+ "fit": 0.3333333333333333,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  0.875,
+  0.5,
+  0.75,
+  0.4,
+  1.0
+ ],
+ "made_at": 6
+}

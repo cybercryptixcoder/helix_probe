@@ -1,0 +1,24 @@
+{
+ "version": 5,
+ "beliefs": [
+  "The cubic regime is f(x)\u2248-3.9*x^3 for |x|>=2.6, matching f(2.6)\u2248-59.7, f(4)\u2248-241, f(128)\u2248-8181913 [E1, E5]",
+  "The cubic is nearly odd: f(-x)\u2248-f(x) for |x|>=2.6, e.g. f(-128)\u22488175362 vs -f(128)\u22488181913 [E1]",
+  "On the positive side f is smooth and monotone decreasing from about x=1.0 onward: f(1.0)\u22481.7, f(1.5)\u2248-9.1, f(2.0)\u2248-25.3, f(2.6)\u2248-59.7 [E5]",
+  "The positive-side values at 0.9-1.1 are bumpy (f(0.9)\u22480.92, f(1.0)\u22481.70, f(1.1)\u22480.89), so a small-|x| bumpy region exists roughly |x|<1.1 [E1, E5]",
+  "Near zero f is bumpy and non-monotone: f(0)\u22483.02, f(\u00b10.5)\u22481.7-2.2, f(\u00b10.9)\u22480.9-4.8 [E1, E2, E5]",
+  "The negative side in [0.9,1.5] is irregular/noisy (f(-1.2)=6.61 in E4 vs 9.32 in E2, f(-0.9)=2.75 in E4 vs 3.81 in E2), unlike the smooth positive side [E2, E3, E4]",
+  "The special interval is roughly |x|<2.6 where f deviates from the cubic; the transition to cubic is near |x|\u22482.6 [E3, E5]",
+  "The exact form inside |x|<2.6 is not pinned down; a smooth polynomial fit gives only approximate values there [E2, E3, E4, E5]?"
+ ],
+ "notes": "E5 shows the positive side is smooth and monotone from x=1.0 to 2.6, so I refit the near-zero polynomial using the new E5 points and kept the cubic threshold at 2.6, which the E5 endpoint f(2.6)=-59.7 confirms matches -3.9*x^3.",
+ "fit": 0.2,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.4375,
+  0.9,
+  0.45,
+  0.65
+ ],
+ "made_at": 5
+}

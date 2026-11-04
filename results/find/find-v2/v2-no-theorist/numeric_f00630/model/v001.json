@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to a sign-based step function: E1 shows every non-negative input yields 52.2 and every negative input yields -14.96, so the box appears to branch on the sign of x.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 203, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f(x) is 0 for |x| >= ~0.85 on the right and |x| >= ~0.8 on the left, with a nonzero interval roughly (-0.8, 0.85) [E1, E2, E3]",
+  "f(0) = -1.7 exactly [E1, E2]",
+  "Inside the interval f is negative and asymmetric: at x=-0.8 it reaches about -5.25, while at x=0.8 it is about -2.37 [E3]",
+  "The left side has a sharp spike near x=-0.8 (values -5.25, -4.91, -3.97 at -0.8,-0.75,-0.6) then rises toward -1.7 at 0 [E3]",
+  "The right side is milder: -1.81 at 0.6, -2.37 at 0.8, then drops to 0 by 0.85 [E3]",
+  "Exact functional form is unknown; shape near boundaries and between sampled points is interpolated [E2, E3]?"
+ ],
+ "notes": "Replaced the symmetric (-1,1) window with an asymmetric interval (-0.8, 0.85) and added the E3 sample points, which reveal a sharp left spike near -0.8 and a milder right side.",
+ "fit": 0.6666666666666666,
+ "heldout": 0.99,
+ "matches": [
+  1.0,
+  1.0,
+  0.95
+ ],
+ "made_at": 3
+}

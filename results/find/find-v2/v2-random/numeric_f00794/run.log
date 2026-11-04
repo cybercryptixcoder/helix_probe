@@ -1,0 +1,17 @@
+Helix Probe v2 on 'find_numeric_f00794': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.05, fit 0.05, size 222 (exam 0.000 -> 0.050); held-out 0%
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.20)
+[4] E4 a random ordinary probe  (v1 predicted it: match 0.10)
+      theorist (updater stalled)
+[5] E5 a random ordinary probe  (v1 predicted it: match 0.10)
+[6] E6 a random ordinary probe  (v1 predicted it: match 0.10)
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v1 predicted it: match 0.00)
+[8] E8 a random ordinary probe  (v1 predicted it: match 0.00)
+      theorist (updater stalled)
+[9] E9 a random ordinary probe  (v1 predicted it: match 0.00)
+[10] E10 a random ordinary probe  (v1 predicted it: match 0.00)
+      updater: keep
+      theorist (updater stalled)

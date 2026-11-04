@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The rule is `floor(x) + 1` for non-negative x and `floor(x) - 1` for negative x (i.e., floor(x) plus the sign of x), which fits all ten points in E1. The behavior at x=0 is unconfirmed, so I default to the non-negative branch.", "exam": 0.975, "fit": 1.0, "fit_exact": 1.0, "size": 212, "matches": [1.0], "made_at": 1, "heldout": 0.66}

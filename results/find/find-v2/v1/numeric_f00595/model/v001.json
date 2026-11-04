@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) = x + sign(x) for x != 0, and f(0) = -1 [E1]",
+  "For positive x, f(x) = x + 1; for negative x, f(x) = x - 1 [E1]",
+  "At x = 0, f(0) = -1, which breaks the x + sign(x) pattern (would give 0) [E1]"
+ ],
+ "notes": "All sampled points fit x+sign(x) except x=0, which returns -1 instead of 0. I encode the general rule with a special case at 0, flagging the 0 behavior as uncertain since only one point probes it.",
+ "fit": 1.0,
+ "heldout": 0.66,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

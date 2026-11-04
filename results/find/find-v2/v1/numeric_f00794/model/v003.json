@@ -1,0 +1,21 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f has an elevated plateau on x in roughly [0.01, 0.76] with values ~13-14, dropping sharply to near 0 just outside [E2, E3]",
+  "f(0)\u2248474 is an isolated spike at exactly x=0, distinct from the plateau on either side [E1, E2]",
+  "On the negative side there is an elevated region roughly on x in [-0.7, -0.1] with values ~6-8, dropping to near 0 at x=-0.8 and below [E3]",
+  "Outside the elevated regions and spike, f is small and irregular in [-1, 1] [E1]",
+  "The plateau's right edge is between 0.76 and 0.78 (f(0.76)\u224814, f(0.78)\u22480.18) [E3]",
+  "The negative elevated region's left edge is between -0.8 and -0.7 (f(-0.8)\u2248-0.99, f(-0.7)\u22487.7) [E3]",
+  "The exact left edge of the positive plateau and right edge of the negative region near 0 are uncertain; more probes needed near x\u2208[-0.1,0.01]?"
+ ],
+ "notes": "",
+ "fit": 0.3333333333333333,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  0.8125,
+  0.35
+ ],
+ "made_at": 3
+}

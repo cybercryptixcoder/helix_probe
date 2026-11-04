@@ -1,0 +1,39 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f(x) = floor(x) + sign(x) for x != 0, and f(0) = -1 outside the anomalous interval [E1-E13]",
+  "For positive x, f(x) = floor(x) + 1; for negative x, f(x) = floor(x) - 1 outside the anomalous interval [E1-E13]",
+  "The rule is a step function: non-integer inputs round down then add/subtract 1 [E2, E12]",
+  "There is an anomalous interval where f returns small non-integer values instead of the floor+sign step [E14-E18]",
+  "The anomalous interval extends from somewhere in (32.0, 33.0] up to 42.0 inclusive: f(33.0)=34 is normal but f(33.5)=-0.5869 is anomalous [E18]",
+  "The right boundary is between 42.0 and 42.25: f(42.0)=-0.4073 (anomalous) but f(42.25)=43 (normal) [E17]",
+  "The left boundary is between 32.0 and 33.5: f(32.0)=33 is normal but f(33.5)=-0.5869 is anomalous [E18]",
+  "Inside the anomalous interval f is a smooth non-integer function with values roughly -0.3 to -0.65, not a step [E15-E18]",
+  "Exact form of the anomalous function inside the interval is unknown; best guess is a smooth function of x with values near -0.45?",
+  "Exact left boundary of the anomalous interval is unknown; it lies in (32.0, 33.5]?"
+ ],
+ "notes": "",
+ "fit": 0.7777777777777778,
+ "heldout": 0.96,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.95,
+  1.0,
+  1.0,
+  0.95,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.21428571428571427,
+  1.0,
+  1.0,
+  0.9
+ ],
+ "made_at": 18
+}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to a sign-based step function: negative inputs give -14.96, positive inputs give 52.2, and exactly zero gives the huge spike 898156.8, all taken directly from E1's clear pattern.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 224, "matches": [1.0], "made_at": 1, "heldout": 1.0}

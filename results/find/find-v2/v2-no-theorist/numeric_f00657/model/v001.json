@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to the simplest rule consistent with E1: the output is a constant \u00b118 whose sign flips with the sign of x (positive \u2192 -18, negative \u2192 +18). All ten data points fit this exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 223, "matches": [1.0], "made_at": 1, "heldout": 1.0}

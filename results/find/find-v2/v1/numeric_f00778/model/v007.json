@@ -1,0 +1,25 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f(x) is noisy everywhere: repeated calls at the same x give different values, including at |x|>=2.6 (spread ~\u00b10.5 at x=2.6, ~\u00b10.5 at x=2.0, ~\u00b11 at x=1.5) [E6, E7]",
+  "The mean of f is approximately -3.9*x^3 for |x|>=2.6, matching f(2.6)\u2248-60.9 and f(128)\u2248-8181913 [E1, E5, E7]",
+  "The mean is nearly odd: mean(-x)\u2248-mean(x) for |x|>=2.6 [E1]",
+  "On the positive side the mean decreases smoothly from about x=1.0 onward: f(1.0)\u22481.3, f(1.5)\u2248-7.2, f(2.0)\u2248-25.7, f(2.6)\u2248-60.9 [E5, E7]",
+  "The mean in |x|<2.6 is roughly symmetric and smooth; a polynomial fit through the observed points gives the mean trend [E2, E3, E4, E5]",
+  "Noise magnitude is roughly \u00b11-2 around the mean, with the mean near 3-4 at x=0 and decreasing outward [E1, E2, E6, E7]",
+  "The exact mean shape inside |x|<2.6 is not pinned down; a smooth polynomial fit gives only approximate values there [E2, E3, E4, E5]?"
+ ],
+ "notes": "Confirmed noise at all x (E7 shows spread at 1.5, 2.0, 2.6), so predict() now returns the mean everywhere and adds no lookup; refit the polynomial mean using all points including E7 means at 1.5/2.0/2.6 and adjusted cubic coefficient to -3.9 with mean at 2.6 near -60.9.",
+ "fit": 0.14285714285714285,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.4375,
+  0.9,
+  0.45,
+  0.7,
+  0.3,
+  0.4
+ ],
+ "made_at": 7
+}

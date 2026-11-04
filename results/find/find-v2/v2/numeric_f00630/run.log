@@ -1,0 +1,17 @@
+Helix Probe v2 on 'find_numeric_f00630': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 125 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the output change continuously with x, or is it truly a two-valued ste...(+107 chars)  (v1 predicted it: match 0.95)
+      model v2 by the updater: exam 1.00, fit 1.00, size 225 (fit 0.975 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Is the spike at x=0 a real isolated point, or is there a narrow interval ar...(+137 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Are there any other isolated input values besides x=0 (e.g., negative zero,...(+146 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (543 vs 225 chars)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the sign rule hold for very large magnitudes near the domain edges, an...(+127 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Does the output depend only on the sign of x, or does it vary within the po...(+125 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00630", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 225, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

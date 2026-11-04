@@ -1,0 +1,21 @@
+{
+ "version": 2,
+ "beliefs": [
+  "For x>0, f(x) = 10.4\u00b7x + 0.5\u00b7x^2 fits all positive observations exactly (1\u219210.6, 2\u219220.7, 4\u219246.9, 8\u219299.3, 16\u2192208.1, 32\u2192414.7, 64\u2192832.9, 100\u21921304.5, 128\u21921671.3, 0.5\u21922.05, 0.1\u2192-2.19? no) [E1, E2]",
+  "Wait: f(0.1)=-2.19 and f(0.25)=-1.225 and f(0.75)=4.325 and f(1.5)=14.15 and f(3)=34.8 \u2014 check formula: 10.4\u00b70.1+0.5\u00b70.01=1.045, but observed -2.19; so positive branch is NOT the quadratic near 0 [E2]",
+  "For x\u22651.5, f(x)=10.4\u00b7x+0.5\u00b7x^2 holds (1.5\u219214.15, 3\u219234.8, 4\u219246.9, ...) [E1, E2]",
+  "For 0<x<1, f is negative and roughly linear: f(0.1)=-2.19, f(0.25)=-1.225, f(0.5)=2.05, f(0.75)=4.325 \u2014 slope \u2248 10.4, intercept \u2248 -3.2? [E2]",
+  "For x<0, f is roughly linear with slope \u22481.4 but offset: f(-0.1)=-10.031, f(-0.25)=-10.2275, f(-0.5)=-10.555, f(-0.9)=-11.079, f(-1.1)=-11.341, f(-1.25)=-10.5375, f(-1.5)=-10.865, f(-1.75)=-12.1925, f(-1.9)=-9.389, f(-2.1)=-13.651, f(-2.25)=-13.8475, f(-2.5)=-14.175, f(-2.75)=-12.5025, f(-3)=-14.83, f(-3.5)=-13.485 \u2014 noisy around a line with slope ~1.4 and intercept ~-10 [E1, E2]",
+  "The negative side is noisy (values jump around the trend), so exact match is impossible; best model is a line with slope 1.4 and intercept \u2248 -10 [E2]",
+  "f(0)=-383.12 is a sharp spike [E1]",
+  "Positive branch near 0: f(0.1)=-2.19, f(0.25)=-1.225, f(0.5)=2.05, f(0.75)=4.325, f(1.5)=14.15 \u2014 looks like 10.4\u00b7x - 3.2 for small x, transitioning to quadratic? [E2]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.65
+ ],
+ "made_at": 2
+}

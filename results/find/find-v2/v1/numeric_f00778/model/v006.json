@@ -1,0 +1,24 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f(x)\u2248-3.9*x^3 for |x|>=2.6, matching f(2.6)\u2248-59.7 and f(128)\u2248-8181913 [E1, E5]",
+  "The cubic is nearly odd: f(-x)\u2248-f(x) for |x|>=2.6 [E1]",
+  "On the positive side f is smooth and monotone decreasing from about x=1.0 onward: f(1.0)\u22481.7, f(1.5)\u2248-9.1, f(2.0)\u2248-25.3 [E5]",
+  "The small-|x| region (|x|<~2.6) is NOT deterministic: repeated calls at the same x give different values, so it is noisy [E6]",
+  "The noise magnitude is roughly \u00b11-2 around a smooth mean, with the mean near 3-4 at x=0 and decreasing outward [E1, E2, E6]",
+  "The mean in |x|<2.6 is roughly symmetric and smooth; a polynomial fit through the observed points gives the mean trend [E2, E3, E4, E5]",
+  "The exact mean shape inside |x|<2.6 is not pinned down; a smooth polynomial fit gives only approximate values there [E2, E3, E4, E5]?"
+ ],
+ "notes": "E6 shows repeated identical x give different y, so the small-|x| region is noisy, not deterministic. predict() now returns the polynomial mean (unchanged) since we can't predict noise; kept cubic outside 2.6.",
+ "fit": 0.16666666666666666,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.4375,
+  0.9,
+  0.45,
+  0.65,
+  0.3
+ ],
+ "made_at": 6
+}

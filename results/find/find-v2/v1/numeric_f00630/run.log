@@ -1,0 +1,28 @@
+Helix Probe on 'find_numeric_f00630': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do on a spread of simple inputs across the whole domain, includ...(+47 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Is the zero spike a single-point anomaly, or does f behave unusually on a s...(+64 chars)  model v1 match 1.00
+[3] E3 Is the value 898156.8 at x=0 truly a single-point spike, or does f take ano...(+81 chars)  model v1 match 1.00
+[4] E4 Does the huge spike at x=0 extend to any nonzero x near zero beyond the alr...(+121 chars)  model v1 match 1.00
+[5] E5 Does the constant negative branch really hold all the way to -128 and the c...(+126 chars)  model v1 match 1.00
+[6] E6 Are the branch values exactly -14.96 and 52.2, or are those rounded reading...(+80 chars)  model v1 match 1.00
+[7] E7 Is the zero spike really a single point, or is f(0) actually a smooth/hidde...(+146 chars)  model v1 match 1.00
+[8] E8 Is the transition at x=0 exactly a step at zero, or is there any tiny nonze...(+208 chars)  model v1 match 1.00
+[9] E9 Is f(x) genuinely a pure sign step (constant -14.96 for x<0, 52.2 for x>0, ...(+129 chars)  model v1 match 1.00
+[10] E10 Is f(0) truly a single-point spike, or does the huge value also appear at n...(+159 chars)  model v1 match 1.00
+[11] E11 Does the zero spike persist at the smallest representable subnormal values ...(+167 chars)  model v1 match 1.00
+[12] E12 Are the branch values exactly -14.96 and 52.2 for all representable inputs,...(+143 chars)  model v1 match 1.00
+[13] E13 Does f behave differently at x values just outside the tested domain bounda...(+225 chars)  model v1 match 1.00
+[14] E14 Is f(x) exactly a sign step everywhere in the domain, including at x values...(+141 chars)  model v1 match 1.00
+[15] E15 Does f behave like a pure sign step at x values that are exactly halfway be...(+161 chars)  model v1 match 1.00
+[16] E16 Does the single-point spike at x=0 actually exist, or is f(0) simply the po...(+110 chars)  model v1 match 1.00
+[17] E17 Is the transition at zero truly a step, or does f have a small nonzero inte...(+301 chars)  model v1 match 1.00
+[18] E18 Does f stay a pure sign step at inputs that are negative zero-like subnorma...(+172 chars)  model v1 match 1.00
+[19] E19 Does f stay exactly a sign step with a single spike at zero when probed at ...(+187 chars)  model v1 match 1.00
+[20] E20 Is f truly a pure sign step with a single spike at exactly x=0, tested at a...(+253 chars)  model v1 match 1.00
+[21] E21 Are the branch values exactly -14.96 and 52.2 at irrational-ish non-dyadic ...(+104 chars)  model v1 match 1.00
+[22] E22 Is the spike at x=0 truly a single point value of exactly 898156.8, or does...(+251 chars)  model v1 match 1.00
+[23] E23 Does f remain a pure sign step with a single spike at x=0 when probed at a ...(+173 chars)  model v1 match 1.00
+[24] E24 Does f behave as a pure sign step with a single spike at exactly x=0 when p...(+184 chars)  model v1 match 1.00
+[25] E25 Does the sign-step + zero-spike model still hold at a fresh set of odd, nev...(+141 chars)  model v1 match 1.00
+{"env": "find_numeric_f00630", "experiments": 25, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 28, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

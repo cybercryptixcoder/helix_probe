@@ -1,0 +1,48 @@
+Helix Probe v2 on 'find_numeric_f00683': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 342 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the function switch behavior at some threshold near zero (e.g., a piec...(+302 chars)  (v1 predicted it: match 0.95)
+      model v2 by the updater: exam 1.00, fit 1.00, size 401 (fit 0.975 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Is the huge negative value at x=0 a single-point anomaly, or is it a narrow...(+44 chars)  (v2 predicted it: match 0.67)
+      updater's model not kept: same scores and not smaller (401 vs 401 chars)
+      updater's model not kept: its fit is 0.854, the current model's is 0.917
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Do the two linear branches hold exactly at very small |x| (0.001 to 0.1 on ...(+85 chars)  (v2 predicted it: match 0.75)
+      updater's model not kept: its fit is 0.858, the current model's is 0.903
+      updater's model not kept: its fit is 0.894, the current model's is 0.903
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the positive branch stay linear (slope ~13.09) at small positive x bet...(+120 chars)  (v2 predicted it: match 0.85)
+      updater's model not kept: its fit is 0.840, the current model's is 0.908
+      updater's model not kept: same scores and not smaller (401 vs 401 chars)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Is the positive branch exactly linear (slope ~13.09) across the mid-range, ...(+103 chars)  (v2 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v2 predicted it: match 1.00)
+[12] E12 Is the region near zero (|x| < ~0.5) a smooth blend between the two linear ...(+90 chars)  (v2 predicted it: match 0.75)
+      updater's model not kept: its fit is 0.846, the current model's is 0.918
+      model v3 by the updater: exam 1.00, fit 0.92, size 395 (same scores, smaller (401 -> 395 chars)); held-out 100%
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+[14] E14 Is the small-|x| region a deterministic multi-valued (noisy/scrambled) zone...(+171 chars)  (v3 predicted it: match 0.30)
+[15] E15 a random ordinary probe  (v3 predicted it: match 1.00)
+[16] E16 Is the small-|x| scrambled zone symmetric and bounded, and does it sit on t...(+246 chars)  (v3 predicted it: match 0.35)
+      updater's model not kept: same scores and not smaller (395 vs 395 chars)
+      updater's model not kept: same scores and not smaller (395 vs 395 chars)
+      theorist (updater stalled)
+[17] E17 a random ordinary probe  (v3 predicted it: match 1.00)
+[18] E18 Does the small-|x| scrambled zone actually consist of a smooth underlying c...(+212 chars)  (v3 predicted it: match 0.55)
+      updater's model not kept: same scores and not smaller (395 vs 395 chars)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.775, the current model's is 0.845
+[19] E19 a random ordinary probe  (v3 predicted it: match 1.00)
+[20] E20 What is the exact clean linear law on the positive branch just outside the ...(+89 chars)  (v3 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v3 predicted it: match 1.00)
+[22] E22 Is the positive branch's clean slope exactly 12.9 (with intercept -3.4) rat...(+113 chars)  (v3 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v3 predicted it: match 1.00)
+[24] E24 What is the exact deterministic value of the perturbation in the small-|x| ...(+169 chars)  (v3 predicted it: match 0.05)
+      model v4 by the updater: exam 1.00, fit 0.86, size 394 (fit 0.844 -> 0.863); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.804, the current model's is 0.863
+[25] E25 a random ordinary probe  (v4 predicted it: match 1.00)
+{"env": "find_numeric_f00683", "experiments": 25, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 0.8686666666666666, "size": 394, "heldout": 1.0, "llm_calls": 35, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

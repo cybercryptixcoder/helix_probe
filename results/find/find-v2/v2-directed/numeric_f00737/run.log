@@ -1,0 +1,14 @@
+Helix Probe v2 on 'find_numeric_f00737': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like across the ordinary input range, sampled coarsely to ...(+76 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 223 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the log2 law hold for small positive values between 0 and 1, and where...(+48 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the log2 law extend unchanged across the entire positive range up to 1...(+114 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the log2 law hold exactly at very small positive x near the undefined ...(+95 chars)  (v1 predicted it: match 1.00)
+[5] E5 Is the function exactly a + b*log2(x) with a=-7.8 and b=6.3092, or is the o...(+138 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the log2 law continue exactly for x in the previously untested mid-ran...(+146 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+[7] E7 Is f defined for negative x at all, or only for x>0? E1 showed nulls at -12...(+140 chars)  (v1 predicted it: match 1.00)
+[8] E8 Is the offset exactly -7.8 or slightly different, and is the slope exactly ...(+189 chars)  (v1 predicted it: match 1.00)
+[9] E9 The model assumes f(x) = -7.8 + 6.3092*log2(x) exactly, but residuals at po...(+337 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00737", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 223, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

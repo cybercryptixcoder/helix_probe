@@ -10,3 +10,6 @@ step,kind,experiments,box_probes,model_version,model_role,exam,fit,size,arrival_
 9,learn,9,13,4,updater,1.000,0.989,1220,0.56,0.990,9,E9
 10,learn,10,14,4,updater,1.000,0.990,1220,0.60,0.990,10,E10
 11,learn,11,15,4,updater,1.000,0.991,1220,0.70,0.990,10,E11
+12,learn,12,16,4,updater,1.000,0.992,1220,0.80,0.990,12,E12
+13,learn,13,17,4,updater,1.000,0.992,1220,0.80,0.990,12,E13
+14,learn,14,18,4,updater,1.000,0.993,1220,0.90,0.990,13,E14

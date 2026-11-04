@@ -1,0 +1,19 @@
+{
+ "env": "find_numeric_f00630",
+ "experiments": 25,
+ "model_version": 1,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 28,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f(x) = -14.96 for x < 0 [E1]",
+  "f(0) = 898156.8, a huge spike at zero [E1]",
+  "f(x) = 52.2 for x > 0 [E1]",
+  "The negative branch is constant, the positive branch is constant, and zero is special [E1]"
+ ]
+}

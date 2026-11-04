@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) = -14.96 for x < 0 [E1]",
+  "f(0) = 898156.8, a huge spike at zero [E1]",
+  "f(x) = 52.2 for x > 0 [E1]",
+  "The negative branch is constant, the positive branch is constant, and zero is special [E1]"
+ ],
+ "notes": "E1 shows three regimes: constant -14.96 for negatives, a huge value at 0, and constant 52.2 for positives. No evidence yet of finer structure, so I model three piecewise-constant branches.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

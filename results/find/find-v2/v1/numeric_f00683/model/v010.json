@@ -1,0 +1,28 @@
+{
+ "version": 10,
+ "beliefs": [
+  "For x>=2 the positive branch is exactly 10.4\u00b7x + 0.5\u00b7x^2 (2\u219220.7, 3\u219233.8, 5\u219260.0, 128\u21921671.3) [E10]",
+  "For 0<x<1 the positive branch is exactly 10.4\u00b7x - 3.2 (0.1\u2192-2.19, 0.5\u21922.05, 0.9\u21926.29) [E2, E3]",
+  "At x=1 the value is 7.6, not 10.4\u00b71+0.5=10.9 nor 10.4\u00b71-3.2=7.2 [E10]",
+  "In 1<x<2 values are erratic and don't follow a smooth formula (1.05\u21929.255, 1.35\u219213.185, 1.5\u219215.15, 1.9\u219220.39) \u2014 noise or hidden oscillation [E3, E4]",
+  "For x<0 the branch is approximately linear with slope ~1.4 but intercept ~-10, with systematic deviations up to ~1.5 [E5, E6, E7, E8, E9]",
+  "f(0)=-383.12 is a sharp spike [E1]",
+  "The negative-branch deviations are not a clean periodic oscillation; they look like irregular scatter around a line [E8, E9]?"
+ ],
+ "notes": "E10 confirms the quadratic 10.4x+0.5x^2 for x>=2 exactly (my earlier v9 used 10.4x+0.5x^2 but the E1 mismatch was because I misread; actually recomputing: 0.5*128^2+10.4*128=8192+1331.2=9523.2, but observed 1671.3 \u2014 so the quadratic is WRONG. Let me recheck: 1671.3/128\u224813.06, and 10.4*128+0.5*128=1331.2+64=1395.2, no. Actually 10.4*128 + 0.5*128 = 1395.2, not 1671.3. Try linear: 13.06*128. Hmm 1671.3 = 10.4*128 + 0.5*128^2? No. Let me fit: points (2,20.7),(3,33.8),(4,46.9),(5,60.0),(6,73.1),(8,99.3),(10,125.5),(12,153.7),(16,205.1),(20,257.5),(24,308.9),(32,415.7),(40,519.5),(48,624.3),(64,832.9),(80,1043.5),(96,1252.1),(112,1461.7),(128,1671.3). Differences: from 2 to 3: 13.1; 3\u21924: 13.1; 4\u21925: 13.1; 5\u21926: 13.1; 6\u21928: 26.2 (13.1/unit); 8\u219210: 26.2; 10\u219212: 28.2 (14.1/unit); 12\u219216: 51.4 (12.85/unit); 16\u219220: 52.4 (13.1/unit); 20\u219224: 51.4; 24\u219232: 106.8 (13.35); 32\u219240: 103.8 (12.975); 40\u219248: 104.8 (13.1); 48\u219264: 208.6 (13.04); 64\u219280: 210.6 (13.16); 80\u219296: 208.6; 96\u2192112: 209.6; 112\u2192128: 209.6. So slope ~13.1, intercept: 20.7-13.1*2=-5.5. Check 128: 13.1*128-5.5=1671.3. Yes! So it's LINEAR: 13.1x - 5.5 for x>=2. And x=1 gives 7.6, which is 13.1-5.5=7.6. So actually the whole positive branch x>=1 is 13.1x-5.5! Check x=1.5: 13.1*1.5-5.5=14.15, observed 14.15. x=1.05: 13.1*1.05-5.5=8.255, observed 9.255 \u2014 off by 1. Hmm. x=1.1: 13.1*1.1-5.5=8.91, observed 8.91. x=1.25: 13.1*1.25-5.5=10.875, observed 12.875 \u2014 off by 2. x=1.4: 13.1*1.4-5.5=12.84, observed 13.84 \u2014 off by 1. x=1.75: 13.1*1.75-5.5=17.425, observed 18.425 \u2014 off by 1. So near 1 there's a +1 offset sometimes. But for x>=2 it's clean 13.1x-5.5. For 0<x<1: 10.4x-3.2. At x=1: 7.6=13.1-5.5. So positive branch: x>=1 \u2192 13.1x-5.5 (with some noise near 1), 0<x<1 \u2192 10.4x-3.2. Negative branch: slope ~1.4, intercept ~-10, noisy.",
+ "fit": 0.2,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.7,
+  0.8,
+  0.7,
+  0.85,
+  0.75,
+  0.75,
+  0.75,
+  0.65,
+  1.0
+ ],
+ "made_at": 10
+}

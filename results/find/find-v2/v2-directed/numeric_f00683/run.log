@@ -1,0 +1,54 @@
+Helix Probe v2 on 'find_numeric_f00683': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 How does f behave across the ordinary input range, including sign, magnitud...(+45 chars)  (v0 predicted it: match 0.00)
+[2] E2 How does f behave for small inputs around zero, and where exactly does the ...(+29 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+[3] E3 Does the function follow a clean piecewise form on the positive side, and w...(+106 chars)  (v0 predicted it: match 0.00)
+[4] E4 What is the exact piecewise linear form on the ordinary positive and negati...(+127 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+[5] E5 What is the exact piecewise-linear form on the negative side between x=-4 a...(+151 chars)  (v0 predicted it: match 0.00)
+[6] E6 What is the exact functional form on ordinary positive inputs, including th...(+91 chars)  (v0 predicted it: match 0.00)
+      theorist (every 6 steps)
+[7] E7 On the positive side, is f exactly 12.55x + 0.05 (or similar linear) with a...(+113 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 0.89, size 335 (exam 0.000 -> 1.000); held-out 100%
+[8] E8 Is the positive side exactly linear with slope 12.55 (or 13) and intercept ...(+173 chars)  (v1 predicted it: match 1.00)
+[9] E9 Is the positive side truly linear with slope ~13 for all x>0.5, or does the...(+165 chars)  (v1 predicted it: match 0.95)
+      model v2 by the updater: exam 1.00, fit 0.93, size 436 (fit 0.906 -> 0.928); held-out 100%
+[10] E10 Is the negative side exactly linear with slope 1.31 and intercept -10, or d...(+181 chars)  (v2 predicted it: match 1.00)
+[11] E11 Is the negative side truly linear with slope ~1.31 and intercept ~-10 over ...(+222 chars)  (v2 predicted it: match 1.00)
+[12] E12 What is the exact form of the small-positive-x anomaly between 0 and 0.5 — ...(+152 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 1.00, fit 0.88, size 435 (fit 0.862 -> 0.879); held-out 100%
+      theorist (every 6 steps)
+[13] E13 On the negative side between -4 and -1, is the scatter around the 1.31x-10 ...(+147 chars)  (v3 predicted it: match 0.75)
+      updater's model not kept: its fit is 0.785, the current model's is 0.869
+      updater's model not kept: its fit is 0.838, the current model's is 0.869
+[14] E14 Is the negative-side scatter between -4 and -1 a genuine deterministic osci...(+178 chars)  (v3 predicted it: match 0.75)
+      updater's model not kept: its fit is 0.825, the current model's is 0.861
+      updater's model not kept: same scores and not smaller (448 vs 435 chars)
+      theorist (updater stalled)
+[15] E15 Is the negative-side deviation from the line 1.31x-10 a deterministic funct...(+173 chars)  (v3 predicted it: match 1.00)
+[16] E16 Is the negative-side deviation from the 1.31x-10 line a deterministic perio...(+138 chars)  (v3 predicted it: match 0.35)
+      updater's model not kept: same scores and not smaller (448 vs 435 chars)
+      updater's model not kept: its fit is 0.775, the current model's is 0.838
+[17] E17 Is the negative-side scatter between -1 and -0.5 deterministic (e.g., a saw...(+174 chars)  (v3 predicted it: match 0.35)
+      updater's model not kept: its fit is 0.732, the current model's is 0.809
+      theorist (updater stalled)
+[18] E18 Is the negative-side deviation from ~1.31x-10 between -4 and -1 a determini...(+210 chars)  (v3 predicted it: match 0.55)
+      updater's model not kept: same scores and not smaller (448 vs 435 chars)
+      theorist (every 6 steps)
+[19] E19 Is the small-positive-x region (0 to 0.5) genuinely the same 13x-3 line as ...(+123 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: same scores and not smaller (448 vs 435 chars)
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 1.000
+[20] E20 Is the small-positive-x region (0 to 0.5) actually a noisy version of the s...(+177 chars)  (v3 predicted it: match 0.10)
+      updater's model not kept: its fit is 0.710, the current model's is 0.722
+      updater's model not kept: same scores and not smaller (448 vs 435 chars)
+[21] E21 Does the positive side really follow 13x-3 for all x>0.5, or is there a bre...(+146 chars)  (v3 predicted it: match 1.00)
+[22] E22 Does the positive side follow the clean line 13x-3 for all x>0.5, or is the...(+187 chars)  (v3 predicted it: match 1.00)
+[23] E23 Is the small-positive-x region (0 to 0.5) a noisy/oscillatory form distinct...(+211 chars)  (v3 predicted it: match 0.05)
+      model v4 by the updater: exam 1.00, fit 0.72, size 448 (fit 0.717 -> 0.720); held-out 100%
+[24] E24 Is the small-positive-x region (0 to ~0.5) a deterministic periodic/sawtoot...(+191 chars)  (v4 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (448 vs 448 chars)
+      updater's model not kept: its fit is 0.656, the current model's is 0.723
+      theorist (every 6 steps)
+[25] E25 On the negative side, is the deviation from the 1.31x-10 line a determinist...(+194 chars)  (v4 predicted it: match 1.00)
+{"env": "find_numeric_f00683", "experiments": 25, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 0.7340000000000001, "size": 448, "heldout": 1.0, "llm_calls": 67, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

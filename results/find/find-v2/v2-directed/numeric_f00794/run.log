@@ -1,0 +1,66 @@
+Helix Probe v2 on 'find_numeric_f00794': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like across the ordinary input range, and does it have a s...(+38 chars)  (v0 predicted it: match 0.00)
+[2] E2 Is the huge spike at x=0.5 a narrow feature (e.g. 1/x or a spike near zero)...(+74 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 0.88, size 407 (fit 0.000 -> 0.875); held-out 0%
+[3] E3 What is the oscillatory part of f for ordinary |x| in [1,128], and is it a ...(+76 chars)  (v1 predicted it: match 0.10)
+[4] E4 Is the oscillatory part of f a pure sinusoid in x, and what are its exact f...(+136 chars)  (v1 predicted it: match 0.05)
+      model v2 by the updater: exam 0.10, fit 0.49, size 2267 (exam 0.000 -> 0.100); held-out 0%
+[5] E5 Is the oscillatory part a chirp sin(a*x^2+b*x+c) or a sinusoid in a differe...(+215 chars)  (v2 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[6] E6 What is the exact local instantaneous frequency of the oscillation at small...(+200 chars)  (v2 predicted it: match 0.05)
+      model v3 by the updater: exam 0.10, fit 0.33, size 2230 (same scores, smaller (2267 -> 2230 chars)); held-out 0%
+      theorist (every 6 steps)
+[7] E7 Is the oscillatory region really unpredictable noise, or is it a determinis...(+196 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[8] E8 Is the oscillatory region a deterministic function of x that is symmetric i...(+104 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (updater stalled)
+[9] E9 Is the oscillatory region for |x|>0.75 a deterministic function of x that i...(+169 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[10] E10 Is the plateau region near zero actually a smooth function (not a flat plat...(+119 chars)  (v3 predicted it: match 0.95)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.100
+[11] E11 Is the fine-step oscillation at small |x| actually deterministic but aliase...(+271 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[12] E12 Is the oscillatory region a deterministic function that depends only on |x|...(+121 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.100
+[13] E13 Is the oscillatory region actually a deterministic function of x that is co...(+189 chars)  (v3 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[14] E14 Is the oscillatory region for |x|>0.75 actually deterministic and reproduci...(+127 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.100
+[15] E15 Is the oscillatory region for |x|>0.75 a deterministic function reproducibl...(+143 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[16] E16 Is the oscillatory region for |x|>0.75 a deterministic function of x (repro...(+126 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.100
+[17] E17 Are the duplicate x-values in E15/E16 giving different outputs because the ...(+271 chars)  (v3 predicted it: match 0.15)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[18] E18 Is the oscillatory region for |x|>0.75 actually a deterministic function of...(+220 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (every 6 steps)
+[19] E19 Is the noise in the oscillatory region |x|>0.75 multiplicative/heteroscedas...(+168 chars)  (v3 predicted it: match 0.15)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[20] E20 Does the oscillatory region |x|>0.75 have a deterministic value that depend...(+228 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      theorist (updater stalled)

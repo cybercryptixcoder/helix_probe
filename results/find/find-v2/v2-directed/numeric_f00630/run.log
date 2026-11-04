@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00630': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 How does f behave across a broad, evenly spaced range of ordinary inputs, i...(+100 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 224 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Are the constant plateaus on each side of zero truly flat, or do they vary ...(+97 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the spike at exactly x=0 generalize to nearby non-integer values very ...(+129 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the sign rule hold for ordinary inputs across the full domain, includi...(+124 chars)  (v1 predicted it: match 1.00)
+[5] E5 Is the output exactly constant on each side of zero, or does it vary with x...(+96 chars)  (v1 predicted it: match 1.00)
+[6] E6 Are there any other special values or hidden structure at fine-grained non-...(+243 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.992, the current model's is 1.000
+[7] E7 Does the constant 52.2 on the positive side hide any multiplicative or addi...(+259 chars)  (v1 predicted it: match 1.00)
+[8] E8 On the negative side, is the output truly a flat constant -14.96 across all...(+148 chars)  (v1 predicted it: match 1.00)
+[9] E9 Is the spike at x=0 an isolated point value, or does the function return a ...(+167 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00630", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 224, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

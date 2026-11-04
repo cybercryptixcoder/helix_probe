@@ -1,0 +1,30 @@
+{
+ "version": 10,
+ "beliefs": [
+  "f is noisy everywhere: repeated calls at the same x give different values, with spread roughly \u00b11 to \u00b11.5 [E6, E7, E8, E9, E10]",
+  "The mean of f is approximately -3.6*x^3 for |x|>=2.6, matching f(2.6)\u2248-60.9, f(3.0)\u2248-98.1, f(2.5)\u2248-54.1 and f(128)\u2248-8181913 [E1, E5, E7, E9]",
+  "The mean is nearly odd: mean(-x)\u2248-mean(x) for |x|>=2.6 [E1]",
+  "On the positive side the mean decreases smoothly from about x=1.0 onward: f(1.0)\u22481.3, f(1.5)\u2248-7.2, f(1.9)\u2248-20.5, f(2.0)\u2248-25.7, f(2.5)\u2248-54.1, f(2.6)\u2248-60.9 [E5, E7, E9]",
+  "The mean in |x|<2.6 is roughly symmetric and smooth; a polynomial fit through the observed points gives the mean trend [E2, E3, E4, E5]",
+  "The mean near x=0 is about 3.7-4.0: E8 repeats at 0 give 3.70, 4.99, 2.35, 3.67; E10 repeats at 0 give 4.29, 4.00, 2.69, 5.10, 4.08, 4.40, 2.61, 3.66 (mean\u22483.85) [E8, E10]",
+  "The mean is roughly flat/plateau near x=0 (values at \u00b10.05..\u00b10.4 all cluster around 3-4), with no sharp bump [E8, E10]",
+  "Noise magnitude is roughly \u00b11-1.5 around the mean, with the mean near 3-4 at x=0 and decreasing outward [E1, E2, E6, E7, E8, E9, E10]",
+  "The exact mean shape inside |x|<2.6 is not pinned down; a smooth polynomial fit gives only approximate values there [E2, E3, E4, E5]?"
+ ],
+ "notes": "E10 confirms the x=0 mean is ~3.8-4.0 with no sharp feature, so I anchored the plateau more strongly at x=0 and kept the smooth polynomial for the rest; noise is modeled as \u00b11.2 spread.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.8947368421052632,
+  0.625,
+  0.85,
+  0.5,
+  0.7,
+  0.3,
+  0.6,
+  0.25,
+  0.85,
+  0.2
+ ],
+ "made_at": 10
+}

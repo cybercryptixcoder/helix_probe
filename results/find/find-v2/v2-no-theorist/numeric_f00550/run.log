@@ -5,3 +5,28 @@ Helix Probe v2 on 'find_numeric_f00550': 0 experiments so far, model v0, exam of
       model v2 by the updater: exam 1.00, fit 1.00, size 446 (fit 0.925 -> 1.000); held-out 94%
 [3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
 [4] E4 What is the exact shape of the nonzero interval around 0—specifically, wher...(+74 chars)  (v2 predicted it: match 0.60)
+      model v3 by the updater: exam 1.00, fit 1.00, size 581 (fit 0.900 -> 1.000); held-out 99%
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 How does f behave in the unsampled parts of the nonzero interval, especiall...(+179 chars)  (v3 predicted it: match 0.90)
+      model v4 by the updater: exam 1.00, fit 1.00, size 1027 (fit 0.983 -> 1.000); held-out 100%
+[7] E7 a random ordinary probe  (v4 predicted it: match 1.00)
+[8] E8 What is the exact functional form of f inside the nonzero interval—specific...(+131 chars)  (v4 predicted it: match 0.95)
+[9] E9 a random ordinary probe  (v4 predicted it: match 1.00)
+[10] E10 Where exactly does the nonzero interval start on the left, and what is the ...(+66 chars)  (v4 predicted it: match 0.80)
+      model v5 by the updater: exam 1.00, fit 1.00, size 2307 (fit 0.975 -> 1.000); held-out 100%
+[11] E11 a random ordinary probe  (v5 predicted it: match 1.00)
+[12] E12 Pin down the exact right-hand cutoff and the shape of f between 0.75 and 0....(+63 chars)  (v5 predicted it: match 0.80)
+      model v6 by the updater: exam 1.00, fit 1.00, size 2336 (fit 0.983 -> 1.000); held-out 100%
+[13] E13 a random ordinary probe  (v6 predicted it: match 1.00)
+[14] E14 Is the nonzero interval exactly [-0.8, 0.8], with f(±0.8) being the boundar...(+132 chars)  (v6 predicted it: match 0.83)
+      model v7 by the updater: exam 1.00, fit 1.00, size 2195 (fit 0.988 -> 1.000); held-out 100%
+[15] E15 a random ordinary probe  (v7 predicted it: match 1.00)
+[16] E16 Is the nonzero interval exactly [-0.8, 0.8], and what is the precise shape ...(+82 chars)  (v7 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v7 predicted it: match 1.00)
+[18] E18 Is the nonzero region exactly [-0.8, 0.8], and does f equal a smooth polyno...(+234 chars)  (v7 predicted it: match 1.00)
+[19] E19 a random ordinary probe  (v7 predicted it: match 1.00)
+[20] E20 Does the interior shape of f match a simple closed form like A*(x^2-0.64) o...(+188 chars)  (v7 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v7 predicted it: match 1.00)
+[22] E22 Does the function's interior follow a simple closed form like A*(x^2-0.64) ...(+153 chars)  (v7 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00550", "experiments": 22, "exam_probes": 4, "model_version": 7, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 2195, "heldout": 1.0, "llm_calls": 20, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
