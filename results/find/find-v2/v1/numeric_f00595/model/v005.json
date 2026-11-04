@@ -1,0 +1,38 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f(x) = floor(x) + sign(x) for x != 0, and f(0) = -1 [E1-E13]",
+  "For positive x, f(x) = floor(x) + 1; for negative x, f(x) = floor(x) - 1 [E1-E13]",
+  "The rule is a step function: non-integer inputs round down then add/subtract 1 [E2, E12]",
+  "There is an anomalous interval where f returns small non-integer values instead of the floor+sign step [E14-E17]",
+  "The anomalous interval extends at least from x=36.0 to x=42.0 (all values in that range are non-integer ~-0.3 to -0.6) [E15-E17]",
+  "The right boundary is between 42.0 and 42.25: f(42.0)=-0.4073 (anomalous) but f(42.25)=43 (normal) [E17]",
+  "The left boundary is at or below 36.0; f(36.0)=-0.4815 is anomalous, so the interval starts at or before 36.0 [E17]",
+  "Inside the anomalous interval f is a smooth non-integer function with values roughly -0.3 to -0.6, not a step [E15-E17]",
+  "Exact form of the anomalous function inside the interval is unknown; best guess is a smooth function of x with values near -0.45?",
+  "The left boundary of the anomalous interval is still unknown; it lies at or below 36.0 [E17]?"
+ ],
+ "notes": "E17 shows the anomalous interval extends down to at least 36.0 (not 36.5 as v4 assumed) and the right boundary is between 42.0 and 42.25 (not 42.5). Widened the interval to (<=36.0, 42.25) and kept a smooth guess inside.",
+ "fit": 0.9411764705882353,
+ "heldout": 0.85,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.21428571428571427,
+  1.0,
+  1.0
+ ],
+ "made_at": 17
+}

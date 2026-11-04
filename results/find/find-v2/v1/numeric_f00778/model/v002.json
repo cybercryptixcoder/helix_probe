@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "For |x|>=2, f(x) is well approximated by a*x^3 with a\u2248-3.9: f(2)\u2248-25, f(4)\u2248-241, f(8)\u2248-1990, f(16)\u2248-15990, f(32)\u2248-127933, f(64)\u2248-1023050, f(128)\u2248-8181913 [E1]",
+  "The cubic is nearly odd: f(-x)\u2248-f(x) for |x|>=2, e.g. f(-128)\u22488175362 vs -f(128)\u22488181913 [E1]",
+  "Near zero the function is NOT a simple cubic+linear+constant: f(0)\u22483.02 but f(\u00b10.1)\u22484.0-4.5, f(\u00b10.3)\u22482.0-4.4, f(\u00b10.7)\u22483.6-3.9, f(\u00b10.9)\u22483.0-3.8, f(\u00b11)\u22482.9-6.8 \u2014 a bumpy, non-monotone region [E1, E2]",
+  "There is a special interval roughly |x|<2 where f deviates strongly from the cubic and is not odd: f(1.2)\u2248-2.5, f(1.5)\u2248-5.5, f(1.9)\u2248-18.8 while f(-1.2)\u22489.3, f(-1.5)\u224814.1, f(-1.9)\u224826.8 [E2]",
+  "The transition to the cubic regime happens near |x|\u22482: f(2)\u2248-25 already fits the cubic, but f(1.9)\u2248-18.8 is close to cubic too, while f(1.5)\u2248-5.5 is far from cubic (-3.9*3.375\u2248-13.2) [E2]",
+  "Exact functional form inside |x|<2 (bump shape, asymmetry) is not yet pinned down? [E1, E2]"
+ ],
+ "notes": "Replaced the smooth cubic+linear+constant with a piecewise model: cubic a*x^3 for |x|>=2, and a separate smooth fit for |x|<2 that captures the observed bump and asymmetry (fit to E1/E2 near-zero points). The near-zero region is clearly not a simple polynomial, so I fit a low-order polynomial through the small-|x| data.",
+ "fit": 0.5,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.5625
+ ],
+ "made_at": 2
+}

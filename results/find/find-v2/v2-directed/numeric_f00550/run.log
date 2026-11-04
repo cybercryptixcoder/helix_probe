@@ -8,3 +8,18 @@ Helix Probe v2 on 'find_numeric_f00550': 0 experiments so far, model v0, exam of
 [4] E4 Is the support of f exactly the interval (-0.85, 0.85), or does the nonzero...(+90 chars)  (v3 predicted it: match 0.50)
       model v4 by the updater: exam 1.00, fit 0.96, size 1131 (fit 0.875 -> 0.960); held-out 99%
 [5] E5 Where exactly is the right edge of the nonzero region, and how does the bum...(+71 chars)  (v4 predicted it: match 1.00)
+[6] E6 What is the exact shape of the left edge of the nonzero region between -0.8...(+87 chars)  (v4 predicted it: match 0.93)
+      model v5 by the updater: exam 1.00, fit 1.00, size 1129 (fit 0.962 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+[7] E7 What is the exact shape of the right edge of the bump between 0.79 and 0.81...(+76 chars)  (v5 predicted it: match 1.00)
+[8] E8 Is the interior of the bump smooth and symmetric in shape (a scaled/offset ...(+149 chars)  (v5 predicted it: match 1.00)
+[9] E9 Is the interior bump a smooth analytic function (e.g. a quadratic/other sim...(+171 chars)  (v5 predicted it: match 1.00)
+[10] E10 Is the bump's interior a smooth analytic function of x (so a few-parameter ...(+262 chars)  (v5 predicted it: match 1.00)
+[11] E11 Is the interior bump a smooth analytic function that a closed form (e.g. a ...(+199 chars)  (v5 predicted it: match 1.00)
+[12] E12 Is the bump's interior a single smooth analytic function over the whole sup...(+184 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v6 by the theorist: exam 1.00, fit 1.00, size 369 (same scores, smaller (1129 -> 369 chars)); held-out 100%
+[13] E13 Does the quadratic hold exactly at and just beyond the boundary |x|=0.8 on ...(+163 chars)  (v6 predicted it: match 1.00)
+[14] E14 Does the box behave as the pure quadratic only inside |x|<=0.8 with a hard ...(+297 chars)  (v6 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00550", "experiments": 14, "exam_probes": 4, "model_version": 6, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 369, "heldout": 1.0, "llm_calls": 21, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

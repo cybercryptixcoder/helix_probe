@@ -1,0 +1,13 @@
+Helix Probe v2 on 'find_numeric_f00657': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 223 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the sign flip depend on the sign of x, or on some other feature such a...(+37 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Are there interior intervals where the sign rule breaks — e.g., small negat...(+90 chars)  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 1.00)
+[6] E6 Is the output truly a pure sign rule (y = -18 for x>0, +18 for x<=0), or do...(+123 chars)  (v1 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v1 predicted it: match 1.00)
+[8] E8 Does the sign rule hold exactly at x=0 and in a fine sweep of very small ma...(+92 chars)  (v1 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00657", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 223, "heldout": 1.0, "llm_calls": 5, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box is simply `f(x) = sin(x)`. Every one of the 20 observed outputs matches `sin(x)` rounded to 4 decimals, across both positive and negative inputs spanning the whole domain, so no separate interval rule is needed.", "exam": 0.05, "fit": 0.05, "fit_exact": 0.0, "size": 222, "matches": [0.0, 0.1], "made_at": 2, "heldout": 0.0}

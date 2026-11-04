@@ -1,0 +1,71 @@
+Helix Probe v2 on 'find_numeric_f00794': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 What values does f produce across a regular grid of x spanning the domain, ...(+110 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 0.50, size 387 (fit 0.000 -> 0.500); held-out 0%
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (387 vs 387 chars)
+      model v2 by the updater: exam 0.03, fit 0.33, size 374 (exam 0.000 -> 0.025); held-out 0%
+[4] E4 Does f depend on x only through a simple periodic or hash-like function of ...(+102 chars)  (v2 predicted it: match 0.20)
+      model v3 by the updater: exam 0.03, fit 0.34, size 455 (fit 0.300 -> 0.338); held-out 0%
+[5] E5 a random ordinary probe  (v3 predicted it: match 0.10)
+      updater: keep
+[6] E6 Is the small-x regime boundary exactly at x=0 and x=1, and does the functio...(+134 chars)  (v3 predicted it: match 0.55)
+      model v4 by the updater: exam 0.03, fit 0.33, size 447 (same scores, smaller (455 -> 447 chars)); held-out 0%
+[7] E7 a random ordinary probe  (v4 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (447 vs 447 chars)
+      updater's model not kept: same scores and not smaller (447 vs 447 chars)
+[8] E8 For ordinary inputs in the hash-like region, does f(x) depend on x through ...(+211 chars)  (v4 predicted it: match 0.05)
+      updater's model not kept: same scores and not smaller (447 vs 447 chars)
+      updater's model not kept: same scores and not smaller (447 vs 447 chars)
+[9] E9 a random ordinary probe  (v4 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.194, the current model's is 0.239
+      updater's model not kept: same scores and not smaller (447 vs 447 chars)
+[10] E10 Does f(x) for ordinary hash-region inputs follow a deterministic pseudorand...(+233 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[11] E11 a random ordinary probe  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[12] E12 For ordinary hash-region inputs, does f(x) depend only on x through a deter...(+204 chars)  (v4 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its fit is 0.146, the current model's is 0.183
+[13] E13 a random ordinary probe  (v4 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (447 vs 447 chars)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[14] E14 Is the hash-like regime's output a smooth/deterministic function of x that ...(+168 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.132, the current model's is 0.164
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[15] E15 a random ordinary probe  (v4 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.147, the current model's is 0.153
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[16] E16 Is f(x) for ordinary hash-region inputs an exact function of x alone (deter...(+140 chars)  (v4 predicted it: match 0.20)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[17] E17 a random ordinary probe  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its fit is 0.118, the current model's is 0.147
+[18] E18 Does f depend on x through a simple deterministic hash of the integer part ...(+117 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[19] E19 a random ordinary probe  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[20] E20 Is the hash-region output a fixed deterministic function of x that is repro...(+144 chars)  (v4 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[21] E21 a random ordinary probe  (v4 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[22] E22 Does f(x) for ordinary inputs match a simple known hash-like formula, e.g. ...(+161 chars)  (v4 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[23] E23 a random ordinary probe  (v4 predicted it: match 0.20)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: same scores and not smaller (447 vs 447 chars)
+[24] E24 Does f depend only on the fractional part of x (or on x mod some period), t...(+129 chars)  (v4 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[25] E25 a random ordinary probe  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+{"env": "find_numeric_f00794", "experiments": 25, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 0.025, "fit": 0.12, "size": 447, "heldout": 0.0, "llm_calls": 58, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

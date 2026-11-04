@@ -1,0 +1,35 @@
+{
+ "version": 16,
+ "beliefs": [
+  "The mean is essentially -3.9*x^3 for |x|>=2.6: f(128)\u2248-8181911.6, f(64)\u2248-1023051.4, f(20)\u2248-31236, f(10)\u2248-3897.7, f(5)\u2248-480.6, f(3.0)\u2248-98.1 [E1, E5, E11, E12]",
+  "The mean is odd to ~0.1-0.3%: mean(-x)\u2248-mean(x) at large |x| [E1, E11, E12]",
+  "Noise at large |x| is fixed-size (~\u00b11 to \u00b11.5 absolute), not proportional to the mean [E11, E12]",
+  "The mean decreases smoothly on the positive side: f(1.0)\u22481.0, f(1.5)\u2248-7.2, f(1.9)\u2248-20.5, f(2.0)\u2248-25.7, f(2.5)\u2248-54.1, f(2.6)\u2248-60.9 [E5, E7, E9]",
+  "The mean in |x|<2.6 is roughly symmetric and smooth, with a plateau near x=0 at level \u22483.5-4.0 [E2, E3, E4, E8, E10, E13, E14, E15]",
+  "Noise everywhere is roughly \u00b11.5-2 absolute around the mean; the small-|x| region is genuinely noisy (irreproducible at identical x), not deterministic [E6, E7, E8, E9, E10, E11, E12, E13, E14, E15]",
+  "The exact mean shape inside |x|<2.6 is only approximately known; a smooth polynomial fit through observed points is used [E2, E3, E4, E5]?",
+  "The mean near x=0 may be slightly below 3.6 (E15 six repeats average \u22482.84) but noise is large; keep plateau \u22483.6 [E10, E13, E14, E15]?"
+ ],
+ "notes": "E16 confirms the polynomial's shape near |x|=1.25-1.75 is roughly right (predictions within noise), so no structural change is warranted; the low match is dominated by the \u00b12 noise on the small-|x| region. Keeping v15's model.",
+ "fit": 0.1875,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.5625,
+  0.9,
+  0.5,
+  0.65,
+  0.3,
+  0.4,
+  0.2,
+  0.75,
+  0.2,
+  1.0,
+  1.0,
+  0.25,
+  0.2,
+  0.3,
+  0.2
+ ],
+ "made_at": 16
+}

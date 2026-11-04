@@ -1,0 +1,39 @@
+{
+ "version": 15,
+ "beliefs": [
+  "f(0)\u2248475 is an isolated spike at exactly x=0 [E1, E6, E7, E16]",
+  "f has an elevated plateau on x in (0, 0.750] with values ~13-14 [E2, E3, E4, E10, E14, E17]",
+  "The positive plateau's right edge is exactly at x=0.750: f(0.750)\u224813.5 elevated, f(0.7501)\u2248-0.9 base [E14, E17]",
+  "The positive plateau extends down to x=0.0005, so there is no gap between the spike and the plateau [E4, E6, E16]",
+  "On the negative side there is an elevated region on x in [-0.75, -0.001] with values ~6-7 [E3, E5, E6]",
+  "The negative region's left edge is exactly at x=-0.75, a sharp transition [E11, E12]",
+  "The negative region's right edge is very close to 0, nearly touching the spike [E6, E16]",
+  "Outside the elevated regions and spike, f is small and irregular (roughly in [-1,1]) across the whole domain [E1, E8, E9, E10]",
+  "All regions are noisy: repeated identical inputs give different outputs, so values are random draws around region means [E13, E15]",
+  "The base region noise is roughly uniform in [-1,1] with mean ~0 [E8, E9, E10, E13, E15]",
+  "The plateau values fluctuate around ~13.5 and the negative-region values around ~6.8, both unpredictable noise [E2, E3, E5, E15]"
+ ],
+ "notes": "Moved the positive plateau's right edge from 0.7505 to exactly 0.750 based on E17 (f(0.7501) is already base). Kept everything else; noise is modeled as a deterministic pseudo-random draw per x since exact per-call randomness can't be predicted anyway.",
+ "fit": 0.23529411764705882,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  0.875,
+  0.65,
+  0.75,
+  0.4,
+  1.0,
+  1.0,
+  0.0,
+  0.1,
+  0.1,
+  0.5,
+  0.15,
+  0.15,
+  0.3,
+  0.35,
+  1.0,
+  0.05
+ ],
+ "made_at": 17
+}

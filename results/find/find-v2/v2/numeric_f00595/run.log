@@ -1,0 +1,42 @@
+Helix Probe v2 on 'find_numeric_f00595': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.97, fit 1.00, size 212 (exam 0.000 -> 0.975); held-out 66%
+[2] E2 Does the rule floor(x)+1 for x>=0 and floor(x)-1 for x<0 hold at and near z...(+50 chars)  (v1 predicted it: match 0.92)
+      model v2 by the updater: exam 0.97, fit 1.00, size 211 (fit 0.962 -> 1.000); held-out 66%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Does the floor-plus-sign rule hold across a broad spread of ordinary magnit...(+159 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 The model is exact on all sampled points, but is the floor-plus-sign rule s...(+138 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (323 vs 211 chars)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the rule hold at integer and just-beyond-integer values, especially at...(+160 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Does the floor-plus-sign rule hold for ordinary values very close to intege...(+101 chars)  (v2 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v2 predicted it: match 1.00)
+[12] E12 The model assumes a unit step at every integer (floor(x)+1 for x>0, floor(x...(+259 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (315 vs 211 chars)
+[13] E13 a random ordinary probe  (v2 predicted it: match 1.00)
+[14] E14 Does the floor-plus-sign rule hold at ordinary mid-range values with fracti...(+142 chars)  (v2 predicted it: match 0.95)
+      model v3 by the updater: exam 0.97, fit 1.00, size 269 (fit 0.996 -> 1.000); held-out 66%
+[15] E15 a random ordinary probe  (v3 predicted it: match 0.90)
+      model v4 by the updater: exam 0.97, fit 1.00, size 320 (fit 0.993 -> 1.000); held-out 66%
+[16] E16 Are the two anomalous values (33.333 -> -0.5235, 40.1 -> -0.6334) isolated ...(+143 chars)  (v4 predicted it: match 0.35)
+      model v5 by the updater: exam 1.00, fit 1.00, size 388 (exam 0.975 -> 1.000); held-out 95%
+[17] E17 a random ordinary probe  (v5 predicted it: match 1.00)
+[18] E18 Is the anomalous interval's boundary exactly at 33.3 and 41.5, and does the...(+90 chars)  (v5 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (388 vs 388 chars)
+      model v6 by the updater: exam 1.00, fit 0.95, size 382 (same scores, smaller (388 -> 382 chars)); held-out 95%
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (620 vs 382 chars)
+[19] E19 a random ordinary probe  (v6 predicted it: match 1.00)
+[20] E20 Are there other anomalous intervals like the (33.3, 41.5] one, and does the...(+272 chars)  (v6 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v6 predicted it: match 1.00)
+[22] E22 Does the anomalous interval have a sharp lower boundary at exactly 33.3 (wi...(+272 chars)  (v6 predicted it: match 0.60)
+      model v7 by the updater: exam 1.00, fit 0.95, size 384 (fit 0.941 -> 0.950); held-out 100%
+[23] E23 a random ordinary probe  (v7 predicted it: match 1.00)
+[24] E24 Does the anomalous interval really extend above 42.0, and where exactly doe...(+180 chars)  (v7 predicted it: match 1.00)
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v7 predicted it: match 1.00)
+{"env": "find_numeric_f00595", "experiments": 25, "exam_probes": 4, "model_version": 7, "model_role": "updater", "exam": 1.0, "fit": 0.956, "size": 384, "heldout": 1.0, "llm_calls": 24, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

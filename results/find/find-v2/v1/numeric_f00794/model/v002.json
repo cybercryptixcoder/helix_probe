@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f has a plateau/step region roughly on x in [0.05, 0.7] where f \u2248 13-14, sharply dropping to ~0.3 just outside it [E2]",
+  "f(0)\u2248474 is an isolated spike at exactly x=0, distinct from the ~13.8 plateau on either side [E1, E2]",
+  "Outside the plateau and spike, f is small and irregular in [-1, 1] with no obvious smooth pattern [E1]",
+  "The plateau edges are sharp: at x=0.8 f\u22480.27 and at x=1.0 f\u22480.78, so the plateau ends between 0.7 and 0.8 [E2]",
+  "On the negative side, f(-0.5)\u22487.6 and f(-1)\u22480.09, suggesting a similar but narrower elevated region near x\u2208(-0.5,0) [E1]",
+  "Exact edge locations and the negative-side structure are uncertain; more probes needed near x\u2208[-1,0] and x\u2208[0.7,0.8]?"
+ ],
+ "notes": "Replaced the Gaussian-peak model with a step/plateau model: ~13.8 on [0.05,0.7], isolated spike at 0, small irregular baseline elsewhere, plus a tentative negative-side bump near -0.5.",
+ "fit": 0.5,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  0.8125
+ ],
+ "made_at": 2
+}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box appears to be a sign-based step function: every positive input gave 52.2 and every negative input gave -14.96 in E1. I encoded that rule (with a guess for x=0), which should generalize to any probe.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 198, "matches": [1.0], "made_at": 1, "heldout": 1.0}

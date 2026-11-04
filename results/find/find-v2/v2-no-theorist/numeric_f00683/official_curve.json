@@ -1,0 +1,27 @@
+{
+ "category": "numeric",
+ "fid": "f00683",
+ "experiments": 10,
+ "exam_probes": 4,
+ "n_versions": 2,
+ "inputs_total": 167,
+ "final": 1.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "start",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 40
+  },
+  {
+   "version": 1,
+   "role": "updater",
+   "experiments": 2,
+   "score": 1.0,
+   "nmse": 3.5139727315575243e-06,
+   "inputs": 70
+  }
+ ]
+}

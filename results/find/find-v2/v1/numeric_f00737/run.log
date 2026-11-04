@@ -1,0 +1,29 @@
+Helix Probe on 'find_numeric_f00737': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across a broad, evenly spaced range of the domain, in...(+44 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.65 (was 0.00), held-out 0%
+[2] E2 Is f exactly linear on the positive side, or does it bend? Probe closely sp...(+79 chars)  model v1 match 0.00
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.33), held-out 100%
+[3] E3 What happens for very small positive x between 0 and 0.25 — does f continue...(+100 chars)  model v2 match 1.00
+[4] E4 Does the shift c in y = a*ln(x+c)+d actually exist (so the curve deviates f...(+102 chars)  model v2 match 1.00
+[5] E5 Does the logarithmic model continue to hold beyond x=128 (up to the domain ...(+58 chars)  model v2 match 1.00
+[6] E6 Are there any values in the untouched negative domain where f is defined (n...(+70 chars)  model v2 match 1.00
+[7] E7 Is f exactly a*ln(x)+b across the whole positive domain, or does it deviate...(+206 chars)  model v2 match 1.00
+[8] E8 Is the pure log form y = a*ln(x)+b exact for all positive x, or does the fi...(+100 chars)  model v2 match 1.00
+[9] E9 Is the coefficient a exactly 7.2188 (i.e. y = a*ln(x) + b with b=-7.8), or ...(+122 chars)  model v2 match 1.00
+[10] E10 For very small positive x (below 0.0005, down to near the domain's lower po...(+186 chars)  model v2 match 1.00
+[11] E11 Is the coefficient a exactly 7.2188 (i.e. y = a*ln(x) + b with b=-7.8), or ...(+122 chars)  model v2 match 1.00
+[12] E12 How does f behave in the narrow transition zone just above x=0 (between the...(+133 chars)  model v2 match 1.00
+[13] E13 Does f stay exactly on the pure log y = a*ln(x)+b all the way to the domain...(+131 chars)  model v2 match 1.00
+[14] E14 Does f(x) continue to equal a*ln(x)+b for positive x far below 1e-6 (down t...(+152 chars)  model v2 match 1.00
+[15] E15 Is f exactly a*ln(x)+b with a=7.2188, b=-7.8, or is there a tiny systematic...(+97 chars)  model v2 match 1.00
+[16] E16 Is f really null for every x <= 0, including tiny negative values like -1e-...(+170 chars)  model v2 match 1.00
+[17] E17 Is f exactly the pure log y = a*ln(x) + b with a=7.2188, b=-7.8 (i.e. no sh...(+149 chars)  model v2 match 1.00
+[18] E18 Does f(x) exactly equal the pure log a*ln(x)+b (with a=7.2188, b=-7.8) at i...(+206 chars)  model v2 match 1.00
+[19] E19 Is the output of f quantized/rounded to 4 decimal places everywhere, and if...(+153 chars)  model v2 match 1.00
+[20] E20 Is f exactly a*ln(x)+b with a=7.2188, b=-7.8 even at extremely small positi...(+122 chars)  model v2 match 1.00
+[21] E21 Is the coefficient exactly 7.2188 and intercept exactly -7.8, or is there a...(+122 chars)  model v2 match 1.00
+[22] E22 Is f's output quantized (rounded to 4 decimals) in a way that reveals the r...(+181 chars)  model v2 match 1.00
+[23] E23 Does f stay exactly on the pure log a*ln(x)+b for x in the untested mid-ran...(+131 chars)  model v2 match 1.00
+[24] E24 Is f exactly the pure log a*ln(x)+b across the entire positive domain, or d...(+125 chars)  model v2 match 1.00
+[25] E25 Is the output of f exactly the 4-decimal rounding of 7.2188*ln(x) - 7.8 (i....(+207 chars)  model v2 match 1.00
+{"env": "find_numeric_f00737", "experiments": 25, "model_version": 2, "fit": 1.0, "heldout": 1.0, "llm_calls": 27, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

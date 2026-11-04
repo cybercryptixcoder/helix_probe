@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "For |x|>=2.6, f(x) is well approximated by a*x^3 with a\u2248-3.9: f(2.6)\u224866.5, f(4)\u2248-241, f(8)\u2248-1990, f(128)\u2248-8181913 [E1, E3]",
+  "The cubic is nearly odd: f(-x)\u2248-f(x) for |x|>=2.6, e.g. f(-128)\u22488175362 vs -f(128)\u22488181913 [E1]",
+  "Near zero (|x|<1) f is bumpy and non-monotone: f(0)\u22483.02, f(\u00b10.1)\u22484.0-4.5, f(\u00b10.5)\u22481.7-2.2, f(\u00b10.9)\u22483.0-4.8 [E1, E2, E3]",
+  "There is a special interval roughly |x|<2 where f deviates strongly from the cubic and is not odd: f(1.2)\u2248-2.5, f(1.5)\u2248-5.5, f(1.9)\u2248-18.8 while f(-1.2)\u22487.2, f(-1.5)\u224811.6, f(-1.9)\u224827.4 [E2, E3]",
+  "The transition to the cubic regime happens near |x|\u22482: f(2)\u2248-25 fits cubic, f(1.9)\u2248-18.8 close to cubic, but f(1.5)\u2248-5.5 is far from cubic [E2, E3]",
+  "The negative-side values in E3 differ from E2 at same x (e.g. f(-1.2)=7.22 vs 9.32, f(-1.5)=11.55 vs 14.09), suggesting noise or a steeper-than-cubic local shape; exact form inside |x|<2 not pinned down? [E2, E3]"
+ ],
+ "notes": "Kept cubic for |x|>=2.6 and refit the near-zero polynomial to include E3 points, which shifted the negative-side curve toward the new observations while preserving the E1/E2 bumpy shape.",
+ "fit": 0.3333333333333333,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.625,
+  0.9
+ ],
+ "made_at": 3
+}

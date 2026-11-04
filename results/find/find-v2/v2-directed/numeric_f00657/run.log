@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00657': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like on a broad, evenly spaced set of ordinary inputs acro...(+84 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 85 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Where exactly does the output switch from +18 to -18, and is the transition...(+18 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the switch from +18 to -18 exactly at x=0, or is there a small interval ...(+96 chars)  (v1 predicted it: match 1.00)
+[4] E4 Are the +18/-18 outputs truly constant on each side, or does the function v...(+134 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the function depend only on the sign of x, or does it also depend on s...(+96 chars)  (v1 predicted it: match 1.00)
+[6] E6 Is the switch exactly at x=0 (i.e., f(0)=+18 and any positive value gives -...(+125 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.925, the current model's is 1.000
+[7] E7 Does f depend only on the sign of x, or does it also switch behavior at som...(+95 chars)  (v1 predicted it: match 1.00)
+[8] E8 Are the outputs exactly ±18 everywhere on each side, or does f take other c...(+96 chars)  (v1 predicted it: match 1.00)
+[9] E9 Is the output exactly a fixed sign-dependent constant with no dependence on...(+129 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00657", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 85, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

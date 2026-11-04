@@ -1,0 +1,33 @@
+import math
+
+def predict(probe):
+    # Model of the black box f(x).
+    #
+    # Beliefs:
+    # - For |x| >= ~1.15, f(x) ≈ -3.9*x^3 (odd cubic) [E1,E2,E4,E9,E11,E13]
+    #   f(128)=-8181910, f(100)=-3901796, f(-1.3)~8.3-8.6, f(1.3)~-3 to -4.
+    # - For |x| <= ~0.95, f(x) is ~3 plus substantial noise; no clean odd trend
+    #   [E3,E5,E6,E7,E8,E10,E12,E13]. Values scatter ~1.5..5.7, mean ~3.
+    # - Transition: cubic ramps in between |x|~0.95 and ~1.15 [E11,E13].
+    #   At |x|~1.0 still small (~4-5), at |x|~1.15-1.2 cubic-ish (~5-7).
+    # - Noise: large in central region; use mean ~3.
+    try:
+        xs = probe.get("x", [])
+        ys = []
+        for x in xs:
+            if x is None:
+                ys.append(None)
+                continue
+            x = float(x)
+            ax = abs(x)
+            cubic = -3.9 * x * x * x
+            if ax >= 1.15:
+                ys.append(cubic)
+            elif ax <= 0.95:
+                ys.append(3.0)
+            else:
+                t = (ax - 0.95) / 0.2
+                ys.append((1 - t) * 3.0 + t * cubic)
+        return {"y": ys}
+    except Exception:
+        return {"y": [None for _ in probe.get("x", [])]}

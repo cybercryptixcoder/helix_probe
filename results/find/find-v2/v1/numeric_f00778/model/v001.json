@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is roughly odd and grows like x^3 for |x|>=2: f(2)\u2248-25, f(4)\u2248-241, f(8)\u2248-1990, f(16)\u2248-15990, f(32)\u2248-127933, f(64)\u2248-1023050, f(128)\u2248-8181913, and f(-x)\u2248-f(x) [E1]",
+  "Near zero the cubic term is tiny, so a smaller term dominates: f(0)\u22483.02, f(\u00b10.5)\u22481.7-2.2, f(\u00b11)\u22482.9-6.8, f(\u00b12)\u2248-25/31 \u2014 suggesting a small linear/constant term plus cubic [E1]",
+  "The cubic coefficient is about -3.9 (since f(128)/128^3 \u2248 -3.9) and there is a small offset near 0 around +3 [E1]",
+  "Exact functional form (e.g. a*x^3 + b*x + c, or something with a special interval) is not yet pinned down? [E1]"
+ ],
+ "notes": "Fitted a cubic-plus-small-term model from the single broad probe; odd symmetry with a near-zero offset. Need targeted probes near 0 and mid-range to pin coefficients and check for any special interval.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

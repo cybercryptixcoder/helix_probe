@@ -1,0 +1,27 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f(x) is exactly 0 for x < -0.8 and for x > 0.8, and nonzero on the closed interval [-0.8, 0.8] [E3, E6, E7, E9]",
+  "At the left boundary f(-0.8) = -5.252 is nonzero, and just inside (x=-0.7999) it is -5.2513, so the spike peak sits at x=-0.8 [E7, E9]",
+  "At the right boundary f(0.8) = -2.372 is nonzero, and just inside (x=0.7999999) it is -2.372, so the right edge value is at x=0.8 [E9]",
+  "f(0) = -1.7 exactly [E1, E2]",
+  "The left side rises smoothly from -5.252 at x=-0.8 toward -1.7 at 0, with a mild concave shape (e.g. -4.906 at -0.75, -3.968 at -0.6, -3.528 at -0.52) [E3, E4, E5]",
+  "The right side dips to about -1.457 near x=0.3 then rises to -2.372 at x=0.8 (e.g. -1.665 at 0.02, -1.504 at 0.15, -1.457 at 0.3, -1.708 at 0.55) [E3, E8]",
+  "Exact functional form is unknown; shape between sampled points is linearly interpolated [E2, E3, E5, E8]?"
+ ],
+ "notes": "Fixed the boundary handling: the nonzero interval is the closed interval [-0.8, 0.8], so f(-0.8) and f(0.8) are nonzero (previously I zeroed them). Also refined the right-shoulder dip using E8 data points.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 9
+}

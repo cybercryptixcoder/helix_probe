@@ -1,0 +1,13 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) = 18 for x <= 0 and f(x) = -18 for x > 0, a step/sign function [E1]"
+ ],
+ "notes": "E1 shows a clean sign flip at x=0: all non-positive inputs give 18, all positive inputs give -18. Model as a step function.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

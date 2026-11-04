@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is undefined (null) for all x <= 0 [E1]",
+  "For x > 0, f increases with x, roughly linear at first then flattening toward a ceiling near 36.4 [E1]",
+  "f(1) = -7.8, f(2) = -1.4907, f(4) = 4.8186, f(8) = 11.1278, f(16) = 17.4371, f(32) = 23.7464, f(64) = 30.0557, f(100) = 34.1179, f(127) = 36.2936, f(128) = 36.365 [E1]",
+  "The positive-x curve looks like a saturating function such as a*ln(x)+b or a*x^p; exact form unknown [E1]?"
+ ],
+ "notes": "Only one experiment exists; it shows null for x<=0 and a smooth increasing, flattening curve for x>0. I fit a log-like saturating form and interpolate/extrapolate from it, flagging the exact functional form as uncertain.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.65
+ ],
+ "made_at": 1
+}

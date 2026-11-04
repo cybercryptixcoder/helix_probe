@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "For x>0, f(x) \u2248 10.4\u00b7x + 0.5\u00b7x^2 (fits 1\u219210.6, 2\u219220.7, 4\u219246.9, 8\u219299.3, 16\u2192208.1, 32\u2192414.7, 64\u2192832.9, 128\u21921671.3) [E1]",
+  "For x<0 outside a special interval, f(x) \u2248 1.4\u00b7x (fits -128\u2192-177.58, -100\u2192-140.9, -64\u2192-94.74, -32\u2192-52.82, -16\u2192-31.86, -8\u2192-21.38, -4\u2192-14.14) [E1]",
+  "There is a special interval near x\u2208[-2,-1] where f is very negative (f(-2)=-13.52, f(-1)=-11.21) rather than following the linear rule [E1]",
+  "f(0) = -383.12 is a sharp spike, far from both the positive and negative branches [E1]",
+  "The exact boundaries of the special interval and the spike are unknown? [E1]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.7
+ ],
+ "made_at": 1
+}

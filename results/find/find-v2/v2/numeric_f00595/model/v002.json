@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed the branch condition from `x >= 0` to `x > 0`: E2 shows f(0) = -1, which matches the negative branch (floor(0)-1 = -1), not the positive branch (which would give +1). So zero belongs with the negatives.", "exam": 0.975, "fit": 1.0, "fit_exact": 1.0, "size": 211, "matches": [1.0, 1.0], "made_at": 2, "heldout": 0.66}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I fixed the zero case: E2 shows both `0.0` and `-0.0` return `+18`, so the boundary is `x <= 0 -> +18`, not `x < 0`. The rest of the sign rule and the constant magnitude \u00b118 are confirmed by E2 across the full domain.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 232, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

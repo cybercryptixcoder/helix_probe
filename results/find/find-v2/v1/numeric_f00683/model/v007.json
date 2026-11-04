@@ -1,0 +1,24 @@
+{
+ "version": 7,
+ "beliefs": [
+  "For x>=2 the positive branch is exactly 10.4\u00b7x + 0.5\u00b7x^2 (2\u219220.7, 3\u219234.8, 5\u219261.0, 128\u21921671.3) [E1, E3, E4]",
+  "For 0<x<1 the positive branch is exactly 10.4\u00b7x - 3.2 (0.1\u2192-2.19, 0.5\u21922.05, 0.9\u21926.29) [E2, E3]",
+  "In 1<=x<2 values are erratic and don't follow a smooth formula (1.05\u21929.255, 1.35\u219213.185, 1.5\u219215.15, 1.9\u219220.39) \u2014 noise or hidden oscillation [E3, E4]",
+  "For x<0 the branch is approximately linear but with systematic scatter; slope near 1.4 but intercept near -10 with deviations up to ~1.5 [E5, E6, E7]",
+  "f(0)=-383.12 is a sharp spike [E1]",
+  "The negative-branch scatter looks like a small oscillation (~period 3-4 in x) on top of a line; exact form unknown [E5, E6, E7]?"
+ ],
+ "notes": "E7 confirms the negative branch is roughly linear with slope ~1.4 but a different intercept (~-10 with wobble) than v6's -10 base; the scatter is systematic, not pure noise, so I keep the line as base and note the oscillation. Positive branch unchanged.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.65,
+  0.6,
+  0.45,
+  0.85,
+  0.75,
+  0.75
+ ],
+ "made_at": 7
+}

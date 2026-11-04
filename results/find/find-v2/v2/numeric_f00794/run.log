@@ -1,0 +1,83 @@
+Helix Probe v2 on 'find_numeric_f00794': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 Does f(x) depend only on x, or on some hidden feature of the input list suc...(+144 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.05, fit 0.50, size 278 (exam 0.000 -> 0.050); held-out 0%
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.00)
+[4] E4 Does f(x) depend on x alone, or on position in the list / hidden state? Tes...(+150 chars)  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 0.05, fit 0.40, size 275 (same scores, smaller (278 -> 275 chars)); held-out 0%
+[6] E6 Within a single call, what is the shape of f across ordinary x — is it a sm...(+59 chars)  (v2 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.417, the current model's is 0.483
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v2 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      theorist (updater stalled)
+      model v3 by the theorist: exam 0.05, fit 0.43, size 652 (fit 0.414 -> 0.429); held-out 0%
+[8] E8 Is the ordinary output a deterministic function of x (so repeated x in one ...(+66 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+[10] E10 For ordinary (non-spike) x, is the output a deterministic function of x, an...(+128 chars)  (v3 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.050
+[11] E11 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+[12] E12 Is the ordinary-region output reproducible per x (deterministic) or fresh n...(+131 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v3 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+[14] E14 Does the ordinary-region output depend only on x (deterministic per x) or i...(+130 chars)  (v3 predicted it: match 0.80)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.050
+[15] E15 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      model v4 by the updater: exam 0.05, fit 0.36, size 552 (fit 0.343 -> 0.360); held-out 0%
+[16] E16 Is the ordinary-region output truly independent noise per call (so repeated...(+198 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: same scores and not smaller (552 vs 552 chars)
+[17] E17 a random ordinary probe  (v4 predicted it: match 0.20)
+      updater's model not kept: its fit is 0.324, the current model's is 0.329
+      updater's model not kept: same scores and not smaller (552 vs 552 chars)
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.050
+[18] E18 Is the ordinary-region output truly independent noise per call, or does it ...(+195 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.050
+[19] E19 a random ordinary probe  (v4 predicted it: match 0.10)
+      updater's model not kept: its fit is 0.297, the current model's is 0.300
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.050
+[20] E20 Does the ordinary-region output depend on the sign or magnitude of x in any...(+223 chars)  (v4 predicted it: match 0.20)
+      model v5 by the updater: exam 0.05, fit 0.32, size 918 (fit 0.295 -> 0.318); held-out 0%
+[21] E21 a random ordinary probe  (v5 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (918 vs 918 chars)
+      updater's model not kept: same scores and not smaller (918 vs 918 chars)
+[22] E22 Does the ordinary-region output hide deterministic structure in the fractio...(+153 chars)  (v5 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (918 vs 918 chars)
+      updater's model not kept: same scores and not smaller (918 vs 918 chars)
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[23] E23 a random ordinary probe  (v5 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (918 vs 918 chars)
+      updater's model not kept: same scores and not smaller (918 vs 918 chars)
+[24] E24 Does the ordinary-region output (|x|>=~1) depend deterministically on x in ...(+186 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: same scores and not smaller (918 vs 918 chars)
+      updater's model not kept: same scores and not smaller (918 vs 918 chars)
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v5 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (918 vs 918 chars)
+      updater's model not kept: same scores and not smaller (918 vs 918 chars)
+{"env": "find_numeric_f00794", "experiments": 25, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 0.05, "fit": 0.268, "size": 918, "heldout": 0.0, "llm_calls": 65, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

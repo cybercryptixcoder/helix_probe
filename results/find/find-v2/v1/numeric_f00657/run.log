@@ -1,0 +1,28 @@
+Helix Probe on 'find_numeric_f00657': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, especially at simple anchor ...(+24 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Is the step exactly at 0 (with f(0)=18), or is there a small interval aroun...(+59 chars)  model v1 match 1.00
+[3] E3 Are there any other behaviors elsewhere in the domain, e.g. large-magnitude...(+115 chars)  model v1 match 1.00
+[4] E4 Does the step stay perfectly flat at 18/-18 near the transition, or is ther...(+87 chars)  model v1 match 1.00
+[5] E5 Is the output exactly the constants 18 and -18 for all x, or does it vary w...(+78 chars)  model v1 match 1.00
+[6] E6 Does the flat 18/-18 step hold at random non-round values across the whole ...(+99 chars)  model v1 match 1.00
+[7] E7 Does f behave as a pure sign step for values very close to the boundaries o...(+122 chars)  model v1 match 1.00
+[8] E8 Does f stay exactly 18/-18 at every representable value right at the transi...(+150 chars)  model v1 match 1.00
+[9] E9 Is f(x) exactly 18 for all x <= 0 and exactly -18 for all x > 0, including ...(+141 chars)  model v1 match 1.00
+[10] E10 Is f exactly a sign step for non-finite or special floating-point inputs (N...(+99 chars)  model v1 match 1.00
+[11] E11 Does f ever return null (undefined) anywhere in the domain, or is it define...(+33 chars)  model v1 match 1.00
+[12] E12 Is f(x) exactly a two-valued step (18 for x<=0, -18 for x>0) at arbitrary i...(+163 chars)  model v1 match 1.00
+[13] E13 Is f(x) exactly 18 for negative x and -18 for positive x even at the extrem...(+156 chars)  model v1 match 1.00
+[14] E14 Does the sign step hold exactly at irrational and messy binary values just ...(+156 chars)  model v1 match 1.00
+[15] E15 Does f return a value (rather than null) for non-finite inputs NaN, +inf, -...(+84 chars)  model v1 match 1.00
+[16] E16 Is f(x) truly a pure two-valued step function with no hidden interval behav...(+97 chars)  model v1 match 1.00
+[17] E17 Does the step rule still hold exactly at the transition when probing values...(+238 chars)  model v1 match 1.00
+[18] E18 Does f return a value or null for non-finite inputs NaN, +inf, -inf, which ...(+144 chars)  model v1 match 1.00
+[19] E19 Does f return a value or null for non-finite inputs NaN, +inf, -inf, which ...(+67 chars)  model v1 match 1.00
+[20] E20 Does f return a value or null for non-finite inputs NaN, +inf, -inf, which ...(+63 chars)  model v1 match 1.00
+[21] E21 What does f actually do for non-finite inputs NaN, +inf, -inf, which were n...(+60 chars)  model v1 match 1.00
+[22] E22 Does f actually accept and return a value for the non-finite inputs NaN, +i...(+85 chars)  model v1 match 1.00
+[23] E23 Does f actually accept non-finite inputs (NaN, +inf, -inf) and return a val...(+83 chars)  model v1 match 1.00
+[24] E24 Does f actually accept non-finite inputs (NaN, +inf, -inf) and return a val...(+77 chars)  model v1 match 1.00
+[25] E25 Does f actually return a value (not null) for non-finite inputs NaN, +inf, ...(+100 chars)  model v1 match 1.00
+{"env": "find_numeric_f00657", "experiments": 25, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 41, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

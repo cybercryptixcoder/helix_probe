@@ -17,3 +17,8 @@ Helix Probe v2 on 'find_numeric_f00550': 0 experiments so far, model v0, exam of
 [11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
 [12] E12 Is the support boundary exactly at |x|=0.8 with a sharp cutoff, and does th...(+188 chars)  (v4 predicted it: match 1.00)
       theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (1784 vs 1220 chars)
+[13] E13 a random ordinary probe  (v4 predicted it: match 1.00)
+[14] E14 Within the nonzero region, is f exactly symmetric about x=0 in magnitude, o...(+181 chars)  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00550", "experiments": 14, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 0.9928571428571429, "size": 1220, "heldout": 0.99, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The outputs split perfectly by sign of x: all positive inputs give 52.2 and all negative inputs give -14.96. I modeled it as a sign-based step function with the boundary at 0 (not yet directly tested).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 125, "matches": [1.0], "made_at": 1, "heldout": 1.0}

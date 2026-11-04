@@ -1,0 +1,22 @@
+{
+ "version": 5,
+ "beliefs": [
+  "For x>=2 the positive branch is exactly 10.4\u00b7x + 0.5\u00b7x^2 (2\u219220.7, 4\u219246.9, 128\u21921671.3) [E1, E3, E4]",
+  "For 0<x<1 the positive branch is exactly 10.4\u00b7x - 3.2 (0.1\u2192-2.19, 0.5\u21922.05, 0.9\u21926.29) [E2, E3]",
+  "In 1<=x<2 the values are erratic and don't follow a smooth formula (1.05\u21929.255, 1.35\u219213.185, 1.5\u219215.15, 1.9\u219220.39) \u2014 noise or hidden oscillation [E3, E4]",
+  "For x<0 the branch is exactly the line 1.4\u00b7x - 10 (128\u2192-177.58, 100\u2192-139.9, 10\u2192-23.0, 5\u2192-17.45) [E1, E5]",
+  "f(0)=-383.12 is a sharp spike [E1]",
+  "The erratic 1<=x<2 region is unexplained; best guess is the quadratic plus noise? [E4]"
+ ],
+ "notes": "Fixed the negative branch to exactly 1.4x-10 (E5 shows it's exact, not noisy), and set the positive branch to 10.4x-3.2 for x<1 and 10.4x+0.5x^2 for x>=1, keeping the erratic 1-2 region as the quadratic guess.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.65,
+  0.6,
+  0.45,
+  0.85
+ ],
+ "made_at": 5
+}

@@ -1,0 +1,16 @@
+{
+ "env": "find_numeric_f00657",
+ "experiments": 25,
+ "model_version": 1,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 41,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f(x) = 18 for x <= 0 and f(x) = -18 for x > 0, a step/sign function [E1]"
+ ]
+}

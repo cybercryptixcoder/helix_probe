@@ -1,0 +1,38 @@
+{
+ "version": 13,
+ "beliefs": [
+  "f(0)\u2248474 is an isolated spike at exactly x=0 [E1, E6, E7]",
+  "f has an elevated plateau on x in (0, ~0.750] with values ~13-14 [E2, E3, E4, E10, E14]",
+  "The positive plateau's right edge is between 0.750 and 0.7505 (f(0.750)\u224813.30, f(0.7505)\u2248-0.86) [E14]",
+  "The positive plateau extends down to x=0.0005 (f(0.0005)\u224812.7), so there is no gap between the spike and the plateau [E4, E6]",
+  "On the negative side there is an elevated region on x in [-0.75, ~-0.001] with values ~6-7 [E3, E5, E6]",
+  "The negative region's left edge is exactly at x=-0.75 (f(-0.75)\u22487.35, f(-0.7505)\u22480.50), a sharp transition [E11, E12]",
+  "The negative region's right edge is very close to 0 (f(-0.001)\u22487.46, f(0.001)\u224812.64), so it nearly touches the spike [E6]",
+  "Outside the elevated regions and spike, f is small and irregular (roughly in [-1,1]) across the whole domain, including large |x| [E1, E8, E9, E10]",
+  "The plateau values fluctuate irregularly around ~13.5 with no clear trend, so a constant ~13.5 is the best simple model [E2, E3, E4]",
+  "The negative region values fluctuate irregularly around ~6.8, so a constant ~6.8 is the best simple model [E3, E5, E6, E11, E12]",
+  "The base region is noisy and NOT deterministic: repeated identical inputs give different outputs, so it is random noise in [-1,1] [E13]",
+  "The base-region noise appears roughly uniform in [-1,1] (mean ~0, values spread across the whole range) [E8, E9, E10, E13]",
+  "The plateau and negative-region values also fluctuate (not exactly constant), so their exact values are unpredictable noise around their means [E2, E3, E5]?"
+ ],
+ "notes": "Moved the positive plateau's right edge from 0.752 to 0.7505 based on E14 (f(0.750) elevated, f(0.7505) in base). Kept everything else; base region remains modeled as deterministic pseudo-noise since true randomness is not reproducible in predict().",
+ "fit": 0.21428571428571427,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  0.875,
+  0.65,
+  0.75,
+  0.4,
+  1.0,
+  1.0,
+  0.0,
+  0.1,
+  0.1,
+  0.5,
+  0.15,
+  0.15,
+  0.3
+ ],
+ "made_at": 14
+}

@@ -1,0 +1,72 @@
+Helix Probe v2 on 'find_numeric_f00778': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Sample the function across a spread of ordinary magnitudes and signs to rev...(+49 chars)  (v0 predicted it: match 0.00)
+[2] E2 Does the function follow a simple closed form like a*x^3 + b*x + c (with a ...(+125 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+[3] E3 What is the exact functional form and any piecewise boundary near x=0, test...(+153 chars)  (v0 predicted it: match 0.00)
+[4] E4 Is f(x) an odd cubic-plus-linear function (a*x^3 + b*x) on the whole domain...(+122 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+      model v1 by the theorist: exam 1.00, fit 0.85, size 509 (exam 0.000 -> 1.000); held-out 100%
+[5] E5 Is the small-|x| region a genuinely different branch (noisy/constant offset...(+98 chars)  (v1 predicted it: match 0.10)
+      model v2 by the updater: exam 1.00, fit 0.73, size 609 (fit 0.700 -> 0.730); held-out 100%
+[6] E6 Is the small-|x| branch a genuine constant/offset region or a smooth odd fu...(+176 chars)  (v2 predicted it: match 0.20)
+      theorist (every 6 steps)
+[7] E7 Does the small-|x| region behave as a pure constant/offset (independent of ...(+174 chars)  (v2 predicted it: match 0.15)
+      updater's model not kept: its fit is 0.493, the current model's is 0.571
+      updater's model not kept: its fit is 0.564, the current model's is 0.571
+      theorist (updater stalled)
+[8] E8 Is the small-|x| region truly flat/noisy around ~3 with a sharp onset of th...(+196 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: same scores and not smaller (611 vs 609 chars)
+[9] E9 Does the small-|x| region have a genuine positive offset/branch that joins ...(+262 chars)  (v2 predicted it: match 0.20)
+      updater's model not kept: same scores and not smaller (747 vs 609 chars)
+      updater's model not kept: same scores and not smaller (609 vs 609 chars)
+      theorist (updater stalled)
+[10] E10 Is the small-|x| region truly flat at ~3, or is there a smooth positive off...(+140 chars)  (v2 predicted it: match 0.20)
+      model v3 by the updater: exam 1.00, fit 0.45, size 609 (fit 0.445 -> 0.450); held-out 100%
+[11] E11 Is the small-|x| region a smooth positive offset that blends into a cubic (...(+242 chars)  (v3 predicted it: match 0.30)
+      updater's model not kept: same scores and not smaller (609 vs 609 chars)
+      updater's model not kept: same scores and not smaller (609 vs 609 chars)
+[12] E12 Is the small-|x| region a flat noisy constant near ~3, or does it contain a...(+183 chars)  (v3 predicted it: match 0.15)
+      updater's model not kept: its fit is 0.400, the current model's is 0.413
+      updater's model not kept: same scores and not smaller (609 vs 609 chars)
+      theorist (every 6 steps)
+[13] E13 Does the small-|x| region contain a genuine smooth odd component (linear/cu...(+162 chars)  (v3 predicted it: match 0.15)
+      model v4 by the updater: exam 1.00, fit 0.42, size 612 (fit 0.392 -> 0.423); held-out 100%
+[14] E14 In the central region |x|<1, is f(x) a flat noisy constant near 3, or does ...(+175 chars)  (v4 predicted it: match 0.20)
+      updater's model not kept: its fit is 0.393, the current model's is 0.407
+      updater's model not kept: its fit is 0.382, the current model's is 0.407
+[15] E15 Is the central |x|<1 region truly a flat noisy ~3, or does it contain a smo...(+187 chars)  (v4 predicted it: match 0.15)
+      updater's model not kept: same scores and not smaller (612 vs 612 chars)
+      updater's model not kept: its fit is 0.370, the current model's is 0.390
+      theorist (updater stalled)
+[16] E16 Is the central |x|<1 region a flat noisy ~3, or does it have a smooth odd c...(+213 chars)  (v4 predicted it: match 0.10)
+      updater's model not kept: its fit is 0.316, the current model's is 0.372
+      updater's model not kept: same scores and not smaller (612 vs 612 chars)
+[17] E17 Is the central |x|<1 region a flat noisy constant near 3 (no odd component)...(+175 chars)  (v4 predicted it: match 0.25)
+      updater's model not kept: same scores and not smaller (612 vs 612 chars)
+      model v5 by the updater: exam 1.00, fit 0.37, size 612 (fit 0.365 -> 0.368); held-out 100%
+[18] E18 Is the central |x|<1 region truly a flat noisy ~3, or is there a smooth odd...(+174 chars)  (v5 predicted it: match 0.10)
+      updater: keep
+      theorist (every 6 steps)
+[19] E19 Does the central |x|<1 region actually have a smooth odd component hidden u...(+266 chars)  (v5 predicted it: match 0.20)
+      updater's model not kept: its fit is 0.342, the current model's is 0.345
+      updater's model not kept: its fit is 0.324, the current model's is 0.345
+      theorist (updater stalled)
+[20] E20 Is the central region |x|<~1 a flat noisy constant near 3, or does it conta...(+231 chars)  (v5 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (612 vs 612 chars)
+      updater's model not kept: same scores and not smaller (612 vs 612 chars)
+[21] E21 Is the central |x|<1 region truly flat/noisy around 3, or is there a smooth...(+182 chars)  (v5 predicted it: match 0.25)
+      updater's model not kept: its fit is 0.326, the current model's is 0.329
+      updater's model not kept: same scores and not smaller (612 vs 612 chars)
+      theorist (updater stalled)
+[22] E22 Is the central |x|<1 region truly a flat noisy ~3, or is there a small smoo...(+215 chars)  (v5 predicted it: match 0.15)
+      model v6 by the updater: exam 1.00, fit 0.32, size 609 (same scores, smaller (612 -> 609 chars)); held-out 100%
+[23] E23 Does the central |x|<~1 region have a small systematic even offset that gro...(+249 chars)  (v6 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (609 vs 609 chars)
+      updater's model not kept: same scores and not smaller (609 vs 609 chars)
+[24] E24 Is the central |x|<1 region truly flat at ~3, or does it have a smooth even...(+242 chars)  (v6 predicted it: match 0.20)
+      updater's model not kept: its fit is 0.300, the current model's is 0.306
+      theorist (every 6 steps)
+[25] E25 Does the central |x|<1 region have a smooth even (|x|-dependent) component ...(+306 chars)  (v6 predicted it: match 0.20)
+      updater's model not kept: same scores and not smaller (609 vs 609 chars)
+      updater's model not kept: its fit is 0.300, the current model's is 0.302
+{"env": "find_numeric_f00778", "experiments": 25, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 1.0, "fit": 0.302, "size": 609, "heldout": 1.0, "llm_calls": 82, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
