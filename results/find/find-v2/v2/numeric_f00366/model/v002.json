@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I fixed the negative side: E2 shows x in [-5,0) gives 9.8 (not 8.8), with the boundary at -5, and x=0 is a spike to 1548.92. The positive side boundary at 5 (4\u2192-11.4, 5\u2192-12.4) is confirmed.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 321, "matches": [1.0, 1.0], "made_at": 2, "heldout": 0.96}

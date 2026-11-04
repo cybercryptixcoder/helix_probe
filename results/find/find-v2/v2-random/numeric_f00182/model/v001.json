@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found the box is piecewise linear with a shared intercept of 11.2: slope -22.5 for x>0 and slope -10.89 for x\u22640. Every value in E1 fits exactly, so I replaced the empty model with this two-region rule.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 387, "matches": [1.0], "made_at": 1, "heldout": 1.0}

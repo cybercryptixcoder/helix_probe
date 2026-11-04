@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) is a polynomial-like function with a factor of x^2 near 0, giving f(0)=0 and small values for tiny |x| [E1, E2]",
+  "f(x) has zeros at x=0 and near x=\u00b10.5 (f(-0.5)=f(-0.25)=f(-0.75)=f(-0.1)=0) [E2]",
+  "f(x) is negative for x in roughly (0.5,1.5) and for x in roughly (-2,-1) [E1, E2]",
+  "f(x) is positive and grows like ~2.2*|x|^6 for large |x|, with slight asymmetry (negative side slightly larger) [E1]",
+  "The regime boundary is around |x|=2: below it values are small and oscillatory, above it values grow rapidly [E1, E2]",
+  "Exact functional form unknown; try fitting a polynomial of moderate degree to the small-|x| data and a power law for large |x| [E2]?"
+ ],
+ "notes": "E2 shows small-|x| behavior is oscillatory with zeros near 0, \u00b10.5, and sign changes; large-|x| power law ~2.2|x|^6 still fits. Replaced linear interpolation with a polynomial fit for |x|<2 and kept log-log power law for |x|>=2.",
+ "fit": 0.5,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.75
+ ],
+ "made_at": 2
+}

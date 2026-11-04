@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00182': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do on a spread of ordinary input values across the whole domain...(+65 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 285 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 The model assumes a sharp break at x=0 with slopes -22.5 (right) and -10.89...(+143 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the function exactly linear on each side of x=0 all the way to the domai...(+114 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the function stay exactly piecewise-linear across the whole domain, or...(+170 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the piecewise-linear model hold exactly across the entire positive dom...(+149 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the piecewise-linear model hold on the negative side across the mid-ra...(+114 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (337 vs 285 chars)
+[7] E7 Does the model hold for non-integer and mid-range positive values between 2...(+92 chars)  (v1 predicted it: match 1.00)
+[8] E8 Is the break at x=0 exactly a single kink, or is there a small interval aro...(+147 chars)  (v1 predicted it: match 1.00)
+[9] E9 Is the function exactly piecewise-linear all the way to the edges of the do...(+152 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00182", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 285, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,21 @@
+{
+ "env": "find_numeric_f00294",
+ "experiments": 25,
+ "model_version": 4,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 29,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "For x <= -1, f(x) = x - 8.4 (slope 1, intercept -8.4) [E1, E2]",
+  "For -1 < x < 0, f(x) = -8.4 (flat plateau) [E2]",
+  "At x = 0, f(0) = 2058.0, a huge spike [E1]",
+  "For 0 < x <= 2.0, f(x) = 17.8 for x<=1 and 18.8 for 1<x<=2.0 (flat plateau) [E2, E3, E4]",
+  "For x > 2.0, f(x) = x + 17.8 (slope 1, intercept 17.8) [E4]",
+  "The positive branch is linear with slope 1, not 16; the earlier 16x+0.8 fit was wrong [E4]"
+ ]
+}

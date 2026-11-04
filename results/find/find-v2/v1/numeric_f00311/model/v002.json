@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "For x >= -8, f(x) = 8 - 9.6x exactly (linear, slope -9.6) [E1, E2]",
+  "For x <= -16, f(x) is nearly constant around 8 with tiny variation (7.86 to 8.13) [E1, E2]",
+  "Between x=-16 and x=-8 there is a transition: at x=-9 and x=-8.5 the steep line still holds (94.4, 89.6), but at x=-10 and above (toward -16) values drop to ~8 [E2]",
+  "The steep branch 8-9.6x ends somewhere between x=-10 and x=-9 (at -10 y\u22488.2, at -9 y=94.4) [E2]",
+  "Values in the near-constant region fluctuate slightly (8.0-8.27), possibly noise around 8 [E1, E2]"
+ ],
+ "notes": "E2 shows the steep linear branch extends only down to about x=-9; at x=-10 and below values are ~8. So the breakpoint is between -10 and -9, not -16. The constant region is roughly 8 with small noise.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

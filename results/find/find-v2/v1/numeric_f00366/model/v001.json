@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is piecewise constant with values that change at specific x thresholds [E1]",
+  "For x <= -8, f = 8.8; for -8 < x <= -1, f = 9.8 [E1]",
+  "f(0) = 1548.92, a large spike at zero [E1]",
+  "For 0 < x <= 1, f = -11.4; for 1 < x <= 4, f = -11.4 too, but for x >= 8, f = -12.4 [E1]",
+  "The transition between -11.4 and -12.4 lies somewhere in (4, 8] [E1]"
+ ],
+ "notes": "No prior model existed; I fit a piecewise-constant step function to the sampled points, noting the exact boundaries between -11.4 and -12.4 and around -8/-1 are uncertain.",
+ "fit": 1.0,
+ "heldout": 0.84,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

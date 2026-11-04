@@ -1,0 +1,18 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is roughly exponential in |x| for |x|>=4, with sign-dependent behavior [E1]",
+  "For x>=4, f(x) is negative and grows in magnitude like -exp(0.6*x) roughly [E1]",
+  "For x<=-4, f(x) is negative and grows in magnitude with |x| [E1]",
+  "Near x=0 there is a small-scale structure: f(0)=472.73, f(-0.5)=-10.375, f(0.5)=-37.825, f(1)=-41.7, f(-1)=-7.4 [E1]",
+  "There appears to be a special interval around 0 where f behaves differently from the exponential growth outside [E1]",
+  "The exact form of the small-|x| region is unclear? [E1]"
+ ],
+ "notes": "First model: exponential growth in magnitude for |x|>=4, with a distinct small-|x| regime near 0. Fit rough exponential coefficients from the data points.",
+ "fit": 0.0,
+ "heldout": 0.36,
+ "matches": [
+  0.95
+ ],
+ "made_at": 1
+}

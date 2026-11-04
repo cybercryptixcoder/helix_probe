@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The offsets split cleanly by sign: positive inputs get about +17, negative inputs about -8. I modeled it as a piecewise shift with the boundary at 0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 245, "matches": [1.0], "made_at": 1, "heldout": 1.0}

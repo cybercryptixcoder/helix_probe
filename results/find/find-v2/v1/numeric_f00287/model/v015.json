@@ -1,0 +1,41 @@
+{
+ "version": 15,
+ "beliefs": [
+  "For x <= -16.5, f(x) = -0.7*x: f(-17)=11.9, f(-20)=14, f(-30)=21, f(-128)=89.6 all match [E1, E2, E7, E12]",
+  "For -16.5 < x < -16, f(x) is flat at 11.9 [E7, E12]",
+  "At x = -16 exactly, f(-16)=11.2 [E1, E7]",
+  "For -16 <= x <= -15.1, f(x) is flat at 11.2 [E7, E8, E11, E13]",
+  "For -15.1 < x < -6.05, f(x) = 0.7*x + 21.0: f(-15)=10.5, f(-14)=9.8, f(-13)=9.1, f(-12)=8.4, f(-11)=7.7, f(-10)=7.0, f(-9)=6.3, f(-8)=5.6, f(-7)=4.9 all match [E8, E15, E16]",
+  "For -6.05 <= x < -6.0, f(x) is flat at 4.9 [E16]",
+  "At x = -6.0 exactly, f(-6)=4.2, and for -6.0 <= x <= -5.1, f(x) is flat at 4.2 [E9, E10, E11, E15, E16]",
+  "The plateau begins between x=-5.1 (f=4.2) and x=-5.09 (f=-402.28); assumed at -5.095 [E14, E15]?",
+  "For -5.095 <= x < 18.515, f(x) is approximately -402.3, a near-constant plateau with small noise [E1-E6, E9, E10, E11, E14, E15]",
+  "The plateau ends between 18.51 and 18.52; assumed at 18.515 [E5, E6]?",
+  "For 18.515 <= x < 19, f(x) = -302.4, a flat segment [E4, E5, E6]",
+  "For 19 <= x < 20, f(x) = -319.2, another flat segment [E3, E4, E6]",
+  "For x >= 20, f(x) = -16.8*x: f(20)=-336, f(25)=-420, f(50)=-840, f(100)=-1680 [E1, E2, E3]",
+  "The exact boundary between the 11.2 flat segment and the 0.7x+21.0 line lies between -15.1 and -15.0; assumed at -15.1 [E13]?"
+ ],
+ "notes": "Fixed the negative linear branch to 0.7x+21.0 (was +22.05), and added the flat 4.9 segment between -6.05 and -6.0 before the 4.2 segment, per E16.",
+ "fit": 0.5625,
+ "heldout": 0.97,
+ "matches": [
+  1.0,
+  0.95,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9285714285714286,
+  0.2,
+  1.0,
+  0.7,
+  0.95,
+  1.0,
+  1.0,
+  1.0,
+  0.75,
+  0.65
+ ],
+ "made_at": 16
+}

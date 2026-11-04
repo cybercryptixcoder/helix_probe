@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "Changed the clamp threshold from `x < -95` to `x <= -94`: E10 shows x=-93 is unclamped (-87345249.0, matching Q+25.1) while x=-94 is clamped, pinning the boundary between -93 and -94.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 476, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 10, "heldout": 0.97}

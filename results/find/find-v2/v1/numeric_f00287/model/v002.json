@@ -1,0 +1,21 @@
+{
+ "version": 2,
+ "beliefs": [
+  "For |x| >= 16, f(x) = 2.8*x (linear): f(16)=44.8, f(20)=56, f(128)=358.4? no \u2014 observed f(128)=-2150.4 and f(20)=-336, so for x>=16 f(x) = -16.8*x [E1, E2]",
+  "Check: f(16)=-16.8*16=-268.8 but observed 44.8; f(20)=-16.8*20=-336 matches; f(32)=-537.6 matches; f(64)=-1075.2 matches; f(128)=-2150.4 matches; but f(16)=44.8 and f(17)=47.6 do NOT fit -16.8x [E1, E2]",
+  "For x >= 20, f(x) = -16.8*x [E1, E2]",
+  "For 16 <= x < 20, f(x) is small positive and roughly linear: f(16)=44.8, f(16.1)=45.08, f(17)=47.6, suggesting f(x)=2.8*x in this narrow band [E2]",
+  "For x <= -16, f(x) = -0.7*x: f(-16)=11.2, f(-17)=11.9, f(-20)=14, f(-32)=22.4, f(-64)=44.8, f(-128)=89.6 all match -0.7x [E1, E2]",
+  "For |x| < 16, f(x) is approximately -402.3, a near-constant plateau with small noise, extending right up to |x|=15.9 [E1, E2]",
+  "The plateau ends sharply at |x|=16; there is no gradual transition zone [E2]",
+  "The function is asymmetric: positive and negative sides have different linear slopes and different behavior near |x|=16 [E1, E2]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.52,
+ "matches": [
+  0.8947368421052632,
+  0.7
+ ],
+ "made_at": 2
+}

@@ -1,0 +1,21 @@
+Helix Probe v2 on 'find_numeric_f00344': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do on a spread of ordinary inputs across the domain, including ...(+106 chars)  (v0 predicted it: match 0.00)
+[2] E2 Is the function odd/even-symmetric and how does it behave near zero and at ...(+65 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+[3] E3 How does f behave at small positive and negative offsets, especially betwee...(+120 chars)  (v0 predicted it: match 0.00)
+[4] E4 What is the exact functional form on the positive side (x>0), and does it m...(+142 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+[5] E5 What is the exact form of the anomalous small-|x| region (|x| below about 1...(+142 chars)  (v0 predicted it: match 0.00)
+[6] E6 Is the function exactly periodic in the exponent-like growth on the positiv...(+238 chars)  (v0 predicted it: match 0.00)
+      theorist (every 6 steps)
+[7] E7 What is the exact functional form of f on the positive branch for x between...(+163 chars)  (v0 predicted it: match 0.00)
+[8] E8 Does the positive branch follow a clean exponential a*b^x after the near-ze...(+107 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+[9] E9 What does f do just below and above the transition near x=0, and is the neg...(+139 chars)  (v0 predicted it: match 0.00)
+[10] E10 On the negative side, does the branch follow a clean exponential a*b^x (wit...(+138 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.15, fit 0.61, size 553 (exam 0.000 -> 0.150); held-out 0%
+[11] E11 What is the exact shape of the negative branch near its minimum/maximum aro...(+194 chars)  (v1 predicted it: match 0.05)
+      model v2 by the updater: exam 0.15, fit 0.70, size 1456 (fit 0.559 -> 0.695); held-out 0%
+[12] E12 Does the positive branch follow a single clean exponential a*b^x across the...(+153 chars)  (v2 predicted it: match 0.80)
+      model v3 by the updater: exam 0.15, fit 0.72, size 1201 (fit 0.704 -> 0.717); held-out 0%
+      theorist (every 6 steps)

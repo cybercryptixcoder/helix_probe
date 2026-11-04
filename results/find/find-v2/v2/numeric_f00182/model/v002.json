@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed from a quadratic to a piecewise-linear function with a break at x=0: slope \u221210.89 for x<0 and slope \u221222.5 for x\u22650, both through intercept 11.2. This reproduces every value in E1 and E2 exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 192, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

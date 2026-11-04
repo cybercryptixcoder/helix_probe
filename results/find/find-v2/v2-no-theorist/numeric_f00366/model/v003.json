@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "Changed the threshold from 5 to 4.2: E4 shows positive x switches from -11.4 to -12.4 between 4.1 and 4.2, and negative x switches from 9.8 to 8.8 between -4.1 and -4.2, so the boundary is symmetric at |x|=4.2.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 212, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

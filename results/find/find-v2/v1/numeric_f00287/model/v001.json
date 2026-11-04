@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "For |x| >= 16, f(x) = 2.8*x (linear): f(-128)=89.6, f(128)=-2150.4, f(32)=-537.6 [E1]",
+  "For |x| <= 8, f(x) is approximately -402.3, a near-constant plateau with small noise [E1]",
+  "The transition between the two regimes lies between |x|=8 and |x|=16 [E1]",
+  "The plateau value ~-402.3 is not simply 2.8*x at any small x, so the small-|x| regime is a separate constant-like behavior [E1]"
+ ],
+ "notes": "Gross shape: linear 2.8*x outside |x|~8-16, flat ~-402.3 inside. Transition interval needs pinning down with finer probes.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.5263157894736842
+ ],
+ "made_at": 1
+}

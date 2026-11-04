@@ -1,0 +1,41 @@
+{
+ "version": 14,
+ "beliefs": [
+  "f(0)=472.73 is a single isolated spike, not an interval; nearby values are smooth [E1, E2]",
+  "For x>0, f(x) is negative and smooth; for x>=2.5 it follows a smooth curve well fit by interpolation through observed anchors [E8, E10, E11, E12, E17]",
+  "For 0<x<1, f(x) is negative, smooth, slowly varying from about -36.8 near 0+ to -41.7 at x=1 [E1, E2, E3]",
+  "For -1<x<0, f(x) is negative, smooth, slowly varying from about -11.7 near 0- to -7.4 at x=-1 [E1, E2, E3]",
+  "On the positive side, f dips sharply just past x=1 (to about -53 at x=1.5) then rejoins the power law by x~2.5 [E4]",
+  "On the negative side, f rises steeply in magnitude just past x=-1 (to about -3.2 at x=-1.5) then rejoins the power law by x~2.5 [E4]",
+  "For x<0 the magnitude grows smoothly through |x|~93.395 (reaching ~8.885e7) then drops sharply to a plateau of -2.497e7 [E6, E7, E9, E14, E15]",
+  "The negative-side cliff is a sharp step between |x|=93.395 and |x|=93.405: at 93.395 the value is still ~8.885e7, and by 93.405 it is already at the plateau [E14, E15, E16]",
+  "The negative-side plateau at -2.497e7 holds from |x|~93.4 out to |x|=128 [E6, E7, E9, E13, E14, E15, E16]",
+  "The positive side shows no cliff/plateau; it continues smoothly through x=128 [E8, E11, E13]",
+  "The positive-side curve between x=9 and x=19 is slightly below the linear interpolation of sparse anchors, suggesting mild upward curvature (convexity) that finer anchors capture [E17]",
+  "For 1<x<2.5 the positive-side dip is steeper than linear interpolation between x=1.5 and x=2.5; the curve is convex, passing through the E18 anchors [E18]"
+ ],
+ "notes": "Replaced the coarse positive-side dip anchors (1.5, 2.5) with the E18 samples so the 1<x<2.5 region follows the observed convex shape instead of a straight line.",
+ "fit": 0.8888888888888888,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  0.8125,
+  1.0,
+  1.0
+ ],
+ "made_at": 18
+}

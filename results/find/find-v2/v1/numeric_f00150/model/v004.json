@@ -1,0 +1,21 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f(x) = 0 exactly on [-0.9, -0.05] (flat zero region on the negative side) [E2, E3, E4]",
+  "f(x) = 0 exactly at x=0, and f is nonzero immediately on both sides of 0 (f(0.05)=4.791, f(-0.05)=0) [E4]",
+  "For x>0, f is a smooth curve: ~4.79 at 0.05, decreasing through 0.5037 at 0.9, crossing zero near 0.95, negative on ~(0.95,1.55), then rising steeply past 1.6 [E3, E4]",
+  "For x<-0.9, f is negative on ~(-1.6,-0.9), crosses zero near -0.9, and rises steeply toward -2 [E2]",
+  "For |x|>=2, f grows like ~2.2*|x|^6 with slight asymmetry (negative side slightly larger) [E1]",
+  "The exact shape between anchors on both sides is uncertain; smooth interpolation through known points is a placeholder? [E3, E4]"
+ ],
+ "notes": "Fixed the negative zero interval to [-0.9,-0.05] (E4 shows -0.05 is zero, -0.1 is zero, and only x=0 is a separate zero on the positive side). Also refined positive-side anchors with E4's new points (0.1,0.2,0.8,1.2) and adjusted the zero-crossing to ~0.95.",
+ "fit": 0.5,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.75,
+  1.0,
+  0.95
+ ],
+ "made_at": 4
+}

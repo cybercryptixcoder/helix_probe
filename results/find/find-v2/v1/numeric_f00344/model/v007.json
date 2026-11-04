@@ -1,0 +1,28 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f(0)=472.73 is a single isolated spike, not an interval; nearby values are smooth [E1, E2]",
+  "For x>0, f(x) is negative and grows in magnitude roughly like -C*x^p with p~3.85 for x>=2 [E1]",
+  "For 0<x<1, f(x) is negative, smooth, slowly varying from about -36.8 near 0+ to -41.7 at x=1 [E1, E2, E3]",
+  "For -1<x<0, f(x) is negative, smooth, slowly varying from about -11.7 near 0- to -7.4 at x=-1 [E1, E2, E3]",
+  "On the positive side, f dips sharply just past x=1 (to about -53 at x=1.5) then rejoins the power law by x~2.5 [E4]",
+  "On the negative side, f rises steeply in magnitude just past x=-1 (to about -3.2 at x=-1.5) then rejoins the power law by x~2.5 [E4]",
+  "For x<0 the magnitude peaks near |x|~91 (about -8.4e7) then collapses to a plateau of -2.497e7 by |x|=94 [E6, E7]",
+  "The negative-side collapse is a sharp cliff between |x|=91 and |x|=94, not a smooth drop [E7]",
+  "The negative-side plateau at -2.497e7 holds from |x|~94 out to |x|=128 [E6, E7]",
+  "The negative-side power law with exponent ~4.37 fits |x|=2.5 to ~60 reasonably but drifts, so a smooth interpolation through observed negative-side anchors is used for |x|>=2.5 [E5, E6]"
+ ],
+ "notes": "Moved the negative-side cliff to between |x|=91 and 94 (peak ~-8.4e7 at 91, plateau by 94) per E7, replacing the smooth interpolation that overshot at 92-99; kept the plateau value -2.497e7.",
+ "fit": 0.7142857142857143,
+ "heldout": 0.79,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  1.0,
+  1.0,
+  0.9
+ ],
+ "made_at": 7
+}

@@ -1,0 +1,31 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) = floor(x) - 39 for all x in the domain [E1, E13, E14, E15, E16, E17]",
+  "f is a unit staircase: constant on each interval [n, n+1) with value n-39, jumping by 1 at each integer [E13, E14, E17]",
+  "The apparent power-of-two decade structure was an artifact of sparse sampling; dense sampling shows unit steps [E17]"
+ ],
+ "notes": "Replaced the power-of-two staircase with the simpler exact rule f(x)=floor(x)-39, which matches every observed point including E17's dense sampling in (16,32).",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 17
+}

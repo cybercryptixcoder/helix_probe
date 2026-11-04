@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "For x >= 1, f(x) = 16*x + 0.8 (linear, slope 16, intercept 0.8) [E1]",
+  "For x <= -1, f(x) = x - 8.4 (linear, slope 1, intercept -8.4) [E1]",
+  "At x = 0, f(0) = 2058.0, a huge spike far off both linear branches [E1]",
+  "The function is piecewise linear with a discontinuity/spike at x = 0; the special interval may be just the single point 0 [E1]"
+ ],
+ "notes": "Fit two lines to the positive and negative branches; both match exactly (16x+0.8 for x>=1, x-8.4 for x<=-1). x=0 is an outlier spike, so treat it as a special point. Behavior between -1 and 0 and between 0 and 1 is untested.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.65
+ ],
+ "made_at": 1
+}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I moved the right boundary from 15 to 18.5: E4 shows x=18 is still in the constant region (-402.2563) while x=19 is linear (-319.2 = -16.8\u00b719), so the break lies between 18 and 19.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 349, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 0.98}

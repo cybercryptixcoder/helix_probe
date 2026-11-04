@@ -1,0 +1,31 @@
+Helix Probe v2 on 'find_numeric_f00311': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 Does the box behave piecewise: near-linear on large |x| (negative slope) bu...(+54 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 285 (exam 0.000 -> 1.000); held-out 92%
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Where exactly is the boundary between the flat ~8 region and the linear y=8...(+62 chars)  (v1 predicted it: match 0.80)
+      model v2 by the updater: exam 1.00, fit 1.00, size 272 (fit 0.950 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Where exactly is the switch point between the flat ~8 region and the linear...(+98 chars)  (v2 predicted it: match 0.85)
+      model v3 by the updater: exam 1.00, fit 1.00, size 273 (fit 0.974 -> 1.000); held-out 100%
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Is the flat region on the left truly constant at ~8 with noise, or does it ...(+79 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 Is the right-hand branch exactly linear y=8-9.6x across the whole positive ...(+61 chars)  (v3 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 Is the switch from the flat ~8 region to the linear branch a sharp step at ...(+105 chars)  (v3 predicted it: match 0.95)
+      updater's model not kept: same scores and not smaller (273 vs 273 chars)
+      updater's model not kept: same scores and not smaller (273 vs 273 chars)
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+[14] E14 Is the flat region on the left exactly 8 or does it have a slight offset/no...(+185 chars)  (v3 predicted it: match 0.85)
+      model v4 by the updater: exam 1.00, fit 1.00, size 273 (fit 0.986 -> 1.000); held-out 100%
+[15] E15 a random ordinary probe  (v4 predicted it: match 1.00)
+[16] E16 Is the flat left branch exactly constant at 8 (with only small noise) or do...(+152 chars)  (v4 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v4 predicted it: match 1.00)
+[18] E18 Does the flat left branch have any systematic structure (drift, oscillation...(+104 chars)  (v4 predicted it: match 1.00)
+[19] E19 a random ordinary probe  (v4 predicted it: match 1.00)
+[20] E20 Does the flat left branch depend systematically on x at a finer scale than ...(+85 chars)  (v4 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v4 predicted it: match 1.00)
+[22] E22 Is the flat left branch's noise truly random with no dependence on x, and d...(+153 chars)  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00311", "experiments": 22, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 273, "heldout": 1.0, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

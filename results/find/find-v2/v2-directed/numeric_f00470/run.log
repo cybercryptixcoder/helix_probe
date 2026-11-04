@@ -1,0 +1,4 @@
+Helix Probe v2 on 'find_numeric_f00470': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 How does f behave across the full ordinary input range, especially at sign ...(+93 chars)  (v0 predicted it: match 0.00)
+[2] E2 Is the function piecewise with a breakpoint near x=0, and what is the exact...(+62 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)

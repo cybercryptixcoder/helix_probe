@@ -1,0 +1,48 @@
+Helix Probe on 'find_numeric_f00287': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do at a spread of simple, well-separated inputs across the whol...(+61 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.53 (was 0.00), held-out 0%
+[2] E2 Where exactly does the small-|x| plateau end and the linear regime begin, a...(+171 chars)  model v1 match 0.05
+      model v2: fit 0% (was 0%), mean match 0.80 (was 0.29), held-out 52%
+[3] E3 Does the plateau extend all the way to x=16 (i.e., is the boundary between ...(+128 chars)  model v2 match 0.45
+      model v3: fit 33% (was 0%), mean match 0.93 (was 0.68), held-out 67%
+[4] E4 What happens between x=18.5 and x=19 — does the plateau end exactly at some...(+95 chars)  model v3 match 0.70
+      revision rejected: mean match 0.85 < 0.87
+      model v4: fit 50% (was 25%), mean match 0.95 (was 0.87), held-out 68%
+[5] E5 What is the exact boundary on the positive side between the -402.3 plateau ...(+132 chars)  model v4 match 0.65
+      model v5: fit 60% (was 40%), mean match 0.96 (was 0.89), held-out 68%
+[6] E6 Is the -302.4 segment really flat all the way from ~18.51 up to 19, or does...(+78 chars)  model v5 match 0.95
+      model v6: fit 67% (was 50%), mean match 0.97 (was 0.96), held-out 68%
+[7] E7 Is the left boundary of the plateau exactly at x=-16 (with f(-16)=11.2 from...(+103 chars)  model v6 match 0.43
+      model v7: fit 57% (was 57%), mean match 0.89 (was 0.89), held-out 68%
+[8] E8 What is the exact shape of f on the negative side between x=-16 and x=-8: i...(+122 chars)  model v7 match 0.00
+      model v8: fit 62% (was 50%), mean match 0.85 (was 0.78), held-out 94%
+[9] E9 Where exactly does the -402.3 plateau begin on the negative side (between x...(+110 chars)  model v8 match 0.50
+      model v9: fit 56% (was 56%), mean match 0.81 (was 0.81), held-out 96%
+[10] E10 Where exactly does the -402.3 plateau begin on the negative side between x=...(+191 chars)  model v9 match 0.45
+      model v10: fit 50% (was 50%), mean match 0.78 (was 0.77), held-out 96%
+[11] E11 Does the 0.7x+22.05 linear branch really extend from x=-15.5 down to about ...(+85 chars)  model v10 match 0.55
+      model v11: fit 45% (was 45%), mean match 0.78 (was 0.76), held-out 96%
+[12] E12 Is the negative-side kink at x=-16.5 real (i.e., does f follow -0.7x for x ...(+136 chars)  model v11 match 1.00
+[13] E13 Does the 0.7x+22.05 linear branch really stop at x=-15.5, or does it start ...(+74 chars)  model v11 match 0.70
+      model v12: fit 46% (was 46%), mean match 0.79 (was 0.79), held-out 96%
+[14] E14 Where exactly does the 0.7x+22.05 linear branch switch to the -402.3 platea...(+94 chars)  model v12 match 0.95
+      model v13: fit 43% (was 43%), mean match 0.80 (was 0.80), held-out 96%
+[15] E15 Does the 0.7x+22.05 linear branch extend all the way from x=-15 down to x=-...(+153 chars)  model v13 match 0.50
+      model v14: fit 40% (was 40%), mean match 0.78 (was 0.78), held-out 96%
+[16] E16 Is the negative linear branch f(x)=0.7*x+21.0 (not +22.05), and where does ...(+55 chars)  model v14 match 0.00
+      model v15: fit 56% (was 38%), mean match 0.88 (was 0.73), held-out 97%
+[17] E17 Does the linear branch on the negative side really have slope 0.7 (f(x)=0.7...(+97 chars)  model v15 match 0.10
+      model v16: fit 53% (was 53%), mean match 0.84 (was 0.84), held-out 97%
+[18] E18 Does the 0.7x+21.0 linear branch really run continuously from x=-15 down to...(+216 chars)  model v16 match 0.10
+      model v17: fit 50% (was 50%), mean match 0.80 (was 0.80), held-out 97%
+[19] E19 On the negative side, is f a true staircase of 0.7*floor(x)+21 (flat betwee...(+132 chars)  model v17 match 0.00
+      model v18: fit 100% (was 47%), mean match 1.00 (was 0.75), held-out 100%
+[20] E20 What does f do at x=0 and in the small-|x| region, since no experiment has ...(+96 chars)  model v18 match 1.00
+[21] E21 Where exactly does the -402.3 plateau end on the positive side (between 18....(+76 chars)  model v18 match 0.90
+      model v19: fit 100% (was 95%), mean match 1.00 (was 1.00), held-out 100%
+[22] E22 Does the -16.8*x linear branch for x>=20 really start exactly at x=20, or d...(+78 chars)  model v19 match 1.00
+[23] E23 Does the -319.2 flat segment really run from x=19 up to x=20, or does it ha...(+99 chars)  model v19 match 1.00
+[24] E24 Does the staircase 0.7*floor(x)+21 hold all the way down to its lower bound...(+133 chars)  model v19 match 1.00
+[25] E25 Does the -302.4 flat segment at 18.5165<=x<19 really have a distinct value,...(+138 chars)  model v19 match 0.80
+      model v20: fit 100% (was 96%), mean match 1.00 (was 0.99), held-out 100%
+{"env": "find_numeric_f00287", "experiments": 25, "model_version": 20, "fit": 1.0, "heldout": 1.0, "llm_calls": 46, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

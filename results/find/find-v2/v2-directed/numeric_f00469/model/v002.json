@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I moved the boundaries from [-2, 1] to [-1.5, 1.5]: E2 shows the step up happens between -1.75 and -1.5, and the step down between 1.5 and 1.75, giving a symmetric interval of width 3 centered at 0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 92, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

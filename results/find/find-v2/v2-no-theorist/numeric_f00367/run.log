@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00367': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 306 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the breakpoint exactly at x=0, and what happens on both sides of it for ...(+35 chars)  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 1.00, size 378 (fit 0.950 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Does the linear rule hold with the same slope/intercept over the full ordin...(+133 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Is the value at x=0 truly an isolated spike, or does the function deviate f...(+109 chars)  (v2 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the function have any additional breakpoint or nonlinear behavior in t...(+118 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Is the value at x=0 truly an isolated spike, or is it part of a small inter...(+91 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00367", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 378, "heldout": 1.0, "llm_calls": 7, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,41 @@
+Helix Probe v2 on 'find_numeric_f00311': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 Do the large negative values follow a simple linear rule (y proportional to...(+173 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 269 (exam 0.000 -> 1.000); held-out 89%
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Where exactly is the boundary between the linear region and the constant ~8...(+124 chars)  (v1 predicted it: match 0.50)
+      model v2 by the updater: exam 1.00, fit 1.00, size 269 (fit 0.875 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Is the boundary on the negative side exactly at x = -9 (linear for x >= -9,...(+92 chars)  (v2 predicted it: match 0.43)
+      model v3 by the updater: exam 1.00, fit 1.00, size 271 (fit 0.905 -> 1.000); held-out 99%
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.905, the current model's is 1.000
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Is the transition between the constant ~8 region and the linear region a sh...(+90 chars)  (v3 predicted it: match 0.95)
+      model v4 by the updater: exam 1.00, fit 1.00, size 272 (fit 0.994 -> 1.000); held-out 100%
+[9] E9 a random ordinary probe  (v4 predicted it: match 1.00)
+[10] E10 Does the constant branch on the far negative side stay at exactly 8, or is ...(+84 chars)  (v4 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 Is the constant branch on the far negative side truly flat at 8, or does it...(+68 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v4 predicted it: match 1.00)
+[14] E14 Does the model hold for ordinary positive/negative inputs near zero and mid...(+196 chars)  (v4 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v4 predicted it: match 1.00)
+[16] E16 Is the boundary between the constant-8 branch and the linear branch exactly...(+75 chars)  (v4 predicted it: match 0.95)
+      model v5 by the updater: exam 1.00, fit 1.00, size 271 (same scores, smaller (272 -> 271 chars)); held-out 99%
+[17] E17 a random ordinary probe  (v5 predicted it: match 1.00)
+[18] E18 Is the transition at x = -9.4 a sharp step, or does the linear branch exten...(+96 chars)  (v5 predicted it: match 0.95)
+      updater's model not kept: same scores and not smaller (271 vs 271 chars)
+      updater's model not kept: same scores and not smaller (271 vs 271 chars)
+      theorist (every 6 steps)
+      model v6 by the theorist: exam 1.00, fit 1.00, size 411 (fit 0.994 -> 1.000); held-out 100%
+[19] E19 a random ordinary probe  (v6 predicted it: match 1.00)
+[20] E20 Are there any other breakpoints or nonlinear behavior in the linear branch ...(+96 chars)  (v6 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v6 predicted it: match 1.00)
+[22] E22 Does the constant-8 branch hold for x values just below the boundary at -9....(+142 chars)  (v6 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v6 predicted it: match 1.00)
+[24] E24 Does the constant-8 branch hold uniformly across the whole negative range i...(+204 chars)  (v6 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v7 by the theorist: exam 1.00, fit 1.00, size 323 (same scores, smaller (411 -> 323 chars)); held-out 100%
+[25] E25 a random ordinary probe  (v7 predicted it: match 1.00)
+{"env": "find_numeric_f00311", "experiments": 25, "exam_probes": 4, "model_version": 7, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 323, "heldout": 1.0, "llm_calls": 25, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

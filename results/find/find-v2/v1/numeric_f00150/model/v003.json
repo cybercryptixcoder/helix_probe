@@ -1,0 +1,19 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f(x) = 0 exactly on the interval [-0.9, -0.1] (and at x=0), a flat zero region [E2, E3]",
+  "For x>0, f(x) is a smooth polynomial-like curve: positive near 0.05-0.6, crossing zero around 0.85, negative on ~(0.85,1.5), then rising steeply past 1.6 [E3]",
+  "For x<-0.9, f(x) is a smooth curve that is negative on ~(-1.6,-0.9), crosses zero near -0.9, and rises steeply toward -2 [E2]",
+  "For |x|>=2, f(x) grows like a power law ~2.2*|x|^6 with slight asymmetry (negative side slightly larger) [E1]",
+  "The zero interval on the negative side is exactly [-0.9,-0.1]; on the positive side there is no such flat zero region [E3]"
+ ],
+ "notes": "Replaced the piecewise-linear anchors with a smooth polynomial fit on each side of the zero interval, using E3's dense samples to pin the shape; kept the power-law tail beyond |x|=2.",
+ "fit": 0.6666666666666666,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.75,
+  1.0
+ ],
+ "made_at": 3
+}

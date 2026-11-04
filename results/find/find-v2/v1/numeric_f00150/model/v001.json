@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is roughly a smooth function that grows very fast for |x|>2 and is small near 0 [E1]",
+  "f(0)=0, f(1)=-0.2, f(2)=36, f(0.5)=2.9625, f(-1)=-12 [E1]",
+  "For |x|>=4, f(x) is positive and grows super-exponentially with |x| [E1]",
+  "There may be a different regime for small |x| (roughly |x|<2) where values are small and can be negative [E1]",
+  "Exact form unknown; try fitting something like a*x^b*exp(c*x^2) or similar? [E1]"
+ ],
+ "notes": "First data: values explode for large |x| and are tiny near 0, with a sign change around x=1. I'll fit a rough model capturing the fast growth and small-value region, flagging the exact functional form as unknown.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

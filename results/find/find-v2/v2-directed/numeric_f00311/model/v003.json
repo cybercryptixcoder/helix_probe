@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I moved the transition boundary from -9 to -9.25: E3 shows x=-9.5 gives the constant (~8) while x=-9.25 gives the linear value (96.8), so the switch happens between them, contradicting the old -9 guess.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 181, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 1.0}

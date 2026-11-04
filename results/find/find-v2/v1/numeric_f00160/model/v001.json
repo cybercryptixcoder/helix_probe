@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is smooth and monotone increasing across the whole domain, with no special interval [E1]",
+  "f(x) \u2248 0.5*x - 39 fits well: at x=0, f\u2248-39; slope \u22480.5 [E1]",
+  "The curve is slightly convex: differences grow with x (e.g. -128\u2192-64 gives 64, 64\u2192128 gives 64, but mid-range differences are smaller) [E1]"
+ ],
+ "notes": "Fit a smooth monotone function through the 19 points. A linear 0.5x-39 captures the trend; small curvature suggests adding a mild convex term. I'll use a piecewise-linear interpolation over the observed points as a general smooth rule, which generalizes to unseen x.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

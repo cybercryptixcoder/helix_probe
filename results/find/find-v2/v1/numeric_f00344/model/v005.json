@@ -1,0 +1,26 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f(0)=472.73 is a single isolated spike, not an interval; nearby values are smooth [E1, E2]",
+  "For x>0, f(x) is negative and grows in magnitude roughly like -C*x^p with p~3.85 for x>=2 [E1]",
+  "For x<0, f(x) is negative and grows in magnitude roughly like -C*|x|^p with p~4.37 for |x|>=2 [E1]",
+  "For x<=-64, f(x) saturates near -2.5e7 [E1]",
+  "For 0<x<1, f(x) is negative, smooth, slowly varying from about -36.8 near 0+ to -41.7 at x=1 [E1, E2, E3]",
+  "For -1<x<0, f(x) is negative, smooth, slowly varying from about -11.7 near 0- to -7.4 at x=-1 [E1, E2, E3]",
+  "On the positive side, f dips sharply just past x=1 (to about -53 at x=1.5) then rejoins the power law by x~2.5 [E4]",
+  "On the negative side, f rises steeply in magnitude just past x=-1 (to about -3.2 at x=-1.5) then rejoins the power law by x~2.5 [E4]",
+  "The crossover region 1<|x|<2.5 is not captured by a simple power law; a smooth interpolation through observed points is used? [E4]",
+  "The negative-side power law overestimates magnitudes at |x|=20-60 (e.g. -1.68e5 vs -1.20e5 at x=-20), suggesting exponent slightly below 4.37 or a different constant [E5]"
+ ],
+ "notes": "Fixed the negative crossover region: the v4 table wrongly reused the positive-side dip values (-128.925, -66, etc.) for x=-2.5..-1.8; replaced with the actual observed negative-side values from E5 (-2.075 at -2.5, -0.1 at -2, etc.) and interpolated smoothly. Also adjusted the negative power-law constant/exponent to better fit E5 intermediate magnitudes.",
+ "fit": 0.4,
+ "heldout": 0.36,
+ "matches": [
+  0.95,
+  1.0,
+  1.0,
+  0.8,
+  0.9
+ ],
+ "made_at": 5
+}

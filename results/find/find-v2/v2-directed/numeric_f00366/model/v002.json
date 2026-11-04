@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I fixed the boundary at x=5: E2 shows 4.9 \u2192 -11.4 and 5.1 \u2192 -12.4, so the transition is at 5 (not 2), and I simplified the redundant -0.5 branch since all of -5 < x < 0 gives 9.8.", "exam": 1.0, "fit": 0.9411764705882353, "fit_exact": 0.5, "size": 424, "matches": [1.0, 0.8823529411764706], "made_at": 2, "heldout": 0.97}

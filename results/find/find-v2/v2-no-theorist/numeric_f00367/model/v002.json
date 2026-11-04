@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the x=0 case: E2 shows f(0) = -228.87, not 1.8, so the two linear branches hold only for x>0 and x<0, with a special value exactly at zero.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 378, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

@@ -1,0 +1,30 @@
+Helix Probe on 'find_numeric_f00469': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, sampled at a handful of well...(+74 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 96%
+[2] E2 Where exactly does the nonzero region end on the positive side, between x=1 and x=2?  model v1 match 0.55
+      model v2: fit 100% (was 50%), mean match 1.00 (was 0.77), held-out 98%
+[3] E3 Where exactly is the left boundary of the nonzero interval, between x=-2 an...(+47 chars)  model v2 match 0.75
+      model v3: fit 100% (was 67%), mean match 1.00 (was 0.92), held-out 100%
+[4] E4 Is f exactly 1 on the whole interval [-1.5, 1.5], or does it take other val...(+70 chars)  model v3 match 1.00
+[5] E5 Is the right edge of the plateau exactly at 1.5 or does it extend slightly ...(+89 chars)  model v3 match 1.00
+[6] E6 Does the plateau really stop exactly at x=1.5, or is the right edge slightl...(+98 chars)  model v3 match 1.00
+[7] E7 Does the plateau extend to the left edge exactly at -1.5, or is the left bo...(+120 chars)  model v3 match 1.00
+[8] E8 Is the plateau value exactly 1.0 at the very center and at symmetric interi...(+117 chars)  model v3 match 1.00
+[9] E9 Does f stay 0 all the way out to the far edges of the domain, or is there a...(+78 chars)  model v3 match 1.00
+[10] E10 Is the plateau truly flat at exactly 1.0 across its full interior, includin...(+240 chars)  model v3 match 1.00
+[11] E11 Is the plateau value exactly 1.0 in the untouched mid-range on the positive...(+112 chars)  model v3 match 1.00
+[12] E12 Does f ever take a value other than 0 or 1 anywhere in the domain — specifi...(+188 chars)  model v3 match 1.00
+[13] E13 Does f behave differently at the exact left boundary vs. just outside it, i...(+138 chars)  model v3 match 1.00
+[14] E14 Is the plateau value exactly 1.0 in the untouched near-left interior of the...(+93 chars)  model v3 match 1.00
+[15] E15 Does the plateau value stay exactly 1.0 in the narrow remaining gap between...(+90 chars)  model v3 match 1.00
+[16] E16 Is the right boundary of the plateau exactly at 1.5 (inclusive) or just bel...(+149 chars)  model v3 match 1.00
+[17] E17 Is the plateau value exactly 1.0 in the still-untested positive-side interi...(+84 chars)  model v3 match 1.00
+[18] E18 Does f take any value other than 0 or 1 in the far-negative region between ...(+206 chars)  model v3 match 1.00
+[19] E19 Does the plateau value stay exactly 1.0 in the never-sampled dense cluster ...(+148 chars)  model v3 match 1.00
+[20] E20 Is f exactly 0 everywhere in the never-sampled far-positive region beyond x...(+98 chars)  model v3 match 1.00
+[21] E21 Is the plateau value exactly 1.0 at the interior points closest to the left...(+210 chars)  model v3 match 1.00
+[22] E22 Is f exactly 0 at the exact boundary points x=-1.5 and x=1.5 when approache...(+187 chars)  model v3 match 1.00
+[23] E23 Does f stay exactly 1.0 at every interior point of the plateau when sampled...(+225 chars)  model v3 match 1.00
+[24] E24 Does f ever take a value other than 0 or 1 at non-integer, non-round points...(+183 chars)  model v3 match 1.00
+[25] E25 Does the plateau value remain exactly 1.0 at irrational and awkward values ...(+149 chars)  model v3 match 1.00
+{"env": "find_numeric_f00469", "experiments": 25, "model_version": 3, "fit": 1.0, "heldout": 1.0, "llm_calls": 28, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "Main idea: the box is a step function \u2014 `ceil(x)` plus a positive-side offset (+16.8) or negative-side offset (\u22128.4), with a special spike of 2058.0 at exactly x=0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 369, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

@@ -1,0 +1,24 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f is piecewise constant with values that change at specific x thresholds [E1]",
+  "For x <= -4.1, f = 8.8 [E1, E4, E5]",
+  "For -4.1 < x <= -1, f = 9.8 [E1, E4, E5]",
+  "f(0) = 1548.92, a large spike at zero [E1]",
+  "For 0 < x <= 4.1, f = -11.4 [E1, E3]",
+  "For x >= 4.2, f = -12.4 [E2, E3]",
+  "The switch from -11.4 to -12.4 lies in (4.1, 4.2], exact threshold unknown, using 4.15? [E3]",
+  "The switch from 8.8 to 9.8 lies in (-4.2, -4.1], exact threshold unknown, using -4.15? [E5]"
+ ],
+ "notes": "E5 shows the 8.8/9.8 switch is between -4.2 and -4.1 (not -4.25 as v3 assumed); moved threshold to -4.15.",
+ "fit": 1.0,
+ "heldout": 0.96,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 5
+}

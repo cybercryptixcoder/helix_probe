@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to f(x) = floor(x) - 39, which reproduces every point in E1 exactly (the fractional inputs -0.5 and 0.5 revealed the floor operation).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 94, "matches": [1.0], "made_at": 1, "heldout": 1.0}

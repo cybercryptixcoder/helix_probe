@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00294': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f(x) look like across the ordinary range of x, especially for neg...(+140 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 380 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the positive-side behavior y = max(x,1)+16.8 hold for small positive v...(+93 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the spike at x=0 isolated (only exactly 0), and does the flat region ext...(+130 chars)  (v1 predicted it: match 1.00)
+[4] E4 Is the isolated spike at x=0 the only special point, or does the function h...(+206 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the isolated spike at x=0 have a nonzero width or is it truly a single...(+142 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the function follow the same piecewise rule for large-magnitude and fr...(+206 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v2 by the theorist: exam 1.00, fit 1.00, size 369 (same scores, smaller (380 -> 369 chars)); held-out 100%
+[7] E7 Does the model's ceil-based rule hold exactly at every integer boundary acr...(+137 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the ceil-based rule hold exactly for non-integer values across the ful...(+145 chars)  (v2 predicted it: match 1.00)
+[9] E9 Do the two branches really switch at x=0 exactly, i.e. is the boundary a si...(+160 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00294", "experiments": 9, "exam_probes": 4, "model_version": 2, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 369, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

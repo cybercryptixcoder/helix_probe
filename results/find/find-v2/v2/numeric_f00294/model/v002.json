@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed the offsets to +17.8 / -8.4 (matching E2's clean values) and added the special case f(0) = 2058.0, which E2 revealed \u2014 the boundary is exactly at 0, not a sign-based offset rule.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 295, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

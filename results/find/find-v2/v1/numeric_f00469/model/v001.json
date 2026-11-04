@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) = 1 exactly at x = -1, 0, 1 and 0 elsewhere among the sampled points [E1]",
+  "f appears to be an indicator of a small interval around 0, possibly |x| <= 1 or x in {-1,0,1} [E1]",
+  "The exact boundary of the nonzero interval is unknown; need finer sampling between 1 and 2 and between -2 and -1?"
+ ],
+ "notes": "Only one experiment so far: outputs are 1 at x=-1,0,1 and 0 at all other sampled points. Best guess is an indicator function on a small interval around 0; boundaries between 1 and 2 (and -2 and -1) are untested.",
+ "fit": 1.0,
+ "heldout": 0.96,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

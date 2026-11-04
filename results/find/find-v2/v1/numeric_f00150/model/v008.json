@@ -1,0 +1,31 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f(x) = 0 exactly for x in (-1.0, 0.0] (flat zero region); f(-1.0)=-12.0 and f just below -1.0 is ~-12.0 [E4, E5, E7, E11]",
+  "The left edge of the flat-zero interval is exactly x=-1.0: f(-1.0000001)=-12.0 and f(-0.9999999)=0 [E11]",
+  "Just left of -1.0 the negative branch is nearly flat at ~-12.0, dropping only slightly as x decreases (f(-1.02)=-12.0668) [E11]",
+  "f is nonzero immediately right of 0: f(0.01)=4.9573, f(0.05)=4.791, f(0.06)=4.7505 [E5]",
+  "For x>0, f is smooth, decreasing from ~4.96 at 0.01 through 0.5037 at 0.9, crossing zero near 0.95, negative on ~(0.95,1.55), then rising steeply past 1.6 [E3, E4, E5]",
+  "For x<-1.0, f dips to a minimum near x=-1.1 (about -12.17) then rises, crossing zero near x=-1.62, and growing steeply toward -2 [E6]",
+  "For |x|>=2, f grows like a*|x|^6 with a\u22482.19 on positive side and a\u22482.22 on negative side, plus a lower-degree correction at moderate |x| [E1, E2, E8, E9, E10]",
+  "The large-|x| law is not a pure power: at moderate |x| (2-6) the ratio to a*|x|^6 is below 1, approaching 1 as |x| grows [E8, E9, E10]",
+  "The exact shape between anchors on both sides is uncertain; smooth interpolation through known points is a placeholder? [E3, E4, E6]"
+ ],
+ "notes": "Fixed the flat-zero left edge to exactly -1.0 (f(-1.0)=-12.0, not 0), made the negative branch just left of -1.0 nearly flat at ~-12.0, and replaced the ad-hoc large-|x| interpolation with a fitted power-plus-correction form matching E8-E10.",
+ "fit": 0.8181818181818182,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  0.85,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 11
+}
