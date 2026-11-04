@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f removes all space characters from the input, leaving other characters unchanged [E1]",
+  "f preserves case, digits, and punctuation [E1]",
+  "Empty and all-space strings map to the empty string [E1]"
+ ],
+ "notes": "The only transformation observed is deletion of spaces; every other character (case, digits, punctuation) passes through unchanged. So predict strips spaces.",
+ "fit": 1.0,
+ "heldout": 0.88,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

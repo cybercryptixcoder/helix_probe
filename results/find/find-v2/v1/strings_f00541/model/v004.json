@@ -1,0 +1,20 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f strips the first character when the input starts with an uppercase letter followed by a lowercase letter [E1, E4]",
+  "f leaves input unchanged when the uppercase first letter is followed by another uppercase letter, a digit, punctuation, or space [E2, E3, E4]",
+  "A single uppercase letter is returned unchanged [E2, E4]",
+  "Inputs starting with lowercase, digit, space, or empty are returned unchanged [E1]",
+  "The earlier E3 result (Ab -> Ab, Aa -> Aa) conflicts with E1/E4 (Hello -> ello, Ab -> Ab), so the exact trigger for stripping is still uncertain; the current best guess is uppercase+lowercase strips, but E3 contradicts it?"
+ ],
+ "notes": "Reverted to the v3 rule (strip only when uppercase followed by lowercase) since E4 confirms Hello/Hello World strip while Ab/Aa do not; E3's Ab->Ab remains an unexplained contradiction, noted as uncertain.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.9,
+  0.7,
+  0.7,
+  0.7
+ ],
+ "made_at": 4
+}

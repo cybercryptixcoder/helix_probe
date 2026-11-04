@@ -1,0 +1,26 @@
+{
+ "env": "find_strings_f00410",
+ "experiments": 25,
+ "model_version": 13,
+ "fit": 0.92,
+ "heldout": 1.0,
+ "llm_calls": 42,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f reverses the order of characters in the string [E1]",
+  "f then swaps the case of each letter (upper<->lower), leaving non-letters unchanged [E1, E3]",
+  "The case swap is applied to the reversed string, not the original [E3]",
+  "The first output character is the case-swapped last input character shifted back by 2 alphabetically within its own case (a->y, A->Y, wrapping z->x, Z->X) [E4, E5, E6, E11]",
+  "Non-ASCII Latin-1 letters are case-swapped and shifted back by 2 within their contiguous letter block, skipping the \u00d7/\u00f7 gaps [E12, E13]",
+  "The -2 shift applies only when the last character is a letter; otherwise the first output char is just the reversed last char [E8, E9]",
+  "The uppercase Latin-1 block is 0xC0..0xDE excluding \u00d7(0xD7), with plain codepoint-2 skipping \u00d7 (\u00d1\u2192\u00cf, \u00d3\u2192\u00d1, \u00d6\u2192\u00d2, \u00d8\u2192\u00d6, \u00de\u2192\u00dc) [E19, E20, E23, E24]",
+  "\u00c0(0xC0) wraps to \u00be(0xBE) and \u00c1(0xC1) to \u00bf(0xBF), so the wrap base is 0xBE extending the block down to \u00be [E16, E19]",
+  "The lowercase Latin-1 block is 0xE0..0xFE excluding \u00f7(0xF7), with plain codepoint-2 skipping \u00f7 (\u00e1\u2192\u00df, \u00e0\u2192\u00de, \u00ff\u2192\u00fd) [E21, E22]",
+  "\u00e0(0xE0) wraps to \u00de(0xDE) and \u00e1(0xE1) to \u00df(0xDF), so the wrap base is 0xDE extending the block down to \u00de [E14, E21, E22]",
+  "The uppercase shift is plain codepoint-2 with no wrap at the top: \u00dc\u2192\u00d2, \u00dd\u2192\u00d3, \u00de\u2192\u00d4, \u00db\u2192\u00d9, \u00da\u2192\u00d8 (E25 shows \u00dc\u2192\u00d4? no, \u00dc\u2192\u00d2 via plain -2) [E25]"
+ ]
+}

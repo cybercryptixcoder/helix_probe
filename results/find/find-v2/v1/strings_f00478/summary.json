@@ -1,0 +1,18 @@
+{
+ "env": "find_strings_f00478",
+ "experiments": 25,
+ "model_version": 2,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 28,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f removes all Unicode whitespace characters (spaces, tabs, newlines, carriage returns, non-breaking spaces, em spaces, vertical tabs) from the input [E1, E2]",
+  "f preserves case, digits, and punctuation [E1]",
+  "Empty and all-whitespace strings map to the empty string [E1, E2]"
+ ]
+}

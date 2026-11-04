@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "The box reverses each whitespace-separated word individually, keeping word order [E1, E2]",
+  "Whitespace runs (spaces, tabs) collapse to a single space between words [E2]",
+  "Leading and trailing whitespace is stripped [E2]",
+  "Empty or all-whitespace input maps to empty string [E1, E2]",
+  "Case and symbols are preserved within each reversed word [E1]"
+ ],
+ "notes": "E2 shows words stay in order but each word's characters are reversed, and whitespace is normalized to single spaces with edges stripped. Replaced whole-string reversal with per-word reversal plus whitespace normalization.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.5,
+  0.6
+ ],
+ "made_at": 2
+}

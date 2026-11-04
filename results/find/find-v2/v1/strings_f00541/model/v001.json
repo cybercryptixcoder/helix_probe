@@ -1,0 +1,14 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f removes the first character only when the input starts with an uppercase letter [E1]",
+  "Inputs starting with lowercase, digit, space, or empty are returned unchanged [E1]"
+ ],
+ "notes": "Only 'Hello World' changed (lost leading 'H'); all other inputs were unchanged, so the rule is: drop the first char if it is uppercase, else return input as-is.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.7
+ ],
+ "made_at": 1
+}

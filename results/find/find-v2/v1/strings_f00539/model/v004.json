@@ -1,0 +1,20 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f collapses every run of adjacent identical characters to a single character [E1, E2, E3]",
+  "f appends 'h' unless the collapsed result ends with 'h' or ends with a space [E1, E2, E3]",
+  "f('h h') gives 'h ' \u2014 the space run collapses and the result ends in space so no 'h' is appended [E4]",
+  "f('') gives 'h' [E1]",
+  "f('hello hello') gives 'helo ' with trailing space, no 'h' appended [E2]"
+ ],
+ "notes": "Removed the startswith('h') exception; E4 shows 'h h' -> 'h ' (space rule) and other h-starting strings like 'ha' stay unchanged because they end in 'h'? No\u2014'ha' ends in 'a'. Actually 'ha'->'ha' means no append for h-starting strings, but 'h h'->'h ' is explained by space. Keep startswith('h') rule but ensure space check comes first so 'h h' collapses to 'h ' not 'h h'. The bug was ordering: check endswith(' ') before startswith('h').",
+ "fit": 0.25,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.9,
+  1.0,
+  0.9
+ ],
+ "made_at": 4
+}

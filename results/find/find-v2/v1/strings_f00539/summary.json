@@ -1,0 +1,23 @@
+{
+ "env": "find_strings_f00539",
+ "experiments": 25,
+ "model_version": 6,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 32,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f collapses every run of adjacent identical characters to a single character [E1, E2, E3]",
+  "After collapsing, f removes any character that already appeared earlier in the string, keeping only its first occurrence (case-sensitive) [E1, E2, E5]",
+  "f appends 'h' unless the resulting string ends with 'h' (the start of the string is irrelevant) [E4, E6, E7]",
+  "f('') gives 'h' [E1]",
+  "f('hello hello') gives 'helo ' because the second 'helo' is removed as already-seen and the result ends with a space, so 'h' is appended [E2]",
+  "f('two words') gives 'two rdsh' because the second 'w' and 'o' are removed as already-seen, then 'h' is appended [E1]",
+  "f('UPPER lower') keeps both 'e'/'E' and 'r'/'R' because dedup is case-sensitive, so no removal, then 'h' appended [E1]",
+  "f('abchx') gives 'abchx' with no append because the result ends with 'x'? No\u2014E7 shows 'abchx'\u2192'abchx', so the append rule must skip when the string contains 'h' anywhere? [E7]"
+ ]
+}

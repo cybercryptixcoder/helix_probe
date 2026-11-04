@@ -1,0 +1,34 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f reverses the order of characters in the string [E1]",
+  "f then swaps the case of each letter (upper<->lower), leaving non-letters unchanged [E1, E3]",
+  "The case swap is applied to the reversed string, not the original [E3]",
+  "The first output character is the case-swapped last input character shifted back by 2 alphabetically within its own case (a->y, A->Y, wrapping z->x, Z->X) [E4, E5, E6, E11]",
+  "Non-ASCII Latin-1 letters are case-swapped and shifted back by 2 within their contiguous letter block, skipping the \u00d7/\u00f7 gaps (\u00e9->\u00e7, \u00f1->\u00ef, \u00fc->\u00fa, \u00df->\u00dd) [E12, E13]",
+  "The -2 shift applies only when the last character is a letter; otherwise the first output char is just the reversed last char [E8, E9]",
+  "The Latin-1 shift wraps within the block using the block's own length, so \u00e1 (first lowercase) wraps to \u00df (last lowercase) and \u00e0 (first uppercase) wraps to \u00de (last uppercase) [E14, E15]",
+  "The uppercase Latin-1 block is 0xC0..0xDE excluding \u00d7(0xD7); the lowercase block is 0xE0..0xFE excluding \u00f7(0xF7) [E13, E14]"
+ ],
+ "notes": "Fixed the lowercase block wrap: \u00e1 should map to \u00df (last of lowercase block), not \u00de. The bug was that shift_letter checked the uppercase block first, but \u00e1 (0xE1) is not in 0xC0..0xDE so that's fine; the real issue was the block list construction. Rebuilt blocks explicitly and verified \u00e1\u2192\u00df, \u00e0\u2192\u00de, \u00ff\u2192\u00fd, \u00df\u2192\u00dd.",
+ "fit": 0.8,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  0.6,
+  0.9
+ ],
+ "made_at": 15
+}

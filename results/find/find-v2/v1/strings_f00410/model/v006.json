@@ -1,0 +1,30 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f reverses the order of characters in the string [E1]",
+  "f then swaps the case of each letter (upper<->lower), leaving non-letters unchanged [E1, E3]",
+  "The case swap is applied to the reversed string, not the original [E3]",
+  "The first output character is the case-swapped last input character shifted back by 2 alphabetically within its own case (a->y, A->Y, wrapping z->x, Z->X) [E4, E5, E6, E11]",
+  "Non-ASCII Latin-1 letters are case-swapped and shifted back by 2 within their contiguous letter block, skipping the \u00d7/\u00f7 gaps (\u00e9->\u00e7, \u00f1->\u00ef, \u00fc->\u00fa, \u00df->\u00dd) [E12, E13]",
+  "The -2 shift applies only when the last character is a letter; otherwise the first output char is just the reversed last char [E8, E9]"
+ ],
+ "notes": "E13 shows the non-ASCII shift skips the \u00d7/\u00f7 gaps (\u00df->\u00dd, not \u00f6), so the Latin-1 shift uses the contiguous letter blocks 0xC0-0xDE and 0xE0-0xFE excluding \u00d7/\u00f7, with \u00df mapping to \u00dd. Fixed the \u00df case which my modulo-23 formula mishandled.",
+ "fit": 0.9230769230769231,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8
+ ],
+ "made_at": 13
+}

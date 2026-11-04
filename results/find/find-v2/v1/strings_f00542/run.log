@@ -1,0 +1,15 @@
+Helix Probe on 'find_strings_f00542': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does the box do to a variety of basic inputs (lowercase word, mixed-ca...(+48 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.50 (was 0.00), held-out 0%
+[2] E2 Does the box reverse the whole string, or reverse the order of words in add...(+69 chars)  model v1 match 0.10
+      model v2: fit 0% (was 0%), mean match 0.55 (was 0.30), held-out 1%
+[3] E3 Does the box reverse the entire string (so word order also flips) while col...(+73 chars)  model v2 match 0.40
+      model v3: fit 0% (was 0%), mean match 0.70 (was 0.50), held-out 1%
+[4] E4 When there are two words, does the box reverse the first word and reverse t...(+162 chars)  model v3 match 0.30
+      revision rejected: mean match 0.45 < 0.60
+      model v4: fit 0% (was 0%), mean match 0.62 (was 0.60), held-out 2%
+[5] E5 Does the box reverse only the first word and drop/reverse-truncate later wo...(+92 chars)  model v4 match 0.50
+      revision rejected: mean match 0.46 < 0.60
+      model v5: fit 20% (was 0%), mean match 0.68 (was 0.60), held-out 1%
+[6] E6 When there are exactly two words, is the second output chunk the reverse of...(+153 chars)  model v5 match 1.00
+[7] E7 For a plain single lowercase word, does the box reverse the whole word or o...(+106 chars)  model v5 match 0.60

@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f removes the first character only when the input starts with an uppercase letter followed by a lowercase letter [E1, E2]",
+  "Inputs starting with an uppercase letter followed by another uppercase letter, a digit, punctuation, or space are returned unchanged [E2]",
+  "Inputs starting with lowercase, digit, space, or empty are returned unchanged [E1]",
+  "A single uppercase letter is returned unchanged [E2]"
+ ],
+ "notes": "E2 shows stripping happens only when the first char is uppercase AND the second char is lowercase (e.g. 'Hello'->'ello', 'Hello!'->'ello!'), but not for 'A','AB','A1','A!','A ','HELLO'. Updated rule to require s[0].isupper() and s[1].islower().",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.9,
+  0.7
+ ],
+ "made_at": 2
+}

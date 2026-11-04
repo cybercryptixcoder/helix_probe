@@ -1,0 +1,22 @@
+Helix Probe v2 on 'find_strings_f00539': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.33, fit 0.33, size 113 (exam 0.000 -> 0.333); held-out 0%
+[2] E2 a random ordinary probe  (v1 predicted it: match 0.33)
+      model v2 by the updater: exam 0.83, fit 1.00, size 274 (exam 0.333 -> 0.833); held-out 39%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 a random ordinary probe  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 0.83)
+      model v3 by the updater: exam 1.00, fit 1.00, size 328 (exam 0.833 -> 1.000); held-out 100%
+[6] E6 a random ordinary probe  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (373 vs 328 chars)
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 a random ordinary probe  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 a random ordinary probe  (v3 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 a random ordinary probe  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00539", "experiments": 13, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 328, "heldout": 1.0, "llm_calls": 5, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

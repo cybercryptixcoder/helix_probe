@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the rule from \"remove spaces only\" to \"remove all whitespace characters\" (spaces, tabs, newlines, etc.), since E2 showed tabs and newlines are deleted just like spaces. Using `\\s` covers all whitespace uniformly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 105, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

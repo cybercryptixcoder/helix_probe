@@ -1,0 +1,29 @@
+Helix Probe v2 on 'find_strings_f00541': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.67, fit 1.00, size 218 (exam 0.000 -> 0.667); held-out 12%
+[2] E2 Does the box remove a leading space, a leading 'H', or more generally the f...(+103 chars)  (v1 predicted it: match 0.80)
+      model v2 by the updater: exam 0.71, fit 1.00, size 198 (exam 0.667 -> 0.708); held-out 19%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.83)
+      model v3 by the updater: exam 0.96, fit 1.00, size 207 (exam 0.708 -> 0.958); held-out 90%
+[4] E4 Does the box strip only leading 'H' and spaces (as modeled), or does it als...(+135 chars)  (v3 predicted it: match 0.90)
+      model v4 by the updater: exam 0.96, fit 1.00, size 223 (fit 0.975 -> 1.000); held-out 90%
+[5] E5 a random ordinary probe  (v4 predicted it: match 0.83)
+      model v5 by the updater: exam 1.00, fit 1.00, size 151 (exam 0.958 -> 1.000); held-out 100%
+[6] E6 Does the box strip every occurrence of the letter 'H' anywhere in the strin...(+94 chars)  (v5 predicted it: match 0.90)
+      model v6 by the updater: exam 1.00, fit 0.98, size 137 (same scores, smaller (151 -> 137 chars)); held-out 100%
+[7] E7 a random ordinary probe  (v6 predicted it: match 1.00)
+[8] E8 Does the box also strip other whitespace characters (newlines, carriage ret...(+111 chars)  (v6 predicted it: match 0.90)
+      model v7 by the updater: exam 1.00, fit 0.99, size 262 (fit 0.975 -> 0.988); held-out 100%
+[9] E9 a random ordinary probe  (v7 predicted it: match 1.00)
+[10] E10 Does the box remove 'H' before or after stripping whitespace, and does it s...(+99 chars)  (v7 predicted it: match 0.00)
+      model v8 by the updater: exam 1.00, fit 1.00, size 165 (fit 0.890 -> 1.000); held-out 100%
+[11] E11 a random ordinary probe  (v8 predicted it: match 1.00)
+[12] E12 Does the box remove other uppercase letters besides 'H' (e.g., 'E', 'A', 'O...(+67 chars)  (v8 predicted it: match 1.00)
+[13] E13 a random ordinary probe  (v8 predicted it: match 1.00)
+[14] E14 Does the box remove only uppercase 'H', or does it also remove uppercase 'H...(+135 chars)  (v8 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v8 predicted it: match 1.00)
+[16] E16 Does the box strip whitespace only from the ends, or also collapse/remove i...(+97 chars)  (v8 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v8 predicted it: match 1.00)
+[18] E18 Does the box remove uppercase 'H' that appears after whitespace-trimming ex...(+181 chars)  (v8 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00541", "experiments": 18, "exam_probes": 4, "model_version": 8, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 165, "heldout": 1.0, "llm_calls": 17, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

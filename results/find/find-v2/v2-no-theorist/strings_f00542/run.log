@@ -1,0 +1,11 @@
+Helix Probe v2 on 'find_strings_f00542': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.29, fit 0.33, size 196 (exam 0.000 -> 0.292); held-out 0%
+[2] E2 Does the box reverse the whole string character-by-character (spaces includ...(+133 chars)  (v1 predicted it: match 0.20)
+      model v2 by the updater: exam 0.33, fit 0.27, size 230 (exam 0.292 -> 0.333); held-out 0%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.33)
+      updater's model not kept: same scores and not smaller (282 vs 230 chars)
+      model v3 by the updater: exam 0.38, fit 0.29, size 232 (exam 0.333 -> 0.375); held-out 1%
+[4] E4 How are runs of multiple spaces, leading/trailing spaces, and tabs/newlines...(+127 chars)  (v3 predicted it: match 0.30)
+      model v4 by the updater: exam 0.38, fit 0.29, size 227 (same scores, smaller (232 -> 227 chars)); held-out 1%
+[5] E5 a random ordinary probe  (v4 predicted it: match 0.50)

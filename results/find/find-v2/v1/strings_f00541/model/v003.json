@@ -1,0 +1,19 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f strips the first character only when the input starts with an uppercase letter followed by a lowercase letter [E1, E2]",
+  "Inputs starting with an uppercase letter followed by another uppercase letter, a digit, punctuation, or space are returned unchanged [E2, E3]",
+  "Inputs starting with lowercase, digit, space, or empty are returned unchanged [E1]",
+  "A single uppercase letter is returned unchanged [E2]",
+  "A single uppercase letter followed by a space (e.g. 'A ') is returned unchanged, contradicting the 'strip when uppercase+lowercase' rule [E3]?"
+ ],
+ "notes": "E3 shows 'A ' stays unchanged while 'Hello' and 'Hello!' lose their first char, so the strip rule is not simply uppercase+lowercase. The pattern suggests stripping happens when the string contains a lowercase letter somewhere after the first char (e.g. 'Hello', 'Hello!'), but not for 'A ' or 'Ab'/'Aa' which also contain lowercase. This is inconsistent, so I keep the best guess that stripping requires an uppercase first char followed by a lowercase second char, and note the 'A ' anomaly.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.9,
+  0.7,
+  0.7
+ ],
+ "made_at": 3
+}

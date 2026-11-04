@@ -1,0 +1,43 @@
+{
+ "version": 17,
+ "beliefs": [
+  "f strips trailing spaces from the input [E2, E8, E16, E21]",
+  "After trailing-space removal, f strips the first character iff the first char is 'H' and the second char is lowercase, with no length restriction [E6, E11, E13, E16, E18, E19, E20, E21]",
+  "The strip applies to 'Hb','Hc','Ha','Hx' (length 2) as well as longer 'Hbc','Hbcx' etc. [E21]",
+  "The strip applies regardless of what follows the second lowercase char (spaces, digits, symbols, more letters) [E6, E11, E12]",
+  "Strings starting with 'A' followed by lowercase are NOT stripped ('Abc','Abcd','Abcde','Ab') [E10, E13, E14, E16]",
+  "Strings starting with other uppercase letters (B,C,D,E,F,G,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,Y,Z,X) followed by lowercase are NOT stripped [E17, E18, E19, E20]",
+  "Strings starting with lowercase, digit, or space are returned unchanged after trailing-space strip [E2, E8, E19]",
+  "All-uppercase strings starting with 'H' of length >= 3 strip the first character: 'HEL'->'EL','HELLO'->'ELLO' [E14, E15]",
+  "All-uppercase strings starting with 'A' are returned unchanged regardless of length [E15]",
+  "Single 'H' or 'H ' (after trailing-space strip becomes 'H') returns empty string [E21]",
+  "Single uppercase letters and empty strings are returned unchanged after trailing-space strip [E2, E8, E21]"
+ ],
+ "notes": "",
+ "fit": 0.8571428571428571,
+ "heldout": 0.25,
+ "matches": [
+  1.0,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 21
+}

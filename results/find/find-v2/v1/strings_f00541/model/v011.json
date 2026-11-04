@@ -1,0 +1,31 @@
+{
+ "version": 11,
+ "beliefs": [
+  "f strips trailing spaces from every input regardless of first character (e.g. 'a ' -> 'a', '  ' -> '', 'Z  ' -> 'Z', 'A  ' -> 'A') [E2, E8]",
+  "f strips the first character when the string (after trailing-space removal) starts with an uppercase letter followed by a lowercase letter AND the string contains a space somewhere (e.g. 'Hello World' -> 'ello World', 'Hx llo' -> 'x llo', 'Hx yz' -> 'x yz') [E1, E2, E6, E11]",
+  "f does NOT strip for uppercase+lowercase strings with no space (e.g. 'Hello' -> 'Hello', 'Abc' -> 'Abc', 'Abcd' -> 'Abcd', 'Abz' -> 'Abz') [E5, E10]",
+  "f does NOT strip when the second character is a digit, space, or symbol, even with a space present (e.g. 'A1!', 'A1x', 'A9z', 'A zz', 'A!zz', 'H llo' -> ' llo'? no, 'H llo' -> ' llo' means it DID strip) [E1, E9, E11]",
+  "Correction: 'H llo' -> ' llo' and 'H!llo' -> '!llo' show f strips when second char is space or symbol too, provided a space is present elsewhere? [E6, E11]",
+  "Two-character strings starting with an uppercase letter are returned unchanged regardless of the second char (e.g. 'Ab', 'AB', 'A1', 'A ') [E3, E4]",
+  "Single uppercase letters are returned unchanged (e.g. 'A') [E2, E4]",
+  "Strings starting with lowercase, digit, space, or empty are returned unchanged (after trailing-space strip) [E1, E8]",
+  "Why does 'HELLO' -> 'ELLO' in E2 but 'ABC' -> 'ABC' in E7? Possibly a special case for all-uppercase words of length >= 5? [E2, E7]"
+ ],
+ "notes": "Reverted to v10's rule (strip iff len>=3, uppercase first, lowercase second, and contains a space) since the rejected attempt broke E7/E8/E9; E11's 'H llo'->' llo' and 'H!llo'->'!llo' remain unexplained by this rule and are flagged.",
+ "fit": 0.5454545454545454,
+ "heldout": 0.19,
+ "matches": [
+  1.0,
+  0.6,
+  1.0,
+  0.9,
+  0.9,
+  0.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8
+ ],
+ "made_at": 11
+}

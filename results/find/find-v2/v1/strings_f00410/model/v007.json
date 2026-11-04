@@ -1,0 +1,33 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f reverses the order of characters in the string [E1]",
+  "f then swaps the case of each letter (upper<->lower), leaving non-letters unchanged [E1, E3]",
+  "The case swap is applied to the reversed string, not the original [E3]",
+  "The first output character is the case-swapped last input character shifted back by 2 alphabetically within its own case (a->y, A->Y, wrapping z->x, Z->X) [E4, E5, E6, E11]",
+  "Non-ASCII Latin-1 letters are case-swapped and shifted back by 2 within their contiguous letter block, skipping the \u00d7/\u00f7 gaps (\u00e9->\u00e7, \u00f1->\u00ef, \u00fc->\u00fa, \u00df->\u00dd) [E12, E13]",
+  "The -2 shift applies only when the last character is a letter; otherwise the first output char is just the reversed last char [E8, E9]",
+  "The Latin-1 shift wraps within the block: \u00e1->\u00df (wraps to end of lowercase block), \u00e0->\u00de (wraps to end of uppercase block), \u00ff->\u00fd [E14]",
+  "The Latin-1 block wrap uses the block's own length (not codepoint arithmetic), so \u00e1 (first in lowercase block) wraps to \u00df (last), and \u00e0 (first in uppercase block) wraps to \u00de (last) [E14]"
+ ],
+ "notes": "Fixed the Latin-1 wrap: my block list was 0xC0..0xDE/0xE0..0xFE but I need to include the full contiguous letter range and wrap correctly. \u00e1 is at index 0 of lowercase block, -2 wraps to last (\u00df). \u00e0 at index 0 of uppercase block wraps to \u00de. Also corrected the block ranges to properly exclude \u00d7 (0xD7) and \u00f7 (0xF7) while including the full letter sets.",
+ "fit": 0.8571428571428571,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  0.6
+ ],
+ "made_at": 14
+}

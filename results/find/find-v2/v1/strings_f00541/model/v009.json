@@ -1,0 +1,29 @@
+{
+ "version": 9,
+ "beliefs": [
+  "f strips trailing spaces from every input regardless of first character (e.g. 'a ' -> 'a', '  ' -> '', 'Z  ' -> 'Z', 'A  ' -> 'A') [E2, E8]",
+  "f strips the first character when the string (after trailing-space removal) has length >= 3 and starts with an uppercase letter followed by a lowercase letter (e.g. 'Hello' -> 'ello', 'Hbllo' -> 'bllo') [E1, E6]",
+  "f does NOT strip for uppercase+uppercase starts of any length (e.g. 'ABc', 'AB1', 'ABC', 'HELLO' -> 'ELLO' only via trailing-space? no, HELLO stays 'ELLO'? \u2014 see note) [E2, E3, E7]",
+  "f does NOT strip when the second character is a digit, space, or symbol (e.g. 'A1!', 'A1x', 'A9z', 'A zz', 'A!zz', 'A-zz', 'A_zz' all unchanged) [E1, E9]",
+  "Two-character strings starting with an uppercase letter are returned unchanged regardless of the second char (e.g. 'Ab', 'AB', 'A1', 'A ') [E3, E4]",
+  "Single uppercase letters are returned unchanged (e.g. 'A') [E2, E4]",
+  "Strings starting with lowercase, digit, space, or empty are returned unchanged (after trailing-space strip) [E1, E8]",
+  "The rule is: rstrip spaces, then strip first char iff length >= 3, first char uppercase, and second char lowercase [E1-E9]",
+  "Why does 'HELLO' -> 'ELLO' in E2 but 'ABC' -> 'ABC' in E7? Possibly a special case for all-uppercase words of length >= 5? [E2, E7]"
+ ],
+ "notes": "E9 shows stripping requires the second char to be lowercase, not merely non-uppercase; digit/space/symbol second chars block stripping. But E2 'HELLO' -> 'ELLO' contradicts 'uppercase+uppercase unchanged' unless there's a separate rule for long all-caps words \u2014 kept as an open question.",
+ "fit": 0.5555555555555556,
+ "heldout": 0.04,
+ "matches": [
+  1.0,
+  0.8,
+  1.0,
+  1.0,
+  0.1,
+  0.7,
+  0.8,
+  1.0,
+  1.0
+ ],
+ "made_at": 9
+}

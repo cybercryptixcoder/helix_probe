@@ -1,0 +1,23 @@
+{
+ "version": 5,
+ "beliefs": [
+  "The box reverses the first whitespace-separated word [E1, E4, E5]",
+  "The box reverses the concatenation of all remaining words (joined without spaces) [E3, E5: 'abc def ghi'->'cba ihgfed', 'abc def ghi jkl'->'cba lkjihgfed']",
+  "Whitespace runs collapse to a single space and leading/trailing whitespace is stripped [E2, E3]",
+  "Empty or all-whitespace input maps to empty string [E1, E2]",
+  "Case and symbols are preserved within each reversed chunk [E1, E3, E4]",
+  "Punctuation attached to a word stays attached and is reversed with the word [E3, E4]",
+  "When there is only one word, output is just that word reversed [E1, E4]"
+ ],
+ "notes": "Fixed the rule: first word reversed, then the rest concatenated (no spaces) and reversed, joined by one space. This explains 'abc def ghi'->'cba ihgfed' and 'a1 b2 c3'->'1a 3c2b'. Removed the dedup guess which was wrong.",
+ "fit": 0.2,
+ "heldout": 0.01,
+ "matches": [
+  0.5,
+  0.8,
+  0.8,
+  0.3,
+  1.0
+ ],
+ "made_at": 5
+}

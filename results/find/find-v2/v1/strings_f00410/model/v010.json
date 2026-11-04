@@ -1,0 +1,42 @@
+{
+ "version": 10,
+ "beliefs": [
+  "f reverses the order of characters in the string [E1]",
+  "f then swaps the case of each letter (upper<->lower), leaving non-letters unchanged [E1, E3]",
+  "The case swap is applied to the reversed string, not the original [E3]",
+  "The first output character is the case-swapped last input character shifted back by 2 alphabetically within its own case (a->y, A->Y, wrapping z->x, Z->X) [E4, E5, E6, E11]",
+  "Non-ASCII Latin-1 letters are case-swapped and shifted back by 2 within their contiguous letter block, skipping the \u00d7/\u00f7 gaps [E12, E13]",
+  "The -2 shift applies only when the last character is a letter; otherwise the first output char is just the reversed last char [E8, E9]",
+  "The lowercase Latin-1 block is 0xE0..0xFE excluding \u00f7(0xF7), and \u00e1(0xE1) wraps to \u00df(0xDF) \u2014 so the wrap base is 0xDF, extending the block down to \u00df [E14, E15, E21]",
+  "The uppercase Latin-1 block is 0xC0..0xDE excluding \u00d7(0xD7), and \u00c0(0xC0) wraps to \u00be(0xBE), \u00c1(0xC1) to \u00bf(0xBF) \u2014 so the wrap base is 0xBE, extending the block down to \u00be [E16, E19]",
+  "The uppercase block's -2 shift is plain codepoint-2 skipping \u00d7 (\u00d1\u2192\u00cf, \u00d3\u2192\u00d1, \u00d6\u2192\u00d2, \u00d8\u2192\u00d6, \u00de\u2192\u00dc), consistent with the 0xBE-based block [E19, E20]",
+  "The lowercase block's -2 shift is plain codepoint-2 skipping \u00f7 (\u00e1\u2192\u00df, \u00e0\u2192\u00de, \u00ff\u2192\u00fd), consistent with the 0xDF-based block [E21]"
+ ],
+ "notes": "",
+ "fit": 0.8095238095238095,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  0.8
+ ],
+ "made_at": 21
+}

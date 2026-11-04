@@ -1,0 +1,21 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f strips the first character only when the input starts with an uppercase letter followed by a lowercase letter AND the string is at least 3 characters long [E1, E4, E5]",
+  "Two-character strings starting with uppercase are returned unchanged regardless of the second character [E3, E4]",
+  "Single uppercase letters are returned unchanged [E2, E4]",
+  "Inputs starting with lowercase, digit, space, or empty are returned unchanged [E1]",
+  "Strings like 'Hello' and 'Hello World' (uppercase+lowercase, length \u22653) are stripped [E1, E4]"
+ ],
+ "notes": "E5 shows Abc/Abc def etc. are NOT stripped, contradicting the length\u22653 hypothesis too. Actually E1/E4 stripped Hello and Hello World but E5 shows Abc unchanged \u2014 so the trigger isn't just uppercase+lowercase+length. The distinguishing feature may be the specific letter or a longer word. Best guess: strip only when first char is uppercase, second is lowercase, and length \u2265 3, but E5 contradicts this; keeping as uncertain.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.9,
+  0.7,
+  0.9,
+  0.9,
+  0.0
+ ],
+ "made_at": 5
+}

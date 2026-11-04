@@ -18,3 +18,14 @@ Helix Probe v2 on 'find_strings_f00387': 0 experiments so far, model v0, exam of
       updater's model not kept: same scores and not smaller (838 vs 838 chars)
 [11] E11 a random ordinary probe  (v5 predicted it: match 1.00)
 [12] E12 Does the 'drop lowercase m before u' rule apply broadly to mid-word 'mu', a...(+118 chars)  (v5 predicted it: match 0.00)
+      model v6 by the updater: exam 1.00, fit 1.00, size 178 (fit 0.875 -> 1.000); held-out 100%
+[13] E13 a random ordinary probe  (v6 predicted it: match 1.00)
+[14] E14 Does the box drop every lowercase 'm' regardless of position (including wor...(+108 chars)  (v6 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v6 predicted it: match 1.00)
+[16] E16 Does the box's capitalization treat punctuation/digits as word characters, ...(+105 chars)  (v6 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v6 predicted it: match 1.00)
+[18] E18 Does the capitalization rule capitalize the first non-space character of th...(+86 chars)  (v6 predicted it: match 1.00)
+[19] E19 a random ordinary probe  (v6 predicted it: match 1.00)
+[20] E20 Does the box's 'drop lowercase m' rule apply to every lowercase m anywhere ...(+186 chars)  (v6 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00387", "experiments": 20, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 178, "heldout": 1.0, "llm_calls": 20, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

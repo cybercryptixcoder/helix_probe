@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "The box reverses the entire input string [E1]",
+  "Reversal is character-by-character, preserving spaces and case [E1]",
+  "Empty string maps to empty string [E1]"
+ ],
+ "notes": "All outputs are exact reversals of inputs (hello->oleh, two words->sdrow owt, A1!->!1A). Simple full-string reversal explains every case.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.5
+ ],
+ "made_at": 1
+}

@@ -1,0 +1,36 @@
+{
+ "version": 11,
+ "beliefs": [
+  "Empty string maps to 'I' [E1]",
+  "For space-free strings: reverse the string, then insert 'I' at index ceil(len/2) of the reversed string [E3, E4, E5, E6]",
+  "All characters (case, digits, symbols, tabs) are preserved and reversed unchanged for space-free strings [E1, E2, E6]",
+  "For space-containing strings: strip leading/trailing spaces, split on runs of spaces, reverse each token, rejoin with single spaces, then insert 'I' at some index [E10-E15]",
+  "Multiple consecutive internal spaces collapse to single spaces in the output ('a  b' -> 'a I b') [E7, E11, E12]",
+  "For 2-token strings where first_len < second_len: I is inserted at the END of the joined reversed string [E13, E10]",
+  "For 2-token strings where first_len == second_len: I is inserted at index 0 [E10, E12]",
+  "For 2-token strings where first_len > second_len: I index equals floor((first_len-1)/2) in the reversed-token output [E14, E15]",
+  "E15 confirms 'abc de' gives I@0, contradicting floor((3-1)/2)=1; the 'abc de' case remains an anomaly \u2014 possibly the rule is floor((first_len-1)/2) but with first_len counted differently, or 'abc de' is special [E15]?",
+  "For multi-token (3+): 'a b c'->I@3, 'x y z w'->I@2, 'a b c d'->I@1, 'a b c d e'->I@5, 'a b c d e f'->I@3 \u2014 no clean rule found yet [E10, E12]?"
+ ],
+ "notes": "E15 shows 'abc de' really does give I@0 (not a misread), while all other first>second cases follow floor((first_len-1)/2). I keep the anomaly exception for (3,2) and note it as unexplained. Multi-token rule still unclear.",
+ "fit": 0.3333333333333333,
+ "heldout": 0.01,
+ "matches": [
+  1.0,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.6,
+  0.9,
+  0.6,
+  0.7,
+  0.6,
+  0.6,
+  0.9,
+  0.5,
+  0.7
+ ],
+ "made_at": 15
+}

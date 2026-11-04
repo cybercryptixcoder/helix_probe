@@ -1,0 +1,34 @@
+{
+ "version": 14,
+ "beliefs": [
+  "f always strips trailing spaces from the input [E2, E8]",
+  "After trailing-space removal, f strips the first character iff the first char is uppercase and the second char is lowercase, EXCEPT when the first char is 'A' [E2, E6, E12, E13, E14]",
+  "The 'A' exemption holds regardless of length: 'Abc','Abcd','Abcde','Axyz','Axyzw' all unchanged, while 'Hbc','Hbcx','Hbllo','Hello' strip [E10, E13, E14]",
+  "Two-character strings like 'Ab','Aa','Hb' are returned unchanged even though first is uppercase and second lowercase [E3, E4, E13]",
+  "Strings whose second char is uppercase, digit, space, or symbol are returned unchanged (e.g. 'AB','A1','A1x','A zz','A!zz') [E2, E3, E7, E9]",
+  "Contradiction: 'H llo'->' llo' and 'H!llo'->'!llo' strip despite second char being space/symbol, but 'A zz'->'A zz' and 'A!zz'->'A!zz' don't \u2014 likely the 'A' exemption again [E6, E9, E11]",
+  "Single uppercase letters and strings starting with lowercase/digit/space/empty are returned unchanged after trailing-space strip [E2, E8]",
+  "All-uppercase strings of length >= 3 strip the first character: 'HELLO'->'ELLO','HELL'->'ELL','HEL'->'EL','HELLO!'->'ELLO!','ABC'->'ABC'? \u2014 but E7 says 'ABC'->'ABC', so maybe only length >= 5? [E2, E7, E14]",
+  "Why 'HELLO'->'ELLO' but 'ABC'->'ABC'? Possibly all-uppercase words of length >= 5 strip [E2, E7]?"
+ ],
+ "notes": "Restored the 'A' exemption (removed in v13) since E14 shows A-starting strings never strip, and added an all-caps length>=5 strip rule for HELLO/HELL/HEL/HELLO!. Kept the simple uppercase-then-lowercase rule for non-A first letters, which matches E1/E7/E9 again.",
+ "fit": 0.6428571428571429,
+ "heldout": 0.04,
+ "matches": [
+  0.9,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  1.0,
+  0.6
+ ],
+ "made_at": 14
+}

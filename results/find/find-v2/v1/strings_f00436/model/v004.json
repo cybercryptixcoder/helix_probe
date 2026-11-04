@@ -1,0 +1,26 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f(x) reverses x, then inserts 'I' at index ceil(len(x)/2) of the reversed string (i.e. just after the middle for odd lengths, at the middle for even lengths) [E3, E4, E5, E6]",
+  "For odd-length strings the 'I' sits just after the middle of the reversed string, e.g. 'abc'->'cbIa', 'abcde'->'edcIba' [E3, E4, E5]",
+  "For even-length strings the 'I' sits at the middle index of the reversed string, e.g. 'abcd'->'dcIba' [E3, E4]",
+  "Empty string maps to 'I' [E1]",
+  "All characters (case, digits, symbols, spaces, tabs) are preserved and reversed unchanged [E1, E2, E6]",
+  "Output length equals len(x)+1, so 'I' is inserted, not replacing [E4, E6]",
+  "The insertion index is computed from the reversed string's length, which equals len(x); for spaces this gives e.g. 'a b'->'bIa'? but E7/E8 observed 'Ia b' and 'Iba c', which contradicts this rule for strings with spaces [E7, E8]"
+ ],
+ "notes": "",
+ "fit": 0.5,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.7,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.0,
+  0.6
+ ],
+ "made_at": 8
+}

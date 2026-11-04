@@ -1,0 +1,15 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f splits the input on whitespace, reverses the order of the resulting words, and joins them with single spaces, discarding all original whitespace runs [E1, E2]",
+  "Single-word inputs and empty/whitespace-only inputs are returned unchanged (empty stays empty) [E1, E2]"
+ ],
+ "notes": "E2 shows whitespace is normalized to single spaces (leading/trailing/multiple/tab/newline all collapse), not preserved. Changed predict to split on any whitespace and join reversed tokens with single spaces; empty token list yields empty string.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

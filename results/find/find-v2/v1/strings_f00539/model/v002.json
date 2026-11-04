@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f collapses every run of adjacent identical characters to a single character [E1, E2]",
+  "f appends 'h' unless the result already ends with 'h' [E1, E2]",
+  "f('hello hello') gives 'helo ' (trailing space, no 'h') \u2014 so 'h' is not appended when the collapsed string ends in a space? [E2]",
+  "f('  ') gives ' h' \u2014 two spaces collapse to one, then 'h' appended [E1]",
+  "f('') gives 'h' [E1]"
+ ],
+ "notes": "Changed from removing only the first duplicate to collapsing all adjacent runs (bbb->b, ccccc->c, AABB->AB, 111->1). The 'hello hello' case ends in a space and got no 'h', so the append rule may skip when ending in space \u2014 but '  '->' h' contradicts a simple space rule, so I keep appending 'h' unless it ends in 'h' and flag the space case as uncertain.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.7,
+  0.9
+ ],
+ "made_at": 2
+}

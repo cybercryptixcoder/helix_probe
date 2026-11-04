@@ -1,0 +1,25 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f strips the first character when the input starts with an uppercase letter followed by a lowercase letter (any lowercase letter works) [E6]",
+  "f also strips the first character when the uppercase letter is followed by a digit, space, or symbol, as long as the string has length \u22652 [E2, E6]",
+  "f does NOT strip when the uppercase letter is followed by another uppercase letter (e.g. 'AB', 'HELLO') [E2, E3]",
+  "Two-character strings starting with uppercase followed by lowercase are returned unchanged [E3, E4]",
+  "Single uppercase letters are returned unchanged [E2, E4]",
+  "Strings of length \u22653 starting with uppercase+lowercase are stripped [E1, E4]",
+  "Strings starting with lowercase, digit, space, or empty are returned unchanged [E1]",
+  "The rule appears to be: strip first char if length \u22653 and first char is uppercase and second char is NOT uppercase [E2, E3, E4, E6]?"
+ ],
+ "notes": "E6 shows stripping happens for any lowercase letter after the uppercase, and also for digit/space/symbol after uppercase when length\u22653 (E2 'A1'\u2192'1', 'A '\u2192' '). E3 shows two-char strings are never stripped. So the rule is: length\u22653, first char uppercase, second char not uppercase.",
+ "fit": 0.16666666666666666,
+ "heldout": 0.01,
+ "matches": [
+  0.8,
+  0.7,
+  0.9,
+  0.9,
+  0.0,
+  1.0
+ ],
+ "made_at": 6
+}

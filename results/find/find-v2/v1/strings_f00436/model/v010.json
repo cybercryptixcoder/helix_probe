@@ -1,0 +1,36 @@
+{
+ "version": 10,
+ "beliefs": [
+  "Empty string maps to 'I' [E1]",
+  "For space-free strings: reverse the string, then insert 'I' at index ceil(len/2) of the reversed string [E3, E4, E5, E6]",
+  "All characters (case, digits, symbols, tabs) are preserved and reversed unchanged for space-free strings [E1, E2, E6]",
+  "For space-containing strings: strip leading/trailing spaces, split on runs of spaces, reverse each token, rejoin with single spaces, then insert 'I' at some index [E10, E11, E12, E13]",
+  "Multiple consecutive internal spaces collapse to single spaces in the output ('a  b' -> 'a I b') [E7, E11, E12]",
+  "For 2-token strings where first_len < second_len: I is inserted at the END of the joined reversed string [E13: 'ab cde','a bcd','xy zzz','ab cdef','abc defg','a bcde' all end; E10 'a bc','Hi there' end]",
+  "For 2-token strings where first_len >= second_len: I index equals floor((first_len-1)/2) [E14: 'abcd ef'(4)->1,'abcde fg'(5)->2,'abcdef gh'(6)->2,'abcde fgh'(5)->2,'abcd efg'(4)->1,'abcde fghi'(5)->2,'abcdefg hi'(7)->3,'abcde f'(5)->2,'abcdef g'(6)->2,'abcd efgh'(4)->1]",
+  "Earlier 2-token first>=second cases fit floor((first_len-1)/2): 'xy z'(2)->0,'abcd e'(4)->1,'ab c'(2)->0,'abc d'(3)->1 [E10, E13]",
+  "Exception: 'abc de'(3,2)->0 and 'ab cd'(2,2)->0 and 'a b'(1,1)->0 and 'abc def'(3,3)->0 and 'hello world'(5,5)->0 and 'abc de'/'abc def'/'hello world' all I@0 \u2014 equal-length tokens give I@0, and 'abc de' also gives 0 [E10, E12]",
+  "Refined: for 2-token first>=second, if first_len==second_len then I@0; else I@floor((first_len-1)/2), except 'abc de'(3,2)->0 which contradicts (floor((3-1)/2)=1) \u2014 'abc de' remains unexplained [E10, E13]?",
+  "For multi-token (3+): 'a b c'->I@3, 'x y z w'->I@2, 'a b c d'->I@1, 'a b c d e'->I@5, 'a b c d e f'->I@3 \u2014 no clean rule found yet [E10, E12]?"
+ ],
+ "notes": "E14 shows 2-token first>=second I index = floor((first_len-1)/2) for unequal lengths (not always 0); equal-length tokens give I@0. 'abc de' still anomalous. Multi-token rule still unclear.",
+ "fit": 0.35714285714285715,
+ "heldout": 0.01,
+ "matches": [
+  1.0,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.6,
+  0.9,
+  0.6,
+  0.7,
+  0.6,
+  0.6,
+  0.9,
+  0.5
+ ],
+ "made_at": 14
+}

@@ -1,0 +1,29 @@
+Helix Probe on 'find_strings_f00444': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a small, varied set of inputs (plain word, word with spac...(+62 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.90 (was 0.00), held-out 4%
+[2] E2 Does f reverse the order of all whitespace-separated words while preserving...(+126 chars)  model v1 match 0.30
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.60), held-out 100%
+[3] E3 Does f treat runs of whitespace as word separators only (so tabs/newlines/m...(+163 chars)  model v2 match 1.00
+[4] E4 Does f's word-reversal also reorder case or characters inside words, or doe...(+134 chars)  model v2 match 1.00
+[5] E5 How does f handle non-ASCII letters, combining/accented characters, and Uni...(+83 chars)  model v2 match 1.00
+[6] E6 Does f handle Unicode whitespace beyond those already tested (e.g. U+2028, ...(+225 chars)  model v2 match 1.00
+[7] E7 Does f split on Unicode whitespace that Python's str.split() does NOT treat...(+178 chars)  model v2 match 1.00
+[8] E8 Does the box have any hidden behavior on longer/realistic inputs — e.g. doe...(+205 chars)  model v2 match 1.00
+[9] E9 Does f split on any other Unicode whitespace-like characters not yet tested...(+256 chars)  model v2 match 1.00
+[10] E10 Does f treat the empty string and whitespace-only inputs as unchanged (retu...(+168 chars)  model v2 match 1.00
+[11] E11 Does f treat a string made only of a single non-Python-whitespace Unicode c...(+195 chars)  model v2 match 1.00
+[12] E12 Does f split on Unicode line/paragraph separators and other C0/C1 control w...(+168 chars)  model v2 match 1.00
+[13] E13 Does f's whitespace handling match Python str.split() exactly for the remai...(+230 chars)  model v2 match 1.00
+[14] E14 Does f ever alter the characters inside words (e.g. reverse letters, change...(+202 chars)  model v2 match 1.00
+[15] E15 Does f's whitespace splitting match Python str.split() exactly for every re...(+367 chars)  model v2 match 1.00
+[16] E16 Does f's word-reversal interact in any special way with very long words, st...(+180 chars)  model v2 match 1.00
+[17] E17 Does f treat the empty string and whitespace-only strings as unchanged (ret...(+156 chars)  model v2 match 1.00
+[18] E18 Does f split on U+000B/U+000C/U+001C-U+001F/U+0085 inside words (verifying ...(+190 chars)  model v2 match 1.00
+[19] E19 Does f's word reversal apply to the whole string as one unit when the input...(+350 chars)  model v2 match 1.00
+[20] E20 Does f ever perform any character-level or case transformation that our wor...(+235 chars)  model v2 match 1.00
+[21] E21 Does f's word-reversal operate on the whole input even when the 10-input ba...(+187 chars)  model v2 match 1.00
+[22] E22 How does f handle inputs where words are separated by a mix of Python-white...(+136 chars)  model v2 match 1.00
+[23] E23 Does f preserve the exact characters of each word (including trailing/leadi...(+221 chars)  model v2 match 1.00
+[24] E24 Does f preserve a single leading/trailing non-Python-whitespace pseudo-sepa...(+237 chars)  model v2 match 1.00
+[25] E25 Does f's word-splitting match Python str.split() for the full set of Unicod...(+206 chars)  model v2 match 1.00
+{"env": "find_strings_f00444", "experiments": 25, "model_version": 2, "fit": 1.0, "heldout": 1.0, "llm_calls": 30, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

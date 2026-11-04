@@ -1,0 +1,36 @@
+{
+ "version": 9,
+ "beliefs": [
+  "f reverses the order of characters in the string [E1]",
+  "f then swaps the case of each letter (upper<->lower), leaving non-letters unchanged [E1, E3]",
+  "The case swap is applied to the reversed string, not the original [E3]",
+  "The first output character is the case-swapped last input character shifted back by 2 alphabetically within its own case (a->y, A->Y, wrapping z->x, Z->X) [E4, E5, E6, E11]",
+  "Non-ASCII Latin-1 letters are case-swapped and shifted back by 2 within their contiguous letter block, skipping the \u00d7/\u00f7 gaps (\u00e9->\u00e7, \u00f1->\u00ef, \u00fc->\u00fa, \u00df->\u00dd) [E12, E13]",
+  "The -2 shift applies only when the last character is a letter; otherwise the first output char is just the reversed last char [E8, E9]",
+  "The Latin-1 shift wraps within the block using the block's own length, so \u00e1 (first lowercase) wraps to \u00df (last lowercase) and \u00c0 (first uppercase) wraps to \u00be (0xBE) [E14, E15, E16]",
+  "The uppercase Latin-1 block is 0xC0..0xDE excluding \u00d7(0xD7); the lowercase block is 0xE0..0xFE excluding \u00f7(0xF7) [E13, E14]",
+  "The uppercase Latin-1 block wraps to 0xBE/0xBF (\u00be, \u00bf) rather than to \u00de, suggesting the uppercase block actually extends below 0xC0 or the wrap base is 0xBE [E16]?"
+ ],
+ "notes": "E16 shows uppercase \u00c0\u2192\u00be and \u00c1\u2192\u00bf, so the uppercase block's wrap base is 0xBE (\u00be) not 0xC0; the block appears to be 0xBE..0xDE excluding \u00d7, giving length 33. Updated shift_letter to use that block.",
+ "fit": 0.8125,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  0.7,
+  0.9,
+  1.0
+ ],
+ "made_at": 16
+}

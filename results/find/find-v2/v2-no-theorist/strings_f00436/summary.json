@@ -1,0 +1,17 @@
+{
+ "env": "find_strings_f00436",
+ "experiments": 25,
+ "exam_probes": 4,
+ "model_version": 5,
+ "model_role": "updater",
+ "exam": 0.7916666666666667,
+ "fit": 0.62,
+ "size": 1095,
+ "heldout": 0.01,
+ "llm_calls": 55,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "The box reverses each whitespace-separated word individually, keeping word order [E1, E2, E3]",
+  "Whitespace runs collapse to a single space and leading/trailing whitespace is stripped [E2, E3]",
+  "Empty or all-whitespace input maps to empty string [E1, E2]",
+  "Case and symbols are preserved within each reversed word [E1, E3]",
+  "The box reverses only the first word of each input, leaving subsequent words unchanged? [E3: 'abc def ghi'->'cba ihgfed' shows 'def'->'fed' reversed too, so no]",
+  "Actually all words are reversed: 'abc def ghi'->'cba ihgfed' means 'abc'->'cba', 'def'->'fed', 'ghi'->'ihg', joined as 'cba fed ihg'... but observed is 'cba ihgfed' which is 'cba' + 'ihgfed' = reversed('defghi')? [E3]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.5,
+  0.8,
+  0.8
+ ],
+ "made_at": 3
+}
