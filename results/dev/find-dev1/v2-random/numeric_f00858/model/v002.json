@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the model to add a narrow nonzero region near x=1.2, since E2 shows f(1.2)=1.0 while all other tested points (including nearby 2.9 and -6.0) are 0. The exact boundaries are unknown, so I marked this as a guess.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 177, "matches": [1.0, 1.0], "made_at": 2, "heldout": 0.85}

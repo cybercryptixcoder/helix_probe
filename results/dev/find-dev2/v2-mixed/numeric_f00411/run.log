@@ -1,0 +1,17 @@
+Helix Probe v2 on 'find_numeric_f00411': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 292 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the change in intercept exactly at x=0, or is there a transition interva...(+84 chars)  (v1 predicted it: match 0.91)
+      model v2 by the updater: exam 1.00, fit 1.00, size 344 (fit 0.955 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Is the spike at exactly x=0 a single-point anomaly, or does the function be...(+166 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the linear behavior with the different intercepts continue unchanged a...(+165 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (385 vs 344 chars)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Is the two-intercept structure truly a sharp sign split, or could the inter...(+159 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Are there any ordinary inputs in the mid-range (not near zero, not extreme)...(+139 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00411", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 344, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

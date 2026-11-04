@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I added the rule that input `t` is deleted (not shifted), which fixes the length mismatches in \"test case\", \"ban", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 120, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 1.0}

@@ -1,0 +1,25 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f(x) = g(x) + 'JTQL' for every non-empty input [E1, E5, E6, E7, E8]",
+  "The empty string maps to 'HTQL' exactly, with no 'JTQL' suffix appended [E1, E7, E8, E9]",
+  "g shifts only the first character of the input by -2 in the alphabet (lowercase a->y, uppercase A->Y), leaving the rest unchanged [E1, E2, E3, E4, E5, E6]",
+  "The first-character shift wraps around: a->y, b->z, c->a, z->x [E1, E2]",
+  "Digits, symbols, spaces, and all non-first characters are unchanged [E1, E3, E4, E6]"
+ ],
+ "notes": "Fixed the empty-string case: it returns 'HTQL' with no suffix, while all non-empty inputs get the 'JTQL' suffix. This resolves the E1/E7/E8/E9 discrepancy.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 9
+}

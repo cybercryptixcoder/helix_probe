@@ -1,0 +1,1 @@
+Published interpretations of FIND's agents (GPT-4, GPT-3.5-turbo, Llama-2-70B, Llama-2-13B), copied from FIND-interpretations.zip (https://data.csail.mit.edu/FIND/FIND-interpretations.zip), MIT License, for the benchmark sample only. code.py is each agent's final code; history.json its whole conversation (to count its experiments).

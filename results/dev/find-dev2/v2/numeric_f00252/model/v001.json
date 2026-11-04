@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I discovered f(x) = 141.0873\u00b7log\u2082(x) + 1.1 for x > 0, and undefined for x \u2264 0. The key was noticing that (y+139.9873)/141.0873 equals log\u2082(x)+1 exactly across all sampled points.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 316, "matches": [1.0], "made_at": 1, "heldout": 1.0}

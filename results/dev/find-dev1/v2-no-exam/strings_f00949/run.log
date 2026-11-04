@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00949': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 What does f do to plain lowercase words, mixed-case words, spaces, digits, ...(+61 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 1.00, size 228 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 Where exactly is the marker inserted for even-length strings, and does the ...(+124 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the marker insertion operate on Python string characters (code points)...(+121 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the marker insertion position depend on the length of the string in ch...(+244 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the insertion index use Python len (code points) or some other notion ...(+207 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the marker insertion happen only once at the midpoint, or does it also...(+147 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (683 vs 228 chars)
+[7] E7 Does f apply the midpoint marker insertion exactly once per call, or does i...(+255 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the insertion index use Python len (code points) or a grapheme/UTF-16 ...(+153 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does f apply exactly one marker insertion per call regardless of input cont...(+271 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00949", "experiments": 9, "exam_probes": 0, "model_version": 1, "model_role": "updater", "exam": 0.0, "fit": 1.0, "size": 228, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

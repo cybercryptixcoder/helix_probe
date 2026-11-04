@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I moved the `rstrip()` to apply to the whole output (after the shift), so all-whitespace inputs like `\"  \"` and `\"\\t\"` collapse to `\"\"` as E6 shows, while still stripping trailing tabs/newlines/CRs.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 433, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

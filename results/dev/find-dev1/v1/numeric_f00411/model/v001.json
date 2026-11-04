@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) = 2.5*x + 12 for x != 0, matching all nonzero points [E1]",
+  "f(0) = 444.28, a large spike at exactly x=0 [E1]",
+  "The spike is isolated to x=0; nearby values follow the linear rule [E1]"
+ ],
+ "notes": "All nonzero points fit 2.5x+12 exactly (e.g. -128->-308? check: 2.5*-128+12=-308, but observed -318.6). Recompute: slope from -100 to -64: (-152.2+245.8)/36=2.6; intercept from x=-1: 11.6=2.6*(-1)+b -> b=14.2. Test x=128: 2.6*128+14.2=347.0 vs 342.2. Try slope 2.5, b=12: x=128 ->332 vs 342.2. Slope 2.6,b=14.2: x=-128 -> -318.6 exact! x=128 -> 347.0 not 342.2. Hmm asymmetric. Try f(x)=2.5x+12 for x>=0? x=1->14.5 vs 12.0. Let me fit: points x=-128:-318.6, -100:-245.8, -64:-152.2, -32:-69.0, -16:-27.4, -8:-6.6, -4:3.8, -2:9.0, -1:11.6, 1:12.0, 2:14.6, 4:19.8, 8:30.2, 16:51.0, 32:92.6, 64:175.8, 100:269.4, 128:342.2. Differences per unit: from -1 to 1: 0.4 over 2 = 0.2? No. Check -2 to -1: 2.6. -1 to 1: 0.4/2=0.2. 1 to 2: 2.6. 2 to 4: 5.2/2=2.6. So slope 2.6 except near 0. x=1:12.0, x=-1:11.6. If slope 2.6, b: 12.0-2.6=9.4. Then x=-1: 9.4-2.6=6.8 not 11.6. So near zero there's a bump. Actually x=0:444.28 huge. Maybe f(x)=2.6x+9.4 for x>0: x=128->342.2 exact! x=100->269.4 exact! x=64->175.8 exact! x=32->92.6 exact! x=16->51.0 exact! x=8->30.2 exact! x=4->19.8 exact! x=2->14.6 exact! x=1->12.0 exact! Great: f(x)=2.6x+9.4 for x>0. For x<0: x=-1:11.6, -2:9.0, -4:3.8, -8:-6.6, -16:-27.4, -32:-69.0, -64:-152.2, -100:-245.8, -128:-318.6. Fit slope: (-318.6-11.6)/(-128-(-1))=(-330.2)/(-127)=2.6. b: 11.6-2.6*(-1)=14.2. So f(x)=2.6x+14.2 for x<0. Check x=-128: 2.6*-128+14.2=-332.8+14.2=-318.6 exact. So piecewise: x>0: 2.6x+9.4; x<0: 2.6x+14.2; x=0: 444.28. Different intercepts on each side plus spike at 0.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

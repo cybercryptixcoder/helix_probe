@@ -1,0 +1,10 @@
+{
+ "fid": "f00163",
+ "type": "compose",
+ "params": [
+  [],
+  2
+ ],
+ "name": "reverse_string;insert_number;compose_1input_1input((), 2)",
+ "dir": "f00163"
+}

@@ -1,0 +1,75 @@
+def predict(probe):
+    # Observations:
+    # - Flat region: f(x) = -84.3663 for x in [-51, ~30] [E1, E2, E3]
+    #   E2: flat at -51, -50.5, -49.5, ..., 30. E3: flat at 1.2, 30.3.
+    #   So flat region is [-51, ~30.3] (right edge between 30.3 and 65.5).
+    # - Outside flat region, output grows large positive on both sides [E1, E3]
+    #   Right side: 65.5->20347, 66->21806, 72.7->44546, 79.4->70418,
+    #               88.2->104398, 103->161548, 104.5->167340, 104.9->168885,
+    #               123.6->241094
+    #   Left side: -52->1854, -55->9694, -55.8->11784, -61.7->34660, -63.9->44316
+    # - Growth looks cubic-ish but asymmetric (left steeper than right at same |x|).
+    #   Fit separate cubics on each side.
+    import math
+    # Right-side points (x>30.3):
+    R = [(65.5,20347.3034),(66.0,21805.9764),(72.7,44545.8355),
+         (79.4,70417.5454),(88.2,104398.2986),(103.0,161547.7474),
+         (104.5,167339.9212),(104.9,168884.5009),(123.6,241093.6017)]
+    # Left-side points (x<-51):
+    L = [(-52.0,1853.9413),(-55.0,9693.6736),(-55.8,11784.2688),
+         (-61.7,34659.9424),(-63.9,44316.4176)]
+
+    def fit_cubic(pts):
+        n = 4
+        A = [[0.0]*n for _ in range(n)]
+        b = [0.0]*n
+        for x,y in pts:
+            row = [x**3, x**2, x, 1.0]
+            for i in range(n):
+                for j in range(n):
+                    A[i][j] += row[i]*row[j]
+                b[i] += row[i]*y
+        M = [A[i][:]+[b[i]] for i in range(n)]
+        for i in range(n):
+            p = max(range(i,n), key=lambda r: abs(M[r][i]))
+            M[i],M[p] = M[p],M[i]
+            if abs(M[i][i]) < 1e-12:
+                continue
+            for r in range(i+1,n):
+                f = M[r][i]/M[i][i]
+                for c in range(i,n+1):
+                    M[r][c] -= f*M[i][c]
+        coef = [0.0]*n
+        for i in range(n-1,-1,-1):
+            if abs(M[i][i]) < 1e-12:
+                coef[i] = 0.0
+                continue
+            s = M[i][n]
+            for j in range(i+1,n):
+                s -= M[i][j]*coef[j]
+            coef[i] = s/M[i][i]
+        return coef
+
+    cr = fit_cubic(R)
+    cl = fit_cubic(L)
+
+    LEFT = -51.0
+    RIGHT = 30.3  # ? right edge between 30.3 and 65.5
+
+    def f(x):
+        if LEFT <= x <= RIGHT:
+            return -84.3663
+        if x > RIGHT:
+            a,b_,c,d = cr
+            return a*x*x*x + b_*x*x + c*x + d
+        a,b_,c,d = cl
+        return a*x*x*x + b_*x*x + c*x + d
+
+    xs = probe.get("x", [])
+    out = []
+    for x in xs:
+        try:
+            out.append(f(x))
+        except Exception:
+            out.append(None)
+    return {"y": out}

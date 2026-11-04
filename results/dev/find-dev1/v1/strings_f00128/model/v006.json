@@ -1,0 +1,26 @@
+{
+ "version": 6,
+ "beliefs": [
+  "For strings of length 1, the single character is lowercased and '10' is prepended [E2, E4, E8]",
+  "For strings of length >=2, the first character is uppercased if it is a letter, otherwise kept as-is [E1, E2, E4]",
+  "All characters after the first are lowercased [E1, E2, E3]",
+  "The string '10' is inserted at index floor(len/2) for len>=2 [E2, E4, E5, E6, E7]",
+  "For 'A' (len 1) the result is '10a', confirming single-char letters are lowercased not uppercased [E8]",
+  "For 'Z' (len 1) the result is '10z', confirming single-char lowercasing [E8]",
+  "For 'Ab' (len 2) the result is 'A10b', confirming first char uppercased for len>=2 [E2]"
+ ],
+ "notes": "Fixed the single-character case: for len==1 the char is lowercased and '10' prepended, not uppercased. Multi-char behavior (uppercase first, lowercase rest, insert '10' at floor(len/2)) was already correct.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 8
+}

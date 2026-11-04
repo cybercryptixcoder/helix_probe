@@ -1,0 +1,20 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f maps every character to the next character in ASCII: ord(ch)+1, with no case folding and no wrapping [E1, E2, E3, E4, E5]",
+  "Lowercase letters therefore become uppercase letters (a\u2192B, m\u2192N, y\u2192Z, z\u2192[) [E1, E5]",
+  "Uppercase letters become the next uppercase letter or '[' after Z (A\u2192B, Z\u2192[) [E1, E2, E5]",
+  "Digits, punctuation, space, and '~' all shift by raw ASCII +1 (0\u21921, 9\u2192:, space\u2192!, ~\u2192DEL) [E1, E3, E5]"
+ ],
+ "notes": "E5 confirms raw ASCII +1 everywhere: lowercase a\u2192B, b\u2192C, y\u2192Z, z\u2192[ (not the lowercase successor). Removed the earlier wrong belief that lowercase maps to next lowercase; the rule is simply ord(ch)+1 for every character.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.4,
+  0.2,
+  0.5,
+  0.4,
+  0.6
+ ],
+ "made_at": 5
+}

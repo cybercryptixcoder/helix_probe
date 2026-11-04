@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is constant at about -84.3663 for x in roughly [-32, 32] [E1]",
+  "Outside that interval f grows steeply with |x|, reaching ~3e5 at x=\u00b1128 [E1]",
+  "The transition from flat to growing happens between 32 and 64 on the positive side, and between -64 and -32 on the negative side [E1]",
+  "The growth looks roughly quadratic/symmetric in |x| beyond the flat region [E1]"
+ ],
+ "notes": "First model: a flat plateau near -84.37 on [-32,32], with steep symmetric growth outside, fit loosely to the two outer points per side.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.9
+ ],
+ "made_at": 1
+}

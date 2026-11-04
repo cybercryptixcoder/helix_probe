@@ -1,0 +1,25 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f applies a uniform +2 ASCII shift to every character, including letters, digits, punctuation, space, and high characters [E1, E2, E3, E4, E5, E6, E7]",
+  "Lowercase letters cross into punctuation: y->{, z->| [E5]",
+  "Uppercase letters cross into punctuation: Z->\\, Y->[ [E2, E4]",
+  "Digits cross into punctuation: 9->; [E3]",
+  "Space becomes $ and punctuation shifts by +2 (e.g. !->%, ~->\\u0082) [E2, E3, E4, E6, E7]",
+  "Characters near DEL shift past it: \\u007f->\\u0081, \\u0080->\\u0082, \\u0081->\\u0083 [E6, E7]",
+  "No wrapping or clamping occurs at any boundary; the shift is unbounded [E7]"
+ ],
+ "notes": "The observations are exactly a uniform +2 ASCII shift; my earlier predict() already did that, but the belief text and the model-checked predictions were inconsistent (the checked predictions used +1 or other shifts). I rewrote predict() to be the clean +2 shift and aligned beliefs with the evidence.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.2,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "made_at": 7
+}

@@ -1,0 +1,10 @@
+{
+ "fid": "f00949",
+ "type": "compose",
+ "params": [
+  8,
+  "I"
+ ],
+ "name": "insert_number;insert_letter;compose_1input_1input(8, I)",
+ "dir": "f00949"
+}

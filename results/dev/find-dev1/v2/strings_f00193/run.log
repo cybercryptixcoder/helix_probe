@@ -1,0 +1,27 @@
+Helix Probe v2 on 'find_strings_f00193': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do to the simplest, most varied single-token strings, to establ...(+78 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 450 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the transformation apply only to the first character, or does it also ...(+128 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the -2 shift wrap around within the alphabet for the first letter (e.g...(+112 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the suffix depend on the input's length or content, or is it always ex...(+113 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the -2 shift and the 'JTQL' suffix apply to non-ASCII / Unicode charac...(+104 chars)  (v1 predicted it: match 0.30)
+      model v2 by the updater: exam 1.00, fit 1.00, size 641 (fit 0.860 -> 1.000); held-out 100%
+[6] E6 For a non-ASCII first character, is the shift exactly codepoint-2 for all c...(+178 chars)  (v2 predicted it: match 0.70)
+      model v3 by the updater: exam 1.00, fit 1.00, size 634 (fit 0.950 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      model v4 by the theorist: exam 1.00, fit 1.00, size 530 (same scores, smaller (634 -> 530 chars)); held-out 100%
+[7] E7 Is the -2 shift applied to every letter in the string, or only to the first...(+80 chars)  (v4 predicted it: match 1.00)
+[8] E8 Does the box use a fixed -2 shift on the first character regardless of posi...(+224 chars)  (v4 predicted it: match 0.90)
+      model v5 by the updater: exam 1.00, fit 1.00, size 530 (fit 0.988 -> 1.000); held-out 100%
+[9] E9 Is the first-character rule really 'subtract 2 from the codepoint' for all ...(+236 chars)  (v5 predicted it: match 1.00)
+[10] E10 Does the box apply the -2 shift to the first codepoint of every string rega...(+274 chars)  (v5 predicted it: match 1.00)
+[11] E11 Does the box's first-character shift apply only when the first codepoint is...(+177 chars)  (v5 predicted it: match 1.00)
+[12] E12 Does the -2 shift apply to the first character when it is a combining mark ...(+216 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (846 vs 530 chars)
+[13] E13 Does the -2 shift apply to a first character that is an ASCII letter only w...(+311 chars)  (v5 predicted it: match 1.00)
+[14] E14 Does the box use Python's str.isalpha() (which is True for e.g. 'ª', 'µ', '...(+431 chars)  (v5 predicted it: match 1.00)
+[15] E15 The model's letter test is Python str.isalpha(); does the box instead test ...(+431 chars)  (v5 predicted it: match 1.00)
+[16] E16 Does the box append 'JTQL' unconditionally to strings whose first character...(+307 chars)  (v5 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00193", "experiments": 16, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 530, "heldout": 1.0, "llm_calls": 22, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

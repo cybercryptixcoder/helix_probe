@@ -1,0 +1,58 @@
+Helix Probe v2 on 'knob_box': 0 experiments so far, model v0, exam of 6, held-out set of 100
+[1] E1 What does the dot look like at a central, ordinary setting of all controls ...(+29 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 1.00, size 112 (fit 0.000 -> 1.000); held-out 0%
+[2] E2 Does changing the c dial (with a, b, and switch held at ordinary values) af...(+32 chars)  (v1 predicted it: match 0.33)
+      model v2 by the updater: exam 0.06, fit 1.00, size 122 (exam 0.000 -> 0.056); held-out 0%
+[3] E3 Does the b dial affect the dot's position or size, with a, c, and the switc...(+26 chars)  (v2 predicted it: match 0.67)
+      model v3 by the updater: exam 0.06, fit 1.00, size 156 (fit 0.889 -> 1.000); held-out 0%
+[4] E4 Does the switch affect the dot at an otherwise ordinary setting (all dials at 5)?  (v3 predicted it: match 1.00)
+[5] E5 Does the a dial affect the dot's position or size, with b, c, and the switc...(+26 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.056
+      updater's model not kept: its exam is 0.000, the current model's is 0.056
+[6] E6 Does the c dial still control y and size the same way when the a dial is no...(+52 chars)  (v3 predicted it: match 0.00)
+      model v4 by the updater: exam 0.33, fit 1.00, size 265 (exam 0.056 -> 0.333); held-out 1%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.111, the current model's is 0.333
+[7] E7 Does the b dial still shift x by the same amount when a is not at its ordin...(+38 chars)  (v4 predicted it: match 0.67)
+      model v5 by the updater: exam 0.39, fit 1.00, size 258 (exam 0.333 -> 0.389); held-out 2%
+[8] E8 Does the b dial affect x the same way when a is below its ordinary value, t...(+85 chars)  (v5 predicted it: match 0.33)
+      model v6 by the updater: exam 0.39, fit 1.00, size 304 (fit 0.917 -> 1.000); held-out 4%
+[9] E9 At a=5 with b=0, does x follow the a+2 rule (predicting 7) or the 10-b rule...(+89 chars)  (v6 predicted it: match 0.67)
+      model v7 by the updater: exam 0.44, fit 1.00, size 313 (exam 0.389 -> 0.444); held-out 1%
+[10] E10 Does the b dial shift x by the same amount when a is above its ordinary val...(+103 chars)  (v7 predicted it: match 1.00)
+[11] E11 With a below 5 (a=2), does the b dial still shift x the way it does at a=5 ...(+50 chars)  (v7 predicted it: match 0.67)
+      model v8 by the updater: exam 0.50, fit 1.00, size 317 (exam 0.444 -> 0.500); held-out 1%
+[12] E12 With a below 5 (a=3, b=0, c=5), does x follow the linear a+2-b rule (predic...(+65 chars)  (v8 predicted it: match 0.67)
+      model v9 by the updater: exam 0.67, fit 1.00, size 317 (exam 0.500 -> 0.667); held-out 30%
+      theorist (every 6 steps)
+      model v10 by the theorist: exam 0.72, fit 1.00, size 335 (exam 0.667 -> 0.722); held-out 39%
+[13] E13 Does the c dial shift y the same way when a is below 5 (a=2), testing wheth...(+79 chars)  (v10 predicted it: match 1.00)
+[14] E14 Does y depend on a continuously rather than only jumping at a=8, and does s...(+85 chars)  (v10 predicted it: match 1.00)
+[15] E15 Does x depend on b when a is above 5 in a different way than the clamped mo...(+125 chars)  (v10 predicted it: match 1.00)
+[16] E16 Does the c dial shift x or affect the size formula at a non-central c with ...(+72 chars)  (v10 predicted it: match 1.00)
+[17] E17 Does the +1 y-offset seen at a=8 persist, grow, or vanish at a=9 (b=5, c=5)...(+86 chars)  (v10 predicted it: match 0.67)
+      model v11 by the updater: exam 0.78, fit 0.98, size 328 (exam 0.722 -> 0.778); held-out 40%
+[18] E18 Does the y-offset from a extend linearly beyond a=9, i.e. is y = c + max(0,...(+67 chars)  (v11 predicted it: match 0.67)
+      model v12 by the updater: exam 0.78, fit 1.00, size 362 (fit 0.963 -> 1.000); held-out 50%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.722, the current model's is 0.778
+[19] E19 Does the y-offset from a start rising before a=8, i.e. at a=7.5, or is it f...(+109 chars)  (v12 predicted it: match 0.67)
+      model v13 by the updater: exam 0.78, fit 1.00, size 370 (fit 0.982 -> 1.000); held-out 50%
+[20] E20 Does the y-offset from a continue to rise between a=7.5 and a=8, or is it a...(+120 chars)  (v13 predicted it: match 1.00)
+[21] E21 Does the y-offset ramp start exactly at a=7, i.e. is y still exactly c at a...(+134 chars)  (v13 predicted it: match 0.67)
+      model v14 by the updater: exam 0.78, fit 1.00, size 358 (fit 0.984 -> 1.000); held-out 51%
+[22] E22 Does the y offset from a depend on b or on the absolute position, testing w...(+138 chars)  (v14 predicted it: match 1.00)
+[23] E23 With a below the threshold (a=7) and b at a non-central value, does the y-o...(+114 chars)  (v14 predicted it: match 1.00)
+[24] E24 Is the y-offset threshold in a actually a sharp step at a=7, or a smooth/li...(+112 chars)  (v14 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.556, the current model's is 0.778
+[25] E25 Does the y-offset threshold depend on c, i.e. is y = c + (a>7 ? 1 : 0) or d...(+127 chars)  (v14 predicted it: match 1.00)
+[goal 1 try 1] E26 REACHED (model match 1.00)
+[goal 2 try 1] E27 missed (model match 1.00)
+[goal 2 try 2] E28 REACHED (model match 1.00)
+[goal 3 try 1] E29 REACHED (model match 1.00)
+[goal 4 try 1] E30 missed (model match 1.00)
+[goal 4 try 2] E31 REACHED (model match 1.00)
+[goal 5 try 1] E32 REACHED (model match 1.00)
+{"env": "knob_box", "experiments": 32, "exam_probes": 6, "model_version": 14, "model_role": "updater", "exam": 0.7777777777777777, "fit": 1.0, "size": 358, "heldout": 0.51, "llm_calls": 52, "goals": {"tried": 5, "reached": 5, "tries_used": [1, 2, 1, 2, 1]}}
+run folder: runs/v2-knob

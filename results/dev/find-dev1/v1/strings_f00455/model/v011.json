@@ -1,0 +1,28 @@
+{
+ "version": 11,
+ "beliefs": [
+  "Each character is shifted by ASCII +1 (a\u2192b, A\u2192B, 0\u21921, space\u2192!, ~\u2192DEL) [E1, E5, E7]",
+  "If the original character is a lowercase letter (a\u2013z), the shifted result is uppercased, which for a\u2013y gives the next uppercase letter and for z gives '[' [E2, E6, E8, E10, E11]",
+  "Uppercase letters, digits, spaces, and symbols get only the raw +1 shift with no case change (A\u2192B, Z\u2192[, 0\u21921) [E1, E2, E7, E11]",
+  "The uppercase step applies only to results of original lowercase letters, so a shifted uppercase letter like Z\u2192[ stays '[' [E7, E11]",
+  "The uppercase step applies even when the shifted result is not a lowercase letter, so z\u2192[ (not {) and y\u2192Z [E8, E11]",
+  "The uppercase step is applied per-character independently, not to runs; e.g. ab\u2192Bc, not BC [E9, E10, E11]"
+ ],
+ "notes": "The only error was that z\u2192'{' was not being uppercased; the rule is simply: shift by +1, then if the ORIGINAL char was lowercase, uppercase the shifted char (which turns '{' into '['). Fixed predict to always uppercase the shifted result for original lowercase letters, including z.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.4,
+  0.2,
+  0.7,
+  0.6,
+  0.9,
+  0.4,
+  0.1,
+  0.4,
+  0.2,
+  0.4,
+  0.7
+ ],
+ "made_at": 11
+}

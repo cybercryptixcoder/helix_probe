@@ -1,0 +1,13 @@
+Helix Probe v2 on 'find_numeric_f00020': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Does f behave like a simple smooth function across the whole domain, or is ...(+52 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 299 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the ~81 plateau flat at the left edge and does the spike near x=128 beha...(+48 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the ~81 plateau stay flat through the middle of the domain (between -1...(+94 chars)  (v1 predicted it: match 1.00)
+[4] E4 Is the ~81 plateau truly flat for large negative x (below -100), or does a ...(+77 chars)  (v1 predicted it: match 1.00)
+[5] E5 Is the right-edge rise a smooth ramp starting exactly at x=100, or does it ...(+138 chars)  (v1 predicted it: match 1.00)
+[6] E6 The right-edge rise is smooth from x=100 to 128, but is the far-left platea...(+157 chars)  (v1 predicted it: match 1.00)
+[7] E7 Does the right-edge rise continue past x=128 (i.e., is the ramp still climb...(+129 chars)  (v1 predicted it: match 1.00)
+[8] E8 Is the rise near x=128 the only feature, or is there a symmetric/other inte...(+220 chars)  (v1 predicted it: match 1.00)
+[9] E9 Is the right-edge rise a smooth exponential/sigmoid-like curve across the w...(+142 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00020", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 299, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

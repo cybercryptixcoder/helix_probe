@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "Changed `s.split(\" \")` to `s.split()` so leading/trailing whitespace is dropped (E3 showed `\"Example \"` \u2192 `\"elpmaxEI\"`, not `\"elpmaxE I\"`), matching the trailing-space behavior seen in E2.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 281, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 1.0}

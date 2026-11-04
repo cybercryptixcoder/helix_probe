@@ -1,0 +1,35 @@
+{
+ "fid": "f00124",
+ "kind": "mlp",
+ "type": "linear",
+ "params": [
+  [
+   -7.9,
+   -7.7
+  ],
+  [
+   -17.4,
+   3.3,
+   -3.4
+  ]
+ ],
+ "name": "linear;step;multiply_two((-7.9, -7.7), (-17.4, 3.3, -3.4))",
+ "dir": "f00124",
+ "approx_mse_error": 28.434383392333984,
+ "corruption_type": "interval_smaller",
+ "corruption_params": {
+  "std": 3512.792121212121,
+  "boundary": [
+   20.7
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "uniform",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": 0.0,
+ "error_corrupted_code_generated": 0.0
+}

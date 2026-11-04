@@ -1,0 +1,19 @@
+{
+ "version": 3,
+ "beliefs": [
+  "With all controls at minimum and switch off, the dot is at (0,0) with size 1.0 [E1]",
+  "Switch on with all dials at minimum moves the dot to y=10, leaving x and size unchanged [E2]",
+  "Dial a moves the dot in x and increases size: a=5 gives x=10 and size=3.5, suggesting x=2a and size=1+0.5a [E3]",
+  "How dials b and c affect the reading is still unknown?",
+  "How the switch combines with nonzero dials is still unknown?"
+ ],
+ "notes": "Added linear effects of dial a on x (x=2a) and size (size=1+0.5a) from E3; kept baseline and switch-on-y=10 behavior, leaving b, c, and switch-dial interaction as open questions.",
+ "fit": 1.0,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 3
+}

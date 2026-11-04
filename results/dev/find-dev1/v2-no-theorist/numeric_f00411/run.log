@@ -1,0 +1,13 @@
+Helix Probe v2 on 'find_numeric_f00411': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What is the basic shape and scale of f across the whole domain, including s...(+59 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 253 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the spike at x=0 a single point or a narrow interval, and is the slope r...(+42 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the jump/spike at x=0 confined to a single point, and does the two-line ...(+107 chars)  (v1 predicted it: match 1.00)
+[4] E4 Is the discontinuity at x=0 a single-point spike, or is there a narrow inte...(+119 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the model's linear-plus-jump-plus-spike form hold exactly at many more...(+177 chars)  (v1 predicted it: match 1.00)
+[6] E6 Is the special value at x=0 truly a single point, or does f behave differen...(+119 chars)  (v1 predicted it: match 1.00)
+[7] E7 Is f exactly piecewise linear with slope 2.6 and a single jump/spike at x=0...(+153 chars)  (v1 predicted it: match 1.00)
+[8] E8 Is the exact value at x=0 (444.28) a stable, reproducible single-point spik...(+135 chars)  (v1 predicted it: match 1.00)
+[9] E9 Is f(x) exactly 2.6x + 9.4 for x>0 and 2.6x + 14.2 for x<0 even for very la...(+122 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00411", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 253, "heldout": 1.0, "llm_calls": 10, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

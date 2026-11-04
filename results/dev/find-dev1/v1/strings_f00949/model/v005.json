@@ -1,0 +1,22 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f inserts a 2-char token at position len//2 (floor) for all lengths [E1, E2, E3, E4]",
+  "The token is 'I8' when len//2 is even, '8I' when len//2 is odd [E1, E2, E3, E4]",
+  "Empty string gives '8I' (special case, since len//2=0 even would give I8) [E1]",
+  "Orientation depends only on floor(len//2) parity, not on character content [E3, E4]",
+  "For odd lengths the token goes at floor(len/2), not ceil [E4]",
+  "For even lengths the token goes at len//2, and orientation follows len//2 parity: len 2->pos1 odd->8I, len 4->pos2 even->I8? but E5 shows len4->8I, so orientation may follow len parity instead [E5]"
+ ],
+ "notes": "E5 shows even-length strings all get '8I' regardless of len//2 parity (len 4,8,12,16,20 all 8I), contradicting the len//2 parity rule. Need to reconcile with odd-length cases where orientation varied (E4: len5 I8, len7 8I, len9 I8, len11 8I, len13 I8). This suggests orientation follows len parity: even->8I, odd->alternating by len//2 parity. But E1 len5 'hello'->I8 matches odd rule; E1 len9 'abc123'->8I matches odd rule (pos4 even would be I8, but observed 8I). Hmm, need to recheck.",
+ "fit": 0.2,
+ "heldout": 0.07,
+ "matches": [
+  0.8,
+  0.8,
+  0.5,
+  0.7,
+  1.0
+ ],
+ "made_at": 5
+}

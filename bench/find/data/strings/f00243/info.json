@@ -1,0 +1,10 @@
+{
+ "fid": "f00243",
+ "type": "compose",
+ "params": [
+  "Z",
+  []
+ ],
+ "name": "insert_letter;remove_whitespace;compose_1input_1input(Z, ())",
+ "dir": "f00243"
+}

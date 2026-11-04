@@ -1,25 +1,21 @@
-"""The three things the experimenter keeps. Everything else (its reasoning, its conversations) is thrown away.
+"""What persists between calls. Everything else (reasoning, conversations) is thrown away.
 
-1. Notebook  - every experiment ever run: what it asked, the probe, what came back, what the model predicted and how
-               well. Append-only. This is "what was tried".
-2. Model     - what the experimenter believes about the box, in two forms that are kept together:
-                 beliefs   short claims in plain words, each citing the experiments behind it
-                 predict() Python code: the beliefs made executable, a simulator of the box
-               Because the model is code, how good it is gets measured, not asserted: it is replayed on every
-               experiment in the notebook (fit) and on probes it has never seen (held-out).
-               A new version replaces the old one only if it fits the notebook at least as well.
-3. Library   - knowledge handed in from outside (rules, domain facts, tricks). Read-only.
-
-The notebook does not need to be shown in full: the experiments the model already predicts are, in effect,
-compressed into it. What the experimenter sees in detail are the ones the model still gets wrong.
+1. Notebook - every experiment the experimenter ran: question, probe, observation, what the model of the time
+              predicted, and the match. Append-only. The evidence; it is ground truth.
+2. Exam     - a few probes drawn at random from the box at the start, run, and sealed: no LLM call ever sees their
+              results. They exist only to score models on evidence the models were never fitted to.
+3. Model    - one artifact: predict(probe) in Python, with the beliefs as comments inside it. Every accepted version
+              is kept (model/v###.py + .json with its scores), so the history of the model is version-controlled.
+4. Library  - knowledge handed in from outside. Read-only.
 """
 from __future__ import annotations
 
+import ast
 import json
 from pathlib import Path
 
 EMPTY_MODEL = '''def predict(probe):
-    """No model yet: predicts nothing."""
+    # No model yet: predicts nothing.
     return {}
 '''
 
@@ -29,7 +25,12 @@ class Notebook:
         self.path = folder / "notebook.jsonl"
         self.entries: list[dict] = []
         if self.path.exists():
-            self.entries = [json.loads(l) for l in self.path.read_text().splitlines() if l.strip()]
+            for line in self.path.read_text().splitlines():
+                try:
+                    self.entries.append(json.loads(line))
+                except json.JSONDecodeError:      # a line torn by a kill: drop it, the step is redone
+                    break
+            self.path.write_text("".join(json.dumps(e) + "\n" for e in self.entries))
 
     def add(self, entry: dict) -> dict:
         entry = {"id": f"E{len(self.entries) + 1}", **entry}
@@ -45,39 +46,53 @@ class Notebook:
         return len(self.entries)
 
 
+def code_size(code: str) -> int:
+    """Characters of executable code: comments and docstrings don't count, so explaining is free."""
+    try:
+        tree = ast.parse(code)
+    except SyntaxError:
+        return 10 ** 9
+    for node in ast.walk(tree):
+        body = getattr(node, "body", None)
+        if isinstance(body, list) and body and isinstance(body[0], ast.Expr) \
+                and isinstance(getattr(body[0], "value", None), ast.Constant) and isinstance(body[0].value.value, str):
+            node.body = body[1:] or [ast.Pass()]
+    return len(ast.unparse(tree))
+
+
 class Model:
-    """The current model plus every past version in model/v###.py and model/v###.json."""
+    FIELDS = ("version", "role", "notes", "exam", "fit", "fit_exact", "size", "matches", "made_at", "heldout")
 
     def __init__(self, folder: Path):
         self.dir = folder / "model"
         self.dir.mkdir(exist_ok=True)
         versions = sorted(self.dir.glob("v*.json"))
         if versions:
-            meta = json.loads(versions[-1].read_text())
-            self.__dict__.update(meta)
+            self.__dict__.update(json.loads(versions[-1].read_text()))
             self.code = (self.dir / f"v{self.version:03d}.py").read_text()
         else:
-            self.version, self.beliefs, self.code, self.notes = 0, [], EMPTY_MODEL, "empty model"
-            self.fit, self.heldout, self.matches, self.made_at = 0.0, None, [], 0
+            self.version, self.role, self.notes, self.code = 0, "start", "empty model", EMPTY_MODEL
+            self.exam = self.fit = self.fit_exact = 0.0
+            self.size, self.matches, self.made_at, self.heldout = code_size(EMPTY_MODEL), [], 0, None
             self.save()
-
-    def meta(self):
-        return {k: getattr(self, k) for k in ("version", "beliefs", "notes", "fit", "heldout", "matches", "made_at")}
 
     def save(self):
         (self.dir / f"v{self.version:03d}.py").write_text(self.code)
-        (self.dir / f"v{self.version:03d}.json").write_text(json.dumps(self.meta(), indent=1))
+        tmp = self.dir / f"v{self.version:03d}.json.tmp"
+        tmp.write_text(json.dumps({k: getattr(self, k) for k in self.FIELDS}))
+        tmp.replace(self.dir / f"v{self.version:03d}.json")
 
-    def replace(self, beliefs, code, notes, fit, matches, heldout, made_at):
+    def replace(self, code, role, notes, scores, made_at, heldout):
         self.version += 1
-        self.beliefs, self.code, self.notes = beliefs, code, notes
-        self.fit, self.matches, self.heldout, self.made_at = fit, matches, heldout, made_at
+        self.code, self.role, self.notes, self.made_at, self.heldout = code, role, notes, made_at, heldout
+        for k in ("exam", "fit", "fit_exact", "size", "matches"):
+            setattr(self, k, scores[k])
         self.save()
 
 
 class Library:
     def __init__(self, env_knowledge: str = "", files=()):
-        parts = [env_knowledge.strip()] if env_knowledge.strip() else []
+        parts = [env_knowledge.strip()] if env_knowledge and env_knowledge.strip() else []
         for f in files:
             parts.append(f"## From {Path(f).name}\n" + Path(f).read_text().strip())
         self.text = "\n\n".join(parts)

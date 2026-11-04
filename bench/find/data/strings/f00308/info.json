@@ -1,0 +1,10 @@
+{
+ "fid": "f00308",
+ "type": "compose",
+ "params": [
+  [],
+  []
+ ],
+ "name": "string_lstrip;remove_whitespace;compose_1input_1input((), ())",
+ "dir": "f00308"
+}

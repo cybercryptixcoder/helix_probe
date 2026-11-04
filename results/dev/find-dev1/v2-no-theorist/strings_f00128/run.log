@@ -1,0 +1,38 @@
+Helix Probe v2 on 'find_strings_f00128': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do to the simplest possible strings: empty, single characters o...(+95 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 349 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the insertion position depend on the original string length in charact...(+172 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the insertion point depend on character count (len//2) even for multi-...(+132 chars)  (v1 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (349 vs 349 chars)
+      model v2 by the updater: exam 1.00, fit 1.00, size 388 (fit 0.967 -> 1.000); held-out 100%
+[4] E4 Does the capitalize step only uppercase the very first character of the str...(+136 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the capitalize step treat the first character only, or the first cased...(+145 chars)  (v2 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.920, the current model's is 0.980
+      updater's model not kept: its fit is 0.840, the current model's is 0.980
+[6] E6 How do the multi-character lowercase/uppercase expansions of ß, İ, and titl...(+190 chars)  (v2 predicted it: match 1.00)
+[7] E7 Does the insertion point use the length of the original string or the lengt...(+171 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the insertion position use the length of the original string or the ex...(+149 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the insertion index use the original string's length (len//2) even whe...(+160 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the capitalize step uppercase the first cased character after leading ...(+158 chars)  (v2 predicted it: match 1.00)
+[11] E11 Does capitalize() uppercase the first character only when it is a letter, o...(+276 chars)  (v2 predicted it: match 1.00)
+[12] E12 Does the capitalize step use full Unicode titlecasing for the first charact...(+235 chars)  (v2 predicted it: match 0.60)
+      updater's model not kept: its fit is 0.750, the current model's is 0.958
+[13] E13 Does the capitalize/titlecase step uppercase the first cased character afte...(+231 chars)  (v2 predicted it: match 1.00)
+[14] E14 For a leading titlecase digraph ǅ (U+01C5) or capital sharp S ẞ (U+1E9E), w...(+226 chars)  (v2 predicted it: match 0.50)
+      updater's model not kept: its exam is 0.792, the current model's is 1.000
+      updater's model not kept: its exam is 0.792, the current model's is 1.000
+[15] E15 Does the capitalize step uppercase the first cased character after leading ...(+203 chars)  (v2 predicted it: match 1.00)
+[16] E16 The model still fails on ẞ (U+1E9E) as the first character: E12/E14 show th...(+424 chars)  (v2 predicted it: match 0.40)
+      updater's model not kept: its exam is 0.792, the current model's is 1.000
+      updater's model not kept: its fit is 0.631, the current model's is 0.900
+[17] E17 Is the 'capitalize' step really 'titlecase only if the first character is l...(+178 chars)  (v2 predicted it: match 1.00)
+[18] E18 When the first character is an uppercase letter with a distinct lowercase (...(+267 chars)  (v2 predicted it: match 0.60)
+      updater's model not kept: its exam is 0.792, the current model's is 1.000
+      updater's model not kept: its exam is 0.792, the current model's is 1.000
+[19] E19 When the first character is an uppercase letter that lowercases to a single...(+305 chars)  (v2 predicted it: match 0.80)
+      updater's model not kept: its exam is 0.792, the current model's is 1.000
+      updater's model not kept: its fit is 0.579, the current model's is 0.884
+[20] E20 Does the 'capitalize' step operate on the first character of the lowercased...(+363 chars)  (v2 predicted it: match 0.90)
+      updater's model not kept: its exam is 0.792, the current model's is 1.000
+      updater's model not kept: its fit is 0.790, the current model's is 0.885
+{"env": "find_strings_f00128", "experiments": 20, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 0.885, "size": 388, "heldout": 1.0, "llm_calls": 37, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

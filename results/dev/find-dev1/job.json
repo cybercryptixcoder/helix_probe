@@ -1,0 +1,1 @@
+{"out": "runs/dev1", "data": "bench/find/dev", "arms": ["v2", "v2-no-theorist", "v2-no-exam", "v2-random", "v1"], "categories": ["numeric", "strings"], "limit": 0, "steps": 20, "exam": 4, "workers": 6, "seed": 0, "fake": false}

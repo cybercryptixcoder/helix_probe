@@ -1,0 +1,16 @@
+Helix Probe v2 on 'find_strings_f00128': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 With no model at all, establish the most basic behavior of f across the wid...(+120 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.08, fit 0.50, size 549 (exam 0.000 -> 0.083); held-out 0%
+[2] E2 Does the split point for inserting '10' depend on word boundaries, punctuat...(+97 chars)  (v1 predicted it: match 0.10)
+      model v2 by the updater: exam 1.00, fit 1.00, size 341 (exam 0.083 -> 1.000); held-out 100%
+[3] E3 Does the split point use character count or something else (words/letters),...(+78 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the split point depend on raw character count or on some other count (...(+144 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the split point use raw character count (including spaces) or a differ...(+130 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the first-character uppercasing apply only to ASCII letters, or to any...(+153 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+[7] E7 Does the split point count raw characters when the string contains multi-by...(+143 chars)  (v2 predicted it: match 1.00)
+[8] E8 How does the split point behave for strings of odd/even length with leading...(+255 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the split point count raw characters when the string contains combinin...(+187 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the uppercasing of the first character apply when the split point is 0...(+170 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00128", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 341, "heldout": 1.0, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,23 @@
+Helix Probe v2 on 'find_strings_f00983': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 What does f do to a maximally varied set of simple inputs — plain lowercase...(+119 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 1.00, size 159 (fit 0.000 -> 1.000); held-out 0%
+[2] E2 Does the +8 shift operate on ASCII codes with a 128 wraparound, or is it ac...(+110 chars)  (v1 predicted it: match 0.60)
+      model v2 by the updater: exam 0.00, fit 1.00, size 151 (fit 0.800 -> 1.000); held-out 14%
+[3] E3 Does the +8 shift apply to every character uniformly, including control cha...(+111 chars)  (v2 predicted it: match 1.00)
+[4] E4 Is the +8 shift applied per Unicode code point (so astral characters like e...(+116 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the +8 shift hold for every code point across the full range, includin...(+153 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 0.00, fit 1.00, size 462 (fit 0.800 -> 1.000); held-out 14%
+[6] E6 Does the model's error behavior match exactly at the ceiling — i.e., does a...(+204 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (470 vs 462 chars)
+[7] E7 Does the shift apply to the string as a sequence of Unicode code points onl...(+299 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the +8 shift still apply cleanly to the highest safe code point U+10FF...(+216 chars)  (v3 predicted it: match 1.00)
+[9] E9 Does the +8 shift apply to the full astral-plane range uniformly (mid-range...(+222 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the +8 shift apply to every Unicode code point including the BMP priva...(+239 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the box apply the +8 shift to string content only, or does it also tra...(+316 chars)  (v3 predicted it: match 1.00)
+[12] E12 Is the operation truly a per-code-point +8 shift, or could it be a byte-lev...(+173 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (785 vs 462 chars)
+[13] E13 Does the box accept non-string input types (or coerce them), and how does i...(+190 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00983", "experiments": 13, "exam_probes": 0, "model_version": 3, "model_role": "updater", "exam": 0.0, "fit": 1.0, "size": 462, "heldout": 0.14, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

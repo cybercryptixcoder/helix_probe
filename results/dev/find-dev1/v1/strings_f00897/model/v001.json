@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f maps each lowercase letter to another character, preserving length [E1]",
+  "The mapping shifts letters forward in the alphabet: h->j, e->i, l->p, o->s, w->{, r->v, b->f, a->c, z->~ [E1]",
+  "Shift appears to be +2 in ASCII for most letters (h->j, e->i, a->c), but w->{ and z->~ suggest +5 for those? [E1]"
+ ],
+ "notes": "Trying to find a consistent rule. h(104)->j(106)=+2, e(101)->i(105)=+4, l(108)->p(112)=+4, o(111)->s(115)=+4, w(119)->{(123)=+4, r(114)->v(118)=+4, b(98)->f(102)=+4, a(97)->c(99)=+2, z(122)->~(126)=+4. Mostly +4, but h and a are +2. Maybe position-dependent: first letter +2, rest +4? Check: hello -> h+2=j, e+4=i, l+4=p, l+4=p, o+4=s = jipps. Yes! world: w+2={? but w+2=y, not {. Hmm w->{ is +4. So first letter not always +2. a->c is +2, h->j is +2. Maybe vowels +2, consonants +4? h is consonant though. Let me reconsider: maybe it's +4 for all except... a->c(+2), h->j(+2). Both a and h... no obvious. Try: maybe shift by 4 but wrap? No. Let me just test more.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.0
+ ],
+ "made_at": 1
+}

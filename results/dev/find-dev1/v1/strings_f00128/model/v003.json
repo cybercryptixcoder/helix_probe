@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "The first character is uppercased (if a letter) and preserved [E1, E2, E3]",
+  "The rest of the string is lowercased [E1, E2, E3]",
+  "'10' is inserted after the first character of the string [E1, E2, E3]",
+  "For a leading space, the space is preserved and '10' inserted after it [E2]",
+  "For a leading digit, the digit is unchanged and '10' inserted after it [E2]",
+  "For a leading symbol, it is preserved and '10' inserted after it [E1, E2]"
+ ],
+ "notes": "The insertion point is always after the first character (not after the first word); earlier v2 wrongly placed it after the first char but the real rule is first char + '10' + lowercased rest, which matches all observations including 'Ab c10d ef' and 'Mixedc10ase123'.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.1,
+  0.8,
+  0.0
+ ],
+ "made_at": 3
+}

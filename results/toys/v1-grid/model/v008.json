@@ -1,0 +1,37 @@
+{
+ "version": 8,
+ "beliefs": [
+  "Button A moves +y by 1 when unobstructed [E1, E3]",
+  "Button B moves +x by 2 when unobstructed [E1, E8]",
+  "Button C moves +x by 1 when unobstructed [E1]",
+  "Button D moves -y by 2 when unobstructed [E1]",
+  "Button E moves -x by 2 when unobstructed [E1]",
+  "From (5,5), C moves -x by 1 (to (4,5)) [E7]",
+  "From (4,5), C also moves -x by 1 (to (3,5)), so C's -x rule applies on a whole region, not just (5,5) [E10]",
+  "From (5,5), A is blocked (stays put) [E4, E6]",
+  "From (4,8), A is blocked (stays put) [E2]",
+  "From (5,5), E moves +y by 2 (to (5,7)) [E8]",
+  "From (5,4), E moves diagonally to (4,5), i.e. -x by 1 and +y by 1 [E11]",
+  "From (4,4), E is blocked (stays put) [E9]",
+  "Some cells are walls; the character cannot enter or stand on them [library, E4]",
+  "At least one button behaves differently depending on position [library, E7, E10]",
+  "The exact wall layout and the position-dependent rules for C and E are unknown; (5,6) and (2,4) may be walls? [E5, E7, E9]"
+ ],
+ "notes": "E11 shows E at (5,4) moves to (4,5), a diagonal -x+1/+y+1 step, not the default -x by 2. Added this position-dependent E rule; kept the (5,5) E rule and the (4,4) block as separate cases.",
+ "fit": 0.8181818181818182,
+ "heldout": 0.09,
+ "matches": [
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.875,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 11
+}

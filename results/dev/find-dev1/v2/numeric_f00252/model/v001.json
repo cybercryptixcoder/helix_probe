@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box is linear on the positive side (slope \u2248141.0873, intercept \u22481.1, matching every positive sample) and undefined for x \u2264 0. I encoded that rule directly.", "exam": 0.575, "fit": 0.55, "fit_exact": 0.0, "size": 183, "matches": [0.55], "made_at": 1, "heldout": 0.0}

@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00411': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 What does f do across the full domain, including sign, magnitude, and any s...(+38 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 1.00, size 260 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 Is the x=0 value a single-point spike, or does the function behave differen...(+71 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the value at exactly x=0 a genuine isolated spike, or is the spike part ...(+154 chars)  (v1 predicted it: match 1.00)
+[4] E4 Is the x=0 spike truly a single point, or is it the center of a very narrow...(+57 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the positive-side formula y = 9.4 + 2.6x hold for large positive x (e....(+191 chars)  (v1 predicted it: match 1.00)
+[6] E6 Is the discontinuity at x=0 a jump between two linear branches (left limit ...(+160 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (474 vs 260 chars)
+[7] E7 Is the behavior at x=0 truly a single isolated point, or does the 444.28 va...(+233 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the two-branch linear form with a single-point spike at 0 hold for non...(+235 chars)  (v1 predicted it: match 1.00)
+[9] E9 Is the spike at x=0 truly a single point, or does the function take the val...(+240 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00411", "experiments": 9, "exam_probes": 0, "model_version": 1, "model_role": "updater", "exam": 0.0, "fit": 1.0, "size": 260, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "E4 showed the plateau ends between 1.85 (f=1) and 1.855 (f=0), not near 1.875 as v3 assumed, so I moved the symmetric edge threshold to the midpoint ~1.8525.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 216, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

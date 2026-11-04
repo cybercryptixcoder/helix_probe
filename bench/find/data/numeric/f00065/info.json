@@ -1,0 +1,29 @@
+{
+ "fid": "f00065",
+ "kind": "mlp",
+ "type": "simple",
+ "params": [
+  -2.5,
+  -8.6,
+  0.7
+ ],
+ "name": "relu((-2.5, -8.6, 0.7))",
+ "dir": "f00065",
+ "approx_mse_error": 0.018373988568782806,
+ "corruption_type": "interval_larger",
+ "corruption_params": {
+  "std": -27.539393939393964,
+  "boundary": [
+   -90.4
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "uniform",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": 0.0,
+ "error_corrupted_code_generated": 0.0
+}

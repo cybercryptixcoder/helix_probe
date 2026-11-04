@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found f is piecewise linear with slope 2.6: intercept 9.4 for x\u22650 and 14.2 for x<0 (a jump of 4.8 at the origin). This reproduces every point in E1 exactly, so the \"different behavior in an interval\" is the sign split at 0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 292, "matches": [1.0], "made_at": 1, "heldout": 1.0}

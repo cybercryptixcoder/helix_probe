@@ -1,0 +1,29 @@
+Helix Probe on 'find_strings_f00193': 0 experiments so far, model v0, held-out set of 100
+[1] E1 With no model at all, what is the most basic behavior of f on simple, varie...(+74 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.80 (was 0.00), held-out 0%
+[2] E2 Is the transformation a Caesar shift by -2 on lowercase letters (a->y, h->f...(+114 chars)  model v1 match 0.00
+      model v2: fit 50% (was 0%), mean match 0.75 (was 0.40), held-out 0%
+[3] E3 Which letters actually shift: does the shift apply to a fixed set of letter...(+122 chars)  model v2 match 0.00
+      model v3: fit 67% (was 33%), mean match 0.97 (was 0.50), held-out 100%
+[4] E4 Does the shift apply only to the first character when the string starts wit...(+138 chars)  model v3 match 1.00
+[5] E5 Which experiment does the model get wrong among the older ones, and is the ...(+105 chars)  model v3 match 1.00
+[6] E6 Does the first-character shift depend only on being the first character, or...(+246 chars)  model v3 match 1.00
+[7] E7 Is the empty-string output exactly 'HTQL' (i.e., empty input maps to 'H' wi...(+135 chars)  model v3 match 0.90
+      model v4: fit 71% (was 71%), mean match 0.97 (was 0.97), held-out 100%
+[8] E8 Does the empty string really get the suffix appended (contradicting E1's 'H...(+131 chars)  model v4 match 0.80
+      model v5: fit 62% (was 62%), mean match 0.95 (was 0.95), held-out 100%
+[9] E9 Is the empty-string output exactly 'HTQL' (i.e., the 'JTQL' suffix is not a...(+93 chars)  model v5 match 0.50
+      model v6: fit 100% (was 56%), mean match 1.00 (was 0.90), held-out 100%
+[10] E10 Does the suffix 'JTQL' depend on the length or content of the input, or is ...(+159 chars)  model v6 match 1.00
+[11] E11 Does the -2 first-character shift apply to non-ASCII / accented letters or ...(+92 chars)  model v6 match 0.20
+      model v7: fit 100% (was 91%), mean match 1.00 (was 0.93), held-out 100%
+[12] E12 Which non-ASCII codepoints get the -2 shift at position 0: is it exactly Un...(+79 chars)  model v7 match 1.00
+[13] E13 Does the -2 codepoint shift apply to the first character of non-ASCII lette...(+329 chars)  model v7 match 1.00
+[14] E14 Does the -2 codepoint shift at position 0 apply to any non-ASCII character ...(+229 chars)  model v7 match 1.00
+[15] E15 Does the -2 codepoint shift apply to the first character of non-ASCII strin...(+249 chars)  model v7 match 1.00
+[16] E16 Where exactly does the suffix 'JTQL' come from — is it appended uncondition...(+186 chars)  model v7 match 1.00
+[17] E17 Does the -2 codepoint shift at position 0 also apply to ASCII letters whose...(+130 chars)  model v7 match 1.00
+[18] E18 Does the -2 codepoint shift at position 0 apply to non-ASCII characters in ...(+250 chars)  model v7 match 1.00
+[19] E19 Does the -2 shift at position 0 apply to non-ASCII letters in the BMP when ...(+241 chars)  model v7 match 1.00
+[20] E20 Does the -2 shift at position 0 behave as a codepoint subtraction even when...(+172 chars)  model v7 match 1.00
+{"env": "find_strings_f00193", "experiments": 20, "model_version": 7, "fit": 1.0, "heldout": 1.0, "llm_calls": 27, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

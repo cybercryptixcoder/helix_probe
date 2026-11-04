@@ -1,0 +1,21 @@
+Helix Probe v2 on 'find_numeric_f00700': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 With no prior data, what does f do across a broad, evenly spaced sweep of i...(+61 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 255 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Where exactly do the two breakpoints near zero lie, and is the flat step at...(+102 chars)  (v1 predicted it: match 0.55)
+      updater's model not kept: same scores and not smaller (268 vs 255 chars)
+      model v2 by the updater: exam 1.00, fit 0.78, size 216 (same scores, smaller (255 -> 216 chars)); held-out 100%
+[3] E3 Does the staircase pattern f(x)=ceil(x)+1 (x>0) / floor(x)-1 (x<=0) hold at...(+150 chars)  (v2 predicted it: match 0.75)
+      updater's model not kept: same scores and not smaller (216 vs 216 chars)
+      model v3 by the updater: exam 1.00, fit 1.00, size 215 (fit 0.767 -> 1.000); held-out 100%
+[4] E4 Does the staircase hold at half-integer and quarter-integer points across t...(+127 chars)  (v3 predicted it: match 1.00)
+[5] E5 Does the rounding rule switch from ceil to floor/round at some large magnit...(+91 chars)  (v3 predicted it: match 1.00)
+[6] E6 Does f stay a pure integer staircase all the way to the exact domain endpoi...(+84 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (311 vs 215 chars)
+[7] E7 Does the model's rule hold for tiny fractional offsets just above and below...(+165 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does f behave as a pure integer staircase at irrational/non-dyadic fraction...(+179 chars)  (v3 predicted it: match 1.00)
+[9] E9 Is f truly a pure integer staircase everywhere, or does the model's ceil(x)...(+159 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does f stay a pure integer staircase at non-integer points very close to th...(+231 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does f ever return a non-integer value, or is it truly a pure integer-value...(+81 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00700", "experiments": 11, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 215, "heldout": 1.0, "llm_calls": 18, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,26 @@
+Helix Probe on 'find_strings_f00871': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does the box do to simple, varied inputs — plain lowercase words, mixe...(+40 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.80 (was 0.00), held-out 0%
+[2] E2 Does the box append 'I' to the reversed string, or is the trailing 'I' actu...(+134 chars)  model v1 match 0.90
+      model v2: fit 50% (was 0%), mean match 0.90 (was 0.85), held-out 0%
+[3] E3 When the reversed string ends in 'I', is the final 'I' left alone (as I bel...(+89 chars)  model v2 match 0.90
+      model v3: fit 67% (was 33%), mean match 0.97 (was 0.90), held-out 6%
+[4] E4 Does the box strip whitespace before reversing, or preserve internal/leadin...(+42 chars)  model v3 match 0.70
+      model v4: fit 100% (was 50%), mean match 1.00 (was 0.90), held-out 100%
+[5] E5 Does the box reverse the entire whitespace-stripped string character-by-cha...(+232 chars)  model v4 match 1.00
+[6] E6 Does the box collapse internal whitespace runs of any kind (tabs, newlines,...(+117 chars)  model v4 match 1.00
+[7] E7 Does the box treat a run of characters ending in 'I' specially only when 'I...(+152 chars)  model v4 match 1.00
+[8] E8 Does the trailing-I suppression look only at whether the whole output's las...(+146 chars)  model v4 match 1.00
+[9] E9 Does the trailing-I suppression consider only the raw last character of the...(+122 chars)  model v4 match 1.00
+[10] E10 How does the box handle non-ASCII/Unicode characters (accented letters, emo...(+119 chars)  model v4 match 1.00
+[11] E11 Does the box use Unicode-aware whitespace splitting (e.g., non-breaking spa...(+123 chars)  model v4 match 1.00
+[12] E12 Does the box collapse only Unicode whitespace between words, or does it als...(+237 chars)  model v4 match 1.00
+[13] E13 Does the box handle a word ending in 'I' differently when that word is not ...(+302 chars)  model v4 match 1.00
+[14] E14 Does the box reverse character-by-character across the whole whitespace-col...(+139 chars)  model v4 match 1.00
+[15] E15 Does the box's word reversal operate on Unicode grapheme clusters (so a mul...(+107 chars)  model v4 match 1.00
+[16] E16 How does the box handle whitespace-only runs made of mixed ASCII and Unicod...(+109 chars)  model v4 match 1.00
+[17] E17 Does the box's trailing-I suppression check the last character of the final...(+216 chars)  model v4 match 1.00
+[18] E18 Does the box's word-splitting treat a run of only non-whitespace invisible ...(+282 chars)  model v4 match 1.00
+[19] E19 Does the trailing-I suppression trigger when the last character of the fina...(+165 chars)  model v4 match 1.00
+[20] E20 Does the trailing-I suppression check for uppercase 'I' only, or also for a...(+196 chars)  model v4 match 1.00
+{"env": "find_strings_f00871", "experiments": 20, "model_version": 4, "fit": 1.0, "heldout": 1.0, "llm_calls": 24, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

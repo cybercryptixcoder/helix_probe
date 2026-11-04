@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "For x >= 0, f(x) = x + 1 (e.g. f(0)=1, f(1)=2, f(64)=65, f(128)=129) [E1]",
+  "For x < 0, f(x) = x - 1 (e.g. f(-1)=-2, f(-64)=-65, f(-128)=-129) [E1]",
+  "At x = 0 the value is 1, matching the x>=0 branch [E1]",
+  "No special interval or piecewise anomaly beyond the sign-based branch at 0 is visible so far [E1]"
+ ],
+ "notes": "All 20 points fit f(x)=x+1 for x>=0 and f(x)=x-1 for x<0, so I encoded that sign-based piecewise rule.",
+ "fit": 0.0,
+ "heldout": 1.0,
+ "matches": [
+  0.95
+ ],
+ "made_at": 1
+}

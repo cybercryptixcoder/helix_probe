@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed: added the special value at x=0 (444.28), which E2 revealed \u2014 the sign split is sharp at 0, but x=0 itself is a spike, not part of either linear branch.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 344, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

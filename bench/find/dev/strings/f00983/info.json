@@ -1,0 +1,10 @@
+{
+ "fid": "f00983",
+ "type": "compose",
+ "params": [
+  8,
+  "t"
+ ],
+ "name": "add_number_to_string;remove_substring;compose_1input_1input(8, t)",
+ "dir": "f00983"
+}

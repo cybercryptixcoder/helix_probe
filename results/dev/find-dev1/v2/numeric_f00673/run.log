@@ -1,0 +1,64 @@
+Helix Probe v2 on 'find_numeric_f00673': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like across the full input range, including sign, scale, a...(+26 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 205 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the function exactly even (f(x)=f(-x)) or does it have a small odd compo...(+82 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the near-zero region a smooth |x|-like kink or does f have a flat/rounde...(+61 chars)  (v1 predicted it: match 0.55)
+      updater's model not kept: same scores and not smaller (313 vs 205 chars)
+[4] E4 In the near-zero region (|x| < 0.6), is f(x) a genuine |x|-kink with a smal...(+112 chars)  (v1 predicted it: match 0.10)
+      model v2 by the updater: exam 1.00, fit 0.70, size 307 (fit 0.662 -> 0.700); held-out 100%
+[5] E5 Is the near-zero region actually a flat/rounded bottom that stays near zero...(+194 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its fit is 0.560, the current model's is 0.570
+      updater: keep
+[6] E6 Does the near-zero region have a flat/rounded bottom that saturates at a fi...(+118 chars)  (v2 predicted it: match 0.10)
+      updater's model not kept: its fit is 0.458, the current model's is 0.492
+      updater's model not kept: its fit is 0.458, the current model's is 0.492
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.483, the current model's is 0.492
+[7] E7 Is the near-zero 'bottom' a plateau at a fixed small magnitude (independent...(+146 chars)  (v2 predicted it: match 0.05)
+      model v3 by the updater: exam 1.00, fit 0.44, size 298 (fit 0.429 -> 0.443); held-out 100%
+[8] E8 Is the near-zero bottom a genuine flat plateau up to |x|~0.2 (with noise), ...(+149 chars)  (v3 predicted it: match 0.30)
+      updater's model not kept: its fit is 0.375, the current model's is 0.425
+      updater's model not kept: its fit is 0.381, the current model's is 0.425
+[9] E9 Is the transition at |x|≈0.2 a sharp step where f jumps from a noisy ~2-3 p...(+201 chars)  (v3 predicted it: match 0.30)
+      updater's model not kept: its fit is 0.356, the current model's is 0.411
+      updater's model not kept: its fit is 0.356, the current model's is 0.411
+      theorist (updater stalled)
+      model v4 by the theorist: exam 1.00, fit 0.43, size 258 (fit 0.411 -> 0.433); held-out 100%
+[10] E10 Over the whole domain |x|<=128, does f follow the single line 16.81|x|-0.5,...(+122 chars)  (v4 predicted it: match 1.00)
+[11] E11 Is the near-zero region (|x| < ~0.6) actually a noisy, roughly constant-mag...(+173 chars)  (v4 predicted it: match 0.25)
+      updater's model not kept: its fit is 0.386, the current model's is 0.468
+      updater's model not kept: its fit is 0.355, the current model's is 0.468
+[12] E12 Is the near-zero region (|x| < ~0.6) a noisy plateau around a fixed mean, a...(+220 chars)  (v4 predicted it: match 0.25)
+      model v5 by the updater: exam 1.00, fit 0.45, size 240 (same scores, smaller (258 -> 240 chars)); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.433, the current model's is 0.450
+[13] E13 Is the near-zero region a noisy plateau whose mean is the same for positive...(+126 chars)  (v5 predicted it: match 0.30)
+      updater's model not kept: its fit is 0.312, the current model's is 0.438
+[14] E14 Is the noise in the near-zero region genuinely random (so averaging many re...(+197 chars)  (v5 predicted it: match 0.15)
+      updater's model not kept: same scores and not smaller (240 vs 240 chars)
+      updater's model not kept: same scores and not smaller (240 vs 240 chars)
+      theorist (updater stalled)
+      theorist's model not kept: its fit is 0.411, the current model's is 0.418
+[15] E15 Does the near-zero noisy region have a deterministic structure tied to x (e...(+195 chars)  (v5 predicted it: match 0.25)
+      updater's model not kept: same scores and not smaller (240 vs 240 chars)
+      model v6 by the updater: exam 1.00, fit 0.41, size 220 (same scores, smaller (240 -> 220 chars)); held-out 100%
+[16] E16 Is the near-zero region's mean level truly ~0 (a flat bottom) or does it ri...(+149 chars)  (v6 predicted it: match 0.30)
+      updater's model not kept: same scores and not smaller (220 vs 220 chars)
+      updater's model not kept: same scores and not smaller (220 vs 220 chars)
+[17] E17 Is the near-zero region's noise-free mean exactly the line 16.81|x|-0.5, or...(+163 chars)  (v6 predicted it: match 0.30)
+      updater's model not kept: same scores and not smaller (220 vs 220 chars)
+      updater's model not kept: same scores and not smaller (220 vs 220 chars)
+      theorist (updater stalled)
+[18] E18 Does the near-zero region's noise-free mean actually follow 16.81|x|-0.5, o...(+197 chars)  (v6 predicted it: match 0.25)
+      updater's model not kept: same scores and not smaller (220 vs 220 chars)
+      updater: keep
+      theorist (every 6 steps)
+[19] E19 Is the noise in the near-zero region symmetric in the sense that f(x) and f...(+238 chars)  (v6 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (220 vs 220 chars)
+      updater: keep
+      theorist (updater stalled)
+      theorist's model not kept: its fit is 0.379, the current model's is 0.387
+[20] E20 Where exactly does the noisy near-zero region end and the clean line 16.81|...(+193 chars)  (v6 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (220 vs 220 chars)
+      updater's model not kept: same scores and not smaller (220 vs 220 chars)
+{"env": "find_numeric_f00673", "experiments": 20, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 1.0, "fit": 0.3875, "size": 220, "heldout": 1.0, "llm_calls": 60, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

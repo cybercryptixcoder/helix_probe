@@ -1,0 +1,33 @@
+{
+ "version": 15,
+ "beliefs": [
+  "Each character is shifted by ASCII +1 (a\u2192b, A\u2192B, 0\u21921, space\u2192!, ~\u2192DEL) [E1, E5, E7]",
+  "After shifting, the first character of each maximal run of lowercase letters is uppercased; subsequent lowercase letters in the same run keep their raw +1 shift [E12, E13, E14]",
+  "Uppercase letters, digits, spaces, and symbols get only the raw +1 shift with no case change (A\u2192B, Z\u2192[, 0\u21921) [E1, E2, E7, E11]",
+  "Runs are broken by any non-lowercase character, so 'aB'\u2192'Bc' and 'Ba'\u2192'Cb' [E12, E13, E14]",
+  "When the first char of a lowercase run is 'z', its shifted result '{' is uppercased to '[' [E8, E11, E15]",
+  "The uppercase step applies only to the first char of a lowercase run, so 'ab'\u2192'Bc', 'aa'\u2192'Bb', 'baa'\u2192'Cbb' [E12, E13, E14]",
+  "The 'z'\u2192'[' uppercase exception applies to every run-start 'z', including 'zz'\u2192'[{', 'zzz'\u2192'[{{', 'zzaz'\u2192'[{b{' [E15]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.6,
+  0.4,
+  0.7,
+  0.6,
+  0.9,
+  0.8,
+  0.3,
+  0.4,
+  0.9,
+  0.9,
+  0.8,
+  0.5,
+  0.5,
+  0.0,
+  0.3
+ ],
+ "made_at": 15
+}

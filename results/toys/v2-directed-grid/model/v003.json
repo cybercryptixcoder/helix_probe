@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "E is a transpose (x,y)->(y,x), not a diagonal move: E1 (5,3)->(3,5), E2 (7,6)->(6,7), and E5 (3,6)->(6,3) all fit perfectly, which also removes the bogus (5,8) wall guess.", "exam": 0.9285714285714285, "fit": 1.0, "fit_exact": 1.0, "size": 923, "matches": [1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 5, "heldout": 0.5}

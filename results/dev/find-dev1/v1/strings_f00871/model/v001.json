@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "The box reverses the input string and appends the letter 'I' at the end [E1]",
+  "Reversal preserves case, digits, punctuation, and spaces exactly [E1]",
+  "Empty input yields just 'I' [E1]"
+ ],
+ "notes": "All ten outputs are exactly reverse(input) + 'I', including case, digits, symbols, and spaces. Simple general rule fits every observation.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.8
+ ],
+ "made_at": 1
+}

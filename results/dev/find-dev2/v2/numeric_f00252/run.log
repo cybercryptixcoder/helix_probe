@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00252': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Sample f at a spread of ordinary x values to learn its basic shape and scale.  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 316 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the log2 relationship hold at intermediate x values (fractional and no...(+66 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the function exactly 141.0873*log2(x)+1.1 across all positive x, includi...(+131 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the log2 formula hold exactly on a dense set of ordinary positive valu...(+123 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the log2 formula hold exactly at very fine-grained ordinary positive v...(+137 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the log2 relationship hold exactly at these remaining untested ordinar...(+141 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (350 vs 316 chars)
+[7] E7 Does f hold the same log2 formula for x values between 0 and 0.01 (very clo...(+124 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the log2 formula hold exactly at these still-untested ordinary positiv...(+130 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the log2 formula hold exactly at these remaining untested ordinary pos...(+128 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00252", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 316, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

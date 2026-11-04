@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I added trailing-whitespace stripping to the output, since E3's `\"banana data banana \"` came back without its trailing space while the leading space in E1's `\" Zebralower\"` was preserved.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 370, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 1.0}

@@ -1,0 +1,17 @@
+Helix Probe v2 on 'find_numeric_f00411': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 random probe (baseline)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.42, fit 0.30, size 67 (exam 0.000 -> 0.425); held-out 0%
+[2] E2 random probe (baseline)  (v1 predicted it: match 0.70)
+      model v2 by the updater: exam 1.00, fit 0.95, size 719 (exam 0.425 -> 1.000); held-out 97%
+[3] E3 random probe (baseline)  (v2 predicted it: match 1.00)
+[4] E4 random probe (baseline)  (v2 predicted it: match 1.00)
+[5] E5 random probe (baseline)  (v2 predicted it: match 1.00)
+[6] E6 random probe (baseline)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v3 by the theorist: exam 1.00, fit 1.00, size 318 (fit 0.983 -> 1.000); held-out 100%
+[7] E7 random probe (baseline)  (v3 predicted it: match 1.00)
+[8] E8 random probe (baseline)  (v3 predicted it: match 1.00)
+[9] E9 random probe (baseline)  (v3 predicted it: match 1.00)
+[10] E10 random probe (baseline)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00411", "experiments": 10, "exam_probes": 4, "model_version": 3, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 318, "heldout": 1.0, "llm_calls": 5, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

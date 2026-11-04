@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with a linear hypothesis y \u2248 2.7x, since every E1 output is close to 2.7 times its input (the residual pattern is noisy and not resolvable from a single experiment).", "exam": 0.425, "fit": 0.3, "fit_exact": 0.0, "size": 67, "matches": [0.3], "made_at": 1, "heldout": 0.0}

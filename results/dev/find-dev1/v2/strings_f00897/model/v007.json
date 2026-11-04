@@ -1,0 +1,1 @@
+{"version": 7, "role": "updater", "notes": "I changed position>0 non-ASCII from +2 to +4, matching E11 where \u00e9 at position 1 becomes \u00ed (+4), not \u00eb (+2).", "exam": 1.0, "fit": 0.9545454545454546, "fit_exact": 0.8181818181818182, "size": 539, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.7, 0.8, 1.0], "made_at": 11, "heldout": 1.0}

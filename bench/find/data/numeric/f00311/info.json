@@ -1,0 +1,28 @@
+{
+ "fid": "f00311",
+ "kind": "code",
+ "type": "simple",
+ "params": [
+  -9.6,
+  8.0
+ ],
+ "name": "linear((-9.6, 8.0))",
+ "dir": "f00311",
+ "approx_mse_error": "not trained",
+ "corruption_type": "interval_smaller",
+ "corruption_params": {
+  "std": 7.999999999999923,
+  "boundary": [
+   -9.4
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "normal",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": 0.0,
+ "error_corrupted_code_generated": 0.0
+}

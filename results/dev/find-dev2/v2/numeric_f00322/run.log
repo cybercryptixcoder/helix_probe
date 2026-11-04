@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00322': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Sample f across a spread of ordinary magnitudes and signs to learn its basi...(+44 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 64 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does f vary at all at small scales near zero, or is it truly constant every...(+46 chars)  (v1 predicted it: match 1.00)
+[3] E3 Are there any inputs in the ordinary range where f is not 53, e.g. just out...(+85 chars)  (v1 predicted it: match 1.00)
+[4] E4 Are there any ordinary inputs, including non-integers and values just past ...(+52 chars)  (v1 predicted it: match 1.00)
+[5] E5 Are there any remaining untested inputs — especially very small magnitudes,...(+109 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does f ever deviate from 53 at irrational/transcendental-like values or fin...(+107 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (179 vs 64 chars)
+[7] E7 Are there any deviations from 53 at the extreme boundary values and just be...(+85 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does f ever deviate from 53 at dense fine-grained values across the full or...(+81 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does f deviate from 53 at a dense sweep of mid-range values (including inte...(+139 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00322", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 64, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

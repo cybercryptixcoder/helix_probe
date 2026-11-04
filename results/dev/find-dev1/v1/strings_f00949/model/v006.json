@@ -1,0 +1,22 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f inserts a 2-char token at position len//2 (floor) for all non-empty strings [E1, E2, E3, E4, E6]",
+  "For even-length strings the token is always '8I' [E2, E5, E6]",
+  "For odd-length strings the token is always 'I8' [E2, E3, E4, E6]",
+  "Empty string gives '8I' [E1]",
+  "Orientation depends only on length parity, not on character content or position parity [E3, E4, E5, E6]"
+ ],
+ "notes": "E6 shows odd lengths always get I8 (not alternating by floor(len/2) parity), and E5 shows even lengths always get 8I. So orientation is purely by length parity: odd->I8, even->8I, inserted at len//2.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 6
+}

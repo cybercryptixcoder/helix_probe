@@ -1,0 +1,26 @@
+Helix Probe v2 on 'find_strings_f00746': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do to ordinary words, sentences, digits, and mixed-case strings...(+87 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 498 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the +2 shift apply only to the first character, or to every letter in ...(+93 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the +2 shift apply to the first character even when it is a non-letter...(+114 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the +2 shift wrap around the alphabet at the end (y->a, z->b, Y->A, Z-...(+107 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the +2 shift apply to the first character of every line when the input...(+142 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the +2 first-letter shift and trailing-whitespace stripping apply to s...(+145 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (718 vs 498 chars)
+[7] E7 Does the +2 shift apply only to the first character even when the string be...(+202 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the +2 shift apply to the first letter after leading whitespace is pre...(+233 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the +2 shift apply to the first character when it is an accented/non-A...(+110 chars)  (v1 predicted it: match 0.30)
+      model v2 by the updater: exam 1.00, fit 1.00, size 569 (fit 0.922 -> 1.000); held-out 100%
+[10] E10 Does the +2 shift apply to non-ASCII letters that are NOT in the Latin-1 ra...(+146 chars)  (v2 predicted it: match 1.00)
+[11] E11 When the first character is an ASCII letter that is shifted, what happens t...(+216 chars)  (v2 predicted it: match 1.00)
+[12] E12 When the first character is a non-ASCII letter near a codepoint boundary (e...(+180 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.167, the current model's is 1.000
+[13] E13 Does the first-character +2 shift apply when the string begins with a leadi...(+248 chars)  (v2 predicted it: match 1.00)
+[14] E14 Does f strip only trailing whitespace or also leading whitespace, and does ...(+239 chars)  (v2 predicted it: match 1.00)
+[15] E15 Does the +2 shift on the first character interact with a leading non-letter...(+239 chars)  (v2 predicted it: match 1.00)
+[16] E16 Does the +2 shift on the first character apply when the first character is ...(+207 chars)  (v2 predicted it: match 1.00)
+[17] E17 When the first character is an ASCII letter and the string has trailing whi...(+387 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00746", "experiments": 17, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 569, "heldout": 1.0, "llm_calls": 22, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

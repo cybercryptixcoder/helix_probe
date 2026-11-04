@@ -1,0 +1,1 @@
+{"version": 5, "role": "updater", "notes": "E5 shows f(1.85)=1 but f(1.851)=0, so the edge lies between 1.85 and 1.851, not at 1.8525 as v4 assumed. I narrowed the threshold to the midpoint 1.8505 (symmetric on both sides).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 216, "matches": [1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 5, "heldout": 1.0}

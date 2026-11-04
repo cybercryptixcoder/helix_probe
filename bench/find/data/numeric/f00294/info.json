@@ -1,0 +1,32 @@
+{
+ "fid": "f00294",
+ "kind": "code",
+ "type": "ceil",
+ "params": [
+  null,
+  [
+   25.2,
+   -8.4,
+   82.0
+  ]
+ ],
+ "name": "ceil;step;sum_two(None, (25.2, -8.4, 82.0))",
+ "dir": "f00294",
+ "approx_mse_error": "not trained",
+ "corruption_type": "interval_smaller",
+ "corruption_params": {
+  "std": 4.690000000000006,
+  "boundary": [
+   91.2
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "uniform",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": 1.4566126083082053e-15,
+ "error_corrupted_code_generated": 1.4566126083082053e-15
+}

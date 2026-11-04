@@ -1,0 +1,27 @@
+{
+ "version": 7,
+ "beliefs": [
+  "With all controls at minimum and switch off, the dot is at (0,0) with size 1.0 [E1]",
+  "Switch on with all dials at minimum moves the dot to y=10, leaving x and size unchanged [E2]",
+  "Dial a moves the dot in x and increases size: x=2a and size=1+0.5a [E3]",
+  "Dial b moves the dot in x negatively: x=-b, size unchanged [E4]",
+  "Dial c moves the dot in y and increases size: y=c and size=1+0.5c [E5]",
+  "The switch adds 10 to y when c=0 [E2], but when c>0 the switch adds only (10-c) to y, i.e. y = c + max(0, 10-c) = max(c,10)... but E7 shows y=7 for c=3, so switch adds (10-c) only partially? Actually y=7 = c + (10-c)*? \u2014 unresolved [E6, E7]",
+  "E7: c=3, switch on gives y=7, not 10 and not 3; E6: c=5, switch on gives y=5. So switch contribution decreases with c: y = c + (10-c) when c<5? c=3\u21927, c=5\u21925, c=0\u219210. This fits y = c + (10-c) = 10 for c<5? No: c=3\u219210 not 7. Try y = c + (10-c)/? \u2014 c=3\u21927 means added 4; c=5\u21925 means added 0; c=0\u219210 means added 10. Added = 10 - 2c? c=3\u21924, c=5\u21920, c=0\u219210. Yes! y = c + (10-2c) = 10 - c for c\u22645, and y=c for c\u22655 [E2,E6,E7]",
+  "So switch on: y = 10 - c if c<5, else y = c (i.e. y = max(c, 10-c) with crossover at c=5) [E2,E6,E7]",
+  "How a and c combine on size (additive vs max) is still unknown? [E3,E5]"
+ ],
+ "notes": "E7 (c=3,switch on \u2192 y=7) plus E6 (c=5\u2192y=5) and E2 (c=0\u2192y=10) fit y = 10 - c for c\u22645 and y = c for c\u22655, i.e. switch on gives y = max(c, 10-c). Replaced the max(c,10) rule.",
+ "fit": 1.0,
+ "heldout": 0.02,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 7
+}

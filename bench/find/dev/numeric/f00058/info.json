@@ -1,0 +1,37 @@
+{
+ "fid": "f00058",
+ "kind": "mlp",
+ "type": "polynomial",
+ "params": [
+  [
+   -2.5,
+   3.3,
+   4.0,
+   2.1
+  ],
+  [
+   5.7,
+   -3.1
+  ]
+ ],
+ "name": "polynomial;square_wave;multiply_two([-2.5, 3.3, 4.0, 2.1], (5.7, -3.1))",
+ "dir": "f00058",
+ "approx_mse_error": 886772727808.0,
+ "corruption_type": "interval_inside",
+ "corruption_params": {
+  "std": 46082.822342966516,
+  "boundary": [
+   18.8,
+   25.39286107949566
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "normal",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": -664393.9707690405,
+ "error_corrupted_code_generated": -664393.9707690405
+}

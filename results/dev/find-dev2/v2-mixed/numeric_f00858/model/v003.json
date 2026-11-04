@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "Changed the threshold from 2.0 to 1.8: E4 shows |x|=2.0 gives 0 (not 1), so the boundary is between 1.6 and 2.0; midpoint 1.8 is the best guess.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 123, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 0.98}

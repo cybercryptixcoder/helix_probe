@@ -1,0 +1,26 @@
+{
+ "version": 3,
+ "beliefs": [
+  "The box shifts each character forward by 8 codepoints, applied independently per character [E1, E2, E3, E6, E8]",
+  "The shift applies uniformly across ASCII, Latin-1, and multi-byte ranges including surrogates and near U+10FFFF [E6, E8]",
+  "The character 't' (0x74) is a special case: it maps to '(' (0x28) instead of the usual 0x7C [E4, E11]",
+  "All other characters including '|' (0x7C -> 0x84) and '~' (0x7E -> 0x86) follow the uniform +8 rule [E7, E9, E10, E11]"
+ ],
+ "notes": "E11 revealed the mismatch was 't'->'(' not '|'->'(': the model's '|' prediction came from 't'+8, and '|' itself maps normally to 0x84 (E7, E11 output 2). Added 't' as a single special case.",
+ "fit": 0.7272727272727273,
+ "heldout": 0.14,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.6,
+  0.0
+ ],
+ "made_at": 11
+}

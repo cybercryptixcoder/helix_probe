@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I noticed the pattern is `ceil(x)+1` for positive x and `ceil(x)-1` for x\u22640 (which explains f(0.5)=2 and f(0)=-1), rather than a simple `x\u00b11`.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 226, "matches": [1.0], "made_at": 1, "heldout": 1.0}

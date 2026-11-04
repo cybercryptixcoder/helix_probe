@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "E2 shows the plateau extends to at least \u00b11.75 (not just \u00b11), with 0 at \u00b12. I widened the interval to (-2, 2) as the best guess for the true boundary; the exact edge between 1.75 and 2 is still uncertain.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 210, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

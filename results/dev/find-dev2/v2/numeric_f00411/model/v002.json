@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "The box is two linear pieces with the same slope 2.6 but different intercepts (14.2 for x<0, 9.4 for x>0), creating a jump discontinuity at 0, plus an isolated spike value 444.28 exactly at x=0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 401, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

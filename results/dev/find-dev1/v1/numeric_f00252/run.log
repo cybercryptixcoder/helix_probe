@@ -1,0 +1,25 @@
+Helix Probe on 'find_numeric_f00252': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f(x) look like across the whole domain, sampled at a spread of va...(+69 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.60 (was 0.00), held-out 0%
+[2] E2 Is f(x) exactly linear in x for x>0 (which would explain the constant incre...(+65 chars)  model v1 match 0.10
+      revision rejected: mean match 0.30 < 0.35
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.35), held-out 100%
+[3] E3 Does the logarithmic rule f(x)=1.1+141.0873*log2(x) continue to hold for x ...(+116 chars)  model v2 match 1.00
+[4] E4 Does the logarithmic rule f(x)=1.1+141.0873*log2(x) hold for very small pos...(+112 chars)  model v2 match 1.00
+[5] E5 Does f(x) follow the same logarithmic rule just above the largest tested va...(+119 chars)  model v2 match 1.00
+[6] E6 Does the logarithmic rule hold for the largest allowed values just above 12...(+312 chars)  model v2 match 1.00
+[7] E7 Does the logarithmic rule f(x)=1.1+141.0873*log2(x) still hold at the exact...(+116 chars)  model v2 match 1.00
+[8] E8 Is f(x) really null for x in the interval (0, 1e-6), or does the logarithmi...(+171 chars)  model v2 match 1.00
+[9] E9 Does the logarithmic rule hold at moderate positive values not yet directly...(+151 chars)  model v2 match 1.00
+[10] E10 Does f(x) remain exactly logarithmic, or does it deviate, at large positive...(+100 chars)  model v2 match 1.00
+[11] E11 Does f(x) stay exactly logarithmic in the narrow untested gaps between prev...(+131 chars)  model v2 match 1.00
+[12] E12 Is f(x) truly null for all negative x, including values very close to 0 fro...(+123 chars)  model v2 match 1.00
+[13] E13 Does the logarithmic rule f(x)=1.1+141.0873*log2(x) still hold exactly at t...(+170 chars)  model v2 match 1.00
+[14] E14 Is f(x) exactly the logarithmic formula at x=1 (where it predicts 1.1) and ...(+128 chars)  model v2 match 1.00
+[15] E15 Does the exact logarithmic rule with base 2 hold at irrational and non-dyad...(+177 chars)  model v2 match 1.00
+[16] E16 Does f(x) remain exactly logarithmic at x=128 exactly and just below it, or...(+161 chars)  model v2 match 1.00
+[17] E17 Does the logarithmic rule hold at positive values very close to zero but be...(+185 chars)  model v2 match 1.00
+[18] E18 Does the logarithmic rule f(x)=1.1+141.0873*log2(x) hold at positive values...(+152 chars)  model v2 match 1.00
+[19] E19 Does f(x) stay exactly logarithmic for x just below 1e-100 (down to the sma...(+140 chars)  model v2 match 1.00
+[20] E20 Is f(x) exactly the base-2 log rule at positive x values just above the sma...(+194 chars)  model v2 match 1.00
+{"env": "find_numeric_f00252", "experiments": 20, "model_version": 2, "fit": 1.0, "heldout": 1.0, "llm_calls": 24, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

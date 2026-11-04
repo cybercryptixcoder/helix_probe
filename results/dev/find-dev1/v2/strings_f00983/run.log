@@ -1,0 +1,39 @@
+Helix Probe v2 on 'find_strings_f00983': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to a broad set of basic inputs, to reveal its core operation(s)?  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.75, fit 1.00, size 226 (exam 0.000 -> 0.750); held-out 14%
+[2] E2 Does the +8 shift apply to every character uniformly, including high-ASCII/...(+116 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the +8 shift apply to surrogate pairs / astral-plane characters at the...(+174 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the +8 shift wrap around at the top of the Unicode range (codepoints n...(+115 chars)  (v1 predicted it: match 0.50)
+      model v2 by the updater: exam 0.75, fit 1.00, size 486 (fit 0.875 -> 1.000); held-out 14%
+[5] E5 Does the +8 shift apply uniformly to every character in a multi-character s...(+142 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the box treat an incomplete/unpaired surrogate or an already-invalid l...(+169 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (760 vs 486 chars)
+[7] E7 Does the +8 shift act on codepoints in the input string as-is (so a lone su...(+310 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the box operate on the string's codepoints purely as a character-level...(+222 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the +8 shift operate identically on a plain Python str vs. how the box...(+249 chars)  (v2 predicted it: match 0.90)
+      updater: keep
+[10] E10 Does the box's +8 shift apply to every character when the input mixes a bac...(+210 chars)  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 0.75, fit 1.00, size 639 (fit 0.980 -> 1.000); held-out 14%
+[11] E11 Is the backslash-'t' dropping rule really about a literal backslash followe...(+383 chars)  (v3 predicted it: match 0.80)
+      model v4 by the updater: exam 0.75, fit 1.00, size 1176 (fit 0.982 -> 1.000); held-out 14%
+[12] E12 Does the 't'-dropping rule depend on the backslash character specifically, ...(+251 chars)  (v4 predicted it: match 0.90)
+      model v5 by the updater: exam 0.75, fit 1.00, size 554 (fit 0.992 -> 1.000); held-out 14%
+      theorist (every 6 steps)
+[13] E13 Does the 't'-dropping rule trigger on any backslash anywhere in the string,...(+188 chars)  (v5 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (554 vs 554 chars)
+      updater's model not kept: same scores and not smaller (554 vs 554 chars)
+[14] E14 Is the 't'-dropping rule a global 'contains backslash' flag or a local/posi...(+164 chars)  (v5 predicted it: match 1.00)
+[15] E15 Does the 't'-dropping rule trigger on the literal backslash character only,...(+220 chars)  (v5 predicted it: match 0.50)
+      updater's model not kept: same scores and not smaller (554 vs 554 chars)
+      updater's model not kept: same scores and not smaller (554 vs 554 chars)
+      theorist (updater stalled)
+[16] E16 Is the 't'-dropping rule triggered by the literal backslash character in th...(+622 chars)  (v5 predicted it: match 0.60)
+      updater's model not kept: same scores and not smaller (554 vs 554 chars)
+      model v6 by the updater: exam 1.00, fit 1.00, size 524 (exam 0.750 -> 1.000); held-out 100%
+[17] E17 Does the box drop all lowercase 't' characters unconditionally (even when n...(+127 chars)  (v6 predicted it: match 1.00)
+[18] E18 Does the box drop lowercase 't' before or after the +8 shift — i.e., is it ...(+281 chars)  (v6 predicted it: match 1.00)
+      theorist (every 6 steps)
+[19] E19 Does the box drop lowercase 't' as a raw input character before the +8 shif...(+238 chars)  (v6 predicted it: match 1.00)
+[20] E20 Does the +8 shift apply to the codepoints of the raw input string (includin...(+235 chars)  (v6 predicted it: match 1.00)
+{"env": "find_strings_f00983", "experiments": 20, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 524, "heldout": 1.0, "llm_calls": 38, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

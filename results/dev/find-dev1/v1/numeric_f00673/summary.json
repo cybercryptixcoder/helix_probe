@@ -1,0 +1,21 @@
+{
+ "env": "find_numeric_f00673",
+ "experiments": 20,
+ "model_version": 11,
+ "fit": 0.25,
+ "heldout": 1.0,
+ "llm_calls": 46,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "The mean of f is essentially 16.79\u00b7|x| across the whole domain, including |x|<1 and large |x| [E14, E15, E16, E17, E18]",
+  "There is call-to-call noise everywhere, not a deterministic function of x; repeating the same x gives different values each call [E8, E10, E11, E12, E17, E18, E19]",
+  "At large |x| the noise is multiplicative, roughly 0.5-1% relative scatter, so spread grows with |x| [E14, E15, E16]",
+  "At small |x| (|x|<1) the noise is larger in relative terms (a few percent) and its absolute spread shrinks with |x|, roughly proportional to |x| [E17, E18]",
+  "The erratic near-zero behavior decays smoothly toward the clean line as |x| grows through 0.5-2; at x=0.6 relative scatter is ~10-15% and at x=1.2 it is ~5% [E19]",
+  "The relative noise appears to decrease monotonically with |x|, from a few percent near |x|~0.1 down to ~0.5-1% at large |x| [E17, E18, E19, E15, E16]"
+ ]
+}

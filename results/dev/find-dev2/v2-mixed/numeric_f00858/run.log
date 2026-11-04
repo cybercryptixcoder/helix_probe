@@ -1,0 +1,36 @@
+Helix Probe v2 on 'find_numeric_f00858': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 63 (exam 0.000 -> 1.000); held-out 84%
+[2] E2 Is f(x) really zero everywhere, or does it become nonzero somewhere in the ...(+65 chars)  (v1 predicted it: match 0.55)
+      updater's model not kept: its exam is 0.975, the current model's is 1.000
+      model v2 by the updater: exam 1.00, fit 1.00, size 124 (fit 0.773 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Where exactly does the nonzero region end between |x|=1 and |x|=2.9, and is...(+28 chars)  (v2 predicted it: match 0.80)
+      model v3 by the updater: exam 1.00, fit 1.00, size 123 (fit 0.950 -> 1.000); held-out 98%
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 Where exactly is the transition between 1 and 0 in the interval (1.6, 2.0),...(+51 chars)  (v3 predicted it: match 0.71)
+      model v4 by the updater: exam 1.00, fit 1.00, size 125 (fit 0.952 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (734 vs 125 chars)
+[7] E7 a random ordinary probe  (v4 predicted it: match 1.00)
+[8] E8 Is the nonzero region truly a symmetric band |x|<~1.875, or is there finer ...(+94 chars)  (v4 predicted it: match 0.79)
+      model v5 by the updater: exam 1.00, fit 1.00, size 125 (fit 0.974 -> 1.000); held-out 100%
+[9] E9 a random ordinary probe  (v5 predicted it: match 1.00)
+[10] E10 Is the nonzero region exactly a symmetric interval |x|<1.855, or is there a...(+177 chars)  (v5 predicted it: match 0.60)
+      model v6 by the updater: exam 1.00, fit 1.00, size 127 (fit 0.960 -> 1.000); held-out 100%
+[11] E11 a random ordinary probe  (v6 predicted it: match 1.00)
+[12] E12 Does the nonzero band stay exactly 1.0 throughout, or does it vary smoothly...(+94 chars)  (v6 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (348 vs 127 chars)
+[13] E13 a random ordinary probe  (v6 predicted it: match 1.00)
+[14] E14 Is the nonzero region truly confined to |x| <= ~1.8505, or does a nonzero v...(+133 chars)  (v6 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v6 predicted it: match 1.00)
+[16] E16 Is the boundary of the nonzero band exactly at |x|=1.8505, or could it be a...(+124 chars)  (v6 predicted it: match 0.70)
+      model v7 by the updater: exam 1.00, fit 1.00, size 127 (fit 0.981 -> 1.000); held-out 100%
+[17] E17 a random ordinary probe  (v7 predicted it: match 1.00)
+[18] E18 Does the nonzero band have any finer substructure inside |x|<=1.85 — e.g., ...(+117 chars)  (v7 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (425 vs 127 chars)
+[19] E19 a random ordinary probe  (v7 predicted it: match 1.00)
+[20] E20 Are there any other nonzero regions outside |x|<=1.8501, particularly just ...(+116 chars)  (v7 predicted it: match 1.00)
+{"env": "find_numeric_f00858", "experiments": 20, "exam_probes": 4, "model_version": 7, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 127, "heldout": 1.0, "llm_calls": 21, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

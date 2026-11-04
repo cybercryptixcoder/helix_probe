@@ -1,0 +1,43 @@
+Helix Probe on 'find_strings_f00455': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to basic lowercase words, mixed case, digits, punctuation, a...(+80 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.10 (was 0.00), held-out 0%
+[2] E2 Does f shift letters forward by exactly 1, or is the observed 'Ifmmp'/'Bcd2...(+137 chars)  model v1 match 0.00
+      model v2: fit 0% (was 0%), mean match 0.30 (was 0.05), held-out 1%
+[3] E3 Does f apply the +1 shift to every character uniformly, or is there an extr...(+199 chars)  model v2 match 0.50
+      model v3: fit 0% (was 0%), mean match 0.37 (was 0.37), held-out 1%
+[4] E4 Is the transform a Caesar shift by +1 on letters with case preserved (a→b, ...(+94 chars)  model v3 match 0.40
+      model v4: fit 0% (was 0%), mean match 0.38 (was 0.38), held-out 1%
+[5] E5 Is the transform really ord(ch)+1 for every character (so lowercase letters...(+105 chars)  model v4 match 0.60
+      model v5: fit 0% (was 0%), mean match 0.42 (was 0.42), held-out 1%
+[6] E6 Does f shift every character by ASCII+1 but then also uppercase the result ...(+176 chars)  model v5 match 0.20
+      model v6: fit 0% (was 0%), mean match 0.52 (was 0.38), held-out 0%
+[7] E7 Does the +1 shift apply uniformly to all characters including lowercase let...(+162 chars)  model v6 match 0.10
+      model v7: fit 0% (was 0%), mean match 0.47 (was 0.46), held-out 0%
+[8] E8 Does the uppercase step apply to the shifted result of every lowercase lett...(+143 chars)  model v7 match 0.40
+      revision rejected: mean match 0.41 < 0.46
+      model v8: fit 0% (was 0%), mean match 0.46 (was 0.46), held-out 0%
+[9] E9 For lowercase letters, is the output simply the next ASCII character upperc...(+138 chars)  model v8 match 0.20
+      model v9: fit 0% (was 0%), mean match 0.43 (was 0.43), held-out 0%
+[10] E10 Does the case-folding apply only to the shifted result of a lowercase lette...(+186 chars)  model v9 match 0.40
+      model v10: fit 0% (was 0%), mean match 0.43 (was 0.43), held-out 0%
+[11] E11 Is the extra uppercasing applied to the shifted character only when the ori...(+140 chars)  model v10 match 0.70
+      model v11: fit 0% (was 0%), mean match 0.45 (was 0.45), held-out 0%
+[12] E12 Is the rule really per-character 'shift by 1, then uppercase only if the OR...(+179 chars)  model v11 match 0.00
+      model v12: fit 0% (was 0%), mean match 0.65 (was 0.42), held-out 0%
+[13] E13 Is the uppercase step applied only to the first character of each maximal r...(+168 chars)  model v12 match 0.50
+      model v13: fit 0% (was 0%), mean match 0.64 (was 0.64), held-out 0%
+[14] E14 Does the uppercase step apply only to the first character of a maximal lowe...(+162 chars)  model v13 match 0.00
+      model v14: fit 0% (was 0%), mean match 0.59 (was 0.59), held-out 0%
+[15] E15 Is the uppercase step applied to the first character of a lowercase run onl...(+363 chars)  model v14 match 0.30
+      model v15: fit 0% (was 0%), mean match 0.57 (was 0.57), held-out 0%
+[16] E16 Does the uppercase step apply to the first character of a lowercase run eve...(+414 chars)  model v15 match 0.00
+      model v16: fit 0% (was 0%), mean match 0.54 (was 0.54), held-out 0%
+[17] E17 When a lowercase letter is followed by an uppercase letter (or other non-lo...(+187 chars)  model v16 match 0.00
+      model v17: fit 0% (was 0%), mean match 0.51 (was 0.51), held-out 0%
+[18] E18 Does the uppercase-the-first-lowercase-of-a-run rule really apply only to t...(+274 chars)  model v17 match 0.80
+      model v18: fit 0% (was 0%), mean match 0.52 (was 0.52), held-out 0%
+[19] E19 My model now says only the first lowercase char of a maximal lowercase run ...(+289 chars)  model v18 match 0.00
+      model v19: fit 0% (was 0%), mean match 0.49 (was 0.49), held-out 0%
+[20] E20 Does the uppercase-run-start rule look at the previous ORIGINAL char (so a ...(+198 chars)  model v19 match 0.30
+      model v20: fit 100% (was 0%), mean match 1.00 (was 0.48), held-out 100%
+{"env": "find_strings_f00455", "experiments": 20, "model_version": 20, "fit": 1.0, "heldout": 1.0, "llm_calls": 42, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "E3 shows the box returns 1 at \u00b11.75 and 0 at \u00b12.0, so the interval is wider than \u00b11.5 \u2014 I extended the boundary to \u00b11.75 (the last confirmed 1-point), which is my best guess for the exact edge.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 180, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 0.98}

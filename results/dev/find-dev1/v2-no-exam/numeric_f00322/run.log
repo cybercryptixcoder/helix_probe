@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00322': 0 experiments so far, model v0, exam of 0, held-out set of 100
+[1] E1 What basic shape does f have across the whole domain, including sign, magni...(+56 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 1.00, size 64 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 Is f truly constant at 53 everywhere, or does it deviate at non-integer/irr...(+53 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does f stay exactly 53 at extremely fine offsets around a point and at the ...(+115 chars)  (v1 predicted it: match 1.00)
+[4] E4 Is f constant at 53 even for very large-magnitude intermediate values and f...(+122 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does f remain 53 when probed with a dense cluster of values near 0 and near...(+156 chars)  (v1 predicted it: match 1.00)
+[6] E6 Is f truly a constant 53 on the entire real domain, or does it return null/...(+223 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (84 vs 64 chars)
+[7] E7 Does f depend on anything other than x itself — e.g., is it constant at 53 ...(+157 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does f depend on the sequence/position of inputs within a single call — e.g...(+126 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does f stay 53 when probed with a batch that mixes extreme values, non-inte...(+110 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00322", "experiments": 9, "exam_probes": 0, "model_version": 1, "model_role": "updater", "exam": 0.0, "fit": 1.0, "size": 64, "heldout": 1.0, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

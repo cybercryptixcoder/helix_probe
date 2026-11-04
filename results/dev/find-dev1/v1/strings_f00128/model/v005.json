@@ -1,0 +1,31 @@
+{
+ "version": 5,
+ "beliefs": [
+  "The first letter is uppercased; other leading characters are preserved [E1, E2, E4]",
+  "All remaining characters are lowercased [E1, E2, E3]",
+  "The string '10' is inserted at an index that depends on the string length: for length 1 it goes before the char, for length 2 after position 1, for length 3 after position 1, for length 4 after position 2, for length 5 after position 2, for length 6 after position 3, for length 7 after position 3, for length 8 after position 4 [E2, E4, E5]",
+  "The insertion index appears to be floor(len/2) for len>=2, and 0 for len==1 [E2, E4, E5]",
+  "For 'a1b2c3d4' (len 8) the insertion is after position 4 giving 'A1b210c3d4' [E5]",
+  "For 'MixedCase123' (len 12) insertion after position 6 would give 'Mixedc10ase123' which matches [E1, E3]",
+  "For 'two words' (len 9) insertion after position 4 gives 'Two 10words' which matches [E1]",
+  "For '  spaced  ' (len 10) insertion after position 5 gives '  spa10ced  ' which matches [E1]",
+  "For '!@#$' (len 4) insertion after position 2 gives '!@10#$' which matches [E1]",
+  "For 'a b c' (len 5) insertion after position 2 gives 'A 10b c' which matches [E1]",
+  "For 'hello world' (len 11) insertion after position 5 gives 'Hello10 world' which matches [E3]",
+  "For 'ab cd ef' (len 8) insertion after position 4 gives 'Ab c10d ef' which matches [E3]",
+  "For 'MixedCase123 xyz' (len 16) insertion after position 8 gives 'Mixedcas10e123 xyz' which matches [E3]",
+  "For 'xy z' (len 4) insertion after position 2 gives 'Xy10 z' which matches [E5]",
+  "For 'AbCdEf' (len 6) insertion after position 3 gives 'Abc10def' which matches [E5]"
+ ],
+ "notes": "Replaced the fixed 'after first char' insertion with floor(len/2) (0 for length 1), which explains all observed insertion positions across E1-E5.",
+ "fit": 0.6,
+ "heldout": 0.86,
+ "matches": [
+  1.0,
+  0.9,
+  1.0,
+  0.9,
+  1.0
+ ],
+ "made_at": 5
+}

@@ -1,0 +1,33 @@
+Helix Probe v2 on 'find_strings_f00871': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.38, fit 0.67, size 132 (exam 0.000 -> 0.375); held-out 0%
+[2] E2 Does the box reverse the whole string and append 'I' for ordinary single wo...(+124 chars)  (v1 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (132 vs 132 chars)
+      model v2 by the updater: exam 0.38, fit 0.63, size 276 (fit 0.533 -> 0.633); held-out 0%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.67)
+      model v3 by the updater: exam 0.79, fit 0.94, size 316 (exam 0.375 -> 0.792); held-out 18%
+[4] E4 Does the box handle multiple consecutive spaces, tabs, and leading/trailing...(+128 chars)  (v3 predicted it: match 0.20)
+      model v4 by the updater: exam 1.00, fit 1.00, size 282 (exam 0.792 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v4 predicted it: match 1.00)
+[6] E6 Does the box treat punctuation attached to words (like commas, periods, apo...(+156 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.625, the current model's is 1.000
+[7] E7 a random ordinary probe  (v4 predicted it: match 1.00)
+[8] E8 Do non-ASCII/Unicode characters and accented or multi-byte letters reverse ...(+98 chars)  (v4 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v4 predicted it: match 1.00)
+[10] E10 Does the box reverse words in place while preserving the original whitespac...(+163 chars)  (v4 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 Does the box append 'I' to the end of the entire reversed-token string even...(+147 chars)  (v4 predicted it: match 0.50)
+      model v5 by the updater: exam 1.00, fit 1.00, size 341 (fit 0.958 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v5 predicted it: match 1.00)
+[14] E14 How does the box handle inputs consisting only of whitespace, empty strings...(+124 chars)  (v5 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v5 predicted it: match 1.00)
+[16] E16 Does the box reverse characters across whitespace boundaries in any way oth...(+215 chars)  (v5 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v5 predicted it: match 1.00)
+[18] E18 Does the append-I rule depend on case of the final character being uppercas...(+125 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.625, the current model's is 1.000
+[19] E19 a random ordinary probe  (v5 predicted it: match 1.00)
+[20] E20 Does the append-'I' rule look only at the very last character of the revers...(+246 chars)  (v5 predicted it: match 1.00)
+{"env": "find_strings_f00871", "experiments": 20, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 341, "heldout": 1.0, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

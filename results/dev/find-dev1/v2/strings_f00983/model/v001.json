@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to a Caesar shift of +8 on ASCII codes, which explains every character in E1 (letters, digits, spaces, symbols, case preserved) and leaves empty strings empty.", "exam": 0.75, "fit": 1.0, "fit_exact": 1.0, "size": 226, "matches": [1.0], "made_at": 1, "heldout": 0.14}

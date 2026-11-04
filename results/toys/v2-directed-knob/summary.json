@@ -1,0 +1,23 @@
+{
+ "env": "knob_box",
+ "experiments": 32,
+ "exam_probes": 6,
+ "model_version": 14,
+ "model_role": "updater",
+ "exam": 0.7777777777777777,
+ "fit": 1.0,
+ "size": 358,
+ "heldout": 0.51,
+ "llm_calls": 52,
+ "goals": {
+  "tried": 5,
+  "reached": 5,
+  "tries_used": [
+   1,
+   2,
+   1,
+   2,
+   1
+  ]
+ }
+}

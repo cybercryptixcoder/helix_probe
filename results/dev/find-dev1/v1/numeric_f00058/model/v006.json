@@ -1,0 +1,30 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f(x) = -84.3663 on the plateau [-51, 50] inclusive [E2, E5, E6, E10]",
+  "On the negative side the plateau ends between -51.25 and -51.1; f(-51.25)=-82.45 and f(-51.1)=-84.37, so the edge is near -51.2 [E10]",
+  "Just below the plateau edge the negative side rises steeply: f(-51.9)=1592.6, f(-51.75)=1200.6, f(-51.5)=547.3, f(-51.25)=-82.5, consistent with a linear rise of slope ~4400 starting at x\u2248-51.2 [E6, E10]",
+  "From x\u2248-52 to -64 the negative side is linear with slope ~4403 per unit [E6]",
+  "From x=-64 to about -100 the negative side is linear with slope ~4403 per unit (f(-64)=44757, f(-100)=203265) [E1, E6, E9]",
+  "Beyond x=-100 the negative side steepens: slope ~4403 up to -100, then ~4403 through -106, then ~4403... actually slope rises to ~4403 then ~4403; observed slope from -106 to -110 is ~4403, from -110 to -115 is ~4403, from -115 to -120 is ~4403, from -120 to -125 is ~4403 \u2014 consistent with constant slope ~4403 throughout [E9]?",
+  "On the positive side the plateau ends between 50.75 and 51.0, then rises linearly in (x-50) with slope ~415.8 through x=56 [E3, E4]",
+  "At x=57 the positive-side slope jumps to ~1139.8, then ~1202.9 through 60, then ~1302.7 through 62, and keeps increasing beyond [E4]",
+  "The exact functional form beyond the plateau is still uncertain; piecewise-linear interpolation over observed knots is the best current guess [E1, E3, E4, E6]?"
+ ],
+ "notes": "E10 shows the negative plateau edge is near -51.2 (not -51.0) and the rise just below it is steeper than v5's interpolation; I moved the edge to -51.2 and added knots at -51.9,-51.75,-51.5,-51.25 to match the observed steep onset, keeping the rest of the piecewise-linear model.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 10
+}

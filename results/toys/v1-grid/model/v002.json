@@ -1,0 +1,20 @@
+{
+ "version": 2,
+ "beliefs": [
+  "From (4,4): A moves +y (up 1), B moves +x by 2, C moves +x by 1, D moves -y by 2, E moves -x by 2 [E1]",
+  "Button A moves up 1 from (4,4) and (4,7) but is blocked at (4,8) and at (5,5), so A is blocked by walls at certain cells rather than only at the top edge [E2, E3, E4]",
+  "Some cells are walls; the character cannot enter or stand on them [library, E4]",
+  "At least one button behaves differently depending on position, consistent with wall blocking [library, E4]",
+  "The exact wall layout is unknown; (5,5) and (4,8) are walls or blocked for A, while (4,4),(4,7),(4,8) are standable [E1, E2, E3, E4]?"
+ ],
+ "notes": "E4 shows A does not move from (5,5), so A's move is blocked by walls at some cells, not just the top edge. I keep the fixed offsets but add a wall set including (5,5) and treat blocked moves as staying in place; the full wall layout remains a guess.",
+ "fit": 0.5,
+ "heldout": 0.08,
+ "matches": [
+  0.8,
+  1.0,
+  1.0,
+  0.75
+ ],
+ "made_at": 4
+}

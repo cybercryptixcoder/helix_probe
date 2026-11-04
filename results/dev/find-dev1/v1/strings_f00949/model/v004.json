@@ -1,0 +1,20 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f inserts a 2-char token at position len//2 (floor) for all lengths [E1, E2, E3, E4]",
+  "The token is 'I8' when len//2 is even, '8I' when len//2 is odd [E1, E2, E3, E4]",
+  "Empty string gives '8I' (special case, since len//2=0 even would give I8) [E1]",
+  "Orientation depends only on floor(len//2) parity, not on character content [E3, E4]",
+  "For odd lengths the token goes at floor(len/2), not ceil [E4]"
+ ],
+ "notes": "E4 showed odd-length strings insert at floor(len/2) with orientation based on floor(len/2) parity; my v3 wrongly used ceil for some. Fixed by using pos=len//2 uniformly and token based on pos parity.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.8,
+  0.6,
+  0.4,
+  0.7
+ ],
+ "made_at": 4
+}

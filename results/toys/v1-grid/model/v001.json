@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "From (4,4): A moves +y (up 1), B moves +x by 2, C moves +x by 1, D moves -y by 2, E moves -x by 2 [E1]",
+  "Buttons likely move by fixed offsets, possibly blocked by walls [E1, library tip]",
+  "At least one button behaves differently depending on position (e.g., blocked by walls or special cells) [library tip]"
+ ],
+ "notes": "First data point: single presses from (4,4) give offsets A=(0,+1), B=(+2,0), C=(+1,0), D=(0,-2), E=(-2,0). I'll model these as fixed offsets with wall blocking, since walls are mentioned in the library.",
+ "fit": 0.0,
+ "heldout": 0.08,
+ "matches": [
+  0.8
+ ],
+ "made_at": 1
+}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found f is piecewise linear with slope 2.6: for x<0, y=2.6x+14.2; for x>0, y=2.6x+9.4; and a spike at x=0 giving 444.28. The model now captures the two linear regimes and the isolated exception at zero.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 434, "matches": [1.0], "made_at": 1, "heldout": 1.0}

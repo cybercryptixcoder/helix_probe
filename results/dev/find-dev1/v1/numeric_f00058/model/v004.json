@@ -1,0 +1,23 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f(x) = -84.3663 on the plateau [-50, 50] inclusive [E1, E2, E5]",
+  "The plateau extends at least to x=-50 on the negative side; the negative-side rise begins somewhere below -50 [E5]",
+  "On the positive side the plateau ends between 50.75 and 51.0, then rises linearly in (x-50) with slope ~415.8 through x=56 [E3, E4]",
+  "At x=57 the positive-side slope jumps to ~1139.8, then ~1202.9 through 60, then ~1302.7 through 62, and keeps increasing beyond [E4]",
+  "On the negative side f(-64)=44757, f(-100)=203265, f(-128)=326550, so growth is steeper per unit |x| than the positive side [E1]",
+  "The exact negative-side transition between -64 and -50 is unknown; a linear interpolation between -64 and the plateau edge is the best current guess?",
+  "The exact functional form beyond the plateau is still uncertain; piecewise-linear interpolation over observed knots is the best current guess [E1, E3, E4]?"
+ ],
+ "notes": "E5 shows the plateau extends to at least -50, so I moved the negative plateau edge from -32 to -50 and interpolate the negative side only below -50.",
+ "fit": 1.0,
+ "heldout": 0.71,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 5
+}

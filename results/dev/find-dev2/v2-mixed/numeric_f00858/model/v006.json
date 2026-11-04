@@ -1,0 +1,1 @@
+{"version": 6, "role": "updater", "notes": "I tightened the band edge from 1.855 to ~1.8505: E10 shows 1 at |x|=1.850 and 0 at |x|=1.851, contradicting v5's wider band.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 127, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 10, "heldout": 1.0}

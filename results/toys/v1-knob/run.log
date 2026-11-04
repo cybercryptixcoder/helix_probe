@@ -1,0 +1,55 @@
+Helix Probe on 'knob_box': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What is the baseline reading of the screen with all controls at their minim...(+22 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 0%
+[2] E2 Does the switch on its own move or resize the dot, with all dials still at minimum?  model v1 match 0.67
+      model v2: fit 100% (was 50%), mean match 1.00 (was 0.83), held-out 0%
+[3] E3 Does dial a move the dot in x (with b, c, and switch held at the known base...(+42 chars)  model v2 match 0.33
+      model v3: fit 100% (was 67%), mean match 1.00 (was 0.78), held-out 0%
+[4] E4 Does dial b move the dot or change its size, with a, c, and the switch held...(+23 chars)  model v3 match 0.67
+      model v4: fit 100% (was 75%), mean match 1.00 (was 0.92), held-out 2%
+[5] E5 How does dial c affect the dot, with a, b, and the switch held at baseline?  model v4 match 0.33
+      model v5: fit 100% (was 80%), mean match 1.00 (was 0.87), held-out 2%
+[6] E6 Does the switch add 10 to y when c is nonzero (i.e., is the switch contribu...(+47 chars)  model v5 match 0.67
+      model v6: fit 83% (was 83%), mean match 0.94 (was 0.94), held-out 2%
+[7] E7 When c is nonzero and the switch is on, does y follow max(c,10) (so c=3 wit...(+75 chars)  model v6 match 0.67
+      model v7: fit 100% (was 71%), mean match 1.00 (was 0.90), held-out 2%
+[8] E8 Does the switch's effect on y depend on c only through max(c, 10-c), or doe...(+76 chars)  model v7 match 0.67
+      model v8: fit 100% (was 88%), mean match 1.00 (was 0.96), held-out 2%
+[9] E9 When both a and c are nonzero, does size add both contributions (1 + 0.5a +...(+49 chars)  model v8 match 0.67
+      model v9: fit 89% (was 89%), mean match 0.96 (was 0.96), held-out 2%
+[10] E10 Does the switch's effect on y interact with dial a when c=0, i.e. does swit...(+73 chars)  model v9 match 1.00
+[11] E11 Does the switch alter y additively with a when c is nonzero, i.e. does y = ...(+65 chars)  model v9 match 0.67
+      model v10: fit 100% (was 82%), mean match 1.00 (was 0.94), held-out 69%
+[12] E12 When both a and c are nonzero and the switch is on, does size follow the ma...(+92 chars)  model v10 match 1.00
+[13] E13 Does dial b also affect the dot when the switch is on, i.e. is x = 2a - b s...(+53 chars)  model v10 match 1.00
+[14] E14 Does the size rule with the switch on use max(a,c) or min(a,c) when a and c...(+111 chars)  model v10 match 0.33
+      revision rejected: mean match 0.93 < 0.95
+      revision rejected: mean match 0.88 < 0.95
+[15] E15 With the switch on, does x still follow x = 2a - b when c is also nonzero (...(+54 chars)  model v10 match 0.33
+      revision rejected: mean match 0.84 < 0.91
+      revision rejected: mean match 0.84 < 0.91
+[16] E16 With the switch on and c nonzero, does x depend on a as x = 10 - c + someth...(+72 chars)  model v10 match 1.00
+[17] E17 With the switch on and both a and c nonzero, is x clamped/saturated at 10 (...(+163 chars)  model v10 match 1.00
+[18] E18 With the switch on and c nonzero, does x follow x = 2a - b exactly, or does...(+81 chars)  model v10 match 0.67
+      revision rejected: mean match 0.81 < 0.91
+      revision rejected: mean match 0.81 < 0.91
+[19] E19 With the switch on and c=2, is x clamped at 10 for any 2a-b above 10, or do...(+94 chars)  model v10 match 1.00
+[20] E20 With the switch on and c=2, does x saturate at 10 for any 2a-b above 10 (as...(+118 chars)  model v10 match 0.67
+      revision rejected: mean match 0.80 < 0.90
+      revision rejected: mean match 0.80 < 0.90
+[21] E21 With the switch on, c=2, and 2a-b just below 10 (2a-b=9), does x follow 2a-...(+67 chars)  model v10 match 1.00
+[22] E22 With the switch on, is the x-clamp threshold always 10 regardless of c, or ...(+70 chars)  model v10 match 0.67
+      revision rejected: mean match 0.79 < 0.89
+      revision rejected: mean match 0.79 < 0.89
+[23] E23 With the switch on, does x clamp at 10 regardless of c (confirming a hard c...(+58 chars)  model v10 match 0.67
+      revision rejected: mean match 0.78 < 0.88
+      revision rejected: mean match 0.78 < 0.88
+[24] E24 With the switch on and c=2, is x exactly 2a-b below the clamp (here 2a-b=8,...(+91 chars)  model v10 match 1.00
+[25] E25 With the switch on, c=6, and 2a-b just below 10 (here 2a-b=9), does x still...(+99 chars)  model v10 match 1.00
+[goal 1 try 1] E26 REACHED (model match 1.00)
+[goal 2 try 1] E27 REACHED (model match 1.00)
+[goal 3 try 1] E28 REACHED (model match 1.00)
+[goal 4 try 1] E29 REACHED (model match 1.00)
+[goal 5 try 1] E30 REACHED (model match 1.00)
+{"env": "knob_box", "experiments": 30, "model_version": 10, "fit": 0.8, "heldout": 0.69, "llm_calls": 52, "goals": {"tried": 5, "reached": 5, "tries_used": [1, 1, 1, 1, 1]}}
+run folder: runs/live-knob

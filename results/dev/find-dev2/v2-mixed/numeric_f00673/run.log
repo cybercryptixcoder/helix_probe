@@ -1,0 +1,44 @@
+Helix Probe v2 on 'find_numeric_f00673': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 Is f quadratic (y proportional to x^2) across the ordinary range, and does ...(+52 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 206 (exam 0.000 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Does f(x) stay exactly proportional to |x| with slope 16.8 over the whole o...(+169 chars)  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 1.00)
+[6] E6 Does the slope of |x| stay exactly 16.8 for very small |x| (near zero), whe...(+120 chars)  (v1 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (206 vs 206 chars)
+      updater's model not kept: same scores and not smaller (206 vs 206 chars)
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v1 predicted it: match 1.00)
+[8] E8 Is the small-x behaviour a noisy constant offset plus 16.8*|x| (so the resi...(+153 chars)  (v1 predicted it: match 0.85)
+      updater's model not kept: same scores and not smaller (206 vs 206 chars)
+      updater's model not kept: same scores and not smaller (206 vs 206 chars)
+      theorist (updater stalled)
+[9] E9 a random ordinary probe  (v1 predicted it: match 1.00)
+[10] E10 Is the small-x residual a fixed additive offset (same for +x and -x) or a m...(+103 chars)  (v1 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (206 vs 206 chars)
+      updater's model not kept: same scores and not smaller (206 vs 206 chars)
+[11] E11 a random ordinary probe  (v1 predicted it: match 1.00)
+[12] E12 Is the small-|x| residual a smooth deterministic curve (e.g. y ≈ 16.8*|x| +...(+163 chars)  (v1 predicted it: match 0.60)
+      updater's model not kept: same scores and not smaller (206 vs 206 chars)
+      updater's model not kept: same scores and not smaller (206 vs 206 chars)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.876, the current model's is 0.888
+[13] E13 a random ordinary probe  (v1 predicted it: match 1.00)
+[14] E14 Is the small-|x| residual a deterministic function of x (same value for +x ...(+119 chars)  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 1.00, fit 0.83, size 317 (fit 0.832 -> 0.833); held-out 100%
+[15] E15 a random ordinary probe  (v2 predicted it: match 1.00)
+[16] E16 Is f(x) exactly 16.8*|x| across the ordinary range, or is there a small sys...(+113 chars)  (v2 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v2 predicted it: match 1.00)
+[18] E18 Is the small-|x| irregularity actually noise (unpredictable, same distribut...(+188 chars)  (v2 predicted it: match 0.15)
+      updater's model not kept: its fit is 0.817, the current model's is 0.823
+      updater's model not kept: its fit is 0.817, the current model's is 0.823
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.425, the current model's is 1.000
+[19] E19 a random ordinary probe  (v2 predicted it: match 1.00)
+[20] E20 Is the small-|x| irregularity pure noise (unpredictable per-call, same dist...(+184 chars)  (v2 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.790, the current model's is 0.791
+      updater's model not kept: its fit is 0.790, the current model's is 0.791
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.975, the current model's is 1.000
+{"env": "find_numeric_f00673", "experiments": 20, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 0.7908333333333333, "size": 317, "heldout": 1.0, "llm_calls": 32, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

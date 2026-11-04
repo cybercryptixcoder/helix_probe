@@ -1,0 +1,39 @@
+{
+ "version": 10,
+ "beliefs": [
+  "Button A moves +y by 1 when unobstructed [E1, E3]",
+  "Button B moves +x by 2 when unobstructed [E1, E8]",
+  "Button C moves +x by 1 when unobstructed [E1]",
+  "Button D moves -y by 2 when unobstructed [E1]",
+  "Button E moves -x by 2 when unobstructed [E1]",
+  "Button C moves -x by 1 on row 5 for x in {2,3,4,5} [E7, E10, E12, E13]",
+  "From (5,5), A is blocked (stays put) [E4, E6]",
+  "From (4,8), A is blocked (stays put) [E2]",
+  "From (5,5), E is blocked (stays put) [E14]",
+  "From (5,4), E moves diagonally to (4,5), i.e. -x by 1 and +y by 1 [E11]",
+  "From (4,4), E is blocked (stays put) [E9]",
+  "Some cells are walls; the character cannot enter or stand on them [library, E4]",
+  "At least one button behaves differently depending on position [library, E7, E10, E12]",
+  "The exact wall layout and the full position-dependent rules for C and E are unknown; (5,6) and (2,4) may be walls? [E5, E7, E9]"
+ ],
+ "notes": "",
+ "fit": 0.8571428571428571,
+ "heldout": 0.09,
+ "matches": [
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.875,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 14
+}

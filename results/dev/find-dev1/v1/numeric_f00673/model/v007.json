@@ -1,0 +1,31 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f is even: f(-x)=f(x) in distribution, though individual noisy values differ by sign [E1, E2, E9]",
+  "For |x| >= ~1, f is essentially linear: f(x) \u2248 16.8\u00b7|x|, with slight sublinearity at very large |x| [E1]",
+  "There is a special interval roughly |x| < 1 where f deviates from the linear law, with a dip near x=0 [E3, E4, E5]",
+  "Inside |x|<1 the function is call-to-call noisy: repeating the same x gives different values each call [E8, E10, E11, E12]",
+  "The noise is not deterministic in x; scatter at fixed x (e.g. 0.05 gives -0.09 to 3.1) is comparable to scatter across nearby x [E11, E12]",
+  "The mean of f in the special interval rises roughly linearly from ~0 at 0 to ~16.8 at 1 [E5, E7, E8]",
+  "Noise magnitude grows with |x| in the special interval (small near 0, larger near 1) [E8, E11, E12]",
+  "The transition from noisy special region to clean linear regime happens around |x|\u22481 [E3, E4, E7]"
+ ],
+ "notes": "Confirmed the near-zero region is call-to-call noise (repeats at same x scatter widely), so predict() should output the mean ramp 16.8|x| for |x|<1 (best point estimate under noise) and the linear law for |x|>=1; removed the spurious x^1.05 exponent that hurt matches.",
+ "fit": 0.16666666666666666,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.5,
+  0.7,
+  0.4,
+  0.15,
+  0.5,
+  0.4,
+  0.45,
+  0.35,
+  0.6,
+  0.4
+ ],
+ "made_at": 12
+}

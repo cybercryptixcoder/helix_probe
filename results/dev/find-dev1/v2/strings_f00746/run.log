@@ -1,0 +1,27 @@
+Helix Probe v2 on 'find_strings_f00746': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to the simplest possible inputs across different chara...(+66 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.75, fit 0.90, size 422 (exam 0.000 -> 0.750); held-out 21%
+[2] E2 Does the box shift only the first character of the whole string, or the fir...(+61 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the +2 shift applied to the first letter of the whole string only, or to...(+121 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the box shift the first character only when it is alphabetic, and how ...(+183 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the box shift only the first character of the string, or the first cha...(+93 chars)  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 0.98, size 431 (exam 0.750 -> 1.000); held-out 100%
+[6] E6 Does the box strip ALL trailing whitespace (spaces, tabs, newlines, carriag...(+137 chars)  (v2 predicted it: match 0.80)
+      model v3 by the updater: exam 1.00, fit 1.00, size 433 (fit 0.950 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (456 vs 433 chars)
+[7] E7 Does the box strip trailing whitespace only, or also leading whitespace, an...(+152 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the +2 shift wrap around the alphabet for letters near the end (y,z,Y,...(+73 chars)  (v3 predicted it: match 0.80)
+      model v4 by the updater: exam 1.00, fit 1.00, size 496 (fit 0.975 -> 1.000); held-out 100%
+[9] E9 Does the shift apply only to the first character of the string, or does the...(+128 chars)  (v4 predicted it: match 1.00)
+[10] E10 Does the +2 shift apply to the first character when it is a non-ASCII lette...(+170 chars)  (v4 predicted it: match 1.00)
+[11] E11 Does the box shift the first character when it's a non-ASCII letter, and do...(+417 chars)  (v4 predicted it: match 1.00)
+[12] E12 Does the box shift the first character when it is a non-ASCII letter that i...(+290 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (577 vs 496 chars)
+[13] E13 Does the box shift non-ASCII alphabetic first characters by +2 in codepoint...(+246 chars)  (v4 predicted it: match 1.00)
+[14] E14 Does the box shift the first character of each line (after newlines) or onl...(+114 chars)  (v4 predicted it: match 1.00)
+[15] E15 Is the +2 shift applied to the first character only when it is alphabetic, ...(+281 chars)  (v4 predicted it: match 1.00)
+[16] E16 Does the box apply the +2 shift to the first character of the string when t...(+275 chars)  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00746", "experiments": 16, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 496, "heldout": 1.0, "llm_calls": 22, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

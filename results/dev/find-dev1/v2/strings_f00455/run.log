@@ -1,0 +1,41 @@
+Helix Probe v2 on 'find_strings_f00455': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to the simplest, most varied inputs: empty string, sin...(+90 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.12, fit 0.70, size 151 (exam 0.000 -> 0.125); held-out 1%
+[2] E2 Does the box shift every character by +1 code point, or does it only apply ...(+145 chars)  (v1 predicted it: match 0.50)
+      updater's model not kept: its exam is 0.042, the current model's is 0.125
+      updater's model not kept: its exam is 0.042, the current model's is 0.125
+[3] E3 Does the box shift only ASCII letters/digits/punctuation by +1 while leavin...(+208 chars)  (v1 predicted it: match 0.50)
+      updater's model not kept: its exam is 0.042, the current model's is 0.125
+      theorist (updater stalled)
+[4] E4 Does the box shift each character by +1 code point unconditionally, or is i...(+247 chars)  (v1 predicted it: match 0.30)
+      model v2 by the updater: exam 1.00, fit 0.88, size 380 (exam 0.125 -> 1.000); held-out 76%
+[5] E5 Does the box apply the +1 shift and case rule to every character class unif...(+191 chars)  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 0.88, size 318 (same scores, smaller (380 -> 318 chars)); held-out 76%
+[6] E6 Does the position-based case rule count characters (code points) or only le...(+189 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.125, the current model's is 1.000
+[7] E7 Is the 'first character is uppercased' rule really based on position 0, or ...(+242 chars)  (v3 predicted it: match 1.00)
+[8] E8 Is the discrepancy at 'z'/'Z' (observed '[' but model says '{') a real rule...(+156 chars)  (v3 predicted it: match 0.40)
+      updater's model not kept: its exam is 0.833, the current model's is 1.000
+      updater's model not kept: its exam is 0.833, the current model's is 1.000
+[9] E9 Is the z->'[' / Z->'[' anomaly a real rule that applies only to alphabet-fi...(+221 chars)  (v3 predicted it: match 0.60)
+      updater's model not kept: its exam is 0.833, the current model's is 1.000
+      updater's model not kept: its exam is 0.833, the current model's is 1.000
+      theorist (updater stalled)
+      model v4 by the theorist: exam 1.00, fit 1.00, size 665 (fit 0.822 -> 1.000); held-out 100%
+[10] E10 Does the alphabet-final anomaly (z/Z -> '[') generalize to non-ASCII letter...(+95 chars)  (v4 predicted it: match 0.00)
+      model v5 by the updater: exam 1.00, fit 1.00, size 953 (fit 0.900 -> 1.000); held-out 100%
+[11] E11 For the first character, is the shift applied to the uppercase form's codep...(+234 chars)  (v5 predicted it: match 0.60)
+      model v6 by the updater: exam 1.00, fit 1.00, size 976 (fit 0.964 -> 1.000); held-out 100%
+[12] E12 Does the +1 shift apply to the whole string uniformly as a codepoint shift,...(+462 chars)  (v6 predicted it: match 1.00)
+      theorist (every 6 steps)
+[13] E13 Does the positional case rule count only letters (so a leading digit/symbol...(+160 chars)  (v6 predicted it: match 1.00)
+[14] E14 How does the box handle characters at the very end of the Unicode range (wh...(+172 chars)  (v6 predicted it: match 1.00)
+[15] E15 Does the +1 shift apply to the raw codepoint for characters with no case (d...(+321 chars)  (v6 predicted it: match 1.00)
+[16] E16 Does the box apply the positional first-char uppercase rule to the first *l...(+152 chars)  (v6 predicted it: match 1.00)
+[17] E17 Does the first-character uppercase rule apply only to the very first code p...(+213 chars)  (v6 predicted it: match 1.00)
+[18] E18 Does the 'first character' uppercase rule depend on the character being the...(+166 chars)  (v6 predicted it: match 1.00)
+      theorist (every 6 steps)
+[19] E19 Does the positional rule really depend on index 0, or on whether a letter h...(+235 chars)  (v6 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00455", "experiments": 19, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 976, "heldout": 1.0, "llm_calls": 38, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

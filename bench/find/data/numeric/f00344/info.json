@@ -1,0 +1,38 @@
+{
+ "fid": "f00344",
+ "kind": "code",
+ "type": "step",
+ "params": [
+  [
+   -25.1,
+   -7.4,
+   -19.3
+  ],
+  [
+   -1.2,
+   -3.0,
+   0.9,
+   -1.6,
+   -4.3
+  ]
+ ],
+ "name": "step;polynomial;sum_two((-25.1, -7.4, -19.3), [-1.2, -3.0, 0.9, -1.6, -4.3])",
+ "dir": "f00344",
+ "approx_mse_error": "not trained",
+ "corruption_type": "interval_smaller",
+ "corruption_params": {
+  "std": -24973124.600510523,
+  "boundary": [
+   -93.4
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "normal",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": -2.5071948517307873e-11,
+ "error_corrupted_code_generated": -2.5071948517307873e-11
+}

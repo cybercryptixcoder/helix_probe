@@ -1,0 +1,10 @@
+{
+ "fid": "f00612",
+ "type": "compose",
+ "params": [
+  1,
+  "X"
+ ],
+ "name": "add_number_to_string;insert_letter;compose_1input_1input(1, X)",
+ "dir": "f00612"
+}

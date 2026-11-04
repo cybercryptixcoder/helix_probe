@@ -1,0 +1,20 @@
+{
+ "env": "find_strings_f00949",
+ "experiments": 19,
+ "model_version": 6,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 29,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f inserts a 2-char token at position len//2 (floor) for all non-empty strings [E1, E2, E3, E4, E6]",
+  "For even-length strings the token is always '8I' [E2, E5, E6]",
+  "For odd-length strings the token is always 'I8' [E2, E3, E4, E6]",
+  "Empty string gives '8I' [E1]",
+  "Orientation depends only on length parity, not on character content or position parity [E3, E4, E5, E6]"
+ ]
+}

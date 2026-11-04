@@ -1,0 +1,36 @@
+{
+ "fid": "f00411",
+ "kind": "code",
+ "type": "step",
+ "params": [
+  [
+   -4.8,
+   8.2,
+   -89.6
+  ],
+  [
+   2.6,
+   6.0
+  ]
+ ],
+ "name": "step;linear;sum_two((-4.8, 8.2, -89.6), (2.6, 6.0))",
+ "dir": "f00411",
+ "approx_mse_error": "not trained",
+ "corruption_type": "interval_inside",
+ "corruption_params": {
+  "std": 11.800000000000018,
+  "boundary": [
+   -22.7,
+   -5.6075507996303795
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "poisson",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": -3.375077994860476e-17,
+ "error_corrupted_code_generated": -3.375077994860476e-17
+}

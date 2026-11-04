@@ -1,0 +1,10 @@
+{
+ "fid": "f00871",
+ "type": "compose",
+ "params": [
+  "I",
+  []
+ ],
+ "name": "add_letter_if_needed;reverse_words;compose_1input_1input(I, ())",
+ "dir": "f00871"
+}

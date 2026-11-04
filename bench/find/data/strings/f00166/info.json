@@ -1,0 +1,13 @@
+{
+ "fid": "f00166",
+ "type": "compose",
+ "params": [
+  "L",
+  [
+   "p",
+   "k"
+  ]
+ ],
+ "name": "remove_substring;replace_substring;compose_1input_1input(L, ('p', 'k'))",
+ "dir": "f00166"
+}

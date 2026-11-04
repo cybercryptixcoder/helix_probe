@@ -1,0 +1,10 @@
+{
+ "fid": "f00352",
+ "type": "compose",
+ "params": [
+  [],
+  "S"
+ ],
+ "name": "shift_last_letter;add_letter_if_needed;compose_1input_1input((), S)",
+ "dir": "f00352"
+}

@@ -1,0 +1,32 @@
+{
+ "fid": "f00657",
+ "kind": "code",
+ "type": "square_wave",
+ "params": [
+  [
+   4.2,
+   3.4
+  ],
+  -18
+ ],
+ "name": "square_wave;constant;multiply_two((4.2, 3.4), -18)",
+ "dir": "f00657",
+ "approx_mse_error": "not trained",
+ "corruption_type": "interval_inside",
+ "corruption_params": {
+  "std": 0.0,
+  "boundary": [
+   -52.3,
+   -39.156867006000866
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "poisson",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": -0.144,
+ "error_corrupted_code_generated": -0.144
+}

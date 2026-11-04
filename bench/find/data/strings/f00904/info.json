@@ -1,0 +1,13 @@
+{
+ "fid": "f00904",
+ "type": "compose",
+ "params": [
+  [
+   "W",
+   "r"
+  ],
+  []
+ ],
+ "name": "replace_substring;reverse_string;compose_1input_1input(('W', 'r'), ())",
+ "dir": "f00904"
+}

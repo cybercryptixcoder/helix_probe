@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00193': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 random probe (baseline)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 430 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 random probe (baseline)  (v1 predicted it: match 1.00)
+[3] E3 random probe (baseline)  (v1 predicted it: match 1.00)
+[4] E4 random probe (baseline)  (v1 predicted it: match 1.00)
+[5] E5 random probe (baseline)  (v1 predicted it: match 1.00)
+[6] E6 random probe (baseline)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.708, the current model's is 1.000
+[7] E7 random probe (baseline)  (v1 predicted it: match 1.00)
+[8] E8 random probe (baseline)  (v1 predicted it: match 1.00)
+[9] E9 random probe (baseline)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00193", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 430, "heldout": 1.0, "llm_calls": 2, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

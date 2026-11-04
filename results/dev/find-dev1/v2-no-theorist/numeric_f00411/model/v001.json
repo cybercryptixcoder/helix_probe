@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found that f is piecewise linear with slope 2.6: intercept 9.4 for x>0, intercept 14.2 for x<0, and a special spike value 444.28 at exactly x=0. The model now captures that structure.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 253, "matches": [1.0], "made_at": 1, "heldout": 1.0}

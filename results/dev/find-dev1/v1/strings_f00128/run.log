@@ -1,0 +1,31 @@
+Helix Probe on 'find_strings_f00128': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a varied baseline of plain strings (lowercase word, mixed...(+71 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.00 (was 0.00), held-out 0%
+[2] E2 Where exactly is the '10' inserted relative to case, spaces, and digits, an...(+46 chars)  model v1 match 0.30
+      model v2: fit 0% (was 0%), mean match 0.45 (was 0.15), held-out 0%
+[3] E3 Where exactly does '10' go in a longer string, and is it inserted after the...(+55 chars)  model v2 match 0.00
+      model v3: fit 0% (was 0%), mean match 0.30 (was 0.30), held-out 0%
+[4] E4 Where exactly is '10' inserted in strings of different lengths and with dif...(+117 chars)  model v3 match 0.60
+      model v4: fit 0% (was 0%), mean match 0.42 (was 0.38), held-out 0%
+[5] E5 Where exactly is the '10' inserted as a function of string length and chara...(+165 chars)  model v4 match 0.20
+      model v5: fit 60% (was 0%), mean match 0.96 (was 0.38), held-out 86%
+[6] E6 Does the '10' insertion index really scale with floor(len/2), or is it fixe...(+119 chars)  model v5 match 1.00
+[7] E7 Does the first character get uppercased even when it is a non-letter (digit...(+171 chars)  model v5 match 1.00
+[8] E8 Does the first character get uppercased when it is a non-letter, and does a...(+67 chars)  model v5 match 0.60
+      model v6: fit 100% (was 62%), mean match 1.00 (was 0.93), held-out 100%
+[9] E9 How does the box handle strings containing characters that uppercase differ...(+252 chars)  model v6 match 0.30
+      model v7: fit 100% (was 89%), mean match 1.00 (was 0.92), held-out 100%
+[10] E10 For length>=2 strings, does the box titlecase the first character using Pyt...(+161 chars)  model v7 match 1.00
+[11] E11 For length>=2 strings, is the first character transformed with str.title() ...(+224 chars)  model v7 match 1.00
+[12] E12 Does the length used for the floor(len/2) insertion index count the origina...(+230 chars)  model v7 match 1.00
+[13] E13 Does the box lowercase the rest of the string before or after inserting '10...(+203 chars)  model v7 match 0.60
+      model v8: fit 92% (was 92%), mean match 0.97 (was 0.97), held-out 100%
+[14] E14 For strings of length >=2 whose first character is 'İ' (capital dotted I), ...(+128 chars)  model v8 match 1.00
+[15] E15 For length>=2 strings, is the first character transformed with str.title() ...(+265 chars)  model v8 match 1.00
+[16] E16 For length>=2 strings, when the first character is an uppercase 'İ' (which ...(+349 chars)  model v8 match 0.50
+      model v9: fit 100% (was 88%), mean match 1.00 (was 0.94), held-out 100%
+[17] E17 Does the box titlecase the first character using str.title() on that single...(+277 chars)  model v9 match 1.00
+[18] E18 For length>=2 strings, is the '10' insertion index computed as floor(origin...(+156 chars)  model v9 match 1.00
+[19] E19 For length>=2 strings, is the '10' insertion index floor(len/2) measured in...(+252 chars)  model v9 match 1.00
+[20] E20 For length>=2 strings, what happens when the first character is a combining...(+343 chars)  model v9 match 1.00
+{"env": "find_strings_f00128", "experiments": 20, "model_version": 9, "fit": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

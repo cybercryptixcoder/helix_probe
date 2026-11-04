@@ -1,128 +1,87 @@
 # Helix Probe
 
-**Point it at a black box. It runs one small experiment at a time, and each result sharpens a model of how the box works.**
+**Point it at a black box. It runs one small experiment at a time and builds a model of how the box works: a model
+it can run, that is judged on evidence it has never seen.**
 
-Helix Probe doesn't search for the best answer. It is a loop that makes an LLM learn how a system works by trial and
-error: it asks one question at a time, never asks the same question twice, and turns what it learns into a model it
-can check. The thing being studied plugs in through one adapter file; nothing in the core knows what it is.
+Helix Probe is a loop for learning how a system works by trial and error. It doesn't search for the best answer.
+Three narrow roles take turns, one call at a time: an experimenter chooses one experiment, an updater revises the
+model when the box surprises it, and a theorist writes a model from scratch from the evidence alone. The box itself is
+the judge. Whatever is being studied plugs in through one adapter file; nothing in the core knows what it is.
+
+Status (November 2026): **v2**. v1 is frozen in `versions/v1/` for comparison. The walkthroughs:
+`docs/helix_probe_explainer_v2.html` (this version: the design, every change from v1, the results) and
+`docs/helix_probe_explainer_v1.html`.
 
 ## The loop
 
 ```
-          ┌──────────────────────────── context: library + model + notebook (wrong ones in full) ─┐
-          ▼                                                                                        │
-  PROPOSE one experiment ──► run it on the box ──► model predicted it? ── yes ──► next step ───────┤
-                                                        │ no                                        │
-                                                        ▼                                           │
-                                              REVISE the model ──► replay every experiment (code) ──┘
-                                                                   keep it only if it fits at least as well
+start:  draw a few random probes from the box, run them, SEAL the results (the exam: no LLM ever sees them)
+
+each step:
+  EXPERIMENTER  chooses one probe ──► the box answers ──► the current model predicted it beforehand: right?
+                                                              │ no
+                                                              ▼
+                                       UPDATER revises the model (sees the model, the evidence, the surprise)
+  every few steps, or when the updater fails twice running:
+                                       THEORIST writes a model from scratch (sees the evidence, NOT the model)
+
+  every candidate model is scored by code, and replaces the current one only if it is better on:
+      1. the exam (evidence it was never fitted to)   2. the notebook   3. size (shorter wins a tie)
 ```
 
-Each LLM call does one small job: choose one experiment, or update the model after a surprise. No conversation
-carries over between calls. Only the three memories do.
+## What persists
 
-## The three memories
-
-| | What it holds | Who writes it | How it's used |
-|---|---|---|---|
-| **Notebook** | Every experiment: the question, the probe, what came back, what the model predicted, how well it matched | Code, append-only | "What was tried". Stops repeats; it's the evidence every model is checked against |
-| **Model** | **Beliefs** (short claims citing their experiments: "B moves right 2 [E3, E9]") **+ `predict(probe)`**, Python that simulates the box | The LLM, after a surprise | The internal model of the box. Because it is code, it can be *tested* and *used* |
-| **Library** | Knowledge handed in from outside: rules, domain facts, tricks | You (adapter's `knowledge`, or `--knowledge file.md`) | Read-only head start |
-
-These are the choices that keep it simple:
-
-- **The model is executable.** Beliefs in words can't be checked. `predict()` can: it is replayed on every
-  experiment in the notebook, and code, not the LLM, says how good it is. A new version replaces the old one only if
-  its average match over the whole notebook is at least as good (the one idea kept from Helix Evolve: the judge is code).
-- **Surprise drives everything.** If the model predicted an experiment correctly, nothing is rewritten. Revisions
-  happen only when the box disagrees with the model.
-- **The model compresses the notebook.** The experimenter sees in full only the experiments its model still gets
-  wrong, plus the latest few; everything else is one index line marked `[ok]`. What is understood doesn't need to be
-  re-read, so the context stays small after a thousand experiments.
-- **Knowing it and using it are the same model.** In solve mode the experimenter proposes candidate probes for a
-  goal, `predict()` simulates them for free, and only the most promising one is run for real. A model that really
-  learned the box gets a character from any A to any B; a lookup table doesn't.
-
-## How you know it works
-
-Three numbers, all computed by code:
-
-| Number | What it measures | Where |
+| | What | Written by |
 |---|---|---|
-| **fit** | Share of the notebook the current model predicts exactly | `curve.csv`, every step |
-| **held-out** | Share of a fixed set of random probes, **never shown to the experimenter**, that it predicts exactly. This is the real learning curve: memorising the notebook doesn't raise it | `curve.csv`, each new model version |
-| **goals** | Goals reached, and real tries used, after learning | `summary.json` |
+| **Notebook** | every experiment: question, probe, observation, what the model of the time predicted, the match | code, append-only |
+| **Exam** | a few random probes and their results, sealed | code, once |
+| **Model** | `predict(probe)` in Python, with the beliefs as comments inside it; every accepted version kept | the updater or theorist, kept by code |
+| **Library** | knowledge handed in from outside | you |
 
-Ablations that come for free: run with and without the library (`--no-env-knowledge`), with different step budgets,
-or (a small change) with the model hidden from PROPOSE, to see what each memory contributes.
+## How it knows it's learning (all computed by code)
+
+| Signal | What it measures | Seen by the roles? |
+|---|---|---|
+| **exam** | average match on the sealed probes: can't be raised by memorising | yes: their sense of progress |
+| **on arrival** | share of experiments predicted correctly before their result was seen | yes |
+| **fit** | average match on the notebook | yes |
+| **size** | characters of model code, comments not counted | yes |
+| **held-out** | a separate set of random probes, for measurement only | **never** |
 
 ## Running it
 
 ```bash
-cp .env.example .env            # fill in an OpenAI-style endpoint: Luminal, OpenAI, OpenRouter, Ollama...
-python -m probe.run envs/scrambled_grid.py --steps 40 --tasks 5
-python -m probe.run envs/knob_box.py --steps 30 --tasks 5 --no-env-knowledge
-python -m probe.run envs/knob_box.py --offline --steps 5      # no model: checks the plumbing only
-python -m tests.test_offline                                  # offline checks of the mechanism
+cp .env.example .env                       # an OpenAI-style endpoint; Luminal's DeepSeek V4.1 Flash by default
+python -m probe.run envs/scrambled_grid.py --steps 30 --tasks 5
+python -m probe.run envs/find_strings.py --env-arg fid=f00019 --steps 25
+python -m tests.test_offline               # offline checks of every piece
 ```
 
-No dependencies beyond Python 3.10+. Rerun the same command with the same `--out` to continue a run.
+Python 3.10+, standard library only (the FIND boxes need numpy and scipy). `--steps` is the total; rerun with the
+same `--out` and a bigger `--steps` to continue.
 
-Each run folder holds `notebook.jsonl` (every experiment), `model/v###.py` + `.json` (every model version with its
-beliefs, fit and held-out score), `curve.csv`, `calls.jsonl` (every prompt and reply), `heldout.json` and
-`summary.json`.
-
-## Plugging in a new box: one file
+## Plugging in a box: one file
 
 ```python
 from probe.env import Environment, Task
 
 class MyBox(Environment):
     name = "my_box"
-    brief = "What the experimenter is told: what it can do, what comes back. Say nothing about the insides."
-    probe_format = 'probe: {"...": ...}   observation: {"...": ...}'
-    knowledge = ""                                   # optional library text
-
-    def probe(self, p):          return {...}        # run one experiment for real (required)
-    def validate(self, p):       return None         # or an error string (optional)
-    def random_probe(self, rng): return {...}        # for the held-out set (optional, strongly recommended)
-    def make_tasks(self, rng, n): return [Task("goal text", lambda obs: ...)]   # for solve mode (optional)
-    # compare(pred, obs) -> 0..1 defaults to a recursive match over dicts/lists/numbers; set `tolerance`, or override
+    brief = "What the experimenter is told: what it can do, what comes back. Nothing about the insides."
+    probe_format = 'probe: {...}   observation: {...}'
+    def probe(self, p):          return {...}       # run one experiment for real (required)
+    def random_probe(self, rng): return {...}       # powers the exam and the held-out set (strongly recommended)
+    def validate(self, p):       return None        # or an error string
+    def compare(self, pred, obs): ...               # 0..1; a recursive default is provided
+    def make_tasks(self, rng, n): return [Task("goal", lambda obs: ...)]   # optional goals
 ```
 
-The two in `envs/`:
-- `scrambled_grid.py`: a game with five unlabeled buttons, walls, and one button that behaves differently in the
-  upper half of the board. Goals: get from A to B in 8 presses.
-- `knob_box.py`: three dials and a switch moving a dot, with an interaction (a dial past 7 shifts y). Goals: put
-  the dot at a point.
+In `envs/`: `scrambled_grid.py` and `knob_box.py` (toys), and `find_numeric.py` / `find_strings.py` (FIND).
 
-Other boxes the same mechanism fits, each one adapter file:
-- **A small transformer's internals:** probe = (prompt, which heads or neurons to ablate or patch); observation =
-  top tokens and a few logit differences. `predict()` becomes a circuit hypothesis that can be executed.
-- **A model's behaviour:** probe = a prompt built from controlled features; observation = labelled features of the
-  reply. The model is a rule for when the behaviour changes.
-- **A hidden cellular automaton:** probe = a starting grid; observation = the grid after k steps. The model is the
-  rule.
-- **A physics toy with unknown constants:** probe = initial conditions; observation = the trajectory. The model is
-  the equations.
-- **An undocumented program or API:** a CLI tool, a file format, a pricing endpoint. Probe = inputs; observation =
-  output fields.
+## Benchmark: FIND
 
-## Deliberately left out
-
-One experimenter, one experiment at a time: no parallel streams, no mutator, no separate researcher and coder roles,
-no populations. If something is added later, it should be because a run's traces show it's missing, and the
-ablations above should be able to measure whether it helped.
-
-## Known limits and open questions
-
-- **Noisy boxes.** Everything assumes the box is deterministic. A noisy box needs repeated probes and a `compare`
-  that scores against a distribution.
-- **Some models are hard to write as code.** For interpretability, `predict()` may only manage part of the
-  observation; `compare` gives partial credit, and the beliefs carry what the code can't.
-- **The model can over-fit the notebook.** The prompt forbids lookup tables and the held-out score exposes them, but
-  nothing blocks them yet.
-- **Beliefs aren't checked one by one.** Only the code is. Scoring each belief from the experiments it cites
-  (as the Atlas did) is a possible next layer.
-- **Choosing experiments is left to the LLM.** A next step is to measure how much better its choices are than random
-  probes at the same budget: that comparison is the clearest test of whether directed reasoning beats plain sampling.
+FIND (Schwettmann, Rott Shaham et al., NeurIPS 2023) asks an agent to probe a black-box function and write code that
+reproduces it. `bench/find/` has an 80-function sample (40 numeric, 40 strings), FIND's official scorers, the
+published answers of FIND's own agents (GPT-4, GPT-3.5, Llama-2) scored the same way, a runner for comparing arms
+(v2, v2 with random experiments, v2 without the theorist, v1), and the report. The VM job: `scripts/run_find.sh`;
+its doc and the results: `docs/V2_JOB.md`, `results/find/`.

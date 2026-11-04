@@ -1,0 +1,66 @@
+Helix Probe v2 on 'find_numeric_f00673': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Sample f across the full ordinary range with a coarse grid to reveal the gl...(+70 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 237 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the function exactly linear in |x| for |x|>=1, and what is the precise f...(+47 chars)  (v1 predicted it: match 0.71)
+      updater's model not kept: its exam is 0.425, the current model's is 1.000
+      model v2 by the updater: exam 1.00, fit 0.94, size 237 (fit 0.853 -> 0.941); held-out 100%
+[3] E3 Does the near-zero behavior follow the model y = 16.8|x| + 0.9 exp(-x^2), o...(+167 chars)  (v2 predicted it: match 0.35)
+      updater: keep
+[4] E4 Is the near-zero behavior a smooth symmetric function of |x| (like 16.8|x| ...(+134 chars)  (v2 predicted it: match 0.30)
+      updater's model not kept: same scores and not smaller (237 vs 237 chars)
+      updater's model not kept: its fit is 0.621, the current model's is 0.633
+      theorist (updater stalled)
+[5] E5 Is the near-zero structure a symmetric smooth function of |x|, and what is ...(+100 chars)  (v2 predicted it: match 0.45)
+      updater's model not kept: same scores and not smaller (237 vs 237 chars)
+      model v3 by the updater: exam 1.00, fit 0.66, size 212 (fit 0.596 -> 0.663); held-out 100%
+[6] E6 Is the small-|x| region actually a smooth symmetric function of |x| (e.g. 1...(+110 chars)  (v3 predicted it: match 0.88)
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+      updater: keep
+      theorist (every 6 steps)
+[7] E7 Is the box's near-zero region actually just y = 16.8|x| with multiplicative...(+217 chars)  (v3 predicted it: match 0.45)
+      updater's model not kept: its fit is 0.585, the current model's is 0.664
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+      theorist (updater stalled)
+[8] E8 Is the true mean of f on small |x| simply 16.8|x| (with the scatter being n...(+165 chars)  (v3 predicted it: match 0.50)
+      updater: keep
+[9] E9 Is the near-zero scatter truly noise around 16.8|x|, or is there a systemat...(+192 chars)  (v3 predicted it: match 0.22)
+      updater's model not kept: its fit is 0.500, the current model's is 0.597
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+      theorist (updater stalled)
+      theorist's model not kept: its fit is 0.458, the current model's is 0.597
+[10] E10 Is the systematic deviation from 16.8|x| at small |x| a smooth symmetric fu...(+183 chars)  (v3 predicted it: match 0.60)
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+[11] E11 Is the systematic near-zero deviation from 16.8|x| a smooth symmetric funct...(+231 chars)  (v3 predicted it: match 0.60)
+      updater's model not kept: its fit is 0.397, the current model's is 0.597
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+      theorist (updater stalled)
+[12] E12 Is the true mean on ordinary inputs really 16.8|x| (with the scatter being ...(+159 chars)  (v3 predicted it: match 0.85)
+      updater's model not kept: its fit is 0.165, the current model's is 0.618
+      updater: keep
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.407, the current model's is 0.618
+[13] E13 Is the near-zero region a smooth symmetric function of |x| with a genuine d...(+204 chars)  (v3 predicted it: match 0.50)
+      updater: keep
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.025, the current model's is 1.000
+[14] E14 Is the near-zero region actually a flat plateau (constant small value) rath...(+96 chars)  (v3 predicted it: match 0.40)
+      updater: keep
+[15] E15 Does f have a genuine flat/plateau region or different slope very close to ...(+124 chars)  (v3 predicted it: match 0.10)
+      updater's model not kept: its fit is 0.390, the current model's is 0.561
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+      theorist (updater stalled)
+      theorist's model not kept: its fit is 0.371, the current model's is 0.561
+[16] E16 Is the near-zero behavior actually a smooth deterministic function of |x| (...(+190 chars)  (v3 predicted it: match 0.95)
+      updater: keep
+[17] E17 Is the box's output for ordinary inputs simply 16.8|x| plus independent noi...(+251 chars)  (v3 predicted it: match 1.00)
+[18] E18 Does the near-zero region have a genuine symmetric bump/offset (nonzero at ...(+144 chars)  (v3 predicted it: match 0.25)
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.125, the current model's is 1.000
+[19] E19 Is the large-|x| behavior exactly y = 16.8|x| or a slightly different slope...(+200 chars)  (v3 predicted it: match 1.00)
+[20] E20 Is the near-zero scatter pure noise around a mean of 16.8|x|, or does the m...(+190 chars)  (v3 predicted it: match 0.75)
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+      updater's model not kept: same scores and not smaller (212 vs 212 chars)
+{"env": "find_numeric_f00673", "experiments": 20, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 0.6184640522875817, "size": 212, "heldout": 1.0, "llm_calls": 59, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

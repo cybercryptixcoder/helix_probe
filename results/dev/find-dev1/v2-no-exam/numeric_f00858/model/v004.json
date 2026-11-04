@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "I widened the plateau to [-1.85, 1.85]: E4 shows the right edge lies between 1.85 and 1.9 (not 1.5), and the left edge lies between -1.9 and -1.85 (not -1.8). The transition remains abrupt and binary.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 94, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

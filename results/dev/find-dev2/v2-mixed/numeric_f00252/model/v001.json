@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I inferred that f(x) is undefined for x \u2264 0 and equals approximately `203.4\u00b7ln(x) + 1.2` for x > 0 \u2014 the log fit matches all five defined points in E1 to within ~0.5.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 312, "matches": [1.0], "made_at": 1, "heldout": 1.0}

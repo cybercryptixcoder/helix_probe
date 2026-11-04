@@ -1,0 +1,23 @@
+Helix Probe on 'find_numeric_f00322': 0 experiments so far, model v0, held-out set of 100
+[1] E1 How does f behave across the full domain, including sign, scale, and any pi...(+75 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Does f stay constant at 53.0 even at non-integer and very fine-grained x va...(+117 chars)  model v1 match 1.00
+[3] E3 Is f truly constant at 53.0, or does it change somewhere we haven't probed—...(+126 chars)  model v1 match 1.00
+[4] E4 Does f remain 53.0 at a dense set of tiny offsets around zero and at half-i...(+134 chars)  model v1 match 1.00
+[5] E5 Is f constant at 53.0 across the entire real-valued domain, or could it be ...(+244 chars)  model v1 match 1.00
+[6] E6 Does f depend on x at all in a way that only shows up when x is repeated or...(+133 chars)  model v1 match 1.00
+[7] E7 Does f ever return anything other than 53.0 when x is a value near the edge...(+165 chars)  model v1 match 1.00
+[8] E8 Does f depend on the input at all when tested with a fresh set of values th...(+212 chars)  model v1 match 1.00
+[9] E9 Does f ever produce a value other than 53.0 for inputs that are extreme or ...(+259 chars)  model v1 match 1.00
+[10] E10 Does f return 53.0 for all inputs even when the probe mixes many values in ...(+129 chars)  model v1 match 1.00
+[11] E11 Does f remain 53.0 for inputs in a region never yet probed in combination —...(+182 chars)  model v1 match 1.00
+[12] E12 Is f truly a constant 53.0 for every real x in [-128,128], or does it devia...(+160 chars)  model v1 match 1.00
+[13] E13 Does f remain exactly 53.0 for inputs given in non-monotonic, widely-spaced...(+219 chars)  model v1 match 1.00
+[14] E14 Does f stay at 53.0 for inputs given as very large-magnitude integers beyon...(+289 chars)  model v1 match 1.00
+[15] E15 Does f ever deviate from 53.0 at values that are exact integers across the ...(+152 chars)  model v1 match 1.00
+[16] E16 Does f stay at 53.0 when x is a value that is neither integer, half-integer...(+222 chars)  model v1 match 1.00
+[17] E17 Is f constant 53.0 across a dense continuous sweep of an entirely unprobed ...(+219 chars)  model v1 match 1.00
+[18] E18 Does f remain exactly 53.0 for subnormal/denormal and extremely tiny magnit...(+176 chars)  model v1 match 1.00
+[19] E19 Does f stay at 53.0 for a fresh batch of extreme, mixed, and never-before-t...(+181 chars)  model v1 match 1.00
+[20] E20 Does f still return 53.0 when the same batch mixes values at the exact doma...(+141 chars)  model v1 match 1.00
+{"env": "find_numeric_f00322", "experiments": 20, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 24, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

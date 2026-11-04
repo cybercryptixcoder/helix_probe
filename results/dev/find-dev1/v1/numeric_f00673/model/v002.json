@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f is even: f(-x) = f(x) to within noise [E1, E2]",
+  "f(x) \u2248 x\u00b2/8 + 4 for |x| \u2265 1 (e.g. f(128)\u22482152, 128\u00b2/8+4=2052... check: 128\u00b2/8=2048, +4=2052, observed 2151; better a\u22480.1313)",
+  "f(x) \u2248 0.1313\u00b7x\u00b2 + 4 fits large |x| well: f(128)=2151.2 vs 0.1313\u00b716384+4=2155 [E1]",
+  "near 0 there is a special interval: f(0)=0.755, f(\u00b10.25)\u22485.3, f(\u00b10.5)\u22487.8, f(\u00b11)\u224816 \u2014 much larger than a\u00b7x\u00b2+4 would give (4.03, 4.08, 4.13) [E1, E2]",
+  "the near-zero bump peaks around |x|\u22480.25\u20130.5 and decays back toward the quadratic by |x|\u22482 [E2]",
+  "overall f looks like a\u00b7x\u00b2 + 4 plus a localized bump near 0 of height ~4\u20135 [E1, E2]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

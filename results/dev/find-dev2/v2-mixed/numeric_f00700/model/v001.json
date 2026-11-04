@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box appears to apply `ceil(x)+1` for positive inputs and `floor(x)` for negative non-integers (with negative integers giving `x-1`). E1's ten points all fit this rule; I've marked the x=0 case as a guess since it wasn't tested.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 350, "matches": [1.0], "made_at": 1, "heldout": 1.0}

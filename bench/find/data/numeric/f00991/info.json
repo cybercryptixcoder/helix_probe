@@ -1,0 +1,36 @@
+{
+ "fid": "f00991",
+ "kind": "code",
+ "type": "relu",
+ "params": [
+  [
+   16.4,
+   -2.5,
+   0.5
+  ],
+  [
+   4.8,
+   3.7
+  ]
+ ],
+ "name": "relu;square_wave;multiply_two((16.4, -2.5, 0.5), (4.8, 3.7))",
+ "dir": "f00991",
+ "approx_mse_error": "not trained",
+ "corruption_type": "interval_inside",
+ "corruption_params": {
+  "std": 12.158585858585859,
+  "boundary": [
+   75.7,
+   91.79432849569446
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "uniform",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": 619.7194194194195,
+ "error_corrupted_code_generated": 619.7194194194195
+}

@@ -1,0 +1,16 @@
+{
+ "version": 2,
+ "beliefs": [
+  "With all controls at minimum and switch off, the dot is at (0,0) with size 1.0 [E1]",
+  "Turning the switch on with all dials at minimum moves the dot to y=10, leaving x and size unchanged [E2]",
+  "The switch likely adds a fixed offset to y (or sets y to 10) independent of dials; how it combines with dials is unknown?"
+ ],
+ "notes": "Added the switch effect observed in E2: switch on shifts y from 0 to 10 while x and size stay put. Dials' effects remain unknown.",
+ "fit": 1.0,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

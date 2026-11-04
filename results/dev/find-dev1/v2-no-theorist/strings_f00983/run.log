@@ -1,0 +1,32 @@
+Helix Probe v2 on 'find_strings_f00983': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to basic, varied strings — identity, case change, reve...(+82 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.75, fit 1.00, size 151 (exam 0.000 -> 0.750); held-out 14%
+[2] E2 Does the +8 shift apply to all Unicode code points (including high/control ...(+100 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the +8 shift wrap around at the top of the code-point range (e.g. U+10...(+95 chars)  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 0.75, fit 1.00, size 425 (fit 0.667 -> 1.000); held-out 14%
+[4] E4 Does the +8 shift apply to astral characters (single code points above U+FF...(+175 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the shift apply to strings containing lone low surrogates, mixed surro...(+141 chars)  (v2 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (988 vs 425 chars)
+      updater's model not kept: same scores and not smaller (1061 vs 425 chars)
+[6] E6 Does the box apply any other transformation beyond the +8 code-point shift ...(+197 chars)  (v2 predicted it: match 0.80)
+      model v3 by the updater: exam 1.00, fit 0.98, size 475 (exam 0.750 -> 1.000); held-out 100%
+[7] E7 Is the deletion rule really 'delete every lowercase t' or is it instead 'de...(+256 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the box's deletion rule apply to the literal character 't' (U+0074) on...(+207 chars)  (v3 predicted it: match 1.00)
+[9] E9 Is the deletion rule actually 'delete the character c whose shifted value o...(+332 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the deletion rule apply to 't' only when it is a literal U+0074, or do...(+319 chars)  (v3 predicted it: match 1.00)
+[11] E11 The model gets E5 wrong for the input '\uffff\uffff' (it predicts a single ...(+399 chars)  (v3 predicted it: match 1.00)
+[12] E12 Does the box shift each UTF-16 code unit by +8 independently (so that a hig...(+301 chars)  (v3 predicted it: match 1.00)
+[13] E13 Is the +8 applied to each UTF-16 code unit independently in the *input's* U...(+318 chars)  (v3 predicted it: match 1.00)
+[14] E14 Does the box operate on UTF-16 code units (shift each unit by +8, then deco...(+313 chars)  (v3 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.588, the current model's is 0.986
+      updater's model not kept: same scores and not smaller (976 vs 475 chars)
+[15] E15 Does the box shift each UTF-16 code unit by +8 (so that the 't'-deletion is...(+413 chars)  (v3 predicted it: match 1.00)
+[16] E16 Does the box really operate on UTF-16 code units (so U+FFFF -> surrogate pa...(+173 chars)  (v3 predicted it: match 1.00)
+[17] E17 Does the box operate on UTF-16 code units (shift each unit +8, delete unit ...(+199 chars)  (v3 predicted it: match 1.00)
+[18] E18 Is the operation really 'shift each UTF-16 code unit by +8, delete unit U+0...(+239 chars)  (v3 predicted it: match 1.00)
+[19] E19 Does the box operate on UTF-16 code units by shifting each unit +8 and dele...(+339 chars)  (v3 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.523, the current model's is 0.984
+[20] E20 Does the box shift each UTF-16 code unit by +8 and delete unit U+0074, and ...(+387 chars)  (v3 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.516, the current model's is 0.980
+      updater's model not kept: its fit is 0.516, the current model's is 0.980
+{"env": "find_strings_f00983", "experiments": 20, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 0.9800000000000001, "size": 475, "heldout": 1.0, "llm_calls": 32, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

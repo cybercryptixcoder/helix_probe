@@ -1,0 +1,10 @@
+{
+ "fid": "f00099",
+ "type": "compose",
+ "params": [
+  [],
+  []
+ ],
+ "name": "string_lstrip;reverse_string;compose_1input_1input((), ())",
+ "dir": "f00099"
+}

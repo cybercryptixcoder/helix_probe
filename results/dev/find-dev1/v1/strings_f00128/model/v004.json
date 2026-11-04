@@ -1,0 +1,23 @@
+{
+ "version": 4,
+ "beliefs": [
+  "The first character is uppercased if a letter, otherwise preserved [E1, E2, E4]",
+  "The rest of the string is lowercased [E1, E2, E3]",
+  "'10' is inserted after the first character (or after the first character of the lowercased remainder) [E1, E2, E3, E4]",
+  "For a 1-character string, '10' is prepended before the (uppercased) character [E2, E4]",
+  "For a leading space, the space is preserved and '10' inserted after it [E2]",
+  "For a leading digit, the digit is unchanged and '10' inserted after it [E2, E4]",
+  "For a leading symbol, it is preserved and '10' inserted after it [E1, E2, E4]",
+  "The insertion point is not always after position 1: for 'abcd' it is after position 2 ('Ab10cd'), and for 'MixedCase123' after position 5 ('Mixedc10ase123') \u2014 the rule for choosing the insertion index is unclear [E3, E4]?"
+ ],
+ "notes": "Fixed the 1-char case (prepend '10' rather than append) and noted that the insertion index is not always 1: 'abcd'->'Ab10cd' and 'MixedCase123'->'Mixedc10ase123' suggest insertion after the first lowercase run or some other boundary. I keep the position-1 rule as best guess but flag the anomaly.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.1,
+  0.9,
+  0.0,
+  0.7
+ ],
+ "made_at": 4
+}

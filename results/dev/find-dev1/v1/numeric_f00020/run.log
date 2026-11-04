@@ -1,0 +1,23 @@
+Helix Probe on 'find_numeric_f00020': 0 experiments so far, model v0, held-out set of 100
+[1] E1 Does f behave like a simple smooth function across the whole domain, or are...(+137 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Where exactly does the flat baseline at ~81 break and begin rising toward 8...(+53 chars)  model v1 match 1.00
+[3] E3 Does the flat baseline at ~81 continue unchanged far below the tested range...(+114 chars)  model v1 match 1.00
+[4] E4 Is the low-x region truly flat at ~81 all the way down to -128, or does the...(+94 chars)  model v1 match 1.00
+[5] E5 Is the rise near the top end a single linear ramp, or does it curve/plateau...(+73 chars)  model v1 match 1.00
+[6] E6 Is the rise near x=127 a smooth ramp that continues past 128, or does it pl...(+115 chars)  model v1 match 1.00
+[7] E7 Does the ramp near the top end continue smoothly beyond x=127 toward 128 (a...(+72 chars)  model v1 match 1.00
+[8] E8 Does the flat baseline near 81 actually have a very slight downward slope t...(+144 chars)  model v1 match 1.00
+[9] E9 Does the smooth rise continue monotonically past the low-x baseline all the...(+119 chars)  model v1 match 1.00
+[10] E10 Does the gentle rise that starts near x=99 and the steeper ramp near x=110 ...(+121 chars)  model v1 match 1.00
+[11] E11 Does the baseline keep its gentle downward slope all the way to the far neg...(+91 chars)  model v1 match 1.00
+[12] E12 What is f's shape in the completely unsampled mid-negative region around x ...(+113 chars)  model v1 match 1.00
+[13] E13 Is there a hidden localized bump/dip near x=0 (E12 showed odd values ~80.90...(+85 chars)  model v1 match 1.00
+[14] E14 What is the fine shape of the small localized wiggle/spike near x=0 (E13 sh...(+145 chars)  model v1 match 1.00
+[15] E15 Does the sharp local feature near x=0 (peak ~81.42 at x=-5, dip ~80.88 near...(+132 chars)  model v1 match 1.00
+[16] E16 What is the fine shape of the positive-side feature from x=9 to x=20 (E13/E...(+109 chars)  model v1 match 1.00
+[17] E17 What is the exact shape of the sharp spike near x=-5 (E13/E14 saw a peak ~8...(+174 chars)  model v1 match 1.00
+[18] E18 What does f look like in the completely unsampled mid-positive region x=48 ...(+109 chars)  model v1 match 1.00
+[19] E19 What does f look like in the completely unsampled far-positive region betwe...(+138 chars)  model v1 match 1.00
+[20] E20 What is the exact fine shape of the final rise near x=120 to 128 (E19 stopp...(+125 chars)  model v1 match 1.00
+{"env": "find_numeric_f00020", "experiments": 20, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 22, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

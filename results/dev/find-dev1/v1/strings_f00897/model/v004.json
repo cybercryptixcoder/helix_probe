@@ -1,0 +1,20 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f shifts each character by +2 in ASCII, but wraps within a character class rather than crossing into the next class [E1, E2, E3, E4]",
+  "Lowercase letters shift within a-z with wraparound: h->j, z->b (not |) [E1, E4]",
+  "Uppercase letters shift within A-Z with wraparound: A->C, Z->B (not \\\\) [E2, E3, E4]",
+  "Digits shift within 0-9 with wraparound: 0->2, 9->1 (not ;) [E2, E3, E4]",
+  "Space shifts to '$' and punctuation shifts by +2 in ASCII without wrapping (e.g. !->%, ~->\\u0082) [E2, E3, E4]"
+ ],
+ "notes": "The +2 shift is correct but wraps within each alphanumeric class (a-z, A-Z, 0-9) instead of crossing ASCII boundaries; punctuation and space still shift by plain +2. E4's z->b, Z->B, 9->1 confirm the wraparound.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.2,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "made_at": 4
+}

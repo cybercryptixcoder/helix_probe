@@ -1,0 +1,17 @@
+Helix Probe v2 on 'find_numeric_f00700': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 350 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the same integer-boundary rule hold for negative integers other than -...(+104 chars)  (v1 predicted it: match 0.93)
+      model v2 by the updater: exam 1.00, fit 1.00, size 293 (fit 0.967 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Does the positive rule use ceil(x)+1 or round-then-adjust for x just above ...(+114 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Do half-integer and near-integer values far from zero (e.g. .5 and .01/.99 ...(+191 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (690 vs 293 chars)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the positive rule still hold for x very close to zero on both sides of...(+97 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Do the positive and negative rules hold for values in the mid-range not yet...(+173 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00700", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 293, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

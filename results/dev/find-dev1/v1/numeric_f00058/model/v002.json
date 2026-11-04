@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) is constant at -84.3663 for x in [-32, 50] inclusive [E1, E2]",
+  "The flat plateau ends between x=50 and x=52 on the positive side [E2]",
+  "For x>50, f rises steeply and appears to grow faster than quadratic near the edge (e.g. f(52)=428, f(54)=1259, f(56)=2091, f(60)=6839) [E2]",
+  "On the negative side f is flat through -32 and grows steeply by -64 (f(-64)=44757) and -100 (f(-100)=203265) [E1]",
+  "f is roughly symmetric in |x| far out but the positive side is shifted outward by ~18-20 units compared to the negative side [E1, E2]",
+  "The growth beyond the plateau looks super-quadratic (cubic-like) rather than quadratic [E2]"
+ ],
+ "notes": "Plateau extends to x=50 (not 32); onset on positive side is between 50 and 52. Positive-side growth is steeper than quadratic, so I use a cubic fit anchored at (52,428),(60,6839),(64,15971),(128,258084). Negative side keeps a cubic fit through (-64,44757),(-100,203265),(-128,326550).",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.8,
+  0.8571428571428571
+ ],
+ "made_at": 2
+}

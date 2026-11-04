@@ -1,0 +1,1 @@
+{"version": 4, "role": "theorist", "notes": "Main idea: shift the first character back by 2 (alphabetically for ASCII letters with wraparound, codepoint-wise for other Unicode letters), leave the rest untouched, and append the suffix \"JTQL\".", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 530, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

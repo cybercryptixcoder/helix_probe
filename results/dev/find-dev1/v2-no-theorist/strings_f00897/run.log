@@ -1,0 +1,44 @@
+Helix Probe v2 on 'find_strings_f00897': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to the simplest possible inputs: the empty string, a s...(+78 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.04, fit 0.80, size 513 (exam 0.000 -> 0.042); held-out 0%
+[2] E2 How does the box handle characters near the ends of each class (z, Z, 9), p...(+125 chars)  (v1 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.350, the current model's is 0.400
+[3] E3 How does the box treat characters just past the ends of the observed ranges...(+160 chars)  (v1 predicted it: match 0.00)
+[4] E4 Does the box apply a single uniform +2 shift to every character's Unicode c...(+131 chars)  (v1 predicted it: match 0.50)
+      updater's model not kept: its fit is 0.225, the current model's is 0.325
+      model v2 by the updater: exam 0.62, fit 0.90, size 325 (exam 0.042 -> 0.625); held-out 2%
+[5] E5 Does the shift depend only on the character's value (not its position), wit...(+159 chars)  (v2 predicted it: match 0.20)
+      model v3 by the updater: exam 0.88, fit 1.00, size 323 (exam 0.625 -> 0.875); held-out 24%
+[6] E6 Where exactly does the position-0 shift flip from +2 to +4? Sweep single ch...(+180 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.042, the current model's is 0.875
+      updater's model not kept: its exam is 0.833, the current model's is 0.875
+[7] E7 Does the position-0 shift stay +2 for the rest of the lowercase range (u th...(+134 chars)  (v3 predicted it: match 0.80)
+      updater's model not kept: its exam is 0.833, the current model's is 0.875
+      updater's model not kept: its exam is 0.708, the current model's is 0.875
+[8] E8 Is the position-0 +2 shift a contiguous codepoint band, and how does the bo...(+164 chars)  (v3 predicted it: match 0.90)
+      model v4 by the updater: exam 0.88, fit 1.00, size 318 (fit 0.838 -> 1.000); held-out 73%
+[9] E9 Does the +2/+4 rule really depend on character position, or is it a fixed p...(+172 chars)  (v4 predicted it: match 1.00)
+[10] E10 Does the +2 shift at position 0 apply to the untested ASCII band 91-94 ([, ...(+116 chars)  (v4 predicted it: match 0.40)
+      model v5 by the updater: exam 0.96, fit 0.95, size 318 (exam 0.875 -> 0.958); held-out 83%
+[11] E11 Where exactly does the position-0 +2 region end within uppercase (P through...(+111 chars)  (v5 predicted it: match 0.30)
+      model v6 by the updater: exam 1.00, fit 0.95, size 318 (exam 0.958 -> 1.000); held-out 100%
+[12] E12 Does the position-0 +2 region really follow codepoint order, or is it split...(+251 chars)  (v6 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (318 vs 318 chars)
+      model v7 by the updater: exam 1.00, fit 0.94, size 278 (same scores, smaller (318 -> 278 chars)); held-out 100%
+[13] E13 The model assumes pos>0 always shifts +4, but every prior test of later pos...(+198 chars)  (v7 predicted it: match 1.00)
+[14] E14 Does the position-0 +2 band extend below codepoint 64 (i.e. into digits, sp...(+99 chars)  (v7 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (278 vs 278 chars)
+      updater's model not kept: same scores and not smaller (278 vs 278 chars)
+[15] E15 Does the position-0 +2 band really stop at codepoint 87/88 and 118/119, or ...(+192 chars)  (v7 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (278 vs 278 chars)
+      updater's model not kept: same scores and not smaller (278 vs 278 chars)
+[16] E16 Does the position-0 +2 band really include the ASCII punctuation block 91-9...(+185 chars)  (v7 predicted it: match 0.50)
+      model v8 by the updater: exam 1.00, fit 0.96, size 365 (fit 0.900 -> 0.963); held-out 100%
+[17] E17 Does the position-0 +2 band exist at all for non-ASCII codepoints (e.g. 0x0...(+124 chars)  (v8 predicted it: match 0.20)
+      model v9 by the updater: exam 1.00, fit 0.96, size 431 (fit 0.918 -> 0.965); held-out 100%
+[18] E18 The model claims the position-0 +2 band is a contiguous codepoint range 64....(+353 chars)  (v9 predicted it: match 1.00)
+[19] E19 Does the position-0 shift rule depend on the character's value only, or on ...(+199 chars)  (v9 predicted it: match 1.00)
+[20] E20 The current model claims position-0 shifts are +2 for 64..87 and 95..118, +...(+235 chars)  (v9 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (431 vs 431 chars)
+      updater's model not kept: same scores and not smaller (431 vs 431 chars)
+{"env": "find_strings_f00897", "experiments": 20, "exam_probes": 4, "model_version": 9, "model_role": "updater", "exam": 1.0, "fit": 0.9650000000000001, "size": 431, "heldout": 1.0, "llm_calls": 51, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

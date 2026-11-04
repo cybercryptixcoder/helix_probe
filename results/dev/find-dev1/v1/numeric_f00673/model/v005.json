@@ -1,0 +1,23 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f is even: f(-x)=f(x) to within noise [E1, E2, E3]",
+  "For |x| >= ~1, f is essentially linear: f(x) \u2248 16.79\u00b7|x|, with slight sublinearity at very large |x| [E1]",
+  "There is a special interval roughly |x| < 1 where f deviates from the linear law, with a dip near x=0 [E3, E4, E5]",
+  "Inside |x|<1 the function is roughly monotone increasing on average but with erratic, seemingly irregular fluctuations (not a clean smooth oscillation) [E4, E5]",
+  "The near-zero region is noisy/erratic (e.g. f(0)= -0.87, f(0.1)=3.56, f(0.15)=1.30), so exact values there are unpredictable; only the overall envelope/trend is captured [E3, E4, E5]",
+  "The transition from the near-zero erratic region to the linear regime happens around |x|\u22480.5-1 [E3, E4, E5]",
+  "The erratic component appears roughly like a noisy ramp from ~0 at 0 to ~16 at 1, but individual values are not predictable from a smooth formula? [E5]"
+ ],
+ "notes": "",
+ "fit": 0.4,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.6,
+  0.7,
+  0.4
+ ],
+ "made_at": 5
+}

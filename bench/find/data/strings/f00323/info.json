@@ -1,0 +1,10 @@
+{
+ "fid": "f00323",
+ "type": "compose",
+ "params": [
+  [],
+  []
+ ],
+ "name": "reverse_string;remove_whitespace;compose_1input_1input((), ())",
+ "dir": "f00323"
+}

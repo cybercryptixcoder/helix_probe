@@ -1,0 +1,10 @@
+{
+ "fid": "f00233",
+ "type": "compose",
+ "params": [
+  [],
+  []
+ ],
+ "name": "capitalize_string;reverse_string;compose_1input_1input((), ())",
+ "dir": "f00233"
+}

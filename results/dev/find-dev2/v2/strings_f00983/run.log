@@ -1,0 +1,28 @@
+Helix Probe v2 on 'find_strings_f00983': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary short text strings, and does it transform ...(+47 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.75, fit 0.90, size 226 (exam 0.000 -> 0.750); held-out 14%
+[2] E2 Does the box shift every character by +8 regardless of position, including ...(+114 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the +8 shift apply uniformly to long strings, mixed punctuation, digit...(+104 chars)  (v1 predicted it: match 0.80)
+      model v2 by the updater: exam 0.75, fit 0.93, size 278 (fit 0.900 -> 0.933); held-out 14%
+[4] E4 Does the box's handling of a tab character depend on what precedes it — spe...(+124 chars)  (v2 predicted it: match 0.10)
+      model v3 by the updater: exam 0.75, fit 0.88, size 226 (fit 0.725 -> 0.875); held-out 14%
+[5] E5 For ordinary words and phrases containing a tab, does the box ever drop or ...(+178 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.560, the current model's is 0.700
+      model v4 by the updater: exam 0.75, fit 0.90, size 336 (fit 0.700 -> 0.900); held-out 14%
+[6] E6 Is the first-character drop for tab-containing strings triggered specifical...(+162 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.617, the current model's is 0.750
+      model v5 by the updater: exam 1.00, fit 1.00, size 238 (exam 0.750 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.750, the current model's is 1.000
+[7] E7 Does the 't'-dropping rule apply to lowercase 't' everywhere (including ins...(+170 chars)  (v5 predicted it: match 1.00)
+[8] E8 Does the 'drop every lowercase t' rule hold for uppercase letters, digits, ...(+151 chars)  (v5 predicted it: match 1.00)
+[9] E9 Does the box's +8 shift wrap around or clamp at the top of the Unicode/byte...(+120 chars)  (v5 predicted it: match 1.00)
+[10] E10 Does the box's +8 shift and lowercase-'t'-drop rule hold for strings that m...(+191 chars)  (v5 predicted it: match 1.00)
+[11] E11 Does the lowercase-'t'-drop rule hold for 't' adjacent to and inside longer...(+163 chars)  (v5 predicted it: match 1.00)
+[12] E12 Does the box drop lowercase 't' only when it is a standalone letter, or als...(+240 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.000, the current model's is 1.000
+[13] E13 Does the +8 shift and lowercase-'t'-drop rule hold for strings containing a...(+134 chars)  (v5 predicted it: match 1.00)
+[14] E14 Does the box drop lowercase 't' even when it is the only character that wou...(+203 chars)  (v5 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00983", "experiments": 14, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 238, "heldout": 1.0, "llm_calls": 25, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

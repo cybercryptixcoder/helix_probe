@@ -1,0 +1,30 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f(x) = g(x) + 'JTQL' for every non-empty input [E1, E5, E6, E7, E8]",
+  "The empty string maps to 'HTQL' exactly, with no 'JTQL' suffix appended [E1, E7, E8, E9]",
+  "g shifts only the first character of the input by -2 in the alphabet, leaving the rest unchanged [E1, E2, E3, E4, E5, E6]",
+  "The first-character shift wraps around within a-z and A-Z: a->y, b->z, c->a, z->x [E1, E2]",
+  "The shift also applies to non-ASCII letters: \u00e9->\u00e7, \u00fc->\u00fa, \u00f1->\u00ef, \u00c9->\u00c7, \u00df->\u00dd, \u03b1->\u03af [E11]",
+  "The shift appears to be a codepoint-level -2 for letters (\u00e9 U+00E9 -> \u00e7 U+00E7, \u00df U+00DF -> \u00dd U+00DD, \u03b1 U+03B1 -> \u03af U+03AF), not a Unicode-aware letter shift [E11]",
+  "Digits, symbols, spaces, and all non-first characters are unchanged [E1, E3, E4, E6]",
+  "Which characters count as 'letters' for the shift: ASCII a-z/A-Z plus non-ASCII codepoints that are letters? [E11]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 11
+}

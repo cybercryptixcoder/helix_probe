@@ -1,0 +1,30 @@
+Helix Probe v2 on 'find_strings_f00455': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to the simplest possible inputs, establishing a baseli...(+69 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.12, fit 0.70, size 226 (exam 0.000 -> 0.125); held-out 1%
+[2] E2 Does the box shift every character's code point by +1 regardless of alphabe...(+133 chars)  (v1 predicted it: match 0.40)
+      model v2 by the updater: exam 0.12, fit 0.60, size 408 (fit 0.550 -> 0.600); held-out 1%
+[3] E3 Is the transformation really a uniform +1 on code points, or does it depend...(+115 chars)  (v2 predicted it: match 0.60)
+      model v3 by the updater: exam 0.71, fit 0.87, size 477 (exam 0.125 -> 0.708); held-out 23%
+[4] E4 Does the 'first character is uppercased then +1' rule apply to the first ch...(+170 chars)  (v3 predicted it: match 0.50)
+      model v4 by the updater: exam 1.00, fit 0.93, size 491 (exam 0.708 -> 1.000); held-out 100%
+[5] E5 Does the lowercase-then-+1 rule for non-first characters preserve multi-cha...(+215 chars)  (v4 predicted it: match 0.70)
+      model v5 by the updater: exam 1.00, fit 1.00, size 491 (fit 0.880 -> 1.000); held-out 100%
+[6] E6 Does the first-character rule use str.title() on the single character (whic...(+242 chars)  (v5 predicted it: match 1.00)
+[7] E7 Does the first-character rule use str.title() on the whole string prefix or...(+324 chars)  (v5 predicted it: match 1.00)
+[8] E8 Does the first-character rule apply .title() to s[0] alone, or to the whole...(+285 chars)  (v5 predicted it: match 1.00)
+[9] E9 Does the first-character rule depend on the string's leading context (e.g.,...(+242 chars)  (v5 predicted it: match 1.00)
+[10] E10 Does the first-character title() step happen before or after the +1 shift, ...(+304 chars)  (v5 predicted it: match 1.00)
+[11] E11 Does the first-character rule really use s[0].title() (single char, indepen...(+364 chars)  (v5 predicted it: match 1.00)
+[12] E12 Does the first-character rule apply .title() to s[0] alone, or to a longer ...(+279 chars)  (v5 predicted it: match 1.00)
+[13] E13 Does the box use Unicode title()/lower() per character with +1, or is it ac...(+294 chars)  (v5 predicted it: match 0.50)
+      model v6 by the updater: exam 1.00, fit 0.98, size 459 (fit 0.962 -> 0.985); held-out 100%
+[14] E14 Does the non-first lower()+1 rule apply lower() to the whole remaining subs...(+194 chars)  (v6 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (459 vs 459 chars)
+[15] E15 Does the non-first lower()+1 step apply .lower() to the whole tail with fin...(+311 chars)  (v6 predicted it: match 0.70)
+[16] E16 Does the non-first-character step apply .lower() to the entire tail as one ...(+256 chars)  (v6 predicted it: match 0.50)
+[17] E17 Does the box apply title()/lower() to the whole input string first and then...(+164 chars)  (v6 predicted it: match 0.60)
+      updater's model not kept: same scores and not smaller (459 vs 459 chars)
+[18] E18 When the tail is lowercased as one string, does final sigma depend only on ...(+149 chars)  (v6 predicted it: match 0.80)
+[19] E19 Exactly when does a sigma in the lowercased tail become final ς vs non-fina...(+116 chars)  (v6 predicted it: match 0.40)
+[20] E20 Is the tail lowercased as one whole string (Python str.lower, where final s...(+298 chars)  (v6 predicted it: match 1.00)
+{"env": "find_strings_f00455", "experiments": 20, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 1.0, "fit": 0.86, "size": 459, "heldout": 1.0, "llm_calls": 38, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

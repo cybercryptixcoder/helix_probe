@@ -1,0 +1,35 @@
+{
+ "version": 9,
+ "beliefs": [
+  "Only the first character of a string is transformed; the rest is copied unchanged (abc\u2192cbc, bcd\u2192dcd, Hello\u2192Jello) [E3, E4, E5]",
+  "Lowercase ASCII letters are shifted forward by 2 with wrap-around (a\u2192c, z\u2192b) [E2, E3, E6]",
+  "Uppercase ASCII letters are shifted forward by 2 with wrap-around (A\u2192C, Z\u2192B) [E1, E3, E6, E7]",
+  "Digits, punctuation, and non-space symbols are left unchanged [E1, E4, E5, E7]",
+  "A string consisting only of spaces maps to the empty string (all leading spaces stripped) [E16]",
+  "A string starting with a space but containing non-space content is left entirely unchanged, with all leading spaces kept [E7, E8, E9, E10, E11, E13, E14, E16]",
+  "The empty string maps to itself [E7]",
+  "Non-ASCII letters (Latin-1 accented, Greek, CJK, etc.) are shifted forward by 2 in their code point, i.e. chr(ord(c)+2) [E15]"
+ ],
+ "notes": "Fixed the all-spaces case: a string of only spaces becomes empty (all spaces stripped), while a leading space followed by content is kept and the whole string left unshifted. This reconciles E7/E8/E16.",
+ "fit": 1.0,
+ "heldout": 0.21,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 16
+}

@@ -1,0 +1,36 @@
+{
+ "fid": "f00128",
+ "kind": "mlp",
+ "type": "step",
+ "params": [
+  [
+   8.8,
+   8.6,
+   85.9
+  ],
+  [
+   -16.9,
+   -6.2,
+   0.4
+  ]
+ ],
+ "name": "step;relu;sum_two((8.8, 8.6, 85.9), (-16.9, -6.2, 0.4))",
+ "dir": "f00128",
+ "approx_mse_error": 0.038181353360414505,
+ "corruption_type": "interval_smaller",
+ "corruption_params": {
+  "std": -249.26060606060616,
+  "boundary": [
+   2.5
+  ]
+ },
+ "domain": [
+  -100,
+  100
+ ],
+ "noise_type": "poisson",
+ "noise_params": 1,
+ "GPT_description": "",
+ "error_code_generated": -2.042810365310288e-16,
+ "error_corrupted_code_generated": -2.042810365310288e-16
+}

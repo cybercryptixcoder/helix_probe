@@ -1,0 +1,10 @@
+{
+ "fid": "f00056",
+ "type": "compose",
+ "params": [
+  [],
+  []
+ ],
+ "name": "shift_first_letter_predecessor;remove_duplicates;compose_1input_1input((), ())",
+ "dir": "f00056"
+}
