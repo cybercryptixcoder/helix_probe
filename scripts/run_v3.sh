@@ -2,10 +2,11 @@
 # Helix Probe v3 job (docs/V3_JOB.md). Waits for the find-v2 job to finish, then runs these stages in order:
 #   1. aia    FIND's own agent protocol (bench/find/aia.py) with OUR model on the same 80 FIND functions: the
 #             same-model control (is Helix Probe's edge the loop, or just a newer model?)
-#   2. find   Helix Probe v3 on the 80 FIND functions, arms FIND_ARMS, scored with FIND's official metric
+#   2. find   Helix Probe v3 on the 80 FIND functions, arms v3 and v3-exam (do trials replace the exam?)
 #   3. aia2   the AIA control again (run-to-run variance of the baseline)
 #   4. find2  Helix Probe v3 again with another seed (run-to-run variance of ours)
-#   5. arc    Helix Probe v3 on the 25 public ARC-AGI-3 games, scored with the toolkit's official calculator
+#   5. arc    a PILOT: v3 on 5 ARC-AGI-3 games never used in development, 100 experiments each; the full
+#             25-game run (ARC_GAMES=all ARC_STEPS=400 ARC_WORKERS=13) only once the pilot completes levels by planning
 #   then:     bench/find/compare.py: the paired, budget-matched comparison, pushed to results/find/compare-*.md
 #
 #   cd /home/ubuntu/helix_probe && git pull && setsid nohup bash scripts/run_v3.sh > v3_job.log 2>&1 < /dev/null &
@@ -22,8 +23,8 @@
 #   - a stop signal (kill -TERM) lets every run finish its step and save, then pushes, then exits;
 #   - no cron job, no timer, no watchdog.
 #
-# Settings: STAGES ["aia find aia2 find2 arc"]  FIND2_ARMS [v3]  WAIT_FOR [runs/find/.find-v2.lock]  FIND_ARMS ["v3 v3-exam v3-random v3-no-theorist"]
-#   FIND_STEPS [25]  AIA_EFFORT [none]  ARC_ARMS [v3]  ARC_BUDGET_X [3]  ARC_STEPS [400]  WORKERS [6]  ARC_WORKERS [13]
+# Settings: STAGES ["aia find aia2 find2 arc"]  FIND2_ARMS [v3]  WAIT_FOR [runs/find/.find-v2.lock]  FIND_ARMS ["v3 v3-exam"]
+#   FIND_STEPS [25]  AIA_EFFORT [none]  ARC_ARMS [v3]  ARC_BUDGET_X [3]  ARC_STEPS [100]  ARC_GAMES ["tr87 wa30 sb26 cd82 sc25"]  WORKERS [6]  ARC_WORKERS [5]
 #   PUSH [1]  PUSH_MIN [30]  FAKE [0]  PYTHON [python3]
 #
 #   FAKE=1 PUSH=0 WAIT_FOR=/nonexistent bash scripts/run_v3.sh      # the whole job with a fake model (a test)
@@ -36,15 +37,16 @@ fi
 PY="${PYTHON:-$(command -v python3 || command -v python)}"
 STAGES="${STAGES:-aia find aia2 find2 arc}"
 WAIT_FOR="${WAIT_FOR:-runs/find/.find-v2.lock}"
-FIND_ARMS="${FIND_ARMS:-v3 v3-exam v3-random v3-no-theorist}"
+FIND_ARMS="${FIND_ARMS:-v3 v3-exam}"
 FIND_STEPS="${FIND_STEPS:-25}"
 AIA_EFFORT="${AIA_EFFORT:-none}"
 ARC_ARMS="${ARC_ARMS:-v3}"
 FIND2_ARMS="${FIND2_ARMS:-v3}"
 ARC_BUDGET_X="${ARC_BUDGET_X:-3}"
-ARC_STEPS="${ARC_STEPS:-400}"
+ARC_STEPS="${ARC_STEPS:-100}"
+ARC_GAMES="${ARC_GAMES:-tr87 wa30 sb26 cd82 sc25}"
 WORKERS="${WORKERS:-6}"
-ARC_WORKERS="${ARC_WORKERS:-13}"
+ARC_WORKERS="${ARC_WORKERS:-5}"
 PUSH="${PUSH:-1}"
 PUSH_MIN="${PUSH_MIN:-30}"
 FAKE="${FAKE:-0}"
@@ -223,13 +225,13 @@ f, stage = sys.argv[1:]
 c = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
 open(f, "a").write(json.dumps({"t": time.strftime("%Y-%m-%d %H:%M:%S %Z"), "stage": stage, "commit": c,
     "python": platform.python_version(), "cpus": os.cpu_count(), "env": {k: os.environ.get(k) for k in
-    ("FIND_ARMS", "FIND_STEPS", "AIA_EFFORT", "ARC_ARMS", "ARC_BUDGET_X", "ARC_STEPS", "WORKERS", "ARC_WORKERS")}}) + "\n")
+    ("FIND_ARMS", "FIND_STEPS", "AIA_EFFORT", "ARC_ARMS", "ARC_GAMES", "ARC_BUDGET_X", "ARC_STEPS", "WORKERS", "ARC_WORKERS")}}) + "\n")
 PY
   case $stage in
     aia|aia2) CMD=("$PY" -u bench/find/aia.py --out "$D" --effort "$AIA_EFFORT" --workers "$WORKERS") ;;
     find) CMD=("$PY" -u bench/find/run.py --out "$D" --data bench/find/data --arms $FIND_ARMS --steps "$FIND_STEPS" --workers "$WORKERS") ;;
     find2) CMD=("$PY" -u bench/find/run.py --out "$D" --data bench/find/data --arms $FIND2_ARMS --steps "$FIND_STEPS" --workers "$WORKERS" --seed 1) ;;
-    arc)  CMD=("$PY" -u bench/arc/run.py --out "$D" --arms $ARC_ARMS --budget-x "$ARC_BUDGET_X" --steps "$ARC_STEPS" --workers "$ARC_WORKERS") ;;
+    arc)  CMD=("$PY" -u bench/arc/run.py --out "$D" --arms $ARC_ARMS --games $ARC_GAMES --budget-x "$ARC_BUDGET_X" --steps "$ARC_STEPS" --workers "$ARC_WORKERS") ;;
   esac
   [ "$FAKE" = "1" ] && case $stage in
     aia*) echo "   (fake mode: the $stage stage needs a real model; skipped)"; touch "$R/DONE"; continue ;;

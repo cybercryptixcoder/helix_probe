@@ -14,10 +14,10 @@ things:
 | Stage | What | The comparison | Published reference |
 |---|---|---|---|
 | `aia` | FIND's own agent protocol (`bench/find/aia.py`, FIND's prompts verbatim) run with **our** model on the same 80 functions | the same-model control: is Helix Probe's edge on FIND the loop, or just a newer model? | GPT-4 0.20 numeric / 0.01 strings in FIND's protocol |
-| `find` | Helix Probe v3 on the 80 FIND functions, arms `v3`, `v3-exam`, `v3-random`, `v3-no-theorist` | v3 against v2 (find-v2) on the same functions; whether trials can replace the sealed exam; ablations | find-v2, and FIND's published agents |
+| `find` | Helix Probe v3 on the 80 FIND functions, arms `v3` and `v3-exam` | v3 against v2 (find-v2) on the same functions; whether trials can replace the sealed exam (if they can, the exam is removed from the core) | find-v2, and FIND's published agents |
 | `aia2` | the AIA control again | how much the baseline varies from run to run | |
 | `find2` | v3 again, seed 1 | how much ours varies | |
-| `arc` | Helix Probe v3 on the 25 public ARC-AGI-3 games, one playthrough each | does a flash model with thinking off, in a learn-a-model loop, score on ARC-AGI-3 at all, and how far from frontier systems? | Frontier models in ARC's generic harness: 13.3% public (GPT-5.6 Sol, OpenAI's run). Executable World Models (coding agents): GPT-5.4 high 41.3%, GPT-5.5 high 58.1%, with 1,500 actions per level |
+| `arc` | a **pilot**: v3 on 5 public ARC-AGI-3 games never used in development (tr87, wa30, sb26, cd82, sc25), 100 experiments each, one playthrough each. The full 25-game run follows only if the pilot completes levels by planning | does a flash model with thinking off, in a learn-a-model loop, score on ARC-AGI-3 at all, and how far from frontier systems? | Frontier models in ARC's generic harness: 13.3% public (GPT-5.6 Sol, OpenAI's run). Executable World Models (coding agents): GPT-5.4 high 41.3%, GPT-5.5 high 58.1%, with 1,500 actions per level |
 
 **The comparison that makes FIND fair** (`bench/find/compare.py`, pushed as `results/find/compare-v3-aia.md`
 and `-aia2.md` right after the FIND stages and again at the end):
@@ -32,6 +32,14 @@ and `-aia2.md` right after the FIND stages and again at the end):
 FIND counts budget in inputs, so the FIND adapters now report cost in inputs too.
 
 Fixes pushed while the job runs are pulled before every stage, and kept only if the crash test passes.
+
+**Why the ARC stage is a pilot, and the FIND arms are two:**
+- ARC's planner became usable only today, and has not yet completed a level by itself. A 16-hour run of an
+  untested design mostly measures a known failure.
+- FIND's random and no-theorist arms are already measured on v2 (find-v2), and FIND saturates. Running them again
+  on v3 would add hours and little information.
+- The full ARC run is one setting away: `ARC_GAMES=all ARC_STEPS=400 ARC_WORKERS=13`. It continues the pilot's 5
+  games and adds the other 20.
 
 **ARC setup, and how it compares to the published setups:**
 - **Play.** The official toolkit (`arc-agi`) in local mode: one playthrough per game, every action counted
@@ -124,14 +132,14 @@ Then:
 | Stage | Duration | Model calls |
 |---|---|---|
 | aia | about 1 hour | about 1,000 |
-| find | 4–5 hours (320 runs) | about 6,000 |
+| find | about 2.5 hours (160 runs) | about 3,000 |
 | aia2 | about 1 hour | about 1,000 |
 | find2 | about 1.5 hours (80 runs) | about 1,500 |
-| arc | 10–16 hours (25 games, 13 at a time, up to 400 experiments each) | about 20,000 |
+| arc (pilot) | about 1.5–2 hours (5 games at once, 100 experiments each) | about 1,000 |
 
 - Memory: under 2 GB. CPU: light.
-- Data pushed: about 100–200 MB, mostly ARC traces (gzipped).
-- Cost: about $20–35 at DeepSeek's list price.
+- Data pushed: about 50 MB (traces gzipped).
+- Cost: about $8–12 at DeepSeek's list price. In all about 7–8 hours after find-v2 ends.
 
 ## Restarting the queued job onto a newer version (only while it is still waiting)
 
