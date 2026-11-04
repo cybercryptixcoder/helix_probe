@@ -1,0 +1,28 @@
+Helix Probe on 'find_numeric_f00529': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole allowed domain, sampled coarsely to ...(+46 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Is the transition from -7.9 to -6.9 a smooth monotone curve or a step-like/...(+57 chars)  model v1 match 1.00
+[3] E3 Is the mid-transition shape between x=0.5 and x=1.5 (and around x=2.5) actu...(+130 chars)  model v1 match 1.00
+[4] E4 Where exactly is the upper edge of the transition, and is f already flat at...(+78 chars)  model v1 match 1.00
+[5] E5 Does the transition really start exactly at x=-2, or does f begin to depart...(+88 chars)  model v1 match 1.00
+[6] E6 What is the exact shape of f in the very narrow region just above x=-1, whe...(+147 chars)  model v1 match 1.00
+[7] E7 Where exactly does f first depart from the flat value -7.9 on the left side...(+96 chars)  model v1 match 1.00
+[8] E8 Does the tiny early departure from -7.9 (seen as -7.8999 near x=-0.6 to -0....(+120 chars)  model v1 match 1.00
+[9] E9 Does f stay flat at exactly -7.9 below x=-1 (as E7/E8 suggest), or does it ...(+111 chars)  model v1 match 1.00
+[10] E10 Is the flat left plateau exactly -7.9 all the way out to the far-left domai...(+136 chars)  model v1 match 1.00
+[11] E11 Does the right-side plateau stay exactly at -6.9 all the way to the far-rig...(+135 chars)  model v1 match 1.00
+[12] E12 Where exactly does f first depart from the flat left plateau -7.9 on the ri...(+147 chars)  model v1 match 1.00
+[13] E13 In the transition region where f is rising steeply (x=1 to 2), is the curve...(+112 chars)  model v1 match 1.00
+[14] E14 In the steep rising part of the transition (x from 2.0 to 4.0), is the curv...(+181 chars)  model v1 match 1.00
+[15] E15 What is the exact functional shape of the transition between x=-1 and x=0 —...(+269 chars)  model v1 match 1.00
+[16] E16 Does f stay exactly flat at -6.9 for all x in [4,4.5] — i.e. is the upper e...(+149 chars)  model v1 match 1.00
+[17] E17 Where exactly does the flat left plateau end on the left side of the transi...(+144 chars)  model v1 match 1.00
+[18] E18 Is the rising part of the transition between x=0 and x=1 (covered so far on...(+131 chars)  model v1 match 1.00
+[19] E19 Is the transition's middle region between x=1 and x=2 actually smooth and m...(+171 chars)  model v1 match 1.00
+[20] E20 Does the flat left plateau at exactly -7.9 extend right up to some point be...(+145 chars)  model v1 match 1.00
+[21] E21 Does f stay exactly flat at -7.9 for x <= -2 all the way to the left domain...(+155 chars)  model v1 match 1.00
+[22] E22 Where exactly is the upper edge of the transition on the right — does f dep...(+131 chars)  model v1 match 1.00
+[23] E23 Is the transition curve between x=2.3 and x=3.3 (the upper approach to -6.9...(+172 chars)  model v1 match 1.00
+[24] E24 Does the steep rising part of the transition (x from 1.0 to 2.0) follow a s...(+132 chars)  model v1 match 1.00
+[25] E25 Is the steep rising part of the transition between x=1.0 and x=1.5 a smooth...(+142 chars)  model v1 match 1.00
+{"env": "find_numeric_f00529", "experiments": 25, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 26, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

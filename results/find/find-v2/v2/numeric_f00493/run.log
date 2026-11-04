@@ -1,0 +1,69 @@
+Helix Probe v2 on 'find_numeric_f00493': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 What is the basic shape of f on ordinary inputs — is it a power, an exponen...(+104 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+      model v1 by the theorist: exam 0.85, fit 1.00, size 1225 (exam 0.000 -> 0.850); held-out 18%
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 0.85, fit 0.97, size 954 (same scores, smaller (1225 -> 954 chars)); held-out 18%
+[4] E4 Does the current model's large-|x| power-law formula hold accurately at mod...(+201 chars)  (v2 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (1138 vs 954 chars)
+      updater's model not kept: same scores and not smaller (1148 vs 954 chars)
+[5] E5 a random ordinary probe  (v2 predicted it: match 0.80)
+      theorist (updater stalled)
+[6] E6 Where exactly does the transition from the small-|x| regime to the large-|x...(+111 chars)  (v2 predicted it: match 0.50)
+      updater's model not kept: same scores and not smaller (954 vs 954 chars)
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v2 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (954 vs 954 chars)
+      theorist (updater stalled)
+[8] E8 Does the large-|x| power law have a different exponent/curvature than fitte...(+189 chars)  (v2 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.825, the current model's is 0.863
+      updater's model not kept: same scores and not smaller (954 vs 954 chars)
+[9] E9 a random ordinary probe  (v2 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (954 vs 954 chars)
+      updater's model not kept: same scores and not smaller (954 vs 954 chars)
+      theorist (updater stalled)
+[10] E10 Is the crossover between the small-|x| regime and the power-law regime a sm...(+150 chars)  (v2 predicted it: match 0.10)
+      updater's model not kept: its fit is 0.765, the current model's is 0.780
+[11] E11 a random ordinary probe  (v2 predicted it: match 0.90)
+      theorist (updater stalled)
+[12] E12 Is the crossover on the positive side a sharp switch near x~2 (as E10 sugge...(+157 chars)  (v2 predicted it: match 0.30)
+      updater's model not kept: its fit is 0.708, the current model's is 0.750
+      model v3 by the updater: exam 0.85, fit 0.80, size 883 (fit 0.750 -> 0.800); held-out 18%
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v3 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (883 vs 883 chars)
+[14] E14 On the negative side, is the regime near |x|~1.5-2 a smooth blend into the ...(+121 chars)  (v3 predicted it: match 0.25)
+      model v4 by the updater: exam 0.85, fit 0.77, size 787 (same scores, smaller (883 -> 787 chars)); held-out 18%
+[15] E15 a random ordinary probe  (v4 predicted it: match 0.90)
+      updater: keep
+[16] E16 Does the positive-side power law continue smoothly through the sharp switch...(+156 chars)  (v4 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v4 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (787 vs 787 chars)
+      theorist (updater stalled)
+[18] E18 Does the positive-side power law really have a sharp jump at x=2 (value ~-3...(+128 chars)  (v4 predicted it: match 0.75)
+      model v5 by the updater: exam 0.85, fit 0.79, size 785 (same scores, smaller (787 -> 785 chars)); held-out 18%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.225, the current model's is 0.850
+[19] E19 a random ordinary probe  (v5 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (785 vs 785 chars)
+      updater's model not kept: same scores and not smaller (785 vs 785 chars)
+[20] E20 Pin down the negative-side power law exponent and curvature over the ordina...(+200 chars)  (v5 predicted it: match 0.85)
+      updater's model not kept: same scores and not smaller (785 vs 785 chars)
+      updater's model not kept: same scores and not smaller (785 vs 785 chars)
+      theorist (updater stalled)
+[21] E21 a random ordinary probe  (v5 predicted it: match 1.00)
+[22] E22 On the negative side, is the region |x| in 1..2 a smooth continuation of th...(+198 chars)  (v5 predicted it: match 0.65)
+      updater's model not kept: its fit is 0.780, the current model's is 0.800
+[23] E23 a random ordinary probe  (v5 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (785 vs 785 chars)
+      updater's model not kept: same scores and not smaller (827 vs 785 chars)
+      theorist (updater stalled)
+[24] E24 What is the exact functional form of the power law on each side over the mi...(+154 chars)  (v5 predicted it: match 0.85)
+      updater's model not kept: same scores and not smaller (785 vs 785 chars)
+      updater's model not kept: same scores and not smaller (785 vs 785 chars)
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v5 predicted it: match 0.60)
+      updater's model not kept: same scores and not smaller (785 vs 785 chars)
+      theorist (updater stalled)
+{"env": "find_numeric_f00493", "experiments": 25, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 0.8500000000000001, "fit": 0.794, "size": 785, "heldout": 0.18, "llm_calls": 67, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

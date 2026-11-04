@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is dominated by a term growing like 2^x for large x, since f(128)\u22483.9e12 \u2248 2^128\u00b71.15 [E1, E2]",
+  "f(x) includes a cubic term x^3: f(1.5)=870.67 vs 2^1.5=2.83, and f(-1.5)=-377.94 vs 2^-1.5=0.35, so the cubic dominates at small |x| [E2]",
+  "There is a small additive constant: f(0)=22.28, suggesting a constant term near 22 [E1]",
+  "At x=-1, f=-37.09 while x^3+2^x+22 = -1+0.5+22 = 21.5, so the model is not simply x^3+2^x+22; a different form is needed [E1]?"
+ ],
+ "notes": "Tried x^3+2^x+22 but it fails at negative x (e.g. x=-1 gives 21.5 vs observed -37.09), so the exact form is still uncertain; keeping a placeholder model.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.65,
+  0.65
+ ],
+ "made_at": 2
+}

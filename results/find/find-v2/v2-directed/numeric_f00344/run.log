@@ -19,3 +19,34 @@ Helix Probe v2 on 'find_numeric_f00344': 0 experiments so far, model v0, exam of
 [12] E12 Does the positive branch follow a single clean exponential a*b^x across the...(+153 chars)  (v2 predicted it: match 0.80)
       model v3 by the updater: exam 0.15, fit 0.72, size 1201 (fit 0.704 -> 0.717); held-out 0%
       theorist (every 6 steps)
+[13] E13 On the positive branch x>=1, is f(x) exactly a pure exponential a*b^x acros...(+204 chars)  (v3 predicted it: match 0.70)
+[14] E14 Does the positive branch x>=1 follow a pure exponential a*b^x, or does it f...(+181 chars)  (v3 predicted it: match 0.85)
+      updater's model not kept: same scores and not smaller (1201 vs 1201 chars)
+      updater's model not kept: same scores and not smaller (1201 vs 1201 chars)
+      theorist (updater stalled)
+[15] E15 Is the positive branch x>=1 exactly a pure exponential a*b^x (ratio f(x+1)/...(+111 chars)  (v3 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (1201 vs 1201 chars)
+      updater's model not kept: same scores and not smaller (1201 vs 1201 chars)
+[16] E16 On the positive branch x>=1, is f exactly a pure exponential a*b^x, or does...(+127 chars)  (v3 predicted it: match 0.70)
+      theorist (updater stalled)
+[17] E17 Does the positive branch x>=1 follow a pure exponential a*b^x, or is the ra...(+97 chars)  (v3 predicted it: match 0.70)
+      model v4 by the updater: exam 0.18, fit 0.77, size 2458 (exam 0.150 -> 0.175); held-out 0%
+[18] E18 On the positive branch x>=1, what is the exact local growth factor f(x+1)/f...(+237 chars)  (v4 predicted it: match 0.65)
+      model v5 by the updater: exam 0.28, fit 0.75, size 2483 (exam 0.175 -> 0.275); held-out 0%
+      theorist (every 6 steps)
+[19] E19 On the positive branch, does f(x)/x^p with an integer power p (e.g. p=1 or ...(+155 chars)  (v5 predicted it: match 0.25)
+      model v6 by the updater: exam 0.33, fit 0.76, size 2902 (exam 0.275 -> 0.325); held-out 0%
+[20] E20 What is the exact shape of the positive branch on x in [1,6] at fine resolu...(+154 chars)  (v6 predicted it: match 0.20)
+      updater's model not kept: same scores and not smaller (2902 vs 2902 chars)
+[21] E21 What is the exact shape of the positive branch on x in [1,6] at fine resolu...(+154 chars)  (v6 predicted it: match 0.20)
+      updater's model not kept: same scores and not smaller (2902 vs 2902 chars)
+      theorist (updater stalled)
+[22] E22 What is the exact functional form of the positive branch x>=1 — does f(x)/(...(+187 chars)  (v6 predicted it: match 0.85)
+      updater's model not kept: same scores and not smaller (2902 vs 2902 chars)
+[23] E23 What are the exact values of f on a dense grid of ordinary small positive a...(+195 chars)  (v6 predicted it: match 1.00)
+[24] E24 What exactly happens in the positive branch just above x=1 down to the plat...(+161 chars)  (v6 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.275, the current model's is 0.325
+      updater's model not kept: its exam is 0.200, the current model's is 0.325
+      theorist (every 6 steps)
+[25] E25 What are the exact values of f on a dense grid across the negative branch t...(+203 chars)  (v6 predicted it: match 0.10)
+{"env": "find_numeric_f00344", "experiments": 25, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 0.325, "fit": 0.67, "size": 2902, "heldout": 0.0, "llm_calls": 79, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

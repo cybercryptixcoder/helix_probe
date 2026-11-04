@@ -1,0 +1,28 @@
+{
+ "version": 9,
+ "beliefs": [
+  "Outer branch |x|>=2 is sign(x)*A*|x|^p*exp(k*|x|) with A,p,k refit to E1/E2/E7/E8/E10 magnitudes [E1, E2, E7, E8, E10]",
+  "Outer branch is odd: f(-x)=-f(x) for |x|>=2 [E1, E2, E8, E10]",
+  "f(2)=-60.2 exactly and f(-2)=-67.0 exactly; the outer law is only approximate near |x|=2 [E1, E4, E6]",
+  "On (0,1) f is exactly 0, with a sharp step to -4.3 at x=1.0 [E5, E9]",
+  "On (1,2) f rises smoothly from -4.3 toward ~-30 as x->2- [E3, E4, E5, E9]",
+  "On (-2,0) f is a smooth curve: ~+6 near -1, peaking ~+8 near -1.2, then dropping steeply to -67 at x=-2 [E3, E6]",
+  "f(0)=0 [E1]"
+ ],
+ "notes": "Refit the outer power-law to the full outer dataset (E1,E2,E7,E8,E10) using log-linear least squares; pin f(2)=-60.2 and f(-2)=-67.0 as exact boundary values since the smooth law misses them. Everything else (inner branches) already matched.",
+ "fit": 0.6,
+ "heldout": 0.02,
+ "matches": [
+  0.9,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.0,
+  1.0,
+  1.0,
+  0.75
+ ],
+ "made_at": 10
+}

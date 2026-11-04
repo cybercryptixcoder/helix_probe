@@ -1,0 +1,42 @@
+{
+ "version": 18,
+ "beliefs": [
+  "The outer branch is odd: f(-x) = -f(x) for |x|>=2, i.e. f(x) = sign(x)*|f(|x|)|, with NEGATIVE values for x>0 and POSITIVE for x<0 [E1, E8, E14, E16, E18, E20, E21]",
+  "On the positive outer branch |f(x)| follows a smooth log-linear law ln|f| = lnA + p*ln|x| + k*|x| fit to the full positive-side data [E7, E10, E15, E17, E19, E20]",
+  "On the negative outer branch |f(x)| follows a separate smooth log-linear law ln|f| = lnA' + p'*ln|x| + k'*|x| fit to the negative-side data [E8, E14, E16, E18, E20, E21]",
+  "Negative-side outer magnitudes exceed positive-side by a factor decaying from ~2.3 at |x|=2.1 to ~1 at |x|>=48, then ~1.03 at large |x| [E10, E14, E16, E18, E20, E21]",
+  "f(2)=-60.2 and f(-2)=-67.0; the outer law is continuous through |x|=2 on both sides [E1, E4, E6, E19]",
+  "On (0,1) f is exactly 0, with a sharp step to -4.3 at x=1.0 [E5, E9]",
+  "On (1,2) f rises smoothly from -4.3 toward ~-30 as x->2- [E3, E4, E5, E9, E19]",
+  "On (-2,0) f is a smooth curve: ~+6 near -1, peaking ~+8 near -1.2, then dropping steeply to -67 at x=-2 [E3, E6]",
+  "f(0)=0 [E1]",
+  "There is a genuine jump discontinuity at x=2 on the positive side (from ~-30 at x->2- to -60.2 at x=2) [E19]"
+ ],
+ "notes": "Fixed the sign convention: outer branch is odd with f(x)=sign(x)*|f(|x|)| (negative for x>0, positive for x<0), which E8/E14/E16/E18/E20/E21 all confirm. Replaced the negative-side ratio table with a separate log-linear fit to negative-side data so it generalizes to unsampled points.",
+ "fit": 0.42857142857142855,
+ "heldout": 0.0,
+ "matches": [
+  0.75,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.95,
+  1.0,
+  0.6,
+  1.0,
+  0.95,
+  0.95,
+  0.85,
+  0.95,
+  0.25,
+  1.0,
+  0.7857142857142857,
+  1.0,
+  0.5833333333333334,
+  1.0,
+  0.5,
+  0.7
+ ],
+ "made_at": 21
+}

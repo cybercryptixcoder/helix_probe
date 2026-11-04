@@ -1,0 +1,1 @@
+{"version": 6, "role": "updater", "notes": "I moved the right boundary from 4.4 down to 4.35 (inclusive): E8 shows 4.35\u21925 but 4.36\u21920, so the region ends between 4.35 and 4.36, not at 4.4 as v5 assumed.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 292, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 8, "heldout": 0.99}

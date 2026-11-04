@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is constant at -7.9 for x <= -2 and for x >= 4 [E1]",
+  "f rises from -7.9 near x=-2 up to -6.9 near x=4, passing through -7.8991 at x=0, -7.8111 at x=1, -6.9889 at x=2 [E1]",
+  "The transition interval is roughly (-2, 4) where f climbs from -7.9 to -6.9 [E1]"
+ ],
+ "notes": "Only one coarse probe exists; I model a flat -7.9 outside a transition zone and a smooth monotone rise inside it, anchored at the observed points x=0,1,2. Exact shape inside the transition is uncertain.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

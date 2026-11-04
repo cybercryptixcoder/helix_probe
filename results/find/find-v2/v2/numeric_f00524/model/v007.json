@@ -1,0 +1,1 @@
+{"version": 7, "role": "updater", "notes": "I extended the left boundary from -4.0 to -4.1 because E12 shows f(-4.1) = -4 (nonzero) while f(-4.5) = 0, so the nonzero region begins at -4.1, not -4.0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 292, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 12, "heldout": 0.99}

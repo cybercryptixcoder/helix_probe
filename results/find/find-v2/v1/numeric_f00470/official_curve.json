@@ -1,0 +1,131 @@
+{
+ "category": "numeric",
+ "fid": "f00470",
+ "experiments": 25,
+ "exam_probes": 0,
+ "n_versions": 15,
+ "inputs_total": 445,
+ "final": 0.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "?",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 0
+  },
+  {
+   "version": 1,
+   "role": "?",
+   "experiments": 2,
+   "score": 0.0,
+   "nmse": 3.9781371070344226e+50,
+   "inputs": 40
+  },
+  {
+   "version": 2,
+   "role": "?",
+   "experiments": 3,
+   "score": 0.0,
+   "nmse": 3.9781371070344226e+50,
+   "inputs": 54
+  },
+  {
+   "version": 3,
+   "role": "?",
+   "experiments": 4,
+   "score": 0.0,
+   "nmse": 7.956274214068845e+50,
+   "inputs": 74
+  },
+  {
+   "version": 4,
+   "role": "?",
+   "experiments": 5,
+   "score": 0.0,
+   "nmse": 3.9781371070344226e+50,
+   "inputs": 79
+  },
+  {
+   "version": 5,
+   "role": "?",
+   "experiments": 6,
+   "score": 0.0,
+   "nmse": 3.9781371070344226e+50,
+   "inputs": 99
+  },
+  {
+   "version": 6,
+   "role": "?",
+   "experiments": 8,
+   "score": 0.0,
+   "nmse": 3.9781371070344226e+50,
+   "inputs": 131
+  },
+  {
+   "version": 7,
+   "role": "?",
+   "experiments": 9,
+   "score": 0.0,
+   "nmse": 1.3792030344772872,
+   "inputs": 141
+  },
+  {
+   "version": 8,
+   "role": "?",
+   "experiments": 10,
+   "score": 1.0,
+   "nmse": 0.00041447318939788095,
+   "inputs": 161
+  },
+  {
+   "version": 9,
+   "role": "?",
+   "experiments": 11,
+   "score": 1.0,
+   "nmse": 0.00041447318939788095,
+   "inputs": 181
+  },
+  {
+   "version": 10,
+   "role": "?",
+   "experiments": 16,
+   "score": 1.0,
+   "nmse": 0.0007064917245155815,
+   "inputs": 275
+  },
+  {
+   "version": 11,
+   "role": "?",
+   "experiments": 17,
+   "score": 1.0,
+   "nmse": 0.0007064941979221544,
+   "inputs": 295
+  },
+  {
+   "version": 12,
+   "role": "?",
+   "experiments": 19,
+   "score": 1.0,
+   "nmse": 0.0007064941979221345,
+   "inputs": 325
+  },
+  {
+   "version": 13,
+   "role": "?",
+   "experiments": 24,
+   "score": 0.0,
+   "nmse": 3.9781371070344226e+50,
+   "inputs": 425
+  },
+  {
+   "version": 14,
+   "role": "?",
+   "experiments": 25,
+   "score": 0.0,
+   "nmse": 3.9781371070344226e+50,
+   "inputs": 445
+  }
+ ]
+}

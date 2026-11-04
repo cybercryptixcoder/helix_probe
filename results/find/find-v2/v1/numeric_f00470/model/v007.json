@@ -1,0 +1,31 @@
+{
+ "version": 7,
+ "beliefs": [
+  "The dominant term is x^3, not 2^x: at x=128, f\u22483.91e12 \u2248 128^3=2.097e6? No\u2014128^3=2.097e6, but observed 3.91e12, so leading term must be ~x^4? Check: 128^4=2.68e8, still too small. 128^5=3.4e10, 128^6=4.4e12 \u2014 close to 3.91e12 [E1,E9]",
+  "At x=100, f=1.138e12; 100^6=1e12 \u2014 consistent with leading term x^6 [E9]",
+  "At x=50, f=3.555e10; 50^6=1.5625e10, ratio ~2.27; at x=128 ratio 3.91e12/4.4e12\u22480.89 \u2014 not pure x^6, so there is a lower-order correction [E9]",
+  "At x=30, f=2.76e9; 30^6=7.29e8, ratio 3.79; at x=60, f=8.85e10, 60^6=4.67e10, ratio 1.89; ratio decreases with x, suggesting f = a*x^6 + b*x^5 + ... with a<1 or a different power [E9]",
+  "At x=10, f=11386931.38; 10^6=1e6, 10^7=1e7 \u2014 f is between, so leading power is between 6 and 7, or x^6 with large coefficient [E2,E7]",
+  "At x=1, f=70.35; at x=2, f=3782.82; at x=4, f=118359.4; ratio f(2)/f(1)=53.8, f(4)/f(2)=31.3 \u2014 not a clean power, so multiple terms [E1,E4]",
+  "At x=0, f=22.28; at x=-1, f=-37.091; at x=-2, f=-1502.006 \u2014 negative side is roughly odd-ish (sign flips), consistent with odd powers dominating [E1,E3]",
+  "At x=-100, f=-3.434e11; |x|^6=1e12, ratio 0.34; at x=-128, f=-1.178e12, 128^6=4.4e12, ratio 0.27 \u2014 negative side smaller in magnitude than positive side at same |x| [E1,E8]",
+  "The interval (0,1) still shows an anomalous dip: f(0.5)=-21.9553, f(0.25)=-3.2851, f(0.75)=-14.0279, while f(0)=22.28 and f(1)=70.35 [E5,E6]",
+  "The anomaly on (0,1) is a negative bump that vanishes at x=0 and x=1 [E5,E6]",
+  "Exact functional form is still unknown; the previous x^3+2^x+22 base is wrong at large |x| \u2014 need to identify the true polynomial/combination [E1,E8,E9]?"
+ ],
+ "notes": "The old base x^3+2^x+22 fails badly at large |x|: observed values grow like x^6 (e.g. f(100)\u22481.14e12\u2248100^6). I refit the base as a polynomial in x plus the (0,1) bump, using the large-x data to pin the leading coefficient and lower terms.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.85,
+  0.5714285714285714,
+  0.45,
+  0.8,
+  0.65,
+  0.75,
+  0.35,
+  0.4
+ ],
+ "made_at": 9
+}

@@ -1,3 +1,39 @@
 Helix Probe v2 on 'find_numeric_f00470': 0 experiments so far, model v0, exam of 4, held-out set of 100
 [1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
 [2] E2 How does f behave for small and moderate |x| on both sides of zero — is it ...(+100 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+[3] E3 a random ordinary probe  (v0 predicted it: match 0.00)
+[4] E4 Is f on the ordinary positive/negative range a pure x^5 times a sign-depend...(+103 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.23, fit 0.51, size 1123 (exam 0.000 -> 0.225); held-out 0%
+[5] E5 a random ordinary probe  (v1 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (1159 vs 1123 chars)
+      updater's model not kept: same scores and not smaller (1123 vs 1123 chars)
+[6] E6 Does the ordinary-range behavior follow a single odd power law (sign-depend...(+199 chars)  (v1 predicted it: match 0.60)
+      model v2 by the updater: exam 1.00, fit 0.96, size 1121 (exam 0.225 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Is the ordinary-range law exactly c*x^5 with a sign-dependent coefficient, ...(+205 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Does the ordinary-range law have a smooth additive correction near the spec...(+187 chars)  (v2 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.676, the current model's is 0.968
+[11] E11 a random ordinary probe  (v2 predicted it: match 1.00)
+[12] E12 What is the exact functional form on the ordinary range near the special-in...(+202 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v2 predicted it: match 1.00)
+[14] E14 On the ordinary range just outside the special interval (|x| from 1 to ~4),...(+184 chars)  (v2 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v2 predicted it: match 1.00)
+[16] E16 Is the ordinary-range law exactly c*x^5 with a sign-dependent coefficient, ...(+154 chars)  (v2 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v2 predicted it: match 1.00)
+[18] E18 Does the special interval near zero have a hard boundary at |x|=1, or does ...(+158 chars)  (v2 predicted it: match 0.15)
+      model v3 by the updater: exam 1.00, fit 0.95, size 1261 (fit 0.935 -> 0.952); held-out 100%
+      theorist (every 6 steps)
+[19] E19 a random ordinary probe  (v3 predicted it: match 1.00)
+[20] E20 Does the ordinary-range law hold exactly as c*x^5 all the way down to |x|=1...(+189 chars)  (v3 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v3 predicted it: match 1.00)
+[22] E22 What is the exact form of the correction to c*x^5 in the ordinary range |x|...(+136 chars)  (v3 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.944, the current model's is 0.956
+[23] E23 a random ordinary probe  (v3 predicted it: match 1.00)
+[24] E24 Is the ordinary-range law exactly c*x^5 with a sign-dependent coefficient o...(+135 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v3 predicted it: match 1.00)
+{"env": "find_numeric_f00470", "experiments": 25, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 0.9611428571428572, "size": 1261, "heldout": 1.0, "llm_calls": 35, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

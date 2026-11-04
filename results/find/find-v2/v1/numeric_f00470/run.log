@@ -1,0 +1,63 @@
+Helix Probe on 'find_numeric_f00470': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, sampling widely to reveal th...(+41 chars)  model v0 match 0.00
+      model kept (v0)
+[2] E2 Is f(x) = x^3 + 2^x (or similar) across the whole domain, and does the appa...(+96 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.65 (was 0.00), held-out 0%
+[3] E3 Is the discrepancy at negative x explained by a term like (x-1)^3 instead o...(+48 chars)  model v1 match 0.57
+      model v2: fit 0% (was 0%), mean match 0.62 (was 0.62), held-out 0%
+[4] E4 Is the anomaly at negative x a constant offset plus a sign/parity effect, o...(+151 chars)  model v2 match 0.45
+      revision rejected: mean match 0.57 < 0.58
+      model v3: fit 0% (was 0%), mean match 0.58 (was 0.58), held-out 0%
+[5] E5 For x in [0,1], is f(x) exactly x^3 + 2^x + c with a constant c, and what i...(+65 chars)  model v3 match 0.20
+      model v4: fit 0% (was 0%), mean match 0.50 (was 0.50), held-out 0%
+[6] E6 Is the whole function exactly f(x) = x^3 + 2^x + 22 (so the apparent anomal...(+84 chars)  model v4 match 0.65
+      model v5: fit 0% (was 0%), mean match 0.53 (was 0.53), held-out 0%
+[7] E7 Is the whole function exactly f(x) = x^3 + 2^x + 22 for x>=1 (or x<0) with ...(+137 chars)  model v5 match 0.42
+      revision rejected: mean match 0.38 < 0.51
+      revision rejected: mean match 0.49 < 0.51
+[8] E8 Is the positive-side growth exactly (x^3 + 2^x + 22) plus a smooth anomaly ...(+143 chars)  model v5 match 0.45
+      model v6: fit 0% (was 0%), mean match 0.58 (was 0.50), held-out 0%
+[9] E9 Does the base formula f(x) = x^3 + 2^x + 22 hold exactly at large positive ...(+86 chars)  model v6 match 0.10
+      model v7: fit 0% (was 0%), mean match 0.61 (was 0.53), held-out 0%
+[10] E10 Is the large-|x| behaviour a pure polynomial in x (no 2^x term), and can I ...(+99 chars)  model v7 match 0.75
+      revision rejected: mean match 0.60 < 0.63
+      model v8: fit 50% (was 0%), mean match 0.69 (was 0.63), held-out 94%
+[11] E11 Where exactly does the anomalous interval on (0,1) begin and end — does the...(+98 chars)  model v8 match 0.10
+      revision rejected: mean match 0.59 < 0.63
+      model v9: fit 45% (was 45%), mean match 0.63 (was 0.63), held-out 94%
+[12] E12 What is the exact low-order structure of f near zero (is there a 2^x term a...(+114 chars)  model v9 match 1.00
+[13] E13 At small integer and half-integer x in [-6, 6], is f(x) exactly x^3 + 2^x +...(+94 chars)  model v9 match 0.25
+      revision rejected: mean match 0.49 < 0.63
+      revision rejected: mean match 0.49 < 0.63
+[14] E14 Does f equal x^3 + 2^x + 22 exactly outside (0,1), tested at fresh half-int...(+105 chars)  model v9 match 0.35
+      revision rejected: mean match 0.48 < 0.61
+      revision rejected: mean match 0.03 < 0.61
+[15] E15 Does f equal x^3 + 2^x + 22 exactly outside (0,1) at fresh non-integer poin...(+79 chars)  model v9 match 0.30
+      revision rejected: mean match 0.55 < 0.59
+      revision rejected: mean match 0.56 < 0.59
+[16] E16 Does f(x) = x^3 + 2^x + 22 hold exactly outside (0,1) at fresh points inclu...(+153 chars)  model v9 match 0.20
+      revision rejected: mean match 0.50 < 0.57
+      model v10: fit 19% (was 38%), mean match 0.66 (was 0.57), held-out 34%
+[17] E17 Does the base formula x^3 + 2^x + 22 hold exactly at small positive x just ...(+134 chars)  model v10 match 0.25
+      model v11: fit 18% (was 18%), mean match 0.68 (was 0.63), held-out 34%
+[18] E18 Is the base formula x^3 + 2^x + 22 exact at x=1 (where the observed 70.35 v...(+171 chars)  model v11 match 0.40
+      model kept (v11)
+[19] E19 At x=1 the observed f(1)=70.35 is nowhere near x^3+2^x+22=25, and at x=0 ob...(+291 chars)  model v11 match 0.20
+      model v12: fit 37% (was 16%), mean match 0.80 (was 0.64), held-out 34%
+[20] E20 Is the large-|x| behavior exactly x^3 + 2^x + 22, or is it a pure polynomia...(+205 chars)  model v12 match 0.45
+      revision rejected: mean match 0.60 < 0.78
+      revision rejected: mean match 0.47 < 0.78
+[21] E21 Does the base formula x^3 + 2^x + 22 hold exactly on the negative side at m...(+132 chars)  model v12 match 0.70
+      revision rejected: mean match 0.72 < 0.78
+      revision rejected: mean match 0.71 < 0.78
+[22] E22 Does the base formula f(x)=x^3+2^x+22 hold exactly at moderate negative x (...(+112 chars)  model v12 match 0.70
+      revision rejected: mean match 0.67 < 0.77
+      revision rejected: mean match 0.70 < 0.77
+[23] E23 Does the base formula f(x)=x^3+2^x+22 hold exactly at moderate negative x (...(+124 chars)  model v12 match 0.35
+      revision rejected: mean match 0.65 < 0.76
+      model kept (v12)
+[24] E24 Does the base formula x^3 + 2^x + 22 hold exactly at moderate negative x (-...(+175 chars)  model v12 match 0.35
+      model v13: fit 29% (was 29%), mean match 0.76 (was 0.74), held-out 1%
+[25] E25 Is the anomaly on (0,1) actually confined to [0,1], or does it continue smo...(+179 chars)  model v13 match 0.30
+      model v14: fit 40% (was 28%), mean match 0.81 (was 0.74), held-out 1%
+{"env": "find_numeric_f00470", "experiments": 25, "model_version": 14, "fit": 0.4, "heldout": 0.01, "llm_calls": 61, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,19 @@
+{
+ "version": 3,
+ "beliefs": [
+  "For |x| < 4.5, f(x) = round(x) with ties away from zero: 3.5\u21924, -3.5\u2192-3, 3.9\u21924, -3.9\u2192-3 [E2]",
+  "For 4.1 <= |x| < 4.5, f(x) = round(x) still holds: 4.2\u21925, 4.3\u21925, -4.2\u2192-4, -4.3\u2192-4 [E3]",
+  "At |x| >= 4.4 (e.g. 4.4, -4.4, 4.5, 8, 128) the output is 0 [E1, E2, E3]",
+  "The cutoff is a hard step between |x|=4.3 and |x|=4.4, symmetric on both sides [E3]",
+  "At x=0 the output is 0, consistent with round(0) [E1]"
+ ],
+ "notes": "E3 shows 4.2 and 4.3 still round (to 5 and -4), while 4.4 and -4.4 give 0. So the cutoff is between 4.3 and 4.4, not 4.5. Tightened the threshold to 4.4 and kept round-half-away-from-zero.",
+ "fit": 0.3333333333333333,
+ "heldout": 0.86,
+ "matches": [
+  1.0,
+  0.6428571428571429,
+  0.6666666666666666
+ ],
+ "made_at": 3
+}

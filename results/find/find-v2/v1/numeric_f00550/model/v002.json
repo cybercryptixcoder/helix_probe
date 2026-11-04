@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) is 0 for |x| >= ~1 (outside a small central interval) [E1, E2]",
+  "Inside roughly |x| < 1, f is nonzero and negative, peaking in magnitude near x=0 [E2]",
+  "f(0) = -1.7 exactly [E1, E2]",
+  "f is symmetric-ish but not exactly: values at \u00b10.5 differ (-3.425 vs -1.625), suggesting asymmetry or a shifted feature [E2]",
+  "The nonzero region appears to span about (-1, 1) with zero outside; exact boundary and shape unclear [E2]?"
+ ],
+ "notes": "E2 shows a whole interval of nonzero values around 0, not an isolated spike. I model it as a smooth bump roughly on (-1,1) that is 0 outside, matching the sampled points via interpolation.",
+ "fit": 1.0,
+ "heldout": 0.98,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

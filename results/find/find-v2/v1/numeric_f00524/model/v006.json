@@ -1,0 +1,24 @@
+{
+ "version": 6,
+ "beliefs": [
+  "For 0 <= x < 4.35, f(x) = ceil(x) (floor(x)+1 for non-integers, x for integers) [E1, E4, E5]",
+  "For -4.35 < x < 0, f(x) = ceil(x) (so -0.4\u21920, -1.5\u2192-1, -3.5\u2192-3) [E4, E5]",
+  "At x=0, f(0)=0, consistent with ceil [E1]",
+  "For |x| >= 4.36, f(x)=0; 4.35\u21925 but 4.36\u21920, so the active interval is |x| <= 4.35 [E5, E6]",
+  "The cutoff is symmetric: active up to 4.35 and down to -4.35 inclusive [E5, E6]",
+  "Exact cutoff between 4.35 and 4.36 is not pinned down; using 4.355 as midpoint?",
+  "Outside the active interval f returns 0 (sometimes shown as -0.0 on the negative side) [E2, E3, E5, E6]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 6
+}

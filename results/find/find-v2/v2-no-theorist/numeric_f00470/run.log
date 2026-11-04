@@ -1,3 +1,13 @@
 Helix Probe v2 on 'find_numeric_f00470': 0 experiments so far, model v0, exam of 4, held-out set of 100
 [1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
       model v1 by the updater: exam 1.00, fit 1.00, size 315 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the function exactly piecewise x^5 with different coefficients on each s...(+102 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Is the function exactly odd (f(-x) = -f(x)) plus a constant offset, or does...(+209 chars)  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 1.00)
+[6] E6 Is the positive-side rule exactly 114*x^5 + 21.28, and the negative-side ru...(+172 chars)  (v1 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v1 predicted it: match 1.00)
+[8] E8 Does the function have a global additive constant near 21.3 (visible at x=0...(+136 chars)  (v1 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00470", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 315, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

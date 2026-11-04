@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is 0 almost everywhere across [-128,127] [E1]",
+  "f(0) = -1.7, a single isolated nonzero value at x=0 [E1]",
+  "f appears to be a spike/delta-like function centered at 0?"
+ ],
+ "notes": "Only nonzero output was at x=0 (-1.7); all other sampled points gave 0. Model as zero except at x=0, but the exact width of the nonzero region is unknown.",
+ "fit": 1.0,
+ "heldout": 0.92,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

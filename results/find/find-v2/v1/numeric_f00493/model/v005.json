@@ -1,0 +1,26 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f is odd for |x|>=2: f(-x)=-f(x) at x=2,2.5,3,5,6,10,12,20,24,40,48 [E1, E2]",
+  "f is NOT odd for |x|<2: f(-1)=+6.1 vs f(1)=-4.3, f(-0.5)=+6.24 vs f(0.5)=-0.0 [E2]",
+  "Inside (-2,2) f is exactly 0 for 0<=x<=0.95 (observed -0.0 at 0.1..0.95) [E3, E5]",
+  "At x=1.0 f jumps to -4.3, then rises smoothly (in magnitude) toward ~-30 as x->2- [E5, E4]",
+  "On the positive ramp (1,2), f matches -4.3*(x^2-1)^0.5-ish growth; specifically f(1.5)=-11.8031, f(1.85)=-23.0254 [E5]",
+  "At x=2 exactly, f jumps to the outer power-law value -60.2 (discontinuity at boundary) [E1, E4]",
+  "On the negative side inside (-2,0), f is roughly +6 for -1.5<=x<=-0.4, rising to +8 near -1.2, dropping toward -50 near -1.9 [E3]",
+  "Outside (-2,2), f grows like a power law with exponent ~5.9 plus exponential factor: log-log slope from x=2 to x=48 is ~5.9 [E1, E2]",
+  "f(0)=0 (observed -0.0) [E1]",
+  "The exact form inside (-2,2) is still unclear; likely piecewise/step structure, not a smooth polynomial [E3, E5]"
+ ],
+ "notes": "Fixed the positive inner ramp: zero extends to 0.95, then a sharp jump at x=1.0 to -4.3, then a smooth curve through the E5 points. Replaced the linear-interp pos_pts with a denser table including the E5 samples so the ramp matches.",
+ "fit": 0.4,
+ "heldout": 0.01,
+ "matches": [
+  0.85,
+  0.8,
+  1.0,
+  0.9,
+  1.0
+ ],
+ "made_at": 5
+}

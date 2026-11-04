@@ -1,0 +1,31 @@
+{
+ "version": 11,
+ "beliefs": [
+  "Outer branch |x|>=2 is sign(x)*A*|x|^p*exp(k*|x|) with A,p,k fit to E1/E2/E7/E8/E10 magnitudes [E1, E2, E7, E8, E10]",
+  "Outer branch is odd: f(-x)=-f(x) for |x|>=2, confirmed at moderate and large |x| [E8, E10, E11, E12]",
+  "f(2)=-60.2 exactly and f(-2)=-67.0 exactly; the outer law is only approximate near |x|=2 [E1, E4, E6]",
+  "On (0,1) f is exactly 0, with a sharp step to -4.3 at x=1.0 [E5, E9]",
+  "On (1,2) f rises smoothly from -4.3 toward ~-30 as x->2- [E3, E4, E5, E9]",
+  "On (-2,0) f is a smooth curve: ~+6 near -1, peaking ~+8 near -1.2, then dropping steeply to -67 at x=-2 [E3, E6]",
+  "f(0)=0 [E1]",
+  "Outer branch sign is negative for positive x (f(x)<0 for x>=2), positive for negative x [E1, E2, E7, E8, E10, E11, E12]"
+ ],
+ "notes": "E12 confirms the outer branch is odd at moderate |x| (f(-x)=-f(x)); my v10 code had the sign flipped (returned positive for positive x). Fixed outer() to return -sign(x)*val so positive x is negative and negative x is positive. The magnitude fit is still slightly off (~15% at moderate |x|) but the sign and oddness now match.",
+ "fit": 0.5833333333333334,
+ "heldout": 0.0,
+ "matches": [
+  0.75,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.6,
+  1.0,
+  0.95,
+  0.95,
+  0.85
+ ],
+ "made_at": 12
+}

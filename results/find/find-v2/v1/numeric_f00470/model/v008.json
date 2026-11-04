@@ -1,0 +1,31 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f is dominated by a pure polynomial in x with no 2^x term at large |x|; the 2^x idea is dead [E9, E10]",
+  "The polynomial is odd: f(-x) = -f(x) at large |x|, e.g. f(128)=3.910e12 and f(-128)=-1.178e12... no, magnitudes differ, so it is NOT odd [E1, E10]",
+  "At x=128, f=3.910e12; at x=-128, f=-1.178e12; ratio 3.32, so negative side is smaller \u2014 suggests a term like x^6 + x^5 + ... with mixed parity [E1, E10]",
+  "Check x^6+x^5+x^4+x^3+x^2+x+22 at x=128: 128^6=4.4e12 too big; try x^6/... need to fit properly [E10]",
+  "At x=22, f=5.86e8; 22^6=1.13e8, ratio 5.2; at x=16, f=1.19e8, 16^6=1.68e7, ratio 7.1; at x=12, f=2.83e7, 12^6=2.99e6, ratio 9.5 \u2014 ratio decreases with x, consistent with leading x^6 plus lower terms [E10]",
+  "At x=3, f=28401.19; 3^6=729, ratio 39; at x=5, f=358938.83, 5^6=15625, ratio 23; at x=7, f=1919316.07, 7^6=117649, ratio 16.3 \u2014 leading term grows into x^6 [E10]",
+  "At x=0, f=22.28; at x=1, f=70.35; at x=2, f=3782.82; at x=-1, f=-37.091; at x=-2, f=-1502.006 \u2014 small-x behavior is not pure x^6 [E1, E4]",
+  "The interval (0,1) has a negative dip: f(0.25)=-3.2851, f(0.5)=-21.9553, f(0.75)=-14.0279, while f(0)=22.28 and f(1)=70.35 [E5, E6]",
+  "The dip vanishes at x=0 and x=1 and is negative in between [E5, E6]",
+  "Exact functional form still unknown; need to fit polynomial degree and coefficients from E10 data [E10]?"
+ ],
+ "notes": "Dropped the 2^x term entirely (E9, E10 show pure polynomial growth). Kept the (0,1) dip. Need to refit polynomial coefficients from E10 anchors; current guess uses x^6 leading with lower-order corrections fit to E10 points.",
+ "fit": 0.5,
+ "heldout": 0.94,
+ "matches": [
+  1.0,
+  1.0,
+  0.07142857142857142,
+  0.25,
+  0.6,
+  0.0,
+  1.0,
+  1.0,
+  1.0,
+  0.95
+ ],
+ "made_at": 10
+}

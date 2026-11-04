@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f is odd to high precision for |x|>=2: f(-x) = -f(x) exactly at x=2,2.5,3,5,6,10,12,20,24,40,48 [E1, E2]",
+  "f is NOT odd for |x|<2: f(-1)=+6.1 vs f(1)=-4.3, f(-0.5)=+6.24 vs f(0.5)=-0.0, f(-1.5)=-6.43 vs f(1.5)=-11.80 [E2]",
+  "There is a special interval around x in (-2,2) where f behaves differently, roughly constant ~\u00b16 near |x|<=1 then transitioning [E2]",
+  "Outside (-2,2), f grows like a power law with exponent ~5.9: log-log slope from x=2 to x=48 is ~5.9 [E1, E2]",
+  "f(0)=0 (observed -0.0) [E1]",
+  "The exact form inside (-2,2) is still unclear; possibly a different polynomial or a constant offset region?"
+ ],
+ "notes": "Added a special-case interval for |x|<2 where odd symmetry fails (f(-1)=6.1, f(-0.5)=6.24, f(-1.5)=-6.43 vs odd predictions). Outside that, kept the power-law fit but refit exponent from E2 points which show slope ~5.9 consistently.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.85,
+  0.8
+ ],
+ "made_at": 2
+}

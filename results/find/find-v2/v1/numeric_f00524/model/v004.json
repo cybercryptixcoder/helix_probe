@@ -1,0 +1,22 @@
+{
+ "version": 4,
+ "beliefs": [
+  "For |x| < 4.4, f(x) = floor(x) + 1 for x >= 0 (i.e. ceil for positive non-integers, but integers map to themselves... actually 0.4\u21921, 1.4\u21922, 3.4\u21924, so f(x)=floor(x)+1 for x>0 non-integer, and f(0)=0) [E1, E4]",
+  "For x > 0 and |x| < 4.4, f(x) = floor(x) + 1 (so 0.4\u21921, 1.4\u21922, 2.4\u21923, 3.4\u21924, 0.5\u21921, 1.5\u21922, 2.5\u21923, 3.5\u21924) [E4]",
+  "For x < 0 and |x| < 4.4, f(x) = -floor(-x) = ceil(x) (so -0.4\u21920, -0.5\u21920, -1.5\u2192-1, -2.5\u2192-2, -3.5\u2192-3) [E4]",
+  "At x=0, f(0)=0 [E1]",
+  "At |x| >= 4.4, f(x)=0 (e.g. 4.4, -4.4, 4.5, 8, 128) [E1, E2, E3]",
+  "The cutoff is a hard step between |x|=4.3 and |x|=4.4, symmetric on both sides [E3]",
+  "Whether the rounding rule is exactly ceil(x) for all x in (-4.4, 4.4) or has a special case at integers is not fully distinguished by E4 (integers weren't probed there); E1 shows integers map to themselves, consistent with ceil [E1, E4]?"
+ ],
+ "notes": "E4 shows positive non-integers round up (ceil) and negative non-integers round toward zero (ceil), i.e. f(x)=ceil(x) for |x|<4.4, not round-half-away. Integers map to themselves per E1, also consistent with ceil.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 4
+}

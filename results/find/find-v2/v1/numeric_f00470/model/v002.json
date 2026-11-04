@@ -1,0 +1,20 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) is dominated by a term growing like 2^x for large x, since f(128)\u22483.9e12 \u2248 2^128\u00b71.15 [E1, E2]",
+  "f(x) includes a cubic term: f(1.5)=870.67 and f(-1.5)=-377.94, consistent with a cubic dominating at small |x| [E2]",
+  "There is a small additive constant near 22: f(0)=22.28 [E1]",
+  "The cubic is not x^3 but appears centered near x=1: f(0)=22.28 and f(1)=70.35 differ by ~48, matching (x-1)^3+2^x+22 at x=0 and x=1 [E3]",
+  "At x=-1, f=-37.09 while (x-1)^3+2^x+22 = -8+0.5+22 = 14.5, so the simple (x-1)^3 form still fails at negative x [E3]?",
+  "The observed values at negative x are far more negative than any cubic+2^x+22 form predicts, suggesting a different or additional term for x<0 [E3]?"
+ ],
+ "notes": "E3 shows (x-1)^3 fits x=0 and x=1 better than x^3, but negative-x values are still far off, so the negative branch remains unexplained; I keep the (x-1)^3+2^x+22 guess and flag the negative region.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.65,
+  0.65,
+  0.5714285714285714
+ ],
+ "made_at": 3
+}

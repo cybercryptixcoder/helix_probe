@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) = x for |x| <= 4, and f(x) = 0 for |x| > 4 [E1]",
+  "At x = -4, -2, -1, 0, 1, 2, 4 the outputs equal x exactly [E1]",
+  "Outside [-4, 4] the output is 0 (including at \u00b18, \u00b116, \u00b132, \u00b164, \u00b1100, \u00b1127, \u00b1128) [E1]",
+  "The transition appears to be a hard cutoff at |x| = 4; whether the boundary is inclusive or exclusive at exactly \u00b14 is not yet distinguished beyond the observed values [E1]?"
+ ],
+ "notes": "E1 shows identity behavior on [-4,4] and zero outside, so I model f as x clipped to that interval (x if |x|<=4 else 0).",
+ "fit": 1.0,
+ "heldout": 0.77,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

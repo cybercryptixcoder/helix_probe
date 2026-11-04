@@ -1,0 +1,25 @@
+{
+ "env": "find_numeric_f00470",
+ "experiments": 25,
+ "model_version": 14,
+ "fit": 0.4,
+ "heldout": 0.01,
+ "llm_calls": 61,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "For x >= 2, f(x) = x^3 + 2^x + 22 exactly [E9, E12, E13, E20, E25]",
+  "For x <= -2, f(x) is a smooth polynomial-like curve far larger in magnitude than x^3; values are consistent across E21-E24 (small \u00b11 offsets are noise) [E21, E22, E23, E24]",
+  "Negative-side values at integers -2..-20 are stable: f(-2)\u2248-1501, f(-10)\u2248-3.61e6, f(-20)\u2248-1.12e8 [E21, E22, E23, E24]",
+  "On (0,1) f deviates from x^3+2^x+22 by a large dip, but the dip is NOT symmetric about 0.5: f(0.5)=-20.96 (not -44) [E5, E6, E11, E13, E15]",
+  "The anomaly extends well past x=1: at x=1.1 f=143.16, x=1.5 f=868.67, x=1.9 f=2923.52, x=1.99 f=3688.94, x=2.01 f=3877.56 \u2014 all far above base, so the anomaly continues smoothly into (1,2) and vanishes by x=2 [E25, E11]",
+  "At x=1 exactly f(1)=70.35 vs base 25, so anomaly(1)\u2248+45.35 [E18, E19]",
+  "At x=0 exactly f(0)=20.28 vs base 23, so anomaly(0)\u2248-2.72; near 0 from below anomaly is small negative [E18, E19]",
+  "For x in (-2,0), f is close to base x^3+2^x+22 (e.g. f(-0.5)=26.69 vs base 22.58, f(-1.5)=-379.94 vs base -378.94) with small deviations [E21-E25]",
+  "The anomaly is a smooth bump on roughly [0,2] with a dip near 0.5 and a large positive lobe peaking near x\u22481.5-2 [E25, E19]",
+  "Exact form of the anomaly on [0,2] is unknown; interpolating from observed anchors is the best current guess [E25]?"
+ ]
+}

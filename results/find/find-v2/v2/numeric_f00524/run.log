@@ -1,0 +1,38 @@
+Helix Probe v2 on 'find_numeric_f00524': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.97, fit 1.00, size 259 (exam 0.000 -> 0.975); held-out 78%
+[2] E2 Is the 3.0 at x=2.9 a narrow spike at a single point, a bump over a small i...(+67 chars)  (v1 predicted it: match 0.50)
+      model v2 by the updater: exam 1.00, fit 0.91, size 379 (exam 0.975 -> 1.000); held-out 88%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 1.00, size 291 (fit 0.904 -> 1.000); held-out 93%
+[4] E4 Is the nonzero region really the interval [-3,4] with f(x)=ceil(x), and whe...(+118 chars)  (v3 predicted it: match 0.75)
+      model v4 by the updater: exam 1.00, fit 1.00, size 291 (fit 0.938 -> 1.000); held-out 98%
+[5] E5 a random ordinary probe  (v4 predicted it: match 1.00)
+[6] E6 Where exactly does the nonzero region end on the right, and is f(x)=ceil(x)...(+76 chars)  (v4 predicted it: match 0.75)
+      model v5 by the updater: exam 1.00, fit 1.00, size 290 (fit 0.958 -> 1.000); held-out 99%
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.983, the current model's is 1.000
+[7] E7 a random ordinary probe  (v5 predicted it: match 1.00)
+[8] E8 Is the right boundary of the nonzero region exactly at 4.4 (i.e., does f(4....(+132 chars)  (v5 predicted it: match 0.45)
+      model v6 by the updater: exam 1.00, fit 1.00, size 292 (fit 0.931 -> 1.000); held-out 99%
+[9] E9 a random ordinary probe  (v6 predicted it: match 1.00)
+[10] E10 Is the zero region truly zero everywhere outside [-4,4.35], including near ...(+118 chars)  (v6 predicted it: match 0.95)
+      updater's model not kept: same scores and not smaller (292 vs 292 chars)
+      updater's model not kept: same scores and not smaller (292 vs 292 chars)
+[11] E11 a random ordinary probe  (v6 predicted it: match 1.00)
+[12] E12 Are the values just outside the nonzero interval on the left truly zero, an...(+122 chars)  (v6 predicted it: match 0.80)
+      model v7 by the updater: exam 1.00, fit 1.00, size 292 (fit 0.979 -> 1.000); held-out 99%
+      theorist (every 6 steps)
+      model v8 by the theorist: exam 1.00, fit 1.00, size 283 (same scores, smaller (292 -> 283 chars)); held-out 100%
+[13] E13 a random ordinary probe  (v8 predicted it: match 1.00)
+[14] E14 Does the nonzero ceil(x) region extend continuously across the left boundar...(+176 chars)  (v8 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v8 predicted it: match 1.00)
+[16] E16 Is the nonzero region actually a smooth/continuous function rather than cei...(+157 chars)  (v8 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v8 predicted it: match 1.00)
+[18] E18 Does the function's nonzero region actually extend beyond the tested right ...(+169 chars)  (v8 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (452 vs 283 chars)
+[19] E19 a random ordinary probe  (v8 predicted it: match 1.00)
+[20] E20 Does the nonzero region behave as ceil(x) exactly at the left edge near -4 ...(+107 chars)  (v8 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00524", "experiments": 20, "exam_probes": 4, "model_version": 8, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 283, "heldout": 1.0, "llm_calls": 22, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

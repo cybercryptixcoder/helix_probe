@@ -1,0 +1,24 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f(x) = x^3 + 2^x + 22 fits exactly for x>=1: f(1)=70.35, f(2)=3782.82, f(4)=118359.4, f(8)=3736882.84, f(10)=11386931.38, f(12)=28314370.32 [E1,E2,E4,E7]",
+  "For x<0, f(x) = x^3 + 2^x + 22 also fits: f(-1)=-37.091, f(-2)=-1502.006, f(-4)=-40768.54, f(-10)=-3613823.11, f(-100)=-343374956786.62 [E1,E3,E4,E8]",
+  "The interval 0<x<1 is anomalous: f dips negative (f(0.5)=-21.9553, f(0.6)=-22.6466) while the base formula would give positive values [E5,E6]",
+  "At x=0 f(0)=22.28, and at x=1 f(1)=70.35, matching base formula x^3+2^x+22 exactly at the endpoints [E1,E5]",
+  "On (0,1) the anomaly looks like a smooth negative bump; exact form unknown but must vanish at x=0 and x=1 [E5,E6]?"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.65,
+  0.65,
+  0.5714285714285714,
+  0.45,
+  0.8,
+  0.65,
+  0.4166666666666667,
+  0.45
+ ],
+ "made_at": 8
+}

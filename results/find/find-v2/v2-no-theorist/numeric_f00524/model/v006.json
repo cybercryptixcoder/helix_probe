@@ -1,0 +1,1 @@
+{"version": 6, "role": "updater", "notes": "The negative boundary was wrong: E8 shows -4.35 still gives -4 while -4.36 gives 0, so the interval is [-4.35, 0), not (-4.4, 0). I moved the lower cutoff to -4.35 inclusive.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 377, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 8, "heldout": 1.0}
