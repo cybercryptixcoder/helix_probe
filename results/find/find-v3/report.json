@@ -16,15 +16,15 @@
   {
    "who": "v3",
    "category": "strings",
-   "n": 37,
-   "final": 0.981081081081081,
-   "at3": 0.8972972972972973,
-   "at10": 0.9621621621621621,
-   "experiments": 11.756756756756756,
-   "inputs": 92.8108108108108,
-   "calls": 10.567567567567568,
-   "usd": 0.528097872,
-   "heldout": 0.9967567567567568
+   "n": 40,
+   "final": 0.9075,
+   "at3": 0.83,
+   "at10": 0.89,
+   "experiments": 12.75,
+   "inputs": 100.7,
+   "calls": 15.125,
+   "usd": 1.894867776,
+   "heldout": 0.92225
   },
   {
    "who": "v3-exam",
@@ -42,15 +42,15 @@
   {
    "who": "v3-exam",
    "category": "strings",
-   "n": 39,
-   "final": 0.9923076923076923,
-   "at3": 0.882051282051282,
-   "at10": 0.9743589743589743,
-   "experiments": 11.871794871794872,
-   "inputs": 117,
-   "calls": 10.128205128205128,
-   "usd": 0.659649792,
-   "heldout": 0.9946153846153846
+   "n": 40,
+   "final": 0.9675,
+   "at3": 0.86,
+   "at10": 0.95,
+   "experiments": 12.2,
+   "inputs": 119.3,
+   "calls": 11.625,
+   "usd": 1.1307003,
+   "heldout": 0.97025
   },
   {
    "who": "published: gpt-3.5-turbo",
@@ -1121,6 +1121,22 @@
   {
    "arm": "v3",
    "category": "strings",
+   "fid": "f00436",
+   "final": 0.0,
+   "at3": 0.0,
+   "at10": 0.0,
+   "experiments": 25,
+   "exam_probes": 0,
+   "inputs": 198,
+   "heldout": 0.0,
+   "calls": 74,
+   "tokens_in": 246968,
+   "tokens_out": 336025,
+   "usd": 0.47430984
+  },
+  {
+   "arm": "v3",
+   "category": "strings",
    "fid": "f00444",
    "final": 1.0,
    "at3": 1.0,
@@ -1181,6 +1197,22 @@
    "tokens_in": 45263,
    "tokens_out": 12145,
    "usd": 0.026158404
+  },
+  {
+   "arm": "v3",
+   "category": "strings",
+   "fid": "f00542",
+   "final": 0.0,
+   "at3": 0.0,
+   "at10": 0.0,
+   "experiments": 25,
+   "exam_probes": 0,
+   "inputs": 198,
+   "heldout": 0.01,
+   "calls": 70,
+   "tokens_in": 216652,
+   "tokens_out": 298654,
+   "usd": 0.422138544
   },
   {
    "arm": "v3",
@@ -1261,6 +1293,22 @@
    "tokens_in": 8609,
    "tokens_out": 1299,
    "usd": 0.003727548
+  },
+  {
+   "arm": "v3",
+   "category": "strings",
+   "fid": "f00751",
+   "final": 0.0,
+   "at3": 0.0,
+   "at10": 0.0,
+   "experiments": 25,
+   "exam_probes": 0,
+   "inputs": 198,
+   "heldout": 0.0,
+   "calls": 70,
+   "tokens_in": 295364,
+   "tokens_out": 321700,
+   "usd": 0.47032152
   },
   {
    "arm": "v3",
@@ -2429,6 +2477,22 @@
    "tokens_in": 31994,
    "tokens_out": 10126,
    "usd": 0.021598871999999998
+  },
+  {
+   "arm": "v3-exam",
+   "category": "strings",
+   "fid": "f00542",
+   "final": 0.0,
+   "at3": 0.0,
+   "at10": 0.0,
+   "experiments": 25,
+   "exam_probes": 4,
+   "inputs": 209,
+   "heldout": 0.02,
+   "calls": 70,
+   "tokens_in": 216829,
+   "tokens_out": 340091,
+   "usd": 0.471050508
   },
   {
    "arm": "v3-exam",
