@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) = 'lmKA' + reverse(x) for most inputs [E1]",
+  "When x contains a space, f(x) = reverse(x) with 'lmKA' inserted after the first reversed word [E1]",
+  "Empty input yields 'lmKA' [E1]"
+ ],
+ "notes": "Observed outputs are 'lmKA' prefix plus reversed input, except space-containing inputs where 'lmKA' appears mid-string after the first reversed token. Need more probes to pin down the space rule.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.8
+ ],
+ "made_at": 1
+}

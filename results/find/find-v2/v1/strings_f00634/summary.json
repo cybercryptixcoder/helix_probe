@@ -1,0 +1,28 @@
+{
+ "env": "find_strings_f00634",
+ "experiments": 25,
+ "model_version": 11,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 37,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f removes all whitespace characters (space, tab, newline, and Unicode whitespace) from the string [E1, E2, E3, E7, E9]",
+  "f lowercases all letters using Unicode-aware lowercasing [E1, E2, E3, E10]",
+  "the first surviving character is titlecase-uppercased only if the original string's first character is not whitespace [E2, E3, E8]",
+  "leading whitespace (space, tab, etc.) prevents capitalization of the first remaining character [E2, E3, E8]",
+  "empty string and all-whitespace strings map to empty string [E1, E2, E3]",
+  "digits and punctuation are left unchanged [E1, E2, E3]",
+  "the capitalize-first rule uses titlecase-uppercasing of the first char (e.g. \u01c6\u2192\u01c5, \u00df\u2192Ss, \ufb00\u2192Ff) [E11, E13, E14, E15]",
+  "capitalization is applied to the first surviving character via titlecase-uppercase only (not full str.capitalize) [E12, E13, E14]",
+  "the rest of the string is lowercased before capitalization, so mixed-case non-ASCII like \u01c4 becomes \u01c6 then \u01c5 [E12, E17]",
+  "an already-titlecase first char like \u01c5 stays unchanged [E12, E13, E14]",
+  "an already-uppercase first char like \u1e9e stays unchanged, but \u01c4 (uppercase) maps to \u01c5 (titlecase) [E15, E16, E18]",
+  "the first char is titlecased from its original form (not after lowercasing), so \u01c4\u2192\u01c5 and \u1e9e\u2192\u1e9e, while the rest is lowercased [E16, E17, E18]",
+  "uppercase letters that have a distinct titlecase form (like \u01c4\u2192\u01c5) are titlecased, while those whose titlecase equals themselves (like \u1e9e) pass through unchanged [E18]"
+ ]
+}

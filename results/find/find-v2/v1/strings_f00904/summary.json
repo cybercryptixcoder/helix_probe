@@ -1,0 +1,19 @@
+{
+ "env": "find_strings_f00904",
+ "experiments": 25,
+ "model_version": 2,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 29,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f reverses the order of characters in the input string [E1, E2]",
+  "Case, digits, spaces, and symbols are preserved unchanged; only order is reversed [E1, E2]",
+  "Empty string maps to empty string [E1]",
+  "The substring 'World' in the input becomes 'rorld' in the output (W->r), suggesting a specific letter substitution layered on the reversal [E2]?"
+ ]
+}

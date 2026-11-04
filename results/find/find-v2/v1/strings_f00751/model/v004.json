@@ -1,0 +1,23 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f(x) strips leading and trailing whitespace (spaces and tabs) before inserting 'i' [E3, E4, E5]",
+  "After stripping, f inserts 'i' at index len//2 (floor); empty result becomes 'i' [E1, E2, E3]",
+  "Only leading/trailing whitespace is stripped; internal whitespace is preserved [E4]",
+  "Whitespace-only strings (spaces, tabs, or mixes) reduce to empty and yield 'i' [E3, E5]",
+  "Single-character stripped strings give 'i' + char [E1]",
+  "Two-character stripped strings give first char + 'i' + second char [E1]",
+  "Stripping treats tabs and spaces alike (both removed from ends) [E5]"
+ ],
+ "notes": "E5 showed tabs are stripped like spaces from both ends ('\\t x'->'i x', 'x\\t '->'xi', '\\t\\tx\\t\\t'->'ix'), so I switched from .strip(' ') to .strip() (all whitespace). Everything else (insert at len//2 after stripping) still fits all experiments.",
+ "fit": 0.2,
+ "heldout": 0.17,
+ "matches": [
+  1.0,
+  0.875,
+  0.4,
+  0.9,
+  0.8
+ ],
+ "made_at": 5
+}

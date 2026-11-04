@@ -1,0 +1,22 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f splits input on whitespace runs, reverses each word, and joins with single spaces [E2, E3, E4, E5]",
+  "If there is more than one word, 'lmKA' is inserted immediately before the last reversed word with a space before it [E2, E3, E4, E5]",
+  "If there is exactly one word, 'lmKA' is prepended to the reversed word [E1, E6]",
+  "Leading/trailing whitespace is stripped; whitespace-only or empty input yields just 'lmKA' [E1, E3, E4]",
+  "A single word surrounded by whitespace (e.g. ' a ') is treated as one word, so output is 'a lmKA' \u2014 lmKA goes after, not before [E6]"
+ ],
+ "notes": "Fixed the single-word-with-surrounding-whitespace case: ' a ' and '  ab  ' produce 'a lmKA'/'ba lmKA', so lmKA is appended after the reversed word when the original had leading/trailing whitespace but only one token. Distinguishing this from the no-whitespace single-word case (lmKA prepended) requires tracking whether whitespace was present.",
+ "fit": 0.5,
+ "heldout": 0.37,
+ "matches": [
+  1.0,
+  0.9,
+  0.6,
+  0.9,
+  1.0,
+  1.0
+ ],
+ "made_at": 6
+}

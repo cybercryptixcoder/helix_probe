@@ -1,0 +1,14 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f appends the literal string 'ny' to its input [E1]",
+  "f preserves the input exactly, including case, digits, symbols, and spaces, before appending 'ny' [E1]"
+ ],
+ "notes": "All ten outputs are exactly the input plus 'ny', including the empty string becoming 'ny'. So the rule is a simple suffix append.",
+ "fit": 1.0,
+ "heldout": 0.26,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

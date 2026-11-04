@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box simply appends the literal string `\"xI\"` to every input, regardless of content (digits, spaces, mixed case, words all behave identically in E1). I replaced the empty model with this constant-suffix rule.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 79, "matches": [1.0], "made_at": 1, "heldout": 1.0}

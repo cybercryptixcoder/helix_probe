@@ -1,0 +1,31 @@
+{
+ "version": 12,
+ "beliefs": [
+  "The first character is shifted backward by 2 in the alphabet (a->y, b->z, ..., z->x; A->Y, ..., Z->X) [E7, E8, E9, E10]",
+  "All characters after the first are left unchanged, including letters, digits, spaces, and symbols [E1, E4, E5, E6, E7, E8]",
+  "If the first character is not a letter (digit, space, symbol, control char, emoji), it is left unchanged [E1, E11, E12]",
+  "Non-ASCII letters are shifted backward by 2 in Unicode code point order, wrapping within the contiguous same-case letter block (\u00e9->\u00e7, \u00c9->\u00c7, \u00fc->\u00fa, \u00f1->\u00ef, \u00f8->\u00f6, \u00e6->\u00e4, \u0153->\u0151, \u00df->\u00dd, \u00e0->\u00de, \u00fe->\u00fc) [E11, E12, E13, E14]",
+  "The shift for non-ASCII letters uses code-point arithmetic within the contiguous run of same-case letters containing the character, not alphabet position; \u00df (U+00DF) is treated as part of the lowercase run ending at \u00ff, so \u00df->\u00dd wraps across the \u00d7 boundary [E12, E13, E14]",
+  "The lowercase non-ASCII run starts at \u00e0 (U+00E0), not at \u00df; \u00e0->\u00de wraps backward past \u00df into the uppercase \u00de [E14]"
+ ],
+ "notes": "E14 shows \u00e0->\u00de (wrapping backward past \u00df to \u00de), so the lowercase run begins at \u00e0, not \u00df; and \u00df->\u00dd confirms \u00df is inside the run (index 0, wraps to the end \u00ff... but observed \u00dd). Actually \u00df->\u00dd means \u00df is at index 1 in a run that starts at \u00e0? No\u2014need to reconsider: run \u00e0..\u00ff with \u00df included gives \u00df at index 1, -2 wraps to end = \u00ff, not \u00dd. So the run must be \u00df..\u00ff for \u00df but \u00e0..\u00ff for \u00e0. The simplest consistent rule: shift by -2 code points, and if the result falls in the \u00d7 gap (U+00D7) or below \u00e0, wrap to the end of the lowercase run (\u00ff, \u00fe, ...). \u00df-2=\u00dd (U+00DD, uppercase, not in lowercase run) \u2014 so \u00df is special: \u00df->\u00dd. I'll model \u00df as its own case: \u00df-2 code points = U+00DD = \u00dd directly, no wrapping needed. And \u00e0-2=\u00de (U+00DE) directly. So plain -2 code point arithmetic works for all of these! \u00df(U+00DF)-2=U+00DD=\u00dd \u2713, \u00e0(U+00E0)-2=U+00DE=\u00de \u2713, \u00f8-2=\u00f6 \u2713, \u00e6-2=\u00e4 \u2713, \u0153-2=\u0151 \u2713, \u00ff-2=\u00fd \u2713, \u00fe-2=\u00fc \u2713. The earlier failures were from my run-wrapping logic; plain -2 code points explains everything.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 14
+}

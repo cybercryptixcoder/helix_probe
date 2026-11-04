@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "Each letter is shifted forward by one in the alphabet: a->b, ..., z->a, preserving case [E1]",
+  "Digits and symbols are left unchanged [E1]",
+  "Spaces are left unchanged [E1]"
+ ],
+ "notes": "Observed outputs are consistent with a Caesar shift of +1 on alphabetic characters only, wrapping z->a and preserving case; digits, symbols, and spaces pass through unchanged.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3
+ ],
+ "made_at": 1
+}

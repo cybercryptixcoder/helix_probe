@@ -1,0 +1,23 @@
+{
+ "version": 8,
+ "beliefs": [
+  "Only the first character of the string is shifted backward by one in the alphabet (a->z, b->a, ..., z->y; A->Z, B->A, ..., Z->Y) [E1, E2, E3, E4, E5, E6, E7, E8]",
+  "All characters after the first are left unchanged, including letters, digits, spaces, and symbols [E1, E4, E5, E6, E7, E8]",
+  "If the first character is not a letter (digit, space, symbol), it is left unchanged [E1]",
+  "Empty string returns empty string [E1]"
+ ],
+ "notes": "The rule was already correct; my predict() had an off-by-one error (subtracting 1 instead of the observed shift). Observed: 'hello'->'fello' means h->f, a shift of -2? No: h->f is -2. Wait, 'a'->'y' is -2, 'b'->'z' is -2, 'z'->'x' is -2. So the shift is backward by TWO, not one. Fixing to subtract 2.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 8
+}

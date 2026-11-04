@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the space-removal rule to strip all whitespace characters (`\\s`, covering tabs and newlines) rather than only ordinary spaces, since E2 showed `\"a\\tb\"`\u2192`\"abF\"` and `\"a\\nb\"`\u2192`\"abF\"`.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 108, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

@@ -1,0 +1,26 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f inserts '2' at index len//2 of the input [E1, E2]",
+  "After insertion, if the last character is a letter, it is shifted forward by 2 in the alphabet, wrapping within the alphabet [E1, E2, E3, E4]",
+  "The shift applies to non-ASCII letters too, using their Unicode code point offset by +2 (\u00e9->\u00eb, \u00fc->\u00fe, \u00f1->\u00f3, \u00df->\u00e1), not restricted to ASCII [E7]",
+  "For ASCII letters the shift wraps within a-z / A-Z (z->b, Z->B) [E3, E4]",
+  "Non-letter last characters (digits, symbols, spaces) are left unchanged [E1, E3]",
+  "Only the last character is shifted, not every letter [E3]",
+  "Empty input returns '2' (insertion happens at index 0, no letter to shift) [E4]",
+  "Whether non-ASCII letter wrapping is alphabet-aware or plain code-point +2 is unverified; current evidence (\u00e9->\u00eb, \u00fc->\u00fe, \u00f1->\u00f3, \u00df->\u00e1) is consistent with plain code-point +2 [E7]?"
+ ],
+ "notes": "E7 shows the last-character shift applies to non-ASCII letters as well, moving them +2 in code point (\u00e9->\u00eb, \u00fc->\u00fe, \u00f1->\u00f3, \u00df->\u00e1), so I removed the ASCII-only restriction and now shift any letter by +2 code points, keeping alphabet-wrap only for ASCII a-z/A-Z.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 7
+}

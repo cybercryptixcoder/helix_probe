@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f removes all whitespace characters (space, tab, newline) from the string [E1, E2, E3]",
+  "f lowercases all letters [E1, E2, E3]",
+  "f capitalizes the first character of the result only if the original string's first character is not whitespace [E2, E3]",
+  "leading whitespace (space, tab, etc.) prevents capitalization of the first remaining character [E2, E3]",
+  "empty string and all-whitespace strings map to empty string [E1, E2, E3]",
+  "digits and punctuation are left unchanged [E1, E2, E3]"
+ ],
+ "notes": "E3 shows tabs and newlines are also removed (not just spaces), and any leading whitespace (tab or space) suppresses capitalization. Updated predict() to strip all whitespace via str.split/join and to check the original first char with .isspace().",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 3
+}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I identified two operations: insert \"2\" at the middle index (floor(len/2)), then shift the final character forward by 2 in the alphabet (case-preserving, wrapping, only if it's a letter).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 468, "matches": [1.0], "made_at": 1, "heldout": 1.0}

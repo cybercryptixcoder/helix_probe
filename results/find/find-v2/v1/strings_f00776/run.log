@@ -1,0 +1,28 @@
+Helix Probe on 'find_strings_f00776': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to simple, varied single inputs — plain lowercase words, a c...(+61 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Does the 'W' insertion position depend on the length of the reversed string...(+99 chars)  model v1 match 1.00
+[3] E3 Does the 'W' insertion behave the same for non-ASCII/Unicode characters and...(+136 chars)  model v1 match 1.00
+[4] E4 Does the W insertion use Python character count (code points) or UTF-16 cod...(+72 chars)  model v1 match 1.00
+[5] E5 Does f ever do anything other than reverse-and-insert-W — specifically, doe...(+201 chars)  model v1 match 1.00
+[6] E6 Does f's 'W' insertion and reversal treat a lone surrogate or combining cha...(+158 chars)  model v1 match 1.00
+[7] E7 Does f insert the W based on the length of the original string or the rever...(+182 chars)  model v1 match 1.00
+[8] E8 Does f treat the W insertion differently when the input itself already cont...(+118 chars)  model v1 match 1.00
+[9] E9 Does f behave as pure reverse-and-insert-W on very long inputs (near the 60...(+135 chars)  model v1 match 1.00
+[10] E10 Does f ever fail, truncate, or behave differently on inputs at or beyond th...(+116 chars)  model v1 match 1.00
+[11] E11 Does f compute the insertion index from the original input's length before ...(+303 chars)  model v1 match 1.00
+[12] E12 For inputs containing a lone surrogate or other non-encodable/edge Unicode ...(+141 chars)  model v1 match 1.00
+[13] E13 Does f operate on Python code points (reverse + W at floor(n/2)) when the i...(+178 chars)  model v1 match 1.00
+[14] E14 Does f ever produce an output whose length differs from len(input)+1, or pl...(+263 chars)  model v1 match 1.00
+[15] E15 Does f ever behave differently for inputs containing a literal 'W' near the...(+211 chars)  model v1 match 1.00
+[16] E16 Does f ever behave differently from pure reverse-and-insert-W when the inpu...(+199 chars)  model v1 match 1.00
+[17] E17 Does f's output depend only on the sequence of Python code points (so that ...(+416 chars)  model v1 match 1.00
+[18] E18 Does f still do pure reverse-and-insert-W when the input contains a literal...(+216 chars)  model v1 match 1.00
+[19] E19 Does f behave as pure reverse-and-insert-W for inputs where the insertion i...(+250 chars)  model v1 match 1.00
+[20] E20 Does f's output length always equal len(input)+1 and does the inserted W al...(+185 chars)  model v1 match 1.00
+[21] E21 Does f's output depend only on the sequence of Python code points when the ...(+158 chars)  model v1 match 1.00
+[22] E22 Does f operate on Python code points (reverse + W at floor(n/2)) when the i...(+163 chars)  model v1 match 1.00
+[23] E23 Does f keep the exact reverse-and-insert-W rule when the input is a single ...(+172 chars)  model v1 match 1.00
+[24] E24 Does f still follow reverse-and-insert-W for two-code-point inputs where th...(+153 chars)  model v1 match 1.00
+[25] E25 Does f still apply pure reverse-and-insert-W when given 10 inputs that are ...(+216 chars)  model v1 match 1.00
+{"env": "find_strings_f00776", "experiments": 25, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -9,3 +9,26 @@ Helix Probe v2 on 'find_strings_f00542': 0 experiments so far, model v0, exam of
 [4] E4 How are runs of multiple spaces, leading/trailing spaces, and tabs/newlines...(+127 chars)  (v3 predicted it: match 0.30)
       model v4 by the updater: exam 0.38, fit 0.29, size 227 (same scores, smaller (232 -> 227 chars)); held-out 1%
 [5] E5 a random ordinary probe  (v4 predicted it: match 0.50)
+[6] E6 When a token is reversed, is the reversal applied to whole whitespace-separ...(+238 chars)  (v4 predicted it: match 0.20)
+[7] E7 a random ordinary probe  (v4 predicted it: match 0.33)
+[8] E8 How does the box handle word order and token count — does it reverse the or...(+128 chars)  (v4 predicted it: match 0.20)
+[9] E9 a random ordinary probe  (v4 predicted it: match 0.33)
+[10] E10 Does the box reverse characters of each whitespace-separated token but then...(+134 chars)  (v4 predicted it: match 0.40)
+[11] E11 a random ordinary probe  (v4 predicted it: match 0.17)
+[12] E12 Does the box merge adjacent tokens and reverse the merged block in a way th...(+208 chars)  (v4 predicted it: match 0.00)
+[13] E13 a random ordinary probe  (v4 predicted it: match 0.17)
+[14] E14 For 2-4 word inputs, does the box reverse token order and then merge/revers...(+156 chars)  (v4 predicted it: match 0.00)
+[15] E15 a random ordinary probe  (v4 predicted it: match 0.83)
+[16] E16 For ordinary multi-word inputs, does the box keep the first token reversed-...(+114 chars)  (v4 predicted it: match 0.10)
+[17] E17 a random ordinary probe  (v4 predicted it: match 0.67)
+[18] E18 For ordinary 2-4 word inputs, what exactly happens to the middle tokens: is...(+165 chars)  (v4 predicted it: match 0.00)
+[19] E19 a random ordinary probe  (v4 predicted it: match 0.33)
+[20] E20 For ordinary 2-5 word inputs, confirm the rule that output = reverse(first ...(+154 chars)  (v4 predicted it: match 0.10)
+      model v5 by the updater: exam 0.38, fit 0.35, size 398 (fit 0.275 -> 0.350); held-out 1%
+[21] E21 a random ordinary probe  (v5 predicted it: match 0.17)
+[22] E22 The model's rule (reverse first token, then reverse the concatenation of th...(+318 chars)  (v5 predicted it: match 0.60)
+[23] E23 a random ordinary probe  (v5 predicted it: match 0.67)
+[24] E24 For ordinary multi-word inputs of 2-4 words, is the first token reversed an...(+159 chars)  (v5 predicted it: match 0.30)
+      updater's model not kept: its exam is 0.250, the current model's is 0.375
+[25] E25 a random ordinary probe  (v5 predicted it: match 0.17)
+{"env": "find_strings_f00542", "experiments": 25, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 0.375, "fit": 0.35600000000000004, "size": 398, "heldout": 0.01, "llm_calls": 59, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

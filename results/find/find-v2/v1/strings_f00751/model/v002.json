@@ -1,0 +1,25 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) inserts the letter 'i' into the input string [E1, E2]",
+  "For the empty string, f('') = 'i' [E1]",
+  "For single characters, f(c) = 'i' + c [E1]",
+  "For two-character strings, 'i' is inserted after the first character: 'ab'->'aib', 'AB'->'AiB' [E1]",
+  "For longer strings, 'i' is inserted at the middle position: index len//2 (floor), e.g. 'abcdef'->'abcidef', '123456'->'123i456' [E2]",
+  "For '  x' (len 3) the output is 'i x', suggesting insertion at index 0 when len//2 = 1? Actually 'i x' = 'i' + ' x', so insertion at index 0 for len 3? [E2]",
+  "For 'xyzzy' (len 5) output 'xyizzy' = insert at index 2 = len//2 [E2]",
+  "For 'a b c' (len 5) output 'a ib c' = insert at index 2 = len//2 [E2]",
+  "For 'AB12cd' (len 6) output 'AB1i2cd' = insert at index 3 = len//2 [E2]",
+  "For '!!!!!!' (len 6) output '!!!i!!!' = insert at index 3 = len//2 [E2]",
+  "For 'abc def ghi' (len 11) output 'abc dief ghi' = insert at index 5 = len//2 [E2]",
+  "For '  x' (len 3) output 'i x': len//2 = 1 would give ' i x', but observed 'i x' \u2014 so insertion index is (len-1)//2? Check: len 3 -> 1, still mismatch. Maybe index = len//2 but leading spaces trimmed? Or index = (len)//2 with different rounding? [E2]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.05,
+ "matches": [
+  0.9,
+  0.875
+ ],
+ "made_at": 2
+}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the rule to strip leading whitespace before appending \"ny\", since E2 showed `\" dog\"` \u2192 `\"dogny\"` while trailing spaces are kept (`\"dog \"` \u2192 `\"dog ny\"`).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 88, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

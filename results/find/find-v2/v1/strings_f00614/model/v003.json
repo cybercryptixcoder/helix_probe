@@ -1,0 +1,19 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f removes all Unicode whitespace characters (spaces, tabs, newlines, NBSP, em-space, etc.) from the input [E1, E2, E3]",
+  "f preserves case, punctuation, digits, and other non-whitespace characters unchanged [E2, E3]",
+  "f appends 'F' to the end only if the result does not already end in 'F' [E4]",
+  "The trailing 'F' is a literal append, not a transformation of the last character [E4]"
+ ],
+ "notes": "E4 shows the append is conditional: if the whitespace-stripped string already ends in 'F', no extra 'F' is added (F->F, aF->aF, FF->FF, abcF->abcF). Otherwise 'F' is appended. Updated predict to check the last character.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 4
+}

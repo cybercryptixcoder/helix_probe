@@ -1,0 +1,26 @@
+{
+ "version": 6,
+ "beliefs": [
+  "The box reverses the first whitespace-separated word, but drops its last character when the word has more than 4 characters [E1, E4, E7]",
+  "The box reverses the concatenation of all remaining words (joined without spaces) [E3, E5, E6]",
+  "Whitespace runs collapse to a single space and leading/trailing whitespace is stripped [E2, E3]",
+  "Empty or all-whitespace input maps to empty string [E1, E2]",
+  "Case and symbols are preserved within each reversed chunk [E1, E3, E4]",
+  "Punctuation attached to a word stays attached and is reversed with the word [E3, E4]",
+  "When there is only one word, output is just that word reversed with its last character dropped if longer than 4 [E1, E4, E7]",
+  "The exact truncation rule for the first word is uncertain: 'hello'->'oleh' drops one char, but 'there'->'reht' and 'world'->'dlrow' drop none?"
+ ],
+ "notes": "",
+ "fit": 0.2857142857142857,
+ "heldout": 0.01,
+ "matches": [
+  0.5,
+  0.8,
+  0.8,
+  0.3,
+  1.0,
+  1.0,
+  0.6
+ ],
+ "made_at": 7
+}

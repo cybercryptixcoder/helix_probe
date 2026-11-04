@@ -1,0 +1,18 @@
+{
+ "version": 3,
+ "beliefs": [
+  "Only the first character of the string is shifted backward by one in the alphabet (a->z, b->a, ..., A->Z, B->A), preserving case [E1, E2, E3]",
+  "All characters after the first are left unchanged [E1, E2, E3]",
+  "Digits, symbols, and spaces are left unchanged, and if the first character is non-alphabetic nothing shifts [E1]",
+  "Empty strings and strings starting with non-letters pass through unchanged [E1]"
+ ],
+ "notes": "The shift applies only to the first character, not every letter; E1's 'hello'->'fello' and E3's 'aaa'->'yaa' confirm only position 0 changes. Rewrote predict to shift just the first character if it is a letter.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3,
+  0.0,
+  0.0
+ ],
+ "made_at": 3
+}

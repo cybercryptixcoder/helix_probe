@@ -1,0 +1,24 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f shifts the first character forward by one: lowercase a-z and uppercase A-Z wrap around, digits 0-9 wrap around, other characters unchanged [E1, E2, E3, E4]",
+  "f leaves the middle characters (positions 1..n-1) unchanged [E1, E2, E3, E4]",
+  "f appends a literal 'y' to the end of the string, but only if the string does not already end in 'y' [E5]",
+  "f('') returns 'y' (empty string plus appended 'y') [E1]",
+  "Single-character input 'y' returns 'z' (shifted, no append since it already ends in y) [E4, E5]",
+  "When the first character is a digit, it is NOT shifted: '0a'->'0ay', '9z'->'9zy', '123'->'123y' [E1, E3]",
+  "The trailing 'y' is appended for non-empty inputs not ending in 'y', including digit-first ones ('0a'->'0ay', '9'->'9y') [E1, E2, E3]",
+  "The append is suppressed when the input already ends in 'y': 'ay'->'by', 'yyy'->'zyy', 'Yy'->'Zy' [E5]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 5
+}

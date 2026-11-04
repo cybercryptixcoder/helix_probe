@@ -1,0 +1,22 @@
+def predict(probe):
+    """Remove all whitespace, lowercase all (Unicode-aware), then titlecase-uppercase
+    the first char only if original didn't start with whitespace and the first char
+    is not already uppercase/titlecase."""
+    try:
+        inputs = probe.get("inputs", [])
+        outputs = []
+        for s in inputs:
+            try:
+                t = "".join(ch for ch in s if not ch.isspace())
+                t = t.lower()
+                if t and not (s and s[0].isspace()):
+                    c = t[0]
+                    # Skip if already uppercase or titlecase (e.g. ẞ stays ẞ)
+                    if not (c.isupper() or c.istitle()):
+                        t = c.title() + t[1:]
+                outputs.append(t)
+            except Exception:
+                outputs.append("")
+        return {"outputs": outputs}
+    except Exception:
+        return {"outputs": []}

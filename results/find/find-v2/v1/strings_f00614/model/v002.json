@@ -1,0 +1,15 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f removes all whitespace characters (spaces, tabs, newlines) from the input and appends 'F' to the end [E1, E2]",
+  "f preserves case, punctuation, digits, and other non-whitespace characters unchanged [E2]"
+ ],
+ "notes": "E2 showed tabs and newlines are also removed, so I generalized from removing only spaces to removing all whitespace (using split/join or regex). Everything else (case, punctuation, digits) is preserved and 'F' is appended.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

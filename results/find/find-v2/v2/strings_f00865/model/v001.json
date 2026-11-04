@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box shifts the first character back by 2 letters (case-preserving), leaving everything else untouched; non-letters in first position (like the leading space) pass through unchanged.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 408, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "The mechanism: for each input string, insert the character `\"i\"` at the middle index `len(s)//2`, then return the resulting string.", "exam": 0.5833333333333334, "fit": 0.7777777777777778, "fit_exact": 0.0, "size": 174, "matches": [0.8333333333333334, 0.8333333333333334, 0.6666666666666666], "made_at": 3, "heldout": 0.05}

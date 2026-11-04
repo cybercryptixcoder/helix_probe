@@ -1,0 +1,29 @@
+Helix Probe on 'find_strings_f00898': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does the box do to simple single words of different cases and character types?  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Does the 'f' insertion point depend on length (e.g. always after the first ...(+77 chars)  model v1 match 1.00
+[3] E3 Where exactly is the 'f' inserted for long/odd-length strings — is it at po...(+159 chars)  model v1 match 1.00
+[4] E4 Is the 'f' insertion point really len//2, and does the rule still hold for ...(+121 chars)  model v1 match 0.90
+      model v2: fit 100% (was 75%), mean match 1.00 (was 0.97), held-out 100%
+[5] E5 Does the rule hold for strings whose doubled last character is a space or a...(+166 chars)  model v2 match 1.00
+[6] E6 Does the rule (insert 'f' at len//2, append last char) still hold for strin...(+131 chars)  model v2 match 1.00
+[7] E7 Does the rule still hold when the inserted 'f' would land inside a multi-ch...(+155 chars)  model v2 match 1.00
+[8] E8 Does the rule (insert 'f' at len//2, append last char) hold for strings of ...(+100 chars)  model v2 match 1.00
+[9] E9 Does the rule hold for inputs containing a literal 'f' in the middle (so th...(+89 chars)  model v2 match 1.00
+[10] E10 Does the rule hold for strings with trailing/leading whitespace and tabs/ne...(+124 chars)  model v2 match 1.00
+[11] E11 Does the rule still hold for inputs containing a literal backslash or quote...(+128 chars)  model v2 match 1.00
+[12] E12 Does the rule (insert 'f' at len//2, then append the last character) still ...(+178 chars)  model v2 match 1.00
+[13] E13 Does the rule hold for strings of length 60-61 where the append of the last...(+161 chars)  model v2 match 1.00
+[14] E14 Does the rule still hold when the inserted 'f' lands exactly at the boundar...(+174 chars)  model v2 match 1.00
+[15] E15 Does the rule hold for inputs containing NUL/control characters (\x00, \x01...(+86 chars)  model v2 match 1.00
+[16] E16 Does the rule hold when the inserted 'f' would land at a position that spli...(+196 chars)  model v2 match 1.00
+[17] E17 Does the rule hold for inputs containing Unicode characters outside the BMP...(+235 chars)  model v2 match 1.00
+[18] E18 Does the rule hold for the empty string and for strings containing only the...(+181 chars)  model v2 match 1.00
+[19] E19 Does the rule still hold for very long strings (near the 60-char limit) mad...(+178 chars)  model v2 match 1.00
+[20] E20 Does the rule hold when the input contains a NUL character and the last cha...(+172 chars)  model v2 match 1.00
+[21] E21 Does the rule (insert 'f' at len//2, append last char) hold when inputs are...(+243 chars)  model v2 match 1.00
+[22] E22 Does the rule (insert 'f' at len//2, append last char) hold for strings who...(+253 chars)  model v2 match 1.00
+[23] E23 Does the rule hold for inputs made of combining characters and zero-width j...(+253 chars)  model v2 match 1.00
+[24] E24 Does the rule hold when the input contains the literal letter 'f' at the ex...(+199 chars)  model v2 match 1.00
+[25] E25 Does the rule hold for inputs where the inserted 'f' lands at position 0 (s...(+222 chars)  model v2 match 1.00
+{"env": "find_strings_f00898", "experiments": 25, "model_version": 2, "fit": 1.0, "heldout": 1.0, "llm_calls": 31, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

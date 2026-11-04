@@ -1,0 +1,20 @@
+{
+ "version": 5,
+ "beliefs": [
+  "Only the first character of the string is shifted backward by one in the alphabet (a->z, b->a, ..., z->y) [E1, E2, E3, E4, E5]",
+  "All characters after the first are left unchanged [E5]",
+  "Uppercase first letters are shifted backward too (A->Z, B->A, ..., Z->Y) [E1, E2, E3, E4]",
+  "If the first character is not a letter (digit, symbol, space), the string is unchanged [E1]"
+ ],
+ "notes": "E5 shows only the first character shifts; the rest are untouched. So the rule is a single backward Caesar shift on the first character if it's a letter.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "made_at": 5
+}

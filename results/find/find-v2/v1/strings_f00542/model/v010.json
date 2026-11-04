@@ -1,0 +1,32 @@
+{
+ "version": 10,
+ "beliefs": [
+  "The box splits input on whitespace into words, collapsing runs and stripping leading/trailing whitespace [E2, E3]",
+  "Empty or all-whitespace input maps to empty string [E1, E2]",
+  "For a single word, the box strips ALL trailing 'o' characters, then reverses the remainder [E7, E8, E9, E10, E11]",
+  "If stripping leaves the word empty (all o's), the output is 'o' \u2014 one 'o' is kept [E9, E11]",
+  "For multi-word input, the first word is transformed by the same strip-trailing-o-then-reverse rule [E12]",
+  "The remaining words are concatenated (no spaces) and reversed as a single chunk [E5, E6, E12]",
+  "Multi-word output is transformed-first-word + ' ' + reversed(concatenation of remaining words) [E3, E4, E6, E12]",
+  "Case and symbols are preserved within each reversed chunk [E1, E3, E4]",
+  "Punctuation attached to a word stays attached and is reversed with the word [E3, E4]"
+ ],
+ "notes": "Fixed the single-word rule: strip trailing o's then reverse (boo->ob, not b). Applied the same rule to the first word in multi-word inputs, which E12 confirms (boo x -> ob x).",
+ "fit": 0.16666666666666666,
+ "heldout": 0.01,
+ "matches": [
+  0.5,
+  0.8,
+  0.8,
+  0.3,
+  1.0,
+  1.0,
+  0.6,
+  0.6,
+  0.6,
+  0.2,
+  0.2,
+  0.3
+ ],
+ "made_at": 12
+}

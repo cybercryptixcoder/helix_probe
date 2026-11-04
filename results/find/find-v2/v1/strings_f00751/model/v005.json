@@ -1,0 +1,25 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f strips leading and trailing spaces and tabs before inserting 'i' [E3, E4, E5, E6]",
+  "After stripping, f inserts 'i' at index len//2 (floor); empty result becomes 'i' [E1, E2, E3, E6]",
+  "Only leading/trailing whitespace is stripped; internal whitespace is preserved [E4]",
+  "Whitespace-only strings (spaces, tabs, or mixes) reduce to empty and yield 'i' [E3, E5]",
+  "Single-character stripped strings give 'i' + char [E1]",
+  "Two-character stripped strings give first char + 'i' + second char [E1]",
+  "Stripping treats tabs and spaces alike (both removed from ends) [E5, E6]",
+  "For odd-length stripped strings, insertion index is len//2, so ' x' (len 2) gives 'i x' and '\\t x' after stripping to ' x' gives 'i x' [E6]"
+ ],
+ "notes": "E6 shows stripping removes leading tabs too, so '\\t x' becomes ' x' (len 2) and inserts at index 1 giving 'i x'. My v4 predict stripped correctly but I misread the outputs; the strip+len//2 rule already explains E6. The actual bug was that v4's predict used s.strip() which strips all whitespace including newlines, but E4 shows newlines are NOT stripped ('a\\nb' -> 'ai\\nb'). So I restrict stripping to spaces and tabs only.",
+ "fit": 0.16666666666666666,
+ "heldout": 0.17,
+ "matches": [
+  1.0,
+  0.875,
+  0.4,
+  0.9,
+  0.8,
+  0.0
+ ],
+ "made_at": 6
+}

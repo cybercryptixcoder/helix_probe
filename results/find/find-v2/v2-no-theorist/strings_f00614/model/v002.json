@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed: whitespace removal now covers all whitespace (tabs/newlines too, per E2), and \"F\" is appended only when the result doesn't already end in \"F\" (E2: \"F\"\u2192\"F\", \"alreadyF\"\u2192\"alreadyF\", \"\"\u2192\"F\").", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 212, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

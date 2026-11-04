@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box simply reverses each input string (case and characters preserved), which explains every output in E1 including the unchanged single characters.", "exam": 0.9166666666666666, "fit": 1.0, "fit_exact": 1.0, "size": 78, "matches": [1.0], "made_at": 1, "heldout": 0.66}

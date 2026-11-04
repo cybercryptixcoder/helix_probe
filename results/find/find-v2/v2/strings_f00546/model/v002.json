@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed the splitting from `strip()` + `split(\" \")` to `split()` (any whitespace, collapsing runs), which matches E2: `\"a  b\"`\u2192`\"a lmKAb\"`, `\"a\\tb\"`\u2192`\"a lmKAb\"`, `\" a b \"`\u2192`\"a b lmKA\"`.", "exam": 0.75, "fit": 0.95, "fit_exact": 0.5, "size": 400, "matches": [1.0, 0.9], "made_at": 2, "heldout": 0.21}

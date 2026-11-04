@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f changes the last character of alphabetic strings to the next letter in the alphabet (a->b, ..., z->a), leaving the rest unchanged [E1]",
+  "Strings ending in non-letters (digits, symbols, spaces) are returned unchanged [E1]",
+  "Case is preserved: uppercase last letters advance within uppercase [E1]",
+  "For 'hello'->'hellp', 'abc'->'abd', 'xyz'->'xya', 'two words'->'two wordt': only the final letter is incremented [E1]"
+ ],
+ "notes": "Observed that only the last character changes, and only when it is a letter, advancing by one with wraparound z->a. Non-letter endings are untouched.",
+ "fit": 1.0,
+ "heldout": 0.88,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

@@ -1,0 +1,28 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f shifts the first character forward by one within its Unicode category: lowercase a-z wrap, uppercase A-Z wrap, accented Latin letters shift to the next accented letter (\u00e9\u2192\u00ea, \u00f1\u2192\u00f2, \u00df\u2192\u00e0), digits and other symbols unchanged [E1, E3, E7]",
+  "f leaves the middle characters (positions 1..n-1) unchanged [E1, E2, E3, E4]",
+  "f appends a literal 'y' to the end of the string, but only if the string does not already end in 'y' [E5]",
+  "f('') returns 'y' (empty string plus appended 'y') [E1]",
+  "Single-character input 'y' returns 'z' (shifted, no append since it already ends in y) [E4, E5]",
+  "When the first character is a digit, it is NOT shifted: '0a'->'0ay', '9z'->'9zy', '123'->'123y' [E1, E3]",
+  "The trailing 'y' is appended for non-empty inputs not ending in 'y', including digit-first ones ('0a'->'0ay', '9'->'9y') [E1, E2, E3]",
+  "The append is suppressed when the input already ends in 'y': 'ay'->'by', 'yyy'->'zyy', 'Yy'->'Zy' [E5]",
+  "Accented/non-ASCII letters are shifted to the next letter in their Unicode block (\u00e9\u2192\u00ea, \u00c9\u2192\u00ca, \u00f1\u2192\u00f2, \u00df\u2192\u00e0), not left unchanged [E7]",
+  "How exactly to shift arbitrary Unicode letters (e.g. \u00df\u2192\u00e0, \u00f1\u2192\u00f2) is unclear; I approximate by incrementing the codepoint for Latin-1 accented letters? [E7]"
+ ],
+ "notes": "E7 shows accented letters are shifted like letters, not left unchanged. I extended the shift to Latin-1 accented letters by codepoint increment (\u00e9\u2192\u00ea, \u00c9\u2192\u00ca, \u00f1\u2192\u00f2, \u00df\u2192\u00e0), which matches all E7 outputs; the exact rule for arbitrary Unicode letters remains a guess.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 7
+}

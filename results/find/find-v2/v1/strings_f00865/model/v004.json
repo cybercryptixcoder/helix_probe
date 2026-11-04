@@ -1,0 +1,19 @@
+{
+ "version": 4,
+ "beliefs": [
+  "Every lowercase letter is shifted backward by one in the alphabet (a->z, b->a, ..., z->y) [E1, E2, E3, E4]",
+  "Every uppercase letter is shifted backward by one in the alphabet (A->Z, B->A, ..., Z->Y) [E1, E2, E3, E4]",
+  "Digits, symbols, and spaces are left unchanged [E1, E4]",
+  "The shift applies to all letters in the string, not just the first [E4]"
+ ],
+ "notes": "E4 shows the shift applies to every letter (hello->fello, abc->ybc, zzz->xzz), not just the first character. Changed predict to shift all alphabetic characters backward by one, preserving case.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "made_at": 4
+}

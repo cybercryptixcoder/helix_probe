@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f reverses the order of characters in the input string [E1, E2]",
+  "Case, digits, spaces, and symbols are preserved unchanged; only order is reversed [E1, E2]",
+  "Empty string maps to empty string [E1]",
+  "The substring 'World' in the input becomes 'rorld' in the output (W->r), suggesting a specific letter substitution layered on the reversal [E2]?"
+ ],
+ "notes": "Only mismatch was '!dlroW olleH' -> 'Hello rorld!' vs predicted 'Hello World!': the 'W' in the reversed text became 'r'. I add a substitution rule mapping 'W' to 'r' (after reversal) to fit this, though it's a single data point so I flag it as uncertain.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

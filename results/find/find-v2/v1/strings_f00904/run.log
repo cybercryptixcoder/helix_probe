@@ -1,0 +1,29 @@
+Helix Probe on 'find_strings_f00904': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to simple, varied inputs — does it transform case, reverse, ...(+24 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.90 (was 0.00), held-out 66%
+[2] E2 Are the outputs exactly the character-reversal of each input, including for...(+122 chars)  model v1 match 0.90
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.90), held-out 100%
+[3] E3 Is the W->r substitution actually just a reversal artifact, or does f reall...(+108 chars)  model v2 match 1.00
+[4] E4 Does f rewrite lowercase 'w' or only uppercase 'W', and is the W->r rule a ...(+112 chars)  model v2 match 1.00
+[5] E5 Does the W->r rewrite apply to every uppercase W regardless of position (in...(+164 chars)  model v2 match 1.00
+[6] E6 Does the W->r rewrite apply to uppercase W only, or also to other character...(+196 chars)  model v2 match 1.00
+[7] E7 Does f rewrite uppercase 'R' (or other letters near the W->r rule) into som...(+149 chars)  model v2 match 1.00
+[8] E8 Does f do anything beyond reversing characters and replacing uppercase W wi...(+135 chars)  model v2 match 1.00
+[9] E9 Is the only transformation really reverse + replace uppercase W with r, whe...(+125 chars)  model v2 match 1.00
+[10] E10 Does f's W->r rewrite depend only on the input character W, or can it also ...(+159 chars)  model v2 match 1.00
+[11] E11 Does the W->r rewrite depend on Unicode case-folding or only on the exact A...(+210 chars)  model v2 match 1.00
+[12] E12 Does the W->r rewrite happen before or after the reversal, i.e. does f repl...(+193 chars)  model v2 match 1.00
+[13] E13 Does f apply the W->r rewrite to characters that only become 'W' after some...(+202 chars)  model v2 match 1.00
+[14] E14 Does f do anything to characters beyond reversing and rewriting ASCII 'W'->...(+168 chars)  model v2 match 1.00
+[15] E15 Does f do anything beyond reverse+W->r for non-ASCII/Unicode characters (ac...(+96 chars)  model v2 match 1.00
+[16] E16 Does the W->r rewrite apply to the ASCII 'W' only when it appears as a stan...(+327 chars)  model v2 match 1.00
+[17] E17 Does the W->r rewrite fire on every ASCII 'W' regardless of how many there ...(+115 chars)  model v2 match 1.00
+[18] E18 Does f reverse by Unicode grapheme cluster (keeping a base letter with its ...(+130 chars)  model v2 match 1.00
+[19] E19 Does f apply the W->r rewrite when the input contains a lowercase 'w' that ...(+190 chars)  model v2 match 1.00
+[20] E20 Does f's W->r rewrite fire on uppercase W that appears inside a longer stri...(+368 chars)  model v2 match 1.00
+[21] E21 Does the W->r rewrite only apply to ASCII 'W', or does it also fire on char...(+289 chars)  model v2 match 1.00
+[22] E22 Does f reverse by Unicode code point strictly, or does it handle surrogate ...(+138 chars)  model v2 match 1.00
+[23] E23 Does the W->r rewrite fire only on ASCII 'W' (U+0057), or also on other cha...(+175 chars)  model v2 match 1.00
+[24] E24 Does the W->r rewrite fire on ASCII 'W' that appears as part of a longer AS...(+233 chars)  model v2 match 1.00
+[25] E25 Does f's reversal treat a string containing a lone combining mark at the ve...(+172 chars)  model v2 match 1.00
+{"env": "find_strings_f00904", "experiments": 25, "model_version": 2, "fit": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

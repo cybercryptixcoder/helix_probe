@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I built the model from E1: the box shifts the final character one step forward in the alphabet (wrapping z\u2192a, preserving case), leaving non-letters and all other characters unchanged.", "exam": 1.0, "fit": 0.8333333333333334, "fit_exact": 0.0, "size": 393, "matches": [0.8333333333333334], "made_at": 1, "heldout": 0.88}

@@ -1,0 +1,29 @@
+Helix Probe on 'find_strings_f00941': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a range of basic input types (letters, digits, symbols, s...(+26 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 26%
+[2] E2 Does f only append 'ny' at the very end, or does it transform any embedded ...(+157 chars)  model v1 match 1.00
+[3] E3 Does f really append 'ny' unconditionally, or is it a suffix rule that depe...(+138 chars)  model v1 match 1.00
+[4] E4 Does f apply any transformation (case, trimming, normalization, or inner ed...(+116 chars)  model v1 match 0.80
+      model v2: fit 100% (was 75%), mean match 1.00 (was 0.95), held-out 100%
+[5] E5 Exactly which leading characters does f strip before appending 'ny' — only ...(+81 chars)  model v2 match 1.00
+[6] E6 Does f strip only leading whitespace, or also leading characters from other...(+126 chars)  model v2 match 1.00
+[7] E7 Does f strip leading characters that are Unicode whitespace beyond the alre...(+177 chars)  model v2 match 1.00
+[8] E8 Does f strip leading whitespace using Python's full str.lstrip() set (which...(+347 chars)  model v2 match 1.00
+[9] E9 Does f's leading-whitespace stripping happen before or after appending 'ny'...(+227 chars)  model v2 match 1.00
+[10] E10 Does f strip a leading run of whitespace that is interrupted by an embedded...(+188 chars)  model v2 match 1.00
+[11] E11 Does f's leading-whitespace stripping depend on the input type/encoding (e....(+211 chars)  model v2 match 1.00
+[12] E12 Does f ever strip whitespace that is not at the very start of the string, e...(+110 chars)  model v2 match 1.00
+[13] E13 Does f strip a leading run of whitespace when the string begins with a whit...(+244 chars)  model v2 match 1.00
+[14] E14 Does f append 'ny' to the input, or could the trailing 'ny' actually be pro...(+166 chars)  model v2 match 1.00
+[15] E15 Does f's leading-whitespace stripping happen only at the start of the strin...(+155 chars)  model v2 match 1.00
+[16] E16 Does f's lstrip() stripping treat the 'ny' suffix as part of the string (i....(+266 chars)  model v2 match 1.00
+[17] E17 Does f's lstrip() use Python's default whitespace set exactly, or does it a...(+267 chars)  model v2 match 1.00
+[18] E18 Does f's lstrip() stripping use exactly Python's str.lstrip() whitespace se...(+211 chars)  model v2 match 1.00
+[19] E19 Does f handle very long inputs (near the 60-char limit) and inputs with man...(+155 chars)  model v2 match 1.00
+[20] E20 Does f append 'ny' to the literal input string as-is, or could it be insert...(+213 chars)  model v2 match 1.00
+[21] E21 Does f's leading-whitespace stripping only occur at the very start of the r...(+174 chars)  model v2 match 1.00
+[22] E22 Does f's leading-whitespace stripping use exactly Python's str.lstrip() set...(+226 chars)  model v2 match 1.00
+[23] E23 Does f's leading-whitespace stripping use exactly Python's str.lstrip() set...(+299 chars)  model v2 match 1.00
+[24] E24 Does f strip leading whitespace from the *entire* input before appending 'n...(+273 chars)  model v2 match 1.00
+[25] E25 Does f's lstrip use exactly Python's str.lstrip() set for every remaining u...(+236 chars)  model v2 match 1.00
+{"env": "find_strings_f00941", "experiments": 25, "model_version": 2, "fit": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

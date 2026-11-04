@@ -1,0 +1,24 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f splits input on whitespace runs, reverses each word, and joins with single spaces [E2, E3, E4, E5]",
+  "If there is more than one word, 'lmKA' is inserted immediately before the last reversed word with a space before it [E2, E3, E4, E5]",
+  "If there is exactly one word and no surrounding whitespace, 'lmKA' is prepended to the reversed word [E1, E6]",
+  "For a single word, 'lmKA' is prepended only when there is no trailing whitespace (leading-only or none); if there is trailing whitespace, 'lmKA' is appended [E7, E8]",
+  "Leading/trailing whitespace is stripped; whitespace-only or empty input yields just 'lmKA' [E1, E3, E4]"
+ ],
+ "notes": "E8 shows trailing whitespace dominates: with both leading and trailing whitespace, lmKA is appended, not prepended. So the rule is: append if there is trailing whitespace, else prepend.",
+ "fit": 0.75,
+ "heldout": 0.64,
+ "matches": [
+  1.0,
+  1.0,
+  0.6,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 8
+}

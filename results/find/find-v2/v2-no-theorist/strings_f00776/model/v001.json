@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I discovered the box reverses each string and inserts a literal `'W'` at the midpoint (`len//2`), which matches all six E1 outputs exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 182, "matches": [1.0], "made_at": 1, "heldout": 1.0}

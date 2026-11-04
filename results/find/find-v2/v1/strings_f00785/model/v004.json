@@ -1,0 +1,23 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f shifts the first character forward by one: lowercase a-z and uppercase A-Z wrap around, digits 0-9 wrap around, other characters unchanged [E1, E2, E3, E4]",
+  "f leaves the middle characters (positions 1..n-1) unchanged [E1, E2, E3, E4]",
+  "f appends a literal 'y' to the end of the string, regardless of the last character [E1, E2, E3, E4]",
+  "f('') returns 'y' (empty string plus appended 'y') [E1]",
+  "The trailing 'y' is always appended, not a shifted last character: 'abcy'->'bbcy' and '9'->'9y' confirm this [E2]",
+  "There is no special case for input 'y': 'y'->'z' (shifted, no append) and 'yy'->'zy' show 'y' is just shifted like any first char, and the append still happens for length>1 [E4]",
+  "When the first character is a digit, it is NOT shifted: '0a'->'0ay', '9z'->'9zy', '0 0'->'0 0y', '123'->'123y' [E1, E3]",
+  "The trailing 'y' is appended for all non-empty inputs including digit-first ones ('0a'->'0ay', '9'->'9y') [E1, E2, E3]"
+ ],
+ "notes": "",
+ "fit": 0.25,
+ "heldout": 0.83,
+ "matches": [
+  1.0,
+  0.9,
+  0.9,
+  0.6
+ ],
+ "made_at": 4
+}

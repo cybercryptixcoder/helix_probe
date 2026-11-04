@@ -1,0 +1,19 @@
+{
+ "version": 1,
+ "beliefs": [
+  "Each character is shifted by +1 in ASCII, except space which becomes 'Y' [E1]",
+  "Lowercase letters shift to next letter (h->i, e->f, l->m, o->p) [E1]",
+  "Uppercase letters shift to next letter (H->I, W->X) [E1]",
+  "Digits shift to next digit (1->2, 2->3, 3->4, 4->5, 5->6) [E1]",
+  "Punctuation shifts by +1 ASCII (!->\", .->/) [E1]",
+  "Space maps to 'Y' rather than next ASCII char [E1]",
+  "Empty string stays empty [E1]"
+ ],
+ "notes": "All outputs are consistent with a Caesar-like +1 shift on ASCII, except space which becomes 'Y'. Verified across letters, digits, punctuation, and empty string.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.0
+ ],
+ "made_at": 1
+}

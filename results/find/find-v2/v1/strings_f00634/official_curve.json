@@ -1,0 +1,107 @@
+{
+ "category": "strings",
+ "fid": "f00634",
+ "experiments": 25,
+ "exam_probes": 0,
+ "n_versions": 12,
+ "inputs_total": 250,
+ "final": 1.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "?",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 0
+  },
+  {
+   "version": 1,
+   "role": "?",
+   "experiments": 1,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 10
+  },
+  {
+   "version": 2,
+   "role": "?",
+   "experiments": 2,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 20
+  },
+  {
+   "version": 3,
+   "role": "?",
+   "experiments": 3,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 30
+  },
+  {
+   "version": 4,
+   "role": "?",
+   "experiments": 11,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 110
+  },
+  {
+   "version": 5,
+   "role": "?",
+   "experiments": 12,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 120
+  },
+  {
+   "version": 6,
+   "role": "?",
+   "experiments": 13,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 130
+  },
+  {
+   "version": 7,
+   "role": "?",
+   "experiments": 14,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 140
+  },
+  {
+   "version": 8,
+   "role": "?",
+   "experiments": 15,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 150
+  },
+  {
+   "version": 9,
+   "role": "?",
+   "experiments": 16,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 160
+  },
+  {
+   "version": 10,
+   "role": "?",
+   "experiments": 17,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 170
+  },
+  {
+   "version": 11,
+   "role": "?",
+   "experiments": 18,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 180
+  }
+ ]
+}

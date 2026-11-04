@@ -1,0 +1,31 @@
+Helix Probe on 'find_strings_f00944': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to the simplest, most varied single inputs — plain words, mi...(+131 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 88%
+[2] E2 Does f treat letters that are not at the very end (e.g. last letter before ...(+131 chars)  model v1 match 1.00
+[3] E3 Does f act only on the final character, or does it also transform letters e...(+149 chars)  model v1 match 1.00
+[4] E4 Does f still advance the final letter when the string mixes scripts or cont...(+145 chars)  model v1 match 0.40
+      revision rejected: mean match 0.75 < 0.85
+      revision rejected: mean match 0.75 < 0.85
+[5] E5 Is the final-character 'advance' Unicode-aware for accented Latin letters (...(+75 chars)  model v1 match 0.00
+      model v2: fit 100% (was 60%), mean match 1.00 (was 0.68), held-out 88%
+[6] E6 Does the 'advance the final character' rule apply to non-letter Unicode cat...(+188 chars)  model v2 match 1.00
+[7] E7 Does the Unicode code-point increment apply to final letters at the top of ...(+185 chars)  model v2 match 1.00
+[8] E8 Does the final-character rule apply when the string ends in an astral-plane...(+208 chars)  model v2 match 1.00
+[9] E9 Does the advance rule apply to final characters that are letters only under...(+240 chars)  model v2 match 1.00
+[10] E10 Does the final-character advance rule also apply to letters in the Suppleme...(+302 chars)  model v2 match 1.00
+[11] E11 When the final letter's code-point successor is a non-letter (e.g. 'z'->'{'...(+176 chars)  model v2 match 1.00
+[12] E12 Does the final-character advance apply to a letter whose successor is a non...(+345 chars)  model v2 match 1.00
+[13] E13 When the final character is a letter whose code-point successor is a combin...(+416 chars)  model v2 match 1.00
+[14] E14 Does f advance the final character of an empty string or a string consistin...(+237 chars)  model v2 match 1.00
+[15] E15 Does f advance a final letter even when that letter is the last code point ...(+187 chars)  model v2 match 1.00
+[16] E16 Does f advance a final letter when the string ends in a Unicode letter whos...(+242 chars)  model v2 match 1.00
+[17] E17 Does f leave a string unchanged when the final character is a letter whose ...(+273 chars)  model v2 match 1.00
+[18] E18 Does f advance a final letter whose code-point successor is a non-letter th...(+311 chars)  model v2 match 1.00
+[19] E19 Does f advance a final letter into a code point that is NOT a letter but is...(+338 chars)  model v2 match 1.00
+[20] E20 Does f advance a final ASCII letter into a non-letter successor the same wa...(+108 chars)  model v2 match 1.00
+[21] E21 Does f advance a final non-ASCII letter by plain code-point +1 even when th...(+238 chars)  model v2 match 1.00
+[22] E22 For a final non-ASCII letter whose +1 successor is a lone surrogate-range c...(+279 chars)  model v2 match 1.00
+[23] E23 Does f advance a final non-ASCII letter whose code-point successor is a com...(+153 chars)  model v2 match 1.00
+[24] E24 Does f advance a final non-ASCII letter by plain code-point +1 even when th...(+210 chars)  model v2 match 1.00
+[25] E25 When the final character is a letter whose code-point successor is itself a...(+214 chars)  model v2 match 1.00
+{"env": "find_strings_f00944", "experiments": 25, "model_version": 2, "fit": 1.0, "heldout": 0.88, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

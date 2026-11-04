@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box simply appends \"ny\" to each input string, regardless of content (digits, spaces, case, length). I replaced the empty model with this rule.", "exam": 0.8333333333333334, "fit": 0.8333333333333334, "fit_exact": 0.0, "size": 79, "matches": [0.8333333333333334], "made_at": 1, "heldout": 0.26}

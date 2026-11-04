@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to: insert 'f' at the midpoint (index len//2) of each string, then append the string's last character. This matches all six E1 cases exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 229, "matches": [1.0], "made_at": 1, "heldout": 1.0}

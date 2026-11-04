@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "The main idea: the box inserts the letter `f` at the midpoint (index `len//2`) of the input string, then appends a duplicate of the resulting string's last character.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 208, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

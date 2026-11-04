@@ -1,0 +1,40 @@
+{
+ "version": 14,
+ "beliefs": [
+  "f strips leading and trailing spaces and tabs from the input [E3, E4, E5, E6]",
+  "Empty stripped result yields 'i' [E1, E3, E5]",
+  "Internal whitespace is preserved; only leading/trailing whitespace is stripped [E4]",
+  "For strings with no leading whitespace, insertion index is len(stripped)//2 (floor) [E1, E2, E7, E8]",
+  "For strings with no leading whitespace but trailing whitespace, index is (len(stripped)+1)//2 rounded up [E3, E6, E17]",
+  "For leading-whitespace strings, index = abs(orig_len//2 - lead_ws), clamped to [0, len(stripped)] [E14, E15, E16, E18, E19, E20]",
+  "E21 confirms the abs(orig_len//2 - lead_ws) formula for leading-whitespace strings, including ' ab'->'iab' (index 0) and '   ab'->'i ab' (index 1) [E21]",
+  "E5/E6/E12/E16 mismatches are due to the model's handling of trailing whitespace combined with leading whitespace and tab-only strings, not the leading-whitespace index formula [E5, E6, E12, E16]?"
+ ],
+ "notes": "E21 confirms the leading-whitespace index formula abs(orig_len//2 - lead_ws); the only miss was ' ab'->'iab' which the formula already gives (orig_len//2=1, lead_ws=1, diff=0). The remaining mismatches (E5/E6/E12/E16) involve tab-only or leading+trailing whitespace combos where the trailing-whitespace rule interacts with the leading-whitespace rule; I keep the current formula and flag that interaction as uncertain.",
+ "fit": 0.38095238095238093,
+ "heldout": 0.84,
+ "matches": [
+  1.0,
+  0.875,
+  0.7,
+  1.0,
+  0.9,
+  0.3,
+  1.0,
+  1.0,
+  0.7,
+  0.9,
+  0.4,
+  0.1,
+  0.7,
+  1.0,
+  1.0,
+  0.0,
+  0.7,
+  0.1,
+  1.0,
+  1.0,
+  0.9
+ ],
+ "made_at": 21
+}

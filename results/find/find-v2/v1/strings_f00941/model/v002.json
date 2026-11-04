@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f appends the literal string 'ny' to its input [E1]",
+  "f preserves the input exactly, including case, digits, symbols, and spaces, before appending 'ny' [E1, E2, E3]",
+  "f strips leading whitespace (spaces and tabs) from the input before appending 'ny', but preserves trailing whitespace [E4]",
+  "f does not strip trailing whitespace or newlines [E4]"
+ ],
+ "notes": "E4 shows leading spaces and a leading tab are removed ('  hello  ' -> 'hello  ny', '\\thello' -> 'hellony'), while trailing spaces and newlines are kept. Added lstrip() for leading whitespace only.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 4
+}

@@ -1,0 +1,33 @@
+Helix Probe on 'find_strings_f00795': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to simple lowercase words, mixed case, digits, symbols, spac...(+54 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.30 (was 0.00), held-out 0%
+[2] E2 Does f insert a fixed character after a fixed position, or does the inserte...(+122 chars)  model v1 match 0.10
+      revision rejected: mean match 0.00 < 0.20
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.20), held-out 70%
+[3] E3 Does the letter-shift rule apply to the last character only, or to every le...(+112 chars)  model v2 match 0.90
+      model v3: fit 100% (was 67%), mean match 1.00 (was 0.97), held-out 100%
+[4] E4 How does f behave on empty strings, single characters that are non-letters,...(+138 chars)  model v3 match 0.90
+      model v4: fit 100% (was 75%), mean match 1.00 (was 0.97), held-out 100%
+[5] E5 Does the insertion index len//2 and the last-character shift behave correct...(+208 chars)  model v4 match 1.00
+[6] E6 Does the inserted '2' interact with the last-character shift when the inser...(+402 chars)  model v4 match 1.00
+[7] E7 Does the last-character shift apply to non-ASCII letters (e.g. accented Lat...(+144 chars)  model v4 match 0.30
+      model v5: fit 100% (was 86%), mean match 1.00 (was 0.90), held-out 100%
+[8] E8 Does the +2 shift on a non-ASCII last letter wrap within a Unicode letter r...(+110 chars)  model v5 match 1.00
+[9] E9 For non-ASCII letters, does the +2 shift wrap within the letter's own scrip...(+162 chars)  model v5 match 1.00
+[10] E10 What exactly counts as a 'letter' for the +2 shift: do non-Latin-script let...(+200 chars)  model v5 match 1.00
+[11] E11 Does the +2 shift for a non-ASCII letter that is the last character depend ...(+312 chars)  model v5 match 1.00
+[12] E12 For a non-ASCII letter as the last character, is the +2 shift applied to th...(+207 chars)  model v5 match 1.00
+[13] E13 Does the last-character shift depend on the character's Unicode general cat...(+227 chars)  model v5 match 1.00
+[14] E14 Does the 'letter' test for the +2 shift use Python's str.isalpha() (so ASCI...(+303 chars)  model v5 match 1.00
+[15] E15 Does the insertion position ever depend on the input's content (not just le...(+234 chars)  model v5 match 1.00
+[16] E16 Does the +2 shift on a non-ASCII letter wrap within a script alphabet (so G...(+188 chars)  model v5 match 1.00
+[17] E17 Does the +2 shift apply to the last character when it is a non-ASCII letter...(+345 chars)  model v5 match 1.00
+[18] E18 Does the +2 code-point shift for a non-ASCII final letter ever get applied ...(+292 chars)  model v5 match 1.00
+[19] E19 Does the +2 code-point shift for a non-ASCII final letter ever wrap or skip...(+250 chars)  model v5 match 1.00
+[20] E20 For the ASCII letter shift, does the wrap happen within the case (a-z / A-Z...(+252 chars)  model v5 match 1.00
+[21] E21 For non-ASCII letters, is the +2 shift applied as a pure Unicode code-point...(+184 chars)  model v5 match 1.00
+[22] E22 Does the isalpha() gate and plain code-point +2 shift behave the same for a...(+108 chars)  model v5 match 1.00
+[23] E23 Does the isalpha() gate and code-point +2 shift apply identically to astral...(+248 chars)  model v5 match 1.00
+[24] E24 Does the non-ASCII +2 shift use the full Unicode code point even when the l...(+151 chars)  model v5 match 1.00
+[25] E25 Does the +2 code-point shift apply to the last character even when it's a c...(+442 chars)  model v5 match 1.00
+{"env": "find_strings_f00795", "experiments": 25, "model_version": 5, "fit": 1.0, "heldout": 1.0, "llm_calls": 31, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

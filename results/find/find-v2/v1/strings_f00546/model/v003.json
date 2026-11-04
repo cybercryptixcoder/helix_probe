@@ -1,0 +1,19 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f reverses each whitespace-separated word individually and inserts 'lmKA' immediately before the last word, with no space between lmKA and that word [E1, E2, E3]",
+  "Runs of spaces (leading, trailing, internal) collapse to single spaces in the output; all-space input yields just 'lmKA' [E3]",
+  "Single-word input (no spaces) yields 'lmKA' + reverse(word) [E1, E2]",
+  "Empty string yields 'lmKA' [E1]",
+  "Leading spaces are dropped and trailing spaces produce a trailing empty token so lmKA lands at the end [E2, E3]"
+ ],
+ "notes": "E3 shows whitespace runs collapse to single spaces, so I split on whitespace runs (x.split()) rather than on single spaces, which fixes the double-space mismatches while keeping the lmKA-before-last-word rule.",
+ "fit": 0.0,
+ "heldout": 0.21,
+ "matches": [
+  0.9,
+  0.8,
+  0.6
+ ],
+ "made_at": 3
+}

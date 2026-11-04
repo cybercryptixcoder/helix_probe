@@ -1,0 +1,21 @@
+Helix Probe v2 on 'find_strings_f00898': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 228 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the insertion position and duplicate-last-character rule hold for shor...(+126 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Do the insertion position (len//2) and last-character duplication rules sti...(+144 chars)  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 1.00)
+[6] E6 Does the rule hold for very long strings (near the 60-char limit), for stri...(+208 chars)  (v1 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v1 predicted it: match 1.00)
+[8] E8 Does the empty string return empty, and does the rule still hold for string...(+162 chars)  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 1.00, size 178 (fit 0.988 -> 1.000); held-out 100%
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Does the len//2 insertion and last-char duplication hold for ordinary input...(+201 chars)  (v2 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v2 predicted it: match 1.00)
+[12] E12 Does the rule hold for ordinary multi-word phrases and sentences whose leng...(+107 chars)  (v2 predicted it: match 1.00)
+[13] E13 a random ordinary probe  (v2 predicted it: match 1.00)
+[14] E14 Does the rule still hold when the midpoint insertion lands exactly on the f...(+203 chars)  (v2 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v2 predicted it: match 1.00)
+[16] E16 Does the rule hold for strings containing newline/tab-like whitespace, punc...(+188 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00898", "experiments": 16, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 178, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

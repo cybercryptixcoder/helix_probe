@@ -1,0 +1,51 @@
+Helix Probe on 'find_strings_f00751': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does the box do to a varied set of basic inputs: empty string, single ...(+70 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.40 (was 0.00), held-out 0%
+[2] E2 Does the box insert 'i' after the first character for longer strings, or is...(+69 chars)  model v1 match 0.00
+      model v2: fit 0% (was 0%), mean match 0.89 (was 0.20), held-out 5%
+[3] E3 Where exactly does the box insert 'i' for odd-length strings — is it always...(+102 chars)  model v2 match 0.10
+      revision rejected: mean match 0.62 < 0.62
+      model v3: fit 33% (was 0%), mean match 0.76 (was 0.62), held-out 17%
+[4] E4 Does the box strip only spaces (not tabs/newlines), and does it strip inter...(+85 chars)  model v3 match 0.90
+      revision rejected: mean match 0.77 < 0.79
+      revision rejected: mean match 0.77 < 0.79
+[5] E5 Does the box strip only ASCII spaces (not tabs) from the ends, and how does...(+89 chars)  model v3 match 0.80
+      model v4: fit 20% (was 20%), mean match 0.80 (was 0.80), held-out 17%
+[6] E6 Does the box strip leading/trailing tabs asymmetrically, or does it insert ...(+162 chars)  model v4 match 0.00
+      model v5: fit 17% (was 17%), mean match 0.66 (was 0.66), held-out 17%
+[7] E7 After stripping leading/trailing spaces and tabs, is 'i' inserted at index ...(+160 chars)  model v5 match 1.00
+[8] E8 After stripping leading/trailing spaces and tabs, is 'i' really inserted at...(+141 chars)  model v5 match 0.70
+      model v6: fit 25% (was 25%), mean match 0.73 (was 0.71), held-out 6%
+[9] E9 For strings with leading spaces/tabs, is the insertion index computed on th...(+162 chars)  model v6 match 0.30
+      revision rejected: mean match 0.67 < 0.69
+      revision rejected: mean match 0.63 < 0.69
+[10] E10 For strings with leading whitespace, is the insertion index for 'i' equal t...(+204 chars)  model v6 match 0.40
+      model v7: fit 30% (was 20%), mean match 0.78 (was 0.66), held-out 39%
+[11] E11 For strings with leading spaces, does the insertion index depend on the str...(+172 chars)  model v7 match 0.40
+      model v8: fit 36% (was 27%), mean match 0.80 (was 0.74), held-out 84%
+[12] E12 For single-character strings with leading spaces/tabs, does the insertion i...(+137 chars)  model v8 match 0.00
+      model v9: fit 33% (was 33%), mean match 0.74 (was 0.73), held-out 84%
+[13] E13 For strings with leading whitespace, does the insertion index follow a cons...(+187 chars)  model v9 match 0.70
+      model v10: fit 31% (was 31%), mean match 0.74 (was 0.74), held-out 84%
+[14] E14 For strings with leading whitespace, is the insertion index equal to (orig_...(+224 chars)  model v10 match 1.00
+[15] E15 For strings with leading whitespace, is the insertion index exactly orig_le...(+166 chars)  model v10 match 1.00
+[16] E16 Does the leading-whitespace index formula orig_len//2 - lead_ws (or its neg...(+175 chars)  model v10 match 0.00
+      model v11: fit 38% (was 38%), mean match 0.72 (was 0.72), held-out 84%
+[17] E17 For strings with no leading whitespace but trailing whitespace, is the inse...(+231 chars)  model v11 match 0.70
+      model v12: fit 35% (was 35%), mean match 0.72 (was 0.72), held-out 84%
+[18] E18 For strings with leading whitespace, is the insertion index really orig_len...(+217 chars)  model v12 match 0.10
+      model v13: fit 33% (was 33%), mean match 0.69 (was 0.69), held-out 84%
+[19] E19 For strings with leading whitespace, is the insertion index actually comput...(+201 chars)  model v13 match 1.00
+[20] E20 For strings with leading whitespace, is the insertion index really abs(orig...(+287 chars)  model v13 match 1.00
+[21] E21 The current model predicts leading-whitespace index as abs(orig_len//2 - le...(+322 chars)  model v13 match 0.90
+      model v14: fit 38% (was 38%), mean match 0.73 (was 0.73), held-out 84%
+[22] E22 For inputs that start with a tab (or space+tab) followed by a single non-sp...(+146 chars)  model v14 match 0.10
+      model v15: fit 36% (was 36%), mean match 0.70 (was 0.70), held-out 84%
+[23] E23 For leading-whitespace strings, is the insertion index really based on orig...(+171 chars)  model v15 match 0.90
+      model v16: fit 35% (was 35%), mean match 0.71 (was 0.71), held-out 84%
+[24] E24 For leading-whitespace strings, is the insertion index actually based on th...(+215 chars)  model v16 match 0.90
+      model v17: fit 21% (was 33%), mean match 0.72 (was 0.72), held-out 58%
+[25] E25 For leading-whitespace strings, does the insertion index depend on the tota...(+203 chars)  model v17 match 0.20
+      revision rejected: mean match 0.39 < 0.70
+      revision rejected: mean match 0.25 < 0.70
+{"env": "find_strings_f00751", "experiments": 25, "model_version": 17, "fit": 0.2, "heldout": 0.58, "llm_calls": 49, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

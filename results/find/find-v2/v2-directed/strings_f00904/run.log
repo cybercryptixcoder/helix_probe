@@ -1,0 +1,18 @@
+Helix Probe v2 on 'find_strings_f00904': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary short text: does it return the input uncha...(+78 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.92, fit 1.00, size 78 (exam 0.000 -> 0.917); held-out 66%
+[2] E2 Does the box reverse by characters only, or does it also reorder words/segm...(+71 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the box reverse at the character level even for mixed content like dig...(+161 chars)  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 1.00, size 145 (exam 0.917 -> 1.000); held-out 100%
+[4] E4 Is the 'W'→'r' anomaly in 'Hello, World' a real per-character rule for uppe...(+106 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the box apply any other per-character substitutions besides uppercase ...(+108 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the uppercase-W-to-r substitution apply to every 'W' wherever it occur...(+160 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (274 vs 145 chars)
+[7] E7 Does the box apply any other per-character substitutions to uppercase lette...(+193 chars)  (v2 predicted it: match 1.00)
+[8] E8 Are there any per-character substitutions for lowercase letters other than ...(+111 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the uppercase-W-to-r substitution also apply when W is adjacent to pun...(+172 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the box do anything beyond reversing and replacing uppercase W with r ...(+143 chars)  (v2 predicted it: match 1.00)
+[11] E11 Does the uppercase-W-to-r substitution actually depend on context or neighb...(+292 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00904", "experiments": 11, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 145, "heldout": 1.0, "llm_calls": 14, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

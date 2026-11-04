@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f removes all spaces from the string [E1, E2]",
+  "f lowercases all letters [E1, E2]",
+  "f capitalizes the first character only if the original string's first character is not a space [E2]",
+  "leading spaces prevent capitalization of the first remaining character [E2]",
+  "empty string and all-space strings map to empty string [E1, E2]",
+  "digits and punctuation are left unchanged [E1, E2]"
+ ],
+ "notes": "Capitalization depends on the original string's first character, not the post-space-removal first character: leading spaces suppress capitalization. Changed predict to check the original first char before removing spaces.",
+ "fit": 1.0,
+ "heldout": 0.88,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

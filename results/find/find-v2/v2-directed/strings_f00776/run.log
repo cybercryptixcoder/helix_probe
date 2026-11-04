@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00776': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do to ordinary short text: identity, case change, reversal, or ...(+26 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 182 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the W insertion position depend on string length alone (len//2) or on ...(+80 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the W insertion position depend on the original string length (len//2)...(+128 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the W insertion index use len//2 of the original string even when the ...(+172 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the W insertion index depend on the original string length len//2, or ...(+147 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the W insertion position depend on the number of characters vs. the nu...(+116 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (223 vs 182 chars)
+[7] E7 Does the W insertion index use len//2 of the original string even when the ...(+145 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the W insertion index use len//2 of the original string (counting char...(+156 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the W insertion index use len//2 of the original string when the strin...(+213 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00776", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 182, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,30 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f removes all whitespace characters (space, tab, newline, and Unicode whitespace) from the string [E1, E2, E3, E7, E9]",
+  "f lowercases all letters using Unicode-aware lowercasing [E1, E2, E3, E10]",
+  "f capitalizes the first character of the result only if the original string's first character is not whitespace [E2, E3, E8]",
+  "leading whitespace (space, tab, etc.) prevents capitalization of the first remaining character [E2, E3, E8]",
+  "empty string and all-whitespace strings map to empty string [E1, E2, E3]",
+  "digits and punctuation are left unchanged [E1, E2, E3]",
+  "capitalization uses str.capitalize semantics: only the first char is uppercased, and if it is \u00df it becomes 'Ss' (not 'SS'), while \u00df elsewhere stays lowercase [E11]",
+  "the capitalize-first rule uses titlecase-uppercasing of the first char (e.g. \u01c6 becomes \u01c5), not full uppercase [E11]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 11
+}

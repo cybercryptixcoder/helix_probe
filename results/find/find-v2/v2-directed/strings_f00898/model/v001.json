@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I derived the rule from E1: insert `'f'` at index `len//2`, then duplicate the final character (which also explains `\"\" -> \"ff\"`). This reproduces every observed output exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 265, "matches": [1.0], "made_at": 1, "heldout": 1.0}

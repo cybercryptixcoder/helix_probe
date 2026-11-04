@@ -13,3 +13,55 @@ Helix Probe on 'find_strings_f00542': 0 experiments so far, model v0, held-out s
       model v5: fit 20% (was 0%), mean match 0.68 (was 0.60), held-out 1%
 [6] E6 When there are exactly two words, is the second output chunk the reverse of...(+153 chars)  model v5 match 1.00
 [7] E7 For a plain single lowercase word, does the box reverse the whole word or o...(+106 chars)  model v5 match 0.60
+      revision rejected: mean match 0.61 < 0.71
+      model v6: fit 29% (was 29%), mean match 0.71 (was 0.71), held-out 1%
+[8] E8 For a single word, is the output the reverse of the whole word or the rever...(+108 chars)  model v6 match 0.60
+      revision rejected: mean match 0.56 < 0.70
+      revision rejected: mean match 0.56 < 0.70
+[9] E9 For a single word, is the output always the reverse of the whole word excep...(+141 chars)  model v6 match 0.40
+      revision rejected: mean match 0.64 < 0.67
+      model v7: fit 22% (was 22%), mean match 0.67 (was 0.67), held-out 1%
+[10] E10 For a single word, is the output the reverse of the word with every trailin...(+157 chars)  model v7 match 0.10
+      model v8: fit 20% (was 20%), mean match 0.64 (was 0.61), held-out 1%
+[11] E11 For a single word, is the rule 'reverse the whole word, then delete every l...(+296 chars)  model v8 match 0.20
+      model v9: fit 18% (was 18%), mean match 0.60 (was 0.60), held-out 1%
+[12] E12 For multi-word inputs, does the box transform the FIRST word with the same ...(+140 chars)  model v9 match 0.30
+      model v10: fit 17% (was 17%), mean match 0.58 (was 0.58), held-out 1%
+[13] E13 For a single word, does the box reverse the whole word and then strip leadi...(+190 chars)  model v10 match 0.20
+      model v11: fit 15% (was 15%), mean match 0.55 (was 0.55), held-out 1%
+[14] E14 For single-word inputs, does the box reverse the whole word and then strip ...(+249 chars)  model v11 match 0.20
+      model v12: fit 14% (was 14%), mean match 0.64 (was 0.52), held-out 1%
+[15] E15 For single words, does the box strip ALL trailing 'o' characters from the o...(+171 chars)  model v12 match 0.20
+      revision rejected: mean match 0.49 < 0.61
+      revision rejected: mean match 0.49 < 0.61
+[16] E16 For single words, does the box strip ALL trailing 'o's from the original be...(+264 chars)  model v12 match 0.20
+      revision rejected: mean match 0.47 < 0.58
+      revision rejected: mean match 0.47 < 0.58
+[17] E17 Does the box strip ALL trailing 'o's from the original word before reversin...(+162 chars)  model v12 match 0.40
+      revision rejected: mean match 0.45 < 0.57
+      revision rejected: mean match 0.45 < 0.57
+[18] E18 For a single word, is the rule 'strip ALL trailing o's from the original, t...(+189 chars)  model v12 match 0.20
+      revision rejected: mean match 0.44 < 0.55
+      revision rejected: mean match 0.44 < 0.55
+[19] E19 For a single word, is the rule 'strip ALL trailing o's from the original, t...(+146 chars)  model v12 match 0.80
+      revision rejected: mean match 0.43 < 0.56
+      revision rejected: mean match 0.43 < 0.56
+[20] E20 For a single word, is the rule 'strip ALL trailing o's from the original, t...(+145 chars)  model v12 match 0.70
+      revision rejected: mean match 0.45 < 0.57
+      revision rejected: mean match 0.45 < 0.57
+[21] E21 For a single word, is the rule exactly 'strip ALL trailing o's from the ori...(+140 chars)  model v12 match 0.20
+      revision rejected: mean match 0.43 < 0.55
+      revision rejected: mean match 0.43 < 0.55
+[22] E22 For a single word, is the rule exactly 'strip all trailing o's, then revers...(+248 chars)  model v12 match 0.00
+      revision rejected: mean match 0.41 < 0.53
+      revision rejected: mean match 0.41 < 0.53
+[23] E23 Does the trailing-o-strip-then-reverse rule apply to EACH word independentl...(+157 chars)  model v12 match 0.20
+      revision rejected: mean match 0.32 < 0.51
+      revision rejected: mean match 0.32 < 0.51
+[24] E24 For single words, does the box strip all trailing o's then reverse (so 'oob...(+161 chars)  model v12 match 0.40
+      revision rejected: mean match 0.31 < 0.51
+      revision rejected: mean match 0.31 < 0.51
+[25] E25 Does the box apply the trailing-o-strip-then-reverse rule per word and join...(+183 chars)  model v12 match 0.20
+      revision rejected: mean match 0.30 < 0.50
+      revision rejected: mean match 0.30 < 0.50
+{"env": "find_strings_f00542", "experiments": 25, "model_version": 12, "fit": 0.08, "heldout": 0.01, "llm_calls": 65, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
