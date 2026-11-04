@@ -34,8 +34,12 @@ def main(src, dst):
                 shutil.copy2(f, out / rel)
         n += 1
     try:
-        from bench.find.report import main as report
-        import contextlib, io
+        import contextlib, io, json
+        arc = "budget_x" in json.loads((src / "job.json").read_text()) if (src / "job.json").exists() else False
+        if arc:     # an ARC-AGI-3 job (bench/arc/run.py): same layout, its own report
+            from bench.arc.run import report
+        else:
+            from bench.find.report import main as report
         with contextlib.redirect_stdout(io.StringIO()):
             report(str(src))
         for name in ("report.md", "report.json"):

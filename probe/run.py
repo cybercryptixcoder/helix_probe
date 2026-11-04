@@ -35,8 +35,11 @@ def main():
     a = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     a.add_argument("adapter", help="path to an adapter file (one Environment subclass)")
     a.add_argument("--env-arg", nargs="*", default=[], help="key=value passed to the adapter's constructor")
-    a.add_argument("--steps", type=int, default=30, help="total learn steps")
-    a.add_argument("--exam", type=int, default=6, help="sealed exam probes (0 = none)")
+    a.add_argument("--steps", type=int, default=30, help="most experiments in the run (total)")
+    a.add_argument("--budget", type=float, default=0, help="most total cost in the box's units (0 = no limit)")
+    a.add_argument("--exam", type=int, default=0, help="sealed exam probes (0 = none; judge by trials)")
+    a.add_argument("--trial", type=int, default=3, help="experiments a new theory is tried on")
+    a.add_argument("--no-plan", action="store_true", help="don't use the planner")
     a.add_argument("--theorist-every", type=int, default=6, help="learn steps between theorist calls (0 = never)")
     a.add_argument("--experimenter", choices=["llm", "random"], default="llm")
     a.add_argument("--random-every", type=int, default=2, help="every k-th experiment is a random probe (0 = never)")
@@ -53,7 +56,8 @@ def main():
     env = load_env(args.adapter, dict(kv.split("=", 1) for kv in args.env_arg))
     if args.no_env_knowledge:
         env.knowledge = ""
-    cfg = Config(steps=args.steps, exam=args.exam, theorist_every=args.theorist_every,
+    cfg = Config(steps=args.steps, budget=args.budget, exam=args.exam, trial=args.trial, plan=not args.no_plan,
+                 theorist_every=args.theorist_every,
                  experimenter=args.experimenter, random_every=args.random_every, tasks=args.tasks, tries=args.tries, seed=args.seed)
     for kv in args.effort:
         role, level = kv.split("=", 1)
