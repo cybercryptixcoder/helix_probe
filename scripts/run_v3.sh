@@ -123,18 +123,23 @@ fi
 free_disk=$(df -Pm . | awk 'NR==2 {print $4}')
 echo "   disk: ${free_disk} MB free"
 [ "${free_disk:-0}" -ge 1500 ] || { echo "preflight: need 1500 MB of free disk" >&2; exit 3; }
-PRE="$(mktemp -d)"
-( "$PY" tests/test_v3.py \
-  && "$PY" bench/find/run.py --out "$PRE/find" --data bench/find/data --arms v3 --limit 1 --steps 3 --workers 2 --fake \
-  && "$PY" bench/find/publish.py "$PRE/find" "$PRE/res-find" && test -s "$PRE/res-find/report.md" \
-  && rm -rf "$PRE/find" && "$PY" bench/restore.py "$PRE/res-find" "$PRE/find" \
-  && "$PY" bench/find/run.py --out "$PRE/find" --data bench/find/data --arms v3 --limit 1 --steps 5 --workers 2 --fake \
-  && { [[ " $STAGES " != *" arc "* ]] || { "$PY" bench/arc/run.py --out "$PRE/arc" --games ls20 --steps 3 --workers 1 --fake \
-       && "$PY" bench/find/publish.py "$PRE/arc" "$PRE/res-arc" && test -s "$PRE/res-arc/report.md"; }; } \
-) > "$PRE/pre.log" 2>&1 \
-  || { echo "preflight: the crash test failed (offline checks; fake-model runs; publish; restore from published files; resume):" >&2; tail -25 "$PRE/pre.log" >&2; rm -rf "$PRE"; exit 3; }
+crash_test() {   # the whole pipeline with a fake model; returns non-zero on any failure
+  local PRE; PRE="$(mktemp -d)"
+  ( "$PY" tests/test_v3.py \
+    && "$PY" bench/find/run.py --out "$PRE/find" --data bench/find/data --arms v3 --limit 1 --steps 3 --workers 2 --fake \
+    && "$PY" bench/find/publish.py "$PRE/find" "$PRE/res-find" && test -s "$PRE/res-find/report.md" \
+    && rm -rf "$PRE/find" && "$PY" bench/restore.py "$PRE/res-find" "$PRE/find" \
+    && "$PY" bench/find/run.py --out "$PRE/find" --data bench/find/data --arms v3 --limit 1 --steps 5 --workers 2 --fake \
+    && { [[ " $STAGES " != *" arc "* ]] || { "$PY" bench/arc/run.py --out "$PRE/arc" --games ls20 --steps 3 --workers 1 --fake \
+         && "$PY" bench/find/publish.py "$PRE/arc" "$PRE/res-arc" && test -s "$PRE/res-arc/report.md"; }; } \
+  ) > "$PRE/pre.log" 2>&1
+  local rc=$?
+  [ "$rc" = "0" ] || tail -25 "$PRE/pre.log" >&2
+  rm -rf "$PRE"
+  return $rc
+}
+crash_test || { echo "preflight: the crash test failed (offline checks; fake-model runs; publish; restore from published files; resume); its log is above" >&2; exit 3; }
 echo "   crash test passed: v3 offline checks, fake-model FIND and ARC runs, publish, delete + restore from the published files, resume"
-rm -rf "$PRE"
 if [ "$FAKE" != "1" ]; then
   "$PY" - <<'PY' || { echo "preflight: the model can't be reached (.env needs PROBE_API_KEYS=key1,key2)" >&2; exit 3; }
 from probe.llm import LLM
@@ -157,7 +162,16 @@ if [ -e "$WAIT_FOR" ]; then
     echo "   [$(date +%H:%M)] waiting for the job holding $WAIT_FOR to finish"
   done
   exec 7<&-
-  echo "== $(date +%H:%M): $WAIT_FOR is free; starting"
+  echo "== $(date +%H:%M): $WAIT_FOR is free"
+  # take any fixes pushed while this job waited, but only if they pass the same crash test; otherwise go back
+  if [ "$PUSH" = "1" ] && [ "${PULL_AFTER_WAIT:-1}" = "1" ]; then
+    OLD=$(git rev-parse HEAD)
+    if git pull -q --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" 2>/dev/null && [ "$(git rev-parse HEAD)" != "$OLD" ]; then
+      if crash_test; then echo "   pulled $(git rev-parse --short HEAD) (fixes made while waiting); crash test passed"
+      else echo "   pulled $(git rev-parse --short HEAD) but its crash test failed: back to $OLD"; git reset -q --hard "$OLD"; fi
+    fi
+  fi
+  echo "== starting"
 fi
 
 # ------------------------------------------------------------------ the stages
