@@ -1,0 +1,14 @@
+{
+ "category": "numeric",
+ "fid": "f00065",
+ "score": 1.0,
+ "nmse": 7.842538545064761e-08,
+ "error": null,
+ "rounds": 15,
+ "experiments": 14,
+ "inputs": 192,
+ "answered": true,
+ "seconds": 91.6,
+ "tokens_in": 62814,
+ "tokens_out": 7698
+}
