@@ -33,3 +33,12 @@ Helix Probe v3 on 'find_numeric_f00093': 0 experiments so far, model v0, spent 0
       updater's fix not kept: same scores and not smaller (4000 vs 3124 chars)
       model v4 by the updater: fit 1.00, size 2255 (same scores, smaller (3124 -> 2255 chars)); held-out 100%
       theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 267)
+[20] E20 learn: Does the model's smooth monotone-spline fit hold up on a fresh ba...(+181 chars)  (v4 predicted it: match 1.00; cost 20, spent 287)
+[21] E21 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 297)
+[22] E22 learn: Does the smooth monotone-spline model hold on a fresh, evenly-spa...(+142 chars)  (v4 predicted it: match 1.00; cost 20, spent 317)
+[23] E23 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 327)
+[24] E24 learn: Does the model's monotone-spline fit hold on a fresh, dense batch...(+221 chars)  (v4 predicted it: match 1.00; cost 20, spent 347)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 357)
+{"env": "find_numeric_f00093", "experiments": 25, "cost": 357, "model_version": 4, "model_role": "updater", "fit": 1.0, "size": 2255, "exam": null, "heldout": 1.0, "llm_calls": 54, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

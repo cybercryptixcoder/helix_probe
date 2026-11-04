@@ -6,7 +6,7 @@ Sample: `bench/find/data`; up to 25 learn steps per function; exam of 4 probes (
 
 | who | n | final | at 3 | at 10 | experiments | inputs | LLM calls | cost | held-out |
 |---|---|---|---|---|---|---|---|---|---|
-| v3 | 18 | **1.00** | 0.78 | 1.00 | 18.3 | 261 | 21 | $1.29 | 0.98 |
+| v3 | 32 | **0.97** | 0.78 | 0.94 | 18.2 | 258 | 25 | $3.05 | 0.92 |
 | published: gpt-4 | 40 | **0.20** | - | - | 3.2 | 24 | - | - | - |
 | published: gpt-3.5-turbo | 40 | **0.12** | - | - | 1.2 | 8 | - | - | - |
 | published: llama-2-70b | 40 | **0.03** | - | - | 7.4 | 2 | - | - | - |

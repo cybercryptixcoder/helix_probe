@@ -1,0 +1,61 @@
+Helix Probe v3 on 'find_numeric_f00871': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 238 (fit 0.000 -> 1.000); held-out 57%
+[2] E2 learn: Is the nonzero value at x=-1.2 an isolated spike or part of a wid...(+46 chars)  (v1 predicted it: match 0.31; cost 16, spent 26)
+      model v2 by the updater: fit 1.00, size 188 (fit 0.656 -> 1.000); held-out 68%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 36)
+[4] E4 learn: Does the nonzero ramp region extend beyond [-2,2], and where exac...(+83 chars)  (v2 predicted it: match 1.00; cost 18, spent 54)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 64)
+[6] E6 learn: Is the nonzero region really a straight line from x=-2 (y=10.2) u...(+109 chars)  (v2 predicted it: match 1.00; cost 20, spent 84)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 278)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.90; cost 10, spent 94)
+      updater's fix not kept: its fit is 0.460, the current model's is 0.986
+      updater's fix not kept: its fit is 0.843, the current model's is 0.986
+[8] E8 learn: Does the nonzero ramp region also exist at positive x (a mirror o...(+127 chars)  (v2 predicted it: match 0.95; cost 20, spent 114)
+      updater's fix not kept: same scores and not smaller (293 vs 188 chars)
+      model v3 by the updater: fit 0.99, size 264 (fit 0.981 -> 0.988); held-out 68%
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 124)
+      theorist's model lost its trial: on trial it predicted 0.95 of 3 new experiments, the current model 0.95
+[10] E10 learn: Is the nonzero ramp region only on the negative side (a left-side...(+158 chars)  (v3 predicted it: match 0.95; cost 20, spent 144)
+      model v4 by the updater: fit 0.99, size 188 (fit 0.985 -> 0.990); held-out 68%
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 154)
+[12] E12 learn: The ramp is y = 5.2 - 2.5x over [-2.1, 2.1]. Is the underlying fu...(+348 chars)  (v4 predicted it: match 1.00; cost 18, spent 172)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.99, size 255)
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 0.90; cost 10, spent 182)
+      updater's fix not kept: its fit is 0.981, the current model's is 0.985
+      updater's fix not kept: same scores and not smaller (188 vs 188 chars)
+[14] E14 learn: Is the small nonzero value at x=-80.4 (0.0499) in E7 and x=-83.7 ...(+215 chars)  (v4 predicted it: match 0.85; cost 20, spent 202)
+      model v5 by the updater: fit 0.98, size 312 (fit 0.975 -> 0.979); held-out 69%
+[15] E15 learn: a random ordinary probe  (v5 predicted it: match 0.90; cost 10, spent 212)
+      model v6 by the theorist: fit 0.98, size 255 (on trial it predicted 0.92 of 3 new experiments, the current model 0.88); held-out 68%
+      updater's fix not kept: same scores and not smaller (371 vs 255 chars)
+      updater's fix not kept: its fit is 0.970, the current model's is 0.977
+[16] E16 learn: Is the faint nonzero signal seen at x≈-88 to -80 (E7, E13, E14) a...(+142 chars)  (v6 predicted it: match 0.45; cost 20, spent 232)
+      updater's fix not kept: same scores and not smaller (312 vs 255 chars)
+      updater's fix not kept: its fit is 0.941, the current model's is 0.944
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.92, size 476)
+[17] E17 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 242)
+[18] E18 learn: Is the faint nonzero signal on the negative side confined to a na...(+120 chars)  (v6 predicted it: match 0.80; cost 20, spent 262)
+      updater's fix not kept: its fit is 0.928, the current model's is 0.939
+      updater's fix not kept: its fit is 0.922, the current model's is 0.939
+[19] E19 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 272)
+      theorist's model lost its trial: on trial it predicted 0.92 of 3 new experiments, the current model 0.93
+[20] E20 learn: Does the faint negative-side feature around x≈-88..-76 also appea...(+113 chars)  (v6 predicted it: match 1.00; cost 20, spent 292)
+[21] E21 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 302)
+[22] E22 learn: Is the faint nonzero band on the negative side a smooth localized...(+147 chars)  (v6 predicted it: match 0.25; cost 20, spent 322)
+      updater's fix not kept: same scores and not smaller (432 vs 255 chars)
+      updater's fix not kept: its fit is 0.898, the current model's is 0.916
+      theorist (fixes stalled)
+[23] E23 learn: a random ordinary probe  (v6 predicted it: match 0.90; cost 10, spent 332)
+      updater's fix not kept: its fit is 0.898, the current model's is 0.915
+      updater's fix not kept: its fit is 0.904, the current model's is 0.915
+[24] E24 learn: Is the faint nonzero band on the negative side (seen around x≈-88...(+177 chars)  (v6 predicted it: match 0.95; cost 20, spent 352)
+      updater's fix not kept: its fit is 0.896, the current model's is 0.917
+      updater's fix not kept: its fit is 0.915, the current model's is 0.917
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.91, size 602)
+[25] E25 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 362)
+{"env": "find_numeric_f00871", "experiments": 25, "cost": 362, "model_version": 6, "model_role": "theorist", "fit": 0.92, "size": 255, "exam": null, "heldout": 0.68, "llm_calls": 39, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

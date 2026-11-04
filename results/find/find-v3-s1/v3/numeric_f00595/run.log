@@ -1,0 +1,51 @@
+Helix Probe v3 on 'find_numeric_f00595': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      updater's fix not kept: same scores and not smaller (200 vs 33 chars)
+      model v1 by the updater: fit 1.00, size 226 (fit 0.000 -> 1.000); held-out 80%
+[2] E2 learn: Does the special interval 30–45 boundary hold, and what formula p...(+62 chars)  (v1 predicted it: match 0.60; cost 10, spent 20)
+      model v2 by the updater: fit 0.90, size 256 (fit 0.800 -> 0.900); held-out 80%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 30)
+[4] E4 learn: Does the floor(x)+1 / floor(x)-1 rule hold at exact integers and ...(+141 chars)  (v2 predicted it: match 0.75; cost 16, spent 46)
+      updater's fix not kept: same scores and not smaller (256 vs 256 chars)
+      model v3 by the updater: fit 0.95, size 256 (fit 0.887 -> 0.950); held-out 84%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 56)
+[6] E6 learn: Is the special interval's lower boundary exactly at 32 (so 31.5 i...(+170 chars)  (v3 predicted it: match 0.62; cost 16, spent 72)
+      model v4 by the updater: fit 0.98, size 256 (fit 0.904 -> 0.983); held-out 97%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 82)
+[8] E8 learn: Does the special interval's interior output follow a simple smoot...(+173 chars)  (v4 predicted it: match 0.80; cost 10, spent 92)
+      updater's fix not kept: same scores and not smaller (314 vs 256 chars)
+      model v5 by the updater: fit 0.96, size 255 (same scores, smaller (256 -> 255 chars)); held-out 97%
+[9] E9 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 102)
+[10] E10 learn: Can closely spaced samples inside the special interval identify w...(+156 chars)  (v5 predicted it: match 0.58; cost 12, spent 114)
+      model v6 by the updater: fit 0.98, size 226 (fit 0.928 -> 0.980); held-out 99%
+[11] E11 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 124)
+[12] E12 learn: Does the ordinary floor(x)+1 / floor(x)-1 rule hold for non-integ...(+106 chars)  (v6 predicted it: match 0.92; cost 12, spent 136)
+      updater's fix not kept: its fit is 0.971, the current model's is 0.976
+      model v7 by the updater: fit 0.98, size 227 (fit 0.976 -> 0.983); held-out 99%
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v7 predicted it: match 1.00; cost 10, spent 146)
+[14] E14 learn: Does the ordinary floor(x)+1 / floor(x)-1 rule hold for a dense s...(+152 chars)  (v7 predicted it: match 1.00; cost 20, spent 166)
+[15] E15 learn: a random ordinary probe  (v7 predicted it: match 1.00; cost 10, spent 176)
+[16] E16 learn: What is the exact shape of the special interval's interior output...(+81 chars)  (v7 predicted it: match 0.85; cost 20, spent 196)
+      model v8 by the updater: fit 0.99, size 228 (fit 0.978 -> 0.988); held-out 100%
+[17] E17 learn: a random ordinary probe  (v8 predicted it: match 1.00; cost 10, spent 206)
+[18] E18 learn: Are the special-interval edges exactly at the half-integer bounda...(+214 chars)  (v8 predicted it: match 0.92; cost 12, spent 218)
+      model v9 by the updater: fit 0.99, size 228 (fit 0.984 -> 0.989); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.96, size 646)
+[19] E19 learn: a random ordinary probe  (v9 predicted it: match 1.00; cost 10, spent 228)
+[20] E20 learn: Does the ordinary floor(x)+1/floor(x)-1 rule hold exactly at half...(+207 chars)  (v9 predicted it: match 0.95; cost 20, spent 248)
+      updater's fix not kept: same scores and not smaller (229 vs 228 chars)
+      updater's fix not kept: same scores and not smaller (229 vs 228 chars)
+[21] E21 learn: a random ordinary probe  (v9 predicted it: match 1.00; cost 10, spent 258)
+      theorist's model lost its trial: on trial it predicted 0.98 of 3 new experiments, the current model 0.98
+[22] E22 learn: Does the ordinary floor-based rule hold exactly at integer inputs...(+179 chars)  (v9 predicted it: match 0.94; cost 17, spent 275)
+      model v10 by the updater: fit 1.00, size 272 (fit 0.986 -> 0.995); held-out 100%
+[23] E23 learn: a random ordinary probe  (v10 predicted it: match 1.00; cost 10, spent 285)
+[24] E24 learn: Does the special interval's interior output vary systematically w...(+130 chars)  (v10 predicted it: match 0.15; cost 20, spent 305)
+      model v11 by the updater: fit 0.96, size 272 (fit 0.960 -> 0.965); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.97, size 315)
+[25] E25 learn: a random ordinary probe  (v11 predicted it: match 1.00; cost 10, spent 315)
+{"env": "find_numeric_f00595", "experiments": 25, "cost": 315, "model_version": 11, "model_role": "updater", "fit": 0.966, "size": 272, "exam": null, "heldout": 1.0, "llm_calls": 33, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

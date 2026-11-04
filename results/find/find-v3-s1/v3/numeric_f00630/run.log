@@ -1,0 +1,22 @@
+Helix Probe v3 on 'find_numeric_f00630': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 85 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the function depend only on the sign of x, or does it vary w...(+81 chars)  (v1 predicted it: match 1.00; cost 12, spent 22)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 32)
+[4] E4 learn: Is the sign boundary exactly at x=0, and does the function ever t...(+62 chars)  (v1 predicted it: match 0.92; cost 13, spent 45)
+      model v2 by the updater: fit 1.00, size 224 (fit 0.981 -> 1.000); held-out 100%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 55)
+[6] E6 learn: Does the sign rule hold for a batch of ordinary moderate and larg...(+106 chars)  (v2 predicted it: match 1.00; cost 20, spent 75)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 271)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 85)
+[8] E8 learn: Does the output depend only on sign, or does the exact value of x...(+111 chars)  (v2 predicted it: match 1.00; cost 18, spent 103)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 113)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Are the two constants exactly 52.2 and -14.96, or are they approx...(+110 chars)  (v2 predicted it: match 1.00; cost 10, spent 123)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 133)
+[12] E12 learn: Does the sign rule hold exactly at the boundary between -128 and ...(+130 chars)  (v2 predicted it: match 1.00; cost 11, spent 144)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.99, size 466)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00630", "experiments": 12, "cost": 144, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 224, "exam": null, "heldout": 1.0, "llm_calls": 10, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

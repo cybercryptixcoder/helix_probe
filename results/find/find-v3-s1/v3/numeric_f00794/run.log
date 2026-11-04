@@ -1,0 +1,84 @@
+Helix Probe v3 on 'find_numeric_f00794': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: Does f behave like a smooth, roughly sinusoidal/oscillatory funct...(+94 chars)  (v0 predicted it: match 0.00; cost 17, spent 27)
+      model v1 by the updater: fit 0.50, size 315 (fit 0.000 -> 0.500); held-out 0%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 37)
+      model v2 by the updater: fit 0.37, size 359 (fit 0.333 -> 0.367); held-out 0%
+[4] E4 learn: Is the ordinary part of f(x) periodic in x, and if so what is its...(+96 chars)  (v2 predicted it: match 0.05; cost 20, spent 57)
+      updater's fix not kept: its fit is 0.250, the current model's is 0.287
+      updater's fix not kept: its fit is 0.275, the current model's is 0.287
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 67)
+      updater's fix not kept: its fit is 0.220, the current model's is 0.230
+      updater's fix not kept: its fit is 0.200, the current model's is 0.230
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.22, size 360)
+[6] E6 learn: Does f(x) depend only on the fractional part / a simple function ...(+167 chars)  (v2 predicted it: match 0.10; cost 20, spent 87)
+      updater's fix not kept: its fit is 0.192, the current model's is 0.208
+      updater's fix not kept: its fit is 0.183, the current model's is 0.208
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 97)
+      model v3 by the updater: fit 0.19, size 368 (fit 0.179 -> 0.186); held-out 0%
+[8] E8 learn: Does f depend on x through a simple deterministic function of x i...(+268 chars)  (v3 predicted it: match 0.05; cost 20, spent 117)
+      model v4 by the theorist: fit 0.17, size 360 (on trial it predicted 0.08 of 3 new experiments, the current model 0.05); held-out 0%
+      updater's fix not kept: its fit is 0.131, the current model's is 0.169
+      updater's fix not kept: its fit is 0.144, the current model's is 0.169
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 127)
+      updater's fix not kept: same scores and not smaller (527 vs 360 chars)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.13, size 304)
+[10] E10 learn: Is f(x) a smooth deterministic function of x near ordinary points...(+119 chars)  (v4 predicted it: match 0.00; cost 20, spent 147)
+      updater's fix not kept: its fit is 0.125, the current model's is 0.135
+      updater's fix not kept: same scores and not smaller (360 vs 360 chars)
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 157)
+      updater's fix not kept: its fit is 0.109, the current model's is 0.123
+      updater's fix not kept: its fit is 0.109, the current model's is 0.123
+[12] E12 learn: Do nearby inputs give nearly identical outputs with a visible smo...(+178 chars)  (v4 predicted it: match 0.00; cost 20, spent 177)
+      model v5 by the theorist: fit 0.10, size 304 (on trial it predicted 0.03 of 3 new experiments, the current model 0.00); held-out 0%
+      updater's fix not kept: same scores and not smaller (304 vs 304 chars)
+      updater's fix not kept: same scores and not smaller (304 vs 304 chars)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.10, size 290)
+[13] E13 learn: a random ordinary probe  (v5 predicted it: match 0.00; cost 10, spent 187)
+      updater's fix not kept: same scores and not smaller (304 vs 304 chars)
+      updater's fix not kept: same scores and not smaller (304 vs 304 chars)
+[14] E14 learn: Does f depend on x through a periodic/oscillatory structure with ...(+212 chars)  (v5 predicted it: match 0.00; cost 20, spent 207)
+      model v6 by the updater: fit 0.10, size 466 (fit 0.089 -> 0.096); held-out 0%
+[15] E15 learn: a random ordinary probe  (v6 predicted it: match 0.10; cost 10, spent 217)
+      theorist's model lost its trial: on trial it predicted 0.03 of 3 new experiments, the current model 0.03
+      updater's fix not kept: same scores and not smaller (466 vs 466 chars)
+      updater's fix not kept: same scores and not smaller (466 vs 466 chars)
+[16] E16 learn: Does the special large-output region extend below x=0 (i.e., is i...(+74 chars)  (v6 predicted it: match 0.40; cost 20, spent 237)
+      updater's fix not kept: same scores and not smaller (628 vs 466 chars)
+      model v7 by the updater: fit 0.12, size 628 (fit 0.116 -> 0.119); held-out 0%
+[17] E17 learn: a random ordinary probe  (v7 predicted it: match 0.10; cost 10, spent 247)
+      updater's fix not kept: same scores and not smaller (628 vs 628 chars)
+      updater's fix not kept: same scores and not smaller (628 vs 628 chars)
+[18] E18 learn: Does the region of large outputs (~12-14) on the positive side an...(+221 chars)  (v7 predicted it: match 0.30; cost 20, spent 267)
+      model v8 by the updater: fit 0.13, size 430 (fit 0.128 -> 0.133); held-out 0%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.11, size 740)
+[19] E19 learn: a random ordinary probe  (v8 predicted it: match 0.10; cost 10, spent 277)
+      updater's fix not kept: its fit is 0.129, the current model's is 0.132
+      updater's fix not kept: its fit is 0.129, the current model's is 0.132
+[20] E20 learn: Is the pseudorandom-looking ordinary output actually a smooth det...(+209 chars)  (v8 predicted it: match 0.05; cost 20, spent 297)
+      updater's fix not kept: its fit is 0.125, the current model's is 0.128
+      updater's fix not kept: its fit is 0.125, the current model's is 0.128
+[21] E21 learn: a random ordinary probe  (v8 predicted it: match 0.00; cost 10, spent 307)
+      theorist's model lost its trial: on trial it predicted 0.05 of 3 new experiments, the current model 0.05
+      updater's fix not kept: same scores and not smaller (430 vs 430 chars)
+      updater's fix not kept: same scores and not smaller (430 vs 430 chars)
+      theorist (fixes stalled)
+[22] E22 learn: Is the ordinary-region output a deterministic function of the int...(+200 chars)  (v8 predicted it: match 0.05; cost 20, spent 327)
+      updater's fix not kept: its fit is 0.116, the current model's is 0.118
+      updater's fix not kept: its fit is 0.116, the current model's is 0.118
+[23] E23 learn: a random ordinary probe  (v8 predicted it: match 0.00; cost 10, spent 337)
+      updater's fix not kept: same scores and not smaller (430 vs 430 chars)
+      updater's fix not kept: same scores and not smaller (430 vs 430 chars)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.08, size 460)
+[24] E24 learn: Does the ordinary-region output depend only on the fractional par...(+126 chars)  (v8 predicted it: match 0.05; cost 20, spent 357)
+      updater's fix not kept: its fit is 0.108, the current model's is 0.110
+      updater's fix not kept: its fit is 0.108, the current model's is 0.110
+[25] E25 learn: a random ordinary probe  (v8 predicted it: match 0.10; cost 10, spent 367)
+      updater's fix not kept: same scores and not smaller (430 vs 430 chars)
+      updater's fix not kept: same scores and not smaller (430 vs 430 chars)
+{"env": "find_numeric_f00794", "experiments": 25, "cost": 367, "model_version": 8, "model_role": "updater", "fit": 0.11, "size": 430, "exam": null, "heldout": 0.0, "llm_calls": 63, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

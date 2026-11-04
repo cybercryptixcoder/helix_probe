@@ -1,0 +1,32 @@
+Helix Probe v3 on 'find_numeric_f00550': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 64 (fit 0.000 -> 1.000); held-out 94%
+[2] E2 learn: Does f(x) actually equal zero across the whole domain, or was E1'...(+175 chars)  (v1 predicted it: match 0.85; cost 20, spent 30)
+      model v2 by the updater: fit 1.00, size 200 (fit 0.925 -> 1.000); held-out 95%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 40)
+[4] E4 learn: Are the nonzero outputs at x=0, 0.5, and -0.5 isolated points, or...(+65 chars)  (v2 predicted it: match 0.05; cost 20, spent 60)
+      model v3 by the updater: fit 0.91, size 1079 (fit 0.762 -> 0.912); held-out 98%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 70)
+[6] E6 learn: Where exactly does the nonzero interval end on each side, and doe...(+98 chars)  (v3 predicted it: match 0.60; cost 20, spent 90)
+      model v4 by the updater: fit 1.00, size 1160 (fit 0.875 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 100)
+[8] E8 learn: What is the exact shape of f inside the support near the positive...(+143 chars)  (v4 predicted it: match 0.95; cost 20, spent 120)
+      model v5 by the updater: fit 1.00, size 1480 (fit 0.994 -> 1.000); held-out 100%
+[9] E9 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 130)
+[10] E10 learn: Is the fine structure near x=0 on the negative side smooth and mo...(+144 chars)  (v5 predicted it: match 0.90; cost 20, spent 150)
+      updater's fix not kept: same scores and not smaller (1656 vs 1480 chars)
+      model v6 by the updater: fit 1.00, size 1736 (fit 0.990 -> 1.000); held-out 100%
+[11] E11 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 160)
+[12] E12 learn: Does the nonzero support interval have a sharp boundary, and is t...(+114 chars)  (v6 predicted it: match 1.00; cost 18, spent 178)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 188)
+[14] E14 learn: On the positive side, is the value at the boundary x=0.80 truly t...(+153 chars)  (v6 predicted it: match 1.00; cost 20, spent 208)
+[15] E15 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 218)
+[16] E16 learn: Is the fine structure between x=0.79 and 0.80 on the positive sid...(+189 chars)  (v6 predicted it: match 1.00; cost 20, spent 238)
+[17] E17 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 248)
+[18] E18 learn: Does the nonzero support interval and its interior shape change a...(+241 chars)  (v6 predicted it: match 1.00; cost 20, spent 268)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 393)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00550", "experiments": 18, "cost": 268, "model_version": 6, "model_role": "updater", "fit": 1.0, "size": 1736, "exam": null, "heldout": 1.0, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

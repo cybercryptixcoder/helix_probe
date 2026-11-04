@@ -1,0 +1,13 @@
+Helix Probe v3 on 'find_numeric_f00879': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: Does f behave like a sinusoid with a linear trend, or is the appa...(+105 chars)  (v0 predicted it: match 0.00; cost 20, spent 30)
+      model v1 by the updater: fit 0.03, size 291 (fit 0.000 -> 0.025); held-out 0%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 40)
+[4] E4 learn: Is the apparent oscillation a clean sinusoid in x, or does the pe...(+143 chars)  (v1 predicted it: match 0.10; cost 20, spent 60)
+      updater's fix not kept: its fit is 0.013, the current model's is 0.038
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 0.10; cost 10, spent 70)
+[6] E6 learn: Are the values at large positive x (80-128) systematically positi...(+131 chars)  (v1 predicted it: match 0.10; cost 20, spent 90)
+      updater: keep
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 100)
