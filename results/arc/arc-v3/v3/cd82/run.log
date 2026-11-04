@@ -152,3 +152,144 @@ Helix Probe v3 on 'arc_cd82': 0 experiments so far, model v0, spent 0
       model v30 by the updater: fit 0.73, size 2917 (fit 0.723 -> 0.734)
 [53] E53 learn: a random ordinary probe  (v30 predicted it: match 0.50; cost 4, spent 170)
       updater's fix not kept: same scores and not smaller (2917 vs 2917 chars)
+      updater's fix not kept: same scores and not smaller (2917 vs 2917 chars)
+[54] E54 learn: Does the row-63 bar advance once per ACTION regardless of which A...(+215 chars)  (v30 predicted it: match 0.62; cost 4, spent 174)
+      updater's fix not kept: its fit is 0.709, the current model's is 0.728
+      updater's fix not kept: its fit is 0.709, the current model's is 0.728
+      theorist (every 6 experiments)
+[55] E55 learn: a random ordinary probe  (v30 predicted it: match 0.50; cost 2, spent 176)
+      updater's fix not kept: its fit is 0.623, the current model's is 0.724
+[56] E56 learn: Does the row-63 bar advance on ACTION1/ACTION2 even when the spri...(+149 chars)  (v30 predicted it: match 0.50; cost 4, spent 180)
+      updater's fix not kept: its fit is 0.720, the current model's is 0.720
+      updater's fix not kept: its fit is 0.720, the current model's is 0.720
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.62, size 2194)
+[57] E57 learn: a random ordinary probe  (v30 predicted it: match 0.67; cost 3, spent 183)
+      updater's fix not kept: same scores and not smaller (2917 vs 2917 chars)
+      updater's fix not kept: its fit is 0.701, the current model's is 0.719
+[58] E58 learn: Does ACTION3 advance the row-63 bar every time it is used (includ...(+149 chars)  (v30 predicted it: match 0.50; cost 4, spent 187)
+      updater's fix not kept: its fit is 0.621, the current model's is 0.715
+      updater's fix not kept: its fit is 0.677, the current model's is 0.715
+[59] E59 learn: a random ordinary probe  (v30 predicted it: match 0.50; cost 1, spent 188)
+      model v31 by the theorist: fit 0.62, size 2194 (on trial it predicted 0.60 of 3 new experiments, the current model 0.56)
+      updater's fix not kept: its fit is 0.509, the current model's is 0.620
+      updater's fix not kept: its fit is 0.469, the current model's is 0.620
+[60] E60 learn: Does a plain background CLICK (55 55, never clicked before) advan...(+178 chars)  (v31 predicted it: match 0.67; cost 3, spent 191)
+      updater's fix not kept: its fit is 0.586, the current model's is 0.621
+      updater's fix not kept: its fit is 0.586, the current model's is 0.621
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.00, size 27)
+[61] E61 learn: a random ordinary probe  (v31 predicted it: match 0.55; cost 1, spent 192)
+      updater's fix not kept: its fit is 0.515, the current model's is 0.620
+      updater's fix not kept: its fit is 0.598, the current model's is 0.620
+[62] E62 learn: Does the row-63 counter advance exactly once per accepted action ...(+181 chars)  (v31 predicted it: match 0.60; cost 5, spent 197)
+      updater's fix not kept: its fit is 0.606, the current model's is 0.619
+      updater's fix not kept: its fit is 0.598, the current model's is 0.619
+[63] E63 learn: a random ordinary probe  (v31 predicted it: match 0.67; cost 3, spent 200)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 0.61
+      updater's fix not kept: its fit is 0.553, the current model's is 0.620
+      updater's fix not kept: its fit is 0.473, the current model's is 0.620
+      theorist (fixes stalled)
+[64] E64 learn: The counter is at c0-adjacent (c1 was last filled in E63, so coun...(+237 chars)  (v31 predicted it: match 0.25; cost 1, spent 201)
+      updater's fix not kept: its fit is 0.474, the current model's is 0.614
+      updater's fix not kept: its fit is 0.474, the current model's is 0.614
+[65] E65 learn: a random ordinary probe  (v31 predicted it: match 0.62; cost 4, spent 205)
+      updater's fix not kept: its fit is 0.525, the current model's is 0.614
+      updater's fix not kept: its fit is 0.523, the current model's is 0.614
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.47, size 2113)
+[66] E66 learn: Does RESET fully restore the level-1 initial screen (including th...(+134 chars)  (v31 predicted it: match 0.50; cost 2, spent 207)
+      updater's fix not kept: its fit is 0.519, the current model's is 0.613
+      updater's fix not kept: its fit is 0.561, the current model's is 0.613
+[67] E67 learn: a random ordinary probe  (v31 predicted it: match 0.50; cost 2, spent 209)
+      updater's fix not kept: its fit is 0.593, the current model's is 0.611
+      updater's fix not kept: its fit is 0.588, the current model's is 0.611
+[68] E68 learn: Does the row-63 counter advance once per ACTION (not just per CLI...(+139 chars)  (v31 predicted it: match 0.67; cost 3, spent 212)
+      theorist's model lost its trial: on trial it predicted 0.50 of 3 new experiments, the current model 0.56
+      updater's fix not kept: its fit is 0.516, the current model's is 0.612
+      updater's fix not kept: its fit is 0.477, the current model's is 0.612
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.37, size 3742)
+[69] E69 learn: a random ordinary probe  (v31 predicted it: match 0.50; cost 1, spent 213)
+      updater's fix not kept: its fit is 0.477, the current model's is 0.610
+      updater's fix not kept: its fit is 0.477, the current model's is 0.610
+[70] E70 learn: Does RESET restore the level to its true initial state (row-63 co...(+174 chars)  (v31 predicted it: match 0.50; cost 2, spent 215)
+      updater's fix not kept: its fit is 0.478, the current model's is 0.609
+      updater's fix not kept: its fit is 0.516, the current model's is 0.609
+[71] E71 learn: a random ordinary probe  (v31 predicted it: match 0.50; cost 2, spent 217)
+      model v32 by the theorist: fit 0.38, size 3742 (on trial it predicted 0.58 of 3 new experiments, the current model 0.50)
+      updater's fix not kept: its fit is 0.000, the current model's is 0.378
+      model v33 by the updater: fit 0.38, size 2618 (fit 0.378 -> 0.383)
+[72] E72 learn: Which cells does a CLICK on a fresh '0' button (e.g. 32 28, liste...(+93 chars)  (v33 predicted it: match 0.50; cost 1, spent 218)
+      updater's fix not kept: same scores and not smaller (2618 vs 2618 chars)
+      updater's fix not kept: same scores and not smaller (2663 vs 2618 chars)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.48, size 1529)
+[73] E73 learn: a random ordinary probe  (v33 predicted it: match 0.50; cost 1, spent 219)
+      model v34 by the updater: fit 0.39, size 2642 (fit 0.386 -> 0.390)
+[74] E74 learn: Does the row-63 counter advance once per ACTION regardless of whi...(+101 chars)  (v34 predicted it: match 0.50; cost 4, spent 223)
+      updater's fix not kept: same scores and not smaller (2642 vs 2642 chars)
+      updater's fix not kept: same scores and not smaller (2642 vs 2642 chars)
+[75] E75 learn: a random ordinary probe  (v34 predicted it: match 0.50; cost 1, spent 224)
+      model v35 by the theorist: fit 0.48, size 1529 (on trial it predicted 0.50 of 3 new experiments, the current model 0.50)
+      model v36 by the updater: fit 0.51, size 1925 (fit 0.478 -> 0.512)
+[76] E76 learn: Does the row-63 counter advance on a CLICK that is a no-op (e.g. ...(+166 chars)  (v36 predicted it: match 0.50; cost 3, spent 227)
+      model v37 by the updater: fit 0.61, size 2103 (fit 0.512 -> 0.612)
+[77] E77 learn: a random ordinary probe  (v37 predicted it: match 1.00; cost 1, spent 228)
+[78] E78 learn: The row-63 bar is nearly full (c55 filled, so ~9 cells left). Doe...(+172 chars)  (v37 predicted it: match 0.50; cost 8, spent 236)
+      model v38 by the updater: fit 0.62, size 2036 (same scores, smaller (2103 -> 2036 chars))
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.62, size 2356)
+[79] E79 learn: a random ordinary probe  (v38 predicted it: match 1.00; cost 1, spent 237)
+[80] E80 learn: Does a CLICK on the object at 16 16 (which in E66/E70 produced a ...(+145 chars)  (v38 predicted it: match 0.50; cost 2, spent 239)
+      updater's fix not kept: same scores and not smaller (2036 vs 2036 chars)
+      model v39 by the updater: fit 0.66, size 2120 (fit 0.619 -> 0.661)
+[81] E81 learn: a random ordinary probe  (v39 predicted it: match 0.50; cost 1, spent 240)
+      model v40 by the theorist: fit 0.62, size 2356 (on trial it predicted 0.67 of 3 new experiments, the current model 0.67)
+      updater's fix not kept: same scores and not smaller (2476 vs 2356 chars)
+      updater's fix not kept: same scores and not smaller (2391 vs 2356 chars)
+[82] E82 learn: Does ACTION2 (which in E81 drew a large sprite and advanced the b...(+212 chars)  (v40 predicted it: match 0.50; cost 2, spent 242)
+      updater's fix not kept: its fit is 0.611, the current model's is 0.622
+      model v41 by the updater: fit 0.64, size 3232 (fit 0.622 -> 0.639)
+[83] E83 learn: a random ordinary probe  (v41 predicted it: match 0.50; cost 1, spent 243)
+      model v42 by the updater: fit 0.65, size 3373 (fit 0.638 -> 0.645)
+[84] E84 learn: Does the row-63 bar actually fill at all from the current state, ...(+185 chars)  (v42 predicted it: match 0.67; cost 3, spent 246)
+      model v43 by the updater: fit 0.65, size 3126 (fit 0.646 -> 0.651)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.63, size 3480)
+[85] E85 learn: a random ordinary probe  (v43 predicted it: match 0.50; cost 2, spent 248)
+      updater's fix not kept: its fit is 0.639, the current model's is 0.649
+      model v44 by the updater: fit 0.66, size 2615 (fit 0.649 -> 0.663)
+[86] E86 learn: Does the row-63 bar advance on a CLICK that lands on a fresh obje...(+156 chars)  (v44 predicted it: match 0.83; cost 3, spent 251)
+      updater's fix not kept: same scores and not smaller (2615 vs 2615 chars)
+      updater: keep
+[87] E87 learn: a random ordinary probe  (v44 predicted it: match 0.50; cost 2, spent 253)
+      theorist's model lost its trial: on trial it predicted 0.51 of 3 new experiments, the current model 0.61
+      model v45 by the updater: fit 0.66, size 2611 (fit 0.663 -> 0.664)
+[88] E88 learn: Does an ACTION advance the row-63 bar on every use when it repeat...(+266 chars)  (v45 predicted it: match 0.62; cost 4, spent 257)
+      updater's fix not kept: its fit is 0.661, the current model's is 0.663
+      updater's fix not kept: its fit is 0.656, the current model's is 0.663
+[89] E89 learn: a random ordinary probe  (v45 predicted it: match 0.50; cost 4, spent 261)
+      updater: keep
+      theorist (fixes stalled)
+[90] E90 learn: Does a repeated ACTION advance the row-63 bar on every use (contr...(+221 chars)  (v45 predicted it: match 0.70; cost 5, spent 266)
+      updater's fix not kept: its fit is 0.662, the current model's is 0.662
+      updater's fix not kept: same scores and not smaller (2611 vs 2611 chars)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.50, size 2765)
+[91] E91 learn: a random ordinary probe  (v45 predicted it: match 1.00; cost 1, spent 267)
+[92] E92 learn: Does the row-63 bar advance on ACTION3 when it is the first actio...(+155 chars)  (v45 predicted it: match 0.64; cost 4, spent 271)
+      updater's fix not kept: its fit is 0.645, the current model's is 0.665
+[93] E93 learn: a random ordinary probe  (v45 predicted it: match 0.67; cost 3, spent 274)
+      theorist's model lost its trial: on trial it predicted 0.54 of 3 new experiments, the current model 0.77
+      updater's fix not kept: its fit is 0.649, the current model's is 0.665
+      updater: keep
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.64, size 1391)
+[94] E94 learn: Does the row-63 bar advance on the very first ACTION after a RESE...(+179 chars)  (v45 predicted it: match 0.75; cost 4, spent 278)
+      model v46 by the updater: fit 0.67, size 3017 (fit 0.666 -> 0.672)
+[95] E95 learn: a random ordinary probe  (v46 predicted it: match 0.75; cost 4, spent 282)
+      updater's fix not kept: same scores and not smaller (3017 vs 3017 chars)
+      updater's fix not kept: same scores and not smaller (3017 vs 3017 chars)
+[96] E96 learn: Does ACTION2 advance the row-63 bar on its very first use after a...(+103 chars)  (v46 predicted it: match 0.84; cost 3, spent 285)
+      theorist's model lost its trial: on trial it predicted 0.64 of 3 new experiments, the current model 0.78

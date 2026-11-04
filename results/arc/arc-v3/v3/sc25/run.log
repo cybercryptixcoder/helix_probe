@@ -98,3 +98,75 @@ Helix Probe v3 on 'arc_sc25': 0 experiments so far, model v0, spent 0
       updater's fix not kept: its fit is 0.684, the current model's is 0.691
       updater's fix not kept: its fit is 0.690, the current model's is 0.691
 [38] E38 learn: Does the player block move one column per ACTION3 (not two), and ...(+137 chars)  (v19 predicted it: match 0.53; cost 2, spent 127)
+      model v20 by the updater: fit 0.69, size 4746 (fit 0.686 -> 0.687)
+[39] E39 learn: a random ordinary probe  (v20 predicted it: match 0.76; cost 4, spent 131)
+      model v21 by the updater: fit 0.69, size 4998 (fit 0.689 -> 0.689)
+[40] E40 learn: Does ACTION2 (which E25/E26 suggested toggles the player's 9/a co...(+179 chars)  (v21 predicted it: match 0.60; cost 4, spent 135)
+      updater's fix not kept: its fit is 0.674, the current model's is 0.687
+[41] E41 learn: a random ordinary probe  (v21 predicted it: match 0.65; cost 1, spent 136)
+      updater's fix not kept: its fit is 0.683, the current model's is 0.687
+      model v22 by the updater: fit 0.69, size 4998 (fit 0.687 -> 0.694)
+[42] E42 learn: Does ACTION2 move the player left by 2 columns (with the 9/a head...(+189 chars)  (v22 predicted it: match 0.52; cost 4, spent 140)
+      updater's fix not kept: its fit is 0.687, the current model's is 0.690
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.53, size 3919)
+[43] E43 learn: a random ordinary probe  (v22 predicted it: match 0.72; cost 3, spent 143)
+      updater's fix not kept: its fit is 0.683, the current model's is 0.690
+      updater's fix not kept: its fit is 0.680, the current model's is 0.690
+[44] E44 learn: Does the player sprite move by 1 column per ACTION3 press (as E37...(+117 chars)  (v22 predicted it: match 0.52; cost 6, spent 149)
+      model v23 by the updater: fit 0.69, size 4886 (fit 0.687 -> 0.690)
+[45] E45 learn: a random ordinary probe  (v23 predicted it: match 0.83; cost 3, spent 152)
+      theorist's model lost its trial: on trial it predicted 0.56 of 3 new experiments, the current model 0.69
+      model v24 by the updater: fit 0.73, size 4827 (fit 0.693 -> 0.726)
+[46] E46 learn: Does the player sprite actually move 4 columns per ACTION3 press ...(+185 chars)  (v24 predicted it: match 0.62; cost 4, spent 156)
+[47] E47 learn: a random ordinary probe  (v24 predicted it: match 0.88; cost 4, spent 160)
+      model v25 by the updater: fit 0.73, size 4827 (fit 0.727 -> 0.730)
+[48] E48 learn: Does ACTION1 move the player right by 4 columns (restoring the fu...(+128 chars)  (v25 predicted it: match 0.56; cost 2, spent 162)
+      updater's fix not kept: its fit is 0.000, the current model's is 0.727
+      updater's fix not kept: its fit is 0.715, the current model's is 0.727
+      theorist (every 6 experiments)
+[49] E49 learn: a random ordinary probe  (v25 predicted it: match 1.00; cost 2, spent 164)
+[50] E50 learn: Does ACTION1 move the player right (restoring the 4x4 sprite at c...(+105 chars)  (v25 predicted it: match 0.50; cost 1, spent 165)
+      updater's fix not kept: its fit is 0.715, the current model's is 0.728
+      updater's fix not kept: its fit is 0.000, the current model's is 0.728
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.44, size 4105)
+[51] E51 learn: a random ordinary probe  (v25 predicted it: match 0.65; cost 1, spent 166)
+      updater's fix not kept: same scores and not smaller (4878 vs 4827 chars)
+[52] E52 learn: Does ACTION1 move the player right by 2 columns (from c23-26 to c...(+142 chars)  (v25 predicted it: match 0.53; cost 2, spent 168)
+      updater's fix not kept: same scores and not smaller (4827 vs 4827 chars)
+[53] E53 learn: a random ordinary probe  (v25 predicted it: match 0.67; cost 3, spent 171)
+      theorist's model lost its trial: on trial it predicted 0.33 of 3 new experiments, the current model 0.62
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.69, size 5507)
+[54] E54 learn: Does ACTION2 toggle the player's 9/a colours in place (current sp...(+72 chars)  (v25 predicted it: match 0.80; cost 1, spent 172)
+[55] E55 learn: a random ordinary probe  (v25 predicted it: match 0.50; cost 2, spent 174)
+      updater's fix not kept: its fit is 0.710, the current model's is 0.719
+[56] E56 learn: Does ACTION2 toggle the player's colours in place, and is the spr...(+98 chars)  (v25 predicted it: match 0.55; cost 2, spent 176)
+      theorist's model lost its trial: on trial it predicted 0.46 of 3 new experiments, the current model 0.62
+      updater's fix not kept: its fit is 0.000, the current model's is 0.716
+      updater's fix not kept: its fit is 0.696, the current model's is 0.716
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.00, size 27)
+[57] E57 learn: a random ordinary probe  (v25 predicted it: match 1.00; cost 1, spent 177)
+[58] E58 learn: Does ACTION1 move the player right by 2 columns (sprite shifts fr...(+135 chars)  (v25 predicted it: match 0.56; cost 1, spent 178)
+      updater's fix not kept: its fit is 0.687, the current model's is 0.718
+      updater's fix not kept: same scores and not smaller (4827 vs 4827 chars)
+[59] E59 learn: a random ordinary probe  (v25 predicted it: match 0.79; cost 4, spent 182)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 0.78
+      updater's fix not kept: its fit is 0.688, the current model's is 0.719
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.59, size 4417)
+[60] E60 learn: Does ACTION1 move the player sprite right by exactly 2 columns (f...(+190 chars)  (v25 predicted it: match 0.56; cost 2, spent 184)
+      updater's fix not kept: its fit is 0.684, the current model's is 0.716
+      updater's fix not kept: its fit is 0.703, the current model's is 0.716
+[61] E61 learn: a random ordinary probe  (v25 predicted it: match 1.00; cost 2, spent 186)
+[62] E62 learn: Does ACTION1 move the player right by 2 columns (c23-26 -> c25-28...(+147 chars)  (v25 predicted it: match 0.50; cost 1, spent 187)
+      theorist's model lost its trial: on trial it predicted 0.58 of 3 new experiments, the current model 0.69
+      updater's fix not kept: its fit is 0.717, the current model's is 0.717
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.64, size 5396)
+[63] E63 learn: a random ordinary probe  (v25 predicted it: match 0.67; cost 5, spent 192)
+      updater's fix not kept: its fit is 0.672, the current model's is 0.717
+      model v26 by the updater: fit 0.76, size 4749 (fit 0.717 -> 0.762)
+[64] E64 learn: Does ACTION1 shift the player sprite right by 2 columns (not 4), ...(+139 chars)  (v26 predicted it: match 0.50; cost 3, spent 195)

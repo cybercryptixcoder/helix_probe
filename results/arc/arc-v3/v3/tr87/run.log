@@ -75,3 +75,96 @@ Helix Probe v3 on 'arc_tr87': 0 experiments so far, model v0, spent 0
       updater's fix not kept: its fit is 0.791, the current model's is 0.866
       model v13 by the updater: fit 0.87, size 2659 (same scores, smaller (2705 -> 2659 chars))
 [29] E29 plan: the model's plan for the goal (13 actions; running the first 8): ...(+73 chars)  (v13 predicted it: match 0.59; cost 8, spent 111)
+      model v14 by the updater: fit 0.86, size 2707 (fit 0.857 -> 0.859)
+[30] E30 plan: the model's plan for the goal (18 actions; running the first 8): ...(+73 chars)  (v14 predicted it: match 0.60; cost 8, spent 119)
+      updater's fix not kept: its fit is 0.848, the current model's is 0.850
+      updater's fix not kept: same scores and not smaller (2707 vs 2707 chars)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.51, size 1436)
+[31] E31 plan: the model's plan for the goal (10 actions; running the first 8): ...(+73 chars)  (v14 predicted it: match 0.61; cost 8, spent 127)
+[32] E32 plan: the model's plan for the goal (2 actions; running the first 2): C...(+72 chars)  (v14 predicted it: match 0.38; cost 1, spent 128)
+      model v15 by the updater: fit 0.83, size 2698 (same scores, smaller (2707 -> 2698 chars))
+[33] E33 learn: a random ordinary probe  (v15 predicted it: match 0.25; cost 4, spent 132)
+      model v16 by the theorist: fit 0.50, size 1436 (on trial it predicted 0.42 of 3 new experiments, the current model 0.41)
+      model v17 by the updater: fit 0.53, size 2824 (fit 0.500 -> 0.531)
+[34] E34 learn: Does the progress bar (r63 '4') advance only on ACTION1/ACTION2 t...(+126 chars)  (v17 predicted it: match 0.63; cost 6, spent 138)
+      model v18 by the updater: fit 0.55, size 3017 (fit 0.534 -> 0.545)
+[35] E35 learn: a random ordinary probe  (v18 predicted it: match 0.64; cost 3, spent 141)
+      updater: keep
+[36] E36 learn: Does the toggle pattern applied by ACTION1/ACTION2 depend on the ...(+253 chars)  (v18 predicted it: match 0.50; cost 2, spent 143)
+      model v19 by the updater: fit 0.55, size 3213 (fit 0.546 -> 0.547)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.54, size 2230)
+[37] E37 learn: a random ordinary probe  (v19 predicted it: match 0.50; cost 3, spent 146)
+      updater's fix not kept: same scores and not smaller (3213 vs 3213 chars)
+      updater's fix not kept: same scores and not smaller (3213 vs 3213 chars)
+[38] E38 learn: Which tile is active at the start of a fresh level (after RESET),...(+99 chars)  (v19 predicted it: match 0.53; cost 2, spent 148)
+      updater: keep
+[39] E39 learn: a random ordinary probe  (v19 predicted it: match 0.51; cost 2, spent 150)
+      model v20 by the theorist: fit 0.54, size 2230 (on trial it predicted 0.53 of 3 new experiments, the current model 0.51)
+      updater's fix not kept: its fit is 0.534, the current model's is 0.543
+      updater: keep
+[40] E40 learn: Does ACTION1's effect on the tile interior depend on the active t...(+141 chars)  (v20 predicted it: match 0.50; cost 4, spent 154)
+      updater's fix not kept: its fit is 0.537, the current model's is 0.542
+      updater's fix not kept: its fit is 0.520, the current model's is 0.542
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.51, size 4128)
+[41] E41 learn: a random ordinary probe  (v20 predicted it: match 0.55; cost 3, spent 157)
+      updater's fix not kept: its fit is 0.537, the current model's is 0.542
+      updater's fix not kept: its fit is 0.436, the current model's is 0.542
+[42] E42 learn: Does ACTION1 on the active tile toggle a fixed sparse 5x5 interio...(+223 chars)  (v20 predicted it: match 0.51; cost 4, spent 161)
+      updater's fix not kept: its fit is 0.539, the current model's is 0.542
+      updater's fix not kept: its fit is 0.538, the current model's is 0.542
+[43] E43 learn: a random ordinary probe  (v20 predicted it: match 0.51; cost 2, spent 163)
+      theorist's model lost its trial: on trial it predicted 0.52 of 3 new experiments, the current model 0.52
+      updater's fix not kept: its fit is 0.523, the current model's is 0.541
+      theorist (fixes stalled)
+[44] E44 learn: Does the progress bar marker (r63 '4') advance on every action, i...(+216 chars)  (v20 predicted it: match 0.54; cost 4, spent 167)
+      updater's fix not kept: its fit is 0.530, the current model's is 0.541
+      updater's fix not kept: its fit is 0.513, the current model's is 0.541
+[45] E45 learn: a random ordinary probe  (v20 predicted it: match 0.64; cost 1, spent 168)
+      updater's fix not kept: its fit is 0.535, the current model's is 0.543
+      updater's fix not kept: its fit is 0.526, the current model's is 0.543
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.51, size 2357)
+[46] E46 learn: Does ACTION2 toggle a fixed 5x5 interior cell subset of the tile ...(+166 chars)  (v20 predicted it: match 0.50; cost 2, spent 170)
+      model v21 by the updater: fit 0.59, size 3271 (fit 0.542 -> 0.585)
+[47] E47 learn: a random ordinary probe  (v21 predicted it: match 0.61; cost 3, spent 173)
+      model v22 by the updater: fit 0.59, size 3001 (fit 0.586 -> 0.591)
+[48] E48 learn: Does ACTION1/ACTION2's interior toggle always target the leftmost...(+166 chars)  (v22 predicted it: match 0.73; cost 6, spent 179)
+      model v23 by the theorist: fit 0.52, size 2357 (on trial it predicted 0.63 of 3 new experiments, the current model 0.61)
+      model v24 by the updater: fit 0.53, size 3471 (fit 0.521 -> 0.533)
+      theorist (every 6 experiments)
+[49] E49 learn: a random ordinary probe  (v24 predicted it: match 0.54; cost 3, spent 182)
+      updater: keep
+[50] E50 learn: Does ACTION1 toggle a fixed 5x5 interior mask on the tile under t...(+201 chars)  (v24 predicted it: match 0.50; cost 5, spent 187)
+      model v25 by the updater: fit 0.53, size 3216 (same scores, smaller (3471 -> 3216 chars))
+[51] E51 learn: a random ordinary probe  (v25 predicted it: match 0.63; cost 1, spent 188)
+      updater: keep
+[52] E52 learn: Does ACTION1 on the active tile toggle a fixed 5x5 interior mask ...(+196 chars)  (v25 predicted it: match 0.64; cost 2, spent 190)
+      updater's fix not kept: its fit is 0.527, the current model's is 0.536
+      theorist (fixes stalled)
+[53] E53 learn: a random ordinary probe  (v25 predicted it: match 0.63; cost 1, spent 191)
+      updater's fix not kept: same scores and not smaller (3216 vs 3216 chars)
+      updater: keep
+[54] E54 learn: Does ACTION1 always toggle the same fixed 5x5 interior mask on th...(+214 chars)  (v25 predicted it: match 0.50; cost 3, spent 194)
+      model v26 by the updater: fit 0.66, size 2796 (fit 0.537 -> 0.657)
+      theorist (every 6 experiments)
+[55] E55 learn: a random ordinary probe  (v26 predicted it: match 0.59; cost 3, spent 197)
+      updater: keep
+[56] E56 learn: Which tile does ACTION1/ACTION2 actually toggle — the highlighted...(+173 chars)  (v26 predicted it: match 0.65; cost 3, spent 200)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.56, size 3293)
+[57] E57 learn: a random ordinary probe  (v26 predicted it: match 0.68; cost 3, spent 203)
+      model v27 by the updater: fit 0.76, size 2778 (fit 0.656 -> 0.758)
+[58] E58 learn: Does the interior toggle mask applied by ACTION1/ACTION2 depend o...(+232 chars)  (v27 predicted it: match 0.61; cost 2, spent 205)
+      updater's fix not kept: same scores and not smaller (2778 vs 2778 chars)
+      updater: keep
+[59] E59 learn: a random ordinary probe  (v27 predicted it: match 0.99; cost 2, spent 207)
+      theorist's model lost its trial: on trial it predicted 0.50 of 3 new experiments, the current model 0.76
+      model v28 by the updater: fit 0.78, size 2706 (fit 0.759 -> 0.776)
+[60] E60 learn: Does ACTION1/ACTION2 toggle only the cells of the active tile int...(+164 chars)  (v28 predicted it: match 0.92; cost 7, spent 214)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.72, size 3613)
+[61] E61 learn: a random ordinary probe  (v28 predicted it: match 0.63; cost 1, spent 215)
+      updater: keep

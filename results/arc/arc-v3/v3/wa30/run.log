@@ -83,3 +83,97 @@ Helix Probe v3 on 'arc_wa30': 0 experiments so far, model v0, spent 0
       updater's fix not kept: its fit is 0.638, the current model's is 0.756
       theorist (every 6 experiments)
 [31] E31 learn: a random ordinary probe  (v10 predicted it: match 0.50; cost 4, spent 87)
+      updater's fix not kept: same scores and not smaller (3671 vs 3671 chars)
+[32] E32 learn: The lane is at cols 12-15 with a 0-block at rows 32-35 (from E31'...(+180 chars)  (v10 predicted it: match 1.00; cost 2, spent 89)
+[33] E33 learn: a random ordinary probe  (v10 predicted it: match 0.50; cost 1, spent 90)
+      updater's fix not kept: its fit is 0.683, the current model's is 0.748
+      updater's fix not kept: its fit is 0.633, the current model's is 0.748
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.00, size 27)
+[34] E34 learn: Does ACTION5 ever toggle a lane block that is uniformly 0 (all 16...(+164 chars)  (v10 predicted it: match 0.75; cost 2, spent 92)
+      updater's fix not kept: its fit is 0.629, the current model's is 0.748
+      updater's fix not kept: its fit is 0.705, the current model's is 0.748
+[35] E35 learn: a random ordinary probe  (v10 predicted it: match 0.67; cost 3, spent 95)
+      updater's fix not kept: its fit is 0.000, the current model's is 0.746
+[36] E36 learn: After ACTION2 moves the lane's [e,e,e,0] block down to rows 32-35...(+290 chars)  (v10 predicted it: match 0.75; cost 2, spent 97)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 0.72
+      updater's fix not kept: its fit is 0.698, the current model's is 0.746
+      updater's fix not kept: its fit is 0.627, the current model's is 0.746
+      theorist (every 6 experiments)
+[37] E37 learn: a random ordinary probe  (v10 predicted it: match 0.50; cost 3, spent 100)
+      model v11 by the updater: fit 0.74, size 3970 (fit 0.739 -> 0.740)
+[38] E38 learn: After ACTION1 moves the lane's lowest block up from rows 32-35 to...(+207 chars)  (v11 predicted it: match 0.50; cost 2, spent 102)
+      updater's fix not kept: its fit is 0.733, the current model's is 0.733
+      updater's fix not kept: its fit is 0.622, the current model's is 0.733
+[39] E39 learn: a random ordinary probe  (v11 predicted it: match 0.82; cost 4, spent 106)
+      updater's fix not kept: its fit is 0.690, the current model's is 0.736
+      model v12 by the updater: fit 0.74, size 3892 (same scores, smaller (3970 -> 3892 chars))
+[40] E40 learn: Does ACTION5 toggle the lowest uniform-0/3 block in the moving la...(+177 chars)  (v12 predicted it: match 0.75; cost 2, spent 108)
+      updater's fix not kept: its fit is 0.621, the current model's is 0.736
+[41] E41 learn: a random ordinary probe  (v12 predicted it: match 0.50; cost 2, spent 110)
+      updater's fix not kept: same scores and not smaller (3892 vs 3892 chars)
+      updater's fix not kept: same scores and not smaller (3892 vs 3892 chars)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.63, size 2884)
+[42] E42 learn: Does the counter at row 63 move left on ACTION3/ACTION4 (horizont...(+144 chars)  (v12 predicted it: match 0.50; cost 4, spent 114)
+      updater's fix not kept: its fit is 0.724, the current model's is 0.725
+      updater's fix not kept: same scores and not smaller (3994 vs 3892 chars)
+[43] E43 learn: a random ordinary probe  (v12 predicted it: match 0.50; cost 1, spent 115)
+      updater's fix not kept: its fit is 0.617, the current model's is 0.720
+[44] E44 learn: Does ACTION5 toggle the lowest uniform-0/3 block in the moving la...(+236 chars)  (v12 predicted it: match 1.00; cost 2, spent 117)
+      theorist's model lost its trial: on trial it predicted 0.67 of 3 new experiments, the current model 0.67
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.63, size 1688)
+[45] E45 learn: a random ordinary probe  (v12 predicted it: match 0.50; cost 3, spent 120)
+      model v13 by the updater: fit 0.72, size 3924 (fit 0.721 -> 0.723)
+[46] E46 learn: Does ACTION1 (upward block shift) move the row-63 counter left wh...(+133 chars)  (v13 predicted it: match 0.50; cost 1, spent 121)
+      updater's fix not kept: its fit is 0.716, the current model's is 0.718
+      updater's fix not kept: its fit is 0.716, the current model's is 0.718
+[47] E47 learn: a random ordinary probe  (v13 predicted it: match 0.50; cost 2, spent 123)
+      theorist's model lost its trial: on trial it predicted 0.50 of 3 new experiments, the current model 0.50
+      updater's fix not kept: same scores and not smaller (3924 vs 3924 chars)
+      updater's fix not kept: its fit is 0.713, the current model's is 0.713
+      theorist (fixes stalled)
+[48] E48 learn: Does ACTION1 move the row-63 counter left when the lowest lane bl...(+139 chars)  (v13 predicted it: match 0.50; cost 1, spent 124)
+      updater's fix not kept: same scores and not smaller (4003 vs 3924 chars)
+      updater's fix not kept: its fit is 0.707, the current model's is 0.709
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.61, size 2430)
+[49] E49 learn: a random ordinary probe  (v13 predicted it: match 1.00; cost 1, spent 125)
+[50] E50 learn: Does ACTION1 move the row-63 counter left when the lowest lane bl...(+108 chars)  (v13 predicted it: match 0.50; cost 1, spent 126)
+      updater's fix not kept: its fit is 0.709, the current model's is 0.711
+      updater's fix not kept: its fit is 0.709, the current model's is 0.711
+[51] E51 learn: a random ordinary probe  (v13 predicted it: match 0.62; cost 4, spent 130)
+      theorist's model lost its trial: on trial it predicted 0.58 of 3 new experiments, the current model 0.71
+      updater's fix not kept: same scores and not smaller (4009 vs 3924 chars)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.58, size 5399)
+[52] E52 learn: Does the row-63 counter move left on ACTION3/ACTION4 only when th...(+254 chars)  (v13 predicted it: match 0.50; cost 3, spent 133)
+      model v14 by the updater: fit 0.82, size 3922 (fit 0.705 -> 0.816)
+[53] E53 learn: a random ordinary probe  (v14 predicted it: match 0.88; cost 2, spent 135)
+      model v15 by the updater: fit 0.83, size 3699 (fit 0.817 -> 0.830)
+[54] E54 learn: Does the row-63 counter advance left on a valid ACTION2 (downward...(+137 chars)  (v15 predicted it: match 0.79; cost 1, spent 136)
+      theorist's model lost its trial: on trial it predicted 0.50 of 3 new experiments, the current model 0.72
+      updater's fix not kept: its fit is 0.823, the current model's is 0.829
+      updater's fix not kept: its fit is 0.823, the current model's is 0.829
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.52, size 5111)
+[55] E55 learn: a random ordinary probe  (v15 predicted it: match 0.88; cost 3, spent 139)
+      updater's fix not kept: its fit is 0.827, the current model's is 0.830
+[56] E56 learn: Does the row-63 counter move left exactly when the movable lane's...(+172 chars)  (v15 predicted it: match 0.83; cost 6, spent 145)
+      updater's fix not kept: same scores and not smaller (3699 vs 3699 chars)
+      updater's fix not kept: its fit is 0.824, the current model's is 0.830
+[57] E57 learn: a random ordinary probe  (v15 predicted it: match 0.79; cost 1, spent 146)
+      theorist's model lost its trial: on trial it predicted 0.50 of 3 new experiments, the current model 0.84
+      updater's fix not kept: its fit is 0.821, the current model's is 0.829
+      updater's fix not kept: its fit is 0.818, the current model's is 0.829
+      theorist (fixes stalled)
+[58] E58 learn: Does ACTION5 toggle/convert a lane block that is a 4x4 '4' block ...(+85 chars)  (v15 predicted it: match 1.00; cost 1, spent 147)
+[59] E59 learn: a random ordinary probe  (v15 predicted it: match 0.85; cost 1, spent 148)
+      updater's fix not kept: its fit is 0.821, the current model's is 0.832
+      model v16 by the updater: fit 0.86, size 4674 (fit 0.832 -> 0.861)
+[60] E60 learn: Does a successful ACTION1 (upward lane shift) always move the row...(+165 chars)  (v16 predicted it: match 0.75; cost 2, spent 150)
+      model v17 by the updater: fit 0.86, size 4661 (fit 0.860 -> 0.861)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.52, size 4481)
+[61] E61 learn: a random ordinary probe  (v17 predicted it: match 0.94; cost 3, spent 153)

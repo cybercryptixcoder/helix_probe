@@ -1,1 +1,42 @@
-{}
+{
+ "v3": {
+  "games": 1,
+  "mean_score": 0.0,
+  "levels": [
+   0,
+   8
+  ],
+  "actions": 290,
+  "human_actions": 213,
+  "calls": 149,
+  "per_game": {
+   "sb26": {
+    "game": "sb26-7fbdac44",
+    "score": 0.0,
+    "levels_completed": 0,
+    "levels": 8,
+    "actions": 290,
+    "level_actions": [
+     290,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "baseline": [
+     18,
+     28,
+     18,
+     19,
+     31,
+     23,
+     58,
+     18
+    ]
+   }
+  }
+ }
+}
