@@ -16,6 +16,7 @@ what the box is: a function, a toy, or a video game.
 Status (November 2026): **v3**. v1 and v2 are frozen in `versions/` for comparison.
 - The walkthrough: `docs/helix_probe_explainer_v3.html` (earlier versions: `docs/helix_probe_explainer_v2.html`, `_v1.html`).
 - Publishable results so far, with their configurations: `docs/RESULTS_LOG.md`.
+- **Picking up the project:** `docs/handoff/00_START_HERE.md` covers the concept, the current state, the analysis, the next steps and how to run everything.
 
 ## The loop (one whiteboard)
 
