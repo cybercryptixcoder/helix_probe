@@ -22,20 +22,24 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "versions" / "v1"))
+sys.path.insert(0, str(ROOT / "versions" / "v2"))
 
 from bench.find.curve import curve  # noqa: E402
 from envs.find_numeric import FindNumeric  # noqa: E402
 from envs.find_strings import FindStrings  # noqa: E402
 from probe.llm import LLM, ScriptedLLM  # noqa: E402
 
-# Each arm: which engine, and what differs from the default configuration.
+# Each arm: which engine, and what differs from that engine's defaults. v1 and v2 are frozen copies.
 ARMS = {
-    "v2": ("v2", {}),                                   # the system: mixed experiments, theorist, exam
-    "v2-directed": ("v2", {"random_every": 0}),          # every experiment chosen by the experimenter
-    "v2-no-theorist": ("v2", {"theorist_every": 0, "theorist_on_stall": 0}),
-    "v2-no-exam": ("v2", {"exam": 0}),
-    "v2-random": ("v2", {"experimenter": "random"}),
-    "v2-theorist-low": ("v2", {"effort": {"experimenter": "none", "updater": "none", "theorist": "low"}}),
+    "v3": ("v3", {}),                                    # the current system (trials, no exam)
+    "v3-exam": ("v3", {"exam": 4}),                      # v3 with v2's sealed exam of 4 probes
+    "v3-random": ("v3", {"experimenter": "random"}),     # every experiment random
+    "v3-directed": ("v3", {"random_every": 0}),          # every experiment chosen by the experimenter
+    "v3-no-theorist": ("v3", {"theorist_every": 0, "theorist_on_stall": 0}),
+    "v2": ("v2", {"exam": 4}),                           # frozen v2 as run in find-v2 (mixed, exam 4)
+    "v2-directed": ("v2", {"exam": 4, "random_every": 0}),
+    "v2-random": ("v2", {"exam": 4, "experimenter": "random"}),
+    "v2-no-theorist": ("v2", {"exam": 4, "theorist_every": 0, "theorist_on_stall": 0}),
     "v1": ("v1", {}),
 }
 _print = threading.Lock()
@@ -89,8 +93,13 @@ def one(arm, cat, fid, args, llm):
         if args.steps - done > 0 or not (folder / "summary.json").exists():
             run.go()        # v1 has no stop hook: a stop signal lets its run finish
     else:
-        from probe.loop import Config, Run
-        cfg = Config(steps=args.steps, exam=args.exam, seed=args.seed, heldout=100)
+        if engine == "v2":
+            from probe_v2.loop import Config, Run
+        else:
+            from probe.loop import Config, Run
+        cfg = Config(steps=args.steps, seed=args.seed, heldout=100)
+        if engine == "v2":
+            cfg.exam = 4
         for k, v in over.items():
             setattr(cfg, k, v)
         if Run(env, folder, llm, cfg, log=log, should_stop=STOP.is_set).go() is None:
@@ -108,11 +117,11 @@ def main():
     a = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     a.add_argument("--out", required=True)
     a.add_argument("--data", default=str(ROOT / "bench" / "find" / "data"))
-    a.add_argument("--arms", nargs="+", default=["v2"], choices=sorted(ARMS))
+    a.add_argument("--arms", nargs="+", default=["v3"], choices=sorted(ARMS))
     a.add_argument("--categories", nargs="+", default=["numeric", "strings"])
     a.add_argument("--limit", type=int, default=0, help="first N functions per category (0 = all)")
     a.add_argument("--steps", type=int, default=25)
-    a.add_argument("--exam", type=int, default=4)
+    a.add_argument("--exam", type=int, default=4, help="(unused: each arm sets its own exam)")
     a.add_argument("--workers", type=int, default=4)
     a.add_argument("--seed", type=int, default=0)
     a.add_argument("--fake", action="store_true", help="no model: crash test only")

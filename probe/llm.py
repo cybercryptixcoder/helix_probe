@@ -53,11 +53,13 @@ class LLM:
         self.extra = json.loads(os.environ.get("PROBE_EXTRA_BODY", "{}") or "{}")
         self.extra.pop("reasoning_effort", None)   # set per call
 
-    def __call__(self, system, user, temperature=0.7, effort="none", max_tokens=6000):
+    def __call__(self, system, user, temperature=0.7, effort="none", max_tokens=6000, messages=None):
+        """One reply. `messages` (optional): a whole conversation after the system prompt, instead of `user`."""
+        convo = messages if messages is not None else [{"role": "user", "content": user}]
         body = {"model": self.model, "stream": True, "stream_options": {"include_usage": True},
                 "temperature": temperature, "reasoning_effort": effort,
                 "max_tokens": max_tokens + (24000 if effort != "none" else 0),
-                "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
+                "messages": [{"role": "system", "content": system}] + list(convo)}
         body.update(self.extra)
         last, attempt, limited, waited = None, 0, 0, 0.0
         while True:
@@ -131,7 +133,7 @@ class ScriptedLLM:
     def __init__(self, env, seed=0):
         self.env, self.rng = env, random.Random(seed)
 
-    def __call__(self, system, user, temperature=0.7, effort="none", max_tokens=6000):
+    def __call__(self, system, user, temperature=0.7, effort="none", max_tokens=6000, messages=None):
         if "choose ONE experiment" in user:
             text = "```json\n" + json.dumps({"question": "random probe", "probe": self.env.random_probe(self.rng),
                                               "expect": "unknown"}) + "\n```"

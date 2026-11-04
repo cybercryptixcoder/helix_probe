@@ -2,3 +2,6 @@
 runs/
 __pycache__/
 *.pyc
+bench/arc/games/
+recordings/
+.venv*/
