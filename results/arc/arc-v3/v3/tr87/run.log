@@ -253,3 +253,46 @@ Helix Probe v3 on 'arc_tr87': 0 experiments so far, model v0, spent 0
 [87] E87 learn: a random ordinary probe  (v35 predicted it: match 0.72; cost 4, spent 257)
       updater's fix not kept: its fit is 0.727, the current model's is 0.777
 [88] E88 learn: Does ACTION1 on the active tile apply a fixed XOR mask to the 5x5...(+135 chars)  (v35 predicted it: match 0.61; cost 2, spent 259)
+      updater's fix not kept: its fit is 0.707, the current model's is 0.775
+      theorist (fixes stalled)
+[89] E89 learn: a random ordinary probe  (v35 predicted it: match 0.92; cost 3, spent 262)
+      updater: keep
+[90] E90 learn: Does ACTION1 on the active tile toggle only the interior cells cu...(+96 chars)  (v35 predicted it: match 0.79; cost 1, spent 263)
+      updater's fix not kept: its fit is 0.710, the current model's is 0.777
+      updater's fix not kept: its fit is 0.738, the current model's is 0.777
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.51, size 4531)
+[91] E91 learn: a random ordinary probe  (v35 predicted it: match 0.75; cost 2, spent 265)
+      updater's fix not kept: same scores and not smaller (2804 vs 2758 chars)
+      updater's fix not kept: its fit is 0.758, the current model's is 0.776
+[92] E92 learn: Does ACTION1 on the active tile toggle exactly the interior cells...(+150 chars)  (v35 predicted it: match 0.89; cost 2, spent 267)
+      updater's fix not kept: same scores and not smaller (2758 vs 2758 chars)
+[93] E93 learn: a random ordinary probe  (v35 predicted it: match 0.99; cost 2, spent 269)
+      theorist's model lost its trial: on trial it predicted 0.51 of 3 new experiments, the current model 0.87
+      updater's fix not kept: its fit is 0.761, the current model's is 0.780
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.54, size 2905)
+[94] E94 learn: On the active tile (tile 0, cols 15-19), does ACTION1 toggle ever...(+169 chars)  (v35 predicted it: match 0.68; cost 2, spent 271)
+      updater's fix not kept: its fit is 0.737, the current model's is 0.779
+[95] E95 learn: a random ordinary probe  (v35 predicted it: match 0.98; cost 1, spent 272)
+      updater's fix not kept: its fit is 0.776, the current model's is 0.781
+      updater's fix not kept: its fit is 0.780, the current model's is 0.781
+[96] E96 learn: Does ACTION1 on the active tile 0 (cols 15-19) toggle exactly the...(+130 chars)  (v35 predicted it: match 0.75; cost 1, spent 273)
+      theorist's model lost its trial: on trial it predicted 0.54 of 3 new experiments, the current model 0.80
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.54, size 5612)
+[97] E97 learn: a random ordinary probe  (v35 predicted it: match 0.85; cost 2, spent 275)
+      updater's fix not kept: its fit is 0.752, the current model's is 0.781
+[98] E98 learn: Does ACTION1 on the active tile (tile 0, cols 15-19) toggle only ...(+213 chars)  (v35 predicted it: match 0.63; cost 2, spent 277)
+      updater's fix not kept: its fit is 0.723, the current model's is 0.780
+      updater: keep
+[99] E99 learn: a random ordinary probe  (v35 predicted it: match 0.99; cost 4, spent 281)
+      theorist's model lost its trial: on trial it predicted 0.54 of 3 new experiments, the current model 0.82
+      updater's fix not kept: its fit is 0.763, the current model's is 0.782
+      updater's fix not kept: its fit is 0.763, the current model's is 0.782
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.67, size 3833)
+[100] E100 learn: Does ACTION1/ACTION2's interior toggle act on a fixed XOR mask (s...(+226 chars)  (v35 predicted it: match 0.64; cost 2, spent 283)
+      updater's fix not kept: its fit is 0.740, the current model's is 0.780
+      updater's fix not kept: same scores and not smaller (2758 vs 2758 chars)
+{"env": "arc_tr87", "experiments": 100, "cost": 283, "model_version": 35, "model_role": "updater", "fit": 0.7803888499063156, "size": 2758, "exam": null, "heldout": null, "llm_calls": 244, "goals": {"tried": 0, "reached": 0, "tries_used": []}, "box_score": {"game": "tr87-cd924810", "score": 0.0, "levels_completed": 0, "levels": 6, "actions": 283, "level_actions": [283, 0, 0, 0, 0, 0], "baseline": [54, 58, 40, 45, 71, 146]}}

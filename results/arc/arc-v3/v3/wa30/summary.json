@@ -1,0 +1,46 @@
+{
+ "env": "arc_wa30",
+ "experiments": 100,
+ "cost": 248,
+ "model_version": 28,
+ "model_role": "updater",
+ "fit": 0.8849941996208743,
+ "size": 7688,
+ "exam": null,
+ "heldout": null,
+ "llm_calls": 225,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "box_score": {
+  "game": "wa30-ee6fef47",
+  "score": 0.0,
+  "levels_completed": 0,
+  "levels": 9,
+  "actions": 248,
+  "level_actions": [
+   248,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "baseline": [
+   71,
+   119,
+   183,
+   98,
+   368,
+   68,
+   79,
+   442,
+   415
+  ]
+ }
+}
