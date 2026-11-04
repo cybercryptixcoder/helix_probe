@@ -1,0 +1,29 @@
+Helix Probe v3 on 'find_strings_f00904': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 0.83, size 78 (fit 0.000 -> 0.833); held-out 73%
+[2] E2 learn: Does the function preserve word order and only reverse characters...(+79 chars)  (v1 predicted it: match 1.00; cost 6, spent 12)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 18)
+[4] E4 learn: Does the function reverse characters within each whitespace-delim...(+179 chars)  (v1 predicted it: match 1.00; cost 8, spent 26)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 32)
+[6] E6 learn: Does the function reverse within whitespace-delimited tokens only...(+114 chars)  (v1 predicted it: match 1.00; cost 10, spent 42)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.97, size 108)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 0.83; cost 6, spent 48)
+      updater's fix not kept: its fit is 0.381, the current model's is 0.952
+      model v2 by the updater: fit 1.00, size 157 (fit 0.952 -> 1.000); held-out 100%
+[8] E8 learn: Does the 'World' -> 'dlror' anomaly come from the literal word 'W...(+83 chars)  (v2 predicted it: match 0.60; cost 10, spent 58)
+      model v3 by the updater: fit 1.00, size 135 (fit 0.950 -> 1.000); held-out 100%
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 64)
+      theorist's model lost its trial: on trial it predicted 0.68 of 3 new experiments, the current model 0.81
+[10] E10 learn: Does the 'W' -> 'r' substitution apply only to capital W, or also...(+148 chars)  (v3 predicted it: match 1.00; cost 10, spent 74)
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 80)
+[12] E12 learn: Does the 'W' -> 'r' substitution apply to capital W anywhere in t...(+167 chars)  (v3 predicted it: match 1.00; cost 10, spent 90)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 197)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 96)
+[14] E14 learn: Does the 'W'->'r' substitution happen on the original input chara...(+217 chars)  (v3 predicted it: match 1.00; cost 10, spent 106)
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 112)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[16] E16 learn: Does the capital-W -> r substitution apply to non-ASCII/other cha...(+131 chars)  (v3 predicted it: match 1.00; cost 10, spent 122)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00904", "experiments": 16, "cost": 122, "model_version": 3, "model_role": "updater", "fit": 1.0, "size": 135, "exam": null, "heldout": 1.0, "llm_calls": 14, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

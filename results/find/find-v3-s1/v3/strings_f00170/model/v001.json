@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to `\"k\" + reversed(input)`: every observed output is the input reversed character-for-character with a constant leading `\"k\"`, holding across spaces, mixed case, digits, and punctuation.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 84, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

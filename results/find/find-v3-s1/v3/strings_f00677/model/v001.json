@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to append the literal string `\"xI\"` to every input, since all six outputs in E1 are exactly the input followed by `\"xI\"` regardless of content, case, spaces, or length.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 79, "matches": [1.0], "made_at": 1, "heldout": 1.0}

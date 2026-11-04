@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the whitespace removal from `replace(\" \", \"\")` to a regex that strips all whitespace (spaces, tabs, newlines), since E2 shows tabs and newlines are also deleted before reversing.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 111, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

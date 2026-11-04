@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with: dedupe characters case-insensitively (keeping first occurrence), then shift the first character back one letter (wrapping, case-preserving). This reproduces all six E1 outputs exactly.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 550, "matches": [1.0], "made_at": 1, "heldout": 0.38}

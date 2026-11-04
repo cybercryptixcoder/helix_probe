@@ -1,0 +1,43 @@
+{
+ "category": "strings",
+ "fid": "f00751",
+ "experiments": 13,
+ "exam_probes": 0,
+ "n_versions": 4,
+ "inputs_total": 102,
+ "final": 1.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "start",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 0
+  },
+  {
+   "version": 1,
+   "role": "updater",
+   "experiments": 3,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 22
+  },
+  {
+   "version": 2,
+   "role": "theorist",
+   "experiments": 5,
+   "score": 0.9,
+   "nmse": null,
+   "inputs": 38
+  },
+  {
+   "version": 3,
+   "role": "updater",
+   "experiments": 5,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 38
+  }
+ ]
+}

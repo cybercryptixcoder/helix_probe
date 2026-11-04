@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with the rule: deduplicate characters keeping only their first occurrence (case-sensitive), then append `'h'` unless a lowercase `'h'` is already present. This reproduces all six observations exactly.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 353, "matches": [1.0], "made_at": 1, "heldout": 1.0}

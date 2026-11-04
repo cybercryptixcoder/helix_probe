@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to: shift each character by +5 in ASCII and append \"W\" \u2014 this matches all six outputs in E1 including spaces\u2192%, symbols, mixed case, and the trailing \"W\".", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 114, "matches": [1.0], "made_at": 1, "heldout": 0.9}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to a piecewise-linear fit: y=16.4x\u22122.5 for x>0 and y=\u22128.2x+2.5 for x<0, which reproduces all 10 points of E1 exactly; the boundary at 0 and value at 0 are unobserved and marked with \"?\".", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 238, "matches": [1.0], "made_at": 1, "heldout": 1.0}

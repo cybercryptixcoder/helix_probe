@@ -1,0 +1,27 @@
+Helix Probe v3 on 'find_strings_f00795': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 503 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the last-character +2 shift wrap around the alphabet (z->b, ...(+133 chars)  (v1 predicted it: match 1.00; cost 10, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 22)
+[4] E4 learn: Does the fixed '2' insertion and last-character +2 shift still be...(+217 chars)  (v1 predicted it: match 1.00; cost 10, spent 32)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 38)
+[6] E6 learn: How does the last-character +2 shift behave for uppercase letters...(+134 chars)  (v1 predicted it: match 1.00; cost 10, spent 48)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 547)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the box insert '2' at the midpoint and shift only the final ...(+137 chars)  (v1 predicted it: match 0.90; cost 10, spent 64)
+      model v2 by the updater: fit 1.00, size 458 (fit 0.988 -> 1.000); held-out 100%
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 70)
+      model v3 by the theorist: fit 1.00, size 547 (on trial it predicted 1.00 of 3 new experiments, the current model 0.97); held-out 100%
+[10] E10 learn: Does the midpoint insertion index use floor division for odd-leng...(+212 chars)  (v3 predicted it: match 1.00; cost 10, spent 80)
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 86)
+[12] E12 learn: Does the midpoint insertion index and the final-letter +2 shift d...(+274 chars)  (v3 predicted it: match 1.00; cost 10, spent 96)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 581)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 102)
+[14] E14 learn: Does the final-letter +2 shift apply to the last character of the...(+235 chars)  (v3 predicted it: match 1.00; cost 10, spent 112)
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 118)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[16] E16 learn: Does the '2' insertion and final-letter +2 shift interact differe...(+284 chars)  (v3 predicted it: match 1.00; cost 10, spent 128)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00795", "experiments": 16, "cost": 128, "model_version": 3, "model_role": "theorist", "fit": 1.0, "size": 547, "exam": null, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

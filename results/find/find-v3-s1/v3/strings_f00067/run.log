@@ -1,0 +1,25 @@
+Helix Probe v3 on 'find_strings_f00067': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      updater's fix not kept: same scores and not smaller (78 vs 33 chars)
+      updater's fix not kept: same scores and not smaller (78 vs 33 chars)
+[2] E2 learn: Does the box simply reverse the entire string, or does it reverse...(+56 chars)  (v0 predicted it: match 0.00; cost 10, spent 16)
+      model v1 by the updater: fit 0.70, size 610 (fit 0.000 -> 0.700); held-out 0%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.17; cost 6, spent 22)
+      model v2 by the updater: fit 0.97, size 657 (fit 0.522 -> 0.967); held-out 72%
+[4] E4 learn: Does the model's leading/trailing-whitespace handling and its 'pr...(+131 chars)  (v2 predicted it: match 0.80; cost 10, spent 32)
+      model v3 by the updater: fit 1.00, size 401 (fit 0.925 -> 1.000); held-out 100%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 38)
+[6] E6 learn: Do single-token inputs with internal punctuation/symbols and mixe...(+148 chars)  (v3 predicted it: match 1.00; cost 10, spent 48)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 347)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the 'prepend last char' rule apply to every token or only th...(+79 chars)  (v3 predicted it: match 1.00; cost 10, spent 64)
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 70)
+      model v4 by the theorist: fit 1.00, size 347 (on trial it predicted 1.00 of 3 new experiments, the current model 1.00); held-out 100%
+[10] E10 learn: How does the box handle tabs, newlines, and other whitespace char...(+125 chars)  (v4 predicted it: match 1.00; cost 10, spent 80)
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 6, spent 86)
+[12] E12 learn: Does the 'double the first char of the last token' rule interact ...(+262 chars)  (v4 predicted it: match 1.00; cost 10, spent 96)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 529)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00067", "experiments": 12, "cost": 96, "model_version": 4, "model_role": "theorist", "fit": 1.0, "size": 347, "exam": null, "heldout": 1.0, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

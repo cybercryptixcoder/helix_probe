@@ -1,2 +1,15 @@
 Helix Probe v3 on 'find_numeric_f00942': 0 experiments so far, model v0, spent 0
 [1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: Does f behave like a single cubic (or other simple power law) acr...(+97 chars)  (v0 predicted it: match 0.00; cost 20, spent 30)
+      model v1 by the updater: fit 1.00, size 234 (fit 0.000 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 40)
+[4] E4 learn: Does the piecewise-linear model hold on a fresh set of ordinary p...(+111 chars)  (v1 predicted it: match 1.00; cost 14, spent 54)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 64)
+[6] E6 learn: Does the piecewise-linear model hold exactly at the boundary x=0 ...(+112 chars)  (v1 predicted it: match 1.00; cost 11, spent 75)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 85)
+[8] E8 learn: Is the special value at x=0 truly isolated, or does the function ...(+189 chars)  (v1 predicted it: match 1.00; cost 18, spent 103)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 113)
+[10] E10 learn: Does the two-branch linear model with an isolated spike at 0 hold...(+158 chars)  (v1 predicted it: match 1.00; cost 14, spent 127)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00942", "experiments": 10, "cost": 127, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 234, "exam": null, "heldout": 1.0, "llm_calls": 9, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

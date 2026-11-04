@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the rule from \"only a final D becomes J\" to \"every 'D' anywhere becomes 'J'\" \u2014 E2 shows `Dd`\u2192`Jd` and `Dx`\u2192`Jx`, so it's not position-dependent, and lowercase `d` is untouched.", "exam": 0.0, "fit": 0.95, "fit_exact": 0.5, "size": 130, "matches": [1.0, 0.9], "made_at": 2, "heldout": 1.0}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to appending the literal suffix `\"ny\"` to every input, since all six E1 outputs are exactly their inputs with `\"ny\"` added (including preserving trailing spaces and mixed case).", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 79, "matches": [1.0], "made_at": 1, "heldout": 0.2}

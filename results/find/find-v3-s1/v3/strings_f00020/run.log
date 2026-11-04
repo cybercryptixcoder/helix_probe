@@ -1,0 +1,24 @@
+Helix Probe v3 on 'find_strings_f00020': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 208 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the insertion position follow the ceiling of half the length...(+150 chars)  (v1 predicted it: match 1.00; cost 6, spent 12)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 18)
+[4] E4 learn: Does the rule hold for ordinary sentences with punctuation and mi...(+118 chars)  (v1 predicted it: match 1.00; cost 10, spent 28)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 34)
+[6] E6 learn: Does the rule (insert '5' after the middle character, then append...(+173 chars)  (v1 predicted it: match 0.90; cost 10, spent 44)
+      model v2 by the updater: fit 1.00, size 226 (fit 0.983 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 360)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 50)
+[8] E8 learn: Does the rule hold for ordinary longer strings where the midpoint...(+193 chars)  (v2 predicted it: match 1.00; cost 10, spent 60)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 66)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the insertion rule hold for longer ordinary strings where th...(+195 chars)  (v2 predicted it: match 1.00; cost 10, spent 76)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 82)
+[12] E12 learn: Does the insertion index (len+1)//2 hold for even-length strings ...(+240 chars)  (v2 predicted it: match 1.00; cost 10, spent 92)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.48, size 305)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 98)
+[14] E14 learn: Does the insertion rule hold for strings whose length is odd and ...(+141 chars)  (v2 predicted it: match 1.00; cost 10, spent 108)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00020", "experiments": 14, "cost": 108, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 226, "exam": null, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
