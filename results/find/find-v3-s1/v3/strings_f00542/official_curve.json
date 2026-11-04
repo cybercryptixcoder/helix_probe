@@ -1,0 +1,51 @@
+{
+ "category": "strings",
+ "fid": "f00542",
+ "experiments": 25,
+ "exam_probes": 0,
+ "n_versions": 5,
+ "inputs_total": 195,
+ "final": 0.1,
+ "points": [
+  {
+   "version": 0,
+   "role": "start",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 0
+  },
+  {
+   "version": 1,
+   "role": "updater",
+   "experiments": 3,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 19
+  },
+  {
+   "version": 2,
+   "role": "updater",
+   "experiments": 4,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 29
+  },
+  {
+   "version": 3,
+   "role": "updater",
+   "experiments": 20,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 157
+  },
+  {
+   "version": 4,
+   "role": "updater",
+   "experiments": 22,
+   "score": 0.1,
+   "nmse": null,
+   "inputs": 173
+  }
+ ]
+}
