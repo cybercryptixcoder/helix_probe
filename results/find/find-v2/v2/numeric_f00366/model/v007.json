@@ -1,0 +1,1 @@
+{"version": 7, "role": "updater", "notes": "Changed the negative-side boundary from -4.0 to -4.1: E12 shows -4.1 gives 9.8 (not 8.8), so the step lies between -4.2 and -4.1, not at -4.0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 699, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 12, "heldout": 1.0}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the model from \"always 0\" to a box/indicator function that returns 1 on the interval [-1, 1] and 0 elsewhere, since E2 shows f(-1)=f(0)=f(1)=1 while f(-2)=f(2)=0 and everything farther out is 0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 88, "matches": [1.0, 1.0], "made_at": 2, "heldout": 0.96}

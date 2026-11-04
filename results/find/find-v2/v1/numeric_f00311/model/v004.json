@@ -1,0 +1,25 @@
+{
+ "version": 4,
+ "beliefs": [
+  "For x >= -9.35, f(x) = 8 - 9.6x exactly (linear, slope -9.6) [E1, E2, E3, E10]",
+  "For x <= -9.4, f(x) is nearly constant around 8 with small fluctuations (7.76 to 8.29) [E1, E2, E3, E6-E9]",
+  "The switch between the two branches is sharp, occurring between x=-9.4 (y\u22488.1) and x=-9.35 (y=97.76) [E3, E10]",
+  "The near-constant region fluctuates slightly around 8, likely noise [E1, E2, E3, E6-E9]"
+ ],
+ "notes": "E10 shows the linear branch extends down to x=-9.35 (y=97.76=8-9.6*(-9.35)), so the threshold moves from -9.3 to -9.35; the left branch remains a noisy ~8 constant.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 10
+}

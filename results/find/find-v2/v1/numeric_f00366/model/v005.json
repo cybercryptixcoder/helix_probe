@@ -1,0 +1,28 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f is piecewise constant with values that change at specific x thresholds [E1]",
+  "For x <= -4.1, f = 8.8 [E1, E4, E5]",
+  "For -4.1 < x < 0, f = 9.8 [E1, E4, E5, E7, E8]",
+  "f(0) = 1548.92, a large spike at zero [E1]",
+  "For 0 < x <= 4.1, f = -11.4 [E1, E3, E6, E8]",
+  "For x >= 4.2, f = -12.4 [E2, E3]",
+  "The switch from -11.4 to -12.4 lies in (4.1, 4.2], using 4.15 [E3]",
+  "The switch from 8.8 to 9.8 lies in (-4.2, -4.1], using -4.15 [E5]",
+  "The 9.8 region extends right up to x=0 from the left, ending at the spike [E8]"
+ ],
+ "notes": "E8 shows the 9.8 region continues from -1 up to just below 0 (not -11.4 as v4 had); only x=0 is the spike, and immediately right of 0 it is -11.4. Fixed the left-of-zero branch.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 8
+}

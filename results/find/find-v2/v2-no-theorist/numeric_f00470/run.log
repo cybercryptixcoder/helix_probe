@@ -1,0 +1,3 @@
+Helix Probe v2 on 'find_numeric_f00470': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 315 (exam 0.000 -> 1.000); held-out 100%

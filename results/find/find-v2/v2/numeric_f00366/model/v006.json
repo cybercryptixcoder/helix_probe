@@ -1,0 +1,1 @@
+{"version": 6, "role": "updater", "notes": "E10 shows the positive-side boundary is between 4.1 and 4.2 (not 4.5), so I moved the threshold to 4.15 (marked uncertain). All other rules remain consistent with the evidence.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 699, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 10, "heldout": 1.0}

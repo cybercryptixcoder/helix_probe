@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "E3 shows x=1.2 returns 1, contradicting the |x|\u22641 boundary. I widened the threshold to 1.5 (between the confirmed 1.2\u21921 and 3.7\u21920), marked as a guess since the exact boundary is unobserved.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 89, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 1.0}

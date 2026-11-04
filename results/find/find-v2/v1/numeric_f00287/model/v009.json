@@ -1,0 +1,34 @@
+{
+ "version": 9,
+ "beliefs": [
+  "For x <= -16.5, f(x) = -0.7*x: f(-17)=11.9, f(-20)=14, f(-128)=89.6 all match [E1, E2, E7]",
+  "For -16.5 < x < -16, f(x) is constant at 11.9 (flat) [E7]",
+  "At x = -16 exactly, f(-16)=11.2 [E1, E7]",
+  "For -16 <= x <= -15.5, f(x) is flat at 11.2 [E7, E8]",
+  "For -15.5 < x < -5, f(x) = 0.7*x + 22.05 (slope 0.7): f(-15)=10.5, f(-12)=8.4, f(-9)=6.3, f(-6)=4.2, f(-5)=4.2 all match [E8, E9]",
+  "The plateau begins between x=-5.1 (f=4.2) and x=-5.0 (f=-402.23); assumed at -5.0 [E9]?",
+  "For -5 <= x < 18.515, f(x) is approximately -402.3, a near-constant plateau with small noise [E1-E6, E9]",
+  "The plateau ends between 18.51 and 18.52; f(18.51)=-402.32 but f(18.52)=-302.4 [E5, E6]",
+  "For 18.52 <= x < 19, f(x) = -302.4, a flat segment [E4, E5, E6]",
+  "For 19 <= x < 20, f(x) = -319.2, another flat segment [E3, E4, E6]",
+  "For x >= 20, f(x) = -16.8*x: f(20)=-336, f(25)=-420, f(50)=-840, f(100)=-1680 [E1, E2, E3]",
+  "The exact plateau/-302.4 boundary lies between 18.51 and 18.52; assumed at 18.515 [E5, E6]?",
+  "The exact left boundary of the 11.9 flat segment lies between -16.5 and -16.2; assumed at -16.5 [E7]?",
+  "The exact boundary between the 11.2 flat segment and the 0.7x+22.05 line lies between -15.5 and -15.0; assumed at -15.5 [E7, E8]?"
+ ],
+ "notes": "Fixed the negative-side region: the 0.7x+22.05 line extends from -15.5 to -5 (not -6), and the plateau starts at -5.0 rather than -6. Also corrected the E2 mismatch by making the line region cover -15 to -6 correctly (previous model had wrong branch for -15 to -6).",
+ "fit": 0.5555555555555556,
+ "heldout": 0.96,
+ "matches": [
+  1.0,
+  0.95,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7857142857142857,
+  0.05,
+  0.5
+ ],
+ "made_at": 9
+}

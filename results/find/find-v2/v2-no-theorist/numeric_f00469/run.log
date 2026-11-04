@@ -1,0 +1,19 @@
+Helix Probe v2 on 'find_numeric_f00469': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 63 (exam 0.000 -> 1.000); held-out 87%
+[2] E2 Does f produce any nonzero output anywhere in the ordinary input range, and...(+102 chars)  (v1 predicted it: match 0.85)
+      model v2 by the updater: exam 1.00, fit 1.00, size 88 (fit 0.925 -> 1.000); held-out 96%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 1.00, size 90 (fit 0.967 -> 1.000); held-out 98%
+[4] E4 Where exactly are the two boundaries of the nonzero interval? Currently we ...(+106 chars)  (v3 predicted it: match 0.65)
+      model v4 by the updater: exam 1.00, fit 1.00, size 92 (fit 0.912 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v4 predicted it: match 1.00)
+[6] E6 Are the exact interval boundaries -1.5 and 1.5, or just inside/outside thos...(+104 chars)  (v4 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v4 predicted it: match 1.00)
+[8] E8 Does the function ever produce values other than exactly 0 or 1 — e.g., a d...(+110 chars)  (v4 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v4 predicted it: match 1.00)
+[10] E10 Are there any other nonzero regions or non-0/1 output values at fine-graine...(+137 chars)  (v4 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 Is f exactly 1 on the entire open interval (-1.5, 1.5) and 0 just outside, ...(+138 chars)  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00469", "experiments": 12, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 92, "heldout": 1.0, "llm_calls": 10, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

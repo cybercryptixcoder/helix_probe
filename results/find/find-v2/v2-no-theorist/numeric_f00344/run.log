@@ -1,0 +1,14 @@
+Helix Probe v2 on 'find_numeric_f00344': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 Does f behave like a power law (y ≈ sign(x)·|x|^k) over the ordinary range,...(+58 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.60, fit 0.85, size 555 (exam 0.000 -> 0.600); held-out 0%
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.80)
+[4] E4 What is the exact functional form on the positive side, especially the smal...(+147 chars)  (v1 predicted it: match 0.90)
+[5] E5 a random ordinary probe  (v1 predicted it: match 0.80)
+[6] E6 Is the positive-side function exactly -(x^4 + 40*x^3 + ...)-like, or does i...(+151 chars)  (v1 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v1 predicted it: match 0.80)
+[8] E8 On the negative side, is the small-|x| behavior (near -0.1 at x=-2, -7.4 at...(+130 chars)  (v1 predicted it: match 0.85)
+[9] E9 a random ordinary probe  (v1 predicted it: match 0.60)
+[10] E10 Does the negative-side function have a smooth polynomial form with a zero n...(+133 chars)  (v1 predicted it: match 0.75)
+[11] E11 a random ordinary probe  (v1 predicted it: match 0.70)
+[12] E12 On the negative side, does f(x) have a flat-ish plateau near 0 (around -11)...(+157 chars)  (v1 predicted it: match 0.05)

@@ -1,0 +1,31 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f is piecewise constant with values that change at specific x thresholds [E1]",
+  "For x <= -4.1001, f = 8.8 [E1, E4, E5, E11, E12]",
+  "For -4.1001 < x < 0, f = 9.8 [E1, E4, E5, E7, E8, E11, E12]",
+  "f(0) = 1548.92, a large spike at zero [E1]",
+  "For 0 < x <= 4.15, f = -11.4 [E1, E3, E6, E8]",
+  "For x > 4.15, f = -12.4 [E2, E3, E10]",
+  "The switch from 8.8 to 9.8 lies in (-4.1001, -4.1], using -4.1001 as the boundary [E12]",
+  "The switch from -11.4 to -12.4 lies in (4.1, 4.2], using 4.15 [E3]"
+ ],
+ "notes": "E12 shows f(-4.1)=9.8 but f(-4.1001)=8.8, so the 8.8/9.8 boundary is at -4.1001 (not -4.1 as v6 had). Also confirmed the -12.4 plateau extends to x=128 (E10) and the spike is a single point (E9).",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 12
+}

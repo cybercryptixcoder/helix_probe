@@ -1,0 +1,23 @@
+{
+ "version": 5,
+ "beliefs": [
+  "For x <= -16, f(x) = -0.7*x: f(-16)=11.2, f(-17)=11.9, f(-20)=14, f(-32)=22.4, f(-64)=44.8, f(-128)=89.6 all match [E1, E2]",
+  "For -16 < x < 18.5, f(x) is approximately -402.3, a near-constant plateau with small noise [E1, E2, E3, E4, E5]",
+  "The plateau ends between 18.5 and 18.52; f(18.5)=-402.26 but f(18.52)=-302.4 [E5]",
+  "For 18.52 <= x < 19, f(x) = -302.4, a flat segment [E4, E5]",
+  "For 19 <= x < 20, f(x) = -319.2, another flat segment [E3, E4]",
+  "For x >= 20, f(x) = -16.8*x: f(20)=-336, f(25)=-420, f(30)=-504, f(40)=-672, f(50)=-840, f(100)=-1680, f(128)=-2150.4 [E1, E2, E3]",
+  "The exact plateau/-302.4 boundary is between 18.5 and 18.52; assumed at 18.51 [E5]?"
+ ],
+ "notes": "E5 shows the plateau ends just after 18.5 (f(18.52) already -302.4), so I moved the boundary from 18.6 down to ~18.51.",
+ "fit": 0.6,
+ "heldout": 0.68,
+ "matches": [
+  0.9473684210526315,
+  0.85,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 5
+}

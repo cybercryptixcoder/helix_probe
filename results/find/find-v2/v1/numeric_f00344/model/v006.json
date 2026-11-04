@@ -1,0 +1,26 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f(0)=472.73 is a single isolated spike, not an interval; nearby values are smooth [E1, E2]",
+  "For x>0, f(x) is negative and grows in magnitude roughly like -C*x^p with p~3.85 for x>=2 [E1]",
+  "For 0<x<1, f(x) is negative, smooth, slowly varying from about -36.8 near 0+ to -41.7 at x=1 [E1, E2, E3]",
+  "For -1<x<0, f(x) is negative, smooth, slowly varying from about -11.7 near 0- to -7.4 at x=-1 [E1, E2, E3]",
+  "On the positive side, f dips sharply just past x=1 (to about -53 at x=1.5) then rejoins the power law by x~2.5 [E4]",
+  "On the negative side, f rises steeply in magnitude just past x=-1 (to about -3.2 at x=-1.5) then rejoins the power law by x~2.5 [E4]",
+  "For x<0 the magnitude is NOT a clean power law: it peaks near |x|~90 (about -7.65e7) then drops sharply, hitting the saturation value -2.497e7 by |x|=100 and staying there [E6]",
+  "The negative-side saturation plateau at -2.497e7 begins around |x|~100, not 64; between |x|=64 and |x|~90 the magnitude keeps growing past the plateau value [E1, E6]",
+  "The negative-side power law with exponent ~4.37 fits |x|=2.5 to ~60 reasonably but drifts, so a smooth interpolation through observed negative-side anchors is used for |x|>=2.5 [E5, E6]"
+ ],
+ "notes": "Replaced the negative-side power law with an interpolated anchor table covering |x|=2.5 to 128, since E6 shows the magnitude peaks near |x|=90 then collapses to the -2.497e7 plateau by |x|=100 (the earlier 'saturates at 64' belief was wrong; E1's -64 value is on the rising curve, not the plateau).",
+ "fit": 0.8333333333333334,
+ "heldout": 0.64,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  1.0,
+  1.0
+ ],
+ "made_at": 6
+}

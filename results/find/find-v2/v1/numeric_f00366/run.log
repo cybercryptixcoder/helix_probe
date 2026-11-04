@@ -1,0 +1,35 @@
+Helix Probe on 'find_numeric_f00366': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, sampled at widely spaced poi...(+53 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 84%
+[2] E2 Where exactly does f switch from -11.4 to -12.4 between x=4 and x=8, and do...(+31 chars)  model v1 match 1.00
+[3] E3 Where exactly does f switch from -11.4 to -12.4 between x=4 and x=4.5, sinc...(+39 chars)  model v1 match 0.71
+      model v2: fit 100% (was 67%), mean match 1.00 (was 0.90), held-out 84%
+[4] E4 What happens between x = -8 and x = -1: is the value 9.8 constant there, or...(+63 chars)  model v2 match 0.53
+      model v3: fit 100% (was 75%), mean match 1.00 (was 0.88), held-out 95%
+[5] E5 Where exactly does f switch from 8.8 to 9.8 between x=-4.5 and x=-4.0, sinc...(+40 chars)  model v3 match 0.88
+      model v4: fit 100% (was 80%), mean match 1.00 (was 0.97), held-out 96%
+[6] E6 Is the large spike at x=0 isolated, or does f behave differently on the unt...(+85 chars)  model v4 match 1.00
+[7] E7 Does f stay at 9.8 all the way from just right of the -4.15 threshold up to...(+107 chars)  model v4 match 1.00
+[8] E8 Is the spike at x=0 truly isolated, i.e. does f jump back to 9.8 just left ...(+87 chars)  model v4 match 0.50
+      model v5: fit 100% (was 88%), mean match 1.00 (was 0.94), held-out 100%
+[9] E9 Does the large spike at x=0 have any width, i.e. does f differ from -11.4/9...(+87 chars)  model v5 match 1.00
+[10] E10 Does the -12.4 plateau hold all the way to the far right edge of the domain...(+97 chars)  model v5 match 1.00
+[11] E11 Is the transition from 9.8 to 8.8 exactly at x=-4.15, or is there a narrow ...(+95 chars)  model v5 match 0.57
+      model v6: fit 91% (was 91%), mean match 0.99 (was 0.96), held-out 100%
+[12] E12 Where exactly does f switch from 8.8 to 9.8 near x=-4.1, given E5 showed 9....(+69 chars)  model v6 match 0.88
+      model v7: fit 100% (was 83%), mean match 1.00 (was 0.98), held-out 100%
+[13] E13 Does the 8.8 plateau extend all the way to the left edge of the domain (x=-...(+108 chars)  model v7 match 1.00
+[14] E14 Does the -11.4 plateau hold continuously across the whole interval (0, 4.15...(+128 chars)  model v7 match 0.92
+      model v8: fit 100% (was 93%), mean match 1.00 (was 0.99), held-out 100%
+[15] E15 Is the boundary between -11.4 and -12.4 exactly at x=4.1 (i.e., f(4.1)=-11....(+81 chars)  model v8 match 1.00
+[16] E16 Does the 8.8 plateau extend continuously across the entire untested stretch...(+118 chars)  model v8 match 1.00
+[17] E17 Is the value at x=0 exactly 1548.92, and is the spike truly a single-point ...(+94 chars)  model v8 match 1.00
+[18] E18 Is the spike at x=0 truly a single point, or does f take other special valu...(+133 chars)  model v8 match 1.00
+[19] E19 Does the 9.8 plateau hold continuously across the untested stretch from jus...(+126 chars)  model v8 match 1.00
+[20] E20 Does f stay at -12.4 all the way to the far right edge x=128, specifically ...(+87 chars)  model v8 match 1.00
+[21] E21 Does the 9.8 plateau hold continuously across the untested interior stretch...(+126 chars)  model v8 match 1.00
+[22] E22 Does the -12.4 plateau hold continuously across the untested interior stret...(+111 chars)  model v8 match 1.00
+[23] E23 Does the 9.8 plateau hold continuously across the untested stretch between ...(+164 chars)  model v8 match 1.00
+[24] E24 Is the single-point spike at x=0 truly unique, or are there other isolated ...(+96 chars)  model v8 match 1.00
+[25] E25 Are there any other isolated special-value spikes like the one at x=0 lurki...(+164 chars)  model v8 match 1.00
+{"env": "find_numeric_f00366", "experiments": 25, "model_version": 8, "fit": 1.0, "heldout": 1.0, "llm_calls": 33, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

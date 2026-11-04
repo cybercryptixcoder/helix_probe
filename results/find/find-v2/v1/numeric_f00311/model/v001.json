@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is piecewise: for |x| >= 16 (roughly) it is linear with slope about -9.5, giving f(x) \u2248 8 - 9.5x [E1]",
+  "For small |x| (|x| <= 8) the values are much smaller in magnitude and roughly linear with slope about -9.6 too but offset: f(x) \u2248 8 - 9.6x fits x=0,1,2,4,8 well [E1]",
+  "There is a discontinuity/jump between x=-8 (y=84.8) and x=-16 (y=8.07): the linear branch at x=-8 would give ~84, so actually the same line fits! Let me check: 8-9.6*(-8)=84.8 yes; 8-9.6*(-16)=161.6 but observed 8.07, so breakpoint between -16 and -8 [E1]",
+  "For x <= -16, f(x) is nearly constant around 8 (slightly decreasing to 7.86 at -128) [E1]",
+  "For x >= -8, f(x) \u2248 8 - 9.6x (linear) up to x=128 where it gives -1220.8 = 8-9.6*128=-1220.8 exactly [E1]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 0.76,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

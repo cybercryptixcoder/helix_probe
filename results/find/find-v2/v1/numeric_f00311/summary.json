@@ -1,0 +1,20 @@
+{
+ "env": "find_numeric_f00311",
+ "experiments": 25,
+ "model_version": 7,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 32,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "For x > -9.4, f(x) = 8 - 9.6x exactly (linear, slope -9.6) [E1, E2, E3, E10-E14]",
+  "For x <= -9.4, f(x) is nearly constant around 8 with small fluctuations (7.75 to 8.29) [E1-E4, E6-E9, E11, E14]",
+  "The switch is a sharp step at x=-9.4: at x=-9.4 y\u22488.006 (constant branch), at x=-9.3999 y=98.239=8-9.6(-9.3999) (linear branch) [E11, E13, E14]",
+  "The linear branch follows 8-9.6x with no offset, confirmed at large positive x and near the switch [E12, E13, E14]",
+  "The near-constant region fluctuates slightly around 8, likely noise [E1-E4, E6-E9]"
+ ]
+}

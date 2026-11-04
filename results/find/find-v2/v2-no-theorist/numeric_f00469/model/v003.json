@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "E3 shows f(1.2)=1, contradicting my boundary at 1. I widened the upper edge to 1.5 (still consistent with f(2)=0 from E2), keeping the lower edge at -1 since no evidence contradicts it.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 90, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 0.98}

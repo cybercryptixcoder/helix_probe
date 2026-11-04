@@ -1,0 +1,31 @@
+Helix Probe on 'find_numeric_f00294': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, so I can see its rough shape...(+62 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.65 (was 0.00), held-out 0%
+[2] E2 How does f behave on the interval between -1 and 1, where my model currentl...(+106 chars)  model v1 match 0.50
+      model v2: fit 50% (was 0%), mean match 0.82 (was 0.57), held-out 0%
+[3] E3 Where exactly is the boundary between the flat positive plateau (17.8) and ...(+71 chars)  model v2 match 0.67
+      model v3: fit 67% (was 33%), mean match 0.88 (was 0.77), held-out 0%
+[4] E4 Where does the flat 18.8 region just above x=1 end and the linear branch 16...(+77 chars)  model v3 match 0.11
+      model v4: fit 100% (was 50%), mean match 1.00 (was 0.69), held-out 100%
+[5] E5 Where exactly does the flat 18.8 plateau end and the x+17.8 linear branch b...(+82 chars)  model v4 match 1.00
+[6] E6 Does the x=0 spike have width — i.e. is f(0) a single-point spike, and how ...(+121 chars)  model v4 match 1.00
+[7] E7 Are the two 'plateau' regions truly flat, or do they contain small hidden s...(+147 chars)  model v4 match 1.00
+[8] E8 Where exactly does the 18.8 plateau end and the x+17.8 branch begin, and do...(+104 chars)  model v4 match 1.00
+[9] E9 Does the x+17.8 linear branch continue unchanged all the way to the right e...(+146 chars)  model v4 match 1.00
+[10] E10 Is the negative branch truly linear with slope 1 and intercept -8.4 all the...(+159 chars)  model v4 match 1.00
+[11] E11 Does the positive branch really become a pure slope-1 line x+17.8 for all x...(+122 chars)  model v4 match 1.00
+[12] E12 The positive branch's slope-1 line seems to shift from x+17.8 to x+16.8 som...(+140 chars)  model v4 match 1.00
+[13] E13 Is the breakpoint on the positive branch exactly at x=3.0 (with f(3.0)=19.8...(+252 chars)  model v4 match 1.00
+[14] E14 Does the negative branch stay a pure slope-1 line all the way to the left e...(+134 chars)  model v4 match 1.00
+[15] E15 Is the x=0 spike truly a single point, and what exactly happens in the tiny...(+199 chars)  model v4 match 1.00
+[16] E16 Is the transition from the 18.8 plateau to the linear branch exactly at x=2...(+110 chars)  model v4 match 1.00
+[17] E17 The model's current predict() still uses intercept 17.8 for x>2.0 (it was n...(+226 chars)  model v4 match 1.00
+[18] E18 Does the negative branch stay a pure slope-1 line x-8.4 all the way to the ...(+152 chars)  model v4 match 1.00
+[19] E19 Is the negative branch's intercept truly -8.4 for all x<=-1 (i.e. f(x)=x-8....(+101 chars)  model v4 match 1.00
+[20] E20 Is the negative-side plateau boundary exactly at x=-1 (f(x)=-8.4 for -1<=x<...(+123 chars)  model v4 match 1.00
+[21] E21 Does the x=0 spike have any width or a nearby transition region — i.e., is ...(+158 chars)  model v4 match 1.00
+[22] E22 The positive branch was found to be x+16.8 for x>2.0 up to 128 in E17 — but...(+152 chars)  model v4 match 1.00
+[23] E23 Is the positive plateau's step from 17.8 to 18.8 exactly at x=1.0, and is t...(+147 chars)  model v4 match 1.00
+[24] E24 Does the positive branch's slope-1 line x+16.8 stay unchanged all the way t...(+125 chars)  model v4 match 1.00
+[25] E25 Does the positive branch's intercept stay at 16.8 for x just above 3.0 up t...(+197 chars)  model v4 match 1.00
+{"env": "find_numeric_f00294", "experiments": 25, "model_version": 4, "fit": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

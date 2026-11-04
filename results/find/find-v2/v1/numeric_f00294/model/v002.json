@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "For x >= 0.01, f(x) = 16*x + 0.8 (linear, slope 16, intercept 0.8) [E1, E2]",
+  "For x <= -0.01, f(x) = x - 8.4 (linear, slope 1, intercept -8.4) [E1, E2]",
+  "At x = 0, f(0) = 2058.0, a huge spike far off both linear branches [E1]",
+  "The function is piecewise linear with a spike at x = 0; the two branches meet the spike at 0 with no smooth transition [E1, E2]",
+  "The exact behavior at x = 0 vs. tiny nonzero x is uncertain: E2 shows f(-0.01) = -8.4 and f(0.01) = 17.8, consistent with a jump at 0, but the spike value 2058 only appears exactly at 0 [E1, E2]"
+ ],
+ "notes": "E2 shows the negative branch is flat at -8.4 for all x in [-1,0) (not slope 1) and the positive branch is flat at 17.8 for all x in (0,1] (not slope 16). So the branches are constant near zero, then presumably become linear further out; I now use the observed constants in (-1,0) and (0,1) and the linear fits outside, with the spike only at x=0.",
+ "fit": 0.5,
+ "heldout": 0.0,
+ "matches": [
+  0.65,
+  1.0
+ ],
+ "made_at": 2
+}

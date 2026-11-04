@@ -1,0 +1,91 @@
+{
+ "category": "numeric",
+ "fid": "f00366",
+ "experiments": 25,
+ "exam_probes": 4,
+ "n_versions": 10,
+ "inputs_total": 324,
+ "final": 1.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "start",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 40
+  },
+  {
+   "version": 1,
+   "role": "updater",
+   "experiments": 1,
+   "score": 1.0,
+   "nmse": 0.000169074284477628,
+   "inputs": 50
+  },
+  {
+   "version": 2,
+   "role": "updater",
+   "experiments": 2,
+   "score": 1.0,
+   "nmse": 6.762971379105113e-05,
+   "inputs": 62
+  },
+  {
+   "version": 3,
+   "role": "updater",
+   "experiments": 4,
+   "score": 1.0,
+   "nmse": 6.762971379105113e-05,
+   "inputs": 82
+  },
+  {
+   "version": 4,
+   "role": "theorist",
+   "experiments": 6,
+   "score": 1.0,
+   "nmse": 6.762971379105149e-05,
+   "inputs": 104
+  },
+  {
+   "version": 5,
+   "role": "updater",
+   "experiments": 8,
+   "score": 1.0,
+   "nmse": 1.3657711933707938e-32,
+   "inputs": 124
+  },
+  {
+   "version": 6,
+   "role": "updater",
+   "experiments": 10,
+   "score": 1.0,
+   "nmse": 1.3657711933707938e-32,
+   "inputs": 144
+  },
+  {
+   "version": 7,
+   "role": "updater",
+   "experiments": 12,
+   "score": 1.0,
+   "nmse": 1.3657711933707938e-32,
+   "inputs": 164
+  },
+  {
+   "version": 8,
+   "role": "updater",
+   "experiments": 18,
+   "score": 1.0,
+   "nmse": 1.3657711933707938e-32,
+   "inputs": 243
+  },
+  {
+   "version": 9,
+   "role": "updater",
+   "experiments": 20,
+   "score": 1.0,
+   "nmse": 1.3657711933707938e-32,
+   "inputs": 263
+  }
+ ]
+}

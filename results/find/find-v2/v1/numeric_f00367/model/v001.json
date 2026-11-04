@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "For x>0, f(x) is approximately 2.4*x (linear): f(1)=4.2, f(2)=6.6, f(4)=11.4, f(8)=21.0, f(16)=40.2, f(32)=78.6, f(64)=155.4, f(100)=241.8, f(127)=306.6, f(128)=309.0 [E1]",
+  "For x<0, f(x) is approximately 2.3*x (linear): f(-1)=9.3, f(-2)=6.9, f(-4)=2.1, f(-8)=-7.5, f(-16)=-26.7, f(-32)=-65.1, f(-64)=-141.9, f(-100)=-228.3, f(-128)=-295.5 [E1]",
+  "At x=0, f(0)=-228.87, a large negative outlier inconsistent with the linear trend on either side [E1]",
+  "The exact slope/intercept and the nature of the x=0 anomaly are unclear; possibly a special-case value or a narrow dip near zero [E1]?"
+ ],
+ "notes": "Fitted a linear model on each side; the x=0 point is a clear outlier needing a special case. Slopes are ~2.4 (positive side) and ~2.3 (negative side), close enough that a single slope ~2.35 with a zero special-case is a reasonable first model.",
+ "fit": 0.0,
+ "heldout": 0.17,
+ "matches": [
+  0.7
+ ],
+ "made_at": 1
+}

@@ -1,0 +1,1 @@
+{"version": 5, "role": "updater", "notes": "The positive-side boundary between -11.4 and -12.4 was wrong: E8 shows 4.0 -> -11.4, and E4 shows 4.5 -> -12.4, so the threshold is between 4.0 and 4.5 (I set it at 4.5), not near 2.0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 698, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 8, "heldout": 0.99}

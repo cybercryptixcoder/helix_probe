@@ -1,0 +1,21 @@
+{
+ "version": 3,
+ "beliefs": [
+  "For x <= -16, f(x) = -0.7*x: f(-16)=11.2, f(-17)=11.9, f(-20)=14, f(-32)=22.4, f(-64)=44.8, f(-128)=89.6 all match [E1, E2]",
+  "For |x| < 19 (both signs), f(x) is approximately -402.3, a near-constant plateau with small noise [E1, E2, E3]",
+  "The plateau extends past 16 up to about 18.5 on the positive side: f(16)=f(16.5)=f(17.5)=f(18)=f(18.5)=-402.3 [E3]",
+  "For 19 <= x < 20, f(x) = -319.2 = -16.8*19 (a short segment with slope -16.8) [E3]",
+  "For x >= 20, f(x) = -16.8*x: f(20)=-336, f(25)=-420, f(30)=-504, f(40)=-672, f(50)=-840, f(100)=-1680, f(128)=-2150.4 [E1, E2, E3]",
+  "The positive-side boundary between plateau and linear regime lies between 18.5 and 19; exact location unknown? [E3]",
+  "The function is asymmetric: negative side is linear -0.7x for x<=-16, positive side has plateau until ~19 then -16.8x [E1, E2, E3]"
+ ],
+ "notes": "E3 shows the plateau extends to ~18.5 on the positive side, then a -16.8x segment starts at 19 (f(19)=-319.2). Removed the wrong 2.8x band for 16-20 and moved the positive boundary from 16 to ~19.",
+ "fit": 0.3333333333333333,
+ "heldout": 0.67,
+ "matches": [
+  0.9473684210526315,
+  0.85,
+  1.0
+ ],
+ "made_at": 3
+}

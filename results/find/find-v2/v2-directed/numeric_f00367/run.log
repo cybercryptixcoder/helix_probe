@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00367': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 How does f behave across the full ordinary range and at several scales, to ...(+74 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 359 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the anomaly at x=0 a single point or an interval, and where do the two l...(+30 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the anomaly at x=0 a single isolated point, or does the function behave ...(+96 chars)  (v1 predicted it: match 1.00)
+[4] E4 Is the special behavior at x=0 a single point or a tiny interval, and does ...(+99 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the negative branch 2.4x+11.7 and positive branch 2.4x+1.8 hold exactl...(+133 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the function behave differently for non-integer / fractional inputs fa...(+88 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (397 vs 359 chars)
+[7] E7 Does the 'special' behavior at x=0 actually extend over a small interval on...(+161 chars)  (v1 predicted it: match 1.00)
+[8] E8 Are there any additional branch points or behavior changes on the positive ...(+132 chars)  (v1 predicted it: match 1.00)
+[9] E9 Are there any branch points, plateaus, or slope changes on the negative sid...(+101 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00367", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 359, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

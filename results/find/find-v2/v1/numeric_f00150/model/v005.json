@@ -1,0 +1,22 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f(x) = 0 exactly for x in [-0.92, 0.0] (flat zero region extends from at least -0.92 up to and including 0) [E4, E5]",
+  "f is nonzero immediately right of 0: f(0.01)=4.9573, f(0.05)=4.791, f(0.06)=4.7505 [E5]",
+  "For x>0, f is smooth: ~4.96 at 0.01, decreasing through 0.5037 at 0.9, crossing zero near 0.95, negative on ~(0.95,1.55), then rising steeply past 1.6 [E3, E4, E5]",
+  "For x<-0.92, f is negative on ~(-1.6,-0.92), crosses zero near -0.92, and rises steeply toward -2 [E2]",
+  "For |x|>=2, f grows like ~2.2*|x|^6 with slight asymmetry (negative side slightly larger) [E1]",
+  "The exact shape between anchors on both sides is uncertain; smooth interpolation through known points is a placeholder? [E3, E4]"
+ ],
+ "notes": "Extended the flat zero region to [-0.92, 0] per E5 (f(-0.92)=f(-0.91)=0), and added the near-zero positive anchors (0.01,0.02,0.04,0.06) to the positive interpolation table.",
+ "fit": 0.6,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.75,
+  1.0,
+  0.95,
+  1.0
+ ],
+ "made_at": 5
+}

@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x)=1 for x in [-1, 1.5] and 0 elsewhere among sampled points [E1, E2]",
+  "The nonzero region is a contiguous interval containing 0, with left boundary at -1 and right boundary between 1.5 and 1.6 [E1, E2]",
+  "The exact right boundary is between 1.5 and 1.6; need finer sampling there [E2]",
+  "The exact left boundary is between -2 and -1; need finer sampling there [E1]?"
+ ],
+ "notes": "E2 shows f=1 up to 1.5 and 0 from 1.6, so the interval extends past 1. I widened the upper bound to 1.5 and kept the lower bound at -1 pending finer sampling.",
+ "fit": 1.0,
+ "heldout": 0.98,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

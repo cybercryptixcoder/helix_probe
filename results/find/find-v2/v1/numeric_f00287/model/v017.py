@@ -1,0 +1,33 @@
+import math
+
+def predict(probe):
+    out = []
+    for x in probe.get("x", []):
+        try:
+            if x < -16.5:
+                y = -0.7 * x
+            elif x < -16:
+                y = 11.9
+            elif x <= -15.1:
+                y = 11.2
+            elif x < -6.05:
+                # staircase: equals 0.7*x+21 at integers, flat between
+                y = 0.7 * math.floor(x) + 21.0
+            elif x < -6.0:
+                y = 4.9
+            elif x <= -5.1:
+                y = 4.2
+            elif x < -5.095:
+                y = 4.2
+            elif x < 18.515:
+                y = -402.3
+            elif x < 19:
+                y = -302.4
+            elif x < 20:
+                y = -319.2
+            else:
+                y = -16.8 * x
+            out.append(y)
+        except Exception:
+            out.append(None)
+    return {"y": out}

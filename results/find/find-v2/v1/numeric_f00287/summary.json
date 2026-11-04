@@ -1,0 +1,28 @@
+{
+ "env": "find_numeric_f00287",
+ "experiments": 25,
+ "model_version": 20,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 46,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "For x <= -16.5, f(x) = -0.7*x: f(-17)=11.9, f(-20)=14, f(-30)=21, f(-128)=89.6 [E1, E2, E7, E12]",
+  "For -16.5 < x < -16, f(x) is flat at 11.9 [E7, E12]",
+  "At x = -16 exactly, f(-16)=11.2, and for -16 <= x <= -15.1, f(x) is flat at 11.2 [E1, E7, E8, E11, E13]",
+  "For -15.1 < x < -6.05, f(x) is a staircase: it equals 0.7*floor(x)+21.0, flat between integers [E8, E15-E19]",
+  "For -6.05 <= x < -6.0, f(x) is flat at 4.9 [E16, E24]",
+  "At x = -6.0 exactly, f(-6)=4.2, and for -6.0 <= x <= -5.1, f(x) is flat at 4.2 [E9, E10, E11, E15, E16]",
+  "The plateau begins between x=-5.1 (f=4.2) and x=-5.09 (f=-402.28); assumed at -5.095 [E14, E15]?",
+  "For -5.095 <= x < 18.5162, f(x) is approximately -402.3, a near-constant plateau with small noise [E1-E6, E9-E11, E14, E15, E20, E21, E25]",
+  "The plateau ends between 18.516 (f=-402.48) and 18.5162 (f=-302.4); assumed at 18.5161 [E21, E25]",
+  "For 18.5161 <= x < 19, f(x) = -302.4, a flat segment [E4, E5, E6, E21, E25]",
+  "For 19 <= x < 20, f(x) = -319.2, another flat segment [E3, E4, E6, E22, E23]",
+  "For x >= 20, f(x) = -16.8*x: f(20)=-336, f(25)=-420, f(50)=-840, f(100)=-1680 [E1, E2, E3, E22]",
+  "The exact boundary between the 11.2 flat segment and the staircase lies between -15.1 and -15.0; assumed at -15.1 [E13]?"
+ ]
+}

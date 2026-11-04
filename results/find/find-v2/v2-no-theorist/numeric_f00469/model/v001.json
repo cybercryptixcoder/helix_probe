@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The only evidence so far is E1, where every output is 0.0 across a wide range of inputs, so the simplest consistent model is that the box returns 0 everywhere in the domain.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 63, "matches": [1.0], "made_at": 1, "heldout": 0.87}

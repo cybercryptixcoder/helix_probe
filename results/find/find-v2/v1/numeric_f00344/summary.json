@@ -1,0 +1,30 @@
+{
+ "env": "find_numeric_f00344",
+ "experiments": 25,
+ "model_version": 18,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 45,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f(0)=472.73 is a single isolated spike, not an interval; nearby values are smooth [E1, E2]",
+  "For x>0, f(x) is negative and smooth; for x>=2.5 it follows a smooth curve well fit by interpolation through observed anchors [E8, E10, E11, E12, E17, E20, E22]",
+  "For 0<x<1, f(x) is negative, smooth, slowly varying from about -36.8 near 0+ to -41.7 at x=1 [E1, E2, E3]",
+  "For -1<x<0, f(x) is negative, smooth, slowly varying from about -11.7 near 0- to -7.4 at x=-1 [E1, E2, E3]",
+  "On the positive side, f dips sharply just past x=1 (to about -53 at x=1.5) then rejoins the power law by x~2.5 [E4]",
+  "On the negative side, f rises steeply in magnitude just past x=-1 (to about -3.2 at x=-1.5) then rejoins the power law by x~2.5 [E4]",
+  "For x<0 the magnitude grows smoothly through |x|=93.399 (reaching ~8.886e7) then drops sharply to a plateau of -2.497e7 [E6, E7, E9, E14, E15, E19]",
+  "The negative-side cliff is a sharp step between |x|=93.3995 and |x|=93.4: at 93.3995 the value is still ~8.8866e7, and by 93.4 it is already at the plateau [E19, E21]",
+  "The negative-side plateau at -2.497e7 holds from |x|~93.4 out to |x|=128 [E6, E7, E9, E13, E14, E15, E16, E19]",
+  "The positive side shows no cliff/plateau; it continues smoothly through x=128 [E8, E11, E13, E22]",
+  "The positive-side curve between x=9 and x=19 follows the E17 anchors (slightly below linear interpolation of sparse anchors) [E17]",
+  "For 1<x<2.5 the positive-side dip is steeper than linear interpolation between x=1.5 and x=2.5; the curve passes through the E18 anchors [E18]",
+  "The positive-side curve between x=20 and x=65 follows the E20 anchors (slightly below linear interpolation of the sparse 20/25/30/40 anchors) [E20]",
+  "The negative-side smooth curve just below the cliff (93.0 to 93.3995) is slightly below the previous interpolation; the E21 anchors refine it [E21]",
+  "On the negative side, |x| in 2.5 to 6 follows a smooth curve through the E23 anchors, steeper than the previous linear interpolation between 2.5 and 3.0 [E23]"
+ ]
+}

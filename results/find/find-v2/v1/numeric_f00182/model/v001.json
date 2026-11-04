@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is piecewise linear: for x>=0 it is about -22.5*x + 11.2, and for x<0 it is about -11.2*x + 11.2 [E1]",
+  "There is a breakpoint at x=0 where the slope changes from -11.2 (left) to -22.5 (right) [E1]",
+  "The value at x=0 is 11.2 [E1]"
+ ],
+ "notes": "Fit two linear segments meeting at x=0: left slope ~-11.2, right slope ~-22.5, intercept 11.2. Checked against all E1 points.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

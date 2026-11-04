@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "E8 shows the step lies between -9.4 (constant, y\u22488.2) and -9.38 (linear, y\u224898.05), so I moved the threshold from -9.4 to -9.39.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 272, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 8, "heldout": 1.0}

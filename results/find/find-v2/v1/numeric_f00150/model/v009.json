@@ -1,0 +1,33 @@
+{
+ "version": 9,
+ "beliefs": [
+  "f(x) = 0 exactly for x in (-1.0, 0.0] (flat zero region); f(-1.0)=-12.0 [E4, E5, E7, E11]",
+  "The left edge of the flat-zero interval is exactly x=-1.0: f(-1.0000001)=-12.0 and f(-0.9999999)=0 [E11]",
+  "Just left of -1.0 the negative branch is nearly flat at ~-12.0, dipping to a minimum ~-12.17 near x=-1.1 [E6, E11]",
+  "For x<-1.0, f rises from -12.17 at x=-1.1, crosses zero near x=-1.62, and grows steeply toward -2 [E6]",
+  "For x>0, f decreases from ~4.96 at 0.01, crosses zero near 0.95, is negative on ~(0.95,1.55), then rises steeply [E3, E4, E5]",
+  "At x=2.0 f=36.0 exactly and at x=-2.0 f=83.2 exactly; these are the boundary anchors where the large-|x| power law takes over [E12]",
+  "Just past |x|=2 the function jumps discontinuously: f(2.01)=56.4254 vs f(2.0)=36.0, and f(-2.01)=86.5922 vs f(-2.0)=83.2 [E12]",
+  "For |x|>=2, f grows like a*|x|^6 with a_pos\u22482.1826 and a_neg\u22482.2166, with a small correction factor below 1 at moderate |x| [E8, E9, E10]",
+  "The large-|x| correction: ratio to a*|x|^6 rises from ~0.44 at |x|=2.1 to ~1.0 by |x|=20; modeled as 1 - c/|x|^q with q\u22481.24, c\u22481.40 [E9, E10]",
+  "The exact shape between anchors on both sides is uncertain; smooth interpolation through known points is a placeholder? [E3, E4, E6]"
+ ],
+ "notes": "Fixed the x=2.0 boundary: the moderate-branch anchor at 2.0 must be used (36.0/83.2) and the power law only applies strictly for |x|>2, with a discontinuity just past 2. Also corrected the large-x correction factor so E2/E6/E12 boundary values match.",
+ "fit": 0.75,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  0.85,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7
+ ],
+ "made_at": 12
+}

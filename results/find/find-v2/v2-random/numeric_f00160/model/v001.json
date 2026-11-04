@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I inferred the mechanism from E1: every output equals floor(x) \u2212 39, which fits all ten points exactly (including negatives, where floor rounds toward \u2212\u221e). I encoded that single rule rather than memorising cases.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 214, "matches": [1.0], "made_at": 1, "heldout": 1.0}

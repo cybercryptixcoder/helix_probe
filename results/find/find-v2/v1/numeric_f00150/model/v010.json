@@ -1,0 +1,37 @@
+{
+ "version": 10,
+ "beliefs": [
+  "f(x) = 0 exactly for x in (-1.0, 0.0]; f(-1.0)=-12.0 [E4, E5, E7, E11]",
+  "The left edge of the flat-zero interval is exactly x=-1.0: f(-1.0000001)=-12.0 and f(-0.9999999)=0 [E11]",
+  "Just left of -1.0 the negative branch is nearly flat at ~-12.0, dipping to a minimum ~-12.17 near x=-1.1 [E6, E11]",
+  "For x<-1.0, f rises from -12.17 at x=-1.1, crosses zero near x=-1.6, and grows steeply toward -2 [E6]",
+  "For x>0, f decreases from ~4.96 at 0.01, crosses zero near x=0.95, is negative on ~(0.95,1.55), then rises steeply [E3, E4, E5]",
+  "At x=2.0 f=36.0 exactly and at x=-2.0 f=83.2 exactly; these are the boundary anchors where the large-|x| power law takes over [E12]",
+  "Just past |x|=2 the function jumps discontinuously: f(2.01)=56.4254 vs f(2.0)=36.0, and f(-2.01)=86.5922 vs f(-2.0)=83.2 [E12]",
+  "For |x|>=2, f grows like a*|x|^6 with a_pos\u22482.1826 and a_neg\u22482.2166, with a small correction factor below 1 at moderate |x| [E8, E9, E10]",
+  "The large-|x| correction: ratio to a*|x|^6 rises from ~0.44 at |x|=2.1 to ~1.0 by |x|=20; modeled as 1 - c/|x|^q with q\u22481.24, c\u22481.40 [E9, E10]",
+  "The exact shape between anchors on both sides is uncertain; smooth interpolation through known points is a placeholder? [E3, E4, E6]",
+  "The large-|x| law near |x|=2 is NOT well fit by a*|x|^6*(1-c/|x|^q): observed values at 2.01-2.6 are lower than predicted, so the correction form is wrong near the boundary [E13, E15]"
+ ],
+ "notes": "E15 confirms E13: the near-boundary large-|x| values (2.01-2.6) are systematically below the a*|x|^6*(1-c/|x|^q) model. I'll fit a better local form. Looking at ratios y/x^6 for positive side: at 2.01, 56.4254/2.01^6=56.4254/65.9=0.856; at 2.6, 374.3891/2.6^6=374.3891/308.9=1.212... wait that's >1. Let me reconsider: 2.6^6=308.9, 374.4/308.9=1.212. Hmm so ratio crosses 1. Actually a_pos should be ~2.18 if pure. 374.4/308.9=1.21, not 2.18. So the power isn't 6 near 2. Let me check log-log slope: ln(374.4/56.4)/ln(2.6/2.01)=ln(6.64)/ln(1.293)=1.893/0.257=7.36. So local exponent ~7.4 near 2, decreasing to 6 at large x. That suggests a form like a*|x|^6*(1 + b/|x|^p) with p>0 giving extra growth near 2, OR the correction is additive: a*|x|^6 + b*|x|^k with k>6. Given ratio>1 near 2 and \u21921 at large x, form a*|x|^6*(1+b/|x|^p) with b>0. At 2.01: 0.856... that's <1. Contradiction. Let me recompute 2.01^6: 2.01^2=4.0401, ^3=8.1206, ^6=65.94. 56.4254/65.94=0.856. At 2.6: 308.9, 374.4/308.9=1.212. So ratio goes from 0.856 up through 1.0. So it's not monotone correction. This means a*|x|^6 alone doesn't fit; the true law has different structure. Best: fit a polynomial in |x| locally, or interpolate densely. I'll switch to dense interpolation for |x| in [2, 3] using observed data, and keep the power law beyond 3.",
+ "fit": 0.7333333333333333,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.85,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  1.0,
+  0.9
+ ],
+ "made_at": 15
+}

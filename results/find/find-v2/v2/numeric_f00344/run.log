@@ -1,0 +1,37 @@
+Helix Probe v2 on 'find_numeric_f00344': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 How does f behave on small-magnitude inputs and near zero, to distinguish p...(+68 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.75, fit 1.00, size 443 (exam 0.000 -> 0.750); held-out 17%
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Is the +25.1 offset for x<0 a real branch, and is it constant or does it de...(+50 chars)  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 0.90)
+[6] E6 Does the +25.1 offset apply to all x<0, including large negative values, or...(+84 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v1 predicted it: match 0.90)
+      theorist (updater stalled)
+[8] E8 Does the negative branch really add a constant offset, or is the quartic mo...(+148 chars)  (v1 predicted it: match 0.80)
+      model v2 by the updater: exam 0.97, fit 1.00, size 475 (exam 0.750 -> 0.975); held-out 89%
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Where exactly does the negative branch switch from the quartic+25.1 form to...(+91 chars)  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 1.00, size 476 (exam 0.975 -> 1.000); held-out 97%
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 Does the positive branch follow the same quartic polynomial all the way to ...(+114 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+[14] E14 Is the negative-side special behavior really a clamp at x<=-94, or does the...(+272 chars)  (v3 predicted it: match 0.95)
+      model v4 by the updater: exam 1.00, fit 1.00, size 478 (fit 0.996 -> 1.000); held-out 100%
+[15] E15 a random ordinary probe  (v4 predicted it: match 1.00)
+[16] E16 Pin down the exact negative-side clamp threshold between x=-93 and x=-93.5,...(+114 chars)  (v4 predicted it: match 0.95)
+      model v5 by the updater: exam 1.00, fit 1.00, size 478 (fit 0.997 -> 1.000); held-out 100%
+[17] E17 a random ordinary probe  (v5 predicted it: match 1.00)
+[18] E18 Is the constant 25.1 offset on the negative branch truly constant across th...(+130 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+[19] E19 a random ordinary probe  (v5 predicted it: match 1.00)
+[20] E20 Does the +25.1 offset and the quartic form hold continuously across the neg...(+203 chars)  (v5 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v5 predicted it: match 1.00)
+[22] E22 Is the small positive x=0 value 472.73 a genuine isolated special point, or...(+161 chars)  (v5 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v5 predicted it: match 1.00)
+[24] E24 Are there additional piecewise regimes at positive x, e.g. a second clamp o...(+114 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00344", "experiments": 24, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 478, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

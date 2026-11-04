@@ -1,0 +1,28 @@
+{
+ "version": 7,
+ "beliefs": [
+  "For x <= -16.5, f(x) = -0.7*x: f(-17)=11.9, f(-20)=14, f(-128)=89.6 all match [E1, E2, E7]",
+  "For -16.5 < x < -16, f(x) is constant at 11.9 (flat), not the linear -0.7x [E7]",
+  "At x = -16 exactly, f(-16)=11.2, a single point that differs from both neighbors [E1, E7]",
+  "For -16 < x < 18.51, f(x) is approximately -402.3, a near-constant plateau with small noise [E1, E2, E3, E4, E5, E6]",
+  "The plateau ends between 18.51 and 18.52; f(18.51)=-402.32 but f(18.52)=-302.4 [E5, E6]",
+  "For 18.52 <= x < 19, f(x) = -302.4, a flat segment [E4, E5, E6]",
+  "For 19 <= x < 20, f(x) = -319.2, another flat segment [E3, E4, E6]",
+  "For x >= 20, f(x) = -16.8*x: f(20)=-336, f(25)=-420, f(50)=-840, f(100)=-1680 [E1, E2, E3]",
+  "The exact plateau/-302.4 boundary lies between 18.51 and 18.52; assumed at 18.515 [E5, E6]?",
+  "The exact left boundary of the 11.9 flat segment lies between -16.5 and -16.2; assumed at -16.5 [E7]?"
+ ],
+ "notes": "E7 shows the negative side is not linear up to -16: there's a flat 11.9 segment from about -16.5 to -16, then a single point f(-16)=11.2, then the plateau. I added these two pieces and kept the rest.",
+ "fit": 0.5714285714285714,
+ "heldout": 0.68,
+ "matches": [
+  0.9473684210526315,
+  0.85,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.42857142857142855
+ ],
+ "made_at": 7
+}

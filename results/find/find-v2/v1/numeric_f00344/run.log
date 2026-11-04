@@ -1,0 +1,47 @@
+Helix Probe on 'find_numeric_f00344': 0 experiments so far, model v0, held-out set of 100
+[1] E1 How does f behave on a broad, evenly spaced set of inputs across the whole ...(+52 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.95 (was 0.00), held-out 36%
+[2] E2 Is the huge spike at x=0 a single isolated point or the tip of a narrow int...(+34 chars)  model v1 match 0.00
+      model v2: fit 50% (was 0%), mean match 0.97 (was 0.47), held-out 36%
+[3] E3 What is the exact shape of the small-|x| region on each side of zero, espec...(+146 chars)  model v2 match 0.60
+      revision rejected: mean match 0.60 < 0.85
+      model v3: fit 67% (was 33%), mean match 0.98 (was 0.85), held-out 36%
+[4] E4 What does f do in the gap between |x|=1 and |x|=2 to |x|=8 — specifically, ...(+112 chars)  model v3 match 0.80
+      model v4: fit 50% (was 50%), mean match 0.94 (was 0.94), held-out 36%
+[5] E5 Where exactly does the negative-side small-|x| regime transition into the p...(+105 chars)  model v4 match 0.90
+      revision rejected: mean match 0.92 < 0.93
+      model v5: fit 40% (was 40%), mean match 0.93 (was 0.93), held-out 36%
+[6] E6 Does the negative-side power law hold cleanly at intermediate magnitudes (|...(+150 chars)  model v5 match 0.70
+      model v6: fit 83% (was 33%), mean match 0.97 (was 0.89), held-out 64%
+[7] E7 On the negative side, is the collapse after the peak near |x|=90 a smooth d...(+75 chars)  model v6 match 0.50
+      model v7: fit 71% (was 71%), mean match 0.96 (was 0.90), held-out 79%
+[8] E8 Is the positive-side power law at |x|>2.5 clean (as assumed, -2.54*x^3.85),...(+90 chars)  model v7 match 1.00
+[9] E9 Where exactly does the negative-side cliff occur between |x|=91 and |x|=94,...(+48 chars)  model v7 match 0.40
+      model v8: fit 89% (was 67%), mean match 0.98 (was 0.90), held-out 84%
+[10] E10 In the positive-side power-law region (x>2.5), does f follow a clean single...(+140 chars)  model v8 match 1.00
+[11] E11 On the positive side, does the power law hold cleanly all the way out to x=...(+162 chars)  model v8 match 1.00
+[12] E12 In the positive-side power-law region, is the discrepancy at small x (E4 vs...(+189 chars)  model v8 match 0.70
+      model v9: fit 100% (was 83%), mean match 1.00 (was 0.96), held-out 99%
+[13] E13 Does the positive side ever leave the smooth power law at very large x (e.g...(+155 chars)  model v9 match 1.00
+[14] E14 On the negative side, is the transition into the plateau a single sharp ste...(+155 chars)  model v9 match 0.50
+      model v10: fit 100% (was 93%), mean match 1.00 (was 0.96), held-out 100%
+[15] E15 Does the negative-side plateau at -2.497e7 hold all the way toward the clif...(+255 chars)  model v10 match 0.75
+      model v11: fit 93% (was 93%), mean match 0.99 (was 0.98), held-out 100%
+[16] E16 On the negative side, does the plateau at -2.497e7 really begin immediately...(+235 chars)  model v11 match 0.81
+      model v12: fit 100% (was 88%), mean match 1.00 (was 0.98), held-out 100%
+[17] E17 Between the positive-side anchors x=9 and x=12 (and continuing to 15), does...(+140 chars)  model v12 match 0.75
+      model v13: fit 100% (was 94%), mean match 1.00 (was 0.99), held-out 100%
+[18] E18 For 1 < x < 2.5 on the positive side (where the model just interpolates bet...(+244 chars)  model v13 match 0.30
+      model v14: fit 89% (was 94%), mean match 0.98 (was 0.96), held-out 100%
+[19] E19 Where exactly does the negative-side cliff begin: is |x|=93.395 still on th...(+160 chars)  model v14 match 0.50
+      model v15: fit 100% (was 84%), mean match 1.00 (was 0.96), held-out 100%
+[20] E20 On the positive side, does the smooth power-law curve continue unchanged th...(+198 chars)  model v15 match 0.90
+      model v16: fit 100% (was 95%), mean match 1.00 (was 0.99), held-out 100%
+[21] E21 On the negative side, does the smooth rising curve continue cleanly right u...(+146 chars)  model v16 match 0.95
+      model v17: fit 100% (was 95%), mean match 1.00 (was 1.00), held-out 100%
+[22] E22 Is the positive-side dip near x=1.5-2.5 an isolated feature, or does the po...(+188 chars)  model v17 match 1.00
+[23] E23 On the negative side, between the small-|x| regime and the power law, does ...(+156 chars)  model v17 match 0.45
+      model v18: fit 100% (was 96%), mean match 1.00 (was 0.98), held-out 100%
+[24] E24 On the positive side just above the dip, does f continue smoothly through x...(+157 chars)  model v18 match 1.00
+[25] E25 Does f stay exactly at the negative-side plateau value -2.497e7 all the way...(+118 chars)  model v18 match 1.00
+{"env": "find_numeric_f00344", "experiments": 25, "model_version": 18, "fit": 1.0, "heldout": 1.0, "llm_calls": 45, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,19 @@
+Helix Probe v2 on 'find_numeric_f00469': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 63 (exam 0.000 -> 1.000); held-out 87%
+[2] E2 Is f identically zero, or does it produce nonzero outputs at ordinary input...(+98 chars)  (v1 predicted it: match 0.65)
+      model v2 by the updater: exam 1.00, fit 1.00, size 89 (fit 0.825 -> 1.000); held-out 96%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 1.00, size 89 (fit 0.967 -> 1.000); held-out 100%
+[4] E4 Where exactly does the region of output 1 end on the positive side, and is ...(+32 chars)  (v3 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 Does the output-1 region extend slightly beyond |x|=1.5 (e.g. to 1.6 or 1.6...(+92 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (598 vs 89 chars)
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Where exactly is the boundary between output 1 and output 0 on the positive...(+28 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 Is the output-1 region a symmetric interval |x| <= 1.5, or could it be some...(+189 chars)  (v3 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00469", "experiments": 11, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 89, "heldout": 1.0, "llm_calls": 9, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,37 @@
+{
+ "version": 10,
+ "beliefs": [
+  "f(0)=472.73 is a single isolated spike, not an interval; nearby values are smooth [E1, E2]",
+  "For x>0, f(x) is negative and follows a smooth power-law-like curve for x>=2.5, well fit by interpolation through observed anchors (roughly -C*x^p with p~3.8-3.9) [E8, E10, E11, E12]",
+  "For 0<x<1, f(x) is negative, smooth, slowly varying from about -36.8 near 0+ to -41.7 at x=1 [E1, E2, E3]",
+  "For -1<x<0, f(x) is negative, smooth, slowly varying from about -11.7 near 0- to -7.4 at x=-1 [E1, E2, E3]",
+  "On the positive side, f dips sharply just past x=1 (to about -53 at x=1.5) then rejoins the power law by x~2.5 [E4]",
+  "On the negative side, f rises steeply in magnitude just past x=-1 (to about -3.2 at x=-1.5) then rejoins the power law by x~2.5 [E4]",
+  "For x<0 the magnitude grows smoothly through |x|~93.35 (reaching ~8.87e7) then drops sharply to a plateau of -2.497e7 by |x|=93.4 [E6, E7, E9, E14]",
+  "The negative-side cliff is a sharp step between |x|=93.35 and |x|=93.4, not a gradual ramp [E14]",
+  "The negative-side plateau at -2.497e7 holds from |x|~93.4 out to |x|=128 [E6, E7, E9, E13, E14]",
+  "The negative-side power law with exponent ~4.37 fits |x|=2.5 to ~60 reasonably but drifts, so a smooth interpolation through observed negative-side anchors is used for |x|>=2.5 [E5, E6]",
+  "The positive side shows no cliff/plateau; it continues smoothly through x=128 [E8, E11, E13]",
+  "The positive-side curve is not a single clean power law with fixed exponent; interpolation through anchors matches E10/E11/E12 exactly [E10, E11, E12]"
+ ],
+ "notes": "E14 shows the negative-side cliff is a sharp step between |x|=93.35 and 93.4 (not a ramp from 93.3 to 93.6). Updated _NEG_BIG to place the drop at 93.35->93.4 and removed the intermediate ramp points.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 14
+}

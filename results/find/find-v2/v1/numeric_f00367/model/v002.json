@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "For x>0, f(x) = 2.4*x exactly: f(1)=4.2, f(2)=6.6, f(4)=11.4, f(8)=21.0, f(16)=40.2, f(32)=78.6, f(64)=155.4, f(100)=241.8, f(127)=306.6, f(128)=309.0, f(0.5)=3.0, f(0.25)=2.4, f(0.1)=2.04, f(0.05)=1.92, f(0.01)=1.824 [E1, E2]",
+  "For x<0, f(x) = 2.3*x + 12 approximately: f(-1)=9.3, f(-2)=6.9, f(-4)=2.1, f(-8)=-7.5, f(-16)=-26.7, f(-32)=-65.1, f(-64)=-141.9, f(-100)=-228.3, f(-128)=-295.5, f(-0.5)=10.5, f(-0.25)=11.1, f(-0.1)=11.46, f(-0.05)=11.58, f(-0.01)=11.676 [E1, E2]",
+  "The x<0 branch is linear with slope 2.3 and intercept 12 (f(-0.01)=11.677 matches 2.3*(-0.01)+12=11.677) [E2]",
+  "At x=0, f(0)=-228.87, a genuine isolated special-case value (not a narrow dip, since nearby points follow the linear branches) [E1, E2]"
+ ],
+ "notes": "E2 revealed the negative branch has a +12 intercept (not through origin), and the positive branch is exactly 2.4x. The x=0 value is a true isolated special case since neighbors on both sides follow their linear branches.",
+ "fit": 0.5,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.5
+ ],
+ "made_at": 2
+}

@@ -1,0 +1,21 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f(0)=472.73 is a single isolated spike, not an interval; nearby values are smooth [E1, E2]",
+  "For x>0, f(x) is negative and grows in magnitude roughly like -C*x^p with p~3.85 [E1]",
+  "For x<0, f(x) is negative and grows in magnitude roughly like -C*|x|^p with p~4.37 for |x|<=64 [E1]",
+  "For x<=-64, f(x) saturates near -2.5e7 [E1]",
+  "For 0<x<1, f(x) is negative, smooth, and slowly varying from about -36.8 near 0+ to -41.7 at x=1 [E1, E2, E3]",
+  "For -1<x<0, f(x) is negative, smooth, and slowly varying from about -11.7 near 0- to -7.4 at x=-1 [E1, E2, E3]",
+  "The exact functional form of the small-|x| region (excluding the spike at 0) is unclear; a smooth interpolation through observed points is used? [E1, E2, E3]"
+ ],
+ "notes": "Replaced the linear small-|x| formulas with smooth interpolations through the E3 points (monotone on each side), fixing E2 and E3 while keeping the spike and large-|x| power laws.",
+ "fit": 0.6666666666666666,
+ "heldout": 0.36,
+ "matches": [
+  0.95,
+  1.0,
+  1.0
+ ],
+ "made_at": 3
+}

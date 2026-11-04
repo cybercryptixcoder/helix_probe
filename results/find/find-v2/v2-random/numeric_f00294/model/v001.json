@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The differences between output and input cluster into two values: about +17.6 for positive x and about -8.1 for negative x, so I modeled f as a piecewise linear function with a sign-dependent offset.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 177, "matches": [1.0], "made_at": 1, "heldout": 1.0}

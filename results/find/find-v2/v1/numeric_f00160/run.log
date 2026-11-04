@@ -1,0 +1,30 @@
+Helix Probe on 'find_numeric_f00160': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, including sign, magnitude, a...(+25 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Is the function actually piecewise linear with a flat plateau near x=0, rat...(+56 chars)  model v1 match 1.00
+[3] E3 Is f exactly piecewise linear with breakpoints at powers of two (so that mi...(+146 chars)  model v1 match 1.00
+[4] E4 Is f exactly linear with slope 1/2 between consecutive powers of two, so th...(+189 chars)  model v1 match 1.00
+[5] E5 Does the piecewise-linear slope-1/2 structure with power-of-two breakpoints...(+122 chars)  model v1 match 1.00
+[6] E6 Does the linear slope-1/2, power-of-two-breakpoint structure hold for large...(+172 chars)  model v1 match 1.00
+[7] E7 Does the piecewise-linear slope-1/2 structure with power-of-two breakpoints...(+171 chars)  model v1 match 1.00
+[8] E8 What is f exactly on the negative side just below 0, where my model has a p...(+91 chars)  model v1 match 1.00
+[9] E9 What is f exactly on the positive side just above 0, between 1 and 2, where...(+129 chars)  model v1 match 1.00
+[10] E10 Is f a step function that is constant on each power-of-two decade interval ...(+198 chars)  model v1 match 1.00
+[11] E11 Does f follow a step function that is constant on each power-of-two decade ...(+157 chars)  model v1 match 1.00
+[12] E12 Is f exactly a step function that is constant on each power-of-two decade i...(+132 chars)  model v1 match 1.00
+[13] E13 Does the step function's staircase continue exactly on the half-integer bou...(+199 chars)  model v1 match 1.00
+[14] E14 Is f exactly a staircase that is constant on each power-of-two decade inter...(+171 chars)  model v1 match 1.00
+[15] E15 Does f behave as a pure power-of-two decade staircase at the very small mag...(+159 chars)  model v1 match 1.00
+[16] E16 Does f follow the pure power-of-two decade staircase at the very large nega...(+128 chars)  model v1 match 1.00
+[17] E17 Is f exactly the power-of-two decade staircase on the positive side between...(+159 chars)  model v1 match 0.95
+      revision rejected: mean match 0.43 < 1.00
+      model v2: fit 100% (was 94%), mean match 1.00 (was 1.00), held-out 100%
+[18] E18 Does the staircase jump exactly at every integer across a dense run of cons...(+162 chars)  model v2 match 1.00
+[19] E19 Does the unit staircase f(x)=floor(x)-39 hold exactly at the extreme edges ...(+196 chars)  model v2 match 1.00
+[20] E20 Does the unit staircase f(x)=floor(x)-39 hold exactly at the half-integers ...(+188 chars)  model v2 match 1.00
+[21] E21 Does f(x)=floor(x)-39 hold exactly at the integer points just inside the do...(+189 chars)  model v2 match 1.00
+[22] E22 Does f(x)=floor(x)-39 hold at exact integers and near-integer points across...(+155 chars)  model v2 match 1.00
+[23] E23 Does f(x)=floor(x)-39 hold at the exact boundary x=128 versus just below it...(+199 chars)  model v2 match 1.00
+[24] E24 Does f(x)=floor(x)-39 hold at tiny non-integer offsets around several negat...(+137 chars)  model v2 match 1.00
+[25] E25 Does f(x)=floor(x)-39 hold exactly at exact integers and half-integers acro...(+188 chars)  model v2 match 1.00
+{"env": "find_numeric_f00160", "experiments": 25, "model_version": 2, "fit": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

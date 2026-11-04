@@ -1,0 +1,17 @@
+Helix Probe v2 on 'find_numeric_f00469': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do on a spread of ordinary positive and negative inputs, so we ...(+79 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 0.95, size 88 (exam 0.000 -> 1.000); held-out 97%
+[2] E2 Does the transition region have boundaries exactly at -2 and 1, and is it a...(+59 chars)  (v1 predicted it: match 0.80)
+      model v2 by the updater: exam 1.00, fit 1.00, size 92 (fit 0.875 -> 1.000); held-out 100%
+[3] E3 Are the step boundaries exactly at -1.5 and 1.5 (i.e., is f(x)=1 for |x|<=1...(+67 chars)  (v2 predicted it: match 1.00)
+[4] E4 Are the step edges exactly at ±1.5, or could they lie at nearby values such...(+77 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the box behave the same for non-integer and fractional inputs near zer...(+139 chars)  (v2 predicted it: match 1.00)
+[6] E6 Is the boundary exactly at ±1.5 (a step at 1.5 inclusive) or is there a nar...(+102 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.926, the current model's is 1.000
+[7] E7 Does the box's behavior depend on anything besides |x|<=1.5 — e.g., is it p...(+92 chars)  (v2 predicted it: match 1.00)
+[8] E8 Is the boundary inclusive at exactly ±1.5 with no finer structure, and does...(+88 chars)  (v2 predicted it: match 1.00)
+[9] E9 Is the output exactly 0/1 everywhere, or does f take other constant values ...(+65 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the box behave symmetrically around zero for a dense set of ordinary f...(+150 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00469", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 92, "heldout": 1.0, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

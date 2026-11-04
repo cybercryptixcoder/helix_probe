@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I moved the boundary from -9.25 down to -9.375: E6 shows x=-9.4 is still flat (~7.98) while x=-9.35 is already linear (97.76), so the switch lies in (-9.4, -9.35).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 273, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found the box is piecewise: constant \u22488 for x < -8, and linear y = 8 \u2212 9.6x for x \u2265 \u22128. The boundary lies in (\u221216, \u22128]; I placed it at \u22128 since x=\u22128 fits the linear rule exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 178, "matches": [1.0], "made_at": 1, "heldout": 0.97}

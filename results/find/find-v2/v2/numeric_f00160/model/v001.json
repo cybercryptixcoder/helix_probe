@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found that every output in E1 equals floor(x \u2212 39) exactly, so I replaced the empty model with that rule (marked uncertain since only one experiment exists).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 203, "matches": [1.0], "made_at": 1, "heldout": 1.0}

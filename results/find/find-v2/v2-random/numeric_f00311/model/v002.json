@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the flat region's lower bound from -64 to -128: E3 shows x=-102.2 is flat (8.05), which contradicts the old [-64,-16] interval. The upper bound stays at -16 (E3: -16.9 flat, -7.1 not flat).", "exam": 0.95, "fit": 1.0, "fit_exact": 1.0, "size": 313, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 0.76}

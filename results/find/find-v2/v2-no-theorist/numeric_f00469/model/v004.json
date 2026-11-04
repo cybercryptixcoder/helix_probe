@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "I extended the left edge from -1 to -1.5 (E4 shows f(-1.5)=1, f(-1.4)=1, etc.) and confirmed the right edge is at 1.5 (f(1.5)=1, f(1.6)=0). The interval is now [-1.5, 1.5].", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 92, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

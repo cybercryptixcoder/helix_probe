@@ -1,0 +1,1 @@
+{"version": 5, "role": "updater", "notes": "Changed the flat/right boundary from 18.55 to 18.52: E14 shows 18.51 is flat but 18.52 is already in the right region, so the transition lies in (18.51, 18.52].", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 364, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 14, "heldout": 1.0}

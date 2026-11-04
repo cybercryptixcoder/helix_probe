@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to output 0.0 for every input, since the only experiment (E1) shows all outputs are 0.0 across a wide range of x values, and there's no evidence yet of any region where the function behaves differently.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 63, "matches": [1.0], "made_at": 1, "heldout": 0.87}
