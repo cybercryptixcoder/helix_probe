@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found that every output equals x minus about 39.5, rounded to an integer (round-half-up), so I replaced the empty model with `f(x) = round(x - 39.5)`.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 177, "matches": [1.0], "made_at": 1, "heldout": 1.0}

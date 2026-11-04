@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "Changed the A/B boundary from 19.5 to 19: E8 shows 18.5 is still in the constant region (-402.3) while 19.0 already follows -16.8\u00b7floor(x) (-319.2), so the switch is at x \u2265 19, not 19.5.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 278, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 8, "heldout": 0.99}

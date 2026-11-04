@@ -1,0 +1,131 @@
+{
+ "category": "numeric",
+ "fid": "f00033",
+ "experiments": 25,
+ "exam_probes": 0,
+ "n_versions": 15,
+ "inputs_total": 370,
+ "final": 1.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "start",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 0
+  },
+  {
+   "version": 1,
+   "role": "updater",
+   "experiments": 1,
+   "score": 0.0,
+   "nmse": 0.927075580467897,
+   "inputs": 10
+  },
+  {
+   "version": 2,
+   "role": "updater",
+   "experiments": 4,
+   "score": 1.0,
+   "nmse": 0.056703143727243235,
+   "inputs": 60
+  },
+  {
+   "version": 3,
+   "role": "updater",
+   "experiments": 5,
+   "score": 1.0,
+   "nmse": 0.048345927344126016,
+   "inputs": 70
+  },
+  {
+   "version": 4,
+   "role": "updater",
+   "experiments": 6,
+   "score": 1.0,
+   "nmse": 0.06081010371847232,
+   "inputs": 90
+  },
+  {
+   "version": 5,
+   "role": "updater",
+   "experiments": 7,
+   "score": 1.0,
+   "nmse": 0.060819675058764844,
+   "inputs": 100
+  },
+  {
+   "version": 6,
+   "role": "updater",
+   "experiments": 9,
+   "score": 1.0,
+   "nmse": 0.06075733875935409,
+   "inputs": 130
+  },
+  {
+   "version": 7,
+   "role": "updater",
+   "experiments": 15,
+   "score": 1.0,
+   "nmse": 0.04838952714330868,
+   "inputs": 220
+  },
+  {
+   "version": 8,
+   "role": "updater",
+   "experiments": 16,
+   "score": 1.0,
+   "nmse": 0.04838952714330868,
+   "inputs": 240
+  },
+  {
+   "version": 9,
+   "role": "theorist",
+   "experiments": 17,
+   "score": 1.0,
+   "nmse": 0.03482869566276835,
+   "inputs": 250
+  },
+  {
+   "version": 10,
+   "role": "updater",
+   "experiments": 18,
+   "score": 1.0,
+   "nmse": 0.014076898540122488,
+   "inputs": 270
+  },
+  {
+   "version": 11,
+   "role": "updater",
+   "experiments": 19,
+   "score": 1.0,
+   "nmse": 0.036673963051532234,
+   "inputs": 280
+  },
+  {
+   "version": 12,
+   "role": "updater",
+   "experiments": 21,
+   "score": 1.0,
+   "nmse": 0.05312426132948163,
+   "inputs": 310
+  },
+  {
+   "version": 13,
+   "role": "updater",
+   "experiments": 22,
+   "score": 1.0,
+   "nmse": 0.0017905513195968933,
+   "inputs": 330
+  },
+  {
+   "version": 14,
+   "role": "updater",
+   "experiments": 24,
+   "score": 1.0,
+   "nmse": 0.0012616091754632283,
+   "inputs": 360
+  }
+ ]
+}

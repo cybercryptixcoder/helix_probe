@@ -1,0 +1,46 @@
+Helix Probe v3 on 'find_numeric_f00003': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 642, exam 0.75 (exam 0.000 -> 0.750); held-out 5%
+[2] E2 learn: Is the small-|x| plateau exactly constant (a true floor) or does ...(+64 chars)  (v1 predicted it: match 0.75; cost 20, spent 34)
+      model v2 by the updater: fit 0.93, size 978, exam 0.95 (exam 0.750 -> 0.950); held-out 48%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 44)
+[4] E4 learn: Where exactly does the positive quadratic branch begin, and is th...(+83 chars)  (v2 predicted it: match 0.90; cost 20, spent 64)
+      model v3 by the updater: fit 0.94, size 897, exam 0.95 (same scores, smaller (978 -> 897 chars)); held-out 48%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 74)
+[6] E6 learn: Does the negative-side rise begin sharply at a threshold near -20...(+93 chars)  (v3 predicted it: match 1.00; cost 20, spent 94)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 0.90; cost 10, spent 104)
+      updater's fix not kept: same scores and not smaller (897 vs 897 chars)
+      updater's fix not kept: same scores and not smaller (898 vs 897 chars)
+[8] E8 learn: Does the positive-side quadratic branch continue smoothly all the...(+115 chars)  (v3 predicted it: match 0.75; cost 20, spent 124)
+      model v4 by the updater: fit 0.92, size 902, exam 0.97 (exam 0.950 -> 0.975); held-out 76%
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 134)
+[10] E10 learn: Is the positive branch a single quadratic across the whole range,...(+125 chars)  (v4 predicted it: match 0.95; cost 20, spent 154)
+      model v5 by the updater: fit 0.93, size 1224, exam 1.00 (exam 0.975 -> 1.000); held-out 97%
+[11] E11 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 164)
+[12] E12 learn: Does the positive-side quadratic branch have a smooth curvature c...(+114 chars)  (v5 predicted it: match 0.90; cost 20, spent 184)
+      updater's fix not kept: its exam is 0.950, the current model's is 1.000
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 194)
+[14] E14 learn: Is the small-x positive-branch quadratic the same as the large-x ...(+235 chars)  (v5 predicted it: match 0.85; cost 20, spent 214)
+      theorist (fixes stalled)
+[15] E15 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 224)
+[16] E16 learn: Does the positive branch follow a single quadratic across the who...(+199 chars)  (v5 predicted it: match 0.45; cost 20, spent 244)
+      updater's fix not kept: its exam is 0.975, the current model's is 1.000
+[17] E17 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 254)
+[18] E18 learn: Does the positive branch follow a single quadratic across the who...(+163 chars)  (v5 predicted it: match 0.65; cost 20, spent 274)
+      updater's fix not kept: its exam is 0.950, the current model's is 1.000
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 284)
+[20] E20 learn: Is the positive branch's small-x region (x≈4–14) a true quadratic...(+179 chars)  (v5 predicted it: match 0.50; cost 20, spent 304)
+      updater's fix not kept: its exam is 0.950, the current model's is 1.000
+      model v6 by the updater: fit 0.91, size 1224, exam 1.00 (fit 0.885 -> 0.905); held-out 98%
+[21] E21 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 314)
+[22] E22 learn: Is the positive branch's small-x region (x≈4–16) a single quadrat...(+142 chars)  (v6 predicted it: match 0.75; cost 20, spent 334)
+[23] E23 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 344)
+[24] E24 learn: The small-x positive branch (x≈4–16) is clearly not the quadratic...(+218 chars)  (v6 predicted it: match 0.75; cost 20, spent 364)
+      updater's fix not kept: its fit is 0.896, the current model's is 0.900
+      updater's fix not kept: its fit is 0.896, the current model's is 0.900
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 374)
+{"env": "find_numeric_f00003", "experiments": 25, "cost": 374, "model_version": 6, "model_role": "updater", "fit": 0.904, "size": 1224, "exam": 1.0, "heldout": 0.98, "llm_calls": 38, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

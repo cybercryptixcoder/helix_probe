@@ -1,0 +1,27 @@
+Helix Probe v3 on 'find_numeric_f00093': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 831, exam 0.50 (exam 0.000 -> 0.500); held-out 0%
+[2] E2 learn: Is f(x) piecewise-linear with a kink near x=0, and what is the ex...(+136 chars)  (v1 predicted it: match 0.50; cost 20, spent 34)
+      model v2 by the updater: fit 1.00, size 1270, exam 0.97 (exam 0.500 -> 0.975); held-out 72%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 44)
+[4] E4 learn: Does the piecewise-linear structure hold cleanly in the mid-range...(+213 chars)  (v2 predicted it: match 1.00; cost 20, spent 64)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 74)
+[6] E6 learn: Does the piecewise-linear model hold cleanly in the still-sparse ...(+172 chars)  (v2 predicted it: match 0.95; cost 20, spent 94)
+      model v3 by the updater: fit 1.00, size 1961, exam 1.00 (exam 0.975 -> 1.000); held-out 85%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 104)
+[8] E8 learn: Are the remaining sparse interpolation gaps on the negative side ...(+162 chars)  (v3 predicted it: match 0.70; cost 20, spent 124)
+      model v4 by the updater: fit 1.00, size 2275, exam 1.00 (fit 0.963 -> 1.000); held-out 100%
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 134)
+[10] E10 learn: Does the piecewise-linear approximation hold cleanly across the p...(+130 chars)  (v4 predicted it: match 1.00; cost 20, spent 154)
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 164)
+[12] E12 learn: Is the negative-side slope between -60 and -14 truly constant at ...(+83 chars)  (v4 predicted it: match 1.00; cost 20, spent 184)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 3529)
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 194)
+[14] E14 learn: Are there small kinks in the positive mid-range 24-66 (e.g. near ...(+83 chars)  (v4 predicted it: match 1.00; cost 20, spent 214)
+[15] E15 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 224)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[16] E16 learn: Is the small positive-side kink near x=26.4 (seen in E13/E14) acc...(+123 chars)  (v4 predicted it: match 1.00; cost 20, spent 244)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00093", "experiments": 16, "cost": 244, "model_version": 4, "model_role": "updater", "fit": 1.0, "size": 2275, "exam": 1.0, "heldout": 1.0, "llm_calls": 15, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,33 @@
+Helix Probe v3 on 'find_numeric_f00124': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.40, size 1278 (fit 0.000 -> 0.400); held-out 0%
+[2] E2 learn: Is the large jump near x=0 (y=429 at x=2.9 vs y=131 at x=-6) a re...(+184 chars)  (v1 predicted it: match 0.00; cost 20, spent 30)
+      model v2 by the updater: fit 1.00, size 262 (fit 0.200 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 40)
+[4] E4 learn: Is the apparent discontinuity at x=0 real, or is the function act...(+258 chars)  (v2 predicted it: match 0.50; cost 18, spent 58)
+      model v3 by the updater: fit 1.00, size 280 (fit 0.875 -> 1.000); held-out 100%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 68)
+[6] E6 learn: Is the far-negative tail truly linear with slope -26.07 all the w...(+132 chars)  (v3 predicted it: match 1.00; cost 20, spent 88)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 98)
+[8] E8 learn: Does the transition region between the far-negative linear tail (...(+255 chars)  (v3 predicted it: match 0.60; cost 20, spent 118)
+      updater's fix not kept: its fit is 0.930, the current model's is 0.950
+      model v4 by the updater: fit 0.99, size 344 (fit 0.950 -> 0.988); held-out 100%
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 128)
+[10] E10 learn: The model's transition region (-2 to -0.7) was fit from a single ...(+165 chars)  (v4 predicted it: match 0.80; cost 20, spent 148)
+      model v5 by the updater: fit 0.99, size 406 (fit 0.970 -> 0.990); held-out 100%
+[11] E11 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 158)
+[12] E12 learn: Is the function exactly the same on the transition region for x i...(+124 chars)  (v5 predicted it: match 0.80; cost 20, spent 178)
+      model v6 by the updater: fit 1.00, size 1612 (fit 0.975 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 188)
+[14] E14 learn: The linear fit y=106.0528+111.4278*x is anchored on many points, ...(+193 chars)  (v6 predicted it: match 1.00; cost 20, spent 208)
+[15] E15 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 218)
+[16] E16 learn: The model treats x=-2 as a hard boundary between the linear tail ...(+131 chars)  (v6 predicted it: match 1.00; cost 20, spent 238)
+[17] E17 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 248)
+[18] E18 learn: Does the model's linear tail slope hold exactly between x=-2 and ...(+99 chars)  (v6 predicted it: match 1.00; cost 20, spent 268)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 278)
+[20] E20 learn: Does the positive-side linear fit y=106.0528+111.4278*x hold exac...(+189 chars)  (v6 predicted it: match 1.00; cost 20, spent 298)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00124", "experiments": 20, "cost": 298, "model_version": 6, "model_role": "updater", "fit": 1.0, "size": 1612, "exam": null, "heldout": 1.0, "llm_calls": 21, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

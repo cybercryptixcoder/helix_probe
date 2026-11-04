@@ -1,0 +1,32 @@
+Helix Probe v3 on 'find_numeric_f00136': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 0.00, size 239, exam 0.05 (exam 0.000 -> 0.050); held-out 0%
+[2] E2 learn: Does f(x) vary with a consistent periodic/smooth structure across...(+87 chars)  (v1 predicted it: match 0.00; cost 20, spent 34)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 44)
+      model v2 by the updater: fit 0.20, size 371, exam 0.33 (exam 0.050 -> 0.325); held-out 0%
+[4] E4 learn: What is the fine shape of the sharp negative feature near x=0 to ...(+68 chars)  (v2 predicted it: match 0.00; cost 20, spent 64)
+      model v3 by the updater: fit 0.18, size 459, exam 0.33 (fit 0.150 -> 0.175); held-out 0%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 0.30; cost 10, spent 74)
+      updater's fix not kept: its exam is 0.275, the current model's is 0.325
+[6] E6 learn: Is the residual after removing the linear trend a simple sine wit...(+89 chars)  (v3 predicted it: match 0.21; cost 19, spent 93)
+      updater's fix not kept: its exam is 0.100, the current model's is 0.325
+      updater's fix not kept: its exam is 0.175, the current model's is 0.325
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 0.20; cost 10, spent 103)
+[8] E8 learn: Does the structure at x=0..22 (the sharp dip and its long right t...(+164 chars)  (v3 predicted it: match 0.05; cost 20, spent 123)
+      updater's fix not kept: its exam is 0.025, the current model's is 0.325
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.67, size 1438)
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 0.20; cost 10, spent 133)
+      updater's fix not kept: its exam is 0.100, the current model's is 0.325
+      updater's fix not kept: its exam is 0.150, the current model's is 0.325
+[10] E10 learn: Is the baseline (away from the dip) really a linear trend plus a ...(+122 chars)  (v3 predicted it: match 0.00; cost 20, spent 153)
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 0.10; cost 10, spent 163)
+      model v4 by the theorist: fit 0.67, size 1438, exam 0.90 (on trial it predicted 0.65 of 3 new experiments, the current model 0.10); held-out 6%
+[12] E12 learn: Is the baseline for x>0 really a single linear trend, or does it ...(+120 chars)  (v4 predicted it: match 0.30; cost 20, spent 183)
+      theorist (every 6 experiments)
+      theorist's model not tried: its exam is 0.025, the current model's is 0.900
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 0.50; cost 10, spent 193)
+      model v5 by the updater: fit 0.71, size 1167, exam 0.95 (exam 0.900 -> 0.950); held-out 21%
+[14] E14 learn: What is the fine shape of the baseline between x=-16 and x=8 (the...(+149 chars)  (v5 predicted it: match 0.40; cost 20, spent 213)
+      updater's fix not kept: its fit is 0.656, the current model's is 0.685

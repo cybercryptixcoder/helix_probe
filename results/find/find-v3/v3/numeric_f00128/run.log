@@ -1,0 +1,32 @@
+Helix Probe v3 on 'find_numeric_f00128': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.60, size 1101 (fit 0.000 -> 0.600); held-out 0%
+[2] E2 learn: Does f have a sign asymmetry or a different low-order behavior ne...(+64 chars)  (v1 predicted it: match 0.35; cost 20, spent 30)
+      model v2 by the updater: fit 1.00, size 1479 (fit 0.475 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 40)
+[4] E4 learn: Does the function's behavior change near small |x| (a kink/transi...(+137 chars)  (v2 predicted it: match 0.50; cost 20, spent 60)
+      updater's fix not kept: its fit is 0.863, the current model's is 0.875
+      updater's fix not kept: its fit is 0.775, the current model's is 0.875
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 70)
+[6] E6 learn: Is the small-|x| region a smooth blend of the two cubic branches,...(+172 chars)  (v2 predicted it: match 0.85; cost 20, spent 90)
+      model v3 by the updater: fit 0.97, size 2200 (fit 0.892 -> 0.975); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.00, size 1147)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 100)
+[8] E8 learn: The model blends a near-zero quartic fit with a far cubic via a t...(+295 chars)  (v3 predicted it: match 1.00; cost 20, spent 120)
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 130)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the positive-side near-zero region follow a quartic (as fit ...(+204 chars)  (v3 predicted it: match 0.75; cost 20, spent 150)
+      model v4 by the updater: fit 1.00, size 2629 (fit 0.960 -> 1.000); held-out 100%
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 160)
+[12] E12 learn: Does the far-field behavior stay a single clean cubic across the ...(+195 chars)  (v4 predicted it: match 1.00; cost 20, spent 180)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 190)
+[14] E14 learn: Are there any remaining systematic deviations from the current mo...(+244 chars)  (v4 predicted it: match 1.00; cost 20, spent 210)
+[15] E15 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 220)
+[16] E16 learn: Does the function have any residual structure in the near-zero re...(+194 chars)  (v4 predicted it: match 1.00; cost 20, spent 240)
+[17] E17 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 250)
+[18] E18 learn: Are the moderate-to-large positive values (x between 10 and 30) e...(+132 chars)  (v4 predicted it: match 1.00; cost 20, spent 270)
+      theorist (every 6 experiments)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00128", "experiments": 18, "cost": 270, "model_version": 4, "model_role": "updater", "fit": 1.0, "size": 2629, "exam": null, "heldout": 1.0, "llm_calls": 18, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

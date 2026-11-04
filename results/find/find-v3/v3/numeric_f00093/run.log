@@ -1,0 +1,32 @@
+Helix Probe v3 on 'find_numeric_f00093': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.40, size 507 (fit 0.000 -> 0.400); held-out 0%
+[2] E2 learn: Does f(x) have a piecewise structure with a different behavior in...(+97 chars)  (v1 predicted it: match 0.10; cost 20, spent 30)
+      model v2 by the updater: fit 0.50, size 264 (fit 0.250 -> 0.500); held-out 0%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.50; cost 10, spent 40)
+[4] E4 learn: Does the slope in the middle region (-15 to 0) stay constant at a...(+81 chars)  (v2 predicted it: match 0.15; cost 20, spent 60)
+      updater's fix not kept: its fit is 0.350, the current model's is 0.412
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.50; cost 10, spent 70)
+      model v3 by the updater: fit 0.55, size 338 (fit 0.430 -> 0.550); held-out 0%
+[6] E6 learn: Does the region between x=-15 and x=0 follow the quadratic fit, a...(+89 chars)  (v3 predicted it: match 0.40; cost 20, spent 90)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 0.40; cost 10, spent 100)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 1.00, size 3179)
+[8] E8 learn: Does the right-side (x>0) behavior follow a single constant slope...(+143 chars)  (v3 predicted it: match 0.10; cost 20, spent 120)
+      model v4 by the updater: fit 0.53, size 419 (fit 0.456 -> 0.525); held-out 0%
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 0.60; cost 10, spent 130)
+      model v5 by the updater: fit 1.00, size 1957 (fit 0.533 -> 1.000); held-out 100%
+[10] E10 learn: Does the left-side linear region (x<=-15) hold exactly at its cla...(+133 chars)  (v5 predicted it: match 1.00; cost 20, spent 150)
+      model v6 by the theorist: fit 1.00, size 3179 (on trial it predicted 1.00 of 3 new experiments, the current model 0.57); held-out 100%
+[11] E11 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 160)
+[12] E12 learn: Does the smooth monotone model hold in the fine-grained region ar...(+189 chars)  (v6 predicted it: match 1.00; cost 20, spent 180)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 190)
+[14] E14 learn: Does the model's interpolation hold in the sparsely-sampled mid-r...(+183 chars)  (v6 predicted it: match 1.00; cost 20, spent 210)
+[15] E15 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 220)
+[16] E16 learn: Is the function's behavior near the steep middle region actually ...(+142 chars)  (v6 predicted it: match 1.00; cost 20, spent 240)
+[17] E17 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 250)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00093", "experiments": 17, "cost": 250, "model_version": 6, "model_role": "theorist", "fit": 1.0, "size": 3179, "exam": null, "heldout": 1.0, "llm_calls": 26, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

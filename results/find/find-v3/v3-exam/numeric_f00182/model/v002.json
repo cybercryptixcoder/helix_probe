@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "The box is a continuous piecewise-linear function with a kink at x=0: slope \u221222.5 on the right, \u221210.89 on the left, both passing through (0, 11.2).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 201, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 9, "heldout": 1.0}

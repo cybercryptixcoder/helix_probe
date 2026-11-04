@@ -1,0 +1,43 @@
+Helix Probe v3 on 'find_numeric_f00085': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+      model v1 by the updater: fit 1.00, size 196, exam 0.93 (exam 0.000 -> 0.925); held-out 28%
+[2] E2 learn: Where exactly does the function switch from the flat -22.8 region...(+94 chars)  (v1 predicted it: match 0.55; cost 20, spent 34)
+      updater's fix not kept: its exam is 0.900, the current model's is 0.925
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.90; cost 10, spent 44)
+      updater's fix not kept: same scores and not smaller (264 vs 196 chars)
+      theorist (fixes stalled)
+[4] E4 learn: Is the function exactly x^2*a + b (with a,b constant) across the ...(+234 chars)  (v1 predicted it: match 0.90; cost 20, spent 64)
+      updater's fix not kept: its exam is 0.725, the current model's is 0.925
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 0.90; cost 10, spent 74)
+      model v2 by the updater: fit 0.91, size 333, exam 1.00 (exam 0.925 -> 1.000); held-out 100%
+[6] E6 learn: Does the quadratic region follow a*x^2+b with a slightly varying ...(+260 chars)  (v2 predicted it: match 1.00; cost 20, spent 94)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 104)
+[8] E8 learn: Does the flat -22.8021 region extend smoothly up to a sharp thres...(+141 chars)  (v2 predicted it: match 0.25; cost 20, spent 124)
+      updater's fix not kept: its exam is 0.925, the current model's is 1.000
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 134)
+[10] E10 learn: Is the transition from the flat -22.8 region to the quadratic reg...(+244 chars)  (v2 predicted it: match 0.05; cost 20, spent 154)
+      theorist (fixes stalled)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 164)
+[12] E12 learn: Does the quadratic region follow exactly a*x^2 + b with a single ...(+116 chars)  (v2 predicted it: match 1.00; cost 20, spent 184)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 194)
+[14] E14 learn: Is the transition at |x|≈5.9 a smooth tanh-like ramp, and does th...(+175 chars)  (v2 predicted it: match 0.00; cost 20, spent 214)
+      model v3 by the updater: fit 0.99, size 1144, exam 1.00 (fit 0.775 -> 0.986); held-out 100%
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 224)
+[16] E16 learn: The model uses piecewise-linear interpolation of anchors and gets...(+246 chars)  (v3 predicted it: match 0.65; cost 20, spent 244)
+[17] E17 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 254)
+[18] E18 learn: The model's piecewise-linear anchors are wrong for negative input...(+351 chars)  (v3 predicted it: match 0.50; cost 20, spent 274)
+      model v4 by the updater: fit 1.00, size 1633, exam 1.00 (fit 0.942 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 284)
+[20] E20 learn: Does the function's ramp/quadratic region follow a single global ...(+220 chars)  (v4 predicted it: match 0.95; cost 20, spent 304)
+      model v5 by the updater: fit 1.00, size 2008, exam 1.00 (fit 0.997 -> 1.000); held-out 100%
+[21] E21 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 314)
+[22] E22 learn: Can a single smooth formula capture the whole non-flat region on ...(+221 chars)  (v5 predicted it: match 0.95; cost 20, spent 334)
+      model v6 by the updater: fit 1.00, size 2131, exam 1.00 (fit 0.998 -> 1.000); held-out 100%
+[23] E23 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 344)
+[24] E24 learn: The model's anchors for mid-range |x| (26-40) and the large-|x| t...(+204 chars)  (v6 predicted it: match 1.00; cost 20, spent 364)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 374)
+{"env": "find_numeric_f00085", "experiments": 25, "cost": 374, "model_version": 6, "model_role": "updater", "fit": 1.0, "size": 2131, "exam": 1.0, "heldout": 1.0, "llm_calls": 37, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

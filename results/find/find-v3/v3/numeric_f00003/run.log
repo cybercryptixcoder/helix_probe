@@ -1,0 +1,50 @@
+Helix Probe v3 on 'find_numeric_f00003': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.50, size 1168 (fit 0.000 -> 0.500); held-out 0%
+[2] E2 learn: Does the function follow a single quadratic shape across the whol...(+117 chars)  (v1 predicted it: match 0.15; cost 20, spent 30)
+      model v2 by the updater: fit 0.97, size 1914 (fit 0.325 -> 0.975); held-out 66%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.90; cost 10, spent 40)
+      updater's fix not kept: its fit is 0.917, the current model's is 0.950
+      model v3 by the updater: fit 0.98, size 2057 (fit 0.950 -> 0.983); held-out 96%
+[4] E4 learn: Is the transition from the floor region to the quadratic on the p...(+84 chars)  (v3 predicted it: match 0.80; cost 20, spent 60)
+      updater's fix not kept: same scores and not smaller (2140 vs 2057 chars)
+      updater's fix not kept: same scores and not smaller (2121 vs 2057 chars)
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 70)
+[6] E6 learn: How does the transition from the floor to the quadratic behave on...(+88 chars)  (v3 predicted it: match 0.45; cost 20, spent 90)
+      updater's fix not kept: its fit is 0.375, the current model's is 0.867
+      updater's fix not kept: its fit is 0.775, the current model's is 0.867
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 100)
+[8] E8 learn: On the negative side, where exactly does g(x) cross the floor bet...(+120 chars)  (v3 predicted it: match 0.25; cost 20, spent 120)
+      model v4 by the updater: fit 0.84, size 2857 (fit 0.806 -> 0.838); held-out 100%
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 130)
+[10] E10 learn: Does the positive-side quadratic continue smoothly through the fl...(+130 chars)  (v4 predicted it: match 0.55; cost 20, spent 150)
+      updater's fix not kept: its fit is 0.820, the current model's is 0.825
+      updater's fix not kept: its fit is 0.815, the current model's is 0.825
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 160)
+[12] E12 learn: On ordinary inputs, does the floor boundary on the positive side ...(+220 chars)  (v4 predicted it: match 0.60; cost 20, spent 180)
+      model v5 by the updater: fit 0.85, size 3499 (fit 0.821 -> 0.846); held-out 100%
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 190)
+[14] E14 learn: Does the negative-side quadratic fit hold across the mid-range (e...(+131 chars)  (v5 predicted it: match 1.00; cost 20, spent 210)
+[15] E15 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 220)
+[16] E16 learn: On the negative side, is the transition from the floor region to ...(+194 chars)  (v5 predicted it: match 0.15; cost 20, spent 240)
+      updater's fix not kept: same scores and not smaller (4143 vs 3499 chars)
+      updater's fix not kept: its fit is 0.828, the current model's is 0.831
+[17] E17 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 250)
+[18] E18 learn: On the positive side, is the transition from floor to quadratic s...(+148 chars)  (v5 predicted it: match 0.35; cost 20, spent 270)
+      updater's fix not kept: its fit is 0.808, the current model's is 0.814
+      updater's fix not kept: same scores and not smaller (4357 vs 3499 chars)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 280)
+[20] E20 learn: The floor boundary is now well pinned on both sides, but is the f...(+138 chars)  (v5 predicted it: match 0.95; cost 20, spent 300)
+      updater's fix not kept: same scores and not smaller (3961 vs 3499 chars)
+      updater's fix not kept: its fit is 0.828, the current model's is 0.830
+[21] E21 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 310)
+[22] E22 learn: Does the positive-side quadratic extrapolate correctly into the m...(+131 chars)  (v5 predicted it: match 1.00; cost 20, spent 330)
+[23] E23 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 340)
+[24] E24 learn: Do the two per-side quadratics actually join smoothly at x=0, or ...(+148 chars)  (v5 predicted it: match 0.80; cost 20, spent 360)
+      updater's fix not kept: its fit is 0.842, the current model's is 0.850
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 370)
+{"env": "find_numeric_f00003", "experiments": 25, "cost": 370, "model_version": 5, "model_role": "updater", "fit": 0.856, "size": 3499, "exam": null, "heldout": 1.0, "llm_calls": 36, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,83 @@
+Helix Probe v3 on 'find_numeric_f00033': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.90, size 480 (fit 0.000 -> 0.900); held-out 0%
+[2] E2 learn: Is the function actually a smooth bump/tail shape, or does it hav...(+131 chars)  (v1 predicted it: match 0.60; cost 20, spent 30)
+      updater's fix not kept: its fit is 0.550, the current model's is 0.750
+      updater's fix not kept: its fit is 0.550, the current model's is 0.750
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.90; cost 10, spent 40)
+      updater's fix not kept: its fit is 0.700, the current model's is 0.800
+      updater's fix not kept: its fit is 0.733, the current model's is 0.800
+      theorist (fixes stalled)
+[4] E4 learn: Is the large positive feature near x=0 a Gaussian bump centered a...(+115 chars)  (v1 predicted it: match 0.25; cost 20, spent 60)
+      updater's fix not kept: its fit is 0.637, the current model's is 0.662
+      model v2 by the updater: fit 0.71, size 716 (fit 0.662 -> 0.713); held-out 1%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 70)
+      model v3 by the updater: fit 0.61, size 716 (fit 0.570 -> 0.610); held-out 1%
+[6] E6 learn: What are the exact values and widths of the near-zero positive bu...(+124 chars)  (v3 predicted it: match 0.45; cost 20, spent 90)
+      updater's fix not kept: its fit is 0.533, the current model's is 0.583
+      model v4 by the updater: fit 0.58, size 645 (same scores, smaller (716 -> 645 chars)); held-out 1%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v4 predicted it: match 0.30; cost 10, spent 100)
+      model v5 by the updater: fit 0.56, size 720 (fit 0.543 -> 0.557); held-out 1%
+[8] E8 learn: How does the function behave in the mid-negative range around x=-...(+116 chars)  (v5 predicted it: match 0.40; cost 20, spent 120)
+      updater's fix not kept: its fit is 0.519, the current model's is 0.537
+      updater's fix not kept: same scores and not smaller (720 vs 720 chars)
+[9] E9 learn: a random ordinary probe  (v5 predicted it: match 0.80; cost 10, spent 130)
+      updater's fix not kept: same scores and not smaller (720 vs 720 chars)
+      model v6 by the updater: fit 0.57, size 720 (fit 0.567 -> 0.572); held-out 1%
+[10] E10 learn: What is the exact shape of the central bump on the right flank be...(+127 chars)  (v6 predicted it: match 0.15; cost 20, spent 150)
+      updater's fix not kept: its fit is 0.500, the current model's is 0.530
+      updater's fix not kept: its fit is 0.500, the current model's is 0.530
+[11] E11 learn: a random ordinary probe  (v6 predicted it: match 0.90; cost 10, spent 160)
+      updater's fix not kept: same scores and not smaller (720 vs 720 chars)
+      updater's fix not kept: same scores and not smaller (721 vs 720 chars)
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.40, size 712)
+[12] E12 learn: What is the exact shape of the negative undershoot region between...(+91 chars)  (v6 predicted it: match 0.25; cost 20, spent 180)
+      updater's fix not kept: its fit is 0.492, the current model's is 0.537
+      updater's fix not kept: its fit is 0.529, the current model's is 0.537
+[13] E13 learn: a random ordinary probe  (v6 predicted it: match 0.30; cost 10, spent 190)
+      updater's fix not kept: its fit is 0.465, the current model's is 0.519
+      updater's fix not kept: its fit is 0.488, the current model's is 0.519
+[14] E14 learn: Where exactly does the positive shoulder near x=-5 peak and how w...(+99 chars)  (v6 predicted it: match 0.20; cost 20, spent 210)
+      theorist's model lost its trial: on trial it predicted 0.22 of 3 new experiments, the current model 0.25
+      updater's fix not kept: its fit is 0.446, the current model's is 0.496
+      updater's fix not kept: its fit is 0.450, the current model's is 0.496
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.48, size 405)
+[15] E15 learn: a random ordinary probe  (v6 predicted it: match 0.10; cost 10, spent 220)
+      updater's fix not kept: its fit is 0.420, the current model's is 0.470
+      model v7 by the updater: fit 0.48, size 863 (fit 0.470 -> 0.480); held-out 2%
+[16] E16 learn: Is the small positive shoulder near x=-5 a separate additive bump...(+202 chars)  (v7 predicted it: match 0.90; cost 20, spent 240)
+      updater's fix not kept: same scores and not smaller (863 vs 863 chars)
+      model v8 by the updater: fit 0.51, size 803 (same scores, smaller (863 -> 803 chars)); held-out 2%
+[17] E17 learn: a random ordinary probe  (v8 predicted it: match 0.10; cost 10, spent 250)
+      model v9 by the theorist: fit 0.49, size 405 (on trial it predicted 0.52 of 3 new experiments, the current model 0.37); held-out 1%
+      updater's fix not kept: its fit is 0.426, the current model's is 0.488
+      updater's fix not kept: its fit is 0.403, the current model's is 0.488
+[18] E18 learn: How does the negative dip near x=12 behave at fine resolution, an...(+109 chars)  (v9 predicted it: match 0.25; cost 20, spent 270)
+      updater's fix not kept: its fit is 0.456, the current model's is 0.475
+      model v10 by the updater: fit 0.53, size 510 (fit 0.475 -> 0.531); held-out 3%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.00, size 132)
+[19] E19 learn: a random ordinary probe  (v10 predicted it: match 0.40; cost 10, spent 280)
+      updater's fix not kept: its fit is 0.516, the current model's is 0.524
+      model v11 by the updater: fit 0.61, size 491 (fit 0.524 -> 0.608); held-out 2%
+[20] E20 learn: Does the far-left negative tail stay at a flat plateau of about -...(+185 chars)  (v11 predicted it: match 0.40; cost 20, spent 300)
+      updater's fix not kept: its fit is 0.500, the current model's is 0.597
+      updater's fix not kept: its fit is 0.585, the current model's is 0.597
+[21] E21 learn: a random ordinary probe  (v11 predicted it: match 0.40; cost 10, spent 310)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 0.40
+      model v12 by the updater: fit 0.68, size 842 (fit 0.588 -> 0.683); held-out 5%
+[22] E22 learn: What is the exact shape of the central positive bump on both flan...(+93 chars)  (v12 predicted it: match 0.30; cost 20, spent 330)
+      model v13 by the updater: fit 0.79, size 1079 (fit 0.666 -> 0.786); held-out 22%
+[23] E23 learn: a random ordinary probe  (v13 predicted it: match 0.60; cost 10, spent 340)
+      updater's fix not kept: same scores and not smaller (1079 vs 1079 chars)
+[24] E24 learn: Does the positive bump's right flank between x=2.5 and x=3.5 deca...(+145 chars)  (v13 predicted it: match 0.00; cost 20, spent 360)
+      model v14 by the updater: fit 0.80, size 1135 (fit 0.746 -> 0.798); held-out 24%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 4716)
+[25] E25 learn: a random ordinary probe  (v14 predicted it: match 0.90; cost 10, spent 370)
+      updater's fix not kept: its fit is 0.800, the current model's is 0.802
+      updater's fix not kept: same scores and not smaller (1135 vs 1135 chars)
+{"env": "find_numeric_f00033", "experiments": 25, "cost": 370, "model_version": 14, "model_role": "updater", "fit": 0.802, "size": 1135, "exam": null, "heldout": 0.24, "llm_calls": 62, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
