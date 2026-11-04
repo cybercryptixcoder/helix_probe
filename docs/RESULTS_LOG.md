@@ -40,15 +40,22 @@ Standing configuration, unless a row says otherwise:
   the action history since the last reset so it can keep that memory (the general rule for any stateful box).
 - **To do before publishing:** run on all 25 games, with the counts per game.
 
-## R2. FIND, same-model control (FIND's own protocol, our model): queued (stage `aia`)
+## R2. FIND, same-model control (FIND's own protocol, our model): queued (stages `aia`, `aia2`; `bench/find/compare.py`)
 
 - **Why:** the find-v2 comparison (R1) puts a 2026 flash model against 2023 GPT-4. This control runs FIND's own
-  agent protocol (FIND's prompts verbatim, 20 rounds, the same scorer) with our model. It separates "the loop" from
-  "a newer model".
-- **Dev check (4 dev functions):**
-  - strings: 1.00 on both functions;
-  - numeric: one function hit 20 rounds without answering, and on another the model answered without
-    experimenting (scores 0 and 0). The protocol runs end to end.
+  agent protocol (FIND's prompts verbatim, 20 rounds, the same scorer) with our model. It separates "the loop"
+  from "a newer model".
+- **What gets reported:** per function and paired, Helix Probe vs the control at Helix's own budget, at the
+  control's inputs, and at its experiments. Each with a 95% bootstrap interval of the difference and an exact sign
+  test, run twice on each side (aia/aia2, find/find2) for run-to-run variance.
+- **Early sign (6 functions: 3 numeric, 3 strings):**
+  - our model in FIND's protocol scored 0.33 numeric and 0.50 strings, where published GPT-4 scored 0.00 on the
+    same functions. So most of the gap to GPT-4 is the newer model, and "beats GPT-4" is not the claim;
+  - the control used 12 experiments and 130 inputs per numeric function;
+  - on those 3 numeric functions Helix Probe v2 reached 1.00 with its own budget (25 experiments, about 490
+    inputs including its exam), and 0.67 when cut to the control's inputs.
+  
+  The budget-matched number is the one to lead with.
 
 ## R1. FIND, 80 functions, Helix Probe v2 vs FIND's published agents: **interim** (`results/find/find-v2`)
 
@@ -57,7 +64,10 @@ Standing configuration, unless a row says otherwise:
   - up to 25 experiments;
   - FIND's input limits;
   - v2 arms use a sealed exam of 4 random probes, counted in the inputs.
-- **Scores (interim, 07:40 UTC, numeric about 24 of 40 per arm):**
+- **Strings (interim, 08:20 UTC, about 30 of 40 per arm):** v2-no-theorist 0.97, v1 0.97, v2 0.94,
+  v2-directed 0.87, v2-random 0.86; published GPT-4 0.01. Strings is nearly saturated too, so on FIND the
+  arms separate by at most about 0.1, and the same-model control (R2) carries the publishable comparison.
+- **Numeric (interim, 07:40 UTC, about 24 of 40 per arm):**
 
   | | final | after 3 experiments |
   |---|---|---|

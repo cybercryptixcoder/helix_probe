@@ -42,6 +42,12 @@ results, model that memory explicitly, by replaying the history inside predict()
 (math, re, itertools, ...) only. It must never raise, and it should be quick (it may be run thousands of times)."""
 
 
+GOAL_RULE = """The model is used to reach this goal: code searches through predict() for actions that reach it, and runs \
+them for real. So predict() must also say when the goal would be reached, as your best current guess (mark it \
+"?" while unproven; say in a comment what you think completes it). A model that never predicts the goal can't be \
+used to reach it; a wrong guess gets tested by the box and corrected, which is how the goal is found."""
+
+
 def clip(x, n=600):
     s = x if isinstance(x, str) else json.dumps(x, separators=(",", ":"))
     return s if len(s) <= n else s[: n - 15] + f"...(+{len(s) - n + 15} chars)"
@@ -54,6 +60,12 @@ def box_block(env, library):
     state = env.view_state()
     if state:
         out.append(f"## The box now\n{state}")
+    try:
+        goal = env.goal()
+    except Exception:
+        goal = None
+    if goal is not None:
+        out.append(f"## The goal\n{goal.description}\n" + GOAL_RULE)
     return "\n\n".join(out)
 
 

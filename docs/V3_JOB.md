@@ -5,7 +5,7 @@ The design: `docs/helix_probe_explainer_v3.html`. The results ledger: `docs/RESU
 
 ## What runs, and why
 
-The job waits until the find-v2 job on the same machine has finished, then runs three stages. Every stage does two
+The job waits until the find-v2 job on the same machine has finished, then runs five stages. Every stage does two
 things:
 - it tests a change in v3;
 - it is an attempt at a result that holds up against published work, in a setup copied from the publication with
@@ -13,9 +13,25 @@ things:
 
 | Stage | What | The comparison | Published reference |
 |---|---|---|---|
-| `aia` | FIND's own agent protocol (`bench/find/aia.py`, FIND's prompts verbatim) run with **our** model on the same 80 functions | Is Helix Probe's edge on FIND the loop, or just a newer model? The same-model control the find-v2 result needs | GPT-4 0.20 numeric / 0.01 strings in FIND's protocol |
-| `arc` | Helix Probe v3 on the 25 public ARC-AGI-3 games, one playthrough each | Does a flash model with thinking off, in a learn-a-model loop, score on ARC-AGI-3 at all, and how far from frontier systems? | Frontier models in ARC's generic harness: 13.3% public (GPT-5.6 Sol, OpenAI's run). Executable World Models (coding agents): GPT-5.4 high 41.3%, GPT-5.5 high 58.1%, with 1,500 actions per level |
+| `aia` | FIND's own agent protocol (`bench/find/aia.py`, FIND's prompts verbatim) run with **our** model on the same 80 functions | the same-model control: is Helix Probe's edge on FIND the loop, or just a newer model? | GPT-4 0.20 numeric / 0.01 strings in FIND's protocol |
 | `find` | Helix Probe v3 on the 80 FIND functions, arms `v3`, `v3-exam`, `v3-random`, `v3-no-theorist` | v3 against v2 (find-v2) on the same functions; whether trials can replace the sealed exam; ablations | find-v2, and FIND's published agents |
+| `aia2` | the AIA control again | how much the baseline varies from run to run | |
+| `find2` | v3 again, seed 1 | how much ours varies | |
+| `arc` | Helix Probe v3 on the 25 public ARC-AGI-3 games, one playthrough each | does a flash model with thinking off, in a learn-a-model loop, score on ARC-AGI-3 at all, and how far from frontier systems? | Frontier models in ARC's generic harness: 13.3% public (GPT-5.6 Sol, OpenAI's run). Executable World Models (coding agents): GPT-5.4 high 41.3%, GPT-5.5 high 58.1%, with 1,500 actions per level |
+
+**The comparison that makes FIND fair** (`bench/find/compare.py`, pushed as `results/find/compare-v3-aia.md`
+and `-aia2.md` right after the FIND stages and again at the end):
+- every Helix Probe arm (v3, its repeat, and the v2 arms of find-v2) is set against the same model in FIND's
+  protocol, function by function;
+- each comparison is made three ways: at Helix Probe's own budget, at the AIA's number of inputs on that function
+  (FIND's unit of budget), and at its number of experiments;
+- for each, it reports the mean difference with a 95% bootstrap interval, wins, losses and ties, and an exact
+  sign test;
+- FIND's published agents are shown on the same functions.
+
+FIND counts budget in inputs, so the FIND adapters now report cost in inputs too.
+
+Fixes pushed while the job runs are pulled before every stage, and kept only if the crash test passes.
 
 **ARC setup, and how it compares to the published setups:**
 - **Play.** The official toolkit (`arc-agi`) in local mode: one playthrough per game, every action counted
@@ -82,7 +98,7 @@ Queue my Helix Probe v3 job on this machine and report back. It must wait for th
 **What the log shows after a good start:**
 
 ```
-== Helix Probe v3 job: stages aia arc find
+== Helix Probe v3 job: stages aia find aia2 find2 arc
 == preflight
    python 3.12.x
    arc-agi toolkit ok
@@ -107,13 +123,32 @@ Then:
 
 | Stage | Duration | Model calls |
 |---|---|---|
-| aia | under 1 hour | about 1,000 |
+| aia | about 1 hour | about 1,000 |
+| find | 4–5 hours (320 runs) | about 6,000 |
+| aia2 | about 1 hour | about 1,000 |
+| find2 | about 1.5 hours (80 runs) | about 1,500 |
 | arc | 10–16 hours (25 games, 13 at a time, up to 400 experiments each) | about 20,000 |
-| find | 4–6 hours (320 runs) | about 6,000 |
 
 - Memory: under 2 GB. CPU: light.
 - Data pushed: about 100–200 MB, mostly ARC traces (gzipped).
-- Cost: about $15–30 at DeepSeek's list price.
+- Cost: about $20–35 at DeepSeek's list price.
+
+## Restarting the queued job onto a newer version (only while it is still waiting)
+
+The queued job runs from a snapshot of `run_v3.sh` taken when it started.
+- **Fixes in the Python code** reach it anyway: it pulls after the wait and before every stage, and keeps a pull
+  only if the crash test passes.
+- **A change to the script itself** (new stages, a new order) needs a restart. That is safe while it is only
+  waiting:
+
+```
+Restart my queued Helix Probe v3 job so it picks up the new version. It is only waiting; nothing of it runs yet. Don't touch the find-v2 job.
+1. In /home/ubuntu/helix_probe, read the last 5 lines of v3_job.log. Go on only if the last line says "waiting for the job holding runs/find/.find-v2.lock to finish" or the log ends at "GitHub: can push". If it shows "== stage", stop and report it; do nothing else.
+2. Find the job script with `pgrep -f v3_job_snapshot` (the bash process) and send it `kill -TERM <pid>`. It notices within 10 minutes. Check v3_job.log every 2 minutes until it shows "== stopped while waiting; nothing was started" (at most 12 minutes). If it doesn't, report and stop; don't kill anything harder.
+3. Run `git pull`, then start it again exactly as last time (same PYTHON value): `PYTHON=<PYTHON> setsid nohup bash scripts/run_v3.sh > v3_job.log 2>&1 < /dev/null &`
+4. After about 5 minutes, quote the last 15 lines of v3_job.log. Expect: "stages aia find aia2 find2 arc", "crash test passed", both keys OK, "GitHub: can push".
+5. Then stop. No cron jobs, timers, monitors or reminders.
+```
 
 ## Follow-up prompts
 
