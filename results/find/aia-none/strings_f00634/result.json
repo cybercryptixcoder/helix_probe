@@ -1,0 +1,14 @@
+{
+ "category": "strings",
+ "fid": "f00634",
+ "score": 1.0,
+ "nmse": null,
+ "error": null,
+ "rounds": 9,
+ "experiments": 8,
+ "inputs": 138,
+ "answered": true,
+ "seconds": 45.5,
+ "tokens_in": 9671,
+ "tokens_out": 1395
+}
