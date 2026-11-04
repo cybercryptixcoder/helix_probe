@@ -168,3 +168,88 @@ Helix Probe v3 on 'arc_tr87': 0 experiments so far, model v0, spent 0
       theorist's model on trial for 3 experiments (fit 0.72, size 3613)
 [61] E61 learn: a random ordinary probe  (v28 predicted it: match 0.63; cost 1, spent 215)
       updater: keep
+[62] E62 learn: Does ACTION1 toggle a content-dependent subset of the active tile...(+236 chars)  (v28 predicted it: match 0.82; cost 1, spent 216)
+      updater: keep
+[63] E63 learn: a random ordinary probe  (v28 predicted it: match 0.81; cost 2, spent 218)
+      theorist's model lost its trial: on trial it predicted 0.74 of 3 new experiments, the current model 0.76
+      updater's fix not kept: its fit is 0.732, the current model's is 0.777
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.65, size 4318)
+[64] E64 learn: Does ACTION1 toggle exactly the interior cells that are currently...(+204 chars)  (v28 predicted it: match 0.69; cost 1, spent 219)
+      updater's fix not kept: its fit is 0.000, the current model's is 0.776
+      updater's fix not kept: same scores and not smaller (2706 vs 2706 chars)
+[65] E65 learn: a random ordinary probe  (v28 predicted it: match 0.66; cost 1, spent 220)
+      updater's fix not kept: its fit is 0.663, the current model's is 0.774
+      model v29 by the updater: fit 0.78, size 2810 (fit 0.774 -> 0.784)
+[66] E66 learn: Does ACTION1 always toggle the same fixed set of interior cells (...(+284 chars)  (v29 predicted it: match 0.69; cost 2, spent 222)
+      model v30 by the theorist: fit 0.65, size 4318 (on trial it predicted 0.68 of 3 new experiments, the current model 0.68)
+      model v31 by the updater: fit 0.73, size 4179 (fit 0.653 -> 0.729)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.52, size 3352)
+[67] E67 learn: a random ordinary probe  (v31 predicted it: match 0.64; cost 1, spent 223)
+      updater's fix not kept: its fit is 0.725, the current model's is 0.728
+      model v32 by the updater: fit 0.73, size 3001 (fit 0.728 -> 0.734)
+[68] E68 learn: Does ACTION1 rotate the active tile's 5x5 interior (90 degrees) r...(+138 chars)  (v32 predicted it: match 0.65; cost 1, spent 224)
+[69] E69 learn: a random ordinary probe  (v32 predicted it: match 0.98; cost 1, spent 225)
+      theorist's model lost its trial: on trial it predicted 0.53 of 3 new experiments, the current model 0.76
+      updater's fix not kept: its fit is 0.731, the current model's is 0.736
+      updater's fix not kept: its fit is 0.731, the current model's is 0.736
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.50, size 1776)
+[70] E70 learn: Does ACTION1 act on the active (0-marked) tile's 5x5 interior as ...(+181 chars)  (v32 predicted it: match 0.65; cost 1, spent 226)
+      updater: keep
+[71] E71 learn: a random ordinary probe  (v32 predicted it: match 0.98; cost 1, spent 227)
+      updater's fix not kept: its fit is 0.733, the current model's is 0.738
+      updater's fix not kept: its fit is 0.733, the current model's is 0.738
+[72] E72 learn: When ACTION1 is applied to the currently active tile (tile 4, col...(+205 chars)  (v32 predicted it: match 0.67; cost 1, spent 228)
+      theorist's model lost its trial: on trial it predicted 0.50 of 3 new experiments, the current model 0.77
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.52, size 4939)
+[73] E73 learn: a random ordinary probe  (v32 predicted it: match 0.65; cost 1, spent 229)
+      updater's fix not kept: its fit is 0.731, the current model's is 0.736
+[74] E74 learn: Does ACTION1 on the currently active tile (tile 4, cols 43-47) sw...(+161 chars)  (v32 predicted it: match 0.75; cost 1, spent 230)
+[75] E75 learn: a random ordinary probe  (v32 predicted it: match 0.75; cost 1, spent 231)
+      theorist's model lost its trial: on trial it predicted 0.50 of 3 new experiments, the current model 0.72
+      model v33 by the updater: fit 0.77, size 2747 (fit 0.737 -> 0.774)
+[76] E76 learn: Does ACTION1 on the active tile perform a 90-degree rotation of t...(+194 chars)  (v33 predicted it: match 0.56; cost 2, spent 233)
+      model v34 by the updater: fit 0.78, size 2774 (fit 0.772 -> 0.782)
+[77] E77 learn: a random ordinary probe  (v34 predicted it: match 0.86; cost 2, spent 235)
+      updater's fix not kept: its fit is 0.754, the current model's is 0.783
+      updater's fix not kept: its fit is 0.743, the current model's is 0.783
+[78] E78 learn: Does ACTION1 on the active tile toggle exactly the interior cells...(+147 chars)  (v34 predicted it: match 0.72; cost 1, spent 236)
+      updater's fix not kept: its fit is 0.742, the current model's is 0.782
+      updater's fix not kept: its fit is 0.760, the current model's is 0.782
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.51, size 2573)
+[79] E79 learn: a random ordinary probe  (v34 predicted it: match 0.64; cost 2, spent 238)
+      updater's fix not kept: its fit is 0.740, the current model's is 0.780
+      updater: keep
+[80] E80 learn: Does ACTION1 on the active tile 0 (cols 15-19) toggle only the cu...(+119 chars)  (v34 predicted it: match 0.69; cost 1, spent 239)
+      updater's fix not kept: its fit is 0.742, the current model's is 0.779
+      updater's fix not kept: its fit is 0.742, the current model's is 0.779
+[81] E81 learn: a random ordinary probe  (v34 predicted it: match 0.73; cost 4, spent 243)
+      theorist's model lost its trial: on trial it predicted 0.51 of 3 new experiments, the current model 0.69
+      updater's fix not kept: its fit is 0.747, the current model's is 0.778
+      model v35 by the updater: fit 0.78, size 2758 (same scores, smaller (2774 -> 2758 chars))
+[82] E82 learn: Does ACTION1 on the active tile apply a fixed XOR mask to the 5x5...(+252 chars)  (v35 predicted it: match 0.63; cost 2, spent 245)
+      updater's fix not kept: its fit is 0.707, the current model's is 0.777
+      updater's fix not kept: its fit is 0.728, the current model's is 0.777
+[83] E83 learn: a random ordinary probe  (v35 predicted it: match 0.98; cost 1, spent 246)
+      updater's fix not kept: its fit is 0.774, the current model's is 0.779
+      updater's fix not kept: its fit is 0.774, the current model's is 0.779
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.51, size 1380)
+[84] E84 learn: Does ACTION1 on the active tile toggle exactly the interior cells...(+135 chars)  (v35 predicted it: match 0.64; cost 3, spent 249)
+      updater's fix not kept: its fit is 0.724, the current model's is 0.777
+      updater's fix not kept: its fit is 0.772, the current model's is 0.777
+[85] E85 learn: a random ordinary probe  (v35 predicted it: match 0.86; cost 3, spent 252)
+      updater's fix not kept: same scores and not smaller (2758 vs 2758 chars)
+      updater: keep
+[86] E86 learn: Does ACTION1 on the active tile toggle exactly the cells currentl...(+146 chars)  (v35 predicted it: match 0.69; cost 1, spent 253)
+      theorist's model lost its trial: on trial it predicted 0.50 of 3 new experiments, the current model 0.73
+      updater's fix not kept: its fit is 0.742, the current model's is 0.777
+      updater's fix not kept: its fit is 0.710, the current model's is 0.777
+      theorist (fixes stalled)
+[87] E87 learn: a random ordinary probe  (v35 predicted it: match 0.72; cost 4, spent 257)
+      updater's fix not kept: its fit is 0.727, the current model's is 0.777
+[88] E88 learn: Does ACTION1 on the active tile apply a fixed XOR mask to the 5x5...(+135 chars)  (v35 predicted it: match 0.61; cost 2, spent 259)

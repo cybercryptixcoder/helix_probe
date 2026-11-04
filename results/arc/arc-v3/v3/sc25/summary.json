@@ -1,0 +1,40 @@
+{
+ "env": "arc_sc25",
+ "experiments": 100,
+ "cost": 261,
+ "model_version": 35,
+ "model_role": "updater",
+ "fit": 0.7264682175153137,
+ "size": 4659,
+ "exam": null,
+ "heldout": null,
+ "llm_calls": 220,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "box_score": {
+  "game": "sc25-635fd71a",
+  "score": 0.0,
+  "levels_completed": 0,
+  "levels": 6,
+  "actions": 261,
+  "level_actions": [
+   261,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "baseline": [
+   36,
+   6,
+   32,
+   83,
+   143,
+   50
+  ]
+ }
+}

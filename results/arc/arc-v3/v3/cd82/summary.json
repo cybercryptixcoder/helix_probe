@@ -1,0 +1,40 @@
+{
+ "env": "arc_cd82",
+ "experiments": 100,
+ "cost": 297,
+ "model_version": 48,
+ "model_role": "updater",
+ "fit": 0.6823079576644098,
+ "size": 3021,
+ "exam": null,
+ "heldout": null,
+ "llm_calls": 229,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "box_score": {
+  "game": "cd82-fb555c5d",
+  "score": 0.0,
+  "levels_completed": 0,
+  "levels": 6,
+  "actions": 297,
+  "level_actions": [
+   297,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "baseline": [
+   55,
+   8,
+   41,
+   21,
+   23,
+   23
+  ]
+ }
+}
