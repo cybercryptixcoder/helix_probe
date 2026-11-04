@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with a smooth multi-sinusoid guess, since the data shows small, irregular, non-monotonic values with no clear region change; the exact mechanism is still uncertain (marked with \"?\").", "exam": 0.025, "fit": 0.1, "fit_exact": 0.0, "size": 311, "matches": [0.1, 0.1], "made_at": 2, "heldout": 0.0}

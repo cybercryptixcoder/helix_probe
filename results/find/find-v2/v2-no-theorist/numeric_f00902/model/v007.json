@@ -1,0 +1,1 @@
+{"version": 7, "role": "updater", "notes": "I moved the plateau's upper boundary from 110 to 117: E10 shows x=116 is still constant (~7773) while x=118 has returned to the cubic, so the constant region ends in (116, 118].", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 314, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 10, "heldout": 0.97}

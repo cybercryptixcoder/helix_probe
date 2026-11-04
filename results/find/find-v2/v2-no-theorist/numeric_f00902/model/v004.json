@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "I moved the transition boundary from 98 down to 97.8: E6 shows f(97.5) still follows the cubic but f(97.8) is already the constant, so the switch lies in (97.5, 97.8].", "exam": 0.975, "fit": 0.9666666666666667, "fit_exact": 0.6666666666666666, "size": 304, "matches": [1.0, 1.0, 0.9, 1.0, 0.9, 1.0], "made_at": 6, "heldout": 0.67}

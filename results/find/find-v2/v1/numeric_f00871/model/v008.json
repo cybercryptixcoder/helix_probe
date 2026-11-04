@@ -1,0 +1,26 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f(x) = 0 exactly for x < -2.1 and for x >= 4 [E1, E3, E5, E6, E7, E8]",
+  "On the active interval -2.1 <= x < 4, f is a decreasing straight line f(x) = 5.2 - 2.5x [E1, E2, E6, E7, E8]",
+  "The left boundary is sharp at x=-2.1: f(-2.105)=0 but f(-2.1)=10.45, consistent with a step at -2.1 [E7, E8]",
+  "The line crosses zero at x=2.08, so f is positive up to 2.08 and negative after [E2]",
+  "Negative line values are reported unclamped up to x=2.0999 (e.g. -0.0497) and clamped to -0.0 at x=2.1 and above [E4]",
+  "The right boundary is at x=4, beyond which f=0 [E3, E5]",
+  "Whether the left cutoff is exactly at -2.1 or slightly below (e.g. -2.1001) is still uncertain? [E8]"
+ ],
+ "notes": "",
+ "fit": 0.75,
+ "heldout": 0.69,
+ "matches": [
+  1.0,
+  0.95,
+  1.0,
+  0.9375,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 8
+}

@@ -1,0 +1,17 @@
+{
+ "env": "find_numeric_f00809",
+ "experiments": 25,
+ "exam_probes": 4,
+ "model_version": 5,
+ "model_role": "updater",
+ "exam": 0.35,
+ "fit": 0.1550877192982456,
+ "size": 375,
+ "heldout": 0.0,
+ "llm_calls": 57,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ }
+}

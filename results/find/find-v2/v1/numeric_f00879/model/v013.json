@@ -1,0 +1,43 @@
+{
+ "version": 13,
+ "beliefs": [
+  "Repeated calls at the same x give wildly different values, so f is stochastic with large noise [E3, E4, E8, E12, E15, E16]",
+  "The noise spread is roughly \u00b11.5 units around the mean, with values spanning about -2.7 to +4.1 [E8, E12, E16]",
+  "The conditional mean rises from negative at x\u2264-2 to positive at x\u22650, crossing zero near x\u2248-1.5 [E5, E15]",
+  "Mean at x=-6 is about -1.6, at x=-5 about -1.3, at x=-4 about -1.0, at x=-3 about -0.2, at x=-2 about -0.1 [E5]",
+  "Mean at x=0 is about 0.0 (E12 avg -0.35, E13 avg +0.17, E15 avg +0.50) [E12, E13, E15]",
+  "Mean at x=0.5 is about +1.9 (E16 avg ~1.9), higher than at x=0, so the mean rises steeply between x=0 and x=0.5 [E16]",
+  "Mean at x=1 is about +2.2 (E14 avg ~2.2), higher than at x=0.5, so the mean keeps rising between x=0.5 and x=1 [E14]",
+  "Mean at x=2 is about +2.3 (E13 avg ~2.3, E14 avg ~2.2) [E13, E14]",
+  "Mean at x=-0.5 is about +0.04 (E15 avg ~0.04) and at x=-1 about +0.13 (E15 avg ~0.13) [E15]",
+  "Mean at x=5 is about +1.0 (E8 avg ~1.0) [E8]",
+  "Mean at x=8 is about +0.8 (E10 avg ~0.8) and at x=-8 about -1.2 (E10 avg ~-1.2) [E10]",
+  "Mean at x=64 is about +0.1 and at x=100 about +0.7 (E11), at x=-64 about -1.3 and at x=-100 about -0.5 (E11) [E11]",
+  "The mean is roughly flat/plateauing far out on each side (near -1 to -1.5 on the far left, near +1 on the far right) [E6, E7, E9, E11]",
+  "The mean curve is a steep sigmoid rising from ~-1.3 (far left) through 0 near x=-1.5 to a peak ~+2.3 near x=1-2, then decaying to ~+1 far right [E5, E8, E10, E11, E13, E14, E15, E16]",
+  "predict() should return the conditional mean (smooth trend), not any noisy wiggle [E3, E4]"
+ ],
+ "notes": "No new information in E17 that contradicts the existing smooth-trend model; the observed values are consistent with the same noisy mean curve already captured. Keeping v12 unchanged.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.1,
+  0.05,
+  0.1,
+  0.05,
+  0.1,
+  0.15,
+  0.1,
+  0.1,
+  0.1,
+  0.15,
+  0.05,
+  0.15,
+  0.0,
+  0.1,
+  0.0,
+  0.05,
+  0.05
+ ],
+ "made_at": 17
+}

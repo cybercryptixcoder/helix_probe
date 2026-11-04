@@ -1,0 +1,17 @@
+Helix Probe v2 on 'find_numeric_f00871': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Start mapping the overall shape of f by sampling evenly across the ordinary...(+83 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 194 (exam 0.000 -> 1.000); held-out 69%
+[2] E2 Is the zero outside [-2,2] a genuine zero plateau, or does f resume nonzero...(+99 chars)  (v1 predicted it: match 0.86)
+      model v2 by the updater: exam 1.00, fit 1.00, size 188 (fit 0.929 -> 1.000); held-out 69%
+[3] E3 Is the transition at the edges of the active interval a hard cutoff at exac...(+152 chars)  (v2 predicted it: match 1.00)
+[4] E4 Is the active interval boundary exactly at ±2.1 with a hard step, or is the...(+126 chars)  (v2 predicted it: match 1.00)
+[5] E5 Is the function exactly linear on its active interval, or does it have curv...(+94 chars)  (v2 predicted it: match 1.00)
+[6] E6 Are the interval boundaries exactly at ±2.1, or could they be at other near...(+131 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (320 vs 188 chars)
+[7] E7 Does the active interval extend exactly to ±2.1 with a hard step, and is th...(+175 chars)  (v2 predicted it: match 1.00)
+[8] E8 Where exactly is the right boundary of the active interval, and is the func...(+208 chars)  (v2 predicted it: match 1.00)
+[9] E9 Is the function exactly zero everywhere outside the active interval, includ...(+142 chars)  (v2 predicted it: match 1.00)
+[10] E10 Is the function really a single straight line of slope -2.5 across the whol...(+239 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00871", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 188, "heldout": 0.69, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,18 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is smooth and roughly exponential for large |x|, growing much faster for positive x than negative x [E1]",
+  "f(0) \u2248 -48.6, a local minimum-ish plateau near zero [E1]",
+  "There is a dip/plateau around x in [-1, 0.5] where values hover near -46 to -48.7 [E1]",
+  "For x \u2265 2, f grows super-exponentially: f(2)=-32.2, f(4)=65, f(8)=751, f(16)=5839, f(32)=44854, f(64)=350057, f(128)=2763727 [E1]",
+  "For x \u2264 -8, f grows negatively: f(-8)=-554, f(-16)=-4759, f(-32)=-40241, f(-128)=-2688458 [E1]",
+  "The positive branch grows faster than the negative branch (asymmetry) [E1]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 0.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

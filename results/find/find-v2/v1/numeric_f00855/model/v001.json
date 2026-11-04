@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is 26 for x in roughly [-2, 2] and 25 outside that interval [E1]",
+  "The transition points between 25 and 26 lie between -4 and -2, and between 2 and 4 [E1]",
+  "f appears to be a rounded/clipped function producing only 25 or 26 [E1]"
+ ],
+ "notes": "E1 shows a plateau of 26 near zero and 25 elsewhere. I'll model it as 26 on [-2,2] and 25 outside, noting the exact boundary is uncertain between -4/-2 and 2/4.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

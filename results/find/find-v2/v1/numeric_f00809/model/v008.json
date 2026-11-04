@@ -1,0 +1,28 @@
+{
+ "version": 8,
+ "beliefs": [
+  "For x in [-128, -90], f is deterministic and smooth, increasing monotonically from 0.0046 at -128 to 0.0065 at -90 [E1, E5, E8, E9, E10].",
+  "The deterministic region continues past -90 up to about -80, reaching ~0.0074 at -80 [E10].",
+  "The transition from deterministic to stochastic happens between -80 and -78, since -78 already shows noise [E10, E11].",
+  "For x > ~-78, f is stochastic: identical inputs give different outputs, roughly symmetric around 0 with std ~0.1, range about [-0.25, 0.35] [E2, E3, E4, E6, E7, E8, E10, E11].",
+  "The far-negative deterministic function is smooth and monotone, not a lookup; a piecewise-linear fit through the E9/E10 points approximates it [E9, E10].",
+  "No smoothness or periodicity in the noisy region: nearby inputs give unrelated values [E2, E3, E6, E11]."
+ ],
+ "notes": "Moved the deterministic/stochastic boundary from -80 down to about -78 (E11 shows -78 is already noisy, while E10 shows -80 is still deterministic), and refined the deterministic curve with the E9/E10 points up to -80.",
+ "fit": 0.09090909090909091,
+ "heldout": 0.0,
+ "matches": [
+  0.15,
+  0.1,
+  0.1,
+  0.0,
+  0.15,
+  0.0,
+  0.05,
+  0.5,
+  1.0,
+  0.5,
+  0.05
+ ],
+ "made_at": 11
+}

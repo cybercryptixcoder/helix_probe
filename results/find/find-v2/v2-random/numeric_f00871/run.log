@@ -1,0 +1,49 @@
+Helix Probe v2 on 'find_numeric_f00871': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 63 (exam 0.000 -> 1.000); held-out 55%
+[2] E2 a random ordinary probe  (v1 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (153 vs 63 chars)
+      updater's model not kept: same scores and not smaller (164 vs 63 chars)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 a random ordinary probe  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 1.00, size 271 (fit 0.960 -> 1.000); held-out 57%
+[6] E6 a random ordinary probe  (v2 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.967, the current model's is 0.983
+      model v3 by the updater: exam 1.00, fit 1.00, size 188 (fit 0.983 -> 1.000); held-out 56%
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.950, the current model's is 1.000
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 a random ordinary probe  (v3 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (382 vs 188 chars)
+      updater's model not kept: its exam is 0.975, the current model's is 1.000
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 a random ordinary probe  (v3 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 a random ordinary probe  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.975, the current model's is 1.000
+[13] E13 a random ordinary probe  (v3 predicted it: match 0.90)
+      model v4 by the updater: exam 1.00, fit 0.98, size 251 (fit 0.977 -> 0.985); held-out 56%
+[14] E14 a random ordinary probe  (v4 predicted it: match 0.90)
+      model v5 by the updater: exam 1.00, fit 1.00, size 248 (fit 0.979 -> 1.000); held-out 56%
+[15] E15 a random ordinary probe  (v5 predicted it: match 0.80)
+      model v6 by the updater: exam 1.00, fit 1.00, size 274 (fit 0.987 -> 1.000); held-out 56%
+[16] E16 a random ordinary probe  (v6 predicted it: match 0.90)
+      model v7 by the updater: exam 1.00, fit 1.00, size 289 (fit 0.994 -> 1.000); held-out 56%
+[17] E17 a random ordinary probe  (v7 predicted it: match 1.00)
+[18] E18 a random ordinary probe  (v7 predicted it: match 1.00)
+      theorist (every 6 steps)
+[19] E19 a random ordinary probe  (v7 predicted it: match 0.90)
+      model v8 by the updater: exam 1.00, fit 1.00, size 304 (fit 0.995 -> 1.000); held-out 56%
+[20] E20 a random ordinary probe  (v8 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v8 predicted it: match 0.80)
+      model v9 by the updater: exam 1.00, fit 1.00, size 330 (fit 0.990 -> 1.000); held-out 56%
+[22] E22 a random ordinary probe  (v9 predicted it: match 0.90)
+      model v10 by the updater: exam 1.00, fit 1.00, size 345 (fit 0.995 -> 1.000); held-out 56%
+[23] E23 a random ordinary probe  (v10 predicted it: match 1.00)
+[24] E24 a random ordinary probe  (v10 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.825, the current model's is 1.000
+[25] E25 a random ordinary probe  (v10 predicted it: match 1.00)
+{"env": "find_numeric_f00871", "experiments": 25, "exam_probes": 4, "model_version": 10, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 345, "heldout": 0.56, "llm_calls": 20, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

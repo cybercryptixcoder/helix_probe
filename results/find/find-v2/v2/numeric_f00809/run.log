@@ -1,2 +1,86 @@
 Helix Probe v2 on 'find_numeric_f00809': 0 experiments so far, model v0, exam of 4, held-out set of 100
 [1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.03, fit 0.20, size 217 (exam 0.000 -> 0.025); held-out 0%
+[2] E2 Does the output depend only on x modulo some period, and is the function a ...(+145 chars)  (v1 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.033, the current model's is 0.067
+      theorist (updater stalled)
+      model v2 by the theorist: exam 0.05, fit 0.00, size 401 (exam 0.025 -> 0.050); held-out 0%
+[4] E4 Is f(x) a simple sinusoid of the form A*sin(x/P+phi) with a single fixed pe...(+144 chars)  (v2 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+[5] E5 a random ordinary probe  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 0.05, fit 0.04, size 476 (fit 0.000 -> 0.040); held-out 0%
+[6] E6 Do the outputs depend only on x modulo a fixed period (i.e., is f periodic ...(+116 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its fit is 0.008, the current model's is 0.042
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[7] E7 a random ordinary probe  (v3 predicted it: match 0.00)
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[8] E8 Does f(x) depend only on x modulo a small integer-ish period, or is the out...(+195 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+[9] E9 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.022, the current model's is 0.028
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[10] E10 Is f a deterministic function of x alone (same x gives same y), or does it ...(+143 chars)  (v3 predicted it: match 0.05)
+      model v4 by the updater: exam 0.05, fit 0.04, size 386 (fit 0.030 -> 0.045); held-out 0%
+[11] E11 a random ordinary probe  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+[12] E12 Is f(x) actually a deterministic function of x (repeats identical), and doe...(+157 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (386 vs 386 chars)
+      updater's model not kept: same scores and not smaller (386 vs 386 chars)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.050
+[13] E13 a random ordinary probe  (v4 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+[14] E14 Is f(x) actually just x rounded/scaled in some simple way, or does it depen...(+218 chars)  (v4 predicted it: match 0.05)
+      updater's model not kept: same scores and not smaller (386 vs 386 chars)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (updater stalled)
+[15] E15 a random ordinary probe  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+[16] E16 Is f(x) a smooth-ish function of x at the ordinary scale, so that nearby-bu...(+180 chars)  (v4 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      theorist (updater stalled)
+      model v5 by the theorist: exam 0.08, fit 0.03, size 439 (exam 0.050 -> 0.075); held-out 0%
+[17] E17 a random ordinary probe  (v5 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.000, the current model's is 0.075
+      updater's model not kept: its exam is 0.025, the current model's is 0.075
+[18] E18 Does f depend on x at all in a reproducible way, or is every output an inde...(+160 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.025, the current model's is 0.075
+      updater's model not kept: its exam is 0.000, the current model's is 0.075
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.075
+[19] E19 a random ordinary probe  (v5 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.075
+      updater's model not kept: its exam is 0.025, the current model's is 0.075
+[20] E20 Do the outputs depend on the magnitude of x through some smooth determinist...(+172 chars)  (v5 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.075
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.075
+[21] E21 a random ordinary probe  (v5 predicted it: match 0.00)
+      model v6 by the updater: exam 0.30, fit 0.09, size 212 (exam 0.075 -> 0.300); held-out 0%
+[22] E22 Is the output of f at ordinary x values reproducible (deterministic) or is ...(+107 chars)  (v6 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.275, the current model's is 0.300
+      model v7 by the updater: exam 0.30, fit 0.09, size 204 (same scores, smaller (212 -> 204 chars)); held-out 0%
+[23] E23 a random ordinary probe  (v7 predicted it: match 0.30)
+      updater's model not kept: its exam is 0.275, the current model's is 0.300
+      updater's model not kept: same scores and not smaller (204 vs 204 chars)
+[24] E24 Is the low-output region at x < -79 a hard threshold, and where exactly doe...(+181 chars)  (v7 predicted it: match 0.15)
+      updater's model not kept: its exam is 0.200, the current model's is 0.300
+      updater's model not kept: its exam is 0.175, the current model's is 0.300
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.275, the current model's is 0.300
+[25] E25 a random ordinary probe  (v7 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (206 vs 204 chars)
+      updater's model not kept: same scores and not smaller (207 vs 204 chars)
+{"env": "find_numeric_f00809", "experiments": 25, "exam_probes": 4, "model_version": 7, "model_role": "updater", "exam": 0.3, "fit": 0.11, "size": 204, "heldout": 0.0, "llm_calls": 69, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

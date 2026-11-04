@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) is exactly 0 for x <= -4 and for x >= 4 [E1]",
+  "On (-4, 4) f is a decreasing straight line with slope -2.5 and intercept 5.2, i.e. f(x)=5.2-2.5x [E1, E2]",
+  "The line crosses zero at x=2.08, so f is positive on (-4, 2.08) and negative on (2.08, 4) [E2]",
+  "For x >= 2.1 the observed values are -0.0 rather than the line's negative values, suggesting f is clamped to 0 (or truncated) once the line goes negative [E2]",
+  "Whether the clamp is a hard max(0, ...) or a truncation at a slightly different threshold near x=2.08 is uncertain? [E2]"
+ ],
+ "notes": "E2 confirms the interior is exactly the line 5.2-2.5x (matches to ~1e-15), but shows negative outputs are replaced by -0.0 for x>=2.1, so I clamp the line at 0 instead of letting it go negative.",
+ "fit": 0.5,
+ "heldout": 0.63,
+ "matches": [
+  1.0,
+  0.95
+ ],
+ "made_at": 2
+}

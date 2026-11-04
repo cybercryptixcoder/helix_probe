@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I fixed the value at x=0: E2 shows f(0) = -5401.17, not the positive-branch intercept -154.8. The two linear branches for x>0 and x<0 already match all evidence, so only the zero point needed correcting.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 256, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I changed the region from `[-2, 2]` with clamping to `[-2.1, 2.08]` with no clamping: E4 shows the formula holds at -2.1 (10.45) and 2.1 (-0.05, not clamped), and drops to exactly 0 just outside those boundaries.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 189, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 0.7}

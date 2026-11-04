@@ -41,3 +41,15 @@ Helix Probe on 'find_numeric_f00794': 0 experiments so far, model v0, held-out s
       model v18: fit 20% (was 20%), mean match 0.48 (was 0.48), held-out 0%
 [21] E21 Is the base region outside the elevated bands truly random noise (fresh eac...(+141 chars)  model v18 match 0.05
       revision rejected: mean match 0.43 < 0.46
+      revision rejected: mean match 0.41 < 0.46
+[22] E22 Is the base region's noise truly independent per call (fresh random draw ea...(+194 chars)  model v18 match 0.75
+      revision rejected: mean match 0.46 < 0.47
+      revision rejected: mean match 0.45 < 0.47
+[23] E23 Is the base region's noise independent per call (so repeated identical x va...(+171 chars)  model v18 match 0.25
+      revision rejected: mean match 0.41 < 0.46
+      revision rejected: mean match 0.46 < 0.46
+[24] E24 Is the base-region noise truly fresh/independent per call at every x (inclu...(+124 chars)  model v18 match 0.10
+      revision rejected: mean match 0.39 < 0.45
+      revision rejected: mean match 0.43 < 0.45
+[25] E25 What happens in the narrow gap between the negative band's right edge (near...(+131 chars)  model v18 match 1.00
+{"env": "find_numeric_f00794", "experiments": 25, "model_version": 18, "fit": 0.2, "heldout": 0.0, "llm_calls": 53, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

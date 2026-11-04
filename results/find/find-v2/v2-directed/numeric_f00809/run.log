@@ -1,0 +1,97 @@
+Helix Probe v2 on 'find_numeric_f00809': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Does f behave like a simple, smooth function across the ordinary input rang...(+52 chars)  (v0 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (96 vs 33 chars)
+      updater's model not kept: same scores and not smaller (76 vs 33 chars)
+[2] E2 Is the output essentially random noise (no reproducible dependence on x), o...(+73 chars)  (v0 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (96 vs 33 chars)
+      model v1 by the updater: exam 0.03, fit 0.03, size 110 (exam 0.000 -> 0.025); held-out 0%
+[3] E3 Does f(x) depend reproducibly on x, and if so what is its shape, by samplin...(+108 chars)  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 0.05, fit 0.02, size 128 (exam 0.025 -> 0.050); held-out 0%
+[4] E4 Do the outputs depend on x at all, or are they pure noise, when the same sm...(+70 chars)  (v2 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+[5] E5 Are the outputs actually independent of x, or does repeating a fine grid of...(+141 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[6] E6 Does the output depend on the sign of x (i.e., is there an asymmetry betwee...(+104 chars)  (v2 predicted it: match 0.10)
+      updater's model not kept: its fit is 0.017, the current model's is 0.033
+      theorist (every 6 steps)
+[7] E7 Does f depend reproducibly on x at all, tested by repeating a small set of ...(+183 chars)  (v2 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (updater stalled)
+[8] E8 Is the output truly independent of x, or does a fine grid with many repeats...(+116 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      updater's model not kept: its fit is 0.019, the current model's is 0.031
+[9] E9 Do outputs cluster per-x when the same x is repeated many times at larger o...(+135 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[10] E10 Does the output depend on the magnitude of x in a smooth, reproducible way ...(+149 chars)  (v2 predicted it: match 0.00)
+      updater: keep
+[11] E11 Do repeated identical x values ever give clustered outputs at very small ma...(+144 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its fit is 0.023, the current model's is 0.032
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[12] E12 Does the output depend on x when we sample a dense sweep of distinct ordina...(+117 chars)  (v2 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[13] E13 Is the output at each x actually a deterministic value corrupted by small n...(+224 chars)  (v2 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[14] E14 Do outputs at the same x have a stable, nonzero per-x mean (deterministic s...(+141 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its fit is 0.018, the current model's is 0.029
+      updater's model not kept: its fit is 0.021, the current model's is 0.029
+[15] E15 Does the output at a given x have a stable per-x mean that depends on x (de...(+177 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[16] E16 Does the output at a given x have a stable nonzero mean that varies with x,...(+151 chars)  (v2 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+[17] E17 Is the output at each x a deterministic value plus small noise, or pure noi...(+166 chars)  (v2 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[18] E18 Does the output have any reproducible dependence on x at all, tested by tak...(+106 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[19] E19 Does the output have a reproducible dependence on x when we average many re...(+173 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater: keep
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[20] E20 Is there a hidden interval (e.g. a small-magnitude region) where f behaves ...(+187 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 0.05, fit 0.03, size 126 (fit 0.028 -> 0.030); held-out 0%
+[21] E21 Is there a deterministic dependence on x at all, tested by averaging many r...(+126 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+[22] E22 Is the output at a given x a deterministic function of x (with bounded nois...(+153 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      updater's model not kept: its exam is 0.000, the current model's is 0.050
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.050
+[23] E23 Does the output depend on x in a structured way at all, tested by taking ma...(+183 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.050
+      model v4 by the updater: exam 0.08, fit 0.01, size 110 (exam 0.050 -> 0.075); held-out 0%
+[24] E24 Does f depend on x at all, or is every output pure bounded noise — tested b...(+226 chars)  (v4 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.025, the current model's is 0.075
+      updater's model not kept: its exam is 0.000, the current model's is 0.075
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.075
+[25] E25 Is the output at a fixed ordinary x actually a deterministic value plus sma...(+160 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.075
+      updater's model not kept: its exam is 0.000, the current model's is 0.075
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.075
+{"env": "find_numeric_f00809", "experiments": 25, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 0.07500000000000001, "fit": 0.014000000000000002, "size": 110, "heldout": 0.0, "llm_calls": 87, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

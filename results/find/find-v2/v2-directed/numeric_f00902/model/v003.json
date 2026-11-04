@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I extended the special interval's boundaries: E4 shows x=97.6 and x=110.75 both return ~7772.9, while E3 shows x=97.5 uses the main formula, so the interval is [97.6, 110.75] rather than [98, 110].", "exam": 1.0, "fit": 0.94375, "fit_exact": 0.5, "size": 279, "matches": [1.0, 0.9, 0.875, 1.0], "made_at": 4, "heldout": 0.75}

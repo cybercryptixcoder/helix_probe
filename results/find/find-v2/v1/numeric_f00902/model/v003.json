@@ -1,0 +1,22 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f has a smooth dip centered near x=0.25 with minimum about -48.84, not a flat plateau [E1, E2]",
+  "The dip is roughly parabolic: values rise on both sides of x\u22480.25, reaching about -45.4 at x=-1.5 and -41.4 at x=1.5 [E2]",
+  "For x \u2265 2, f grows super-exponentially, passing through f(2)=-32.2, f(4)=65, f(8)=751, f(16)=5839, f(32)=44854, f(64)=350057, f(128)=2763727 [E1]",
+  "For x \u2264 -8, f grows negatively, through f(-8)=-554, f(-16)=-4759, f(-32)=-40241, f(-128)=-2688458 [E1]",
+  "The positive branch grows faster than the negative branch (asymmetry) [E1]",
+  "Between x=2 and x=4 the function rises smoothly and monotonically, roughly linearly in log|y| near the zero crossing, with f(2.25)=-25.75, f(2.5)=-17.91, f(2.75)=-8.57, f(3.25)=15.12, f(3.5)=29.71, f(3.75)=46.30 [E3]",
+  "The positive branch is well modeled by log|y| interpolated linearly between anchors, since f(3)=2.4 sits between the E3 samples consistently with that [E1, E3]",
+  "The exact shape in the negative transition region (-8 < x < -2) is uncertain but roughly linear between anchors [E1]?"
+ ],
+ "notes": "E3 showed the positive transition is much steeper than my log-interpolation predicted; I added E3 anchors (2.25..3.75) to the positive log-interpolation so the curve passes through them, and kept the log-linear interpolation form which now matches both E1 and E3 anchors.",
+ "fit": 1.0,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 3
+}

@@ -1,0 +1,24 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f has a smooth dip centered near x=0.25 with minimum about -48.84, asymmetric curvature (steeper on the right) [E1, E2, E4]",
+  "The dip is parabolic: left curvature ~1.12, right curvature ~4.74, giving f(-1.5)=-45.4 and f(1.5)=-41.4 [E2, E4]",
+  "For x >= 2, f grows super-exponentially through f(2)=-32.2, f(4)=65, f(8)=751, f(16)=5839, f(32)=44854, f(64)=350057, f(128)=2763727 [E1]",
+  "For x <= -8, f grows negatively through f(-8)=-554, f(-16)=-4759, f(-32)=-40241, f(-128)=-2688458 [E1]",
+  "The positive branch grows faster than the negative branch (asymmetry) [E1]",
+  "Between x=2 and x=4 the function rises smoothly and monotonically, well modeled by log|y| linear interpolation between anchors [E3]",
+  "In the negative transition region (-8 < x < -2), f is smooth and convex, not linear: f(-7.5)=-455.66, f(-6)=-237, f(-4.5)=-113.29, f(-3)=-58.2, f(-2.25)=-48.16 [E5]",
+  "The negative transition is well fit by log|y| interpolation between dense anchors from E5 [E5]"
+ ],
+ "notes": "Replaced the linear interpolation in the negative transition region (-8,-2) with log|y| interpolation using the dense E5 anchors, which fixes the 0.42 match; the near-zero dip and positive branch already matched E2-E4.",
+ "fit": 1.0,
+ "heldout": 0.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 5
+}

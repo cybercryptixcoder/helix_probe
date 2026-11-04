@@ -1,0 +1,56 @@
+Helix Probe on 'find_numeric_f00809': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does the function look like at a broad, evenly spaced set of inputs ac...(+130 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.05 (was 0.00), held-out 0%
+[2] E2 Is f actually a smooth function sampled at these sparse points, or does it ...(+201 chars)  model v1 match 0.00
+      model v2: fit 0% (was 0%), mean match 0.03 (was 0.03), held-out 0%
+[3] E3 Are outputs exactly reproducible for the same inputs (deterministic), and d...(+95 chars)  model v2 match 0.05
+      model v3: fit 0% (was 0%), mean match 0.03 (was 0.03), held-out 0%
+[4] E4 Is the apparent randomness in f's output truly stochastic, or is it determi...(+267 chars)  model v3 match 0.00
+      revision rejected: mean match 0.01 < 0.03
+      revision rejected: mean match 0.00 < 0.03
+[5] E5 Does the distribution of f's outputs depend on the input at all — specifica...(+95 chars)  model v3 match 0.10
+      model v4: fit 0% (was 0%), mean match 0.05 (was 0.04), held-out 0%
+[6] E6 Are outputs truly independent across different inputs, or is there any stru...(+97 chars)  model v4 match 0.00
+      revision rejected: mean match 0.01 < 0.04
+      revision rejected: mean match 0.03 < 0.04
+[7] E7 Is f's output truly random for the same input, or could the apparent random...(+231 chars)  model v4 match 0.00
+      revision rejected: mean match 0.01 < 0.04
+      revision rejected: mean match 0.02 < 0.04
+[8] E8 Is the output distribution truly the same for every input (i.i.d. noise aro...(+159 chars)  model v4 match 0.00
+      model v5: fit 0% (was 0%), mean match 0.10 (was 0.03), held-out 0%
+[9] E9 Is the constant-output behavior at x=-100 (and near -128) a property of a w...(+215 chars)  model v5 match 0.25
+      model v6: fit 11% (was 0%), mean match 0.21 (was 0.12), held-out 0%
+[10] E10 Where exactly is the boundary between the deterministic far-negative region...(+92 chars)  model v6 match 0.25
+      model v7: fit 10% (was 10%), mean match 0.23 (was 0.21), held-out 0%
+[11] E11 Where exactly does the deterministic far-negative region end? I'll probe a ...(+217 chars)  model v7 match 0.00
+      model v8: fit 9% (was 9%), mean match 0.24 (was 0.21), held-out 0%
+[12] E12 Is the deterministic region's output really constant at each x (as E8 sugge...(+172 chars)  model v8 match 0.65
+      model v9: fit 8% (was 8%), mean match 0.27 (was 0.27), held-out 0%
+[13] E13 Does the deterministic region extend below -128 (i.e., is the smooth curve'...(+162 chars)  model v9 match 1.00
+[14] E14 Does the deterministic smooth region continue unchanged above -79 (i.e., is...(+167 chars)  model v9 match 0.75
+      revision rejected: mean match 0.30 < 0.36
+      revision rejected: mean match 0.32 < 0.36
+[15] E15 Is the stochastic region's output distribution really centered at 0 with st...(+151 chars)  model v9 match 0.00
+      revision rejected: mean match 0.29 < 0.33
+      revision rejected: mean match 0.29 < 0.33
+[16] E16 Is the deterministic region's output truly constant across repeats at a mid...(+189 chars)  model v9 match 1.00
+[17] E17 Is the stochastic region's output distribution really centered at 0 with st...(+184 chars)  model v9 match 0.00
+      revision rejected: mean match 0.35 < 0.35
+      revision rejected: mean match 0.34 < 0.35
+[18] E18 Is the deterministic region's smooth curve exactly reproducible at fine-gra...(+192 chars)  model v9 match 0.50
+      model v10: fit 17% (was 17%), mean match 0.38 (was 0.36), held-out 0%
+[19] E19 Is the boundary between the deterministic region and the stochastic region ...(+189 chars)  model v10 match 0.80
+      model v11: fit 21% (was 16%), mean match 0.40 (was 0.40), held-out 0%
+[20] E20 Where exactly does the deterministic region end — is the boundary at -78.7,...(+152 chars)  model v11 match 0.50
+      model v12: fit 20% (was 20%), mean match 0.41 (was 0.41), held-out 0%
+[21] E21 Where exactly is the deterministic/stochastic boundary between -78.7 and -7...(+141 chars)  model v12 match 0.25
+      model v13: fit 19% (was 19%), mean match 0.42 (was 0.40), held-out 0%
+[22] E22 Is the deterministic region's smooth curve really smooth and monotone all t...(+126 chars)  model v13 match 1.00
+[23] E23 Is the stochastic region's output distribution truly centered at 0 with std...(+102 chars)  model v13 match 0.10
+      model v14: fit 22% (was 22%), mean match 0.43 (was 0.43), held-out 0%
+[24] E24 Is the stochastic region's distribution truly independent and identically d...(+220 chars)  model v14 match 0.05
+      model v15: fit 21% (was 21%), mean match 0.43 (was 0.42), held-out 0%
+[25] E25 Is the stochastic region's output distribution really identical at every x ...(+222 chars)  model v15 match 0.10
+      revision rejected: mean match 0.40 < 0.42
+      revision rejected: mean match 0.41 < 0.42
+{"env": "find_numeric_f00809", "experiments": 25, "model_version": 15, "fit": 0.2, "heldout": 0.0, "llm_calls": 55, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is 0 for x <= -4 and for x >= 4 [E1]",
+  "f(x) is nonzero only on the interval (-4, 4) [E1]",
+  "On (-4, 4), f decreases roughly linearly from about 10.2 at x=-2 to about 0.2 at x=2, crossing zero near x=2 [E1]",
+  "f(0)=5.2, f(-0.5)=6.45, f(0.5)=3.95, f(1)=2.7, f(2)=0.2 suggest a line with slope about -2.5 and intercept about 5.2 [E1]",
+  "Exact behavior near the boundaries x=-4 and x=4, and whether the interior is exactly linear, is uncertain?"
+ ],
+ "notes": "First model: zero outside (-4,4), linear ramp inside with slope ~-2.5 and intercept ~5.2, clamped to 0 at the edges. Boundary behavior and exact linearity need more probes.",
+ "fit": 1.0,
+ "heldout": 0.63,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

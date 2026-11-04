@@ -1,0 +1,53 @@
+Helix Probe v2 on 'find_numeric_f00902': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Sample the function across a broad spread of typical inputs to learn its ov...(+55 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.93, fit 1.00, size 331 (exam 0.000 -> 0.925); held-out 56%
+[2] E2 Where exactly does the special interval around x=100 begin and end, and wha...(+27 chars)  (v1 predicted it: match 0.70)
+      model v2 by the updater: exam 1.00, fit 0.95, size 274 (exam 0.925 -> 1.000); held-out 72%
+[3] E3 Does the special interval's value depend on x at all (is it a true noisy co...(+133 chars)  (v2 predicted it: match 0.81)
+      updater's model not kept: same scores and not smaller (274 vs 274 chars)
+      updater's model not kept: same scores and not smaller (274 vs 274 chars)
+[4] E4 Is the special interval's constant value exactly 7772.9 or does it have a s...(+125 chars)  (v2 predicted it: match 0.62)
+      model v3 by the updater: exam 1.00, fit 0.94, size 279 (fit 0.834 -> 0.944); held-out 75%
+[5] E5 Does the main cubic formula hold exactly near the special interval boundari...(+201 chars)  (v3 predicted it: match 0.50)
+      model v4 by the updater: exam 1.00, fit 0.93, size 279 (fit 0.855 -> 0.926); held-out 77%
+[6] E6 Are the special-interval boundaries exactly at 97.5 and 111 (i.e., does the...(+121 chars)  (v4 predicted it: match 0.60)
+      model v5 by the updater: exam 1.00, fit 0.96, size 281 (fit 0.872 -> 0.963); held-out 83%
+      theorist (every 6 steps)
+      model v6 by the theorist: exam 1.00, fit 1.00, size 307 (fit 0.963 -> 1.000); held-out 91%
+[7] E7 Where exactly is the upper boundary of the special interval (between 110.75...(+156 chars)  (v6 predicted it: match 1.00)
+[8] E8 Do the exact boundaries sit at 97.5 and 111 (cubic at 97.5, constant just a...(+142 chars)  (v6 predicted it: match 1.00)
+[9] E9 Does the cubic formula hold exactly at ordinary points just outside the spe...(+132 chars)  (v6 predicted it: match 1.00)
+[10] E10 Does the cubic formula hold exactly at ordinary points just outside the spe...(+179 chars)  (v6 predicted it: match 0.95)
+      updater's model not kept: its fit is 0.843, the current model's is 0.995
+      updater's model not kept: its fit is 0.843, the current model's is 0.995
+[11] E11 Does the cubic formula continue to hold exactly for large positive x beyond...(+91 chars)  (v6 predicted it: match 0.93)
+      updater's model not kept: its fit is 0.851, the current model's is 0.989
+      updater's model not kept: its fit is 0.851, the current model's is 0.989
+      theorist (updater stalled)
+      model v7 by the theorist: exam 1.00, fit 1.00, size 405 (fit 0.989 -> 1.000); held-out 99%
+[12] E12 Is the upper boundary of the flat interval exactly 111 (cubic at 111, flat ...(+107 chars)  (v7 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.857, the current model's is 1.000
+[13] E13 Is the flat interval's value a true constant across the whole interval, or ...(+115 chars)  (v7 predicted it: match 1.00)
+[14] E14 Is the flat interval's upper boundary exactly at 111 (with 111 itself flat)...(+113 chars)  (v7 predicted it: match 1.00)
+[15] E15 Is the flat plateau's value truly constant at 7773, or does it follow a det...(+138 chars)  (v7 predicted it: match 1.00)
+[16] E16 Is the upper boundary of the flat interval exactly 111 (flat at 111, cubic ...(+120 chars)  (v7 predicted it: match 1.00)
+[17] E17 Does the cubic formula hold exactly at ordinary points well inside the nega...(+194 chars)  (v7 predicted it: match 1.00)
+[18] E18 Is the flat interval's upper boundary actually at 117.5 (as the model guess...(+100 chars)  (v7 predicted it: match 0.90)
+      model v8 by the updater: exam 1.00, fit 1.00, size 406 (fit 0.994 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+[19] E19 Where exactly is the upper boundary of the flat interval between 117.52 and...(+106 chars)  (v8 predicted it: match 0.85)
+      model v9 by the updater: exam 1.00, fit 1.00, size 408 (fit 0.992 -> 1.000); held-out 100%
+[20] E20 Is the lower boundary of the flat interval exactly 97.5 (cubic at 97.5, fla...(+145 chars)  (v9 predicted it: match 1.00)
+[21] E21 Is the boundary exactly at 117.5625 (the model's current guess), and does t...(+131 chars)  (v9 predicted it: match 0.65)
+      model v10 by the updater: exam 1.00, fit 1.00, size 408 (fit 0.983 -> 1.000); held-out 100%
+[22] E22 Is the upper boundary of the flat interval exactly 117.5639 (the model's cu...(+144 chars)  (v10 predicted it: match 0.95)
+      model v11 by the updater: exam 1.00, fit 1.00, size 410 (fit 0.998 -> 1.000); held-out 100%
+[23] E23 Is the flat interval's upper boundary exactly at 117.56388 (flat at 117.563...(+103 chars)  (v11 predicted it: match 0.85)
+      updater's model not kept: same scores and not smaller (410 vs 410 chars)
+      updater's model not kept: same scores and not smaller (410 vs 410 chars)
+[24] E24 Does the cubic formula hold exactly at ordinary points immediately outside ...(+161 chars)  (v11 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (447 vs 410 chars)
+[25] E25 Is the flat plateau value truly a constant 7773, or does it have a small de...(+176 chars)  (v11 predicted it: match 1.00)
+{"env": "find_numeric_f00902", "experiments": 25, "exam_probes": 4, "model_version": 11, "model_role": "updater", "exam": 1.0, "fit": 0.9940000000000001, "size": 410, "heldout": 1.0, "llm_calls": 47, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "Outputs are small, roughly in [-0.25, 0.13], and appear pseudo-random at every scale probed so far [E1, E2].",
+  "No smoothness: adjacent inputs 0.25 apart give wildly different values, so f is not a low-order polynomial or smooth function [E2].",
+  "No obvious symmetry or periodicity detectable from the samples [E1, E2].",
+  "The exact generating rule is still unknown; a deterministic hash-like function is the best current guess [E1, E2]."
+ ],
+ "notes": "Confirmed the hash-like/noise hypothesis: dense sampling around 0 shows no smoothness, so I kept the pseudo-random model and only re-tuned the output range to match observed [-0.25, 0.13].",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.05,
+  0.0
+ ],
+ "made_at": 2
+}

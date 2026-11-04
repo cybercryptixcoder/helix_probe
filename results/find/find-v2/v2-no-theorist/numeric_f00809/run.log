@@ -1,0 +1,69 @@
+Helix Probe v2 on 'find_numeric_f00809': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 Is f(x) roughly an odd function of x (i.e., does f(-x) ≈ -f(x)) across typi...(+106 chars)  (v0 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (96 vs 33 chars)
+      updater's model not kept: same scores and not smaller (116 vs 33 chars)
+[3] E3 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.03, fit 0.03, size 244 (exam 0.000 -> 0.025); held-out 0%
+[4] E4 Does f depend on x only through its magnitude and sign in a simple way, or ...(+186 chars)  (v1 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+[5] E5 a random ordinary probe  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 0.08, fit 0.00, size 256 (exam 0.025 -> 0.075); held-out 0%
+[6] E6 Do nearby inputs give similar outputs (smooth, low-frequency structure) or ...(+119 chars)  (v2 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (256 vs 256 chars)
+      updater's model not kept: its exam is 0.025, the current model's is 0.075
+[7] E7 a random ordinary probe  (v2 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (256 vs 256 chars)
+[8] E8 Is f(x) actually a smooth, deterministic function of x at fine resolution, ...(+196 chars)  (v2 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.075
+      updater: keep
+[9] E9 a random ordinary probe  (v2 predicted it: match 0.00)
+      updater: keep
+[10] E10 Does f(x) have a simple low-frequency structure that can be exposed by samp...(+131 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 0.33, fit 0.10, size 388 (exam 0.075 -> 0.325); held-out 0%
+[11] E11 a random ordinary probe  (v3 predicted it: match 0.20)
+      updater's model not kept: its exam is 0.275, the current model's is 0.325
+      model v4 by the updater: exam 0.35, fit 0.12, size 375 (exam 0.325 -> 0.350); held-out 0%
+[12] E12 For x in the ordinary range just above the -80 boundary (e.g., -79 to -60),...(+145 chars)  (v4 predicted it: match 0.00)
+      model v5 by the updater: exam 0.35, fit 0.12, size 375 (fit 0.109 -> 0.122); held-out 0%
+[13] E13 a random ordinary probe  (v5 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+[14] E14 Is the output at a given x reproducible across repeated calls, or does the ...(+88 chars)  (v5 predicted it: match 0.15)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+[15] E15 a random ordinary probe  (v5 predicted it: match 0.30)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+[16] E16 Is the ordinary-range output actually a deterministic function of x (same x...(+137 chars)  (v5 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+[17] E17 a random ordinary probe  (v5 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+[18] E18 Is the ordinary-range output a deterministic function of x, or does it vary...(+113 chars)  (v5 predicted it: match 0.07)
+      updater's model not kept: its fit is 0.107, the current model's is 0.115
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+[19] E19 a random ordinary probe  (v5 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+[20] E20 Is the small positive ramp for x <= -80 truly deterministic and does the 'o...(+152 chars)  (v5 predicted it: match 0.60)
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+[21] E21 a random ordinary probe  (v5 predicted it: match 0.20)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+[22] E22 Does the ordinary-range output depend on x in a smooth low-frequency way (e...(+142 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+[23] E23 a random ordinary probe  (v5 predicted it: match 0.30)
+      updater's model not kept: same scores and not smaller (437 vs 375 chars)
+      updater's model not kept: same scores and not smaller (375 vs 375 chars)
+[24] E24 Is the ordinary-regime output reproducible for identical x values (determin...(+150 chars)  (v5 predicted it: match 0.15)
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+      updater's model not kept: its exam is 0.325, the current model's is 0.350
+[25] E25 a random ordinary probe  (v5 predicted it: match 0.40)
+      updater's model not kept: its exam is 0.300, the current model's is 0.350
+      updater's model not kept: its exam is 0.275, the current model's is 0.350
+{"env": "find_numeric_f00809", "experiments": 25, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 0.35, "fit": 0.1550877192982456, "size": 375, "heldout": 0.0, "llm_calls": 57, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

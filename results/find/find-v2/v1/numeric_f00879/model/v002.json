@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) is very noisy: outputs at nearby x differ wildly, so exact values can't be predicted [E1, E2]",
+  "The scatter is real noise, not undersampling: fine sampling in [-2,2.75] shows jumps as large as coarse sampling [E2]",
+  "There is a weak positive trend for x>0 and slightly negative for x<0, but noise dominates [E1]",
+  "No clear special interval is evident yet; behavior looks noisy throughout [E1, E2]"
+ ],
+ "notes": "Confirmed noise is real at fine scale (E2), so kept the noisy-trend model; no special interval found yet, so I'll probe a wider range to check for structure.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.05,
+  0.0
+ ],
+ "made_at": 2
+}

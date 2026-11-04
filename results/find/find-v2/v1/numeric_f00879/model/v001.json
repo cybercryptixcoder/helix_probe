@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is noisy: outputs at nearby x are not smooth, so exact values can't be predicted [E1]",
+  "f(x) is not a simple monotone function; values jump around across the domain [E1]",
+  "f(x) appears to have a rough positive trend for x>0 and negative for x<0, but with large scatter [E1]",
+  "No clear special interval is evident yet; behavior looks noisy throughout [E1]"
+ ],
+ "notes": "Only one broad probe so far with noisy outputs; I'll model f as a noisy function with a weak trend and add explicit noise, keeping the door open for a special interval once more data arrives.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.05
+ ],
+ "made_at": 1
+}

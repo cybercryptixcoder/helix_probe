@@ -1,0 +1,50 @@
+Helix Probe v2 on 'find_numeric_f00871': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 63 (exam 0.000 -> 1.000); held-out 55%
+[2] E2 Does f(x) return exactly 0 over the whole ordinary domain, or is there any ...(+90 chars)  (v1 predicted it: match 0.65)
+      model v2 by the updater: exam 1.00, fit 1.00, size 195 (fit 0.825 -> 1.000); held-out 70%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Where exactly does the nonzero region end, and is the function linear all t...(+66 chars)  (v2 predicted it: match 0.95)
+      model v3 by the updater: exam 1.00, fit 0.99, size 194 (same scores, smaller (195 -> 194 chars)); held-out 70%
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 Is the nonzero interval exactly symmetric around 0 with the same linear for...(+132 chars)  (v3 predicted it: match 0.95)
+      updater's model not kept: same scores and not smaller (194 vs 194 chars)
+      model v4 by the updater: exam 1.00, fit 1.00, size 139 (fit 0.983 -> 1.000); held-out 70%
+[7] E7 a random ordinary probe  (v4 predicted it: match 1.00)
+[8] E8 Is the function exactly linear inside |x|<=2.1 across the whole interval (n...(+129 chars)  (v4 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v4 predicted it: match 0.90)
+      model v5 by the updater: exam 1.00, fit 1.00, size 250 (fit 0.989 -> 1.000); held-out 70%
+[10] E10 What is the exact shape and width of the nonzero spike near x=-79.1 — is it...(+82 chars)  (v5 predicted it: match 0.00)
+      model v6 by the updater: exam 1.00, fit 0.92, size 248 (fit 0.900 -> 0.915); held-out 70%
+[11] E11 a random ordinary probe  (v6 predicted it: match 1.00)
+[12] E12 Is the noisy band near x=-79 a genuine continuous noisy region (nonzero ove...(+76 chars)  (v6 predicted it: match 0.30)
+      updater's model not kept: same scores and not smaller (248 vs 248 chars)
+      updater's model not kept: same scores and not smaller (248 vs 248 chars)
+[13] E13 a random ordinary probe  (v6 predicted it: match 1.00)
+[14] E14 Is the noisy band near x=-79 actually a broad region extending from about -...(+139 chars)  (v6 predicted it: match 0.40)
+      model v7 by the updater: exam 1.00, fit 0.85, size 248 (fit 0.846 -> 0.854); held-out 71%
+[15] E15 a random ordinary probe  (v7 predicted it: match 0.80)
+      updater's model not kept: its fit is 0.847, the current model's is 0.850
+      updater's model not kept: its fit is 0.843, the current model's is 0.850
+[16] E16 Is the noisy band around x=-79 real, and what are its exact edges? Sample a...(+125 chars)  (v7 predicted it: match 0.20)
+      updater's model not kept: same scores and not smaller (248 vs 248 chars)
+      updater's model not kept: same scores and not smaller (248 vs 248 chars)
+[17] E17 a random ordinary probe  (v7 predicted it: match 1.00)
+[18] E18 Does the noisy nonzero region extend continuously from about -86 to -77.5 (...(+143 chars)  (v7 predicted it: match 0.40)
+      updater's model not kept: same scores and not smaller (248 vs 248 chars)
+      updater's model not kept: its fit is 0.789, the current model's is 0.797
+[19] E19 a random ordinary probe  (v7 predicted it: match 1.00)
+[20] E20 Is the noisy nonzero region a single contiguous interval from about -87 (or...(+99 chars)  (v7 predicted it: match 0.15)
+      updater's model not kept: its fit is 0.765, the current model's is 0.775
+      updater's model not kept: its fit is 0.765, the current model's is 0.775
+[21] E21 a random ordinary probe  (v7 predicted it: match 1.00)
+[22] E22 Is the noisy nonzero region a single contiguous interval, and where exactly...(+64 chars)  (v7 predicted it: match 0.25)
+      updater's model not kept: same scores and not smaller (248 vs 248 chars)
+      updater's model not kept: its fit is 0.750, the current model's is 0.761
+[23] E23 a random ordinary probe  (v7 predicted it: match 1.00)
+[24] E24 Does the noisy nonzero band extend left of -88, and is the right edge exact...(+51 chars)  (v7 predicted it: match 0.80)
+      model v8 by the updater: exam 1.00, fit 0.78, size 249 (fit 0.773 -> 0.775); held-out 70%
+[25] E25 a random ordinary probe  (v8 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (249 vs 249 chars)
+      updater's model not kept: its fit is 0.774, the current model's is 0.780
+{"env": "find_numeric_f00871", "experiments": 25, "exam_probes": 4, "model_version": 8, "model_role": "updater", "exam": 1.0, "fit": 0.78, "size": 249, "heldout": 0.7, "llm_calls": 35, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

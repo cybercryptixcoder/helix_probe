@@ -1,0 +1,25 @@
+{
+ "version": 6,
+ "beliefs": [
+  "For x in the far-negative interval [-128, ~-90], f is deterministic and smooth: outputs are constant across repeats and vary smoothly with x, e.g. 0.0046 at -128 rising to 0.0065 at -90 [E1, E5, E8, E9].",
+  "Outside that interval (x > ~-90), f is stochastic: identical inputs give different outputs, roughly symmetric around 0 with std ~0.1, range about [-0.25, 0.35] [E2, E3, E4, E6, E7, E8].",
+  "The far-negative deterministic region appears to be a smooth function of x, not a lookup: values increase monotonically from -128 to -90 [E9].",
+  "No smoothness or periodicity in the noisy region: nearby inputs give unrelated values [E2, E3, E6].",
+  "Exact form of the smooth far-negative function is unknown; a linear fit through the E9 points is a reasonable approximation, but the true shape (and the exact boundary of the deterministic interval) is uncertain [E9]?"
+ ],
+ "notes": "Replaced the point-lookup constants with a smooth deterministic model on the far-negative interval [-128,-90] (linear fit to E9), and kept i.i.d. noise elsewhere. The boundary and exact shape of the smooth region are still guesses.",
+ "fit": 0.1111111111111111,
+ "heldout": 0.0,
+ "matches": [
+  0.1,
+  0.0,
+  0.05,
+  0.0,
+  0.2,
+  0.0,
+  0.0,
+  0.5,
+  1.0
+ ],
+ "made_at": 9
+}

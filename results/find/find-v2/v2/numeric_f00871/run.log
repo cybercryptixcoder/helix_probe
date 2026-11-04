@@ -1,0 +1,60 @@
+Helix Probe v2 on 'find_numeric_f00871': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 63 (exam 0.000 -> 1.000); held-out 55%
+[2] E2 Does f ever produce a nonzero output, and does it behave differently somewh...(+84 chars)  (v1 predicted it: match 0.50)
+      updater's model not kept: its exam is 0.975, the current model's is 1.000
+      updater's model not kept: its exam is 0.975, the current model's is 1.000
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 1.00, size 214 (fit 0.800 -> 1.000); held-out 70%
+[4] E4 Where exactly does the nonzero interval end on the negative side, and does ...(+153 chars)  (v2 predicted it: match 0.75)
+      model v3 by the updater: exam 1.00, fit 1.00, size 189 (fit 0.938 -> 1.000); held-out 70%
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 Are the interval endpoints truly sharp cutoffs at -2.1 and 2.08, and is the...(+172 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.992, the current model's is 1.000
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Does the 'outside = 0' behavior hold exactly at the boundary values and jus...(+170 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 0.90)
+      model v4 by the updater: exam 1.00, fit 1.00, size 255 (fit 0.989 -> 1.000); held-out 70%
+[10] E10 What is the shape and width of the second nonzero region near x=-79.1 — is ...(+101 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (371 vs 255 chars)
+      updater's model not kept: same scores and not smaller (295 vs 255 chars)
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 Is the nonzero behavior near x=-79.1 a genuine second region of the functio...(+113 chars)  (v4 predicted it: match 0.55)
+      model v5 by the updater: exam 1.00, fit 0.88, size 400 (fit 0.879 -> 0.883); held-out 70%
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.875, the current model's is 0.883
+[13] E13 a random ordinary probe  (v5 predicted it: match 1.00)
+[14] E14 Is the noisy nonzero region near x=-79 a genuinely wide interval with rando...(+109 chars)  (v5 predicted it: match 0.15)
+      updater's model not kept: its fit is 0.829, the current model's is 0.839
+      updater's model not kept: its fit is 0.829, the current model's is 0.839
+[15] E15 a random ordinary probe  (v5 predicted it: match 0.80)
+      updater's model not kept: its fit is 0.827, the current model's is 0.837
+      updater's model not kept: its fit is 0.833, the current model's is 0.837
+      theorist (updater stalled)
+[16] E16 Is the second nonzero region's output deterministic (reproducible at repeat...(+94 chars)  (v5 predicted it: match 0.35)
+      updater's model not kept: its fit is 0.800, the current model's is 0.806
+      updater's model not kept: its fit is 0.803, the current model's is 0.806
+[17] E17 a random ordinary probe  (v5 predicted it: match 1.00)
+[18] E18 Is the noisy nonzero region near x=-79 actually a random-output region, or ...(+223 chars)  (v5 predicted it: match 0.15)
+      updater's model not kept: its fit is 0.769, the current model's is 0.781
+      updater's model not kept: its fit is 0.778, the current model's is 0.781
+      theorist (every 6 steps)
+[19] E19 a random ordinary probe  (v5 predicted it: match 1.00)
+[20] E20 Within the noisy region, is the output truly random at each call (irreprodu...(+145 chars)  (v5 predicted it: match 0.10)
+      updater's model not kept: its fit is 0.753, the current model's is 0.758
+      updater's model not kept: its fit is 0.755, the current model's is 0.758
+[21] E21 a random ordinary probe  (v5 predicted it: match 1.00)
+[22] E22 Does the noisy region's output depend on x at all, or is it independent ran...(+215 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: its fit is 0.725, the current model's is 0.736
+      updater's model not kept: its fit is 0.732, the current model's is 0.736
+      theorist (updater stalled)
+[23] E23 a random ordinary probe  (v5 predicted it: match 1.00)
+[24] E24 Is the noisy region's output reproducible for the same x across separate ca...(+77 chars)  (v5 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.706, the current model's is 0.717
+      updater's model not kept: its fit is 0.710, the current model's is 0.717
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v5 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.716, the current model's is 0.724
+      model v6 by the updater: exam 1.00, fit 0.72, size 288 (same scores, smaller (400 -> 288 chars)); held-out 70%
+{"env": "find_numeric_f00871", "experiments": 25, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 1.0, "fit": 0.7240000000000001, "size": 288, "heldout": 0.7, "llm_calls": 43, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

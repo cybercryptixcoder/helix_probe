@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00855': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do on a spread of ordinary inputs across the domain, especially...(+107 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 174 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Where exactly is the boundary of the special interval around zero, and is t...(+31 chars)  (v1 predicted it: match 1.00)
+[3] E3 Are the interval boundaries at exactly -4 and 4 (with f=26 for -4 < x < 4),...(+87 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the special interval behave the same way at finer resolution inside, a...(+100 chars)  (v1 predicted it: match 1.00)
+[5] E5 Where exactly does the transition from 25 to 26 occur on both sides of zero...(+126 chars)  (v1 predicted it: match 1.00)
+[6] E6 Where exactly, between -4 and -3.9 and between 3.9 and 4, does f switch fro...(+102 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (310 vs 174 chars)
+[7] E7 Where exactly does f switch from 26 to 25 on each side, probing the unteste...(+95 chars)  (v1 predicted it: match 1.00)
+[8] E8 Are the interior values of the special interval exactly flat 26 across the ...(+131 chars)  (v1 predicted it: match 1.00)
+[9] E9 Is the special interval actually bounded by the half-integers ±3.5 (i.e. f=...(+82 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00855", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 174, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

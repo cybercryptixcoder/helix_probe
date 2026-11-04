@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f(x) = 0 exactly for x <= -4 and for x >= 4 [E1, E3]",
+  "On (-4, 4) f is a decreasing straight line f(x) = 5.2 - 2.5x [E1, E2]",
+  "The line crosses zero at x = 2.08, so f is positive on (-4, 2.08) and negative on (2.08, 4) [E2]",
+  "For x > 2.08 the line's negative values are clamped to 0 (max(0, ...)), giving -0.0 [E2, E3]",
+  "At x = 2.09 the observed value is -0.025, matching the line (5.2 - 2.5*2.09 = -0.025), so the clamp is not active there [E3]",
+  "The clamp appears to switch on only slightly above 2.09, not exactly at the zero crossing; the exact threshold between 2.09 and 2.1 is uncertain? [E2, E3]"
+ ],
+ "notes": "E3 shows x=2.09 gives -0.025 (the raw line value, not clamped), while x=2.1 gives -0.0. So the clamp threshold is between 2.09 and 2.1, not at the zero crossing 2.08. I keep the line and zero regions, and clamp to 0 only for x above ~2.095.",
+ "fit": 0.6666666666666666,
+ "heldout": 0.63,
+ "matches": [
+  1.0,
+  0.95,
+  1.0
+ ],
+ "made_at": 3
+}
