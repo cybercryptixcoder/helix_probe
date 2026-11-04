@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00795': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to a plain lowercase word, a capitalized word, a word ...(+131 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 466 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the last-character shift wrap around the alphabet (y->a, z->b) or satu...(+128 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the +2 shift apply to the last character when it is a digit or symbol,...(+148 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the inserted '2' position depend on floor(len/2) even when the string ...(+154 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the +2 shift apply to the last character when it is a letter at the en...(+175 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the inserted '2' go before or after the middle character when the stri...(+152 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (631 vs 466 chars)
+[7] E7 Does the +2 shift apply to the last character when it is a letter that is a...(+205 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the +2 shift apply to the last character when the string ends in a let...(+162 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the +2 shift on the final letter wrap correctly for uppercase letters ...(+162 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00795", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 466, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

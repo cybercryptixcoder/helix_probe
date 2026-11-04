@@ -1,0 +1,27 @@
+{
+ "version": 9,
+ "beliefs": [
+  "The first character is shifted backward by 2 in the alphabet (a->y, b->z, ..., z->x; A->Y, ..., Z->X) [E7, E8, E9, E10]",
+  "All characters after the first are left unchanged, including letters, digits, spaces, and symbols [E1, E4, E5, E6, E7, E8]",
+  "If the first character is not an ASCII letter (digit, space, symbol, control char), it is left unchanged [E1, E11]",
+  "Non-ASCII accented letters are also shifted backward by 2 within their own case block (\u00e9->\u00e7, \u00c9->\u00c7, \u00fc->\u00fa, \u00df->\u00dd, \u00f1->\u00ef) [E11]",
+  "Empty string returns empty string [E1]"
+ ],
+ "notes": "E11 shows non-ASCII accented letters are shifted by 2 within their Unicode case block, not left unchanged; I added a fallback that shifts any alphabetic first char backward by 2 within its case, keeping ASCII behavior identical so E1-E10 still match.",
+ "fit": 0.9090909090909091,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9
+ ],
+ "made_at": 11
+}

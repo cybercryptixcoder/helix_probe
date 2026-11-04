@@ -1,0 +1,25 @@
+{
+ "env": "find_strings_f00751",
+ "experiments": 25,
+ "model_version": 17,
+ "fit": 0.2,
+ "heldout": 0.58,
+ "llm_calls": 49,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f strips leading and trailing spaces and tabs from the input [E3, E4, E5, E6]",
+  "Empty stripped result yields 'i' [E1, E3, E5]",
+  "Internal whitespace is preserved; only leading/trailing whitespace is stripped [E4]",
+  "For strings with no leading whitespace, insertion index is len(stripped)//2 (floor) [E1, E2, E7, E8]",
+  "For strings with no leading whitespace but trailing whitespace, index is (len(stripped)+1)//2 rounded up [E3, E6, E17]",
+  "For leading-whitespace strings, index = abs(orig_len//2 - lead_ws), clamped to [0, len(stripped)] [E14, E15, E16, E18, E19, E20, E21, E22]",
+  "E24 shows '  a'->'i a' (index 0 on stripped 'a' would give 'ia', so index must be 0 but a space appears) \u2014 this is the persistent anomaly for single-char stripped strings with lead_ws=2 [E23, E24]",
+  "For '  a' the observed 'i a' cannot come from inserting into stripped 'a'; it looks like the space is preserved, suggesting the strip keeps some leading whitespace in this case, but '  ab'->'iab' shows no space kept, so the rule depends on stripped length [E18, E23, E24]",
+  "Best fit for E24: with lead_ws=2, index on stripped = max(0, len(stripped)//2 - 1) for len>=2 (gives 0,0,1,1,2,2,3 for len 2..8), matching 'iab','iabc','aibcd','aibcde','abicdef','abicdefg','abcidefgh' [E24]",
+  "For '  a' (len 1) the formula gives index 0 -> 'ia', but observed 'i a'; special-case single-char stripped with lead_ws>=2 to keep one space? [E18, E23, E24]?"
+ ]
+}

@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00898': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do to ordinary short strings: identity, case change, reversal, ...(+18 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 265 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the insertion point depend on character content (digits, spaces, punct...(+83 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the insertion point really depend only on length (floor(len/2)) for ev...(+99 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the insertion point floor(len/2) hold for longer ordinary strings (len...(+138 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the insertion point depend only on length when the midpoint falls righ...(+131 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the insertion point floor(len/2) hold for longer ordinary strings of l...(+144 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v2 by the theorist: exam 1.00, fit 1.00, size 208 (same scores, smaller (265 -> 208 chars)); held-out 100%
+[7] E7 Does the rule hold for ordinary single words and short phrases of lengths n...(+164 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the 'insert f at floor(len/2) then duplicate last char' rule hold for ...(+171 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the insert-'f'-at-floor(len/2)-then-duplicate-last-char rule hold for ...(+192 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00898", "experiments": 9, "exam_probes": 4, "model_version": 2, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 208, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

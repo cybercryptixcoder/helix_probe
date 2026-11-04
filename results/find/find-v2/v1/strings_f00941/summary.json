@@ -1,0 +1,19 @@
+{
+ "env": "find_strings_f00941",
+ "experiments": 25,
+ "model_version": 2,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 29,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f appends the literal string 'ny' to its input [E1]",
+  "f preserves the input exactly, including case, digits, symbols, and spaces, before appending 'ny' [E1, E2, E3]",
+  "f strips leading whitespace (spaces and tabs) from the input before appending 'ny', but preserves trailing whitespace [E4]",
+  "f does not strip trailing whitespace or newlines [E4]"
+ ]
+}

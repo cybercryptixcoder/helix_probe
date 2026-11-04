@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f lowercases all letters then capitalizes the first character of the string [E1]",
+  "f removes spaces entirely (\"Hello World\" -> \"Helloworld\") [E1]",
+  "f leaves digits and punctuation unchanged [E1]",
+  "empty string maps to empty string [E1]",
+  "capitalization applies to the first character after space removal, so leading spaces may shift which char is capitalized?"
+ ],
+ "notes": "Model: remove spaces, lowercase everything, then uppercase the first character. Fits all E1 outputs including 'Hello World'->'Helloworld' and 'a1B2'->'A1b2'. Uncertain whether capitalization happens before or after space removal for leading-space cases.",
+ "fit": 1.0,
+ "heldout": 0.23,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

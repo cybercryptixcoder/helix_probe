@@ -1,0 +1,18 @@
+Helix Probe v2 on 'find_strings_f00546': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to a range of ordinary strings: plain lowercase words,...(+106 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.75, fit 1.00, size 321 (exam 0.000 -> 0.750); held-out 21%
+[2] E2 Does the box treat punctuation and symbols as separate words (split on non-...(+94 chars)  (v1 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (321 vs 321 chars)
+      model v2 by the updater: exam 0.75, fit 0.95, size 287 (same scores, smaller (321 -> 287 chars)); held-out 21%
+[3] E3 Does the box split words on punctuation boundaries or only on whitespace, a...(+81 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the box treat tabs/newlines and other whitespace as word separators li...(+50 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the box split on punctuation-only tokens or keep them attached, and ho...(+119 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the box split words on whitespace only (keeping punctuation attached) ...(+202 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v3 by the theorist: exam 1.00, fit 1.00, size 560 (exam 0.750 -> 1.000); held-out 100%
+[7] E7 Does the box's tokenization/prefix behavior hold for typical sentence-like ...(+151 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the box strip trailing whitespace (so trailing spaces/tabs/newlines do...(+149 chars)  (v3 predicted it: match 1.00)
+[9] E9 Does the box treat a run of internal whitespace as a single separator (coll...(+193 chars)  (v3 predicted it: match 1.00)
+[10] E10 How does the box handle strings consisting only of whitespace (spaces, tabs...(+170 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00546", "experiments": 10, "exam_probes": 4, "model_version": 3, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 560, "heldout": 1.0, "llm_calls": 14, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

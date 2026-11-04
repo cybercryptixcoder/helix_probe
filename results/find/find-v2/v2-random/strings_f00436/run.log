@@ -31,3 +31,15 @@ Helix Probe v2 on 'find_strings_f00436': 0 experiments so far, model v0, exam of
       theorist (every 6 steps)
 [19] E19 a random ordinary probe  (v1 predicted it: match 0.17)
       theorist (updater stalled)
+[20] E20 a random ordinary probe  (v1 predicted it: match 0.17)
+      model v2 by the updater: exam 0.17, fit 0.17, size 182 (exam 0.083 -> 0.167); held-out 0%
+[21] E21 a random ordinary probe  (v2 predicted it: match 0.17)
+      model v3 by the updater: exam 0.25, fit 0.33, size 190 (exam 0.167 -> 0.250); held-out 0%
+[22] E22 a random ordinary probe  (v3 predicted it: match 0.33)
+[23] E23 a random ordinary probe  (v3 predicted it: match 0.50)
+      theorist (updater stalled)
+[24] E24 a random ordinary probe  (v3 predicted it: match 0.17)
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v3 predicted it: match 0.17)
+      theorist (updater stalled)
+{"env": "find_strings_f00436", "experiments": 25, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 0.25, "fit": 0.32, "size": 190, "heldout": 0.0, "llm_calls": 64, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

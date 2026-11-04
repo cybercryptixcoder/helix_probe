@@ -1,0 +1,37 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f inserts '2' after the second character of the input [E1, E2]",
+  "f appends a character after the last character, computed as chr(ord(last)+2) [E1, E2]",
+  "For 'a' -> '2c': insert '2' after position 1 (only char 'a' becomes 'a2'?) then last char... actually 'a'->'2c' means '2' prepended and 'a'+2='c' appended? [E2]",
+  "Re-examining: 'ab'->'a2d' = 'a' + '2' + ('b'+2='d'); 'abc'->'a2be' = 'a'+'2'+'b'+('c'+2='e'); 'abcd'->'ab2cf' = 'ab'+'2'+'c'+('d'+2='f')? [E2]",
+  "Alternative: f inserts '2' after position 1 (index 1) and adds 2 to last char: 'ab'->'a2'+'b'+2='a2d' \u2713; 'abc'->'a2'+'bc' with last 'c'+2='e' -> 'a2be' \u2713; 'abcd'->'a2bcd' with 'd'+2='f' -> 'a2bcf' but observed 'ab2cf' \u2717 [E2]",
+  "New rule: insert '2' at index floor(len/2)? 'abc'->'ab2c'? no observed 'a2be' [E2]",
+  "Try: insert '2' after position len//2, and last char +2: 'abcd' len4 -> insert at 2 -> 'ab2cd', last 'd'+2='f' -> 'ab2cf' \u2713; 'abc' len3 -> insert at 1 -> 'a2bc', last 'c'+2='e' -> 'a2be' \u2713; 'ab' len2 -> insert at 1 -> 'a2b', last 'b'+2='d' -> 'a2d' \u2713; 'a' len1 -> insert at 0 -> '2a', last 'a'+2='c' -> '2c' \u2713; 'hello' len5 -> insert at 2 -> 'he2llo', last 'o'+2='q' -> 'he2llq' \u2713 [E1,E2]",
+  "Rule: insert '2' at index len//2, then add 2 to the last character's ASCII code [E1, E2]",
+  "Check 'two words' len9 -> insert at 4 -> 'two 2words', last 's'+2='u' -> 'two 2wordu' \u2713 [E1]",
+  "Check '12345' len5 -> insert at 2 -> '122345', last '5'+2='7'? observed '122345' last unchanged \u2717 \u2014 maybe digits not shifted? [E1]",
+  "Check 'A1!' len3 -> insert at 1 -> 'A21!', last '!'+2='#'? observed 'A21!' unchanged \u2717 [E1]",
+  "Check '  ' len2 -> insert at 1 -> ' 2 ', last ' '+2='\"'? observed ' 2 ' unchanged \u2717 [E1]",
+  "Check '!@#$%' len5 -> insert at 2 -> '!@2#$%', last '%'+2=\"'\"? observed unchanged \u2717 [E1]",
+  "So last-char +2 only applies to letters (a-z, A-Z), not digits/symbols/spaces [E1]",
+  "Check 'a b' len3 -> insert at 1 -> 'a2 b', last 'b'+2='d' -> 'a2 d' \u2713 [E1]",
+  "Check 'abc def' len7 -> insert at 3 -> 'abc2 def', last 'f'+2='h' -> 'abc2 deh' \u2713 [E1]",
+  "Check 'Hello' len5 -> insert at 2 -> 'He2llo', last 'o'+2='q' -> 'He2llq' \u2713 [E1]",
+  "Check 'HELLO' -> 'HE2LLQ' \u2713 [E1]",
+  "Check 'b' len1 -> insert at 0 -> '2b', last 'b'+2='d' -> '2d' \u2713 [E2]",
+  "Check 'ba' len2 -> insert at 1 -> 'b2a', last 'a'+2='c' -> 'b2c' \u2713 [E2]",
+  "Check '1' len1 -> insert at 0 -> '21', last '1' not letter -> unchanged -> '21' \u2713 [E2]",
+  "Check '12' len2 -> insert at 1 -> '122', last '2' not letter -> '122' \u2713 [E2]",
+  "Check 'A' len1 -> insert at 0 -> '2A', last 'A'+2='C' -> '2C' \u2713 [E2]",
+  "Check 'AB' len2 -> insert at 1 -> 'A2B', last 'B'+2='D' -> 'A2D' \u2713 [E2]"
+ ],
+ "notes": "Replaced the fixed-position hypothesis with: insert '2' at index len//2, then add 2 to the last character only if it is a letter (a-z or A-Z). This explains all of E1 and E2.",
+ "fit": 1.0,
+ "heldout": 0.7,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

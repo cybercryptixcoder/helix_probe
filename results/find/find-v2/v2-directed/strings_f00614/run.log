@@ -1,0 +1,24 @@
+Helix Probe v2 on 'find_strings_f00614': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to plain lowercase words, mixed-case words, words with...(+121 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 95 (exam 0.000 -> 1.000); held-out 88%
+[2] E2 Does the box remove only the ordinary space character, or all whitespace (t...(+89 chars)  (v1 predicted it: match 0.80)
+      model v2 by the updater: exam 1.00, fit 1.00, size 108 (fit 0.900 -> 1.000); held-out 100%
+[3] E3 Does the box treat non-space whitespace characters like tabs/newlines as re...(+192 chars)  (v2 predicted it: match 1.00)
+[4] E4 Do repeated letters or repeated patterns get collapsed/deduplicated, and do...(+95 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the box only strip whitespace and append F, or does it also do somethi...(+125 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the box append F to every input including the empty string, and does i...(+95 chars)  (v2 predicted it: match 0.50)
+      model v3 by the updater: exam 1.00, fit 1.00, size 212 (fit 0.917 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (413 vs 212 chars)
+[7] E7 Does the box's 'don't append F if already ends in F' rule apply only to upp...(+126 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the box's whitespace removal and F-appending interact with digits/symb...(+237 chars)  (v3 predicted it: match 1.00)
+[9] E9 Does the 'don't append F if it already ends in F' rule consider only the ve...(+367 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the box's 'already ends in F' check apply to any trailing uppercase F,...(+106 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the box's trailing-F check look at the last character only, or does it...(+200 chars)  (v3 predicted it: match 1.00)
+[12] E12 Does the trailing-F check interact with the appending rule when the input's...(+203 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (443 vs 212 chars)
+[13] E13 Does the box treat a trailing lowercase 'f' adjacent to other text the same...(+136 chars)  (v3 predicted it: match 1.00)
+[14] E14 Does the box's 'ends in F' rule (which suppresses appending F) apply to a t...(+284 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00614", "experiments": 14, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 212, "heldout": 1.0, "llm_calls": 20, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

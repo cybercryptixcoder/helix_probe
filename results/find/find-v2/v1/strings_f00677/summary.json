@@ -1,0 +1,16 @@
+{
+ "env": "find_strings_f00677",
+ "experiments": 22,
+ "model_version": 1,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 41,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f(x) appends the literal suffix 'xI' to the input string unchanged [E1]"
+ ]
+}

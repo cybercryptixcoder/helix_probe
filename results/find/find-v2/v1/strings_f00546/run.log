@@ -1,0 +1,36 @@
+Helix Probe on 'find_strings_f00546': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a varied set of basic inputs (lowercase, uppercase, space...(+94 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.80 (was 0.00), held-out 0%
+[2] E2 How does f handle spaces and multiple words — specifically, is 'lmKA' inser...(+141 chars)  model v1 match 0.10
+      model v2: fit 0% (was 0%), mean match 0.90 (was 0.45), held-out 34%
+[3] E3 How exactly are multiple/leading/trailing spaces handled, and is 'lmKA' alw...(+126 chars)  model v2 match 0.40
+      model v3: fit 0% (was 0%), mean match 0.77 (was 0.73), held-out 21%
+[4] E4 How are runs of multiple spaces handled — do they collapse to one space, or...(+137 chars)  model v3 match 0.80
+      model v4: fit 0% (was 0%), mean match 0.78 (was 0.78), held-out 21%
+[5] E5 Does f reverse words but keep the original word order (not reverse the sequ...(+151 chars)  model v4 match 1.00
+[6] E6 Does f reverse the whole string (or the word sequence) in some cases, and h...(+242 chars)  model v4 match 0.80
+      model v5: fit 50% (was 17%), mean match 0.90 (was 0.82), held-out 37%
+[7] E7 For a single word with surrounding whitespace, is lmKA always placed after ...(+97 chars)  model v5 match 0.60
+      model v6: fit 29% (was 43%), mean match 0.86 (was 0.86), held-out 46%
+[8] E8 For a single word, is lmKA placement determined by whether there is leading...(+123 chars)  model v6 match 0.60
+      model v7: fit 75% (was 25%), mean match 0.94 (was 0.82), held-out 64%
+[9] E9 For a single word, is lmKA placement determined by whether there is leading...(+157 chars)  model v7 match 1.00
+[10] E10 For multi-word inputs, does the placement of lmKA depend on leading vs trai...(+200 chars)  model v7 match 0.40
+      revision rejected: mean match 0.39 < 0.89
+      model v8: fit 100% (was 70%), mean match 1.00 (was 0.89), held-out 100%
+[11] E11 For multi-word inputs, is lmKA placement determined by leading whitespace (...(+134 chars)  model v8 match 1.00
+[12] E12 For multi-word inputs, does the leading-whitespace rule (prepend lmKA befor...(+163 chars)  model v8 match 1.00
+[13] E13 Does the leading-whitespace rule for multi-word inputs really depend on lea...(+376 chars)  model v8 match 1.00
+[14] E14 Does the leading-whitespace rule for multi-word inputs depend on the first ...(+180 chars)  model v8 match 1.00
+[15] E15 Does the rule for exactly two words with leading whitespace really put lmKA...(+181 chars)  model v8 match 1.00
+[16] E16 Does the single-word rule really depend on trailing whitespace, or on leadi...(+204 chars)  model v8 match 1.00
+[17] E17 Does f treat a word containing an internal apostrophe/hyphen or an embedded...(+222 chars)  model v8 match 1.00
+[18] E18 Does f treat a word containing only whitespace-free characters the same as ...(+199 chars)  model v8 match 1.00
+[19] E19 Does the position of lmKA for multi-word inputs depend on trailing whitespa...(+204 chars)  model v8 match 1.00
+[20] E20 Does the single-word rule depend on trailing whitespace (as modeled) or on ...(+191 chars)  model v8 match 1.00
+[21] E21 Does the multi-word rule depend on the position of the last whitespace run ...(+224 chars)  model v8 match 1.00
+[22] E22 Does f's handling of whitespace-only and empty inputs depend on the kind of...(+151 chars)  model v8 match 1.00
+[23] E23 Do punctuation/symbol-only tokens, mixed-case tokens, and tokens containing...(+116 chars)  model v8 match 1.00
+[24] E24 When the input contains the literal token 'lmKA' among multiple words, is i...(+144 chars)  model v8 match 1.00
+[25] E25 Does f ever alter the internal characters of a token (e.g. collapse repeate...(+160 chars)  model v8 match 1.00
+{"env": "find_strings_f00546", "experiments": 25, "model_version": 8, "fit": 1.0, "heldout": 1.0, "llm_calls": 34, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

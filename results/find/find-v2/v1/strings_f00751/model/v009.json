@@ -1,0 +1,37 @@
+{
+ "version": 9,
+ "beliefs": [
+  "f strips leading and trailing spaces and tabs, then inserts 'i' into the stripped string [E3, E4, E5, E6]",
+  "Empty stripped result yields 'i' [E1, E3, E5]",
+  "Internal whitespace is preserved; only leading/trailing whitespace is stripped [E4]",
+  "For strings with no leading whitespace, insertion index is len(stripped)//2 (floor) [E1, E2, E7, E8]",
+  "For strings with no leading whitespace but trailing whitespace, index is len(stripped)//2 rounded up (i.e. (len+1)//2) [E3, E6]",
+  "For strings with leading whitespace, index = max(0, orig_len//2 - lead_ws) when nonnegative, else -that value [E9, E10, E11]",
+  "Check: '  x' orig 3//2=1 lead 2 -> r=-1 -> index 1 -> 'i x' \u2713; '    x' orig 5//2=2 lead 4 -> r=-2 -> index 2 -> 'i  x' \u2713; '     x' orig 6//2=3 lead 5 -> r=-2 -> index 2 \u2713; '      x' orig 7//2=3 lead 6 -> r=-3 -> index 3 \u2713 [E11]",
+  "Check: '  abcd' orig 6//2=3 lead 2 -> r=1 -> 'aibcd' \u2713; '   abcd' orig 7//2=3 lead 3 -> r=0 -> 'iabcd' \u2713; '    abcd' orig 8//2=4 lead 4 -> r=0 -> 'iabcd' \u2713 [E10]",
+  "Check: '  xyz' orig 5//2=2 lead 2 -> r=0 -> 'ixyz' \u2713; ' xyz' orig 4//2=2 lead 1 -> r=1 -> 'xiyz' \u2713; '    xyz' orig 7//2=3 lead 4 -> r=-1 -> index 1 -> 'i xyz' \u2713 [E10]",
+  "Check: '  a' orig 3//2=1 lead 2 -> r=-1 -> index 1 -> 'i a' \u2713; '  ab' orig 4//2=2 lead 2 -> r=0 -> 'iab' \u2713; '   a' orig 4//2=2 lead 3 -> r=-1 -> index 1 -> 'i a' \u2713 [E9]",
+  "Tabs count as leading whitespace the same as spaces in the index formula [E12]",
+  "Check: '\\tx' orig 2//2=1 lead 1 -> r=0 -> index 0 -> 'ix' \u2713; ' \\tx' orig 3//2=1 lead 2 -> r=-1 -> index 1 -> 'i\\tx' \u2713; '\\t\\tx' orig 3//2=1 lead 2 -> r=-1 -> index 1 -> 'i\\tx' \u2713; '  \\tx' orig 4//2=2 lead 3 -> r=-1 -> index 1 -> 'i\\tx' \u2713; '\\t \\tx' orig 4//2=2 lead 3 -> r=-1 -> index 1 -> 'i\\tx' \u2713; '   \\tx' orig 5//2=2 lead 4 -> r=-2 -> index 2 -> 'i \\tx' \u2713; '\\t\\t\\tx' orig 4//2=2 lead 3 -> r=-1 -> index 1 -> 'i\\tx' \u2713; ' \\t x' orig 4//2=2 lead 3 -> r=-1 -> index 1 -> 'i x' \u2713 [E12]",
+  "Check: '\\t x' orig 3//2=1 lead 1 -> r=0 -> index 0 -> 'ix' but observed 'i x' (index 1) \u2014 this single case remains unexplained; possibly tab+space+char behaves differently? [E5, E6, E12]",
+  "Check: '  a  b  ' orig 8//2=4 lead 2 -> r=2 -> 'a ib' but observed 'a i b' (index 3) \u2014 remains unexplained [E4]?"
+ ],
+ "notes": "E12 shows tabs follow the same lead_ws formula as spaces (index = -r when r<0), so removed the tab special-case; kept the '\\t x' and '  a  b  ' anomalies flagged as unexplained.",
+ "fit": 0.3333333333333333,
+ "heldout": 0.84,
+ "matches": [
+  1.0,
+  0.875,
+  0.7,
+  1.0,
+  0.9,
+  0.3,
+  1.0,
+  1.0,
+  0.7,
+  0.9,
+  0.4,
+  0.1
+ ],
+ "made_at": 12
+}

@@ -1,0 +1,28 @@
+Helix Probe on 'find_strings_f00677': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to basic single-token inputs across letters, digits, symbols...(+25 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Does the suffix stay 'xI' when the input already ends in characters that co...(+118 chars)  model v1 match 1.00
+[3] E3 Does f always append the literal two characters 'xI', even for very long in...(+89 chars)  model v1 match 1.00
+[4] E4 Does f's 'xI' suffix survive when the input string itself contains the lite...(+108 chars)  model v1 match 1.00
+[5] E5 Is the appended suffix truly always the two characters 'xI', or could it be...(+178 chars)  model v1 match 1.00
+[6] E6 Does f's appended suffix depend on input length, or is it truly always 'xI'...(+147 chars)  model v1 match 1.00
+[7] E7 Does f ever do anything other than append 'xI' when the input contains only...(+118 chars)  model v1 match 1.00
+[8] no valid probe after 3 tries; skipping
+[9] E8 Does f ever alter or drop characters inside the input (not just append 'xI'...(+179 chars)  model v1 match 1.00
+[10] E9 Does f ever behave differently on inputs containing characters that commonl...(+195 chars)  model v1 match 1.00
+[11] no valid probe after 3 tries; skipping
+[12] E10 Does f append 'xI' verbatim even when the input contains a NUL/control char...(+92 chars)  model v1 match 1.00
+[13] E11 Is the suffix truly a fixed 'xI' appended at the very end, or could f be ap...(+318 chars)  model v1 match 1.00
+[14] E12 Is the appended suffix always exactly 'xI' regardless of the input's final ...(+267 chars)  model v1 match 1.00
+[15] E13 Is the suffix truly a fixed two-character 'xI' even for inputs containing t...(+305 chars)  model v1 match 1.00
+[16] E14 Does f append 'xI' verbatim even for inputs near the 60-character limit tha...(+170 chars)  model v1 match 1.00
+[17] E15 Does f append exactly 'xI' regardless of Unicode case-folding/combining beh...(+202 chars)  model v1 match 1.00
+[18] E16 Does f still append exactly 'xI' when the input contains characters that ar...(+174 chars)  model v1 match 1.00
+[19] E17 Does f really append 'xI' to the raw string, or could it be inserting the s...(+120 chars)  model v1 match 1.00
+[20] E18 Does f append 'xI' to the raw input even when the input is a lone surrogate...(+103 chars)  model v1 match 1.00
+[21] E19 Does f still append exactly 'xI' when the input itself is the empty string,...(+188 chars)  model v1 match 1.00
+[22] no valid probe after 3 tries; skipping
+[23] E20 Does f append 'xI' verbatim even when the input is exactly at the 60-charac...(+138 chars)  model v1 match 1.00
+[24] E21 Does f still append exactly 'xI' when the input contains characters that ar...(+174 chars)  model v1 match 1.00
+[25] E22 Does f still append exactly 'xI' when the input contains Unicode combining ...(+164 chars)  model v1 match 1.00
+{"env": "find_strings_f00677", "experiments": 22, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 41, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

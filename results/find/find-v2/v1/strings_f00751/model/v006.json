@@ -1,0 +1,29 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f strips leading and trailing spaces and tabs before inserting 'i' [E3, E4, E5, E6]",
+  "After stripping, f inserts 'i' at index len//2 (floor); empty result becomes 'i' [E1, E2, E7]",
+  "Only leading/trailing whitespace is stripped; internal whitespace is preserved [E4]",
+  "Whitespace-only strings (spaces, tabs, or mixes) reduce to empty and yield 'i' [E3, E5]",
+  "Single-character stripped strings give 'i' + char [E1]",
+  "Two-character stripped strings give first char + 'i' + second char [E1]",
+  "Stripping treats tabs and spaces alike (both removed from ends) [E5, E6]",
+  "For odd-length stripped strings, insertion index is len//2, so ' x' (len 2) gives 'i x' and '\\t x' after stripping to ' x' gives 'i x' [E6]",
+  "Leading whitespace is NOT fully stripped before insertion: '  abc' -> 'iabc' and '   abc' -> 'iabc' suggest leading whitespace is removed but insertion happens at index 0 of the stripped string [E8]",
+  "For strings with leading whitespace, 'i' is inserted at the start of the stripped content, not at len//2 [E8]"
+ ],
+ "notes": "E8 shows '  abc'->'iabc' and '   abc'->'iabc' (insertion at index 0 after stripping), while 'abc  '->'abic' (index 2 = len//2). So leading whitespace seems to shift insertion to the front. I'll model: if original had leading whitespace, insert at index 0 of stripped string; otherwise insert at len//2. This still needs confirmation.",
+ "fit": 0.25,
+ "heldout": 0.06,
+ "matches": [
+  1.0,
+  0.875,
+  0.6,
+  0.8,
+  0.8,
+  0.0,
+  1.0,
+  0.8
+ ],
+ "made_at": 8
+}

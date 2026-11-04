@@ -1,0 +1,24 @@
+{
+ "env": "find_strings_f00542",
+ "experiments": 25,
+ "model_version": 12,
+ "fit": 0.08,
+ "heldout": 0.01,
+ "llm_calls": 65,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "The box splits input on whitespace into words, collapsing runs and stripping leading/trailing whitespace [E2, E3]",
+  "Empty or all-whitespace input maps to empty string [E1, E2]",
+  "For a single word, the box reverses the whole word, then removes ALL leading 'o' characters from the reversed result [E9, E10, E11, E13, E14]",
+  "If removing leading o's leaves nothing (word is all o's), the output is 'o' \u2014 one 'o' is kept [E9, E11]",
+  "For multi-word input, the first word is transformed by the same reverse-then-strip-leading-o rule [E12]",
+  "The remaining words are concatenated (no spaces) and reversed as a single chunk [E5, E6, E12]",
+  "Multi-word output is transformed-first-word + ' ' + reversed(concatenation of remaining words) [E3, E4, E6, E12]",
+  "Case and symbols are preserved within each reversed chunk [E1, E3, E4]",
+  "Punctuation attached to a word stays attached and is reversed with the word [E3, E4]"
+ ]
+}

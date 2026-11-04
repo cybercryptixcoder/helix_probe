@@ -1,0 +1,21 @@
+{
+ "version": 7,
+ "beliefs": [
+  "Only the first character of the string is shifted backward by one in the alphabet (a->z, b->a, ..., z->y; A->Z, B->A, ..., Z->Y) [E1, E2, E3, E4, E5, E6, E7]",
+  "All characters after the first are left unchanged, including letters, digits, spaces, and symbols [E4, E5, E6, E7]",
+  "If the first character is not a letter (digit, space, symbol), it is left unchanged [E1]"
+ ],
+ "notes": "The shift applies only to the first character, not all letters; every later character passes through unchanged. This explains all observed outputs including boundary cases like 'a'->'y' and 'z'->'x'.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "made_at": 7
+}

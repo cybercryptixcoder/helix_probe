@@ -1,0 +1,36 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f removes all whitespace characters (space, tab, newline, and Unicode whitespace) from the string [E1, E2, E3, E7, E9]",
+  "f lowercases all letters using Unicode-aware lowercasing [E1, E2, E3, E10]",
+  "f capitalizes the first character of the result only if the original string's first character is not whitespace [E2, E3, E8]",
+  "leading whitespace (space, tab, etc.) prevents capitalization of the first remaining character [E2, E3, E8]",
+  "empty string and all-whitespace strings map to empty string [E1, E2, E3]",
+  "digits and punctuation are left unchanged [E1, E2, E3]",
+  "the capitalize-first rule uses titlecase-uppercasing of the first char (e.g. \u01c6 becomes \u01c5), not full uppercase [E11, E13, E14]",
+  "capitalization is applied to the first surviving character via titlecase-uppercase only (not full str.capitalize), since \u1e9e (U+1E9E) stays as-is rather than becoming 'Ss' [E12, E13, E14]",
+  "the rest of the string is lowercased before capitalization, so mixed-case non-ASCII like \u01c4 becomes \u01c6 then \u01c5 [E12]",
+  "titlecase-uppercasing the first char uses str.title() semantics, which for \u00df yields 'Ss' and for ligatures like \ufb00/\ufb01 yields 'Ff'/'Fi' [E11, E13, E14]",
+  "an already-titlecase first char like \u01c5 stays unchanged, and an already-uppercase first char like \u1e9e stays unchanged (titlecase of \u1e9e is \u1e9e) [E12, E13, E14]"
+ ],
+ "notes": "E14 confirms titlecase (not full uppercase) for the first char: \u1e9e stays \u1e9e rather than becoming 'Ss', and \u01c5 stays \u01c5. Model v6 already used str.title() on the first char, but its belief list wrongly said \u1e9e\u2192Ss; corrected the belief. The predict() code was already correct for E14 (it uses t[0].title()), so no code change needed beyond confirming.",
+ "fit": 0.7857142857142857,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  0.9,
+  0.9
+ ],
+ "made_at": 14
+}

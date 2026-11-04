@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f reverses the input string and inserts a 'W' at the middle position [E1]",
+  "For a string of length n, the 'W' is placed at index floor(n/2) of the reversed string [E1]",
+  "Empty string becomes 'W' (length 0, W at index 0) [E1]",
+  "Single space becomes 'W ' (reversed is ' ', W inserted at index 0) [E1]"
+ ],
+ "notes": "All outputs are the reversed input with a 'W' inserted at the middle index floor(n/2). Checked: 'hello'->'olleh' insert W at 2 -> 'olWleh'; '12345'->'54321' insert at 2 -> '54W321'; 'two words'->'sdrow owt' insert at 4 -> 'sdroWw owt'; 'a b c'->'c b a' insert at 2 -> 'c Wb a'; 'abc123'->'321cba' insert at 3 -> '321Wcba'; ' '->' ' insert at 0 -> 'W '; ''->'' insert at 0 -> 'W'.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

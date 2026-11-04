@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed: the `y` is appended only when the string doesn't already end in `y`, fixing `\"lazy\"` \u2192 `\"mazy\"` (E3) while keeping all other predictions intact.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 460, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 1.0}

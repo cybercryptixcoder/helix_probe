@@ -1,0 +1,21 @@
+{
+ "version": 6,
+ "beliefs": [
+  "Every lowercase letter is shifted backward by one in the alphabet (a->z, b->a, ..., z->y) [E1, E2, E3, E4, E5, E6]",
+  "Every uppercase letter is shifted backward by one in the alphabet (A->Z, B->A, ..., Z->Y) [E1, E2, E3]",
+  "Non-letter characters (digits, spaces, symbols) are left unchanged [E1, E6]",
+  "The shift applies to all letters in the string, not just the first [E4, E5, E6]"
+ ],
+ "notes": "E6 confirms the shift applies to every letter uniformly, not just the first; earlier probes were misread because only the first letter differed from identity. Updated to shift all letters backward by one.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "made_at": 6
+}

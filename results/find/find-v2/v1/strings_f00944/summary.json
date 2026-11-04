@@ -1,0 +1,21 @@
+{
+ "env": "find_strings_f00944",
+ "experiments": 25,
+ "model_version": 2,
+ "fit": 1.0,
+ "heldout": 0.88,
+ "llm_calls": 29,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f advances the final character of the string to the next Unicode code point, leaving the rest unchanged [E1, E2, E3, E4, E5]",
+  "The advance is by Unicode code point order, not ASCII: \u00e9->\u00ea, \u00e7->\u00e8, \u00f1->\u00f2, \u00fc->\u00fd, \u00ff->\u0100, \u00df->\u00e0, \u00fe->\u00ff, \u0153->\u0154 [E5]",
+  "Non-ASCII letters are advanced too (Greek, Cyrillic, accented Latin), so the letter test is Unicode-aware [E4, E5]",
+  "Strings ending in non-letters (digits, symbols, spaces, emoji, non-breaking space) are returned unchanged [E1, E2, E3, E4]",
+  "Case is preserved for ASCII: uppercase advances within uppercase, lowercase within lowercase, with z->a and Z->A [E1, E2, E3]",
+  "ASCII wrap-around is special (z->a, Z->A) rather than code-point increment, while non-ASCII letters just increment by one code point [E1, E3, E5]"
+ ]
+}

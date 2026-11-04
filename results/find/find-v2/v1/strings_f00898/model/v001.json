@@ -1,0 +1,18 @@
+{
+ "version": 1,
+ "beliefs": [
+  "An 'f' is inserted after every character of the input, and the input is then reversed? Let's check: 'hello' -> 'heflloo' [E1]",
+  "For 'hello': output 'heflloo' = 'he' + 'f' + 'lloo'? Actually inserting 'f' after first char then... need to derive rule [E1]",
+  "Outputs seem to insert 'f' and duplicate the last character: 'hello'->'heflloo' (f after 'he', extra 'o'), 'world'->'wofrldd' (f after 'wo', extra 'd'), '123'->'1f233' (f after '1', extra '3'), 'a'->'faa' (f before, extra 'a'), 'Z'->'fZZ', ' '->'f  ', '!'->'f!!' [E1]",
+  "Pattern: output = first char + 'f' + rest + last char, except single chars give 'f'+char+char [E1]",
+  "For 'hello world' -> 'hellof worldd': insert 'f' after 'hello' (before space), duplicate last char 'd' [E1]",
+  "Hypothesis: insert 'f' at position len//2? 'hello' len5 -> after index 2 'he|llo' -> 'heflloo'? that gives 'hefllo' + extra... [E1]?"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

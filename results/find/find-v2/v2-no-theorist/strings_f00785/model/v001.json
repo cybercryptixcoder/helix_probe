@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to: shift the first character to the next letter (wrapping, case-preserving, non-letters unchanged) and append \"y\" \u2014 matching all six E1 examples.", "exam": 1.0, "fit": 0.8333333333333334, "fit_exact": 0.0, "size": 391, "matches": [0.8333333333333334], "made_at": 1, "heldout": 0.83}

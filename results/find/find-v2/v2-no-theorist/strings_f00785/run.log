@@ -1,0 +1,24 @@
+Helix Probe v2 on 'find_strings_f00785': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 0.83, size 391 (exam 0.000 -> 1.000); held-out 83%
+[2] E2 Does the box only change the first character and append 'y', or does it als...(+146 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.83)
+      model v2 by the updater: exam 1.00, fit 1.00, size 460 (fit 0.889 -> 1.000); held-out 100%
+[4] E4 Does the box append 'y' based on the original input's ending or the transfo...(+120 chars)  (v2 predicted it: match 0.80)
+      model v3 by the updater: exam 1.00, fit 1.00, size 458 (fit 0.950 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 Does the box append 'y' based on whether the original input ends in 'y' eve...(+204 chars)  (v3 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Does the box's first-character shift apply to non-ASCII/Unicode letters or ...(+102 chars)  (v3 predicted it: match 0.30)
+      updater's model not kept: its fit is 0.904, the current model's is 0.912
+      model v4 by the updater: exam 1.00, fit 1.00, size 450 (fit 0.912 -> 1.000); held-out 100%
+[9] E9 a random ordinary probe  (v4 predicted it: match 1.00)
+[10] E10 Does the first-character shift apply to the first character only when it is...(+194 chars)  (v4 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 Does the case-preserving first-letter shift and the 'append y unless input ...(+211 chars)  (v4 predicted it: match 1.00)
+[13] E13 a random ordinary probe  (v4 predicted it: match 1.00)
+[14] E14 Does the 'append y unless the original input ends in y' rule look at the ve...(+254 chars)  (v4 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v4 predicted it: match 1.00)
+[16] E16 Does the first-character shift apply to a leading non-ASCII letter even whe...(+127 chars)  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00785", "experiments": 16, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 450, "heldout": 1.0, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

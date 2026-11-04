@@ -1,0 +1,34 @@
+{
+ "version": 12,
+ "beliefs": [
+  "The box splits input on whitespace into words, collapsing runs and stripping leading/trailing whitespace [E2, E3]",
+  "Empty or all-whitespace input maps to empty string [E1, E2]",
+  "For a single word, the box reverses the whole word, then removes ALL leading 'o' characters from the reversed result [E9, E10, E11, E13, E14]",
+  "If removing leading o's leaves nothing (word is all o's), the output is 'o' \u2014 one 'o' is kept [E9, E11]",
+  "For multi-word input, the first word is transformed by the same reverse-then-strip-leading-o rule [E12]",
+  "The remaining words are concatenated (no spaces) and reversed as a single chunk [E5, E6, E12]",
+  "Multi-word output is transformed-first-word + ' ' + reversed(concatenation of remaining words) [E3, E4, E6, E12]",
+  "Case and symbols are preserved within each reversed chunk [E1, E3, E4]",
+  "Punctuation attached to a word stays attached and is reversed with the word [E3, E4]"
+ ],
+ "notes": "E14 confirms the rule is reverse-then-strip-leading-o (not strip-trailing-o-before-reverse): 'boo'->'oob'->'ob', 'oob'->'boo'->'bo'. My v11 already used this rule but the observed outputs show it strips only leading o's from the reversed string, keeping the rest \u2014 which matches. The mismatch was that v11's lstrip was correct but I need to verify: 'boo' reversed is 'oob', lstrip('o') -> 'b', but observed is 'ob'. So it strips only ONE leading o? No \u2014 'oob'->'bo' means one o removed, 'ooob'->'bo' means three removed. So it strips all leading o's but keeps... wait 'oob'->'bo' keeps one o. Let me recheck: reverse then strip leading o's: 'boo'->'oob'->strip->'b' but observed 'ob'. So it's NOT strip all. It must be: strip trailing o's from original, then reverse: 'boo'->'bo'->'ob'. That matches! 'oob'->'oob' has no trailing o... wait 'oob' ends in 'b'. Hmm. 'oob' observed 'bo'. Reverse 'oob'='boo', strip leading o's -> 'b'. But observed 'bo'. So strip only... Let me reconsider: maybe strip trailing o's from original THEN reverse: 'boo'->'bo'->'ob' \u2713, 'oob'->'oob'->'boo' \u2717 (observed 'bo'). So neither pure rule works. Try: reverse, then strip leading o's but keep at least... 'oob'->'boo'->strip leading o's keeping one? 'bo'? No that gives 'boo'->'o'... Actually 'boo' lstrip='b', but keep one o gives 'bo'? No. Let me just note the pattern: outputs are reverse with leading o's reduced to at most... 'oob'->'bo' means 'boo'->'bo': one leading o removed. 'ooob'->'bo': 'booo'->'bo': three removed. 'boo'->'ob': 'oob'->'ob': one removed. So it removes leading o's but keeps exactly one if there were any? 'boo'->'oob'->'ob' (one o kept), 'oob'->'boo'->'bo' (one o kept), 'ooob'->'booo'->'bo' (one o kept), 'o'->'o'->'o'. Yes! Strip leading o's but if any were stripped, keep exactly one. That's the rule.",
+ "fit": 0.14285714285714285,
+ "heldout": 0.01,
+ "matches": [
+  0.5,
+  0.8,
+  0.8,
+  0.3,
+  1.0,
+  1.0,
+  0.6,
+  0.6,
+  0.9,
+  0.1,
+  0.5,
+  0.8,
+  0.5,
+  0.5
+ ],
+ "made_at": 14
+}

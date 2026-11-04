@@ -1,0 +1,18 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) inserts the letter 'i' into the input string [E1]",
+  "For the empty string, f('') = 'i' [E1]",
+  "For single characters, f(c) = 'i' + c [E1]",
+  "For 'ab' the output is 'aib' and for 'AB' it is 'AiB', suggesting 'i' is inserted after the first character [E1]",
+  "For 'a1!' the output is 'ai1!' and for 'Hello world' it is 'Helloi world', consistent with inserting 'i' after the first character [E1]",
+  "Hypothesis: f(x) inserts 'i' after the first character of x, or returns 'i' if x is empty? [E1]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.4
+ ],
+ "made_at": 1
+}

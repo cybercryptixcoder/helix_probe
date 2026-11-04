@@ -1,0 +1,39 @@
+Helix Probe on 'find_strings_f00634': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to very simple, varied single inputs (lowercase word, upperc...(+58 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 23%
+[2] E2 Does the first-character capitalization apply to the first non-space charac...(+137 chars)  model v1 match 0.60
+      model v2: fit 100% (was 50%), mean match 1.00 (was 0.80), held-out 88%
+[3] E3 Does f treat only the ASCII space character as removable, or does it also r...(+168 chars)  model v2 match 0.30
+      model v3: fit 100% (was 67%), mean match 1.00 (was 0.77), held-out 100%
+[4] E4 Does the capitalization rule look only at the literal first character being...(+163 chars)  model v3 match 1.00
+[5] E5 Does capitalization depend on the original first character being whitespace...(+139 chars)  model v3 match 1.00
+[6] E6 Does the capitalization rule apply only to ASCII lowercase letters a-z (so ...(+94 chars)  model v3 match 1.00
+[7] E7 How does f handle non-ASCII whitespace-like characters (e.g. non-breaking s...(+137 chars)  model v3 match 1.00
+[8] E8 Does the capitalization rule apply to the first character of the whitespace...(+197 chars)  model v3 match 1.00
+[9] E9 Does f treat other Unicode whitespace/control characters (U+2000 en quad, U...(+206 chars)  model v3 match 1.00
+[10] E10 Does f lowercase non-ASCII uppercase letters (e.g. É, Ü, Ñ) the way it lowe...(+164 chars)  model v3 match 1.00
+[11] E11 Does the capitalize-first rule uppercase the first surviving character when...(+234 chars)  model v3 match 0.70
+      model v4: fit 100% (was 91%), mean match 1.00 (was 0.97), held-out 100%
+[12] E12 Does the capitalize-first rule use str.capitalize (which lowercases the res...(+290 chars)  model v4 match 0.80
+      model v5: fit 92% (was 92%), mean match 0.98 (was 0.98), held-out 100%
+[13] E13 Does the capitalize-first rule apply full Unicode uppercase (not titlecase)...(+162 chars)  model v5 match 0.90
+      model v6: fit 85% (was 85%), mean match 0.98 (was 0.98), held-out 100%
+[14] E14 Does the capitalize-first rule use full Unicode uppercase (str.upper) rathe...(+200 chars)  model v6 match 0.90
+      model v7: fit 79% (was 79%), mean match 0.97 (was 0.97), held-out 100%
+[15] E15 When the first surviving character is a lowercase letter whose titlecase di...(+216 chars)  model v7 match 0.70
+      model v8: fit 73% (was 73%), mean match 0.95 (was 0.95), held-out 100%
+[16] E16 When the first character of the whitespace-stripped string is already upper...(+267 chars)  model v8 match 0.60
+      model v9: fit 75% (was 69%), mean match 0.96 (was 0.93), held-out 100%
+[17] E17 When the first surviving character is a lowercase letter whose titlecase di...(+225 chars)  model v9 match 0.70
+      revision rejected: mean match 0.91 < 0.94
+      model v10: fit 71% (was 71%), mean match 0.94 (was 0.94), held-out 100%
+[18] E18 For a first surviving character that is already uppercase/titlecase (Ǆ, ẞ, ...(+198 chars)  model v10 match 0.60
+      model v11: fit 100% (was 67%), mean match 1.00 (was 0.92), held-out 100%
+[19] E19 Does the titlecase-first rule use Python's str.title() on the first charact...(+266 chars)  model v11 match 1.00
+[20] E20 Does the 'first char titlecased from its original form' rule hold for a fir...(+266 chars)  model v11 match 1.00
+[21] E21 When the first surviving character is a combining-mark-leading sequence (e....(+262 chars)  model v11 match 1.00
+[22] E22 Does the 'first character titlecased from its original form' rule hold when...(+321 chars)  model v11 match 1.00
+[23] E23 Does the titlecase-first rule apply when the first surviving character is a...(+243 chars)  model v11 match 1.00
+[24] E24 Does the 'original first char whitespace suppresses capitalization' rule de...(+242 chars)  model v11 match 1.00
+[25] E25 Does the titlecase-first rule use the original first character even when th...(+486 chars)  model v11 match 1.00
+{"env": "find_strings_f00634", "experiments": 25, "model_version": 11, "fit": 1.0, "heldout": 1.0, "llm_calls": 37, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

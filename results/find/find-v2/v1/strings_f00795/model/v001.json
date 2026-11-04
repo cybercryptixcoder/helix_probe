@@ -1,0 +1,25 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f inserts a character after each character of the input, except the last character [E1]",
+  "The inserted character cycles through the sequence '2', ' ', 'd', 'e', 'h', 'q', ... based on position? [E1]",
+  "Inserted chars observed: after 'h'->'2', after 'e'->'2', after 'l'->'2', after 'l'->'2', after 'o'->'q' (last char, no insert) [E1]",
+  "For 'hello' output 'he2llq': positions 1-4 get '2' inserted, and last char 'o' becomes 'q'? [E1]",
+  "For 'HELLO' output 'HE2LLQ': same pattern, last char 'O' becomes 'Q' [E1]",
+  "For 'two words' output 'two 2wordu': '2' inserted after 'w' (pos 3), and last 's' becomes 'u'? [E1]",
+  "For '12345' output '122345': '2' inserted after first '1', last '5' unchanged? [E1]",
+  "For 'A1!' output 'A21!': '2' inserted after '1', last '!' unchanged [E1]",
+  "For 'a b' output 'a2 d': '2' inserted after 'a', last 'b' becomes 'd'? [E1]",
+  "For '  ' output ' 2 ': '2' inserted after first space, last space unchanged [E1]",
+  "For 'abc def' output 'abc2 deh': '2' inserted after 'c', last 'f' becomes 'h'? [E1]",
+  "For '!@#$%' output '!@2#$%': '2' inserted after '@', last '%' unchanged [E1]",
+  "Hypothesis: f inserts '2' after character at index 1 (second char), and increments the last character by +2 in ASCII? [E1]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3
+ ],
+ "made_at": 1
+}

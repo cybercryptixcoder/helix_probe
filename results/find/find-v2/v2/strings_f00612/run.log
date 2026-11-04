@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00612': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 308 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the insertion point depend on the length of the original string, and d...(+131 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Does the model hold for ordinary inputs with repeated characters, mixed cas...(+152 chars)  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 1.00)
+[6] E6 Does the insertion position depend on the original string length or on the ...(+130 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (419 vs 308 chars)
+[7] E7 a random ordinary probe  (v1 predicted it: match 1.00)
+[8] E8 Does the +1 shift apply to characters near ASCII boundaries (e.g. 'z'->'{',...(+175 chars)  (v1 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00612", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 308, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

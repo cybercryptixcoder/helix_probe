@@ -1,0 +1,30 @@
+Helix Probe on 'find_strings_f00612': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a varied set of basic inputs (lowercase words, spaces, mi...(+58 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.00 (was 0.00), held-out 0%
+[2] E2 Does f shift every character by +1 ASCII (including space -> '!') and is th...(+93 chars)  model v1 match 0.00
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[3] E3 Does the +1 shift wrap or fail at ASCII boundaries (DEL 0x7F, high Latin-1 ...(+88 chars)  model v2 match 1.00
+[4] E4 Does the 'Y' insertion index use the length of the input in characters (cod...(+204 chars)  model v2 match 1.00
+[5] E5 Does the +1 shift apply to ASCII 0x7E '~' (giving DEL 0x7F) and to characte...(+126 chars)  model v2 match 1.00
+[6] E6 Does the +1 shift and floor(len/2) Y-insertion still hold for characters at...(+164 chars)  model v2 match 1.00
+[7] E7 Is the shift really +1 on the Unicode code point, or is it +1 on some other...(+113 chars)  model v2 match 1.00
+[8] E8 Does the shift really happen on Unicode code points even across the surroga...(+144 chars)  model v2 match 1.00
+[9] E9 Does the +1 shift wrap around at the top of the Unicode range (U+10FFFF -> ...(+109 chars)  model v2 match 0.00
+      model v3: fit 100% (was 89%), mean match 1.00 (was 0.89), held-out 100%
+[10] E10 Is the ValueError raised only for the exact code point U+10FFFF, or does th...(+234 chars)  model v3 match 1.00
+[11] E11 Is the ValueError triggered by the code point U+10FFFF itself (i.e. when or...(+261 chars)  model v3 match 1.00
+[12] E12 Is the inserted 'Y' always the literal character 'Y', or could it be affect...(+144 chars)  model v3 match 1.00
+[13] E13 Does the Y-insertion index use the number of code points or the number of U...(+140 chars)  model v3 match 1.00
+[14] E14 Is the ValueError per-input (so other inputs in the same probe still return...(+167 chars)  model v3 match 1.00
+[15] E15 Does f treat the input as a sequence of code points (so len is the number o...(+251 chars)  model v3 match 1.00
+[16] E16 Does f's +1 shift and floor(len/2) 'Y' insertion hold for characters near t...(+180 chars)  model v3 match 1.00
+[17] E17 Does f's per-call behavior change when a probe contains multiple inputs whe...(+200 chars)  model v3 match 1.00
+[18] E18 Does the ValueError trigger depend only on the input containing U+10FFFF, o...(+180 chars)  model v3 match 1.00
+[19] E19 Does f's behavior stay exactly as modeled for strings of length 1-10 made o...(+268 chars)  model v3 match 1.00
+[20] E20 Does f apply the +1 shift and floor(len/2) 'Y' insertion to combining marks...(+171 chars)  model v3 match 1.00
+[21] E21 Does the ValueError boundary behave as modeled when a string mixes U+10FFFF...(+255 chars)  model v3 match 1.00
+[22] E22 Does f handle non-BMP characters (astral plane, e.g. U+1F600, U+10000, U+2F...(+242 chars)  model v3 match 1.00
+[23] E23 Does the ValueError behavior depend on the input containing U+10FFFF as a c...(+244 chars)  model v3 match 1.00
+[24] E24 Does f's per-input error handling change when a probe contains many U+10FFF...(+116 chars)  model v3 match 1.00
+[25] E25 Does f apply the +1 shift and floor(len/2) 'Y' insertion consistently to a ...(+245 chars)  model v3 match 1.00
+{"env": "find_strings_f00612", "experiments": 25, "model_version": 3, "fit": 1.0, "heldout": 1.0, "llm_calls": 31, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

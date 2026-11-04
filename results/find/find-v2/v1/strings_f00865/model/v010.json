@@ -1,0 +1,28 @@
+{
+ "version": 10,
+ "beliefs": [
+  "The first character is shifted backward by 2 in the alphabet (a->y, b->z, ..., z->x; A->Y, ..., Z->X) [E7, E8, E9, E10]",
+  "All characters after the first are left unchanged, including letters, digits, spaces, and symbols [E1, E4, E5, E6, E7, E8]",
+  "If the first character is not a letter (digit, space, symbol, control char, emoji), it is left unchanged [E1, E11, E12]",
+  "Non-ASCII letters are shifted backward by 2 in Unicode code point order, wrapping within the contiguous letter block (\u00e9->\u00e7, \u00c9->\u00c7, \u00fc->\u00fa, \u00df->\u00dd, \u00f1->\u00ef, \u00e0->\u00de, \u00f8->\u00f6, \u00e6->\u00e4, \u0153->\u0151) [E11, E12]",
+  "The shift for non-ASCII letters uses code-point arithmetic within the contiguous run of same-case letters containing the character, not alphabet position [E12]"
+ ],
+ "notes": "E12 shows non-ASCII letters shift by -2 in code point order (\u00e0->\u00de, \u00f8->\u00f6, \u0153->\u0151), not by alphabet position; the earlier 'case block' scan was wrong because it scanned by code point but I mislabeled it. Now using code-point -2 within the contiguous same-case letter run.",
+ "fit": 0.8333333333333334,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  0.7
+ ],
+ "made_at": 12
+}

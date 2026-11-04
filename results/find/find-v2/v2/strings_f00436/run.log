@@ -35,3 +35,7 @@ Helix Probe v2 on 'find_strings_f00436': 0 experiments so far, model v0, exam of
 [22] E22 For space-containing strings, does the 'I' insertion position follow a simp...(+168 chars)  (v2 predicted it: match 0.30)
       theorist (updater stalled)
 [23] E23 a random ordinary probe  (v2 predicted it: match 0.33)
+[24] E24 Where exactly is 'I' inserted in space-containing strings — testing whether...(+179 chars)  (v2 predicted it: match 0.00)
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v2 predicted it: match 0.33)
+{"env": "find_strings_f00436", "experiments": 25, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 0.4166666666666667, "fit": 0.33866666666666667, "size": 560, "heldout": 0.0, "llm_calls": 71, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

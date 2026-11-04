@@ -1,0 +1,37 @@
+Helix Probe v2 on 'find_strings_f00751': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 Does the box insert an 'i' after every occurrence of the letter 'a', or onl...(+103 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 0.05, size 378 (fit 0.000 -> 0.050); held-out 0%
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.17)
+[4] E4 Does the box insert 'i' after every 'a' regardless of position (including w...(+105 chars)  (v1 predicted it: match 0.10)
+      model v2 by the updater: exam 0.04, fit 0.07, size 415 (exam 0.000 -> 0.042); held-out 0%
+[5] E5 a random ordinary probe  (v2 predicted it: match 0.00)
+[6] E6 Does the box insert 'i' after every 'a' and 'e' that is not the first lette...(+215 chars)  (v2 predicted it: match 0.00)
+[7] E7 a random ordinary probe  (v2 predicted it: match 0.00)
+[8] E8 Does the box insert 'i' after 'a'/'e' only when they are lowercase, and how...(+96 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 0.12, fit 0.07, size 503 (exam 0.042 -> 0.125); held-out 0%
+[9] E9 a random ordinary probe  (v3 predicted it: match 0.00)
+[10] E10 Does the box insert 'i' after vowels that are word-initial but preceded by ...(+148 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.083, the current model's is 0.125
+      model v4 by the updater: exam 0.12, fit 0.06, size 489 (same scores, smaller (503 -> 489 chars)); held-out 0%
+[11] E11 a random ordinary probe  (v4 predicted it: match 0.00)
+[12] E12 Does the box insert 'i' after vowels in words that are fully uppercase or m...(+196 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (489 vs 489 chars)
+[13] E13 a random ordinary probe  (v4 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (489 vs 489 chars)
+      updater's model not kept: same scores and not smaller (489 vs 489 chars)
+[14] E14 Does the box insert 'i' after a vowel that begins a word (word-initial) whe...(+219 chars)  (v4 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (489 vs 489 chars)
+      updater's model not kept: same scores and not smaller (489 vs 489 chars)
+[15] E15 a random ordinary probe  (v4 predicted it: match 0.00)
+[16] E16 Is the inserted 'i' placed after a vowel cluster only when that cluster is ...(+180 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (489 vs 489 chars)
+      model v5 by the updater: exam 0.12, fit 0.05, size 599 (fit 0.042 -> 0.048); held-out 0%
+[17] E17 a random ordinary probe  (v5 predicted it: match 0.17)
+[18] E18 Does the insertion happen after the last vowel of a run regardless of wheth...(+151 chars)  (v5 predicted it: match 0.00)
+      model v6 by the updater: exam 0.21, fit 0.06, size 737 (exam 0.125 -> 0.208); held-out 0%
+[19] E19 a random ordinary probe  (v6 predicted it: match 0.17)
+[20] E20 How does the box handle a vowel at the very start of the string when the st...(+222 chars)  (v6 predicted it: match 0.00)
+[21] E21 a random ordinary probe  (v6 predicted it: match 0.17)
+[22] E22 Does the box insert 'i' after a vowel run only when the vowel is not the fi...(+218 chars)  (v6 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v6 predicted it: match 0.17)

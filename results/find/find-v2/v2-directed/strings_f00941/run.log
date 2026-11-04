@@ -1,0 +1,16 @@
+Helix Probe v2 on 'find_strings_f00941': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary short text inputs — identity, case change,...(+69 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.83, fit 1.00, size 79 (exam 0.000 -> 0.833); held-out 26%
+[2] E2 Does the appended suffix stay lowercase 'ny' regardless of the input's fina...(+106 chars)  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 1.00, size 88 (exam 0.833 -> 1.000); held-out 100%
+[3] E3 Does the box strip only leading spaces, or does it also trim other whitespa...(+109 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the box strip other leading whitespace (tabs/newlines) as well as spac...(+99 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the box strip only leading spaces/tabs/newlines, or does it also strip...(+114 chars)  (v2 predicted it: match 1.00)
+[6] no usable probe after 3 tries; step skipped
+[7] E6 Does the box strip leading whitespace of any kind (including carriage retur...(+148 chars)  (v2 predicted it: match 1.00)
+[8] E7 Does the box strip leading whitespace that is only ASCII space/tab/newline/...(+156 chars)  (v2 predicted it: match 1.00)
+[9] E8 Does the box strip leading Unicode whitespace characters beyond the common ...(+128 chars)  (v2 predicted it: match 1.00)
+[10] E9 Does the box append 'ny' directly to the stripped input even when the input...(+123 chars)  (v2 predicted it: match 1.00)
+[11] E10 Does the box strip leading whitespace using Python's str.lstrip() semantics...(+259 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00941", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 88, "heldout": 1.0, "llm_calls": 16, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

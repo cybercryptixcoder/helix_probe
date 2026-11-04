@@ -1,0 +1,16 @@
+{
+ "version": 2,
+ "beliefs": [
+  "Each letter is shifted backward by one in the alphabet: a->z, b->a, ..., preserving case [E1, E2]",
+  "Digits and symbols are left unchanged [E1]",
+  "Spaces are left unchanged [E1]"
+ ],
+ "notes": "E2 shows the shift is -1 (not +1): b->a, z->y, aa->zz, Z->Y. Reversed the direction of the Caesar shift while keeping case and non-letter handling.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3,
+  0.0
+ ],
+ "made_at": 2
+}

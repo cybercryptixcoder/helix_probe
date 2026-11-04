@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f appends 'y' to every input string [E1]",
+  "f changes the first character: lowercase letters shift +1 (h->i, t->u, a->b, x->y), uppercase letters shift +1 (H->I, A->B), digits shift +1 (1->2), spaces unchanged [E1]",
+  "f leaves all characters after the first unchanged [E1]"
+ ],
+ "notes": "Observed: output = first char transformed (letters/digits +1 in their class, space unchanged) + rest of string unchanged + 'y' appended. For 'x' -> 'yy': first char x->y, then 'y' appended. For '  ' -> '  y': space unchanged, then 'y' appended.",
+ "fit": 0.0,
+ "heldout": 0.83,
+ "matches": [
+  0.9
+ ],
+ "made_at": 1
+}

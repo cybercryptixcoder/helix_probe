@@ -1,0 +1,27 @@
+{
+ "env": "find_strings_f00785",
+ "experiments": 25,
+ "model_version": 8,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 33,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f shifts the first character forward by one codepoint within its script: ASCII a-z/A-Z wrap within their case, accented Latin-1 letters shift codepoint+1 (\u00e9\u2192\u00ea, \u00f1\u2192\u00f2, \u00df\u2192\u00e0, \u00fc\u2192\u00fd, \u00ff\u2192\u0100), Greek \u03b1\u2192\u03b2, \u03c9\u2192\u03d6, Cyrillic \u0430\u2192\u0431, \u044f\u2192\u0450 [E1, E3, E7, E8, E9]",
+  "f leaves the middle characters (positions 1..n-1) unchanged [E1, E2, E3, E4]",
+  "f appends a literal 'y' to the end of the string, but only if the string does not already end in 'y' [E5, E6]",
+  "f('') returns 'y' [E1]",
+  "Single-character input 'y' returns 'z' (shifted, no append since it already ends in y) [E4, E5]",
+  "When the first character is a digit, it is NOT shifted: '0a'->'0ay', '9z'->'9zy', '123'->'123y' [E1, E3]",
+  "The trailing 'y' is appended for non-empty inputs not ending in 'y', including digit-first ones ('0a'->'0ay', '9'->'9y') [E1, E2, E3]",
+  "The append is suppressed when the input already ends in 'y': 'ay'->'by', 'yyy'->'zyy', 'Yy'->'Zy' [E5]",
+  "Non-letter first characters (digits, space, punctuation) are left unchanged but still get the trailing 'y' if not already ending in 'y' [E6]",
+  "The shift is codepoint+1 for any letter, with case-preserving wrap only for ASCII a-z/A-Z; other scripts shift by codepoint+1 without wrapping (\u03c9\u2192\u03d6, \u044f\u2192\u0450) [E8, E9]",
+  "The micro sign \u00b5 (U+00B5) IS shifted to \u00b6 (U+00B6), so it is treated as a letter despite being category Ll; other symbols like \u00b6, \u00b0, \u00b1, \u00aa are left unchanged [E15]",
+  "Whether non-ASCII letters wrap at their script's end (e.g. \u03c9\u2192\u03b1, \u044f\u2192\u0430) is unclear; I use codepoint+1 with no wrap for non-ASCII [E9]?"
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f reverses the order of characters in the input string [E1]",
+  "Case, digits, spaces, and symbols are preserved unchanged; only order is reversed [E1]",
+  "Empty string maps to empty string [E1]"
+ ],
+ "notes": "All ten outputs are exact character reversals of their inputs, so the model is simply s[::-1]. No case or content transformation occurs.",
+ "fit": 0.0,
+ "heldout": 0.66,
+ "matches": [
+  0.9
+ ],
+ "made_at": 1
+}

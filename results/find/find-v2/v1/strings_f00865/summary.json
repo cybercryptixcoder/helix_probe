@@ -1,0 +1,21 @@
+{
+ "env": "find_strings_f00865",
+ "experiments": 25,
+ "model_version": 12,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 39,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "The first character is shifted backward by 2 in the alphabet (a->y, b->z, ..., z->x; A->Y, ..., Z->X) [E7, E8, E9, E10]",
+  "All characters after the first are left unchanged, including letters, digits, spaces, and symbols [E1, E4, E5, E6, E7, E8]",
+  "If the first character is not a letter (digit, space, symbol, control char, emoji), it is left unchanged [E1, E11, E12]",
+  "Non-ASCII letters are shifted backward by 2 in Unicode code point order, wrapping within the contiguous same-case letter block (\u00e9->\u00e7, \u00c9->\u00c7, \u00fc->\u00fa, \u00f1->\u00ef, \u00f8->\u00f6, \u00e6->\u00e4, \u0153->\u0151, \u00df->\u00dd, \u00e0->\u00de, \u00fe->\u00fc) [E11, E12, E13, E14]",
+  "The shift for non-ASCII letters uses code-point arithmetic within the contiguous run of same-case letters containing the character, not alphabet position; \u00df (U+00DF) is treated as part of the lowercase run ending at \u00ff, so \u00df->\u00dd wraps across the \u00d7 boundary [E12, E13, E14]",
+  "The lowercase non-ASCII run starts at \u00e0 (U+00E0), not at \u00df; \u00e0->\u00de wraps backward past \u00df into the uppercase \u00de [E14]"
+ ]
+}

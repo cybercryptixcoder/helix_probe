@@ -1,0 +1,17 @@
+Helix Probe v2 on 'find_strings_f00612': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do to ordinary short English words and simple phrases — identit...(+49 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.33, fit 1.00, size 495 (exam 0.000 -> 0.333); held-out 0%
+[2] E2 How does the box handle non-letter characters (digits, spaces, punctuation)...(+64 chars)  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 1.00, fit 1.00, size 248 (exam 0.333 -> 1.000); held-out 100%
+[3] E3 Does the +1 shift apply to the whole string (including the inserted positio...(+202 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the midpoint insertion position depend on the number of characters as ...(+215 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the +1 shift and midpoint 'Y' insertion behave as modeled on ordinary ...(+131 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the +1 shift and midpoint 'Y' insertion hold for longer ordinary sente...(+137 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (458 vs 248 chars)
+[7] E7 Does the midpoint 'Y' insertion use index floor(len/2) or ceil(len/2) (i.e....(+113 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the +1 shift wrap around at 'z'/'Z' (e.g. z->a) or continue past ASCII...(+180 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the midpoint 'Y' insertion position for odd-length strings actually us...(+184 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the box insert 'Y' based on the original string length or somehow on t...(+220 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00612", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 248, "heldout": 1.0, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

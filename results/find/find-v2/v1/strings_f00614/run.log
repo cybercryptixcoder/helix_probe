@@ -1,0 +1,30 @@
+Helix Probe on 'find_strings_f00614': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a basic lowercase word, a word with a space, and a mixed ...(+27 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 88%
+[2] E2 Does f only remove ASCII spaces, or does it also remove other whitespace ch...(+85 chars)  model v1 match 0.80
+      model v2: fit 100% (was 50%), mean match 1.00 (was 0.90), held-out 100%
+[3] E3 Does f treat all Unicode whitespace (and other space-like characters) the s...(+119 chars)  model v2 match 1.00
+[4] E4 Does f's trailing 'F' come from a literal append, or is it a transformation...(+133 chars)  model v2 match 0.60
+      model v3: fit 100% (was 75%), mean match 1.00 (was 0.90), held-out 100%
+[5] E5 Does f append 'F' based on whether the whitespace-stripped result already e...(+150 chars)  model v3 match 1.00
+[6] E6 Does the 'ends in F' check happen before or after whitespace removal in cas...(+114 chars)  model v3 match 1.00
+[7] E7 Does the 'ends in F' suppression check happen on the whitespace-stripped re...(+191 chars)  model v3 match 1.00
+[8] E8 Does f strip only whitespace characters (Unicode \s plus NBSP/em-space/zero...(+186 chars)  model v3 match 1.00
+[9] E9 Does f append 'F' after stripping whitespace even when the stripped result ...(+73 chars)  model v3 match 1.00
+[10] E10 Does the trailing-'F' suppression check use Python's str.endswith('F') (cas...(+171 chars)  model v3 match 1.00
+[11] E11 Does f's whitespace removal use Python's \s (which includes vertical tab \x...(+198 chars)  model v3 match 1.00
+[12] E12 Does f's trailing-'F' suppression check look only at the final code point, ...(+254 chars)  model v3 match 1.00
+[13] E13 Does the trailing-'F' suppression check use str.endswith('F') on the exact ...(+199 chars)  model v3 match 1.00
+[14] E14 Does f's whitespace removal treat other Unicode 'space-like' characters not...(+347 chars)  model v3 match 1.00
+[15] E15 Does f's whitespace removal and trailing-F suppression behave the same for ...(+159 chars)  model v3 match 1.00
+[16] E16 Does f's trailing-'F' suppression look only at the literal ASCII 'F', or do...(+403 chars)  model v3 match 1.00
+[17] E17 Does the trailing-'F' suppression check use a broader definition of 'F' (e....(+189 chars)  model v3 match 1.00
+[18] E18 Does f's whitespace removal use Python's \s semantics (which includes U+001...(+175 chars)  model v3 match 1.00
+[19] E19 Does f's whitespace removal treat the remaining Unicode space-like code poi...(+322 chars)  model v3 match 1.00
+[20] E20 Does f's whitespace removal match Python's \s exactly for the remaining unt...(+306 chars)  model v3 match 1.00
+[21] E21 Does f's whitespace removal depend on input length or position (i.e., is it...(+212 chars)  model v3 match 1.00
+[22] E22 Does f's whitespace-removal boundary match Python's \s exactly at the two e...(+261 chars)  model v3 match 1.00
+[23] E23 Does the 'ends in F' suppression check inspect the fully stripped result ev...(+219 chars)  model v3 match 1.00
+[24] E24 Does f's trailing-'F' suppression check apply to the stripped result even w...(+192 chars)  model v3 match 1.00
+[25] E25 Does f apply the trailing-'F' suppression check to the stripped result only...(+208 chars)  model v3 match 1.00
+{"env": "find_strings_f00614", "experiments": 25, "model_version": 3, "fit": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

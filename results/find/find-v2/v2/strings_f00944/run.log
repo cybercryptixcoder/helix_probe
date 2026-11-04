@@ -1,0 +1,24 @@
+Helix Probe v2 on 'find_strings_f00944': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 Does the box transform only the final character(s) of each string, and how ...(+94 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 0.92, size 406 (exam 0.000 -> 1.000); held-out 88%
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Does the box's last-character shift apply to every character of the string ...(+113 chars)  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 1.00, size 507 (fit 0.933 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the box drop an uppercase 'R' only when preceded by uppercase 'E', or ...(+134 chars)  (v2 predicted it: match 0.67)
+      model v3 by the updater: exam 1.00, fit 1.00, size 505 (fit 0.944 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      model v4 by the theorist: exam 1.00, fit 1.00, size 433 (same scores, smaller (505 -> 433 chars)); held-out 100%
+[7] E7 a random ordinary probe  (v4 predicted it: match 1.00)
+[8] E8 Does the last-character shift happen before or after uppercase R is deleted...(+162 chars)  (v4 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v4 predicted it: match 1.00)
+[10] E10 Does the box apply the last-character shift to the true final character of ...(+373 chars)  (v4 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 Does the box apply the last-character shift to the final character of the o...(+174 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (469 vs 433 chars)
+[13] E13 a random ordinary probe  (v4 predicted it: match 1.00)
+[14] E14 Does the box's final-character shift apply to the last character of the who...(+268 chars)  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00944", "experiments": 14, "exam_probes": 4, "model_version": 4, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 433, "heldout": 1.0, "llm_calls": 14, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

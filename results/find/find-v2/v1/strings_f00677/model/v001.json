@@ -1,0 +1,13 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) appends the literal suffix 'xI' to the input string unchanged [E1]"
+ ],
+ "notes": "All ten inputs, including empty string, spaces, symbols, digits, and mixed case, came back as input + 'xI'. Simplest consistent rule: append 'xI'.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

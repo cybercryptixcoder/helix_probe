@@ -1,0 +1,26 @@
+Helix Probe v2 on 'find_strings_f00941': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.83, fit 0.83, size 79 (exam 0.000 -> 0.833); held-out 26%
+[2] E2 Does the box append "ny" to every input regardless of length, case, and con...(+100 chars)  (v1 predicted it: match 0.80)
+      updater's model not kept: its exam is 0.750, the current model's is 0.833
+      updater's model not kept: its exam is 0.750, the current model's is 0.833
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Does the box strip trailing/leading whitespace before appending 'ny', or do...(+91 chars)  (v1 predicted it: match 0.50)
+      model v2 by the updater: exam 1.00, fit 1.00, size 91 (exam 0.833 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the box strip leading whitespace only for spaces, or also for tabs and...(+132 chars)  (v2 predicted it: match 0.30)
+      model v3 by the updater: exam 1.00, fit 1.00, size 88 (fit 0.883 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.750, the current model's is 1.000
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Does the box strip leading whitespace that consists of newlines/carriage re...(+112 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 Does the box strip only leading whitespace (spaces/tabs/newlines) while pre...(+121 chars)  (v3 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 Does the box strip leading whitespace that is a mix of spaces, tabs, and ne...(+153 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (333 vs 88 chars)
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+[14] E14 Does the box append 'ny' to inputs that already end in 'ny', and does it tr...(+179 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00941", "experiments": 14, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 88, "heldout": 1.0, "llm_calls": 14, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

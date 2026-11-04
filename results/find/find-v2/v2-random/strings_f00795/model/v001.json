@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to: insert \"2\" at the middle (floor(len/2)) and Caesar-shift the last character by +2 (case-preserving, wrapping). This explains all six E1 outputs exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 501, "matches": [1.0], "made_at": 1, "heldout": 1.0}

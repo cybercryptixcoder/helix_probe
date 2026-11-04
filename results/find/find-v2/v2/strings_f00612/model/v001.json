@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to: shift each character +1 in ASCII, then insert the letter 'Y' at index `len(s)//2`. This fits all six E1 examples exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 308, "matches": [1.0], "made_at": 1, "heldout": 1.0}

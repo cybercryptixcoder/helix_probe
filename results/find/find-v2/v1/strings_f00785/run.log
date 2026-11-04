@@ -1,0 +1,35 @@
+Helix Probe on 'find_strings_f00785': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to basic lowercase words, mixed case, digits, spaces, and pu...(+79 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.90 (was 0.00), held-out 83%
+[2] E2 Is the final 'y' appended to the whole string, or is it the result of shift...(+76 chars)  model v1 match 0.70
+      model v2: fit 50% (was 0%), mean match 0.95 (was 0.80), held-out 83%
+[3] E3 Does f shift only the first character, or does the appended 'y' interfere w...(+60 chars)  model v2 match 0.90
+      model v3: fit 33% (was 33%), mean match 0.93 (was 0.93), held-out 83%
+[4] E4 What exactly does f do when the input is a single 'y' or strings starting w...(+113 chars)  model v3 match 0.60
+      model v4: fit 25% (was 25%), mean match 0.85 (was 0.85), held-out 83%
+[5] E5 Is the trailing 'y' actually omitted when the input already ends in 'y' (so...(+88 chars)  model v4 match 0.10
+      model v5: fit 100% (was 20%), mean match 1.00 (was 0.70), held-out 100%
+[6] E6 How does f handle the trailing-y suppression and first-character shift when...(+153 chars)  model v5 match 1.00
+[7] E7 How does f treat non-ASCII / multi-byte characters and other first-characte...(+252 chars)  model v5 match 0.20
+      model v6: fit 100% (was 86%), mean match 1.00 (was 0.89), held-out 100%
+[8] E8 How exactly does the non-ASCII first-character shift map accented letters —...(+173 chars)  model v6 match 1.00
+[9] E9 How does the first-character shift behave on non-accented non-ASCII letters...(+216 chars)  model v6 match 0.20
+      model v7: fit 89% (was 89%), mean match 0.99 (was 0.91), held-out 100%
+[10] E10 Does the non-ASCII letter shift wrap at the end of a script's alphabet (ω→α...(+117 chars)  model v7 match 1.00
+[11] E11 Does the first-character shift use a per-script alphabet with wrap (ω→α, я→...(+164 chars)  model v7 match 1.00
+[12] E12 Does the shift wrap within non-ASCII scripts at their alphabet boundary, te...(+163 chars)  model v7 match 1.00
+[13] E13 Does the first-character shift use a per-script alphabet with wrap for Gree...(+121 chars)  model v7 match 1.00
+[14] E14 Does the trailing-y suppression depend on the original last character or th...(+158 chars)  model v7 match 1.00
+[15] E15 Why does f('µ') return '¶y' (U+00B6) rather than leaving µ unchanged — is t...(+144 chars)  model v7 match 0.70
+      model v8: fit 100% (was 87%), mean match 1.00 (was 0.97), held-out 100%
+[16] E16 Is the first-character shift truly Unicode-category 'letter' based (so non-...(+268 chars)  model v8 match 1.00
+[17] E17 Does the trailing-y suppression depend on the string's original last charac...(+258 chars)  model v8 match 1.00
+[18] E18 Does the first-character letter shift apply to a letter that appears after ...(+189 chars)  model v8 match 1.00
+[19] E19 Does the append-suppression rule look at the original last character or at ...(+239 chars)  model v8 match 1.00
+[20] E20 Does the first-character shift wrap at the end of an ASCII range only for a...(+321 chars)  model v8 match 1.00
+[21] E21 Does the first-character shift apply to a leading whitespace/control charac...(+152 chars)  model v8 match 1.00
+[22] E22 For ASCII letters, does the shift stay within the case (z→a, Z→A) as believ...(+204 chars)  model v8 match 1.00
+[23] E23 Does the first-character shift apply to a leading combining mark or other n...(+201 chars)  model v8 match 1.00
+[24] E24 When the first character is a non-ASCII letter whose codepoint+1 lands on a...(+374 chars)  model v8 match 1.00
+[25] E25 Does the first-character shift apply to non-ASCII digits (Arabic-Indic, Dev...(+150 chars)  model v8 match 1.00
+{"env": "find_strings_f00785", "experiments": 25, "model_version": 8, "fit": 1.0, "heldout": 1.0, "llm_calls": 33, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

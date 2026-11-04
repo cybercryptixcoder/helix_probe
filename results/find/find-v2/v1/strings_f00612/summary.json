@@ -1,0 +1,22 @@
+{
+ "env": "find_strings_f00612",
+ "experiments": 25,
+ "model_version": 3,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 31,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "Each character is shifted by +1 in Unicode code point [E1-E8]",
+  "Space is not special: it shifts to '!' like any other char [E2]",
+  "After shifting, a single 'Y' is inserted at index floor(len(s)/2) where len is code-point length [E1-E8]",
+  "Empty string yields 'Y' (insert at index 0) [E1]",
+  "If any character's code point is U+10FFFF, shifting +1 gives U+110000 which is invalid, so f raises ValueError and the whole call returns 'ERROR: ValueError' [E9]",
+  "U+10FFFE shifts fine to U+10FFFF (valid), only U+10FFFF itself triggers the error [E9]",
+  "The error is per-call: if any input in the probe contains U+10FFFF, that input's output is 'ERROR: ValueError' [E9]?"
+ ]
+}

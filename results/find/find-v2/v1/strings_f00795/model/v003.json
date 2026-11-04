@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f inserts '2' at index len//2 of the input [E1, E2]",
+  "After insertion, if the last character is an ASCII letter, it is shifted forward by 2 in ASCII (a->c, z->b wrapping, A->C, Z->B wrapping) [E1, E2, E3]",
+  "The shift wraps around within the alphabet: 'z'->'b' and 'Z'->'B' rather than going past 'z'/'Z' [E3]",
+  "Non-letter last characters (digits, symbols, spaces) are left unchanged [E1, E3]",
+  "Only the last character is shifted, not every letter [E3]",
+  "Empty input returns empty output? [unverified]"
+ ],
+ "notes": "Fixed the letter-shift to wrap within a-z/A-Z instead of using raw chr(ord+2), which explains 'aZ'->'a2B' (Z wraps to B) and is consistent with 'z9'->'z29' (last char is digit, unchanged).",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 3
+}

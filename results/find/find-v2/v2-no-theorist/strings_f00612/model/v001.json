@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with the two-part rule I found: Caesar +1 on every character, then `'Y'` inserted at the midpoint (floor of half the length). Every one of the six E1 examples is reproduced exactly by this rule.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 242, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -21,3 +21,6 @@ step,kind,experiments,box_probes,model_version,model_role,exam,fit,size,arrival_
 20,learn,20,24,2,updater,0.417,0.350,560,0.00,0.000,57,E20
 21,learn,21,25,2,updater,0.417,0.357,560,0.00,0.000,59,E21
 22,learn,22,26,2,updater,0.417,0.355,560,0.00,0.000,63,E22
+23,learn,23,27,2,updater,0.417,0.354,560,0.00,0.000,65,E23
+24,learn,24,28,2,updater,0.417,0.339,560,0.00,0.000,69,E24
+25,learn,25,29,2,updater,0.417,0.339,560,0.00,0.000,71,E25
