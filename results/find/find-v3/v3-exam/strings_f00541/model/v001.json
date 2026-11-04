@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I added two rules from E1: leading spaces are stripped, and a leading \"H\" is removed (best guess: single-char removal, since \"Hello World...\" became \"ello World...\"). Everything else passes through unchanged.", "exam": 0.6666666666666666, "fit": 1.0, "fit_exact": 1.0, "size": 218, "matches": [1.0], "made_at": 1, "heldout": 0.12}

@@ -1,0 +1,32 @@
+Helix Probe v3 on 'find_strings_f00546': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 0.67, size 135 (fit 0.000 -> 0.667); held-out 0%
+[2] E2 learn: Does the 'lmKA' prefix appear once per whole output (with the res...(+139 chars)  (v1 predicted it: match 0.00; cost 5, spent 11)
+      updater's fix not kept: same scores and not smaller (296 vs 135 chars)
+      model v2 by the updater: fit 0.43, size 261 (fit 0.333 -> 0.433); held-out 0%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.83; cost 6, spent 17)
+      model v3 by the updater: fit 0.69, size 267 (fit 0.567 -> 0.689); held-out 1%
+[4] E4 learn: Does the insertion of 'lmKA' track the last space in the original...(+103 chars)  (v3 predicted it: match 0.10; cost 10, spent 27)
+      updater's fix not kept: its fit is 0.333, the current model's is 0.542
+      model v4 by the updater: fit 1.00, size 392 (fit 0.542 -> 1.000); held-out 88%
+[5] E5 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 6, spent 33)
+[6] E6 learn: Does the rule hold for single-character words, words of equal len...(+117 chars)  (v4 predicted it: match 1.00; cost 10, spent 43)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 283)
+[7] E7 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 6, spent 49)
+[8] E8 learn: Does the model handle tabs, newlines, and other whitespace-like s...(+104 chars)  (v4 predicted it: match 0.00; cost 10, spent 59)
+      model v5 by the updater: fit 1.00, size 394 (fit 0.875 -> 1.000); held-out 100%
+[9] E9 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 6, spent 65)
+      theorist's model lost its trial: on trial it predicted 0.67 of 3 new experiments, the current model 0.67
+[10] E10 learn: Does the rule hold for ordinary multi-word inputs containing punc...(+133 chars)  (v5 predicted it: match 1.00; cost 10, spent 75)
+[11] E11 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 6, spent 81)
+[12] E12 learn: How does the function treat internal punctuation-only or symbol-o...(+103 chars)  (v5 predicted it: match 1.00; cost 10, spent 91)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 396)
+[13] E13 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 6, spent 97)
+[14] E14 learn: How does the function handle multiple consecutive whitespace runs...(+176 chars)  (v5 predicted it: match 1.00; cost 9, spent 106)
+[15] E15 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 6, spent 112)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[16] E16 learn: Does the rule hold for inputs that are a single long word with no...(+148 chars)  (v5 predicted it: match 1.00; cost 8, spent 120)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00546", "experiments": 16, "cost": 120, "model_version": 5, "model_role": "updater", "fit": 1.0, "size": 394, "exam": null, "heldout": 1.0, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

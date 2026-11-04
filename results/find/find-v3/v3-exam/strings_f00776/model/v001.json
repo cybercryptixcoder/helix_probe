@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I discovered the box reverses each string and inserts a `'W'` at the midpoint (index `len//2`) of the reversed string \u2014 verified across all six E1 inputs including the 25-char sentence.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 185, "matches": [1.0], "made_at": 1, "heldout": 1.0}

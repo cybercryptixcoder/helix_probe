@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_strings_f00898': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 1.00, size 223, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the insertion point depend on string length in a way that di...(+156 chars)  (v1 predicted it: match 1.00; cost 10, spent 20)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 26)
+[4] E4 learn: Does the operation act on characters (Unicode code points) or on ...(+137 chars)  (v1 predicted it: match 1.00; cost 10, spent 36)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 42)
+[6] E6 learn: Does the model still hold for ordinary sentences containing punct...(+116 chars)  (v1 predicted it: match 1.00; cost 10, spent 52)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 208)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 58)
+[8] E8 learn: Does the model still hold when the midpoint falls exactly at a bo...(+239 chars)  (v1 predicted it: match 1.00; cost 10, spent 68)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 74)
+      model v2 by the theorist: fit 1.00, size 208, exam 1.00 (on trial it predicted 1.00 of 3 new experiments, the current model 1.00); held-out 100%
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00898", "experiments": 9, "cost": 74, "model_version": 2, "model_role": "theorist", "fit": 1.0, "size": 208, "exam": 1.0, "heldout": 1.0, "llm_calls": 7, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,31 @@
+Helix Probe v3 on 'find_strings_f00751': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 0.83, size 194, exam 0.79 (exam 0.000 -> 0.792); held-out 17%
+[2] E2 learn: Does the box strip trailing whitespace as well as leading whitesp...(+129 chars)  (v1 predicted it: match 0.50; cost 6, spent 16)
+      model v2 by the updater: fit 1.00, size 280, exam 1.00 (exam 0.792 -> 1.000); held-out 99%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 22)
+[4] E4 learn: Does the insertion index depend on the original string length (in...(+122 chars)  (v2 predicted it: match 1.00; cost 8, spent 30)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 36)
+[6] E6 learn: Does the insertion index use floor or ceiling of half the strippe...(+143 chars)  (v2 predicted it: match 1.00; cost 8, spent 44)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 50)
+[8] E8 learn: Does the insertion index use the full original length including t...(+184 chars)  (v2 predicted it: match 1.00; cost 6, spent 56)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 62)
+[10] E10 learn: Does the insertion index subtract the full leading-whitespace cou...(+183 chars)  (v2 predicted it: match 0.88; cost 8, spent 70)
+      updater's fix not kept: same scores and not smaller (280 vs 280 chars)
+      updater's fix not kept: same scores and not smaller (280 vs 280 chars)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 76)
+[12] E12 learn: Does the insertion index formula len(original)//2 - leading_white...(+235 chars)  (v2 predicted it: match 0.88; cost 8, spent 84)
+      model v3 by the updater: fit 1.00, size 402, exam 1.00 (fit 0.979 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 90)
+[14] E14 learn: Does the model's handling of mid<0 (when leading whitespace excee...(+221 chars)  (v3 predicted it: match 1.00; cost 10, spent 100)
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 106)
+[16] E16 learn: Does the insertion index formula len(original)//2 - leading_white...(+163 chars)  (v3 predicted it: match 1.00; cost 10, spent 116)
+[17] E17 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 122)
+[18] E18 learn: Does the insert position depend on the stripped length or the ori...(+120 chars)  (v3 predicted it: match 1.00; cost 10, spent 132)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 138)
+[20] E20 learn: Does the insertion index formula use the original length (includi...(+180 chars)  (v3 predicted it: match 1.00; cost 10, spent 148)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00751", "experiments": 20, "cost": 148, "model_version": 3, "model_role": "updater", "fit": 1.0, "size": 402, "exam": 1.0, "heldout": 1.0, "llm_calls": 18, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

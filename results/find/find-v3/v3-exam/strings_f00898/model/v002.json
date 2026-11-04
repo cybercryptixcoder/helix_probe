@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "Main idea: For each input string, insert the letter 'f' at the midpoint (index floor(len/2)), then append a duplicate of the final character.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 208, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 9, "heldout": 1.0}

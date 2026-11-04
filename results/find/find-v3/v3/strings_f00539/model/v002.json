@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the suffix rule: instead of always appending \"h\", the box dedups first and appends \"h\" only when it isn't already present (E2 shows \"h\"\u2192\"h\", \"help\"\u2192\"help\", \"a h\"\u2192\"a h\").", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 196, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

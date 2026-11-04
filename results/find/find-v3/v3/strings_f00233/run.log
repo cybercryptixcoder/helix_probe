@@ -1,0 +1,21 @@
+Helix Probe v3 on 'find_strings_f00233': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      updater's fix not kept: same scores and not smaller (124 vs 33 chars)
+      updater's fix not kept: same scores and not smaller (89 vs 33 chars)
+[2] E2 learn: Does the function reverse every string and swap case, and how doe...(+55 chars)  (v0 predicted it: match 0.00; cost 10, spent 16)
+      model v1 by the updater: fit 0.25, size 89 (fit 0.000 -> 0.250); held-out 0%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 6, spent 22)
+      model v2 by the updater: fit 1.00, size 91 (fit 0.167 -> 1.000); held-out 100%
+[4] E4 learn: Does the function capitalize only the first character after rever...(+128 chars)  (v2 predicted it: match 1.00; cost 10, spent 32)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 38)
+[6] E6 learn: Do non-ASCII/Unicode-adjacent ordinary characters like accented l...(+159 chars)  (v2 predicted it: match 1.00; cost 10, spent 48)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 131)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the function treat a leading non-letter (digit, punctuation,...(+118 chars)  (v2 predicted it: match 1.00; cost 10, spent 64)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 70)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the function's capitalize step uppercase the first alphabeti...(+164 chars)  (v2 predicted it: match 1.00; cost 10, spent 80)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 86)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00233", "experiments": 11, "cost": 86, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 91, "exam": null, "heldout": 1.0, "llm_calls": 10, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

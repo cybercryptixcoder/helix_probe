@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to remove all spaces from each input and append \"F\", since E1 shows spaces stripped (including the leading space in \" Zebralower\") while case, digits, and symbols are preserved.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 95, "matches": [1.0], "made_at": 1, "heldout": 0.88}

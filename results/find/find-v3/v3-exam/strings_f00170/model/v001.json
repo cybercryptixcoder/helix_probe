@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to `\"k\" + reversed(input)`, since all six observations in E1 are exactly the input reversed with a leading `k` (including the space handling and the palindrome `level`).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 84, "matches": [1.0], "made_at": 1, "heldout": 1.0}

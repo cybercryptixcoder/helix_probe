@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed the whitespace removal from only ASCII spaces to all whitespace characters (tabs and newlines too), since E2 showed `a\\tb` \u2192 `abF` and `a\\nb` \u2192 `abF`.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 111, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

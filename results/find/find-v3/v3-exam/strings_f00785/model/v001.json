@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to: increment the first character by one if it's a letter (wrapping Z\u2192A), and append 'y' unless the string already ends in 'y'.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 433, "matches": [1.0], "made_at": 1, "heldout": 1.0}

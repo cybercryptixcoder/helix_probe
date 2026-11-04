@@ -73,3 +73,14 @@ Helix Probe v3 on 'find_numeric_f00970': 0 experiments so far, model v0, spent 4
       updater's fix not kept: its exam is 0.025, the current model's is 0.075
       updater's fix not kept: its exam is 0.050, the current model's is 0.075
       theorist (fixes stalled)
+      theorist's model not tried: its exam is 0.050, the current model's is 0.075
+[24] E24 learn: Is the small-|x| plateau value a deterministic function of x (so ...(+100 chars)  (v5 predicted it: match 0.55; cost 20, spent 364)
+      updater's fix not kept: its exam is 0.050, the current model's is 0.075
+      updater's fix not kept: its exam is 0.025, the current model's is 0.075
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v5 predicted it: match 0.00; cost 10, spent 374)
+      updater's fix not kept: its exam is 0.050, the current model's is 0.075
+      updater's fix not kept: its exam is 0.025, the current model's is 0.075
+      theorist (fixes stalled)
+      theorist's model not tried: its exam is 0.050, the current model's is 0.075
+{"env": "find_numeric_f00970", "experiments": 25, "cost": 374, "model_version": 5, "model_role": "updater", "fit": 0.15200000000000002, "size": 287, "exam": 0.07500000000000001, "heldout": 0.0, "llm_calls": 71, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

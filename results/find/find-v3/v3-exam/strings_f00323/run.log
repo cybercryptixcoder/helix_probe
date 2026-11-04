@@ -1,0 +1,23 @@
+Helix Probe v3 on 'find_strings_f00323': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 0.67, size 78, exam 0.38 (exam 0.000 -> 0.375); held-out 0%
+[2] E2 learn: Does the box reverse the whole string always, or does it preserve...(+144 chars)  (v1 predicted it: match 0.70; cost 10, spent 20)
+      model v2 by the updater: fit 1.00, size 95, exam 1.00 (exam 0.375 -> 1.000); held-out 88%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 26)
+[4] E4 learn: Does the box drop only ASCII space characters, or does it also re...(+98 chars)  (v2 predicted it: match 0.60; cost 10, spent 36)
+      model v3 by the updater: fit 1.00, size 111, exam 1.00 (fit 0.900 -> 1.000); held-out 100%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 42)
+[6] E6 learn: Does the box treat every kind of whitespace (space, tab, newline,...(+95 chars)  (v3 predicted it: match 1.00; cost 10, spent 52)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 198)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 58)
+[8] E8 learn: Does the box reverse the order of characters within each word (tr...(+129 chars)  (v3 predicted it: match 1.00; cost 10, spent 68)
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 74)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the box treat non-whitespace control/format characters (like...(+146 chars)  (v3 predicted it: match 1.00; cost 10, spent 84)
+[11] E11 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 90)
+[12] E12 learn: Does the box treat Unicode whitespace-like characters (NBSP, em s...(+124 chars)  (v3 predicted it: match 1.00; cost 10, spent 100)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 430)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00323", "experiments": 12, "cost": 100, "model_version": 3, "model_role": "updater", "fit": 1.0, "size": 111, "exam": 1.0, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

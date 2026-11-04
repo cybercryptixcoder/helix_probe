@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to strip all spaces from each input and append \"F\", which matches every output in E1 (e.g. \" Zebralower\" \u2192 \"ZebralowerF\", \"Hello World function lazy\" \u2192 \"HelloWorldfunctionlazyF\").", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 95, "matches": [1.0], "made_at": 1, "heldout": 0.88}

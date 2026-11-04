@@ -1,0 +1,17 @@
+{
+ "env": "find_strings_f00941",
+ "experiments": 12,
+ "cost": 96,
+ "model_version": 4,
+ "model_role": "theorist",
+ "fit": 1.0,
+ "size": 196,
+ "exam": null,
+ "heldout": 1.0,
+ "llm_calls": 11,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ }
+}

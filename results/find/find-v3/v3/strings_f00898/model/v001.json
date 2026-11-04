@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found the mechanism: insert 'f' at the midpoint (len//2) and append the original string's last character \u2014 all six E1 cases match exactly.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 229, "matches": [1.0], "made_at": 1, "heldout": 1.0}

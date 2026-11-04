@@ -1,0 +1,22 @@
+Helix Probe v3 on 'find_strings_f00542': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 0.33, size 78, exam 0.29 (exam 0.000 -> 0.292); held-out 0%
+[2] E2 learn: Does the box reverse the whole string, or only part of it — e.g. ...(+123 chars)  (v1 predicted it: match 0.14; cost 7, spent 17)
+      model v2 by the updater: fit 0.45, size 166, exam 0.33 (exam 0.292 -> 0.333); held-out 0%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.33; cost 6, spent 23)
+[4] E4 learn: Does the box reverse each whitespace-separated word in place (kee...(+102 chars)  (v2 predicted it: match 0.12; cost 8, spent 31)
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.33; cost 6, spent 37)
+[6] E6 learn: How does the box handle multi-word input — does it reverse each w...(+116 chars)  (v2 predicted it: match 0.12; cost 8, spent 45)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 6, spent 51)
+[8] E8 learn: Does the box reverse the whole string and then keep only the firs...(+197 chars)  (v2 predicted it: match 0.25; cost 8, spent 59)
+      theorist (fixes stalled)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 0.17; cost 6, spent 65)
+[10] E10 learn: How are words combined/merged when there are multiple words — doe...(+290 chars)  (v2 predicted it: match 0.20; cost 10, spent 75)
+      theorist (fixes stalled)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 6, spent 81)
+[12] E12 learn: For multi-word strings, how exactly are adjacent words merged aft...(+253 chars)  (v2 predicted it: match 0.20; cost 10, spent 91)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 6, spent 97)
+[14] E14 learn: For multi-word inputs, is the output formed by reversing the whol...(+201 chars)  (v2 predicted it: match 0.12; cost 8, spent 105)

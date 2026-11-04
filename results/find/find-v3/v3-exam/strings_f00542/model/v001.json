@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box simply reverses each input string entirely (all six E1 outputs are exact full reversals, preserving spaces and case). I replaced the empty model with a full-string reversal.", "exam": 0.29166666666666663, "fit": 0.3333333333333333, "fit_exact": 0.0, "size": 78, "matches": [0.3333333333333333], "made_at": 1, "heldout": 0.0}

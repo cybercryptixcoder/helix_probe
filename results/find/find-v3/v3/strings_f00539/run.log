@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_strings_f00539': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 102 (fit 0.000 -> 1.000); held-out 39%
+[2] E2 learn: Does the trailing 'h' come from a fixed append, or is 'h' itself ...(+110 chars)  (v1 predicted it: match 0.10; cost 10, spent 16)
+      model v2 by the updater: fit 1.00, size 196 (fit 0.550 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 22)
+[4] E4 learn: Does the model's 'dedup then append h if absent' rule hold on ord...(+121 chars)  (v2 predicted it: match 1.00; cost 10, spent 32)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 38)
+[6] E6 learn: Does the dedup-and-append-h rule hold for ordinary short words an...(+115 chars)  (v2 predicted it: match 1.00; cost 10, spent 48)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the rule hold for ordinary words where 'h' appears before ot...(+163 chars)  (v2 predicted it: match 1.00; cost 8, spent 62)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 68)
+[10] E10 learn: Does the rule hold for ordinary prose containing uppercase 'H' (w...(+216 chars)  (v2 predicted it: match 1.00; cost 10, spent 78)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00539", "experiments": 10, "cost": 78, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 196, "exam": null, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

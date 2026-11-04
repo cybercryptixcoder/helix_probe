@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed from removing only the literal space to removing all whitespace characters via `\\s+`, since E2 showed tabs and newlines are also stripped.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 103, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

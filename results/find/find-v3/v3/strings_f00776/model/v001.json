@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from empty to: reverse the input string, then insert the letter `W` at the middle index (`len//2`). This matches all six E1 outputs exactly, including even/odd lengths and spaces.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 169, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I fixed the empty-string case: E2 shows `f(\"\") == \"ff\"`, not `\"f\"`. The insertion rule (`f` at `len//2`) plus appending the last character holds for all other cases, including single chars and spaces.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 230, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

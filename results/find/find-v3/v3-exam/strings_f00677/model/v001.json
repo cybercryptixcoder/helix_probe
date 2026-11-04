@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box simply appends the literal suffix `\"xI\"` to each input string, regardless of content (letters, digits, spaces, case, length all preserved). I replaced the empty model with this rule.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 79, "matches": [1.0], "made_at": 1, "heldout": 1.0}

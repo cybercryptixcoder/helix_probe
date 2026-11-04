@@ -1,0 +1,26 @@
+Helix Probe v3 on 'find_strings_f00634': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 6)
+      model v1 by the updater: fit 1.00, size 202 (fit 0.000 -> 1.000); held-out 88%
+[2] E2 learn: Does capitalization apply only to the first character of the whol...(+120 chars)  (v1 predicted it: match 1.00; cost 10, spent 16)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 22)
+[4] E4 learn: How are leading/trailing whitespace and non-space separators (tab...(+86 chars)  (v1 predicted it: match 0.80; cost 10, spent 32)
+      updater's fix not kept: its fit is 0.883, the current model's is 0.950
+      updater's fix not kept: its fit is 0.883, the current model's is 0.950
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 38)
+[6] E6 learn: Does the transformation capitalize only the first character of th...(+156 chars)  (v1 predicted it: match 0.50; cost 10, spent 48)
+      model v2 by the updater: fit 1.00, size 438 (fit 0.883 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 451)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 54)
+[8] E8 learn: Does the box treat non-ASCII/Unicode whitespace (e.g. non-breakin...(+187 chars)  (v2 predicted it: match 1.00; cost 10, spent 64)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 70)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the box capitalize the first letter after a digit or punctua...(+107 chars)  (v2 predicted it: match 1.00; cost 10, spent 80)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 86)
+[12] E12 learn: How does the box handle digits, punctuation, and symbols at the v...(+170 chars)  (v2 predicted it: match 1.00; cost 10, spent 96)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 514)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 102)
+[14] E14 learn: Does the box lowercase the rest of the string after capitalizing ...(+146 chars)  (v2 predicted it: match 1.00; cost 10, spent 112)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00634", "experiments": 14, "cost": 112, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 438, "exam": null, "heldout": 1.0, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I removed spaces and shifted the first character by +2 in the alphabet (wrapping, preserving case), which matches all six E1 outputs including the leading-space and wrap-around cases.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 413, "matches": [1.0], "made_at": 1, "heldout": 0.88}

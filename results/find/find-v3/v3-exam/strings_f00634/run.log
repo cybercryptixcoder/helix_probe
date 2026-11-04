@@ -1,0 +1,33 @@
+Helix Probe v3 on 'find_strings_f00634': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 6, spent 10)
+      model v1 by the updater: fit 1.00, size 313, exam 1.00 (exam 0.000 -> 1.000); held-out 88%
+[2] E2 learn: Does the leading-space rule lower-case everything (as seen in ' Z...(+250 chars)  (v1 predicted it: match 1.00; cost 10, spent 20)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 26)
+[4] E4 learn: Does the rule depend on the first character of the input or on th...(+123 chars)  (v1 predicted it: match 1.00; cost 10, spent 36)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 6, spent 42)
+[6] E6 learn: How are non-space whitespace (tabs, newlines) and non-letter firs...(+130 chars)  (v1 predicted it: match 0.70; cost 10, spent 52)
+      model v2 by the updater: fit 1.00, size 335, exam 1.00 (fit 0.950 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 534)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 58)
+[8] E8 learn: Does the box capitalize the first letter of each word (title-casi...(+112 chars)  (v2 predicted it: match 1.00; cost 10, spent 68)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 74)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Does the box collapse internal whitespace runs into nothing (as m...(+156 chars)  (v2 predicted it: match 1.00; cost 10, spent 84)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 6, spent 90)
+[12] E12 learn: How does the box treat non-ASCII/Unicode letters and accented cha...(+154 chars)  (v2 predicted it: match 0.90; cost 10, spent 100)
+      model v3 by the updater: fit 1.00, size 394, exam 1.00 (fit 0.992 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model not tried: its exam is 0.833, the current model's is 1.000
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 106)
+[14] E14 learn: Does the box's capitalization apply to the first character after ...(+178 chars)  (v3 predicted it: match 1.00; cost 10, spent 116)
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 122)
+[16] E16 learn: Does the box's capitalization treat a leading combining-mark or z...(+214 chars)  (v3 predicted it: match 1.00; cost 10, spent 132)
+[17] E17 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 138)
+[18] E18 learn: Does the leading-whitespace rule depend on the first character of...(+273 chars)  (v3 predicted it: match 1.00; cost 10, spent 148)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 409)
+[19] E19 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 6, spent 154)
+[20] E20 learn: Does the leading-whitespace rule trigger on any whitespace anywhe...(+204 chars)  (v3 predicted it: match 1.00; cost 10, spent 164)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_strings_f00634", "experiments": 20, "cost": 164, "model_version": 3, "model_role": "updater", "fit": 1.0, "size": 394, "exam": 1.0, "heldout": 1.0, "llm_calls": 16, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

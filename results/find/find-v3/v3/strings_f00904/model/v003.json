@@ -1,0 +1,1 @@
+{"version": 3, "role": "theorist", "notes": "The box reverses the input string and replaces every uppercase 'W' with 'r' (lowercase 'w' is untouched).", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 147, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 9, "heldout": 1.0}
