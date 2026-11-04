@@ -49,6 +49,8 @@ in their own right.
 - **Resume from GitHub alone.** If the local `runs/` folder is lost, the job first rebuilds it from GitHub
   (`bench/restore.py`). A fresh clone continues the job where the last push left it. For a longer run (for example
   50 more experiments per game), run it again with a bigger `ARC_STEPS` or `FIND_STEPS`.
+- **Fixes made while it waits.** When find-v2 ends, the job pulls once from GitHub and keeps what it pulled
+  only if the same crash test passes; otherwise it goes back to the commit it started with.
 - **Graceful stop.** `kill -TERM` on the job lets every run finish its step and save, pushes, then exits.
 - **Tested here before pushing:**
   - the whole job with a fake model;
@@ -72,7 +74,7 @@ Queue my Helix Probe v3 job on this machine and report back. It must wait for th
    Then check: `$PYTHON -c "import arc_agi, arcengine, numpy, scipy; print('ok')"` must print ok. If it doesn't, report the error and stop.
 4. Start the job in the background, exactly like this, from /home/ubuntu/helix_probe (one command, with your PYTHON value):
    `PYTHON=<PYTHON> setsid nohup bash scripts/run_v3.sh > v3_job.log 2>&1 < /dev/null &`
-5. Wait about 5 minutes, then read v3_job.log once. A good start shows, in order: "== preflight", "arc-agi toolkit ok", "crash test passed", "model answers on key 1 of 2: OK", "model answers on key 2 of 2: OK", "GitHub: can push", and then either "waiting for the job holding runs/find/.find-v2.lock to finish" (find-v2 still running: expected) or "is free; starting". A line starting with "preflight:" or a Traceback means the job stopped: report those lines exactly, and don't edit anything to fix it.
+5. Wait about 5 minutes, then read v3_job.log once. A good start shows, in order: "== preflight", "arc-agi toolkit ok", "crash test passed", "model answers on key 1 of 2: OK", "model answers on key 2 of 2: OK", "GitHub: can push", and then either "waiting for the job holding runs/find/.find-v2.lock to finish" (find-v2 still running: expected) or "is free". A line starting with "preflight:" or a Traceback means the job stopped: report those lines exactly, and don't edit anything to fix it.
 6. Report what you saw (quote the lines), the output of `free -m` and `df -h /`, and `ps -o pid,sid,ppid,etime,cmd -p <pid>` for the job (find it with `pgrep -fa v3_job_snapshot`).
 7. Then stop. Don't stop, restart or kill any process. Don't set up cron jobs, timers, monitors, scheduled check-ins or reminders: Shreyas checks in himself.
 ```
@@ -90,7 +92,9 @@ Queue my Helix Probe v3 job on this machine and report back. It must wait for th
    model answers on key 2 of 2: OK (... s)
    GitHub: can push
    [HH:MM] waiting for the job holding runs/find/.find-v2.lock to finish      (every 10 minutes while find-v2 runs)
-== HH:MM: runs/find/.find-v2.lock is free; starting
+== HH:MM: runs/find/.find-v2.lock is free
+   pulled <commit> (fixes made while waiting); crash test passed      (only if something new was pushed)
+== starting
 == stage aia: started ...
 ```
 
