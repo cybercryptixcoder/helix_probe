@@ -1,0 +1,20 @@
+{
+ "out": "runs/arc/arc-v3",
+ "arms": [
+  "v3"
+ ],
+ "games": [
+  "tr87",
+  "wa30",
+  "sb26",
+  "cd82",
+  "sc25"
+ ],
+ "budget_x": 3.0,
+ "steps": 100,
+ "max_actions": 8,
+ "workers": 5,
+ "seed": 0,
+ "fake": false,
+ "report": false
+}
