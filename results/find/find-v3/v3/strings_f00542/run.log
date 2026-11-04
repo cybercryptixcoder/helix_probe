@@ -28,3 +28,22 @@ Helix Probe v3 on 'find_strings_f00542': 0 experiments so far, model v0, spent 0
       theorist (fixes stalled)
 [15] E15 learn: a random ordinary probe  (v3 predicted it: match 0.83; cost 6, spent 118)
 [16] E16 learn: For multi-word inputs, is the output formed by reversing the enti...(+196 chars)  (v3 predicted it: match 0.00; cost 10, spent 128)
+      theorist (fixes stalled)
+[17] E17 learn: a random ordinary probe  (v3 predicted it: match 0.67; cost 6, spent 134)
+[18] E18 learn: For multi-token inputs, is the output 'reverse each token, then r...(+203 chars)  (v3 predicted it: match 0.00; cost 10, spent 144)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.51, size 483)
+[19] E19 learn: a random ordinary probe  (v3 predicted it: match 0.33; cost 6, spent 150)
+      updater's fix not kept: its fit is 0.005, the current model's is 0.400
+      updater's fix not kept: its fit is 0.261, the current model's is 0.400
+[20] E20 learn: For inputs with three or more words, does the box keep only the f...(+177 chars)  (v3 predicted it: match 0.00; cost 10, spent 160)
+      updater's fix not kept: its fit is 0.248, the current model's is 0.380
+[21] E21 learn: a random ordinary probe  (v3 predicted it: match 0.17; cost 6, spent 166)
+      model v4 by the theorist: fit 0.48, size 483 (on trial it predicted 0.30 of 3 new experiments, the current model 0.17); held-out 1%
+[22] E22 learn: For multi-word inputs, what exactly happens to the middle words —...(+94 chars)  (v4 predicted it: match 0.30; cost 10, spent 176)
+      theorist (fixes stalled)
+[23] E23 learn: a random ordinary probe  (v4 predicted it: match 0.67; cost 6, spent 182)
+[24] E24 learn: For 3+ word inputs, is the output always just reverse(first word)...(+133 chars)  (v4 predicted it: match 0.30; cost 10, spent 192)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v4 predicted it: match 0.17; cost 6, spent 198)
+{"env": "find_strings_f00542", "experiments": 25, "cost": 198, "model_version": 4, "model_role": "theorist", "fit": 0.46, "size": 483, "exam": null, "heldout": 0.01, "llm_calls": 70, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

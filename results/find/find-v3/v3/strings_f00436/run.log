@@ -28,3 +28,18 @@ Helix Probe v3 on 'find_strings_f00436': 0 experiments so far, model v0, spent 0
       theorist (fixes stalled)
 [16] E16 learn: For ordinary multi-word phrases, is the 'I' inserted at the midpo...(+183 chars)  (v3 predicted it: match 0.00; cost 10, spent 128)
 [17] E17 learn: a random ordinary probe  (v3 predicted it: match 0.00; cost 6, spent 134)
+      theorist (fixes stalled)
+[18] E18 learn: For ordinary multi-word phrases, is the 'I' inserted at the chara...(+127 chars)  (v3 predicted it: match 0.00; cost 10, spent 144)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v3 predicted it: match 0.33; cost 6, spent 150)
+      theorist (fixes stalled)
+[20] E20 learn: For ordinary single words and short phrases, does the box insert ...(+216 chars)  (v3 predicted it: match 0.40; cost 10, spent 160)
+[21] E21 learn: a random ordinary probe  (v3 predicted it: match 0.17; cost 6, spent 166)
+      theorist (fixes stalled)
+[22] E22 learn: For ordinary multi-word phrases, does the box reverse the whole s...(+198 chars)  (v3 predicted it: match 0.00; cost 10, spent 176)
+      model v4 by the updater: fit 0.48, size 218 (fit 0.183 -> 0.483); held-out 0%
+[23] E23 learn: a random ordinary probe  (v4 predicted it: match 0.33; cost 6, spent 182)
+[24] E24 learn: For ordinary multi-word phrases, is the insertion point measured ...(+185 chars)  (v4 predicted it: match 0.00; cost 10, spent 192)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v4 predicted it: match 0.17; cost 6, spent 198)
+{"env": "find_strings_f00436", "experiments": 25, "cost": 198, "model_version": 4, "model_role": "updater", "fit": 0.4453333333333333, "size": 218, "exam": null, "heldout": 0.0, "llm_calls": 74, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
