@@ -1,0 +1,37 @@
+Helix Probe on 'find_numeric_f00942': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, including sign, scale, and a...(+22 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Where exactly does the transition between the negative-x shallow linear bra...(+94 chars)  model v1 match 0.00
+      model v2: fit 50% (was 50%), mean match 0.90 (was 0.50), held-out 100%
+[3] E3 What is the exact value and local shape of f near x=0, where the model clai...(+82 chars)  model v2 match 0.95
+      model v3: fit 67% (was 33%), mean match 0.93 (was 0.92), held-out 100%
+[4] E4 Is the huge negative value at x=0 truly a single-point spike, or does the n...(+103 chars)  model v3 match 1.00
+[5] E5 Does the huge negative spike at x=0 occur only at exactly 0, or is there a ...(+155 chars)  model v3 match 1.00
+[6] E6 Does the positive-x branch stay linear far out (e.g. x=100, 128) with slope...(+54 chars)  model v3 match 1.00
+[7] E7 Does the positive-x branch keep slope -405.5 all the way out to x=128 (righ...(+68 chars)  model v3 match 1.00
+[8] E8 Is the positive-x branch's slope actually -405.5 - 154.8/x-like (i.e., offs...(+133 chars)  model v3 match 1.00
+[9] E9 What are the exact slope and offset of the positive-x branch, given E2 and ...(+127 chars)  model v3 match 1.00
+[10] E10 What are the exact slope and offset of the negative-x branch for x <= -1, s...(+84 chars)  model v3 match 1.00
+[11] E11 For x in the open interval (-1, 0), E2 shows my slope 81.5 is wrong (e.g. f...(+125 chars)  model v3 match 0.10
+      model v4: fit 82% (was 82%), mean match 0.91 (was 0.90), held-out 100%
+[12] E12 Is the branch boundary exactly at x=-1 (i.e., does f(-1) belong to the shal...(+144 chars)  model v4 match 0.67
+      model v5: fit 75% (was 75%), mean match 0.89 (was 0.89), held-out 100%
+[13] E13 Does the (-1,0) branch's linear formula y=17.1x-17.1 hold right up to x=-1,...(+103 chars)  model v5 match 0.00
+      revision rejected: mean match 0.81 < 0.82
+      revision rejected: mean match 0.81 < 0.82
+[14] E14 Where exactly is the boundary between the x<=-1 branch (slope -35.52) and t...(+187 chars)  model v5 match 0.85
+      model v6: fit 64% (was 64%), mean match 0.82 (was 0.82), held-out 100%
+[15] E15 Does the branch for x just above 0 (the steep positive-x branch) really beg...(+180 chars)  model v6 match 1.00
+[16] E16 Does the shallow (-1,0) branch really meet the steep x>0 branch at x=0 (i.e...(+208 chars)  model v6 match 1.00
+[17] E17 Is the (-1,0) branch truly linear y=17.1x-17.1 across the whole interval, o...(+124 chars)  model v6 match 0.65
+      model v7: fit 65% (was 65%), mean match 0.83 (was 0.83), held-out 100%
+[18] E18 Is the (-1,0) branch really linear with slope 17.1, or does it follow a dif...(+92 chars)  model v7 match 0.00
+      model v8: fit 100% (was 61%), mean match 1.00 (was 0.79), held-out 100%
+[19] E19 Does the shallow (-1,0) branch really have slope 17.1 across its whole span...(+114 chars)  model v8 match 1.00
+[20] E20 Does the (-1,0) branch have a slope change (kink) between x=-0.22 (E19, slo...(+161 chars)  model v8 match 1.00
+[21] E21 Does the (-1,0) branch keep slope 35.72 all the way from x=-0.04 up to x=0-...(+120 chars)  model v8 match 1.00
+[22] E22 Does the x>0 branch keep slope -405.5 and offset -154.8 all the way from x=...(+116 chars)  model v8 match 1.00
+[23] E23 Does the x>0 branch keep slope -405.5 and offset -154.8 all the way down ne...(+110 chars)  model v8 match 1.00
+[24] E24 Does the x>0 branch keep slope -405.5 and offset -154.8 all the way from x=...(+94 chars)  model v8 match 1.00
+[25] E25 Does the x<=-1 branch keep slope -35.52 and offset -16.9 all the way out to...(+125 chars)  model v8 match 1.00
+{"env": "find_numeric_f00942", "experiments": 25, "model_version": 8, "fit": 1.0, "heldout": 1.0, "llm_calls": 36, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

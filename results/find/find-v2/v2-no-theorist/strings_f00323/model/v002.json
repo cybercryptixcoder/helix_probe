@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the model to reverse the entire string and then strip all spaces, since E2 shows spaces are removed entirely (e.g. \"a b c\"\u2192\"cba\", \" leading\"\u2192\"gnidael\") rather than preserved in place as v1 assumed.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 95, "matches": [1.0, 1.0], "made_at": 2, "heldout": 0.88}

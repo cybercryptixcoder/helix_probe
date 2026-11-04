@@ -1,0 +1,22 @@
+{
+ "env": "find_strings_f00346",
+ "experiments": 25,
+ "model_version": 6,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 33,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f removes all Unicode whitespace characters (spaces, tabs, newlines, NBSP, EM SPACE, etc.) from the input [E1, E14, E15, E16, E17]",
+  "f shifts only the first character of the whitespace-stripped string forward by 2 in the alphabet, wrapping at the end, for any letter (ASCII or non-ASCII) [E1, E4, E14, E18]",
+  "The shift uses Unicode code-point arithmetic: chr(ord(first)+2) with wrap only for ASCII a-z/A-Z; non-ASCII letters shift by +2 code points without wrapping [E18: '\u00e9'->'\u00eb', '\u00fc'->'\u00fe', '\u00c0'->'\u00c2', '\u03b1'->'\u03b3', '\u0416'->'\u0418']",
+  "All characters after the first pass through unchanged [E4, E14]",
+  "Digits and punctuation pass through unchanged, and a non-letter first character is not shifted [E1, E11]",
+  "The empty string (or all-whitespace string) maps to the empty string [E1, E14]",
+  "Case is preserved on the shifted first letter [E1, E14]"
+ ]
+}

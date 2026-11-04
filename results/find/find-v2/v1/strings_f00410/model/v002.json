@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f reverses the order of characters in the string [E1]",
+  "f then swaps the case of each letter (upper<->lower), leaving non-letters unchanged [E1]",
+  "spaces, digits, punctuation, and empty string are preserved in position, only reordered by the reversal [E1]",
+  "The case-swap appears to be applied to the original string before reversal, not after [E2]"
+ ],
+ "notes": "E2 shows the case-swap happens before reversal: 'AbC' -> swapcase 'aBc' -> reverse 'cBa'? No, observed 'AbA'. Actually 'AbC'->'AbA' suggests last char C becomes A, i.e. reversal then swapcase gives 'cBa'->'CbA'? Let me reconsider: observed 'AbC'->'AbA'. Reversing gives 'CbA', swapcase gives 'cBa'. Not matching. Swapcase first: 'aBc', reverse 'cBa'. Not matching. Hmm 'AbA': positions 0='A',1='b',2='A'. Original 'AbC'. So C->A at end, A->A at start, b stays. This looks like swapcase applied to original then... no. Actually maybe f reverses then maps each char via some cipher. Given limited data, best guess: reverse then swapcase, but that fails. I'll keep reverse+swapcase as best guess and flag uncertainty.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3,
+  0.0
+ ],
+ "made_at": 2
+}

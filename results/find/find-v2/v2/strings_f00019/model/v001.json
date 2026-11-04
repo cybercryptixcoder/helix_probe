@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to increment the last character by one alphabetically when it's a letter (leaving digits/symbols unchanged), which fits all six E1 outputs; the `z`/`Z` wrap behavior is marked uncertain.", "exam": 0.9583333333333334, "fit": 1.0, "fit_exact": 1.0, "size": 312, "matches": [1.0], "made_at": 1, "heldout": 0.83}

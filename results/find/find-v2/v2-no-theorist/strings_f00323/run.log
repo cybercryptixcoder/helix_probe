@@ -1,0 +1,19 @@
+Helix Probe v2 on 'find_strings_f00323': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.38, fit 0.67, size 78 (exam 0.000 -> 0.375); held-out 0%
+[2] E2 Does the box reverse the whole string, or reverse characters within words w...(+53 chars)  (v1 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (78 vs 78 chars)
+      model v2 by the updater: exam 1.00, fit 1.00, size 95 (exam 0.375 -> 1.000); held-out 88%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Does the box reverse the whole string and strip all spaces, or does it do s...(+136 chars)  (v2 predicted it: match 0.80)
+      model v3 by the updater: exam 1.00, fit 1.00, size 111 (fit 0.950 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 Does the box remove only ASCII spaces and tabs/newlines, or also other whit...(+113 chars)  (v3 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Does the box strip only ASCII whitespace (space, tab, newline, CR) while le...(+158 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 Does the box strip all Unicode whitespace (including NBSP, em/en spaces, li...(+150 chars)  (v3 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 Does the box treat Unicode whitespace-like characters (NBSP, em space, thin...(+187 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00323", "experiments": 12, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 111, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

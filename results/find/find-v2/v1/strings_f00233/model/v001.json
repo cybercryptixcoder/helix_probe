@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f reverses the order of characters in the input [E1]",
+  "f swaps the case of each character after reversing (lowercase\u2194uppercase) [E1]",
+  "spaces and symbols are preserved but their positions are reversed along with everything else [E1]",
+  "empty string maps to empty string [E1]"
+ ],
+ "notes": "All outputs are the input reversed with case toggled: 'hello'->'Olleh', 'hello world'->'Dlrow olleh', 'A1!'->'!1a'. Symbols/digits/spaces just reverse in place.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.5
+ ],
+ "made_at": 1
+}

@@ -1,0 +1,28 @@
+Helix Probe on 'find_strings_f00170': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What basic transformations does f apply to simple, varied inputs (case, ord...(+24 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Does f reverse the whole string and prefix 'k' even for long inputs, spaces...(+47 chars)  model v1 match 1.00
+[3] E3 Does f really reverse the entire string and prefix 'k' for inputs with repe...(+143 chars)  model v1 match 1.00
+[4] E4 Does f still just prefix 'k' and reverse when the input contains non-ASCII/...(+69 chars)  model v1 match 1.00
+[5] E5 Does f always prepend exactly one 'k' and reverse, even when the input itse...(+89 chars)  model v1 match 1.00
+[6] E6 Does f handle the empty string and very short inputs exactly as 'k' + rever...(+131 chars)  model v1 match 1.00
+[7] E7 Is the prefix really a constant 'k', or could it be derived from the input ...(+146 chars)  model v1 match 1.00
+[8] E8 Does f still prepend exactly one 'k' and reverse when the input contains an...(+136 chars)  model v1 match 1.00
+[9] E9 Is the fixed prefix really the single character 'k', or could it be a two-c...(+199 chars)  model v1 match 1.00
+[10] E10 Does f apply the 'k' prefix and reversal to strings containing only the pre...(+150 chars)  model v1 match 1.00
+[11] E11 Is the output exactly one fixed 'k' plus the full reversal even for inputs ...(+140 chars)  model v1 match 1.00
+[12] E12 Does f apply the same 'k'+reverse rule to strings containing newline/tab/CR...(+164 chars)  model v1 match 1.00
+[13] E13 Is the prefix truly a constant 'k' independent of input, or could it be a f...(+132 chars)  model v1 match 1.00
+[14] E14 Does f still prepend exactly one 'k' and reverse when the input contains mu...(+142 chars)  model v1 match 1.00
+[15] E15 Is the reversal done on the raw input string before any normalization, or c...(+209 chars)  model v1 match 1.00
+[16] E16 Is the prefix truly a constant 'k' even for inputs whose last character is ...(+89 chars)  model v1 match 1.00
+[17] no valid probe after 3 tries; skipping
+[18] E17 Is the prefix 'k' truly independent of input even when the input itself con...(+236 chars)  model v1 match 1.00
+[19] no valid probe after 3 tries; skipping
+[20] E18 Does f's transformation depend only on the input string, or does it also de...(+108 chars)  model v1 match 1.00
+[21] E19 Is the prefix truly constant 'k' even when the input's reversal would start...(+190 chars)  model v1 match 1.00
+[22] E20 Does f's 'k'+reverse rule hold for inputs containing Unicode characters who...(+175 chars)  model v1 match 1.00
+[23] E21 Does f's 'k'+reverse rule hold when the input mixes astral-plane emoji with...(+195 chars)  model v1 match 1.00
+[24] E22 Does f's 'k'+reverse rule still hold when the input contains literal backsl...(+139 chars)  model v1 match 1.00
+[25] E23 Is the constant prefix really 'k' for every input, or could f's prefix chan...(+201 chars)  model v1 match 1.00
+{"env": "find_strings_f00170", "experiments": 23, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 44, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

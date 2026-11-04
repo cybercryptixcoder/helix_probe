@@ -1,0 +1,31 @@
+{
+ "env": "find_strings_f00241",
+ "experiments": 24,
+ "model_version": 15,
+ "fit": 1.0,
+ "heldout": 0.93,
+ "llm_calls": 42,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f deletes every uppercase 'B' that is adjacent (immediately before or after) to 'O' or 'o', applied to a fixpoint [E6, E7, E10, E12, E13, E14, E15, E16]",
+  "Lowercase 'b' is never deleted: 'bOM','bOm','bom' are unchanged [E6, E7]",
+  "Deletion cascades: a B exposed next to O/o after an earlier deletion is also deleted [E8, E10, E13, E15]",
+  "Deletion happens anywhere in the string, not just at the start [E9, E15]",
+  "A lone uppercase 'B' (or a run of B's with no O/o anywhere) is deleted entirely [E16, E17]",
+  "A B adjacent to a non-O/o letter like 'x' or 'm' is NOT deleted: 'Bx'->'x', 'xB'->'x', 'Bm'->'m', 'mB'->'m' [E17]",
+  "Wait: 'Bx'->'x' shows the B is deleted even though x is not O/o \u2014 so maybe ALL uppercase B's are simply deleted, regardless of neighbors [E17]",
+  "Check: 'B'->'', 'BB'->'', 'Bx'->'x', 'xB'->'x', 'BxB'->'x', 'Bo'->'o', 'oB'->'o', 'Bm'->'m', 'mB'->'m' \u2014 every uppercase B is removed, nothing else changes [E17]",
+  "Re-examine earlier: 'bBO'->'bO' (B removed), 'bBBO'->'bO' (both B's removed), 'bBOM'->'bOM' (B removed) \u2014 consistent with 'delete all uppercase B' [E14]",
+  "Re-examine E13: 'BOBOB'->'OO' (all 3 B's gone), 'BOOOB'->'OOO' (2 B's gone), 'BOBOBOB'->'OOO' (4 B's gone) \u2014 consistent with 'delete all uppercase B' [E13]",
+  "Re-examine E16: 'BOB'->'O', 'BOBB'->'O', 'OB'->'O', 'OBB'->'O' \u2014 all uppercase B's gone, consistent [E16]",
+  "Re-examine E15: 'BBO'->'O', 'xBBO'->'xO', 'OBBO'->'OO', 'aBBOB'->'aO', 'BBOB'->'O' \u2014 all uppercase B's gone, consistent [E15]",
+  "Re-examine E10-E12: all outputs are consistent with simply deleting every uppercase 'B' [E10, E11, E12]",
+  "Simplest hypothesis: f deletes every uppercase 'B' from the string and leaves everything else unchanged [E17]",
+  "U+FEFF is left intact (not deleted) [E4, E5]",
+  "Lowercase 'b' is left intact [E6, E7]"
+ ]
+}

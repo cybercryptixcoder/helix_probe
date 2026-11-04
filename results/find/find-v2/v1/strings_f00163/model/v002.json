@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f reverses the input string and inserts a '2' at the middle position [E1, E2]",
+  "For even-length reversed strings the '2' goes at index len//2 (e.g. 'dcba' -> 'dc2ba', 'ba' -> 'b2a') [E2]",
+  "For odd-length reversed strings the '2' goes after the middle character (e.g. 'olleh' -> 'oll2eh', 'a' -> 'a2') [E1, E2]",
+  "Empty string becomes '2' [E1]",
+  "Case and punctuation are preserved, only order changes and '2' is inserted [E1]",
+  "For length-1 strings the '2' goes after the single character ('a' -> 'a2') [E2]"
+ ],
+ "notes": "Fixed the odd-length insertion point: the '2' goes after the middle character, i.e. at index (n+1)//2 of the reversed string, not n//2. This makes 'a' -> 'a2' and keeps 'olleh' -> 'oll2eh'.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

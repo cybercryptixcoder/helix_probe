@@ -1,0 +1,27 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f splits the input on whitespace runs, reverses each segment, and joins with single spaces [E1-E6]",
+  "Case and punctuation are preserved and reversed with their segment [E1, E2]",
+  "Leading/trailing whitespace is dropped and internal runs become single spaces [E3, E4]",
+  "The last output segment gets one extra copy of its own first character prepended (the original last segment's last character, duplicated at the start of the reversed last segment) [E5-E8]",
+  "The extra character is suppressed when the input has trailing whitespace, but NOT when it has only leading whitespace [E9, E10]",
+  "Whitespace-only input yields empty string [E4]"
+ ],
+ "notes": "E10 shows leading whitespace alone does NOT suppress the doubling ('  ab'->'bba', ' x y'->'x yy'), while trailing whitespace does ('ab  '->'ba', 'a b  '->'a b'). So the condition is: duplicate only if the raw input has no trailing whitespace (leading whitespace is fine).",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 10
+}

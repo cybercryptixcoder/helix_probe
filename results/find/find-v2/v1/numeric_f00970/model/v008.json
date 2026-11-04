@@ -1,0 +1,26 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f(x) is a noisy plateau with mean ~12.0 and spread ~1.2 on the interval [-3.05, 3.05] [E1, E2, E3, E4, E5, E8, E9, E10]",
+  "The left edge is sharp between -3.06 (outside) and -3.05 (inside): -3.06 gives ~-0.68 and -3.05 gives ~11.30 [E5, E9]",
+  "The right edge is sharp between 3.05 (inside, ~12.83) and 3.06 (outside, ~0.63) [E10]",
+  "Outside the plateau f(x) is zero-mean noise with sd ~0.9, bounded roughly within [-2.2, 2.5], with no detectable smooth/periodic structure [E1, E2, E4, E5, E6, E7]",
+  "The plateau mean is ~12.0 but samples scatter by ~1.2, so exact-value prediction is impossible; predict() returns the mean [E3, E8]"
+ ],
+ "notes": "E10 shows the right edge is between 3.05 and 3.06 (not 3.0/3.1 as v7 had); E9 confirms left edge between -3.06 and -3.05. Widened plateau to [-3.05, 3.05].",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.15,
+  0.6428571428571429,
+  0.7647058823529411,
+  0.4444444444444444,
+  0.35,
+  0.0,
+  0.1,
+  0.8,
+  0.3,
+  0.3
+ ],
+ "made_at": 10
+}

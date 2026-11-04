@@ -1,0 +1,45 @@
+Helix Probe on 'find_strings_f00099': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does the box do to simple lowercase words, mixed case, digits, punctua...(+59 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.90 (was 0.00), held-out 21%
+[2] E2 Does the reversal treat a whitespace-only string as characters to reverse (...(+135 chars)  model v1 match 0.30
+      model v2: fit 50% (was 0%), mean match 0.80 (was 0.60), held-out 26%
+[3] E3 Is it only leading spaces that get stripped (before reversal), or are trail...(+77 chars)  model v2 match 0.30
+      model v3: fit 33% (was 33%), mean match 0.63 (was 0.63), held-out 26%
+[4] E4 Does the box strip trailing whitespace from the original input before rever...(+127 chars)  model v3 match 0.50
+      revision rejected: mean match 0.38 < 0.60
+      revision rejected: mean match 0.38 < 0.60
+[5] E5 Does the box strip trailing whitespace from the original input (making 'a  ...(+147 chars)  model v3 match 0.60
+      model v4: fit 20% (was 20%), mean match 0.60 (was 0.60), held-out 26%
+[6] E6 Does the box strip trailing whitespace before reversing (so 'a  b  ' -> 'b ...(+153 chars)  model v4 match 1.00
+[7] E7 Does the box strip only spaces, or all whitespace kinds (tabs/newlines) fro...(+104 chars)  model v4 match 0.20
+      revision rejected: mean match 0.24 < 0.60
+      revision rejected: mean match 0.24 < 0.60
+[8] E8 Does the box strip whitespace from the left of the original string before r...(+187 chars)  model v4 match 0.30
+      revision rejected: mean match 0.51 < 0.56
+      revision rejected: mean match 0.51 < 0.56
+[9] E9 Does the box strip only spaces (0x20) from the left of the original string,...(+154 chars)  model v4 match 0.40
+      revision rejected: mean match 0.52 < 0.54
+      revision rejected: mean match 0.52 < 0.54
+[10] E10 Confirm the model 'strip trailing whitespace (all kinds) from original, rev...(+151 chars)  model v4 match 0.20
+      revision rejected: mean match 0.49 < 0.51
+      model v5: fit 20% (was 20%), mean match 0.70 (was 0.51), held-out 26%
+[11] E11 Does the box strip only spaces (0x20) from the left of the original string ...(+136 chars)  model v5 match 0.60
+      model v6: fit 18% (was 18%), mean match 0.69 (was 0.69), held-out 26%
+[12] E12 Is the trailing-whitespace strip applied to the original string before reve...(+124 chars)  model v6 match 1.00
+[13] E13 When the input has a leading space followed by other whitespace (tab/newlin...(+194 chars)  model v6 match 0.00
+      model v7: fit 23% (was 23%), mean match 0.66 (was 0.66), held-out 26%
+[14] E14 Does the box strip exactly one leading space (0x20) from the original, or s...(+121 chars)  model v7 match 0.10
+      model v8: fit 21% (was 21%), mean match 0.62 (was 0.62), held-out 26%
+[15] E15 When the input has leading spaces followed by a non-space character, does t...(+172 chars)  model v8 match 0.00
+      model v9: fit 100% (was 20%), mean match 1.00 (was 0.58), held-out 100%
+[16] E16 Does the box strip only spaces (0x20) from the right of the original string...(+201 chars)  model v9 match 1.00
+[17] E17 Does the box strip only trailing spaces (0x20) from the right of the origin...(+222 chars)  model v9 match 1.00
+[18] E18 When the input consists only of spaces and tabs/newlines (no non-whitespace...(+214 chars)  model v9 match 1.00
+[19] E19 When the input has leading spaces before a tab/newline that itself precedes...(+344 chars)  model v9 match 1.00
+[20] E20 Does the box treat Unicode whitespace (e.g. non-breaking space U+00A0, vert...(+143 chars)  model v9 match 1.00
+[21] E21 Does the box's whitespace stripping use Python str.rstrip()/lstrip() semant...(+190 chars)  model v9 match 1.00
+[22] E22 Does the box strip Unicode whitespace like U+00A0 (non-breaking space) from...(+229 chars)  model v9 match 1.00
+[23] E23 Does the box handle non-ASCII Unicode whitespace characters beyond U+00A0 (...(+212 chars)  model v9 match 1.00
+[24] E24 How does the box treat a string of only non-ASCII whitespace (U+00A0, U+200...(+143 chars)  model v9 match 1.00
+[25] E25 Does the box strip non-ASCII whitespace (U+00A0, U+2003, U+3000) when it is...(+167 chars)  model v9 match 1.00
+{"env": "find_strings_f00099", "experiments": 25, "model_version": 9, "fit": 1.0, "heldout": 1.0, "llm_calls": 44, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

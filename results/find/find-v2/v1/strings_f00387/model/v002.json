@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f capitalizes the first character and lowercases all remaining characters [E1, E2]",
+  "Non-letter first characters (digits, symbols, spaces) are left as-is, while the rest is still lowercased [E1, E2]",
+  "Empty strings stay empty [E1]",
+  "The rule is equivalent to Python's str.capitalize() [E1, E2]"
+ ],
+ "notes": "E2 shows the rest of the string is lowercased, not preserved, so f is str.capitalize(). Updated predict to capitalize first char and lowercase the remainder.",
+ "fit": 1.0,
+ "heldout": 0.66,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

@@ -1,0 +1,23 @@
+{
+ "env": "find_strings_f00047",
+ "experiments": 25,
+ "model_version": 8,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 35,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "Trailing whitespace is stripped, including Unicode whitespace like NBSP and em-space [E1, E2, E5]",
+  "Leading whitespace is preserved, so '  hello' stays '  hello' [E2, E3]",
+  "After stripping, the first character is title-cased only if it is at position 0 of the original string; if the string starts with whitespace, nothing is uppercased [E3, E7]",
+  "The first character uses title-case semantics (.title() on that char), so '\u00df'\u2192'Ss', '\ufb01'\u2192'Fi', '\ufb03'\u2192'Ffi', '\u0149'\u2192'\u02bcN', '\u01c6'\u2192'\u01c5' [E5, E6, E7, E8, E9]",
+  "The remainder of the string after the first character is lowercased, so '\u00c9COLE'\u2192'\u00c9cole', 'Hello WORLD'\u2192'Hello world', 'A1B2C!'\u2192'A1b2c!' [E11]",
+  "A lone space or all-space string becomes empty after trailing-strip [E1, E2]",
+  "A tab or newline at position 0 is not uppercased and is preserved [E2, E3]",
+  "Digits, symbols, and already-uppercase letters at position 0 are unchanged [E1, E4]"
+ ]
+}

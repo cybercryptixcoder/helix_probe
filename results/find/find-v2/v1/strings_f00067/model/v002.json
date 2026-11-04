@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f reverses the order of characters within each word, keeping word order and separators intact [E1, E2]",
+  "Case is preserved; only letter order within words is reversed [E1]",
+  "Punctuation adjacent to a word is treated as part of that word and reversed with it, e.g. 'a,b'->'bb,a' and 'hello world!'->'olleh !!dlrow' [E2]",
+  "Spaces are separators that stay in place, splitting the string into segments that are each reversed [E2]"
+ ],
+ "notes": "E2 shows reversal happens per space-separated segment, not across the whole string. Punctuation rides along with its segment, so 'a,b' becomes 'bb,a' (segment 'a,b' reversed). Changed predict to reverse each space-delimited chunk.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.0,
+  0.0
+ ],
+ "made_at": 2
+}

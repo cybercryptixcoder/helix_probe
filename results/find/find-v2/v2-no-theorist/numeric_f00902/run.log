@@ -19,3 +19,21 @@ Helix Probe v2 on 'find_numeric_f00902': 0 experiments so far, model v0, exam of
 [10] E10 Where does the cubic-to-constant region end (upper boundary), and does the ...(+101 chars)  (v6 predicted it: match 0.77)
       model v7 by the updater: exam 1.00, fit 1.00, size 314 (fit 0.977 -> 1.000); held-out 97%
 [11] E11 a random ordinary probe  (v7 predicted it: match 1.00)
+[12] E12 Does the plateau's upper boundary sit exactly at 117, and does the cubic re...(+136 chars)  (v7 predicted it: match 0.83)
+      model v8 by the updater: exam 1.00, fit 1.00, size 314 (fit 0.986 -> 1.000); held-out 100%
+[13] E13 a random ordinary probe  (v8 predicted it: match 1.00)
+[14] E14 Is the plateau boundary a hard switch exactly at 117.6, and does the resume...(+146 chars)  (v8 predicted it: match 0.85)
+      model v9 by the updater: exam 1.00, fit 1.00, size 315 (fit 0.989 -> 1.000); held-out 100%
+[15] E15 a random ordinary probe  (v9 predicted it: match 1.00)
+[16] E16 Is the plateau's lower boundary a sharp switch at ~97.55, and does the cubi...(+136 chars)  (v9 predicted it: match 0.90)
+      model v10 by the updater: exam 1.00, fit 1.00, size 315 (fit 0.994 -> 1.000); held-out 100%
+[17] E17 a random ordinary probe  (v10 predicted it: match 1.00)
+[18] E18 Can the plateau be described more precisely than a hard switch — is it a cl...(+171 chars)  (v10 predicted it: match 1.00)
+[19] E19 a random ordinary probe  (v10 predicted it: match 1.00)
+[20] E20 Is the plateau's value a fixed constant 7773 or a slowly varying/noisy quan...(+164 chars)  (v10 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v10 predicted it: match 1.00)
+[22] E22 Is the plateau value constant 7773 or does it drift with x, and is the cubi...(+108 chars)  (v10 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v10 predicted it: match 1.00)
+[24] E24 Is the plateau value a true constant 7773 (with noise) or does it depend sm...(+182 chars)  (v10 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00902", "experiments": 24, "exam_probes": 4, "model_version": 10, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 315, "heldout": 1.0, "llm_calls": 27, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

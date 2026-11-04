@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed: the last-character increment now wraps within the alphabet ('Z'\u2192'A', and by analogy 'z'\u2192'a') instead of using raw `chr(ord+1)`, which produced '[' for 'Z'. Digits, spaces, and punctuation remain unchanged.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 421, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

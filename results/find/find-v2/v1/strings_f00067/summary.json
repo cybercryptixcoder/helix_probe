@@ -1,0 +1,21 @@
+{
+ "env": "find_strings_f00067",
+ "experiments": 25,
+ "model_version": 8,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 33,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f splits the input on whitespace runs, reverses each segment, and joins with single spaces [E1-E6]",
+  "Case and punctuation are preserved and reversed with their segment [E1, E2]",
+  "Leading/trailing whitespace is dropped and internal runs become single spaces [E3, E4]",
+  "The last output segment gets one extra copy of its own first character prepended (the original last segment's last character, duplicated at the start of the reversed last segment) [E5-E8]",
+  "The extra character is suppressed when the input has trailing whitespace, but NOT when it has only leading whitespace [E9, E10]",
+  "Whitespace-only input yields empty string [E4]"
+ ]
+}

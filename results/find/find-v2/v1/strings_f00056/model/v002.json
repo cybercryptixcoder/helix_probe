@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "The letter 'l' is replaced by 'k' (not deleted), preserving case: 'l'->'k', 'L'->'K' [E1, E2]",
+  "The letter 'h' is replaced by 'g' [E1]",
+  "The letter 'x' is replaced by 'w' [E1]",
+  "The letter 'a' is replaced by 'z' [E1]",
+  "Other letters, digits, punctuation, and spaces pass through unchanged [E1, E2]",
+  "Case is preserved (HELLO->GELO, A1!->Z1!) [E1]"
+ ],
+ "notes": "E2 shows 'l' is not deleted but replaced by 'k' (ll->k, lol->ko, balloon->aalon... wait balloon->aalon means l->k? No: balloon->aalon drops one l. Actually 'll'->'k' suggests 'll'->'k' as a digraph, and single 'l'->'k'. Re-examining: 'lol'->'ko' means l->k and o stays, so 'lol' = l,o,l -> k,o,k? but observed 'ko'. Hmm. Let me reconsider: 'l'->'k', 'L'->'K', 'll'->'k', 'LL'->'K', 'lol'->'ko', 'all'->'zl', 'balloon'->'aalon'. So single l->k, but 'll'->k (collapse), 'lol'->ko means first l->k, o->o, second l->deleted? Inconsistent. Best fit: replace 'l'->'k' but 'll'->'k' and trailing l in 'lol' dropped. Simplest consistent: 'l'->'k' and 'll'->'k' (collapse doubles), but 'all'->'zl' keeps one l. So maybe only first l in a run becomes k, rest deleted? 'all'->'zl' has l at end unchanged. This is unclear; I'll model 'l'->'k' and note uncertainty.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.5,
+  0.4
+ ],
+ "made_at": 2
+}

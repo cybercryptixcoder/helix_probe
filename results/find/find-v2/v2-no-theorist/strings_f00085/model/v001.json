@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found the rule: insert `'4'` at index `floor(len/2)`, then increment the final character by one only if it is a letter (digits stay unchanged, as in `abc123` \u2192 `abc4123`).", "exam": 0.9583333333333334, "fit": 1.0, "fit_exact": 1.0, "size": 278, "matches": [1.0], "made_at": 1, "heldout": 0.83}

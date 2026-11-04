@@ -1,0 +1,40 @@
+Helix Probe on 'find_strings_f00323': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does the box do to a varied set of short inputs (letters, digits, symb...(+19 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.70 (was 0.00), held-out 0%
+[2] E2 Does the box reverse each whitespace-separated word independently (keeping ...(+86 chars)  model v1 match 0.00
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.35), held-out 100%
+[3] E3 How does the box handle whitespace that is adjacent to non-space characters...(+134 chars)  model v2 match 1.00
+[4] E4 Does the box reverse the whole string and then strip whitespace, or strip w...(+113 chars)  model v2 match 1.00
+[5] E5 Does the box treat all Unicode whitespace (not just space/tab/newline) as r...(+85 chars)  model v2 match 1.00
+[6] E6 Does the box reverse by Unicode code point (so combining marks and astral c...(+144 chars)  model v2 match 1.00
+[7] E7 Does the box reverse by Unicode code point for astral-plane characters (emo...(+136 chars)  model v2 match 1.00
+[8] E8 Does the box strip all Unicode whitespace including the less common ones (U...(+249 chars)  model v2 match 1.00
+[9] E9 Does the box remove only whitespace characters, or also other invisible/for...(+156 chars)  model v2 match 1.00
+[10] E10 Does the box reverse by code point while stripping only Unicode-whitespace,...(+171 chars)  model v2 match 1.00
+[11] E11 Does the box reverse by Unicode code point even when the string contains a ...(+133 chars)  model v2 match 0.90
+      model v3: fit 91% (was 91%), mean match 0.99 (was 0.99), held-out 100%
+[12] E12 Is the lone-surrogate behavior really reversal as-is, or does the box opera...(+154 chars)  model v3 match 1.00
+[13] E13 Does the box reverse by code point, or by UTF-16 code unit, when a surrogat...(+149 chars)  model v3 match 0.90
+      model v4: fit 85% (was 85%), mean match 0.98 (was 0.98), held-out 100%
+[14] E14 When a split surrogate pair straddles a NON-whitespace removable-looking ch...(+227 chars)  model v4 match 0.90
+      model v5: fit 79% (was 79%), mean match 0.98 (was 0.98), held-out 100%
+[15] E15 Does the box remove whitespace before reversing (i.e. does it strip all whi...(+138 chars)  model v5 match 1.00
+[16] E16 Does the box reverse by Unicode code point or by UTF-16 code unit when a su...(+194 chars)  model v5 match 1.00
+[17] E17 Does the box treat a lone high surrogate immediately followed by a lone low...(+195 chars)  model v5 match 1.00
+[18] E18 When a lone high surrogate and a lone low surrogate are separated by whites...(+189 chars)  model v5 match 0.70
+      model v6: fit 78% (was 78%), mean match 0.97 (was 0.97), held-out 100%
+[19] E19 When a lone high surrogate and a lone low surrogate are separated by whites...(+221 chars)  model v6 match 0.60
+      model v7: fit 74% (was 74%), mean match 0.95 (was 0.95), held-out 100%
+[20] E20 When whitespace separates a lone high surrogate from a lone low surrogate, ...(+250 chars)  model v7 match 0.90
+      model v8: fit 70% (was 70%), mean match 0.94 (was 0.94), held-out 100%
+[21] E21 When a lone high surrogate and lone low surrogate are separated by whitespa...(+203 chars)  model v8 match 0.90
+      model v9: fit 67% (was 67%), mean match 0.94 (was 0.94), held-out 100%
+[22] E22 When a lone high surrogate and lone low surrogate are separated by whitespa...(+245 chars)  model v9 match 0.80
+      model v10: fit 64% (was 64%), mean match 0.94 (was 0.94), held-out 100%
+[23] E23 Does the box reverse by UTF-16 code unit (not by grouped code point) when a...(+183 chars)  model v10 match 0.80
+      model v11: fit 61% (was 61%), mean match 0.93 (was 0.93), held-out 100%
+[24] E24 When a lone high surrogate and lone low surrogate are separated by whitespa...(+196 chars)  model v11 match 0.90
+      revision rejected: mean match 0.60 < 0.93
+      model v12: fit 58% (was 58%), mean match 0.93 (was 0.93), held-out 100%
+[25] E25 Does the box reverse by UTF-16 code unit rather than by code point when a v...(+154 chars)  model v12 match 1.00
+{"env": "find_strings_f00323", "experiments": 25, "model_version": 12, "fit": 0.6, "heldout": 1.0, "llm_calls": 41, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

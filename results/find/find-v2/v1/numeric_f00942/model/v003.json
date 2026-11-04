@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "For x>0, f(x) is linear with slope about -405.5 and offset about -154.8: f(x) \u2248 -405.5*x - 154.8 [E1, E2, E3]",
+  "For -1<x<0, f(x) is linear with slope about 81.5 and offset about -17.1: f(x) \u2248 81.5*x - 17.1 [E2, E3]",
+  "For x<=-1, f(x) is linear with slope about -35.52 and offset about -16.9: f(x) \u2248 -35.52*x - 16.9 [E1, E2]",
+  "At x=0 exactly, f(0) = -5401.17, a large negative spike inconsistent with the surrounding branches [E1]",
+  "The transition between the shallow negative branch and the steep positive branch is a sharp break at x=0, not a smooth curve [E3]",
+  "The exact value at x=0 and whether the spike is a single point or a tiny interval is still uncertain?"
+ ],
+ "notes": "Refit the positive branch using E3 (slope -405.5, offset -154.8) and the negative branch (slope 81.5, offset -17.1); confirmed the break is sharp at x=0 with no smoothing.",
+ "fit": 0.6666666666666666,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.8,
+  1.0
+ ],
+ "made_at": 3
+}

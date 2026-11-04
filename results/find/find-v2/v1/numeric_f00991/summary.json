@@ -1,0 +1,19 @@
+{
+ "env": "find_numeric_f00991",
+ "experiments": 25,
+ "model_version": 1,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 27,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "For x>0, f(x)=16.4x-2.5 (linear), fits x=0.5,1,2,3.14159,10,20,50,64,100,128 exactly [E1]",
+  "For x\u22640, f(x)=-8.2x+2.5 (linear), fits x=0,-0.5,-1,-2,-3.14159,-10,-20,-50,-100,-128 exactly [E1]",
+  "The function is piecewise linear with a break at 0; slope doubles (8.2\u219216.4) and intercept flips sign (+2.5\u2192-2.5) for positive x [E1]",
+  "No separate special interval detected beyond the x=0 break; all 20 points fit the two-line model [E1]"
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f shifts lowercase letters by +5 in the alphabet, preserving case [E1, E2]",
+  "f shifts uppercase letters by +5 in the alphabet, preserving case [E1, E2]",
+  "f shifts digits by +5 in ASCII (so '0'->'5', '5'->':'), not mod 10 [E2]",
+  "f shifts all other characters (spaces, punctuation, symbols) by +5 in ASCII [E1, E2]",
+  "f appends a trailing 'W' to every output [E1, E2]"
+ ],
+ "notes": "Digits are shifted by +5 in ASCII, not mod 10: '0123456789' -> '56789:;<=>' and 'Zz9!' -> '_\\x7f>&'. Letters use alphabet wrap; everything else uses raw ASCII +5.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.8,
+  0.8
+ ],
+ "made_at": 2
+}

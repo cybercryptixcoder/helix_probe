@@ -8,3 +8,9 @@ Helix Probe v2 on 'find_numeric_f00942': 0 experiments so far, model v0, exam of
 [5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
 [6] E6 Does the sign-split linear behavior hold across the full ordinary range, es...(+166 chars)  (v2 predicted it: match 1.00)
       theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Is the exact-zero spike real, or is there a tiny interval around zero (e.g....(+76 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Is the exact-zero spike truly isolated, or is there a narrow interval just ...(+185 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00942", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 256, "heldout": 1.0, "llm_calls": 9, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

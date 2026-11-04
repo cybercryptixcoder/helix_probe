@@ -1,0 +1,30 @@
+{
+ "version": 7,
+ "beliefs": [
+  "The box reverses the order of characters in the input string [E1]",
+  "Reversal preserves case, digits, punctuation, and spaces exactly, only order changes [E1]",
+  "Exactly one leading space (0x20) is stripped from the input before reversal, if present; further leading spaces/tabs/newlines are kept [E13, E9, E11]",
+  "Trailing whitespace of all kinds is stripped from the input before reversal [E6, E7, E10, E12]",
+  "After reversal, leading whitespace of all kinds is stripped from the result [E7, E10]",
+  "Equivalently: remove one leading space, strip trailing whitespace (all kinds), reverse, then strip leading whitespace (all kinds) from the result [E13]"
+ ],
+ "notes": "E13 shows only a single leading space is removed (not all leading spaces), so lstrip(' ') became removing at most one leading space; the trailing strip and post-reversal lstrip still hold.",
+ "fit": 0.23076923076923078,
+ "heldout": 0.26,
+ "matches": [
+  1.0,
+  0.6,
+  0.3,
+  0.5,
+  0.6,
+  1.0,
+  0.8,
+  0.6,
+  0.8,
+  0.8,
+  0.6,
+  1.0,
+  0.0
+ ],
+ "made_at": 13
+}

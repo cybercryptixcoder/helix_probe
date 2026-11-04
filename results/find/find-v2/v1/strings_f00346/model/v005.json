@@ -1,0 +1,31 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f removes all whitespace characters (spaces, tabs, newlines) from the input [E1: ' '->'', E14: 'a\\tb'->'cb', 'a\\nb'->'cb', '\\t'->'', ' \\t '->'']",
+  "f shifts only the first character of the whitespace-stripped string forward by 2 in the alphabet, wrapping at the end [E1: 'a'->'c'; E4: 'abc'->'cbc'; E14: '\\ta'->'c', '\\tA'->'C']",
+  "All characters after the first pass through unchanged [E4: 'ab'->'cb', 'abab'->'cbab'; E14: 'a\\tb'->'cb', 'a b\\tc'->'cbc']",
+  "Digits and punctuation pass through unchanged, and a non-letter first character is not shifted [E1: '123'->'123', '!@#'->'!@#'; E11: '1a'->'1a', '!z'->'!z']",
+  "The empty string (or all-whitespace string) maps to the empty string [E1: ''->''; E14: '\\t'->'', ' \\t '->'']",
+  "Case is preserved on the shifted first letter [E1: 'A'->'C', 'ABC'->'CBC'; E14: '\\tA'->'C']"
+ ],
+ "notes": "E14 shows tabs and newlines are stripped like spaces, not just ordinary spaces. Changed the strip from replace(' ','') to removing all whitespace characters.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 14
+}

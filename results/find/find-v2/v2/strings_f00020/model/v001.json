@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I inferred from E1 that the box inserts `\"5\"` at index `ceil(len/2)` and then appends a duplicate of the last character; the code implements that rule (marked uncertain since only one experiment is available).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 329, "matches": [1.0], "made_at": 1, "heldout": 1.0}

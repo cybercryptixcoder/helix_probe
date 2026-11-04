@@ -1,0 +1,28 @@
+{
+ "version": 7,
+ "beliefs": [
+  "Trailing whitespace is stripped, including Unicode whitespace like NBSP and em-space [E1, E2, E5]",
+  "Leading whitespace is preserved, so '  hello' stays '  hello' [E2, E3]",
+  "After stripping, the first character is uppercased only if it is at position 0 of the original string (no leading whitespace); if the string starts with whitespace, nothing is uppercased [E3, E7]",
+  "Uppercasing the first character uses title-case semantics (.title() on that char), so '\u00df'\u2192'Ss', '\ufb01'\u2192'Fi', '\ufb03'\u2192'Ffi', '\u0149'\u2192'\u02bcN', '\u01c6'\u2192'\u01c5' [E5, E6, E7, E8, E9]",
+  "The rest of the string after the first character is left untouched, so 'stra\u00dfe'\u2192'Stra\u00dfe' and '\u00c9COLE'\u2192'\u00c9cole' [E5]",
+  "A lone space or all-space string becomes empty after trailing-strip [E1, E2]",
+  "A tab or newline at position 0 is not uppercased and is preserved [E2, E3]",
+  "Digits, symbols, and already-uppercase letters at position 0 are unchanged [E1, E4]"
+ ],
+ "notes": "Changed first-char uppercasing from .upper() to .title() semantics: '\u00df'\u2192'Ss', '\ufb01'\u2192'Fi', '\u01c6'\u2192'\u01c5', matching E6/E9. This also fixes E7/E8 where .upper() gave SS/FI.",
+ "fit": 0.8888888888888888,
+ "heldout": 0.23,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 9
+}

@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f shifts each lowercase letter forward by one in the alphabet (a\u2192b, c\u2192d, o\u2192p), leaving other characters unchanged [E1].",
+  "Uppercase letters are also shifted forward by one (A\u2192B, C\u2192D) [E1].",
+  "Digits, spaces, and symbols pass through unchanged [E1].",
+  "Empty string maps to empty string [E1]."
+ ],
+ "notes": "Every observed change is a +1 Caesar shift on letters; non-letters unchanged. Implemented a general per-character shift with wraparound (z\u2192a) as the natural guess.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.5
+ ],
+ "made_at": 1
+}

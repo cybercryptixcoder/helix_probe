@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00170': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Establish the box's basic behavior on ordinary inputs: plain lowercase word...(+92 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 202 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the 'k' prefix depend on the input (e.g. always 'k', or derived from l...(+101 chars)  (v1 predicted it: match 1.00)
+[3] E3 Do empty strings, strings with leading/trailing spaces, and strings contain...(+137 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the 'k' prefix come from reversing the string and then adding 'k', or ...(+282 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the rule hold for ordinary multi-character words with mixed case, inte...(+258 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the rule 'reverse then prepend k' hold for ordinary sentences with tra...(+161 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (219 vs 202 chars)
+[7] E7 Does the rule 'reverse the whole string then prepend k' hold for inputs con...(+175 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the box ever fail to prepend 'k' or alter reversal for ordinary inputs...(+125 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the box apply the reverse-then-prepend-k rule to strings that are alre...(+210 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00170", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 202, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,13 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f appears to be the identity function: every input tested so far is returned unchanged [E1]"
+ ],
+ "notes": "E1 shows all 10 varied inputs (lowercase, mixed case, digits, symbols, spaces, empty, punctuation) returned exactly as given, so the simplest model is identity. Only one experiment so far, so this is a tentative hypothesis.",
+ "fit": 1.0,
+ "heldout": 0.15,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

@@ -1,0 +1,21 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f splits the input on whitespace runs, reverses each segment, and joins with single spaces [E1-E5]",
+  "Case and punctuation are preserved and reversed with their segment [E1, E2]",
+  "Leading/trailing whitespace is dropped and internal runs become single spaces [E3, E4]",
+  "The last output segment gets one extra copy of its own last character appended [E4, E5]",
+  "The extra character is the last character of the reversed last segment, not from the preceding segment [E5]"
+ ],
+ "notes": "Added the rule that the final reversed segment has its last character duplicated; verified against E5 (e.g. 'x y z'->'x y zz', 'ab cd ef'->'ba dc ffe', 'a bc'->'a ccb').",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.0,
+  0.2,
+  0.4,
+  0.8333333333333334,
+  0.75
+ ],
+ "made_at": 5
+}

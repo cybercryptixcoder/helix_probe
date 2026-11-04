@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to strip all space characters from each input, since E1 shows spaces being removed while everything else (case, digits, letters) stays intact.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 89, "matches": [1.0], "made_at": 1, "heldout": 0.88}

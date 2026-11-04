@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00942': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like across a broad, ordinary sweep of the input range, in...(+44 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 262 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Are the two linear branches exact everywhere on their sides of zero, or doe...(+118 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the piecewise-linear model exact at moderate positive and negative magni...(+149 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the positive branch stay exactly linear beyond x=128 and below the sam...(+194 chars)  (v1 predicted it: match 1.00)
+[5] E5 Is the function symmetric in its two branches, i.e. does f(-x) equal f(x) f...(+149 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the piecewise-linear rule hold at a dense set of ordinary in-between p...(+176 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (386 vs 262 chars)
+[7] E7 Is the x=0 value truly an isolated special point, or does the function have...(+102 chars)  (v1 predicted it: match 1.00)
+[8] E8 Are the two linear branches exactly linear all the way up to the branch edg...(+168 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the function have any additional breakpoint or nonlinear behavior in t...(+156 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00942", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 262, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

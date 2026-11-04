@@ -1,0 +1,27 @@
+Helix Probe v2 on 'find_strings_f00241': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.96, fit 1.00, size 65 (exam 0.000 -> 0.958); held-out 93%
+[2] E2 Does the box transform ordinary text in any way when the input contains spa...(+89 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Does the box behave as pure identity on a fresh, varied set of ordinary str...(+100 chars)  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 0.96, fit 1.00, size 183 (fit 0.975 -> 1.000); held-out 93%
+[5] E5 a random ordinary probe  (v2 predicted it: match 0.83)
+      model v3 by the updater: exam 1.00, fit 1.00, size 130 (exam 0.958 -> 1.000); held-out 100%
+[6] E6 Does the 'D'→'J' replacement apply to every occurrence of capital D anywher...(+95 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (446 vs 130 chars)
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Does the box replace other capital letters besides D with other letters (e....(+121 chars)  (v3 predicted it: match 0.80)
+      model v4 by the updater: exam 1.00, fit 1.00, size 147 (fit 0.975 -> 1.000); held-out 100%
+[9] E9 a random ordinary probe  (v4 predicted it: match 1.00)
+[10] E10 Does the box delete capital B anywhere (start, middle, multiple occurrences...(+87 chars)  (v4 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 Does the box apply the capital-D→J and capital-B-deletion rules only to iso...(+175 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (248 vs 147 chars)
+[13] E13 a random ordinary probe  (v4 predicted it: match 1.00)
+[14] E14 Are there other capital-letter substitutions besides D→J and B→deletion, te...(+126 chars)  (v4 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v4 predicted it: match 1.00)
+[16] E16 Do other capital letters besides B and D get substituted or deleted when th...(+197 chars)  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00241", "experiments": 16, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 147, "heldout": 1.0, "llm_calls": 15, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

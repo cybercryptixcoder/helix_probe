@@ -1,0 +1,39 @@
+{
+ "version": 13,
+ "beliefs": [
+  "f deletes an uppercase 'B' whenever it is immediately followed by 'O' or 'o' (so 'BOM'->'OM', 'Bom'->'om', 'BOm'->'Om', 'BoM'->'oM') [E6, E7]",
+  "Lowercase 'b' is never deleted: 'bOM','bOm','bom' are unchanged [E6, E7]",
+  "Deletion is applied repeatedly until stable, so 'BBOM'->'BOM'->'OM' and 'BOMBOMBOM'->'OMOMOM' [E8]",
+  "Deletion happens anywhere in the string, including between letters/symbols: 'xBOMy'->'xOMy', 'XBOM'->'XOM', 'BOM!'->'OM!' [E9]",
+  "The rule is 'B followed by O/o' (not requiring M immediately after): 'BOOM'->'OOM' [E9]",
+  "U+FEFF is left intact and does not block deletion: '\\ufeffBOM start'->'\\ufeffOM start' [E4, E5]",
+  "Deletion is not left-to-right single-pass: 'BOB'->'O' shows the B after the O is also deleted after the first B is removed, so re-scanning the whole string each round is required [E10]",
+  "The rule fires for any uppercase B followed by O or o, including 'BOb'->'Ob', 'BoB'->'o', 'Bob'->'ob', 'BOBOB'->'OO', 'BObOB'->'ObO', 'BObO'->'ObO', 'BOBOBO'->'OOO' [E11]",
+  "'bOB'->'bO' confirms lowercase b is not deleted but the uppercase B after it is [E11]",
+  "Deletion cascades through runs of B's: 'BOOB'->'OO', 'BOoB'->'Oo', 'BBOB'->'O', 'BOBb'->'Ob', 'OBOB'->'OO', 'BBOOB'->'OO' [E12]",
+  "Repeated re-scanning also explains E13: 'BOBOB'->'OO', 'BOOOB'->'OOO', 'BOBBOB'->'OO', 'OBBOB'->'OO', 'BObOBB'->'ObO' [E13]",
+  "Deletion is global and position-independent: even after a lowercase 'b', the exposed uppercase B is deleted, e.g. 'bBOB'->'bO', 'bBBOB'->'bO', 'bBOBOB'->'bOO' [E14]",
+  "Deletion is a pure repeated rewrite of 'B(?=[Oo])' applied to fixpoint: 'aBBOB'->'aO', 'xBOB'->'xO', 'OBOB'->'OO', 'BBOBBO'->'OO' all match [E15]"
+ ],
+ "notes": "E15 confirms the pure repeated-rewrite model; the earlier v12 mismatches were an artifact of a stale predict (the regex loop already yields 'aO','OB'->'O', etc.). No rule change needed beyond reaffirming the fixpoint rewrite.",
+ "fit": 0.6,
+ "heldout": 0.93,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  0.6,
+  0.3,
+  0.4,
+  0.6,
+  0.5
+ ],
+ "made_at": 15
+}

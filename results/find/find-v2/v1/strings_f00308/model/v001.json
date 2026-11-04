@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f removes all space characters from the input [E1]",
+  "f leaves all other characters (letters, digits, punctuation) unchanged [E1]",
+  "f preserves case [E1]",
+  "f maps empty string to empty string [E1]"
+ ],
+ "notes": "Only spaces are removed; everything else passes through unchanged. This explains 'a b'->'ab', ' hello '->'hello', 'hello world'->'helloworld', while 'A1!' and '!@#$%' are unchanged.",
+ "fit": 1.0,
+ "heldout": 0.88,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

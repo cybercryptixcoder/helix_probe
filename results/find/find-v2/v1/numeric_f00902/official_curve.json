@@ -1,0 +1,139 @@
+{
+ "category": "numeric",
+ "fid": "f00902",
+ "experiments": 25,
+ "exam_probes": 0,
+ "n_versions": 16,
+ "inputs_total": 314,
+ "final": 1.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "?",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 0
+  },
+  {
+   "version": 1,
+   "role": "?",
+   "experiments": 1,
+   "score": 0.0,
+   "nmse": 0.2535111944179037,
+   "inputs": 20
+  },
+  {
+   "version": 2,
+   "role": "?",
+   "experiments": 2,
+   "score": 0.0,
+   "nmse": 0.25351119441783826,
+   "inputs": 28
+  },
+  {
+   "version": 3,
+   "role": "?",
+   "experiments": 3,
+   "score": 0.0,
+   "nmse": 0.25351119441550407,
+   "inputs": 34
+  },
+  {
+   "version": 4,
+   "role": "?",
+   "experiments": 5,
+   "score": 0.0,
+   "nmse": 0.25351119434406866,
+   "inputs": 58
+  },
+  {
+   "version": 5,
+   "role": "?",
+   "experiments": 7,
+   "score": 0.0,
+   "nmse": 0.2964246836133936,
+   "inputs": 79
+  },
+  {
+   "version": 6,
+   "role": "?",
+   "experiments": 9,
+   "score": 1.0,
+   "nmse": 0.0728013652949189,
+   "inputs": 98
+  },
+  {
+   "version": 7,
+   "role": "?",
+   "experiments": 10,
+   "score": 1.0,
+   "nmse": 0.04951238493544916,
+   "inputs": 108
+  },
+  {
+   "version": 8,
+   "role": "?",
+   "experiments": 11,
+   "score": 1.0,
+   "nmse": 0.04288816266544958,
+   "inputs": 117
+  },
+  {
+   "version": 9,
+   "role": "?",
+   "experiments": 12,
+   "score": 1.0,
+   "nmse": 0.04288816251538155,
+   "inputs": 130
+  },
+  {
+   "version": 10,
+   "role": "?",
+   "experiments": 13,
+   "score": 1.0,
+   "nmse": 0.04288816251538155,
+   "inputs": 136
+  },
+  {
+   "version": 11,
+   "role": "?",
+   "experiments": 14,
+   "score": 1.0,
+   "nmse": 1.0442535615266596e-05,
+   "inputs": 151
+  },
+  {
+   "version": 12,
+   "role": "?",
+   "experiments": 18,
+   "score": 1.0,
+   "nmse": 2.0606652520719323e-06,
+   "inputs": 200
+  },
+  {
+   "version": 13,
+   "role": "?",
+   "experiments": 19,
+   "score": 1.0,
+   "nmse": 2.0606652520719323e-06,
+   "inputs": 212
+  },
+  {
+   "version": 14,
+   "role": "?",
+   "experiments": 21,
+   "score": 1.0,
+   "nmse": 2.060665073697808e-06,
+   "inputs": 234
+  },
+  {
+   "version": 15,
+   "role": "?",
+   "experiments": 22,
+   "score": 1.0,
+   "nmse": 2.060665073697808e-06,
+   "inputs": 254
+  }
+ ]
+}

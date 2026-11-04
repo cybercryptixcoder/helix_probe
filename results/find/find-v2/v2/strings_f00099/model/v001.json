@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to reverse each input string, since all six outputs in E1 are exact character-for-character reversals of their inputs (including spaces and case preserved).", "exam": 0.75, "fit": 1.0, "fit_exact": 1.0, "size": 78, "matches": [1.0], "made_at": 1, "heldout": 0.21}

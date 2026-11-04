@@ -1,0 +1,32 @@
+{
+ "version": 9,
+ "beliefs": [
+  "The box reverses the order of characters in the input string [E1]",
+  "Reversal preserves case, digits, punctuation, and spaces exactly, only order changes [E1]",
+  "Trailing whitespace of all kinds is stripped from the input before reversal [E6, E12]",
+  "Leading spaces (0x20) are NOT stripped before reversal; they are preserved and end up at the end after reversal [E14, E15]",
+  "After reversal, leading whitespace of all kinds is stripped from the result [E7, E10, E13]",
+  "Equivalently: strip trailing whitespace (all kinds), reverse, then strip leading whitespace (all kinds) from the result [E14, E15, E13]"
+ ],
+ "notes": "E14/E15 show leading spaces are preserved (moved to the end after reversal), not stripped; only trailing whitespace is stripped before reversal, plus leading whitespace stripped after reversal. Removed the pre-reversal lstrip(' ') step.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 15
+}

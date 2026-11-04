@@ -1,0 +1,23 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f splits the input on whitespace runs, reverses each segment, and joins with single spaces [E1-E6]",
+  "Case and punctuation are preserved and reversed with their segment [E1, E2]",
+  "Leading/trailing whitespace is dropped and internal runs become single spaces [E3, E4]",
+  "The last output segment gets one extra copy of its own first character appended (i.e. the original last segment's last character, which becomes the first char of the reversed segment) [E5, E6]",
+  "The extra character is the last character of the original last segment, appearing at the start of the reversed last segment, then duplicated [E6]",
+  "Whitespace-only input yields empty string [E4]"
+ ],
+ "notes": "",
+ "fit": 0.6666666666666666,
+ "heldout": 0.21,
+ "matches": [
+  1.0,
+  1.0,
+  0.8,
+  0.8333333333333334,
+  1.0,
+  1.0
+ ],
+ "made_at": 6
+}

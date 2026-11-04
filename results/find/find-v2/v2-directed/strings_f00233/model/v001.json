@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to: reverse the input string, then apply `str.capitalize()` (first character uppercased, remaining characters lowercased). This matches every E1 output, including mixed case, all-caps, digits, and spaces.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 126, "matches": [1.0], "made_at": 1, "heldout": 1.0}

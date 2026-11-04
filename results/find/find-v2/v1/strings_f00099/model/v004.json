@@ -1,0 +1,22 @@
+{
+ "version": 4,
+ "beliefs": [
+  "The box reverses the order of characters in the input string [E1]",
+  "Reversal preserves case, digits, punctuation, and spaces exactly, only order changes [E1]",
+  "Whitespace-only strings map to empty string [E2]",
+  "Leading whitespace is stripped from the input before reversal [E2, E3]",
+  "Trailing whitespace is also stripped from the input before reversal, so 'a  b  ' -> 'b  a' and ' a  b ' -> 'b  a ' [E4, E5]",
+  "Equivalently: strip both ends, then reverse [E4, E5]"
+ ],
+ "notes": "E4 and E5 show trailing whitespace is stripped before reversal (not after), so the rule is strip both ends then reverse, not strip-leading/reverse/strip-leading.",
+ "fit": 0.2,
+ "heldout": 0.26,
+ "matches": [
+  1.0,
+  0.6,
+  0.3,
+  0.5,
+  0.6
+ ],
+ "made_at": 5
+}

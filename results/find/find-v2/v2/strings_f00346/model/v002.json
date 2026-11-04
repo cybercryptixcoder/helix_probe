@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "The box removes all spaces, then shifts the first remaining character forward by 2 in the alphabet (preserving case and wrapping), but leaves it unchanged if it isn't a letter.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 415, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 0.88}

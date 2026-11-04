@@ -1,0 +1,21 @@
+{
+ "version": 3,
+ "beliefs": [
+  "The letter 'l' is replaced by 'k' (not deleted), preserving case: 'l'->'k', 'L'->'K' [E1, E2, E3]",
+  "Runs of consecutive 'l'/'L' collapse to a single 'k'/'K' [E2, E3]",
+  "The letter 'h' is replaced by 'g' [E1, E4]",
+  "The letter 'w' is replaced by 'v' [E4]",
+  "Other letters, digits, punctuation, and spaces pass through unchanged [E1, E4]",
+  "Case is preserved (HELLO->GELO, A1!->Z1!) [E1]"
+ ],
+ "notes": "Removed the false a->z and x->w rules (E4 shows 'a' and 'x' unchanged; 'w'->'v' instead). Kept l-run collapse to single k/K and h->g, which fit all data.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.2,
+  0.4,
+  0.4,
+  0.2
+ ],
+ "made_at": 4
+}

@@ -1,0 +1,24 @@
+{
+ "env": "find_numeric_f00942",
+ "experiments": 25,
+ "model_version": 8,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 36,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "For x>0, f(x) = -405.5*x - 154.8 [E8, E9, E12, E15]",
+  "For -1<x<0, f(x) = 17.1*x - 17.1 (slope 17.1, offset -17.1) [E11, E12, E13, E17, E18]",
+  "For x<=-1, f(x) = -35.52*x - 16.9 [E10, E12, E14]",
+  "At x=0 exactly, f(0) is a large negative spike (~-5401) [E1, E3, E4, E5]",
+  "The spike at x=0 is a single point, not an interval [E4, E5]",
+  "The boundary between the x<=-1 branch and the (-1,0) branch is at x=-1: f(-1)=18.62 belongs to the x<=-1 branch, and for x>-1 the 17.1 branch applies [E12, E13, E14]",
+  "The two negative branches nearly meet at x=-1 (both ~18.62), so the boundary is continuous there [E12, E14]",
+  "The (-1,0) branch is linear with slope 17.1 all the way to x=0-, approaching -17.1 [E11, E17, E18]",
+  "The x>0 branch begins immediately at x=0+ with value -154.8, jumping from -17.1 just below 0 [E15, E16]"
+ ]
+}

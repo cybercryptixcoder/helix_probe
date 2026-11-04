@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I discovered the mechanism: reverse the input string, then insert the character `\"2\"` at index `ceil(len/2)`. All six E1 examples confirm this exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 195, "matches": [1.0], "made_at": 1, "heldout": 1.0}

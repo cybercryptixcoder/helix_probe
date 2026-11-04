@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box capitalizes the first character of the string and lowercases everything after it (a `str.capitalize()`-like transform), preserving leading whitespace. I replaced the empty model with that rule.", "exam": 0.9583333333333334, "fit": 1.0, "fit_exact": 1.0, "size": 100, "matches": [1.0], "made_at": 1, "heldout": 0.66}

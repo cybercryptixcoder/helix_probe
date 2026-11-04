@@ -1,0 +1,28 @@
+{
+ "version": 5,
+ "beliefs": [
+  "The letter 'h' is replaced by 'g' (case preserved) [E1, E4]",
+  "The letter 'w' is replaced by 'v' (case preserved) [E1, E4]",
+  "A run of consecutive 'l'/'L' at a word start (start of string or after a non-letter) collapses to a single 'k'/'K' [E2, E3, E6, E7]",
+  "A run of consecutive 'l'/'L' after a letter collapses to a single 'l'/'L' (kept as lowercase/uppercase l, not deleted) [E2, E3, E5, E8]",
+  "A single 'l' after a letter becomes 'l' (unchanged), and a single 'L' after a letter becomes 'L' (unchanged) [E8]",
+  "A single 'l' after a digit or space is left unchanged [E6, E8]",
+  "Case is preserved for all transformations [E1, E2, E3]",
+  "In E1 'a1!B?'->'z1!B?' and 'A1!'->'Z1!' but E6 '1l'->'1l' and E8 '1l'->'1l'; the 'a'->'z'/'A'->'Z' change in E1 is unexplained and may be a transcription artifact?",
+  "In E1 'x'->'w' but E4 'world'->'vorld' shows 'w'->'v'; the 'x'->'w' change is unexplained and may be a transcription artifact?"
+ ],
+ "notes": "Replaced the 'delete l after letter' rule with 'keep l after letter' (E8 shows al->zl? no, al->zl means l stays as l and a->z; actually al->zl keeps l). Also 'l' after digit/space stays unchanged. The a->z and x->w anomalies in E1 are noted as unexplained.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.4,
+  0.4,
+  0.4,
+  0.9,
+  0.4,
+  0.4,
+  0.2,
+  0.0
+ ],
+ "made_at": 8
+}

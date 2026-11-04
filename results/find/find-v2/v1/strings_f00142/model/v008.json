@@ -1,0 +1,35 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f shifts every UTF-16 code unit by +5, treating each code unit independently [E1-E10]",
+  "f appends a trailing 'W' to every output [E1, E7]",
+  "f never raises ValueError for lone surrogates in the output; it returns shifted lone surrogates verbatim [E12, E13, E14]",
+  "f raises ValueError only when the input contains a valid surrogate pair whose shifted high surrogate lands in the low-surrogate range (0xDC00-0xDFFF), producing an invalid sequence [E10, E11, E14]",
+  "A valid pair whose shifted high stays high and shifted low stays low remains valid and succeeds [E10, E14]",
+  "A lone surrogate input is shifted by +5 and returned without error, even if the result is a lone surrogate [E12, E13, E14]",
+  "The ValueError is triggered by a valid input pair whose shifted high surrogate crosses into the low range, not by lone surrogates in the output [E14]",
+  "A valid pair whose shifted high stays in the high range (0xD800-0xDBFF) succeeds even if the shifted low crosses into the high range, e.g. \\ud800\\udbff -> \\ud805\\udc04 [E16]"
+ ],
+ "notes": "E16 shows pairs whose shifted high stays high (e.g. \\ud800\\udbff -> \\ud805\\udc04) succeed even when the shifted low crosses into the high range; my check() already handles this correctly, so the mismatch was only in the belief statement, not the code. No code change needed.",
+ "fit": 0.9375,
+ "heldout": 0.91,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7
+ ],
+ "made_at": 16
+}

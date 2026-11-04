@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box simply reverses each input string character by character\u2014case, spaces, punctuation, and digits are all preserved but reordered. I replaced the empty model with `s[::-1]` for each input.", "exam": 0.75, "fit": 1.0, "fit_exact": 1.0, "size": 144, "matches": [1.0], "made_at": 1, "heldout": 0.21}

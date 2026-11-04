@@ -1,0 +1,31 @@
+Helix Probe on 'find_strings_f00166': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a spread of basic input types (lowercase word, mixed case...(+87 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 15%
+[2] E2 Does f echo strings containing non-ASCII/international characters, control ...(+72 chars)  model v1 match 1.00
+[3] E3 Does f still echo inputs unchanged when they are exactly 60 characters long...(+132 chars)  model v1 match 1.00
+[4] E4 Does f ever change anything at all — specifically, does it behave different...(+198 chars)  model v1 match 0.80
+      model v2: fit 100% (was 75%), mean match 1.00 (was 0.95), held-out 36%
+[5] E5 Is the p->k substitution triggered by the presence of 'p' at all, by 'p' st...(+141 chars)  model v2 match 0.70
+      model v3: fit 100% (was 80%), mean match 1.00 (was 0.94), held-out 100%
+[6] E6 Does the p->k replacement apply to every lowercase 'p' including consecutiv...(+108 chars)  model v3 match 1.00
+[7] E7 Does the p->k replacement also apply to other visually or phonetically rela...(+122 chars)  model v3 match 1.00
+[8] E8 Does the p->k replacement also apply to the letter 'p' when it appears in l...(+181 chars)  model v3 match 1.00
+[9] E9 Does the p->k replacement also apply to the letter 'p' when it appears in l...(+181 chars)  model v3 match 1.00
+[10] E10 Does the p->k replacement apply when 'p' appears in a string together with ...(+220 chars)  model v3 match 1.00
+[11] E11 Does f do anything besides p->k — specifically, does it also modify other l...(+153 chars)  model v3 match 0.90
+      model v4: fit 100% (was 91%), mean match 1.00 (was 0.99), held-out 100%
+[12] E12 Does f delete uppercase 'L' everywhere (including runs, word-internal, and ...(+107 chars)  model v4 match 1.00
+[13] E13 Does f transform any other characters beyond lowercase 'p'->'k' and deletin...(+213 chars)  model v4 match 1.00
+[14] E14 Does f transform any other uppercase letters besides 'L' (e.g., 'O', 'I', '...(+135 chars)  model v4 match 1.00
+[15] E15 Does the uppercase 'L' deletion and lowercase 'p'->'k' replacement interact...(+319 chars)  model v4 match 1.00
+[16] E16 Does the deletion of uppercase 'L' apply to non-ASCII 'L'-like characters o...(+164 chars)  model v4 match 1.00
+[17] E17 Does f's 'p'->'k' rule apply to the 'p' in the first character of a string ...(+195 chars)  model v4 match 1.00
+[18] E18 Are the p->k and L-deletion rules purely character-local, or does f also do...(+194 chars)  model v4 match 1.00
+[19] E19 Does f apply the p->k rule to 'p' when the input is a full sentence with mi...(+149 chars)  model v4 match 1.00
+[20] E20 Does f leave all other uppercase letters (besides 'L') and lowercase letter...(+166 chars)  model v4 match 1.00
+[21] E21 Does f's uppercase-'L' deletion apply to 'L' when it appears inside a longe...(+218 chars)  model v4 match 1.00
+[22] E22 Does f's uppercase-'L' deletion and lowercase-'p'->'k' rule behave the same...(+210 chars)  model v4 match 1.00
+[23] E23 Does f apply the lowercase 'p'->'k' rule to 'p' when it appears immediately...(+163 chars)  model v4 match 1.00
+[24] E24 Does f apply the lowercase 'p'->'k' and uppercase 'L'-deletion rules to cha...(+157 chars)  model v4 match 1.00
+[25] E25 Does f's lowercase 'p'->'k' rule apply to 'p' at the very end of a string w...(+201 chars)  model v4 match 1.00
+{"env": "find_strings_f00166", "experiments": 25, "model_version": 4, "fit": 1.0, "heldout": 1.0, "llm_calls": 30, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

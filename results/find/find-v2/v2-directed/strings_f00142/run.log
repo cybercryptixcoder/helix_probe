@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00142': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary single words, plain sentences with spaces,...(+164 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 114 (exam 0.000 -> 1.000); held-out 91%
+[2] E2 Does the +5 ASCII shift and appended 'W' hold for edge-of-ordinary cases li...(+128 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the +5 shift apply uniformly to every character including high-ASCII/e...(+113 chars)  (v1 predicted it: match 1.00)
+[4] E4 Do the +5 ASCII shift and trailing 'W' still hold for longer ordinary sente...(+117 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the box's transformation depend only on the characters present, or cou...(+181 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the box apply the +5 shift and trailing 'W' uniformly to ordinary real...(+222 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (447 vs 114 chars)
+[7] E7 Does the +5 shift and trailing 'W' hold for ordinary strings whose characte...(+143 chars)  (v1 predicted it: match 1.00)
+[8] E8 Do ordinary strings with a wide mix of everyday characters (letters, digits...(+212 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the box apply the +5 shift and trailing 'W' uniformly to ordinary stri...(+272 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00142", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 114, "heldout": 0.91, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

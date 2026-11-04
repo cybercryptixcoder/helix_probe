@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I added trailing-whitespace stripping, which E3 revealed (`\"banana data banana \"` \u2192 `\"Banana data banana\"`). I kept leading spaces intact since E1/E2 show them preserved.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 213, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 1.0}

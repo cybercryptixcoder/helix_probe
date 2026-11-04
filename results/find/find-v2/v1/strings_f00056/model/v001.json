@@ -1,0 +1,18 @@
+{
+ "version": 1,
+ "beliefs": [
+  "The letter 'l' is deleted from the input [E1]",
+  "The letter 'h' is replaced by 'g' [E1]",
+  "The letter 'x' is replaced by 'w' [E1]",
+  "The letter 'a' is replaced by 'z' [E1]",
+  "Other letters, digits, punctuation, and spaces pass through unchanged [E1]",
+  "Case is preserved (HELLO->GELO, A1!->Z1!) [E1]"
+ ],
+ "notes": "Observed deletions of 'l' and substitutions h->g, x->w, a->z; everything else unchanged. This is a first guess from one probe.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.4
+ ],
+ "made_at": 1
+}

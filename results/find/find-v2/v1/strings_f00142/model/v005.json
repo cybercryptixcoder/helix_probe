@@ -1,0 +1,28 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f shifts every UTF-16 code unit by +5, treating each code unit independently (astral chars shift as two surrogates) [E1-E10]",
+  "f appends a trailing 'W' to every output [E1, E7]",
+  "If the +5 shift on any code unit produces a lone surrogate or invalid surrogate pair, f raises ValueError and returns 'ERROR: ValueError' for that input [E10, E11]",
+  "When a shifted high surrogate stays a valid high surrogate and its shifted low surrogate stays a valid low surrogate, the pair remains valid and no error occurs [E10, E11]",
+  "A lone surrogate input (e.g. \\udbff or \\udc00) is shifted by +5 and returned without error, since the shifted code unit may fall outside the surrogate range [E12]"
+ ],
+ "notes": "",
+ "fit": 0.6666666666666666,
+ "heldout": 0.91,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  0.9,
+  0.9,
+  1.0,
+  0.7142857142857143
+ ],
+ "made_at": 12
+}

@@ -1,0 +1,34 @@
+Helix Probe on 'find_strings_f00346': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a varied set of basic inputs (empty string, single chars,...(+87 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.60 (was 0.00), held-out 0%
+[2] E2 Does f shift every letter by +2 in the alphabet (wrapping at the end), or o...(+49 chars)  model v1 match 0.20
+      model v2: fit 0% (was 0%), mean match 0.60 (was 0.40), held-out 0%
+[3] E3 Do all lowercase letters shift by +2 except y and z, which behave different...(+100 chars)  model v2 match 0.40
+      model v3: fit 0% (was 0%), mean match 0.53 (was 0.53), held-out 0%
+[4] E4 Does the +2 shift apply to every character independently, or is there a dif...(+115 chars)  model v3 match 0.00
+      model v4: fit 100% (was 0%), mean match 1.00 (was 0.40), held-out 88%
+[5] E5 Does the +2 shift apply to the first non-space character even when the stri...(+94 chars)  model v4 match 1.00
+[6] E6 Does the +2 shift apply to the first non-space character even when that cha...(+133 chars)  model v4 match 1.00
+[7] E7 Where does the +2 shift land when the first non-space character is not a le...(+132 chars)  model v4 match 1.00
+[8] E8 Does the +2 shift apply to the first letter after leading non-letters (digi...(+79 chars)  model v4 match 1.00
+[9] E9 Does the +2 shift apply to the first letter when the string starts with a n...(+117 chars)  model v4 match 1.00
+[10] E10 Does the +2 shift apply to the first character when it is a letter, regardl...(+184 chars)  model v4 match 1.00
+[11] E11 Does the first-letter +2 shift apply to the first letter even when it is pr...(+152 chars)  model v4 match 1.00
+[12] E12 Does the +2 shift apply to a letter that appears after leading non-letters ...(+130 chars)  model v4 match 1.00
+[13] E13 Does the +2 shift apply to the first letter after stripping spaces when the...(+165 chars)  model v4 match 1.00
+[14] E14 Does the +2 shift apply to the first letter of the space-stripped string ev...(+318 chars)  model v4 match 0.00
+      model v5: fit 100% (was 93%), mean match 1.00 (was 0.93), held-out 100%
+[15] E15 Does f strip only ASCII whitespace characters (space, tab, newline, CR, ver...(+175 chars)  model v5 match 1.00
+[16] E16 Does f strip other Unicode whitespace-like characters beyond NBSP (e.g. U+2...(+178 chars)  model v5 match 1.00
+[17] E17 Does f strip any Unicode whitespace-like characters at all (i.e., is it usi...(+206 chars)  model v5 match 1.00
+[18] E18 Does the +2 shift apply to the first letter when it is a non-ASCII letter (...(+120 chars)  model v5 match 0.10
+      revision rejected: mean match 0.93 < 0.95
+      model v6: fit 100% (was 94%), mean match 1.00 (was 0.95), held-out 100%
+[19] E19 What exactly happens to a non-ASCII letter shifted past the end of its scri...(+229 chars)  model v6 match 1.00
+[20] E20 Does the +2 shift apply to the first character when it is a non-letter, non...(+154 chars)  model v6 match 1.00
+[21] E21 Does the +2 shift apply to the first character when it is a non-ASCII non-l...(+235 chars)  model v6 match 1.00
+[22] E22 Does the +2 shift apply to the first character when it is a surrogate-pair ...(+199 chars)  model v6 match 1.00
+[23] E23 Does f's +2 code-point shift on a non-ASCII first character ever wrap withi...(+267 chars)  model v6 match 1.00
+[24] E24 Does the +2 shift on the first character ever wrap within a script when the...(+280 chars)  model v6 match 1.00
+[25] E25 Does the +2 shift on the first character ever wrap within a script when the...(+280 chars)  model v6 match 1.00
+{"env": "find_strings_f00346", "experiments": 25, "model_version": 6, "fit": 1.0, "heldout": 1.0, "llm_calls": 33, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

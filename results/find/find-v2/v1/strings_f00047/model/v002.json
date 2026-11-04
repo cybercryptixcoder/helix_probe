@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "The box uppercases the character at position 0 and leaves all other characters unchanged [E1, E2]",
+  "Leading whitespace is preserved, so '  hello' stays '  hello' and ' hello world ' stays ' hello world ' [E2]",
+  "Trailing whitespace is stripped, so 'hello  ' becomes 'Hello' and 'x   ' becomes 'X' [E2]",
+  "A lone space or all-space string becomes empty, consistent with trailing-strip leaving nothing [E1, E2]",
+  "A tab at position 0 is not uppercased and is preserved, so '\\thello' stays '\\thello' [E2]",
+  "Digits, symbols, and already-uppercase letters are unchanged [E1]"
+ ],
+ "notes": "Replaced strip-then-capitalize with rstrip-then-uppercase-position-0, since leading whitespace is preserved but trailing whitespace is removed; a lone space becomes empty via rstrip.",
+ "fit": 1.0,
+ "heldout": 0.23,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

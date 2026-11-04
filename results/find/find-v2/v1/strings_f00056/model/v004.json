@@ -1,0 +1,25 @@
+{
+ "version": 4,
+ "beliefs": [
+  "The letter 'l' is replaced by 'k' only when it is the first character of the string or follows a non-letter (digit, space, punctuation), i.e. at a word start [E6]",
+  "An 'l' that follows a letter is deleted [E6]",
+  "Runs of consecutive 'l'/'L' collapse to a single 'k'/'K' at word start, and are deleted after a letter [E2, E3]",
+  "The letter 'h' is replaced by 'g' [E1, E4]",
+  "The letter 'w' is replaced by 'v' [E4]",
+  "Other letters, digits, punctuation, and spaces pass through unchanged [E1, E4]",
+  "Case is preserved (HELLO->GELO, A1!->Z1!) [E1]",
+  "The exact rule for 'l' in other contexts (e.g. after a letter but before a non-letter) is uncertain?"
+ ],
+ "notes": "E6 shows 'l'->'k' only at word start (after non-letter or string start); after a letter it is deleted. Updated predict to track whether the previous output character was a letter.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.2,
+  0.6,
+  0.4,
+  0.2,
+  0.0,
+  0.5
+ ],
+ "made_at": 6
+}

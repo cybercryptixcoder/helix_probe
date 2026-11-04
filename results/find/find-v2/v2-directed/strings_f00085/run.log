@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00085': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary strings: identity, case change, reversal, ...(+40 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 438 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the last-character letter shift happen before or after the '4' inserti...(+79 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the '4' insertion use floor(len/2) or some other midpoint rule (e.g., ...(+174 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the final letter-shift apply to the last character of the whole origin...(+208 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the final letter-shift apply to the last character of the whole string...(+256 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the midpoint insertion use floor(len/2) on the whole string even when ...(+179 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (472 vs 438 chars)
+[7] E7 Does the midpoint insertion use floor(len/2) and the last-letter shift appl...(+130 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the midpoint insertion use floor(len/2) and the last-letter shift appl...(+169 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the box insert '4' at floor(len/2) and shift the final letter even for...(+122 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00085", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 438, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

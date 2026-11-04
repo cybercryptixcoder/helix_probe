@@ -1,0 +1,59 @@
+Helix Probe on 'find_numeric_f00970': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain? Sample a spread of x values ...(+74 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.30 (was 0.00), held-out 0%
+[2] E2 Where exactly does the ~13 plateau start and end, and what are the values j...(+29 chars)  model v1 match 0.14
+      model v2: fit 0% (was 0%), mean match 0.45 (was 0.22), held-out 0%
+[3] E3 Is the ~12.5 plateau really flat between -2 and 2, or does it fluctuate/pos...(+75 chars)  model v2 match 0.76
+      revision rejected: mean match 0.55 < 0.55
+      model v3: fit 0% (was 0%), mean match 0.55 (was 0.55), held-out 0%
+[4] E4 Is the ~12.5 plateau exactly flat/noisy between -3 and 3, and where exactly...(+61 chars)  model v3 match 0.39
+      model v4: fit 0% (was 0%), mean match 0.51 (was 0.51), held-out 0%
+[5] E5 What is the exact left edge of the plateau between -3.4 and -3.0, and does ...(+60 chars)  model v4 match 0.35
+      model v5: fit 0% (was 0%), mean match 0.48 (was 0.48), held-out 0%
+[6] E6 Does the outside region have any smooth structure at all, or is it pure noi...(+158 chars)  model v5 match 0.05
+      revision rejected: mean match 0.39 < 0.41
+      revision rejected: mean match 0.40 < 0.41
+[7] E7 Is the outside region truly bounded noise with no structure, or does it con...(+150 chars)  model v5 match 0.00
+      model v6: fit 0% (was 0%), mean match 0.35 (was 0.35), held-out 0%
+[8] E8 Is the plateau's mean really ~12 and is it flat all the way across, by samp...(+130 chars)  model v6 match 0.80
+      model v7: fit 0% (was 0%), mean match 0.41 (was 0.41), held-out 0%
+[9] E9 Where exactly does the plateau's left edge fall between -3.10 (outside) and...(+56 chars)  model v7 match 0.30
+      revision rejected: mean match 0.39 < 0.39
+      revision rejected: mean match 0.35 < 0.39
+[10] E10 Where exactly does the plateau's right edge fall between 3.0 (inside) and 3...(+53 chars)  model v7 match 0.15
+      model v8: fit 0% (was 0%), mean match 0.39 (was 0.37), held-out 0%
+[11] E11 Is the plateau's right edge exactly at 3.05 (i.e., is 3.055 inside and 3.05...(+60 chars)  model v8 match 0.30
+      model v9: fit 0% (was 0%), mean match 0.38 (was 0.38), held-out 0%
+[12] E12 Is the plateau's mean really flat at ~12, or does it vary systematically wi...(+152 chars)  model v9 match 0.45
+      model v10: fit 0% (was 0%), mean match 0.39 (was 0.38), held-out 0%
+[13] E13 Is the plateau's right edge exactly at 3.05, or does the inside/outside tra...(+128 chars)  model v10 match 0.15
+      model v11: fit 0% (was 0%), mean match 0.37 (was 0.37), held-out 0%
+[14] E14 Does the plateau's interior mean actually stay near 12 across the whole int...(+129 chars)  model v11 match 0.65
+      revision rejected: mean match 0.39 < 0.39
+      revision rejected: mean match 0.39 < 0.39
+[15] E15 Is the outside region truly zero-mean noise, or does it have a small nonzer...(+99 chars)  model v11 match 0.10
+      revision rejected: mean match 0.37 < 0.37
+      revision rejected: mean match 0.37 < 0.37
+[16] E16 Is the outside region truly zero-mean noise everywhere, or does it have a s...(+201 chars)  model v11 match 0.00
+      revision rejected: mean match 0.34 < 0.35
+      revision rejected: mean match 0.34 < 0.35
+[17] E17 Is the plateau's left edge exactly at -3.05 (i.e. is -3.05 inside and -3.05...(+111 chars)  model v11 match 0.20
+      model v12: fit 0% (was 0%), mean match 0.34 (was 0.34), held-out 0%
+[18] E18 Is the plateau's interior mean really ~12 everywhere, or does the interior ...(+199 chars)  model v12 match 0.25
+      model v13: fit 0% (was 0%), mean match 0.33 (was 0.33), held-out 0%
+[19] E19 Does the outside region have zero mean, or a small nonzero mean / structure...(+113 chars)  model v13 match 0.00
+      model v14: fit 0% (was 0%), mean match 0.32 (was 0.32), held-out 0%
+[20] E20 Is the outside region's noise actually bounded to roughly [-3.5, 2.5] as be...(+204 chars)  model v14 match 0.00
+      model v15: fit 0% (was 0%), mean match 0.30 (was 0.30), held-out 0%
+[21] E21 Is the plateau really a single flat noisy band around 12, or does the inter...(+199 chars)  model v15 match 0.60
+      revision rejected: mean match 0.31 < 0.31
+      revision rejected: mean match 0.29 < 0.31
+[22] E22 Does the plateau's interior actually have a smooth structure (e.g., a broad...(+177 chars)  model v15 match 0.45
+      model v16: fit 0% (was 0%), mean match 0.32 (was 0.32), held-out 0%
+[23] E23 Is the inside/outside boundary of the plateau truly a sharp step at ±3.05, ...(+157 chars)  model v16 match 0.50
+      model v17: fit 0% (was 0%), mean match 0.33 (was 0.33), held-out 0%
+[24] E24 Is the plateau mean truly constant across the interior, or is the scatter I...(+176 chars)  model v17 match 0.45
+      model v18: fit 0% (was 0%), mean match 0.33 (was 0.33), held-out 0%
+[25] E25 Is there a narrow but real transition band just outside the sharp edges (e....(+150 chars)  model v18 match 0.00
+      model v19: fit 0% (was 0%), mean match 0.32 (was 0.32), held-out 0%
+{"env": "find_numeric_f00970", "experiments": 25, "model_version": 19, "fit": 0.0, "heldout": 0.0, "llm_calls": 57, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

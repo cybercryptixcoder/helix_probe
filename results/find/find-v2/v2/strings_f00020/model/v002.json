@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "The only miss was the empty string: the box raises `IndexError` (from `s[-1]`), so I let that exception propagate and format it as `\"ERROR: IndexError\"` instead of special-casing empty input to return `\"5\"`.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 384, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

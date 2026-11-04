@@ -1,0 +1,8 @@
+Helix Probe on 'find_strings_f00410': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a varied spread of inputs (lowercase, mixed case, spaces,...(+45 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.30 (was 0.00), held-out 0%
+[2] E2 Does f swap case before reversing (so case-swapping is applied to the origi...(+102 chars)  model v1 match 0.00
+      model v2: fit 0% (was 0%), mean match 0.15 (was 0.15), held-out 0%
+[3] E3 Is the case swap applied to the reversed string or the original, and does i...(+119 chars)  model v2 match 0.00
+      model v3: fit 0% (was 0%), mean match 0.10 (was 0.10), held-out 0%
+[4] E4 Does f reverse the string before swapping case (so 'Ab' -> reverse 'bA' -> ...(+163 chars)  model v3 match 0.00

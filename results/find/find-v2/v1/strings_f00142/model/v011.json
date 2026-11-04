@@ -1,0 +1,41 @@
+{
+ "version": 11,
+ "beliefs": [
+  "f shifts every UTF-16 code unit by +5, treating each code unit independently [E1-E10]",
+  "f appends a trailing 'W' to every output [E1, E7]",
+  "f raises ValueError only when a valid input surrogate pair's shifted high surrogate lands in the low-surrogate range (0xDC00-0xDFFF) [E10, E11, E14, E17, E18, E19]",
+  "A valid pair whose shifted high stays in the high range succeeds even if the shifted low crosses into the high range, e.g. \\ud800\\udbff -> \\ud805\\udc04 [E16, E18]",
+  "A lone surrogate input is shifted by +5 and returned without error, even if the result is a lone surrogate [E12, E13, E14]",
+  "The ValueError is triggered by a valid input pair whose shifted high surrogate crosses into the low range, not by lone surrogates in the output [E14, E17]",
+  "The error depends only on the shifted high landing in the low range, regardless of whether the shifted low also lands in the low range (low-low pair still errors) [E19]",
+  "A high-high input pair (e.g. \\udbff\\udbff) is not a valid pair, so it is shifted without error even though the shifted first unit lands in the low range [E16, E22]"
+ ],
+ "notes": "The only E16 mismatch was \\udbff\\udbff, a high-high pair; E22 confirms it does not error (the error requires an original valid high+low pair). My predict() already handled this correctly, so the code is unchanged; I added a belief making the high-high non-error explicit.",
+ "fit": 0.8181818181818182,
+ "heldout": 0.91,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  0.7,
+  0.8,
+  1.0,
+  1.0,
+  0.8
+ ],
+ "made_at": 22
+}

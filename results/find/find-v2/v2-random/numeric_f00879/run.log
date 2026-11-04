@@ -41,3 +41,16 @@ Helix Probe v2 on 'find_numeric_f00879': 0 experiments so far, model v0, exam of
       theorist's model not kept: its exam is 0.050, the current model's is 0.075
 [19] E19 a random ordinary probe  (v5 predicted it: match 0.00)
 [20] E20 a random ordinary probe  (v5 predicted it: match 0.20)
+      theorist (updater stalled)
+[21] E21 a random ordinary probe  (v5 predicted it: match 0.00)
+[22] E22 a random ordinary probe  (v5 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.032, the current model's is 0.059
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.075
+[23] E23 a random ordinary probe  (v5 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.043, the current model's is 0.057
+[24] E24 a random ordinary probe  (v5 predicted it: match 0.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.025, the current model's is 0.075
+[25] E25 a random ordinary probe  (v5 predicted it: match 0.00)
+{"env": "find_numeric_f00879", "experiments": 25, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 0.075, "fit": 0.052000000000000005, "size": 472, "heldout": 0.0, "llm_calls": 58, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,35 @@
+{
+ "category": "strings",
+ "fid": "f00099",
+ "experiments": 10,
+ "exam_probes": 4,
+ "n_versions": 3,
+ "inputs_total": 104,
+ "final": 1.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "start",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 24
+  },
+  {
+   "version": 1,
+   "role": "updater",
+   "experiments": 1,
+   "score": 0.9,
+   "nmse": null,
+   "inputs": 30
+  },
+  {
+   "version": 2,
+   "role": "updater",
+   "experiments": 2,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 40
+  }
+ ]
+}

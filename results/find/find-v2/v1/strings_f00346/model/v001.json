@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f removes all space characters from the input [E1: ' '->'', 'a b'->'cb', 'Hello, World!'->'Jello,World!']",
+  "f replaces lowercase 'a' with 'c' [E1: 'a'->'c', 'abc'->'cbc', 'a b'->'cb']",
+  "f replaces uppercase 'H' with 'J' [E1: 'Hello, World!'->'Jello,World!']",
+  "Other characters (uppercase, digits, punctuation) pass through unchanged [E1: 'ABC'->'CBC'? no\u2014'ABC'->'CBC' shows A->C too]"
+ ],
+ "notes": "Spaces are dropped; 'a'->'c' and 'A'->'C' (case-preserving letter shift a->c), and 'H'->'J' fits the same +2 shift. Digits and punctuation unchanged. Need more probes to confirm the shift rule vs. specific letters.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.6
+ ],
+ "made_at": 1
+}

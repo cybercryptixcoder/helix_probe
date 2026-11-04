@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f removes all whitespace characters (spaces, tabs, newlines, carriage returns, and Unicode whitespace like NBSP, em space, vertical tab, ideographic space) from the input [E1, E2]",
+  "f leaves all other characters (letters, digits, punctuation) unchanged [E1]",
+  "f preserves case [E1]",
+  "f maps empty string to empty string [E1]"
+ ],
+ "notes": "E2 shows f strips all whitespace, not just ASCII spaces. Switched to removing any character where str.isspace() is true, which covers tabs, newlines, NBSP, em space, vertical tab, and ideographic space.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

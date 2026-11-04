@@ -1,0 +1,27 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f returns its input unchanged for ordinary strings, including control chars, Unicode, combining marks, zero-width chars, and long strings [E1, E2, E3, E4]",
+  "f deletes an uppercase 'B' whenever it is immediately followed by 'O' or 'o' (so 'BOM'->'OM', 'Bom'->'om', 'BOm'->'Om', 'BoM'->'oM') [E6, E7]",
+  "Lowercase 'b' is never deleted: 'bOM','bOm','bom' are unchanged [E6, E7]",
+  "Deletion is applied repeatedly until stable, so 'BBOM'->'BOM'->'OM' and 'BOMBOMBOM'->'OMOMOM' [E8]",
+  "Deletion happens anywhere in the string, including between letters/symbols: 'xBOMy'->'xOMy', 'XBOM'->'XOM', 'BOM!'->'OM!' [E9]",
+  "'BOOM'->'OOM' confirms the rule is 'B followed by O/o' (not requiring M immediately after), since the B is removed even though the next char after O is another O [E9]",
+  "U+FEFF is left intact and does not block deletion: '\\ufeffBOM start'->'\\ufeffOM start' [E4, E5]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 0.93,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 9
+}

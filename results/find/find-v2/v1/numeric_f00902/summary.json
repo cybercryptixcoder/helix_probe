@@ -1,0 +1,30 @@
+{
+ "env": "find_numeric_f00902",
+ "experiments": 25,
+ "model_version": 15,
+ "fit": 0.96,
+ "heldout": 1.0,
+ "llm_calls": 40,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f has a smooth dip centered near x=0.25 with minimum about -48.84, asymmetric curvature (steeper on the right) [E1, E2, E4]",
+  "The dip is parabolic: left curvature ~1.12, right curvature ~4.74, giving f(-1.5)=-45.4 and f(1.5)=-41.4 [E2, E4]",
+  "The dip is slightly rounded rather than a strict parabola near the vertex, but the parabolic approximation matches to ~0.01 within |x|<0.5 [E8]",
+  "For x >= 2, f grows super-exponentially; log|f| is nearly linear in x with slope ~0.42 up to x~56, then growth continues (f(64)=350057, f(128)=2763727) [E1, E7]",
+  "For x <= -8, f grows negatively; log|f| is nearly linear in |x| with slope ~0.25, giving f(-8)=-554, f(-16)=-4759, f(-32)=-40241, f(-128)=-2688458 [E1, E14]",
+  "The positive branch grows faster than the negative branch (asymmetry) [E1]",
+  "Between x=2 and x=4 the function rises smoothly and monotonically, well modeled by log|y| interpolation between dense anchors [E3, E6, E22]",
+  "Just above x=2 the rise is smooth but slightly steeper than the old sparse anchors suggested; dense anchors from E22 (2.02-2.98) capture it [E22]",
+  "Between x=4 and x=5 the function rises smoothly and monotonically, matching log|y| interpolation between anchors at 4 and 5 [E20]",
+  "In the negative transition region (-8 < x < -2), f is smooth and convex, well fit by log|y| interpolation between dense anchors from E5 [E5]",
+  "There is a plateau where f ~ 7773 for x in [97.51, 117.56], then a sharp jump to ~2.14e6 just after 117.56, after which super-exponential growth resumes [E9, E10, E11, E13, E18, E19, E21]",
+  "The plateau's left boundary is a single abrupt step between x=97.5 and 97.51: growth continues normally up to 97.5 (f=1226577) then drops to ~7773 at 97.51 [E11, E18, E19]",
+  "The plateau is essentially flat at 7773 with tiny noise (~0.1) throughout [E12, E18, E19, E21]",
+  "The right-edge jump is a single abrupt step between x=117.56 and 117.57: f(117.56)=7773, f(117.57)=2144232, then smooth growth resumes [E21]",
+  "The far-negative region beyond x=-32 follows a smooth log-linear trend with slope ~0.25 in |x|, well captured by anchors at -32,-40,-48,...,-128 [E14]"
+ ]
+}

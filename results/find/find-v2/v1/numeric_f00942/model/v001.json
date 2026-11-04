@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "For x>0, f(x) is roughly linear with slope about -405 per unit: f(x) \u2248 -405*x + small offset [E1]",
+  "For x<0, f(x) is roughly linear with slope about -35.5 per unit (much shallower than positive side): f(x) \u2248 -35.5*x + small offset [E1]",
+  "At x=0, f(0) \u2248 -5401, a large negative value inconsistent with either linear branch, suggesting a special/piecewise behavior near 0 [E1]",
+  "The function appears piecewise: different linear regimes for x<0 and x>0, with an anomaly at x=0 [E1]",
+  "Exact form near 0 and the transition interval are still uncertain? [E1]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

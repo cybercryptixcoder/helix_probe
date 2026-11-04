@@ -1,0 +1,33 @@
+{
+ "version": 4,
+ "beliefs": [
+  "Only the final character of the last whitespace-delimited token is shifted, and only if it is a letter [E1-E15].",
+  "A final lowercase letter shifts forward by one in its alphabet, with 'z' wrapping to 'a' [E1, E2, E3].",
+  "A final uppercase letter shifts forward by one in its alphabet, with 'Z' wrapping to 'A' [E1, E2, E3].",
+  "The shift applies to non-ASCII letters too: accented Latin (\u00e9\u2192\u00ea, \u00f1\u2192\u00f2) and Greek (\u03b1\u2192\u03b2, \u03a9\u2192\u03aa) each advance by one code point [E16].",
+  "Non-letter final characters (digits, punctuation, whitespace) pass through unchanged [E1-E15].",
+  "Empty string maps to empty string [E1]."
+ ],
+ "notes": "E16 shows the shift is not limited to ASCII a-z/A-Z; it advances any letter by one code point (\u00e9\u2192\u00ea, \u00f1\u2192\u00f2, \u03b1\u2192\u03b2, \u03a9\u2192\u03aa), so I replaced the ASCII-only branches with a general 'letter' check that increments the code point (with ASCII z/Z wrapping).",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 16
+}

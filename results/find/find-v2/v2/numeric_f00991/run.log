@@ -1,0 +1,21 @@
+Helix Probe v2 on 'find_numeric_f00991': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 190 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the piecewise-linear fit hold across the full ordinary range, and is t...(+117 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Is the behavior exactly linear on each side of x=0 with a true discontinuit...(+111 chars)  (v1 predicted it: match 0.95)
+      model v2 by the updater: exam 1.00, fit 1.00, size 189 (fit 0.988 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the function keep the same two linear pieces beyond the tested range, ...(+104 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (321 vs 189 chars)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Is the discontinuity at x=0 a true jump (value 2.5 at 0, matching the negat...(+171 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Are there any additional kinks or changes in slope inside the ordinary rang...(+98 chars)  (v2 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v2 predicted it: match 1.00)
+[12] E12 Does the negative-side slope change or kink at some interior point (e.g., a...(+126 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (332 vs 189 chars)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00991", "experiments": 12, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 189, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

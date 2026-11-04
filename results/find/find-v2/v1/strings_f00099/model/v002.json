@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "The box reverses the order of characters in the input string [E1]",
+  "Reversal preserves case, digits, punctuation, and spaces exactly, only order changes [E1]",
+  "Whitespace-only strings (spaces, tabs, newlines) map to empty string, not to themselves [E2]",
+  "Leading and trailing spaces are stripped from the input before reversal, so ' a' -> 'a ' and 'a ' -> 'a' [E2]",
+  "Internal spaces are preserved during reversal, e.g. 'a  b' -> 'b  a' [E2]"
+ ],
+ "notes": "E2 shows whitespace-only inputs give empty output and leading/trailing spaces are trimmed before reversing (so ' a' -> 'a ', 'a ' -> 'a', ' x ' -> 'x '). I strip the input then reverse it; whitespace-only becomes empty.",
+ "fit": 0.5,
+ "heldout": 0.26,
+ "matches": [
+  1.0,
+  0.6
+ ],
+ "made_at": 2
+}

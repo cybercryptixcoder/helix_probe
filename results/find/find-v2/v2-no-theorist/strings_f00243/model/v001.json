@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box removes all spaces and inserts a `Z` at the midpoint (`len//2`) of the resulting string; I replaced the empty model with that rule, which fits every E1 output.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 180, "matches": [1.0], "made_at": 1, "heldout": 0.88}

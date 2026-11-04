@@ -1,0 +1,24 @@
+{
+ "env": "find_strings_f00323",
+ "experiments": 25,
+ "model_version": 12,
+ "fit": 0.6,
+ "heldout": 1.0,
+ "llm_calls": 41,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "The box reverses the order of characters in the input string [E1]",
+  "All Unicode whitespace characters are removed from the output rather than preserved [E2, E5, E8]",
+  "Reversal happens first, then whitespace is stripped from the reversed result [E2, E4, E15, E24]",
+  "Case, digits, symbols, and non-whitespace invisible/format characters (ZWJ, ZWNJ, BOM, soft hyphen, word joiner) are preserved as-is, only order changes and whitespace is dropped [E1, E9]",
+  "Reversal is by Unicode code point: a valid surrogate pair is treated as one unit and stays intact [E6, E7, E16, E17, E23]",
+  "Lone surrogates and unpaired UTF-16 code units are reversed as individual code points without error or alteration [E11, E12]",
+  "A surrogate pair split by whitespace is NOT recombined: reversal happens first, so the halves stay separate and whitespace is then dropped [E13, E14, E18, E19, E24]",
+  "Whitespace between a lone high and lone low surrogate is removed but the halves are never merged into an astral character [E18, E19, E24]",
+  "Because reversal is by code point, adjacent valid surrogate pairs are grouped as units and stay intact [E6, E7, E16, E17, E23]"
+ ]
+}

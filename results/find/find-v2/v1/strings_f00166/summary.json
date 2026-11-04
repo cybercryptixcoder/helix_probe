@@ -1,0 +1,20 @@
+{
+ "env": "find_strings_f00166",
+ "experiments": 25,
+ "model_version": 4,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 30,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f replaces every lowercase 'p' with 'k' throughout the string [E4, E5, E6, E8, E9, E10]",
+  "f also deletes every uppercase 'L' from the string [E11]",
+  "Uppercase 'P' is left unchanged [E5, E8]",
+  "All other characters, including non-ASCII, control chars, digits, symbols, and whitespace, pass through unchanged [E1, E2, E3, E10]",
+  "The transformations are independent per-character substitutions/deletions with no word- or case-context effects [E8, E9, E10]"
+ ]
+}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to shift the last character forward by one alphabet position (letters only; digits/symbols unchanged, as \"abc123\" stayed the same), which explains all six E1 outputs.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 398, "matches": [1.0], "made_at": 1, "heldout": 1.0}

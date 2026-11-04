@@ -1,0 +1,26 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f splits the input on whitespace runs, reverses each segment, and joins with single spaces [E1-E6]",
+  "Case and punctuation are preserved and reversed with their segment [E1, E2]",
+  "Leading/trailing whitespace is dropped and internal runs become single spaces [E3, E4]",
+  "The last output segment gets one extra copy of its own first character prepended (i.e. the original last segment's last character, duplicated at the start of the reversed last segment) [E5, E6, E7, E8]",
+  "The extra character appears only when the input has no leading or trailing whitespace; if the input is padded with spaces on either side, no duplication occurs [E9]",
+  "Whitespace-only input yields empty string [E4]"
+ ],
+ "notes": "E9 shows the duplication is suppressed when the raw input has leading or trailing whitespace (e.g. ' hi'->'iih' but 'hi '->'ih', '  hi  '->'ih'), so I gate the extra character on s == s.strip().",
+ "fit": 0.8888888888888888,
+ "heldout": 0.42,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.6
+ ],
+ "made_at": 9
+}

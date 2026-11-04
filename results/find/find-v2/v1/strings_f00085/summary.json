@@ -1,0 +1,21 @@
+{
+ "env": "find_strings_f00085",
+ "experiments": 25,
+ "model_version": 5,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 34,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f increments the last character of the input by one Unicode code point if it is a letter (any script), before inserting '4' [E1, E2, E3, E5]",
+  "f inserts '4' at index len(s)//2 of the (possibly incremented) string [E1, E2, E3, E4]",
+  "Non-letter last characters (digits, symbols, spaces) are left unchanged [E1, E4]",
+  "Increment is by code point +1 regardless of case-run boundaries, with no wrap-to-run-start; only ASCII a-z/A-Z wrap to a/A [E2, E3, E5, E6, E7]",
+  "For non-ASCII letters, incrementing is by code point (\u00e9\u2192\u00ea, \u03b1\u2192\u03b2, \u03c9\u2192\u03ca, \u042f\u2192\u0430, \u03a9\u2192\u03aa, \u03aa\u2192\u03ab, \u038f\u2192\u0390, \u1f88\u2192\u1f89, \u1fa9\u2192\u1faa, \u03cf\u2192\u03d0) [E3, E5, E6, E7]",
+  "The insertion index is computed from the original string's length, which equals the incremented string's length [E1, E2, E3]"
+ ]
+}

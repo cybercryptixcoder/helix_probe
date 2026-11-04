@@ -1,0 +1,25 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f reverses the order of characters in the input [E1, E2, E3, E4]",
+  "After reversing, every letter is lowercased, then the first character of the result is uppercased if it is a letter [E4]",
+  "Non-letter characters (spaces, digits, symbols) are preserved and reversed along with everything else [E1, E3, E4]",
+  "Empty string maps to empty string [E1]",
+  "The final capitalization applies only to the first character of the reversed string, leaving the rest lowercase [E4]",
+  "The whole operation is equivalent to Python str.capitalize() applied to the reversed string [E7]",
+  "capitalize() lowercases everything then uppercases only the first char, so \u00df first becomes Ss but \u00df elsewhere stays \u00df, and \ufb01 first becomes Fi [E6, E7]"
+ ],
+ "notes": "Replaced manual lower()+upper() with str.capitalize() on the reversed string, which matches all observations including the multi-char case mappings (\u00df\u2192Ss only at first position, \ufb01\u2192Fi).",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 7
+}

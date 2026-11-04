@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f inserts the character '4' at index len(s)//2 of the input [E1]",
+  "If the last character of the input is an ASCII letter, f increments it (a\u2192b, ..., z\u2192a; A\u2192B, ..., Z\u2192A) before inserting '4' [E1]",
+  "Non-letter last characters (digits, symbols, spaces) are left unchanged [E1]",
+  "Whether 'z' wraps to 'a' or to '{' is untested?"
+ ],
+ "notes": "Discovered rule: increment last char if it's a letter, then insert '4' at position len//2. This explains all 10 observations including the tricky 'Hello, World! 123' case.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

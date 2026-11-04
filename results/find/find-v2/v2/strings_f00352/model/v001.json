@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box simply appends \"T\" to each input string, so I replaced the empty model with that rule.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 78, "matches": [1.0], "made_at": 1, "heldout": 1.0}

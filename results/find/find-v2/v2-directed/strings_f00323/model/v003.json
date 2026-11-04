@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I changed the space-removal rule from `s.replace(\" \", \"\")` to `re.sub(r\"\\s\", \"\", s)` so that tabs and newlines are also stripped, matching E3's `\"a\\tb\"->\"ba\"` and `\"a\\nb\"->\"ba\"`.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 108, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 1.0}

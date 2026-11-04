@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "The box reverses the order of characters in the input string [E1]",
+  "Whitespace characters (spaces, tabs, newlines) are removed from the output rather than preserved [E2]",
+  "After reversing, all whitespace is stripped, so 'a b' -> 'ba' and ' lead' -> 'dael' [E2]",
+  "Case, digits, and symbols are preserved as-is, only order changes and whitespace is dropped [E1, E2]"
+ ],
+ "notes": "E2 shows whitespace is removed entirely, not preserved. So the rule is: reverse the whole string, then delete all whitespace characters. This explains 'a b'->'ba', 'a  b'->'ba', 'a\\tb'->'ba', ' lead'->'dael'.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

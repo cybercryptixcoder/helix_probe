@@ -1,0 +1,21 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f returns its input unchanged for ordinary strings, including control chars, Unicode, combining marks, zero-width chars, and long strings [E1, E2, E3, E4]",
+  "f removes the substring 'BOM' wherever it appears in the input, not the BOM character U+FEFF [E4, E5]",
+  "In E4 '\\ufeffBOM start' -> '\\ufeffOM start' is consistent with removing 'BOM' (leaving the leading U+FEFF intact) [E4, E5]",
+  "In E5 'noBOMhere' -> 'noOMhere' confirms 'BOM' is stripped mid-string, and '\\ufeffBOM start' -> '\\ufeffOM start' confirms the U+FEFF itself is preserved [E5]",
+  "Whether removal is case-sensitive (only uppercase 'BOM') or also matches lowercase/mixed case is untested?"
+ ],
+ "notes": "Reinterpreted E4: the leading U+FEFF was never stripped; instead the literal substring 'BOM' was removed, which E5's 'noBOMhere'->'noOMhere' confirms. predict() now deletes all occurrences of 'BOM' and leaves U+FEFF alone.",
+ "fit": 0.6,
+ "heldout": 0.93,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  0.8
+ ],
+ "made_at": 5
+}

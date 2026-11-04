@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box removes spaces and shifts only the first character forward by 2 in the alphabet (wrapping, case preserved); everything else is unchanged. I rewrote v0 from scratch to capture this rule.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 427, "matches": [1.0], "made_at": 1, "heldout": 0.88}

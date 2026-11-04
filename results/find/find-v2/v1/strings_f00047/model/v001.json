@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "The box capitalizes the first character of the input and leaves the rest unchanged [E1]",
+  "A single space becomes an empty string, suggesting leading/trailing whitespace is stripped before capitalizing [E1]",
+  "Digits, symbols, and already-uppercase letters are unchanged [E1]"
+ ],
+ "notes": "E1 shows capitalize-like behavior: first letter uppercased, rest preserved, but a lone space returns empty, so whitespace is likely stripped first. Model as strip-then-capitalize-first-char.",
+ "fit": 1.0,
+ "heldout": 0.1,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

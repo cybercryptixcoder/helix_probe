@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box reverses each input string and prepends \"k\". E1 confirms this across words, capitalization, spaces, punctuation, and digits, with case and spacing preserved.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 202, "matches": [1.0], "made_at": 1, "heldout": 1.0}

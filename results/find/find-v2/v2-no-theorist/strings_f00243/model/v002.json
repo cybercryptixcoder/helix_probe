@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed the whitespace removal from `s.replace(\" \", \"\")` to `re.sub(r\"\\s+\", \"\", s)` so tabs and other whitespace are stripped too, as E2's `\"a\\tb\" -> \"aZb\"` shows.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 197, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

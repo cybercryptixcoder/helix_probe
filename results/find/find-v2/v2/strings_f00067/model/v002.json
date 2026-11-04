@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Key fixes: whitespace runs collapse to one space and edges are stripped (not preserved), and the doubling applies to the last word's reversed first char (which for punctuation-ending words like `world!` gives `!!dlrow`).", "exam": 0.75, "fit": 0.95, "fit_exact": 0.5, "size": 527, "matches": [1.0, 0.9], "made_at": 2, "heldout": 0.21}

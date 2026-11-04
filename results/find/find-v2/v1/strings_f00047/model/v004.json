@@ -1,0 +1,25 @@
+{
+ "version": 4,
+ "beliefs": [
+  "The box strips trailing whitespace (including Unicode whitespace like NBSP and em-space) and then uppercases the first character using full .upper() semantics, keeping the rest unchanged [E1, E2, E3, E5, E6]",
+  "Leading whitespace is preserved, so '  hello' stays '  hello' and ' hello world ' stays ' hello world ' [E2]",
+  "Trailing whitespace is stripped, so 'hello  ' becomes 'Hello', 'x   ' becomes 'X', and 'hello\\u00a0' becomes 'Hello' [E2, E5]",
+  "A lone space or all-space string becomes empty, consistent with trailing-strip leaving nothing [E1, E2]",
+  "A tab or newline at position 0 is not uppercased and is preserved, so '\\thello' stays '\\thello' [E2, E3]",
+  "Digits, symbols, and already-uppercase letters are unchanged [E1, E4]",
+  "Uppercasing uses full .upper() semantics on the first character, so '\u00df'\u2192'Ss', '\u01c6'\u2192'\u01c5', '\ufb01'\u2192'Fi', '\ufb03'\u2192'Ffix', '\u0149'\u2192'\u02bcN' (the full expansion replaces the first char) [E6]",
+  "Only the first character is uppercased (with its full expansion); the rest of the string is left untouched, so '\u00c9COLE'\u2192'\u00c9cole' and 'stra\u00dfe'\u2192'Stra\u00dfe' [E5]"
+ ],
+ "notes": "",
+ "fit": 0.6666666666666666,
+ "heldout": 0.23,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  0.2
+ ],
+ "made_at": 6
+}
