@@ -260,3 +260,18 @@ Helix Probe v3 on 'arc_wa30': 0 experiments so far, model v0, spent 0
 [95] E95 learn: a random ordinary probe  (v26 predicted it: match 0.92; cost 2, spent 233)
       updater's fix not kept: same scores and not smaller (6822 vs 6822 chars)
       theorist (fixes stalled)
+[96] E96 learn: Does a successful ACTION2 (downward move) advance the row-63 coun...(+121 chars)  (v26 predicted it: match 0.99; cost 3, spent 236)
+      updater's fix not kept: its fit is 0.882, the current model's is 0.883
+      updater's fix not kept: its fit is 0.882, the current model's is 0.883
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.54, size 5976)
+[97] E97 learn: a random ordinary probe  (v26 predicted it: match 0.75; cost 4, spent 240)
+[98] E98 learn: Does the row-63 counter advance on a successful ACTION5 toggle in...(+210 chars)  (v26 predicted it: match 0.88; cost 4, spent 244)
+      updater's fix not kept: its fit is 0.881, the current model's is 0.882
+      updater's fix not kept: same scores and not smaller (6822 vs 6822 chars)
+[99] E99 learn: a random ordinary probe  (v26 predicted it: match 0.50; cost 2, spent 246)
+      theorist's model lost its trial: on trial it predicted 0.50 of 3 new experiments, the current model 0.71
+      model v27 by the updater: fit 0.88, size 7258 (fit 0.878 -> 0.884)
+[100] E100 learn: Does a successful ACTION2 (downward move) advance the row-63 coun...(+172 chars)  (v27 predicted it: match 0.75; cost 2, spent 248)
+      model v28 by the updater: fit 0.88, size 7688 (fit 0.882 -> 0.885)
+{"env": "arc_wa30", "experiments": 100, "cost": 248, "model_version": 28, "model_role": "updater", "fit": 0.8849941996208743, "size": 7688, "exam": null, "heldout": null, "llm_calls": 225, "goals": {"tried": 0, "reached": 0, "tries_used": []}, "box_score": {"game": "wa30-ee6fef47", "score": 0.0, "levels_completed": 0, "levels": 9, "actions": 248, "level_actions": [248, 0, 0, 0, 0, 0, 0, 0, 0], "baseline": [71, 119, 183, 98, 368, 68, 79, 442, 415]}}

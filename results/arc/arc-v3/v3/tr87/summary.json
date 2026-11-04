@@ -1,0 +1,40 @@
+{
+ "env": "arc_tr87",
+ "experiments": 100,
+ "cost": 283,
+ "model_version": 35,
+ "model_role": "updater",
+ "fit": 0.7803888499063156,
+ "size": 2758,
+ "exam": null,
+ "heldout": null,
+ "llm_calls": 244,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "box_score": {
+  "game": "tr87-cd924810",
+  "score": 0.0,
+  "levels_completed": 0,
+  "levels": 6,
+  "actions": 283,
+  "level_actions": [
+   283,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "baseline": [
+   54,
+   58,
+   40,
+   45,
+   71,
+   146
+  ]
+ }
+}
