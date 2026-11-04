@@ -1,0 +1,1 @@
+[{"usage": {"prompt_tokens": 429, "total_tokens": 3911, "completion_tokens": 3482, "prompt_tokens_details": {"cached_tokens": 384, "created_cache_tokens": 0}, "completion_tokens_details": {"reasoning_tokens": 0}}, "seconds": 27.37, "effort": "none", "attempts": 1}]

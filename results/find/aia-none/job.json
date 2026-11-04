@@ -1,0 +1,12 @@
+{
+ "out": "results/find/aia-none",
+ "data": "bench/find/data",
+ "effort": "none",
+ "temperature": 1.0,
+ "limit": 0,
+ "workers": 6,
+ "categories": [
+  "numeric",
+  "strings"
+ ]
+}
