@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_numeric_f00737': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 221 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the log fit y = 9.115*ln(x) - 7.85 hold for small positive x...(+74 chars)  (v1 predicted it: match 1.00; cost 10, spent 20)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 30)
+[4] E4 learn: Is the function really a pure log 9.115*ln(x)-7.85 across the who...(+154 chars)  (v1 predicted it: match 1.00; cost 16, spent 46)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 56)
+[6] E6 learn: Does the log formula continue to hold for moderate positive value...(+113 chars)  (v1 predicted it: match 1.00; cost 10, spent 66)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.00, size 1000000000)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 76)
+[8] E8 learn: Does the function switch behavior at some threshold x0 > 0 (e.g. ...(+187 chars)  (v1 predicted it: match 1.00; cost 20, spent 96)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 106)
+      theorist's model lost its trial: on trial it predicted 0.00 of 3 new experiments, the current model 1.00
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00737", "experiments": 9, "cost": 106, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 221, "exam": null, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

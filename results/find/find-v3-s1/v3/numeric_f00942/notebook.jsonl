@@ -1,0 +1,1 @@
+{"id": "E1", "kind": "learn", "question": "a random ordinary probe", "expect": "", "probe": {"x": [-93.6, 88.9, 67.5, -62.7, -1.2, -12.9, 38.8, 73.9, -104.0, -120.7]}, "observation": {"y": [3326.292, -36088.18, -27438.3, 2222.544, 25.764, 443.688, -15837.76, -30025.18, 3697.78, 4294.304]}, "cost": 10, "model_version": 0, "model_prediction": {}, "match": 0.0, "model_error": null}

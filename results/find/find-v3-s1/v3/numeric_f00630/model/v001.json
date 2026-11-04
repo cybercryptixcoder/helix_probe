@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with a sign-based step function: every positive input in E1 returned 52.2 and every negative input returned -14.96, so the box appears to output one of two constants depending on the sign of x.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 85, "matches": [1.0], "made_at": 1, "heldout": 1.0}

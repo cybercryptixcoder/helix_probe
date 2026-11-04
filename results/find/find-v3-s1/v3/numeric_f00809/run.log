@@ -1,0 +1,61 @@
+Helix Probe v3 on 'find_numeric_f00809': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.10, size 300 (fit 0.000 -> 0.100); held-out 0%
+[2] E2 learn: Does the output follow a simple closed form like a*sin(b*x)/x or ...(+130 chars)  (v1 predicted it: match 0.00; cost 20, spent 30)
+      model v2 by the updater: fit 0.12, size 232 (fit 0.050 -> 0.125); held-out 0%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 40)
+      updater's fix not kept: same scores and not smaller (232 vs 232 chars)
+[4] E4 learn: Do the outputs depend on x through a smooth low-frequency oscilla...(+130 chars)  (v2 predicted it: match 0.00; cost 20, spent 60)
+      updater's fix not kept: its fit is 0.013, the current model's is 0.087
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.00; cost 10, spent 70)
+      model v3 by the updater: fit 0.21, size 306 (fit 0.070 -> 0.210); held-out 0%
+[6] E6 learn: Does the oscillation have a consistent period and amplitude acros...(+133 chars)  (v3 predicted it: match 0.00; cost 20, spent 90)
+      model v4 by the updater: fit 0.19, size 406 (fit 0.175 -> 0.192); held-out 0%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v4 predicted it: match 0.20; cost 10, spent 100)
+      updater's fix not kept: its fit is 0.164, the current model's is 0.193
+      updater's fix not kept: its fit is 0.164, the current model's is 0.193
+[8] E8 learn: On a dense ordinary grid in the central region, is the output a s...(+175 chars)  (v4 predicted it: match 0.00; cost 20, spent 120)
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+      theorist (fixes stalled)
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 0.10; cost 10, spent 130)
+      updater's fix not kept: its fit is 0.144, the current model's is 0.161
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+[10] E10 learn: Does the output depend on x only through a smooth function of x (...(+163 chars)  (v4 predicted it: match 0.00; cost 20, spent 150)
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+      theorist (fixes stalled)
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 0.10; cost 10, spent 160)
+      updater's fix not kept: same scores and not smaller (428 vs 406 chars)
+[12] E12 learn: Does the output scale linearly with a small change in x (smooth l...(+204 chars)  (v4 predicted it: match 0.00; cost 20, spent 180)
+      updater's fix not kept: same scores and not smaller (416 vs 406 chars)
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 0.10; cost 10, spent 190)
+      updater's fix not kept: its fit is 0.123, the current model's is 0.127
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+[14] E14 learn: Is the output in the central region a smooth, locally correlated ...(+166 chars)  (v4 predicted it: match 0.05; cost 20, spent 210)
+      updater's fix not kept: its fit is 0.104, the current model's is 0.121
+      updater's fix not kept: its fit is 0.104, the current model's is 0.121
+      theorist (fixes stalled)
+[15] E15 learn: a random ordinary probe  (v4 predicted it: match 0.30; cost 10, spent 220)
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+      updater's fix not kept: same scores and not smaller (408 vs 406 chars)
+[16] E16 learn: Is the apparent fine-scale irregularity in the central region act...(+203 chars)  (v4 predicted it: match 0.00; cost 20, spent 240)
+      theorist (fixes stalled)
+[17] E17 learn: a random ordinary probe  (v4 predicted it: match 0.00; cost 10, spent 250)
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+      updater's fix not kept: its fit is 0.103, the current model's is 0.118
+[18] E18 learn: Is the central-region output actually a smooth deterministic func...(+158 chars)  (v4 predicted it: match 0.00; cost 20, spent 270)
+      updater's fix not kept: its fit is 0.100, the current model's is 0.111
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v4 predicted it: match 0.10; cost 10, spent 280)
+[20] E20 learn: Do nearby x values in the central region give correlated outputs ...(+167 chars)  (v4 predicted it: match 0.05; cost 20, spent 300)
+      updater's fix not kept: same scores and not smaller (406 vs 406 chars)
+      updater: keep
+      theorist (fixes stalled)
+[21] E21 learn: a random ordinary probe  (v4 predicted it: match 0.10; cost 10, spent 310)
+      updater's fix not kept: its fit is 0.102, the current model's is 0.107
+      updater's fix not kept: its fit is 0.102, the current model's is 0.107
+[22] E22 learn: Does the central-region value depend on x through its fractional ...(+144 chars)  (v4 predicted it: match 0.05; cost 20, spent 330)

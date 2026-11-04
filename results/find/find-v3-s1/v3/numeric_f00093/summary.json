@@ -1,0 +1,17 @@
+{
+ "env": "find_numeric_f00093",
+ "experiments": 25,
+ "cost": 357,
+ "model_version": 4,
+ "model_role": "updater",
+ "fit": 1.0,
+ "size": 2255,
+ "exam": null,
+ "heldout": 1.0,
+ "llm_calls": 54,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ }
+}

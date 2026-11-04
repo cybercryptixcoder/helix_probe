@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_numeric_f00657': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 125 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the sign rule hold near zero, and is the output exactly ±18 ...(+134 chars)  (v1 predicted it: match 1.00; cost 20, spent 30)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 40)
+[4] E4 learn: Does the ±18 sign rule hold for an ordinary random probe drawn fr...(+110 chars)  (v1 predicted it: match 1.00; cost 20, spent 60)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 70)
+[6] E6 learn: Does the ±18 sign rule hold for non-integer values very close to ...(+100 chars)  (v1 predicted it: match 1.00; cost 20, spent 90)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 239)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 100)
+[8] E8 learn: Is the output constant ±18 across the whole ordinary domain, or d...(+223 chars)  (v1 predicted it: match 1.00; cost 20, spent 120)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 130)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00657", "experiments": 9, "cost": 130, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 125, "exam": null, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

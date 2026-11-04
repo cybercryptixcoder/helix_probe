@@ -1,0 +1,8 @@
+Helix Probe v3 on 'find_numeric_f00902': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: Is f(x) a simple power law? Sample x over a range of magnitudes a...(+105 chars)  (v0 predicted it: match 0.00; cost 20, spent 30)
+      theorist (fixes stalled)
+[3] E3 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 40)
+[4] E4 learn: What is the exact form of f away from the small-|x| region — is i...(+95 chars)  (v0 predicted it: match 0.00; cost 20, spent 60)
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 70)

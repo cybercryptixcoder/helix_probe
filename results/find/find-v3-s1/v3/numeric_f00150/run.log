@@ -27,3 +27,10 @@ Helix Probe v3 on 'find_numeric_f00150': 0 experiments so far, model v0, spent 0
 [19] E19 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 275)
 [20] E20 learn: What is the exact functional form of the small-|x| branch on the ...(+121 chars)  (v1 predicted it: match 0.00; cost 20, spent 295)
       theorist (fixes stalled)
+[21] E21 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 305)
+[22] E22 learn: For large |x|, is the exact form y = 2.2*x^6 - x^5, or does the c...(+125 chars)  (v1 predicted it: match 1.00; cost 20, spent 325)
+[23] E23 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 335)
+[24] E24 learn: What is the exact shape of the small-|x| branch on the positive s...(+125 chars)  (v1 predicted it: match 0.05; cost 20, spent 355)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 365)
+{"env": "find_numeric_f00150", "experiments": 25, "cost": 365, "model_version": 1, "model_role": "updater", "fit": 0.6406666666666666, "size": 137, "exam": null, "heldout": 1.0, "llm_calls": 44, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
