@@ -94,3 +94,8 @@ step,kind,experiments,cost,model_version,model_role,fit,size,exam,arrival_last10
 93,learn,93,274,45,updater,0.665,2611,0.000,0.10,,212,E93
 94,learn,94,278,46,updater,0.672,3017,0.000,0.10,,214,E94
 95,learn,95,282,46,updater,0.673,3017,0.000,0.10,,216,E95
+96,learn,96,285,46,updater,0.675,3017,0.000,0.10,,220,E96
+97,learn,97,288,46,updater,0.675,3017,0.000,0.10,,222,E97
+98,learn,98,291,47,updater,0.675,2808,0.000,0.10,,225,E98
+99,learn,99,293,48,updater,0.682,3021,0.000,0.10,,226,E99
+100,learn,100,297,48,updater,0.682,3021,0.000,0.10,,229,E100

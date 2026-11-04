@@ -1,15 +1,38 @@
 {
  "v3": {
-  "games": 1,
+  "games": 3,
   "mean_score": 0.0,
   "levels": [
    0,
-   8
+   20
   ],
-  "actions": 290,
-  "human_actions": 213,
-  "calls": 149,
+  "actions": 848,
+  "human_actions": 734,
+  "calls": 598,
   "per_game": {
+   "cd82": {
+    "game": "cd82-fb555c5d",
+    "score": 0.0,
+    "levels_completed": 0,
+    "levels": 6,
+    "actions": 297,
+    "level_actions": [
+     297,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "baseline": [
+     55,
+     8,
+     41,
+     21,
+     23,
+     23
+    ]
+   },
    "sb26": {
     "game": "sb26-7fbdac44",
     "score": 0.0,
@@ -35,6 +58,29 @@
      23,
      58,
      18
+    ]
+   },
+   "sc25": {
+    "game": "sc25-635fd71a",
+    "score": 0.0,
+    "levels_completed": 0,
+    "levels": 6,
+    "actions": 261,
+    "level_actions": [
+     261,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "baseline": [
+     36,
+     6,
+     32,
+     83,
+     143,
+     50
     ]
    }
   }

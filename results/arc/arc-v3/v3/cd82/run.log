@@ -293,3 +293,17 @@ Helix Probe v3 on 'arc_cd82': 0 experiments so far, model v0, spent 0
       updater's fix not kept: same scores and not smaller (3017 vs 3017 chars)
 [96] E96 learn: Does ACTION2 advance the row-63 bar on its very first use after a...(+103 chars)  (v46 predicted it: match 0.84; cost 3, spent 285)
       theorist's model lost its trial: on trial it predicted 0.64 of 3 new experiments, the current model 0.78
+      updater's fix not kept: same scores and not smaller (3017 vs 3017 chars)
+      theorist (every 6 experiments)
+[97] E97 learn: a random ordinary probe  (v46 predicted it: match 0.67; cost 3, spent 288)
+      updater's fix not kept: same scores and not smaller (3017 vs 3017 chars)
+      updater's fix not kept: its fit is 0.669, the current model's is 0.675
+[98] E98 learn: Does the row-63 bar advance on a CLICK that lands on a fresh obje...(+264 chars)  (v46 predicted it: match 0.67; cost 3, spent 291)
+      updater's fix not kept: its fit is 0.672, the current model's is 0.675
+      model v47 by the updater: fit 0.67, size 2808 (fit 0.675 -> 0.675)
+[99] E99 learn: a random ordinary probe  (v47 predicted it: match 0.75; cost 2, spent 293)
+      model v48 by the updater: fit 0.68, size 3021 (fit 0.676 -> 0.682)
+[100] E100 learn: Do consecutive CLICKs on the same inert-listed object (40 4) ever...(+167 chars)  (v48 predicted it: match 0.75; cost 4, spent 297)
+      updater's fix not kept: its fit is 0.679, the current model's is 0.682
+      updater's fix not kept: its fit is 0.679, the current model's is 0.682
+{"env": "arc_cd82", "experiments": 100, "cost": 297, "model_version": 48, "model_role": "updater", "fit": 0.6823079576644098, "size": 3021, "exam": null, "heldout": null, "llm_calls": 229, "goals": {"tried": 0, "reached": 0, "tries_used": []}, "box_score": {"game": "cd82-fb555c5d", "score": 0.0, "levels_completed": 0, "levels": 6, "actions": 297, "level_actions": [297, 0, 0, 0, 0, 0], "baseline": [55, 8, 41, 21, 23, 23]}}
