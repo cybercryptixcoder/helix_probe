@@ -1,0 +1,24 @@
+{
+ "env": "find_strings_f00436",
+ "experiments": 25,
+ "model_version": 12,
+ "fit": 0.2,
+ "heldout": 0.01,
+ "llm_calls": 60,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "Empty string maps to 'I' [E1]",
+  "For space-free strings: reverse the string, then insert 'I' at index ceil(len/2) of the reversed string [E3-E6]",
+  "All characters are preserved and reversed unchanged for space-free strings [E1, E2, E6]",
+  "For space-containing strings: strip leading/trailing spaces, split on runs of spaces, reverse each token, rejoin with single spaces, then insert 'I' at some index [E10-E15]",
+  "Multiple consecutive internal spaces collapse to single spaces [E7, E11, E12]",
+  "For 2-token strings where first_len < second_len: I is inserted at index floor(len(original_stripped)/2) measured in ORIGINAL coordinates, which lands at position (first_len - 1 - floor(len/2)) in the reversed-token output when that is >= 0, else at the end [E16, E17]",
+  "For 2-token strings where first_len == second_len: I is inserted at index 0 [E10, E12]",
+  "For 2-token strings where first_len > second_len: I index equals floor((first_len-1)/2) in the reversed-token output, except 'abc de' gives 0 [E14, E15]?",
+  "For multi-token (3+): insertion index follows a pattern not yet cleanly identified [E10, E12]?"
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "version": 4,
+ "beliefs": [
+  "The box reverses each whitespace-separated word individually, keeping word order [E1, E2, E3, E4]",
+  "Whitespace runs collapse to a single space and leading/trailing whitespace is stripped [E2, E3]",
+  "Empty or all-whitespace input maps to empty string [E1, E2]",
+  "Case and symbols are preserved within each reversed word [E1, E3, E4]",
+  "Punctuation attached to a word stays attached and is reversed with the word, e.g. 'hello,'->',olleh' [E4: 'hello, world'->',oleh drw' shows ',oleh' = ',olleh' with dedup?]?",
+  "Some outputs show letters dropped (e.g. 'hello world'->'oleh drw' vs expected 'olleh dlrow'), suggesting duplicate letters are removed from the whole output [E1, E4]?"
+ ],
+ "notes": "E4 shows single words are fully reversed ('there'->'reht', 'WORLD'->'DLROW'), so the earlier 'truncation' idea was wrong. Multi-word outputs like 'hello world'->'oleh drw' and 'hello, world'->',oleh drw' are consistent with reversing each word then removing duplicate letters across the whole output (',olleh !dlrow' -> ',oleh !drw'). I apply per-word reversal then global dedup of characters.",
+ "fit": 0.0,
+ "heldout": 0.02,
+ "matches": [
+  0.9,
+  0.6,
+  0.5,
+  0.5
+ ],
+ "made_at": 4
+}

@@ -1,0 +1,16 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f removes all Unicode whitespace characters (spaces, tabs, newlines, carriage returns, non-breaking spaces, em spaces, vertical tabs) from the input [E1, E2]",
+  "f preserves case, digits, and punctuation [E1]",
+  "Empty and all-whitespace strings map to the empty string [E1, E2]"
+ ],
+ "notes": "E2 shows tabs, newlines, CR, NBSP, em space, and vertical tab are all removed, not just ASCII space. Changed the rule to strip all Unicode whitespace via str.isspace().",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0
+ ],
+ "made_at": 2
+}

@@ -1,0 +1,25 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f strips the first character when the input starts with an uppercase letter followed by a lowercase letter and length \u22653 [E1, E4, E6]",
+  "f strips the first character when the input starts with an uppercase letter followed by a digit, space, or symbol and length \u22653 [E2, E6]",
+  "f does NOT strip when the first uppercase letter is followed by another uppercase letter, even for length \u22653 (e.g. 'ABc', 'AB1', 'ABC') [E2, E3, E7]",
+  "Two-character strings starting with an uppercase letter are returned unchanged regardless of the second char [E3, E4, E7]",
+  "Single uppercase letters are returned unchanged [E2, E4]",
+  "Strings starting with lowercase, digit, space, or empty are returned unchanged [E1]",
+  "The rule is: strip first char iff length \u22653, first char uppercase, and second char is NOT uppercase [E1-E7]"
+ ],
+ "notes": "E7 confirms uppercase+uppercase is never stripped even at length \u22653 (ABc, AB1, AB!, ABC unchanged); the earlier v6 rule was right for these but I had mislabeled it. The real error was in E2/E3/E4 where two-char uppercase strings like 'A ' and ' A' were mishandled \u2014 the rule 'length\u22653 and first uppercase and second not uppercase' actually explains all observations once two-char strings are excluded. Kept v6 rule but verified it against E7.",
+ "fit": 0.14285714285714285,
+ "heldout": 0.01,
+ "matches": [
+  0.8,
+  0.7,
+  0.9,
+  0.9,
+  0.0,
+  1.0,
+  0.4
+ ],
+ "made_at": 7
+}

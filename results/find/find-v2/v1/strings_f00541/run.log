@@ -1,0 +1,50 @@
+Helix Probe on 'find_strings_f00541': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a spread of basic input types (lowercase word, mixed-case...(+63 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.70 (was 0.00), held-out 1%
+[2] E2 Does f strip the first character of any string starting with an uppercase l...(+141 chars)  model v1 match 0.40
+      model v2: fit 0% (was 0%), mean match 0.80 (was 0.55), held-out 1%
+[3] E3 Does f strip the first character whenever the first char is uppercase and t...(+109 chars)  model v2 match 0.70
+      model v3: fit 0% (was 0%), mean match 0.77 (was 0.77), held-out 1%
+[4] E4 Is the transform really 'strip the first character whenever the string star...(+174 chars)  model v3 match 0.70
+      model v4: fit 0% (was 0%), mean match 0.75 (was 0.75), held-out 1%
+[5] E5 Does f strip the first character only when the string starts with an upperc...(+196 chars)  model v4 match 0.00
+      model v5: fit 0% (was 0%), mean match 0.68 (was 0.60), held-out 1%
+[6] E6 Does the stripping depend on the actual characters immediately after the fi...(+119 chars)  model v5 match 0.70
+      model v6: fit 17% (was 0%), mean match 0.72 (was 0.68), held-out 1%
+[7] E7 Does stripping depend on the second character being lowercase at all, or do...(+207 chars)  model v6 match 0.40
+      model v7: fit 14% (was 14%), mean match 0.67 (was 0.67), held-out 1%
+[8] E8 Is the stripping triggered by the first character being uppercase AND the s...(+182 chars)  model v7 match 0.10
+      model v8: fit 38% (was 12%), mean match 0.78 (was 0.60), held-out 4%
+[9] E9 Does f strip the first character for uppercase-starting strings of length ≥...(+201 chars)  model v8 match 0.00
+      model v9: fit 56% (was 33%), mean match 0.82 (was 0.69), held-out 4%
+[10] E10 Does f strip the first character only when the second character is a lowerc...(+160 chars)  model v9 match 0.00
+      model v10: fit 60% (was 50%), mean match 0.84 (was 0.74), held-out 19%
+[11] E11 Is the first-character strip triggered by the string containing any space (...(+195 chars)  model v10 match 0.80
+      revision rejected: mean match 0.83 < 0.84
+      model v11: fit 55% (was 55%), mean match 0.84 (was 0.84), held-out 19%
+[12] E12 Is the first-character strip triggered by an uppercase first letter followe...(+212 chars)  model v11 match 0.00
+      revision rejected: mean match 0.73 < 0.77
+      model v12: fit 58% (was 50%), mean match 0.92 (was 0.77), held-out 4%
+[13] E13 Does the strip rule depend on the first two characters being an uppercase l...(+199 chars)  model v12 match 0.50
+      model v13: fit 77% (was 54%), mean match 0.95 (was 0.88), held-out 4%
+[14] E14 Is the first-character strip triggered by uppercase-then-lowercase regardle...(+206 chars)  model v13 match 0.40
+      revision rejected: mean match 0.91 < 0.91
+      model v14: fit 64% (was 71%), mean match 0.93 (was 0.91), held-out 4%
+[15] E15 Why does 'ABC' stay unchanged while 'HELL' strips? Is the all-uppercase str...(+136 chars)  model v14 match 0.60
+      model v15: fit 67% (was 60%), mean match 0.95 (was 0.91), held-out 4%
+[16] E16 Does the first-character strip for uppercase-then-lowercase strings require...(+93 chars)  model v15 match 0.70
+      model v16: fit 69% (was 62%), mean match 0.95 (was 0.93), held-out 25%
+[17] E17 Is the first-character strip triggered by the first letter being 'H' specif...(+129 chars)  model v16 match 1.00
+[18] E18 Is the first-character strip for uppercase-then-lowercase strings specific ...(+212 chars)  model v16 match 1.00
+[19] E19 Does the first-character strip for uppercase-then-lowercase strings apply t...(+195 chars)  model v16 match 1.00
+[20] E20 Does the first-character strip apply to other uppercase letters followed by...(+111 chars)  model v16 match 1.00
+[21] E21 Does the first-character strip for 'H' + lowercase really require length >=...(+144 chars)  model v16 match 0.00
+      model v17: fit 86% (was 71%), mean match 0.98 (was 0.91), held-out 25%
+[22] E22 When the first character is 'H' but the second character is NOT lowercase (...(+235 chars)  model v17 match 0.20
+      model v18: fit 95% (was 82%), mean match 1.00 (was 0.94), held-out 25%
+[23] E23 Does the leading-space string ' A' get its space stripped (as E2 shows ' A'...(+152 chars)  model v18 match 0.10
+      model v19: fit 100% (was 91%), mean match 1.00 (was 0.96), held-out 90%
+[24] E24 Does f strip only ASCII space characters ' ' from the ends, or also other w...(+97 chars)  model v19 match 0.00
+      model v20: fit 100% (was 96%), mean match 1.00 (was 0.96), held-out 90%
+[25] E25 Does the H-strip rule fire on a bare 'H' with no other characters, and how ...(+108 chars)  model v20 match 1.00
+{"env": "find_strings_f00541", "experiments": 25, "model_version": 20, "fit": 1.0, "heldout": 0.9, "llm_calls": 48, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

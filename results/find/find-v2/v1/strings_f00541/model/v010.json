@@ -1,0 +1,29 @@
+{
+ "version": 10,
+ "beliefs": [
+  "f strips trailing spaces from every input regardless of first character (e.g. 'a ' -> 'a', '  ' -> '', 'Z  ' -> 'Z', 'A  ' -> 'A') [E2, E8]",
+  "f strips the first character when the string (after trailing-space removal) starts with an uppercase letter followed by a lowercase letter AND the string contains a space somewhere (e.g. 'Hello World' -> 'ello World', 'Hello!' -> 'ello!', 'A b' -> 'A b' stays? see note) [E1, E2, E6]",
+  "f does NOT strip for uppercase+lowercase strings with no space (e.g. 'Hello' -> 'Hello', 'Abc' -> 'Abc', 'Abcd' -> 'Abcd', 'Abz' -> 'Abz') [E5, E10]",
+  "f does NOT strip when the second character is a digit, space, or symbol (e.g. 'A1!', 'A1x', 'A9z', 'A zz', 'A!zz' all unchanged) [E1, E9]",
+  "Two-character strings starting with an uppercase letter are returned unchanged regardless of the second char (e.g. 'Ab', 'AB', 'A1', 'A ') [E3, E4]",
+  "Single uppercase letters are returned unchanged (e.g. 'A') [E2, E4]",
+  "Strings starting with lowercase, digit, space, or empty are returned unchanged (after trailing-space strip) [E1, E8]",
+  "Why does 'HELLO' -> 'ELLO' in E2 but 'ABC' -> 'ABC' in E7? Possibly a special case for all-uppercase words of length >= 5? [E2, E7]"
+ ],
+ "notes": "E10 shows uppercase+lowercase strings without spaces are NOT stripped, contradicting my prior rule; combined with E1/E6 where 'Hello World' and 'Hello!' strip, the trigger appears to require a space in the string. Kept the HELLO anomaly as an open question.",
+ "fit": 0.6,
+ "heldout": 0.19,
+ "matches": [
+  1.0,
+  0.6,
+  1.0,
+  0.9,
+  0.9,
+  0.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 10
+}

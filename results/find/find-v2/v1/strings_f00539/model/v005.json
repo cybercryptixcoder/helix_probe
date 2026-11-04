@@ -1,0 +1,23 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f collapses every run of adjacent identical characters to a single character [E1, E2, E3]",
+  "After collapsing, f removes any character that already appeared earlier in the string, keeping only its first occurrence (case-sensitive: 'E' and 'e' are different) [E1, E2, E5]",
+  "f appends 'h' unless the resulting string ends with 'h' or starts with 'h' [E1, E2, E3, E4, E5]",
+  "f('') gives 'h' [E1]",
+  "f('hello hello') gives 'helo ' because the second 'helo' is removed as already-seen and the result starts with 'h' so no append [E2]",
+  "f('two words') gives 'two rdsh' because the second 'w' and 'o' are removed as already-seen, then 'h' is appended [E1]",
+  "f('UPPER lower') keeps both 'e'/'E' and 'r'/'R' because dedup is case-sensitive, so no removal, then 'h' appended [E1]"
+ ],
+ "notes": "Discovered that f also removes already-seen characters (keeping first occurrence, case-sensitive), which explains 'two words'->'two rdsh', 'hello hello'->'helo ', and 'a b c'->'a bch'. Combined with collapse-runs and the append-unless-ends/starts-with-h rule, this fits all 5 experiments.",
+ "fit": 1.0,
+ "heldout": 0.49,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 5
+}

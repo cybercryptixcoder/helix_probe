@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the rule from removing only ASCII spaces to removing all whitespace (spaces, tabs, newlines) using `\\s+`, since E2 showed tabs and newlines are stripped just like spaces.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 106, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

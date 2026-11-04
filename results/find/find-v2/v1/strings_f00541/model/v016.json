@@ -1,0 +1,38 @@
+{
+ "version": 16,
+ "beliefs": [
+  "f strips trailing spaces from the input [E2, E8, E16]",
+  "After trailing-space removal, f strips the first character iff the first char is uppercase and the second char is lowercase, EXCEPT when the first char is 'A' [E2, E6, E12, E13, E14, E16]",
+  "The 'A' exemption holds regardless of length: 'Abc','Abcd','Abcde','Axyz','Axyzw' all unchanged, while 'Hbc','Hbcx','Hbllo','Hello' strip [E10, E13, E14, E16]",
+  "Two-character strings like 'Ab','Aa','Hb' are returned unchanged even though first is uppercase and second lowercase [E3, E4, E13, E16]",
+  "Strings whose second char is uppercase, digit, space, or symbol are returned unchanged (e.g. 'AB','A1','A1x','A zz','A!zz') [E2, E3, E7, E9]",
+  "Contradiction: 'H llo'->' llo' and 'H!llo'->'!llo' strip despite second char being space/symbol, but 'A zz'->'A zz' and 'A!zz'->'A!zz' don't \u2014 likely the 'A' exemption again [E6, E9, E11]",
+  "Single uppercase letters and strings starting with lowercase/digit/space/empty are returned unchanged after trailing-space strip [E2, E8]",
+  "All-uppercase strings starting with 'H' of length >= 3 strip the first character: 'HEL'->'EL','HELL'->'ELL','HELLO'->'ELLO','HELLO!'->'ELLO!' [E14, E15]",
+  "All-uppercase strings starting with 'A' are returned unchanged regardless of length: 'AB','ABC','ABCD','ABCDE','AB!','ABC!','ABCD!' all unchanged [E15]",
+  "Strings starting with 'X' followed by lowercase are NOT stripped ('Xb','Xbc','Xbcd' unchanged), unlike 'H...' \u2014 so the strip rule is specific to certain first letters, not all uppercase [E14, E16]",
+  "Why does 'HEL' strip but 'ABC' not, and 'Hbc' strip but 'Xbc' not? Possibly the rule keys on specific first letters (H strips, A and X don't) [E14, E15, E16]?"
+ ],
+ "notes": "Added E16 evidence: 'Xb','Xbc','Xbcd' are unchanged, so the uppercase-then-lowercase strip is not general to all uppercase first letters \u2014 it applies to H but not A or X. Updated predict to only strip for first letter 'H' (and keep A/X exempt), while retaining the all-caps H rule.",
+ "fit": 0.6875,
+ "heldout": 0.25,
+ "matches": [
+  1.0,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  1.0,
+  0.9,
+  1.0,
+  1.0,
+  0.9
+ ],
+ "made_at": 16
+}

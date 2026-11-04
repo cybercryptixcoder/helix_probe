@@ -1,0 +1,22 @@
+{
+ "env": "find_strings_f00541",
+ "experiments": 25,
+ "model_version": 20,
+ "fit": 1.0,
+ "heldout": 0.9,
+ "llm_calls": 48,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f strips all leading and trailing whitespace (spaces, tabs, newlines) from the input [E2, E8, E16, E21, E23, E24]",
+  "After whitespace stripping, f strips the first character iff it is 'H' and the remaining string has length >= 2, regardless of the second character [E6, E11, E21, E22, E23, E24]",
+  "The H-strip applies to 'H' followed by lowercase, digit, space, symbol, or uppercase [E6, E11, E22]",
+  "Single 'H' alone (after whitespace strip) returns empty string [E21, E22, E24]",
+  "Strings starting with any other uppercase letter (A,B,C,D,E,F,G,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) are returned unchanged after whitespace strip [E10, E14, E15, E17, E18, E19, E20]",
+  "Strings starting with lowercase or digit are returned unchanged after whitespace strip [E2, E8, E19]",
+  "Empty strings and all-whitespace strings return empty after whitespace strip [E1, E8, E21, E23, E24]"
+ ]
+}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to reverse the order of whitespace-separated words and normalize spacing (which strips the leading space in `\" Zebralower\"`), matching E1. Single tokens stay the same since reversing one word is a no-op.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 243, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -1,0 +1,43 @@
+{
+ "version": 11,
+ "beliefs": [
+  "f reverses the order of characters in the string [E1]",
+  "f then swaps the case of each letter (upper<->lower), leaving non-letters unchanged [E1, E3]",
+  "The case swap is applied to the reversed string, not the original [E3]",
+  "The first output character is the case-swapped last input character shifted back by 2 alphabetically within its own case (a->y, A->Y, wrapping z->x, Z->X) [E4, E5, E6, E11]",
+  "Non-ASCII Latin-1 letters are case-swapped and shifted back by 2 within their contiguous letter block, skipping the \u00d7/\u00f7 gaps [E12, E13]",
+  "The -2 shift applies only when the last character is a letter; otherwise the first output char is just the reversed last char [E8, E9]",
+  "The lowercase Latin-1 block is 0xE0..0xFE excluding \u00f7(0xF7), and \u00e0(0xE0) wraps to \u00de(0xDE), \u00e1(0xE1) to \u00df(0xDF), \u00df(0xDF) to \u00dd(0xDD) \u2014 so the wrap base is 0xDE, extending the block down to \u00de [E14, E21, E22]",
+  "The uppercase Latin-1 block is 0xC0..0xDE excluding \u00d7(0xD7), and \u00c0(0xC0) wraps to \u00be(0xBE), \u00c1(0xC1) to \u00bf(0xBF) \u2014 so the wrap base is 0xBE, extending the block down to \u00be [E16, E19]",
+  "The uppercase block's -2 shift is plain codepoint-2 skipping \u00d7 (\u00d1\u2192\u00cf, \u00d3\u2192\u00d1, \u00d6\u2192\u00d2, \u00d8\u2192\u00d6, \u00de\u2192\u00dc), consistent with the 0xBE-based block [E19, E20]",
+  "The lowercase block's -2 shift is plain codepoint-2 skipping \u00f7 (\u00e1\u2192\u00df, \u00e0\u2192\u00de, \u00ff\u2192\u00fd), consistent with the 0xDE-based block [E21, E22]"
+ ],
+ "notes": "Fixed the lowercase block base from 0xDF to 0xDE (so \u00df\u2192\u00dd and \u00e0\u2192\u00de), matching E22's observed \u00e0\u2192\u00de and \u00df\u2192\u00dd. Also fixed the uppercase block to plain codepoint-2 skipping \u00d7 rather than 0xBE-block indexing, per E19/E20.",
+ "fit": 0.8181818181818182,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  1.0,
+  0.9,
+  0.9
+ ],
+ "made_at": 22
+}

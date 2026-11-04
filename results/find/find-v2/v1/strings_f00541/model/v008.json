@@ -1,0 +1,27 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f strips the first character when the input starts with an uppercase letter followed by a lowercase letter and length \u22653 [E1, E4, E6]",
+  "f strips the first character when the input starts with an uppercase letter followed by a digit, space, or symbol and length \u22653 [E2, E6]",
+  "f does NOT strip when the first uppercase letter is followed by another uppercase letter, even for length \u22653 (e.g. 'ABc', 'AB1', 'ABC') [E2, E3, E7]",
+  "Two-character strings starting with an uppercase letter are returned unchanged regardless of the second char [E3, E4, E7]",
+  "Single uppercase letters are returned unchanged [E2, E4]",
+  "Strings starting with lowercase, digit, space, or empty are returned unchanged [E1]",
+  "Trailing spaces are stripped from every input regardless of first character (e.g. 'a ' -> 'a', '  ' -> '', 'Z  ' -> 'Z') [E8]",
+  "The rule is: first strip trailing spaces, then strip the first char iff length \u22653, first char uppercase, and second char is NOT uppercase [E1-E8]"
+ ],
+ "notes": "E8 shows trailing spaces are always removed regardless of first character, so I added a trailing-space strip step before the existing uppercase-strip rule. This also explains earlier 'A ' -> 'A' and 'AB ' -> 'AB' cases without needing a space-triggered strip.",
+ "fit": 0.375,
+ "heldout": 0.04,
+ "matches": [
+  0.9,
+  0.8,
+  1.0,
+  1.0,
+  0.1,
+  1.0,
+  0.5,
+  0.9
+ ],
+ "made_at": 8
+}

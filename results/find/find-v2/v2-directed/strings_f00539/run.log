@@ -1,0 +1,48 @@
+Helix Probe v2 on 'find_strings_f00539': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to plain lowercase words, mixed-case words, words with...(+33 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.33, fit 0.30, size 126 (exam 0.000 -> 0.333); held-out 0%
+[2] E2 Does the box collapse every doubled lowercase letter (not just 'll'), and d...(+85 chars)  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 0.33, fit 0.75, size 857 (fit 0.150 -> 0.750); held-out 1%
+[3] E3 How does the box treat multi-word inputs — does the collapse and h-append a...(+69 chars)  (v2 predicted it: match 0.60)
+      model v3 by the updater: exam 0.33, fit 0.80, size 1645 (fit 0.700 -> 0.800); held-out 0%
+[4] E4 How does the box transform the second and later words in multi-word inputs ...(+95 chars)  (v3 predicted it: match 0.90)
+      model v4 by the updater: exam 0.38, fit 0.90, size 1748 (exam 0.333 -> 0.375); held-out 0%
+[5] E5 Does the h-append rule on the last word depend on the first word ending in ...(+81 chars)  (v4 predicted it: match 0.80)
+      model v5 by the updater: exam 0.38, fit 0.96, size 2090 (fit 0.880 -> 0.960); held-out 0%
+[6] E6 Does the h-append rule for multi-word inputs depend on whether the first wo...(+211 chars)  (v5 predicted it: match 0.80)
+      theorist (every 6 steps)
+[7] E7 When the first word ends in o/y and is unchanged by collapse, does the h-ap...(+163 chars)  (v5 predicted it: match 0.90)
+      model v6 by the updater: exam 0.38, fit 0.97, size 1999 (fit 0.929 -> 0.971); held-out 1%
+[8] E8 Does the h-append suppression for a changed first word ending in o/y depend...(+131 chars)  (v6 predicted it: match 1.00)
+[9] E9 Does the single-word h-append rule depend on whether the word ends in o/y a...(+129 chars)  (v6 predicted it: match 1.00)
+[10] E10 For single words whose collapse changes them and which end in o/y (like 'he...(+182 chars)  (v6 predicted it: match 0.70)
+      model v7 by the updater: exam 0.42, fit 0.97, size 1560 (exam 0.375 -> 0.417); held-out 1%
+[11] E11 For multi-word inputs, is the h-append suppressed based on the last word en...(+215 chars)  (v7 predicted it: match 0.90)
+      model v8 by the updater: exam 0.42, fit 0.97, size 1712 (fit 0.964 -> 0.973); held-out 1%
+[12] E12 Does the multi-word h-append suppression depend on the last word being chan...(+252 chars)  (v8 predicted it: match 0.90)
+      theorist (every 6 steps)
+[13] E13 When the multi-word tail is a changed word ending in o/y other than 'hello'...(+177 chars)  (v8 predicted it: match 0.60)
+      updater: keep
+      theorist (updater stalled)
+[14] E14 For multi-word inputs where the tail word is changed by collapse and ends i...(+192 chars)  (v8 predicted it: match 0.50)
+      updater: keep
+[15] E15 For multi-word inputs with a non-suppressing first word, does the h-append ...(+193 chars)  (v8 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.840, the current model's is 0.907
+      theorist (updater stalled)
+[16] E16 For multi-word inputs with a non-suppressing first word, when exactly is th...(+268 chars)  (v8 predicted it: match 0.70)
+[17] E17 For multi-word inputs with a non-suppressing first word, when the tail is a...(+272 chars)  (v8 predicted it: match 0.50)
+      model v9 by the updater: exam 0.42, fit 0.88, size 1587 (fit 0.871 -> 0.876); held-out 1%
+[18] E18 Does the h-suppression on a changed o/y-ending tail depend on the tail star...(+160 chars)  (v9 predicted it: match 0.40)
+      theorist (every 6 steps)
+[19] E19 When the tail word ends in an o/y but is UNCHANGED by collapse (e.g. 'solo'...(+228 chars)  (v9 predicted it: match 0.50)
+      model v10 by the updater: exam 0.79, fit 1.00, size 1330 (exam 0.417 -> 0.792); held-out 27%
+[20] E20 For single words starting with 'h' that are NOT all-lowercase (mixed case l...(+153 chars)  (v10 predicted it: match 0.80)
+      model v11 by the updater: exam 0.79, fit 1.00, size 1170 (fit 0.990 -> 1.000); held-out 28%
+[21] E21 For multi-word inputs whose first word begins with lowercase 'h' (suppressi...(+233 chars)  (v11 predicted it: match 1.00)
+[22] E22 For multi-word inputs where the first word is a single character that is no...(+230 chars)  (v11 predicted it: match 1.00)
+[23] E23 Does the h-append/suppression rule for multi-word inputs depend on the tail...(+204 chars)  (v11 predicted it: match 1.00)
+[24] E24 For multi-word inputs, when the tail word starts with lowercase 'h' but the...(+208 chars)  (v11 predicted it: match 0.50)
+      model v12 by the updater: exam 0.88, fit 1.00, size 1011 (exam 0.792 -> 0.875); held-out 51%
+      theorist (every 6 steps)
+[25] E25 When the first word of a multi-word input contains a letter that also appea...(+232 chars)  (v12 predicted it: match 1.00)
+{"env": "find_strings_f00539", "experiments": 25, "exam_probes": 4, "model_version": 12, "model_role": "updater", "exam": 0.875, "fit": 1.0, "size": 1011, "heldout": 0.51, "llm_calls": 57, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

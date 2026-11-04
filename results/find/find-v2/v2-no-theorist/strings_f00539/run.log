@@ -1,0 +1,22 @@
+Helix Probe v2 on 'find_strings_f00539': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.67, fit 0.67, size 362 (exam 0.000 -> 0.667); held-out 1%
+[2] E2 Does the box deduplicate only lowercase letters (keeping the first occurren...(+70 chars)  (v1 predicted it: match 0.40)
+      model v2 by the updater: exam 0.83, fit 1.00, size 303 (exam 0.667 -> 0.833); held-out 39%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Does the deduplication keep the first occurrence of each character only, or...(+125 chars)  (v2 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (366 vs 303 chars)
+      updater's model not kept: its exam is 0.458, the current model's is 0.833
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the 'h' suffix get appended to the deduplicated string, or is it only ...(+117 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 1.00, fit 1.00, size 363 (exam 0.833 -> 1.000); held-out 100%
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Does the 'h' suffix rule depend on the presence of lowercase 'h' anywhere i...(+142 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 Does the 'h' suffix rule depend on the presence of lowercase 'h' anywhere i...(+233 chars)  (v3 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 Does the 'h' suffix rule trigger on any lowercase 'h' anywhere in the input...(+182 chars)  (v3 predicted it: match 1.00)
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+[14] E14 Does the 'h' suffix rule depend on lowercase 'h' anywhere in the input, or ...(+178 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00539", "experiments": 14, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 363, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

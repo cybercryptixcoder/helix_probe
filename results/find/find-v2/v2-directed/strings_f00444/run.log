@@ -1,0 +1,24 @@
+Helix Probe v2 on 'find_strings_f00444': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do to ordinary, simple strings — does it transform, echo, or al...(+64 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.58, fit 1.00, size 208 (exam 0.000 -> 0.583); held-out 4%
+[2] E2 Does the box reverse word order for any number of words, and how are multip...(+45 chars)  (v1 predicted it: match 0.60)
+      model v2 by the updater: exam 0.75, fit 1.00, size 205 (exam 0.583 -> 0.750); held-out 23%
+[3] E3 Does the box reverse word order only, or also reverse the characters within...(+80 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the box reverse word order based on whitespace only, or does it also t...(+101 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the box treat punctuation attached to words as part of the word for or...(+126 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the box reverse word order only when there are multiple whitespace-sep...(+120 chars)  (v2 predicted it: match 0.40)
+      model v3 by the updater: exam 1.00, fit 1.00, size 229 (exam 0.750 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (410 vs 229 chars)
+[7] E7 How does the box handle single-word inputs that contain punctuation, digits...(+115 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the box reverse word order when words are separated by non-space white...(+125 chars)  (v3 predicted it: match 1.00)
+[9] E9 How does the box handle ordinary sentences containing multiple spaces, lead...(+149 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the box reverse word order for inputs whose words are separated by pun...(+253 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the box treat hyphenated, slashed, or dotted compounds as single words...(+137 chars)  (v3 predicted it: match 1.00)
+[12] E12 Does the box treat a lone punctuation mark or symbol surrounded by whitespa...(+186 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (912 vs 229 chars)
+[13] E13 Does the box's whitespace-split-and-reverse model hold for ordinary multi-w...(+186 chars)  (v3 predicted it: match 1.00)
+[14] E14 Does the box reverse word order for ordinary multi-line or tab/newline-cont...(+111 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00444", "experiments": 14, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 229, "heldout": 1.0, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

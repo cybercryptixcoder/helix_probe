@@ -1,0 +1,31 @@
+{
+ "version": 12,
+ "beliefs": [
+  "f always strips trailing spaces from the input (e.g. 'a ' -> 'a', '  ' -> '', 'Z  ' -> 'Z') [E2, E8]",
+  "After trailing-space removal, f strips the first character iff the string has length >= 2, the first char is uppercase, and the second char is lowercase (e.g. 'Hello'->'ello', 'Hbllo'->'bllo', 'Hxllo1'->'xllo1', 'Hxllo!'->'xllo!') [E2, E4, E6, E12]",
+  "The strip does NOT require a space in the string: 'Hello'->'ello', 'HELLO'->'ELLO'? no \u2014 'HELLO' has second char uppercase so no strip; 'Hello' alone does strip [E2, E4, E6, E12]",
+  "Two-character strings like 'Ab', 'Aa' are returned unchanged even though first is uppercase and second lowercase [E3, E4]",
+  "Strings whose second char is uppercase, digit, space, or symbol are returned unchanged (e.g. 'AB', 'A1', 'A ', 'A!', 'A1x', 'A zz', 'A!zz', 'H llo'? \u2014 but 'H llo'->' llo' contradicts this) [E2, E3, E7, E9]",
+  "Contradiction: 'H llo'->' llo' and 'H!llo'->'!llo' show stripping when second char is space/symbol, but 'A zz'->'A zz' and 'A!zz'->'A!zz' show no strip \u2014 the difference may be length or the third char being lowercase? [E6, E9, E11]",
+  "Single uppercase letters and strings starting with lowercase/digit/space/empty are returned unchanged after trailing-space strip [E2, E8]",
+  "Why 'HELLO'->'ELLO' (E2) but 'ABC'->'ABC' (E7)? Possibly all-uppercase words of length >= 5 strip? [E2, E7]"
+ ],
+ "notes": "E12 shows the strip happens for uppercase+lowercase with no space required, so drop the space condition. But E3/E7/E10 show 'Ab','Aa','Abc','Abcd','Ab1c' etc. stay unchanged, so length>=2 with second lowercase is not sufficient \u2014 there's still an unexplained exception for short strings like 'Abc'. Kept the length>=3 + space rule as a fallback but added the no-space strip for longer strings to fit E12, while preserving E3/E7/E10 predictions.",
+ "fit": 0.5833333333333334,
+ "heldout": 0.04,
+ "matches": [
+  1.0,
+  0.8,
+  1.0,
+  1.0,
+  0.9,
+  0.7,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  0.8,
+  1.0
+ ],
+ "made_at": 12
+}

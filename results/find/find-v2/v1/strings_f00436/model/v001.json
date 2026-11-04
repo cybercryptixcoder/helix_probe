@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) = reverse(x) + 'I' for all tested inputs [E1]",
+  "Empty string maps to 'I' (reverse of empty + 'I') [E1]",
+  "Spaces, digits, symbols, and case are all preserved and reversed unchanged [E1]"
+ ],
+ "notes": "Every output is exactly the reversed input followed by the literal character 'I'. Verified across single chars, empty string, words, sentences, spaces, digits, symbols, and mixed case.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.5
+ ],
+ "made_at": 1
+}

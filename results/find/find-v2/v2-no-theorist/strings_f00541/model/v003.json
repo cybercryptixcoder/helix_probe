@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I added a trailing-whitespace strip (`.rstrip()`) because E3 showed `\"banana data banana \"` losing its trailing space, which the leading-only rule missed. Leading H/space stripping is retained per E1/E2.", "exam": 0.9583333333333334, "fit": 1.0, "fit_exact": 1.0, "size": 207, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 0.9}

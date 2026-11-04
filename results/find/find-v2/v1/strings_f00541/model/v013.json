@@ -1,0 +1,33 @@
+{
+ "version": 13,
+ "beliefs": [
+  "f always strips trailing spaces from the input [E2, E8]",
+  "After trailing-space removal, f strips the first character iff the string has length >= 2, the first char is uppercase, and the second char is lowercase [E2, E4, E6, E12, E13]",
+  "The strip does NOT require a space in the string: 'Hello'->'ello', 'Hbllo'->'bllo', 'Hbc'->'bc' [E2, E6, E12, E13]",
+  "Two-character strings like 'Ab', 'Aa', 'Hb' are returned unchanged even though first is uppercase and second lowercase [E3, E4, E13]",
+  "Strings whose second char is uppercase, digit, space, or symbol are returned unchanged (e.g. 'AB', 'A1', 'A1x', 'A zz', 'A!zz') [E2, E3, E7, E9]",
+  "Contradiction: 'H llo'->' llo' and 'H!llo'->'!llo' strip despite second char being space/symbol, but 'A zz'->'A zz' and 'A!zz'->'A!zz' don't \u2014 the difference may be the third char being lowercase? [E6, E9, E11]",
+  "Single uppercase letters and strings starting with lowercase/digit/space/empty are returned unchanged after trailing-space strip [E2, E8]",
+  "Why 'HELLO'->'ELLO' (E2) but 'ABC'->'ABC' (E7)? Possibly all-uppercase words of length >= 5 strip? [E2, E7]",
+  "Why 'Abc'->'Abc' and 'Abcd'->'Abcd' but 'Hbc'->'bc' and 'Hbcx'->'bcx'? The first letter 'A' seems special vs 'H'; possibly 'A' is exempt? [E5, E10, E13]"
+ ],
+ "notes": "E13 shows 'Hbc'->'bc', 'Hbcx'->'bcx', 'Hb'->'b' strip (so no length>=4 requirement, and 2-char 'Hb' DOES strip!), while 'Abc','Abcd','Abcde' don't strip. So the earlier 'Ab'/'Aa' unchanged may be specific to 'A'-starting strings. Rule: strip iff first uppercase, second lowercase, length>=2, EXCEPT when first char is 'A' (or maybe 'A'-start with lowercase second is exempt). Kept 'A'-exemption as best guess; flagged.",
+ "fit": 0.7692307692307693,
+ "heldout": 0.04,
+ "matches": [
+  1.0,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  1.0
+ ],
+ "made_at": 13
+}

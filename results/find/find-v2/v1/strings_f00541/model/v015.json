@@ -1,0 +1,36 @@
+{
+ "version": 15,
+ "beliefs": [
+  "f strips trailing spaces from the input [E2, E8]",
+  "After trailing-space removal, f strips the first character iff the first char is uppercase and the second char is lowercase, EXCEPT when the first char is 'A' [E2, E6, E12, E13, E14]",
+  "The 'A' exemption holds regardless of length: 'Abc','Abcd','Abcde','Axyz','Axyzw' all unchanged, while 'Hbc','Hbcx','Hbllo','Hello' strip [E10, E13, E14]",
+  "Two-character strings like 'Ab','Aa','Hb' are returned unchanged even though first is uppercase and second lowercase [E3, E4, E13]",
+  "Strings whose second char is uppercase, digit, space, or symbol are returned unchanged (e.g. 'AB','A1','A1x','A zz','A!zz') [E2, E3, E7, E9]",
+  "Contradiction: 'H llo'->' llo' and 'H!llo'->'!llo' strip despite second char being space/symbol, but 'A zz'->'A zz' and 'A!zz'->'A!zz' don't \u2014 likely the 'A' exemption again [E6, E9, E11]",
+  "Single uppercase letters and strings starting with lowercase/digit/space/empty are returned unchanged after trailing-space strip [E2, E8]",
+  "All-uppercase strings starting with 'H' of length >= 3 strip the first character: 'HEL'->'EL','HELL'->'ELL','HELLO'->'ELLO','HELLO!'->'ELLO!' [E14, E15]",
+  "All-uppercase strings starting with 'A' are returned unchanged regardless of length: 'AB','ABC','ABCD','ABCDE','AB!','ABC!','ABCD!' all unchanged [E15]",
+  "Why does 'HEL' strip but 'ABC' not? Possibly the 'A' exemption extends to all-uppercase strings too [E15]?"
+ ],
+ "notes": "E15 shows all-caps starting with A never strip, while all-caps starting with H strip at length>=3 (not >=5). The 'A' exemption appears to apply to all-uppercase strings as well, not just mixed-case ones.",
+ "fit": 0.6666666666666666,
+ "heldout": 0.04,
+ "matches": [
+  0.9,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  1.0,
+  0.8,
+  1.0
+ ],
+ "made_at": 15
+}

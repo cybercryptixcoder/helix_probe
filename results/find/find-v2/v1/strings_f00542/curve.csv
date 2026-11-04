@@ -1,0 +1,7 @@
+step,kind,experiments,model_version,fit,heldout,llm_calls,note
+1,learn,1,1,0.000,0.000,2,E1
+2,learn,2,2,0.000,0.010,4,E2
+3,learn,3,3,0.000,0.010,6,E3
+4,learn,4,4,0.000,0.020,9,E4
+5,learn,5,5,0.200,0.010,12,E5
+6,learn,6,5,0.333,0.010,13,E6

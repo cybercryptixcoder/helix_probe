@@ -1,0 +1,1 @@
+{"version": 4, "role": "theorist", "notes": "The main idea: the box appends `\"h\"` and then de-duplicates characters (keeping first occurrences, case-sensitively), which is why a trailing `h` appears unless the input already contained an `h` earlier.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 322, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

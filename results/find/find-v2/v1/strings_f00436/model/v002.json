@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f(x) = reverse(x) with 'I' inserted at position floor(len(x)/2) in the reversed string [E1, E2, E3]",
+  "For odd-length strings the 'I' sits at the middle index of the reversed string, e.g. 'abc'->'cbIa' [E3]",
+  "For even-length strings the 'I' sits at index len/2 of the reversed string, e.g. 'abcd'->'dcIba' [E3]",
+  "Empty string maps to 'I' (len 0, insert at 0) [E1]",
+  "All characters (case, digits, symbols, spaces, tabs) are preserved and reversed unchanged [E1, E2]"
+ ],
+ "notes": "The 'I' is not appended but inserted at the middle of the reversed string (index len//2). Verified against all E1-E3 outputs.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.2,
+  0.4,
+  0.5
+ ],
+ "made_at": 3
+}

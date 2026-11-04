@@ -1,0 +1,28 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f(x) reverses x, then inserts 'I' at index ceil(len(x)/2) of the reversed string (i.e. just after the middle for odd lengths, at the middle for even lengths) [E3, E4, E5, E6]",
+  "For odd-length strings the 'I' sits just after the middle of the reversed string, e.g. 'abc'->'cbIa', 'abcde'->'edcIba' [E3, E4, E5]",
+  "For even-length strings the 'I' sits at the middle index of the reversed string, e.g. 'abcd'->'dcIba' [E3, E4]",
+  "Empty string maps to 'I' [E1]",
+  "All characters (case, digits, symbols, spaces, tabs) are preserved and reversed unchanged [E1, E2, E6]",
+  "Output length equals len(x)+1, so 'I' is inserted, not replacing [E4, E6]",
+  "When the string contains a space, the insertion index is 0 (I goes at the front of the reversed string) [E7, E8, E9]",
+  "For '  hi  ' (contains spaces) output is 'iIh', which is not simply 'I'+reverse ('  ih  ') nor reverse with I at front; the spaces appear to be stripped and I inserted at middle of 'ih'? [E7, E8, E9]"
+ ],
+ "notes": "Added a rule: strings containing spaces get 'I' inserted at index 0 of the reversed string (front). This matches E7/E8/E9 for most cases, though '  hi  '->'iIh' still needs a special handling guess (strip spaces then apply middle-insert).",
+ "fit": 0.4444444444444444,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.1,
+  0.6,
+  0.1
+ ],
+ "made_at": 9
+}

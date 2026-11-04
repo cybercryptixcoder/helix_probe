@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f removes one 'l' from 'hello' giving 'helo', but appends 'h' to most other inputs [E1]",
+  "f appends 'h' to inputs that don't already end with 'h' [E1]",
+  "f collapses 'wo' to 'r' in 'two words' giving 'two rdsh'? [E1]",
+  "f removes one 'P' from 'UPPER lower' giving 'UPER lowerh'? [E1]",
+  "f seems to delete a repeated character and append 'h' [E1]"
+ ],
+ "notes": "Observed outputs mostly equal input plus trailing 'h', except 'hello'->'helo' (dropped an 'l') and 'UPPER lower'->'UPER lowerh' (dropped a 'P'), and 'two words'->'two rdsh' (odd). Best guess: dedupe one repeated char then append 'h', but 'two words' is unexplained.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.7
+ ],
+ "made_at": 1
+}

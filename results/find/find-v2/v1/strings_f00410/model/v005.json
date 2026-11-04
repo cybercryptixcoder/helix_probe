@@ -1,0 +1,29 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f reverses the order of characters in the string [E1]",
+  "f then swaps the case of each letter (upper<->lower), leaving non-letters unchanged [E1, E3]",
+  "The case swap is applied to the reversed string, not the original [E3]",
+  "The first output character is the case-swapped last input character shifted back by 2 alphabetically within its own case (a->y, A->Y, wrapping z->x, Z->X) [E4, E5, E6, E11]",
+  "Non-ASCII letters are treated as letters: they are case-swapped (\u00e9->\u00c9) and shifted back by 2 within the Latin-1 letter range (\u00e9->\u00e7, \u00f1->\u00ef, \u00fc->\u00fa) [E12]",
+  "The -2 shift applies only when the last character is a letter; otherwise the first output char is just the reversed last char [E8, E9]"
+ ],
+ "notes": "E12 shows non-ASCII letters are shifted by -2 within their own alphabet block (\u00e9->\u00e7, \u00f1->\u00ef, \u00fc->\u00fa) rather than being treated as non-letters; updated transform to shift any isalpha char by -2 within its case block using Unicode-aware case detection, falling back to codepoint arithmetic for non-ASCII.",
+ "fit": 0.9166666666666666,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8
+ ],
+ "made_at": 12
+}

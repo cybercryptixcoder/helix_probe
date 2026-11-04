@@ -6,3 +6,38 @@ Helix Probe on 'find_strings_f00410': 0 experiments so far, model v0, held-out s
 [3] E3 Is the case swap applied to the reversed string or the original, and does i...(+119 chars)  model v2 match 0.00
       model v3: fit 0% (was 0%), mean match 0.10 (was 0.10), held-out 0%
 [4] E4 Does f reverse the string before swapping case (so 'Ab' -> reverse 'bA' -> ...(+163 chars)  model v3 match 0.00
+      model v4: fit 100% (was 0%), mean match 1.00 (was 0.07), held-out 100%
+[5] E5 Is the first output character always the case-swapped last input character ...(+128 chars)  model v4 match 1.00
+[6] E6 Is the first-character shift always exactly -2 letters regardless of case a...(+111 chars)  model v4 match 1.00
+[7] E7 Does the first-character rule really depend on the last input character shi...(+216 chars)  model v4 match 1.00
+[8] E8 Does the -2 shift on the first output character apply only when the last in...(+188 chars)  model v4 match 1.00
+[9] E9 Does the -2 first-character shift apply to the case-swapped last letter eve...(+232 chars)  model v4 match 1.00
+[10] E10 Does the -2 shift on the first output character apply to last-letter cases ...(+277 chars)  model v4 match 1.00
+[11] E11 Does the -2 first-character shift depend on the case-swapped last letter (s...(+224 chars)  model v4 match 1.00
+[12] E12 Does the -2 shift on the first output character apply to non-ASCII letters ...(+117 chars)  model v4 match 0.40
+      model v5: fit 92% (was 92%), mean match 0.98 (was 0.95), held-out 100%
+[13] E13 How exactly are non-ASCII Latin-1 letters shifted by -2: is it a fixed code...(+175 chars)  model v5 match 0.90
+      model v6: fit 92% (was 85%), mean match 0.98 (was 0.98), held-out 100%
+[14] E14 For Latin-1 non-ASCII letters that are the last input character, does the -...(+167 chars)  model v6 match 0.60
+      model v7: fit 86% (was 86%), mean match 0.96 (was 0.96), held-out 100%
+[15] E15 For single-character Latin-1 inputs in the lowercase block, does the -2 shi...(+138 chars)  model v7 match 0.90
+      model v8: fit 80% (was 80%), mean match 0.95 (was 0.95), held-out 100%
+[16] E16 For single-character uppercase Latin-1 inputs in the uppercase block, does ...(+132 chars)  model v8 match 0.80
+      model v9: fit 81% (was 75%), mean match 0.96 (was 0.94), held-out 100%
+[17] E17 Does the uppercase Latin-1 -2 shift wrap around a block whose base is ¾ (0x...(+123 chars)  model v9 match 1.00
+[18] E18 For uppercase Latin-1 letters just below the suspected wrap base ¾ (0xBE), ...(+200 chars)  model v9 match 1.00
+[19] E19 For the single-character Latin-1 uppercase letters in the 0xC0..0xDE range,...(+183 chars)  model v9 match 0.80
+      revision rejected: mean match 0.93 < 0.96
+      revision rejected: mean match 0.93 < 0.96
+[20] E20 For uppercase Latin-1 letters in the 0xC0..0xDE range, is the -2 shift a pl...(+154 chars)  model v9 match 1.00
+[21] E21 For lowercase Latin-1 letters that are the last input character, does the -...(+167 chars)  model v9 match 0.80
+      revision rejected: mean match 0.93 < 0.95
+      model v10: fit 81% (was 76%), mean match 0.96 (was 0.95), held-out 100%
+[22] E22 For lowercase Latin-1 last letters, does the -2 shift wrap within the conti...(+120 chars)  model v10 match 0.80
+      model v11: fit 82% (was 77%), mean match 0.97 (was 0.95), held-out 100%
+[23] E23 For Latin-1 uppercase letters shifted by -2, where exactly is the true lowe...(+177 chars)  model v11 match 0.80
+      model v12: fit 96% (was 78%), mean match 1.00 (was 0.97), held-out 100%
+[24] E24 Does the uppercase Latin-1 -2 shift wrap at the true lower boundary: does Ñ...(+140 chars)  model v12 match 1.00
+[25] E25 For uppercase Latin-1 letters, does the -2 shift wrap within the contiguous...(+173 chars)  model v12 match 0.90
+      model v13: fit 92% (was 92%), mean match 0.99 (was 0.99), held-out 100%
+{"env": "find_strings_f00410", "experiments": 25, "model_version": 13, "fit": 0.92, "heldout": 1.0, "llm_calls": 42, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

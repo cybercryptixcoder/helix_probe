@@ -1,0 +1,62 @@
+Helix Probe on 'find_strings_f00436': 0 experiments so far, model v0, held-out set of 100
+[1] E1 How does f behave on the simplest, most varied inputs (single characters, s...(+74 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.50 (was 0.00), held-out 0%
+[2] E2 Is f(x) = reverse(x) + 'I' for all inputs, including strings with mixed cas...(+90 chars)  model v1 match 0.00
+      model kept (v1)
+[3] E3 Where exactly does the extra 'I' get inserted, and does it depend on string...(+51 chars)  model v1 match 0.10
+      model v2: fit 0% (was 0%), mean match 0.37 (was 0.20), held-out 0%
+[4] E4 Does the 'I' replace the middle character(s) of the reversed string rather ...(+113 chars)  model v2 match 0.40
+      model v3: fit 50% (was 0%), mean match 0.85 (was 0.38), held-out 0%
+[5] E5 Does the insertion index depend on the position of the middle in the origin...(+220 chars)  model v3 match 1.00
+[6] E6 How does f handle very long strings (lengths 11-20) and strings containing ...(+123 chars)  model v3 match 1.00
+[7] E7 Does the insertion index follow the reversed string's middle (as for all ot...(+186 chars)  model v3 match 0.00
+      model kept (v3)
+[8] E8 Does f insert 'I' into the original string (then possibly reverse) rather t...(+106 chars)  model v3 match 0.60
+      revision rejected: mean match 0.47 < 0.75
+      model v4: fit 50% (was 50%), mean match 0.75 (was 0.75), held-out 0%
+[9] E9 For strings containing spaces, does f reverse the whole string and then ins...(+196 chars)  model v4 match 0.00
+      revision rejected: mean match 0.33 < 0.67
+      model v5: fit 44% (was 44%), mean match 0.70 (was 0.67), held-out 0%
+[10] E10 Where exactly does 'I' land in the output for space-containing strings of v...(+173 chars)  model v5 match 0.00
+      model v6: fit 40% (was 40%), mean match 0.67 (was 0.63), held-out 1%
+[11] E11 For space-containing strings, is the output exactly the original string wit...(+65 chars)  model v6 match 0.10
+      model v7: fit 45% (was 36%), mean match 0.78 (was 0.62), held-out 1%
+[12] E12 For space-containing strings, is the output exactly reverse(original) with ...(+161 chars)  model v7 match 0.40
+      model v8: fit 33% (was 42%), mean match 0.75 (was 0.75), held-out 0%
+[13] E13 For space-containing strings, does f = reverse(each token) with 'I' inserte...(+281 chars)  model v8 match 0.60
+      model v9: fit 38% (was 31%), mean match 0.82 (was 0.74), held-out 1%
+[14] E14 For 2-token strings where first token >= second token and second_len >= 2, ...(+74 chars)  model v9 match 0.50
+      model v10: fit 36% (was 36%), mean match 0.80 (was 0.80), held-out 1%
+[15] E15 For 2-token strings where the first token is longer than the second, is the...(+188 chars)  model v10 match 0.70
+      model v11: fit 33% (was 33%), mean match 0.79 (was 0.79), held-out 1%
+[16] E16 For 2-token strings where first_len < second_len, is 'I' really appended at...(+208 chars)  model v11 match 0.50
+      revision rejected: mean match 0.69 < 0.78
+      revision rejected: mean match 0.69 < 0.78
+[17] E17 For 2-token strings with first_len < second_len, where exactly does 'I' lan...(+233 chars)  model v11 match 0.70
+      revision rejected: mean match 0.65 < 0.77
+      model v12: fit 29% (was 29%), mean match 0.77 (was 0.77), held-out 1%
+[18] E18 For multi-token (3+) space-containing strings, is the 'I' inserted into the...(+194 chars)  model v12 match 0.00
+      revision rejected: mean match 0.34 < 0.73
+      revision rejected: mean match 0.34 < 0.73
+[19] E19 For 2-token strings where first_len > second_len, does the I index in the r...(+152 chars)  model v12 match 0.60
+      revision rejected: mean match 0.62 < 0.72
+      revision rejected: mean match 0.33 < 0.72
+[20] E20 For 2-token strings with first_len > second_len, is the I index in the reve...(+268 chars)  model v12 match 0.60
+      revision rejected: mean match 0.53 < 0.72
+      revision rejected: mean match 0.31 < 0.72
+[21] E21 For 2-token strings with first_len < second_len, does the I index in the re...(+175 chars)  model v12 match 0.60
+      revision rejected: mean match 0.30 < 0.71
+      revision rejected: mean match 0.52 < 0.71
+[22] E22 For 2-token strings with first_len > second_len, is the I index in the reve...(+290 chars)  model v12 match 0.40
+      revision rejected: mean match 0.50 < 0.70
+      revision rejected: mean match 0.28 < 0.70
+[23] E23 For 2-token strings with first_len > second_len, is the I index in the reve...(+186 chars)  model v12 match 0.40
+      revision rejected: mean match 0.50 < 0.68
+      revision rejected: mean match 0.50 < 0.68
+[24] E24 For 2-token strings with first_len > second_len, is the I index in the reve...(+192 chars)  model v12 match 0.30
+      revision rejected: mean match 0.48 < 0.67
+      revision rejected: mean match 0.48 < 0.67
+[25] E25 For 2-token strings with first_len > second_len, is the I index in the reve...(+183 chars)  model v12 match 0.20
+      revision rejected: mean match 0.46 < 0.65
+      revision rejected: mean match 0.46 < 0.65
+{"env": "find_strings_f00436", "experiments": 25, "model_version": 12, "fit": 0.2, "heldout": 0.01, "llm_calls": 60, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

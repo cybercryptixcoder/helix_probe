@@ -1,0 +1,26 @@
+Helix Probe v2 on 'find_strings_f00542': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Establish the basic behaviour of f on ordinary short strings: does it retur...(+61 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.29, fit 0.30, size 196 (exam 0.000 -> 0.292); held-out 0%
+[2] E2 Does f reverse the whole string or reverse word order while keeping words i...(+51 chars)  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 0.38, fit 0.55, size 251 (exam 0.292 -> 0.375); held-out 1%
+[3] E3 How does f handle multi-word strings of varying word lengths and counts — d...(+121 chars)  (v2 predicted it: match 0.30)
+[4] E4 For multi-word strings, does f reverse each word in place with single space...(+125 chars)  (v2 predicted it: match 0.00)
+      theorist (updater stalled)
+[5] E5 For ordinary multi-word strings, does f reverse each word in place and join...(+135 chars)  (v2 predicted it: match 0.10)
+[6] E6 For multi-word strings, is the output the first word reversed plus a single...(+147 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 0.38, fit 0.68, size 700 (fit 0.250 -> 0.683); held-out 2%
+      theorist (every 6 steps)
+[7] E7 Does f collapse consecutive duplicate letters in the output, and if so, doe...(+93 chars)  (v3 predicted it: match 0.70)
+      model v4 by the updater: exam 0.79, fit 0.81, size 750 (exam 0.375 -> 0.792); held-out 15%
+[8] E8 When the non-first words are concatenated, is the result the reverse of the...(+216 chars)  (v4 predicted it: match 0.50)
+[9] E9 For the non-first words, is the transformation exactly 'concatenate the wor...(+273 chars)  (v4 predicted it: match 0.30)
+      model v5 by the updater: exam 0.96, fit 1.00, size 746 (exam 0.792 -> 0.958); held-out 58%
+[10] E10 Does the first word's dedup also affect the rest-block (i.e., are letters f...(+184 chars)  (v5 predicted it: match 1.00)
+[11] E11 Does the first word's dedup genuinely feed into the rest-block's seen-set (...(+282 chars)  (v5 predicted it: match 0.70)
+      model v6 by the updater: exam 0.96, fit 1.00, size 835 (fit 0.973 -> 1.000); held-out 61%
+[12] E12 Does the first-word dedup feed into the rest-block's seen-set when the firs...(+158 chars)  (v6 predicted it: match 1.00)
+      theorist (every 6 steps)
+[13] E13 Do non-letter characters (digits, punctuation, symbols) participate in the ...(+187 chars)  (v6 predicted it: match 1.00)
+[14] E14 When the first word's deduped letters are exhausted (all later letters alre...(+341 chars)  (v6 predicted it: match 1.00)
+[15] E15 Does the rest-block dedup seen-set persist across multiple non-first words ...(+264 chars)  (v6 predicted it: match 1.00)
+[16] E16 When the first word's deduped letters are consumed by the rest-block, does ...(+327 chars)  (v6 predicted it: match 1.00)

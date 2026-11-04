@@ -1,0 +1,19 @@
+{
+ "category": "strings",
+ "fid": "f00436",
+ "experiments": 25,
+ "exam_probes": 4,
+ "n_versions": 1,
+ "inputs_total": 274,
+ "final": 0.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "start",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 24
+  }
+ ]
+}

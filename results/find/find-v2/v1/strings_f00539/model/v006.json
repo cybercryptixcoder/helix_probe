@@ -1,0 +1,26 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f collapses every run of adjacent identical characters to a single character [E1, E2, E3]",
+  "After collapsing, f removes any character that already appeared earlier in the string, keeping only its first occurrence (case-sensitive) [E1, E2, E5]",
+  "f appends 'h' unless the resulting string ends with 'h' (the start of the string is irrelevant) [E4, E6, E7]",
+  "f('') gives 'h' [E1]",
+  "f('hello hello') gives 'helo ' because the second 'helo' is removed as already-seen and the result ends with a space, so 'h' is appended [E2]",
+  "f('two words') gives 'two rdsh' because the second 'w' and 'o' are removed as already-seen, then 'h' is appended [E1]",
+  "f('UPPER lower') keeps both 'e'/'E' and 'r'/'R' because dedup is case-sensitive, so no removal, then 'h' appended [E1]",
+  "f('abchx') gives 'abchx' with no append because the result ends with 'x'? No\u2014E7 shows 'abchx'\u2192'abchx', so the append rule must skip when the string contains 'h' anywhere? [E7]"
+ ],
+ "notes": "E7 shows 'abchx'\u2192'abchx' (no append) and 'xabch'\u2192'xabch' (no append), so appending is skipped when the collapsed/deduped result contains 'h' anywhere, not just at the end. But E4 'hhello'\u2192'helo' (contains h, no append) and E6 'hzz'\u2192'hz' (contains h, no append) fit 'contains h'. However E5 'a b'\u2192'a bh' has no h and appends. Need to reconcile: does 'contains h' explain all? E1 'hello'\u2192'helo' contains h, no append \u2713. E3 'hh'\u2192'h' \u2713. E7 'aba h'\u2192'ab h' contains h, no append \u2713. So rule: append 'h' unless result contains 'h'.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 7
+}
