@@ -1,0 +1,35 @@
+Helix Probe v3 on 'find_numeric_f00524': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 232 (fit 0.000 -> 1.000); held-out 74%
+[2] E2 learn: Is the -1.0 near x=-1.2 a narrow spike, and what is the exact sha...(+41 chars)  (v1 predicted it: match 0.31; cost 16, spent 26)
+      model v2 by the updater: fit 1.00, size 265 (fit 0.656 -> 1.000); held-out 66%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 36)
+[4] E4 learn: Where exactly does the nonzero 'ceil(x)'-like band end on the pos...(+59 chars)  (v2 predicted it: match 0.40; cost 20, spent 56)
+      model v3 by the updater: fit 1.00, size 263 (fit 0.850 -> 1.000); held-out 99%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 66)
+[6] E6 learn: Does the nonzero 'ceil' band continue (and how) between x=4 and x...(+98 chars)  (v3 predicted it: match 0.80; cost 10, spent 76)
+      model v4 by the updater: fit 1.00, size 261 (fit 0.967 -> 1.000); held-out 99%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 427)
+[7] E7 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 86)
+[8] E8 learn: Does the nonzero ceil band have sharp boundaries at exactly x=4.5...(+154 chars)  (v4 predicted it: match 0.67; cost 18, spent 104)
+      model v5 by the updater: fit 1.00, size 265 (fit 0.958 -> 1.000); held-out 99%
+[9] E9 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 114)
+      theorist's model lost its trial: on trial it predicted 0.89 of 3 new experiments, the current model 0.89
+[10] E10 learn: Are there any nonzero outputs between the known ceil band edge (|...(+162 chars)  (v5 predicted it: match 0.80; cost 20, spent 134)
+      model v6 by the updater: fit 1.00, size 265 (fit 0.980 -> 1.000); held-out 100%
+[11] E11 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 144)
+[12] E12 learn: Are there any nonzero outputs just outside the apparent ceil band...(+128 chars)  (v6 predicted it: match 1.00; cost 20, spent 164)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 281)
+[13] E13 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 174)
+[14] E14 learn: Does the zero region outside the ceil band ever produce nonzero v...(+116 chars)  (v6 predicted it: match 1.00; cost 20, spent 194)
+[15] E15 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 204)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[16] E16 learn: Is the ceil(x) band truly symmetric and sharp at |x|=4.35, and do...(+163 chars)  (v6 predicted it: match 1.00; cost 20, spent 224)
+[17] E17 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 234)
+[18] E18 learn: Is the nonzero region exactly the closed interval [-4.35, 4.35] w...(+148 chars)  (v6 predicted it: match 1.00; cost 20, spent 254)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 653)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00524", "experiments": 18, "cost": 254, "model_version": 6, "model_role": "updater", "fit": 1.0, "size": 265, "exam": null, "heldout": 1.0, "llm_calls": 18, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

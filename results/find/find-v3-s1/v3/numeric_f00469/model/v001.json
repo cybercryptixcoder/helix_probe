@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to a rule: the box returns 1 only near zero (the sole nonzero output was at x=-1.2) and 0 elsewhere. The exact interval width is a guess, so I marked it with \"?\".", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 128, "matches": [1.0], "made_at": 1, "heldout": 0.98}

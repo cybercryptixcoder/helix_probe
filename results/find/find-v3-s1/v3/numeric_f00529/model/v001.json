@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to a sign rule: every positive input in E1 gave -6.9 and every non-positive gave -7.9, so I model f(x) = -6.9 if x>0 else -7.9, with the exact boundary at 0 marked as a guess.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 123, "matches": [1.0], "made_at": 1, "heldout": 0.92}

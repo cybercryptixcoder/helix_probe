@@ -1,0 +1,35 @@
+Helix Probe v3 on 'find_numeric_f00093': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.10, size 235 (fit 0.000 -> 0.100); held-out 0%
+[2] E2 learn: Is f roughly odd and smooth across the central region, and does t...(+92 chars)  (v1 predicted it: match 0.25; cost 12, spent 22)
+      model v2 by the updater: fit 0.55, size 373 (fit 0.175 -> 0.550); held-out 0%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.40; cost 10, spent 32)
+[4] E4 learn: Does f have a sign flip or non-odd behavior at small |x| (e.g. f(...(+117 chars)  (v2 predicted it: match 0.33; cost 15, spent 47)
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.10; cost 10, spent 57)
+[6] E6 learn: Does f have a genuine jump/discontinuity or sign anomaly near x≈-...(+172 chars)  (v2 predicted it: match 0.05; cost 20, spent 77)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.30; cost 10, spent 87)
+[8] E8 learn: Is f actually odd-symmetric about x=0, or is there a constant off...(+160 chars)  (v2 predicted it: match 0.45; cost 20, spent 107)
+      theorist (fixes stalled)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 0.60; cost 10, spent 117)
+[10] E10 learn: Does the curve have a constant vertical offset (f(0)≈-8.83, and f...(+126 chars)  (v2 predicted it: match 0.10; cost 20, spent 137)
+      theorist (fixes stalled)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 0.60; cost 10, spent 147)
+[12] E12 learn: Does f have a genuine vertical offset/plateau near x=0 (f(0)≈-8.8...(+136 chars)  (v2 predicted it: match 0.20; cost 20, spent 167)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.31, size 531)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 0.60; cost 10, spent 177)
+[14] E14 learn: What is the true global shape of f, especially the asymmetry betw...(+202 chars)  (v2 predicted it: match 0.45; cost 20, spent 197)
+[15] E15 learn: a random ordinary probe  (v2 predicted it: match 0.20; cost 10, spent 207)
+      theorist's model lost its trial: on trial it predicted 0.22 of 3 new experiments, the current model 0.42
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 1.00, size 3124)
+[16] E16 learn: Does f have a genuine vertical offset near x=0 (f(0)≈-8.8, asymme...(+125 chars)  (v2 predicted it: match 0.05; cost 20, spent 227)
+      updater's fix not kept: its fit is 0.182, the current model's is 0.346
+[17] E17 learn: a random ordinary probe  (v2 predicted it: match 0.60; cost 10, spent 237)
+[18] E18 learn: Does the negative side behave differently from the positive side ...(+239 chars)  (v2 predicted it: match 0.50; cost 20, spent 257)
+      model v3 by the theorist: fit 1.00, size 3124 (on trial it predicted 1.00 of 3 new experiments, the current model 0.38); held-out 100%
+      updater's fix not kept: same scores and not smaller (4000 vs 3124 chars)
+      model v4 by the updater: fit 1.00, size 2255 (same scores, smaller (3124 -> 2255 chars)); held-out 100%
+      theorist (every 6 experiments)

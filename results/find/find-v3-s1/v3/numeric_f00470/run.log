@@ -1,0 +1,8 @@
+Helix Probe v3 on 'find_numeric_f00470': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: Does f behave like a high-degree polynomial (or product of a simp...(+130 chars)  (v0 predicted it: match 0.00; cost 20, spent 30)
+      theorist (fixes stalled)
+[3] E3 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 40)
+[4] E4 learn: Does f factor as x^3 times an exponential/sinusoidal envelope, an...(+101 chars)  (v0 predicted it: match 0.00; cost 20, spent 60)
+      theorist (fixes stalled)
+[5] E5 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 70)

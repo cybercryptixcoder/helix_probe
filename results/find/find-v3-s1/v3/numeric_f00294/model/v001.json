@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from \"predict nothing\" to a piecewise rule: `x + 17` for non-negative inputs and `x - 8` for negative inputs, which matches all ten observations in E1 within the apparent noise.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 87, "matches": [1.0], "made_at": 1, "heldout": 1.0}

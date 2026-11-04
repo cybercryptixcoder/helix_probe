@@ -1,0 +1,40 @@
+Helix Probe v3 on 'find_numeric_f00132': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.50, size 326 (fit 0.000 -> 0.500); held-out 0%
+[2] E2 learn: Does the near-zero suppression follow the tanh(x/5) shape, or is ...(+67 chars)  (v1 predicted it: match 0.00; cost 16, spent 26)
+      model v2 by the updater: fit 1.00, size 397 (fit 0.250 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 36)
+[4] E4 learn: Does f have any structure beyond the near-linear fit — specifical...(+190 chars)  (v2 predicted it: match 1.00; cost 18, spent 54)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 64)
+[6] E6 learn: Is the function truly piecewise-linear with a slope change at x=0...(+164 chars)  (v2 predicted it: match 1.00; cost 20, spent 84)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 94)
+[8] E8 learn: Does the small residual wiggle near x=0 (the dip at 0 and bump ne...(+219 chars)  (v2 predicted it: match 0.70; cost 20, spent 114)
+      updater's fix not kept: its fit is 0.856, the current model's is 0.963
+      updater's fix not kept: its fit is 0.931, the current model's is 0.963
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 124)
+[10] E10 learn: Is the function exactly piecewise-linear with a single slope chan...(+184 chars)  (v2 predicted it: match 0.45; cost 20, spent 144)
+      theorist (fixes stalled)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 154)
+[12] E12 learn: Is the true function exactly piecewise-linear with slope ~4.71 fo...(+171 chars)  (v2 predicted it: match 0.50; cost 20, spent 174)
+      updater's fix not kept: its fit is 0.875, the current model's is 0.888
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 184)
+[14] E14 learn: Is the negative-side behavior simply linear with slope 4.687 all ...(+246 chars)  (v2 predicted it: match 1.00; cost 20, spent 204)
+[15] E15 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 214)
+[16] E16 learn: Does the near-zero wiggle (dip at x=0, bump near x=-1) persist on...(+167 chars)  (v2 predicted it: match 0.90; cost 20, spent 234)
+      updater's fix not kept: its fit is 0.781, the current model's is 0.909
+      theorist (fixes stalled)
+[17] E17 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 244)
+[18] E18 learn: Is the near-zero wiggle a genuine smooth feature (e.g. a Gaussian...(+193 chars)  (v2 predicted it: match 1.00; cost 20, spent 264)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 274)
+[20] E20 learn: On a fine grid across x=0 to 2.0, is the true function exactly li...(+139 chars)  (v2 predicted it: match 1.00; cost 20, spent 294)
+[21] E21 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 304)
+[22] E22 learn: Does the small residual wiggle near x=0 (the dip at 0 and the bum...(+233 chars)  (v2 predicted it: match 0.60; cost 20, spent 324)
+      model v3 by the updater: fit 0.93, size 506 (fit 0.916 -> 0.932); held-out 100%
+[23] E23 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 334)
+[24] E24 learn: Is the near-zero correction on the negative side a smooth bump ce...(+231 chars)  (v3 predicted it: match 1.00; cost 20, spent 354)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 364)
+{"env": "find_numeric_f00132", "experiments": 25, "cost": 364, "model_version": 3, "model_role": "updater", "fit": 0.94, "size": 506, "exam": null, "heldout": 1.0, "llm_calls": 30, "goals": {"tried": 0, "reached": 0, "tries_used": []}}
