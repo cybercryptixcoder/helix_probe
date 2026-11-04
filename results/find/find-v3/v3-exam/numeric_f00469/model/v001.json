@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to predict 0.0 for every input, since the only experiment (E1) shows ten widely-spread inputs all mapping to 0.0 \u2014 the simplest consistent hypothesis is a constant-zero function.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 63, "matches": [1.0], "made_at": 1, "heldout": 0.87}

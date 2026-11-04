@@ -1,0 +1,1 @@
+{"version": 6, "role": "updater", "notes": "E10 shows the positive-side step is between 4.1 and 4.2 (4.1\u2192-11.4, 4.2\u2192-12.4), not at 4.25 as v5 assumed; I moved the boundary to 4.15.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 327, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 10, "heldout": 0.99}

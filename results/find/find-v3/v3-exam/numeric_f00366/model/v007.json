@@ -1,0 +1,1 @@
+{"version": 7, "role": "updater", "notes": "I moved the negative-side step boundary from -4.25 to -4.125, since E12 shows -4.1 is still 9.8 and -4.15 is already 8.8, so the switch lies between them.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 328, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 12, "heldout": 1.0}

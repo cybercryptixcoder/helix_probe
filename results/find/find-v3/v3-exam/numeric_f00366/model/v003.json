@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "E4 shows the -11.4 \u2192 -12.4 transition happens between x=4.0 and x=4.5 (not at 5), so I moved the boundary from 5 to 4. The small-positive-x region stays -11.4 down to just above 0, consistent with E2.", "exam": 0.975, "fit": 0.975, "fit_exact": 0.75, "size": 322, "matches": [1.0, 1.0, 1.0, 0.9], "made_at": 4, "heldout": 0.88}

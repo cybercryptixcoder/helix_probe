@@ -1,0 +1,34 @@
+Helix Probe v3 on 'find_numeric_f00311': 0 experiments so far, model v0, spent 4, exam of 4
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 14)
+[2] E2 learn: Does the function switch between a large-magnitude branch (roughl...(+93 chars)  (v0 predicted it: match 0.00; cost 20, spent 34)
+      model v1 by the updater: fit 1.00, size 178, exam 1.00 (exam 0.000 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 44)
+[4] E4 learn: Where exactly is the boundary between the small (~8) branch and t...(+93 chars)  (v1 predicted it: match 0.90; cost 20, spent 64)
+      model v2 by the updater: fit 1.00, size 181, exam 1.00 (fit 0.975 -> 1.000); held-out 100%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 74)
+[6] E6 learn: Is the small branch exactly constant 8, or does it have a slow tr...(+81 chars)  (v2 predicted it: match 0.95; cost 20, spent 94)
+      model v3 by the updater: fit 1.00, size 193, exam 1.00 (fit 0.992 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 189)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 104)
+[8] E8 learn: Is the small branch exactly constant 8, or does it depend slightl...(+111 chars)  (v3 predicted it: match 1.00; cost 20, spent 124)
+[9] E9 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 134)
+      model v4 by the theorist: fit 1.00, size 189, exam 1.00 (on trial it predicted 1.00 of 3 new experiments, the current model 1.00); held-out 99%
+[10] E10 learn: Does the small branch stay at ~8 everywhere below the boundary, i...(+122 chars)  (v4 predicted it: match 0.85; cost 20, spent 154)
+      updater's fix not kept: its fit is 0.970, the current model's is 0.985
+      model v5 by the updater: fit 1.00, size 189, exam 1.00 (fit 0.985 -> 1.000); held-out 100%
+[11] E11 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 164)
+[12] E12 learn: Is the linear branch exactly y = 8 - 9.6x over the whole positive...(+123 chars)  (v5 predicted it: match 1.00; cost 20, spent 184)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 379)
+[13] E13 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 194)
+[14] E14 learn: Does the small branch near the boundary (x just below -9.4) stay ...(+136 chars)  (v5 predicted it: match 1.00; cost 20, spent 214)
+[15] E15 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 224)
+      theorist's model lost its trial: on trial it predicted 0.97 of 3 new experiments, the current model 1.00
+[16] E16 learn: Is the small branch exactly constant 8 for all x <= -9.4, or does...(+103 chars)  (v5 predicted it: match 1.00; cost 20, spent 244)
+[17] E17 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 254)
+[18] E18 learn: Is the threshold exactly at x = -9.4 (small branch) vs x = -9.39 ...(+96 chars)  (v5 predicted it: match 1.00; cost 20, spent 274)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 180)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00311", "experiments": 18, "cost": 274, "model_version": 5, "model_role": "updater", "fit": 1.0, "size": 189, "exam": 1.0, "heldout": 1.0, "llm_calls": 19, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "I moved the cutoff from -9.5 to -9.375: E6 shows -9.4 still returns ~8 while -9.375 returns exactly 98.0 (= 8 \u2212 9.6\u00b7(\u22129.375)), so the sharp boundary sits at x = \u22129.375, not \u22129.5.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 182, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed the offsets to match E2 exactly (positive: +17.8, negative: -8.4), and added the special value f(0)=2058.0 \u2014 E2 shows x=0 is wildly discontinuous from both branches, so it's a genuine exception at exactly zero.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 228, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}
