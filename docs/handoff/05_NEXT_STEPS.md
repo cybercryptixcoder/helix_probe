@@ -26,8 +26,11 @@ The VM is idle. The next runs need a decision and a small build.
      concrete candidate goal rules, and the planner tests the cheapest untested one. Plus a per-box random share
      (lower when actions are scarce).
    - This is a design discussion first (Shreyas's rule: problem before solution).
-5. **A second benchmark that discriminates:** BoxingGym or AutumnBench (`04_PUBLISHING.md` P4).
-6. **The write-up of the FIND result,** once steps 1–2 are in.
+5. **The interpretability track** (`10_INTERPRETABILITY_TRACK.md`). Point the loop at real networks, starting
+   with a replication of a published weight-interpretation task. It is a design discussion first; it may become the
+   main track, and it shares ARC's hypothesis-formation problem.
+6. **A second benchmark that discriminates:** BoxingGym or AutumnBench (`04_PUBLISHING.md` P4).
+7. **The write-up of the FIND result,** once steps 1–2 are in.
 
 ## Decisions waiting for Shreyas
 

@@ -6,7 +6,7 @@ where they were.*
 
 ## Where the files are
 
-- **In this repo** (`docs/handoff/`): files 00–06.
+- **In this repo** (`docs/handoff/`): files 00–06 and 10.
 - **Private, kept out of this public repo,** in a bundle Shreyas hands to a new session (`helix_probe_private.zip`):
   - `07_PRINCIPLES_AND_RULES.md`: his standing rules and principles. He asked for these not to be in GitHub.
   - `08_shreyas_verbatim.md`: his messages, verbatim.
@@ -26,6 +26,7 @@ where they were.*
 | `03_ANALYSIS.md` | What the runs showed: what worked, what didn't, the honest reading, hypotheses | deciding what's next |
 | `04_PUBLISHING.md` | Candidate publishable results, the references with their numbers, what each still needs, what not to claim | planning runs |
 | `05_NEXT_STEPS.md` | The proposed next runs, decisions waiting for Shreyas, open conceptual threads | the next conversation |
+| `10_INTERPRETABILITY_TRACK.md` | **The interpretability track (opened Nov 4):** can a weak model in the loop interpret and repair real networks, as frontier models were just shown to do from weights? Problem, evidence, directions; no fixed solution | the next design discussion |
 | `06_OPERATIONS.md` | How to run anything from scratch, Aether prompts and conventions, job scripts, making adapters, the model client, troubleshooting | doing the work |
 | `08_shreyas_verbatim.md` | **Every message Shreyas sent, verbatim** (keys redacted). The ground truth for what was asked. | resolving any doubt |
 | `09_full_transcript_redacted.md` | The whole conversation, both sides, visible text only (keys redacted) | context on what was agreed |
