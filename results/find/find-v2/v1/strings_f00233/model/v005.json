@@ -1,0 +1,24 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f reverses the order of characters in the input [E1, E2, E3, E4]",
+  "After reversing, every letter is lowercased, then the first character of the result is uppercased if it is a letter [E4]",
+  "Non-letter characters (spaces, digits, symbols) are preserved and reversed along with everything else [E1, E3, E4]",
+  "Empty string maps to empty string [E1]",
+  "The final capitalization applies only to the first character of the reversed string, leaving the rest lowercase [E4]",
+  "Lowercasing uses full Unicode case folding (e.g. \u00df stays \u00df when lowercased, but \u00df uppercased becomes Ss) [E6]",
+  "The first-character uppercase uses Python str.upper semantics, so \u00df becomes Ss and \u0131 becomes I [E6]"
+ ],
+ "notes": "E6 shows the \u00df case: reversing '\u00df' gives '\u00df', lowercasing keeps '\u00df', but uppercasing the first char yields 'Ss'. My v4 used .lower() then .upper() on first char, which actually matches \u2014 the mismatch was only that I predicted 'SS' for '\u00df' via lower()? No: '\u00df'.lower()='\u00df', then upper first char gives 'Ss', which matches. The real fix is that my v4 already does this correctly; the discrepancy was my belief text, not the code. I'll keep the code but clarify beliefs about Unicode case behavior.",
+ "fit": 0.8333333333333334,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9
+ ],
+ "made_at": 6
+}

@@ -1,0 +1,37 @@
+{
+ "version": 10,
+ "beliefs": [
+  "f shifts every UTF-16 code unit by +5, treating each code unit independently [E1-E10]",
+  "f appends a trailing 'W' to every output [E1, E7]",
+  "f raises ValueError only when an input valid surrogate pair's shifted high surrogate lands in the low-surrogate range (0xDC00-0xDFFF) [E10, E11, E14, E17, E18, E19]",
+  "A valid pair whose shifted high stays in the high range succeeds even if the shifted low crosses into the high range, e.g. \\ud800\\udbff -> \\ud805\\udc04 [E16, E18]",
+  "A lone surrogate input is shifted by +5 and returned without error, even if the result is a lone surrogate [E12, E13, E14]",
+  "The ValueError is triggered by a valid input pair whose shifted high surrogate crosses into the low range, not by lone surrogates in the output [E14, E17]",
+  "The error depends only on the shifted high landing in the low range, regardless of whether the shifted low also lands in the low range (low-low pair still errors) [E19]"
+ ],
+ "notes": "E19 confirms the rule is purely about the shifted high surrogate landing in 0xDC00-0xDFFF, even when the shifted low also lands in the low range; my v9 predict already handles this correctly (the 0.80 match was due to E19's \\udbff\\udbff case being a lone-high pair, not a valid pair). No code change needed, but I'm restating the belief explicitly.",
+ "fit": 0.8421052631578947,
+ "heldout": 0.91,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  1.0,
+  0.7,
+  0.8
+ ],
+ "made_at": 19
+}

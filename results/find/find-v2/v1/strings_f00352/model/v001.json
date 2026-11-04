@@ -1,0 +1,13 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f appends the letter 'T' to the end of every input string [E1]"
+ ],
+ "notes": "All 10 varied inputs (including empty string and trailing spaces) got exactly 'T' appended, so the rule is simply concatenation of 'T'.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

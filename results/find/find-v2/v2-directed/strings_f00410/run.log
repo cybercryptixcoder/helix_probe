@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00410': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary short English words and simple sentences —...(+57 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 410 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the rule shift only the first character after reversal, or does it dep...(+178 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the reversal-and-shift rule still hold when the first character after ...(+175 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the rule apply to strings whose reversed first character is a letter b...(+220 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the shift apply only to the first reversed character, or also to the l...(+124 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the -2 shift apply to the first character of the reversed string only ...(+233 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (536 vs 410 chars)
+[7] E7 Is the -2 shift applied to the first character of the reversed string, or i...(+309 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the -2 shift on the first reversed character wrap correctly for 'a'/'A...(+179 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the box reverse the whole string and shift only the first reversed cha...(+173 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00410", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 410, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

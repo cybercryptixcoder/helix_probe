@@ -1,0 +1,18 @@
+Helix Probe v2 on 'find_strings_f00056': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Establish the most basic behavior of f on short ordinary strings: does it t...(+100 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.38, fit 0.80, size 420 (exam 0.000 -> 0.375); held-out 0%
+[2] E2 Does f transform every character (full-string Caesar shift down by 1) or on...(+75 chars)  (v1 predicted it: match 0.60)
+      updater's model not kept: its exam is 0.208, the current model's is 0.375
+      model v2 by the updater: exam 1.00, fit 1.00, size 576 (exam 0.375 -> 1.000); held-out 100%
+[3] E3 Does deduplication apply to every repeated character or only to consecutive...(+94 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the first-character shift apply to non-letter first characters (digits...(+109 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the first-character shift apply when the first character is a non-lett...(+130 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the first-character shift happen before or after deduplication when th...(+105 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (837 vs 576 chars)
+[7] E7 Does the first-character shift skip characters that are not letters after d...(+215 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the first-character shift apply to every character class uniformly, or...(+231 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the first-character shift wrap correctly across the alphabet boundary ...(+144 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the first-character shift apply after deduplication when the string be...(+190 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00056", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 576, "heldout": 1.0, "llm_calls": 14, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

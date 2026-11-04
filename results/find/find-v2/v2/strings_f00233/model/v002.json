@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed swapcase to capitalize: the box reverses the string and then applies Python's `capitalize()` (uppercase first char, lowercase the rest), which matches all of E1 and E2.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 209, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

@@ -1,0 +1,33 @@
+Helix Probe on 'find_strings_f00085': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a varied spread of basic inputs (empty string, single cha...(+47 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Does the letter-increment step apply to the last character of the original ...(+159 chars)  model v1 match 1.00
+[3] E3 Does the letter-increment apply to the last character only when it is an AS...(+128 chars)  model v1 match 0.30
+      model v2: fit 100% (was 67%), mean match 1.00 (was 0.77), held-out 100%
+[4] E4 Does the insertion index depend only on length (len//2), or does it depend ...(+148 chars)  model v2 match 1.00
+[5] E5 Does the letter-increment apply to the last character when it is a non-ASCI...(+123 chars)  model v2 match 0.90
+      model v3: fit 80% (was 80%), mean match 0.98 (was 0.98), held-out 100%
+[6] E6 For a non-letter last character that is a combining mark / not isalpha but ...(+367 chars)  model v3 match 0.80
+      revision rejected: mean match 0.93 < 0.95
+      model v4: fit 67% (was 67%), mean match 0.95 (was 0.95), held-out 100%
+[7] E7 For Greek/Cyrillic uppercase letters whose code point +1 leaves the upperca...(+157 chars)  model v4 match 0.60
+      model v5: fit 100% (was 57%), mean match 1.00 (was 0.90), held-out 100%
+[8] E8 What exactly does the box do to the last character when it is a Greek upper...(+211 chars)  model v5 match 1.00
+[9] E9 Does the increment rule for a letter last character extend past the BMP (as...(+202 chars)  model v5 match 1.00
+[10] E10 Does the box's last-character increment rule hold for letters outside the D...(+143 chars)  model v5 match 1.00
+[11] E11 Does the ASCII-only wrap rule hold at other ASCII letter boundaries (e.g. '...(+167 chars)  model v5 match 1.00
+[12] E12 Does the increment rule still apply code-point+1 (with only ASCII a-z/A-Z w...(+243 chars)  model v5 match 1.00
+[13] E13 Does the insertion use len//2 measured on the original string when the last...(+239 chars)  model v5 match 1.00
+[14] E14 Does the box treat a lone surrogate (unpaired high or low surrogate) at the...(+204 chars)  model v5 match 1.00
+[15] E15 Does the box's letter test use Python's isalpha (so that non-letter code po...(+240 chars)  model v5 match 1.00
+[16] E16 Does the insertion index/letter-increment rule behave the same when the str...(+169 chars)  model v5 match 1.00
+[17] E17 Does the letter-increment step apply when the last character is a letter bu...(+281 chars)  model v5 match 1.00
+[18] E18 How does the box handle the increment when the last character is a letter t...(+235 chars)  model v5 match 1.00
+[19] E19 Does the box's letter test use Python's str.isalpha on the last character (...(+257 chars)  model v5 match 1.00
+[20] E20 Does the box's letter test for the last character use Python str.isalpha (s...(+202 chars)  model v5 match 1.00
+[21] E21 Does the insertion index use len(s)//2 computed on the original string when...(+159 chars)  model v5 match 1.00
+[22] E22 Does the box's letter test use Python's str.isalpha on the last character s...(+312 chars)  model v5 match 1.00
+[23] E23 Does the increment of a trailing letter ever wrap to the start of a script ...(+238 chars)  model v5 match 1.00
+[24] E24 Does the insertion index use len(s)//2 of the original string when the last...(+229 chars)  model v5 match 1.00
+[25] E25 Does the box's insertion happen before or after the last-character incremen...(+284 chars)  model v5 match 1.00
+{"env": "find_strings_f00085", "experiments": 25, "model_version": 5, "fit": 1.0, "heldout": 1.0, "llm_calls": 34, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

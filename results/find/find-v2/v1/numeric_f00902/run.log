@@ -32,3 +32,11 @@ Helix Probe on 'find_numeric_f00902': 0 experiments so far, model v0, held-out s
 [19] E19 Does the plateau's left edge sit exactly at 97.5/97.6 as modeled, or is the...(+81 chars)  model v12 match 0.75
       model v13: fit 100% (was 95%), mean match 1.00 (was 0.99), held-out 100%
 [20] E20 What does f do in the completely untouched region between x=4 and x=5, wher...(+139 chars)  model v13 match 1.00
+[21] E21 The plateau's left edge was found to be a single step between 97.5 and 97.5...(+157 chars)  model v13 match 0.64
+      model v14: fit 100% (was 95%), mean match 1.00 (was 0.98), held-out 100%
+[22] E22 Is the region between x=2 and x=4 really a smooth monotone rise as modeled,...(+192 chars)  model v14 match 0.85
+      model v15: fit 95% (was 95%), mean match 1.00 (was 0.99), held-out 100%
+[23] E23 Is the positive branch between x=5 and x=56 truly smooth and monotone, or d...(+95 chars)  model v15 match 1.00
+[24] E24 Is the positive branch between x=56 and x=96 truly smooth and monotone (as ...(+136 chars)  model v15 match 1.00
+[25] E25 Does the model's log-interpolation between anchors in the 56-96 range hide ...(+141 chars)  model v15 match 1.00
+{"env": "find_numeric_f00902", "experiments": 25, "model_version": 15, "fit": 0.96, "heldout": 1.0, "llm_calls": 40, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "Changed the whitespace removal from `.replace(\" \", \"\")` to `re.sub(r\"\\s\", \"\", ...)` so tabs and newlines are also stripped, matching E4 where `\"a\\tb\"` and `\"a\\nb\"` both gave `\"ba\"`.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 111, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 1.0}

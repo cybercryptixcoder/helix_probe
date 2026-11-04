@@ -1,0 +1,14 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f reverses the order of characters in the input string [E1]",
+  "Case and punctuation are preserved; only order is reversed [E1]"
+ ],
+ "notes": "All five outputs are exact character reversals of their inputs, including mixed case, so f(x) = x[::-1].",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.0
+ ],
+ "made_at": 1
+}

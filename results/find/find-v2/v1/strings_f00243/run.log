@@ -1,0 +1,32 @@
+Helix Probe on 'find_strings_f00243': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does the box do to very simple, varied inputs across letters, digits, ...(+30 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.40 (was 0.00), held-out 0%
+[2] E2 For strings of length >= 2, is the 'Z' always inserted at index 2, or does ...(+103 chars)  model v1 match 0.20
+      model v2: fit 0% (was 0%), mean match 0.45 (was 0.30), held-out 0%
+[3] E3 Does the box always insert 'Z' after the first character for length>=2 rega...(+87 chars)  model v2 match 0.30
+      model v3: fit 0% (was 0%), mean match 0.60 (was 0.40), held-out 0%
+[4] E4 Is the insertion position exactly floor(len/2) for all lengths 2..12 (with ...(+78 chars)  model v3 match 1.00
+[5] E5 Does the insertion index depend on length alone (floor(len/2)) or on conten...(+93 chars)  model v3 match 0.40
+      model v4: fit 100% (was 20%), mean match 1.00 (was 0.64), held-out 88%
+[6] E6 Does the box remove only ASCII spaces (0x20) or also other whitespace chara...(+88 chars)  model v4 match 0.00
+      model v5: fit 100% (was 83%), mean match 1.00 (was 0.83), held-out 100%
+[7] E7 Does the box insert 'Z' at floor(len/2) for stripped lengths 12..20, and do...(+140 chars)  model v5 match 1.00
+[8] E8 Does the box insert 'Z' at floor(len/2) for long stripped strings (lengths ...(+307 chars)  model v5 match 1.00
+[9] E9 Does the box treat other Unicode/control characters (zero-width joiner U+20...(+223 chars)  model v5 match 1.00
+[10] E10 Does the box strip whitespace only, or does it also do something else (like...(+104 chars)  model v5 match 1.00
+[11] E11 Does the box treat characters that Python's str.isspace() considers whitesp...(+407 chars)  model v5 match 1.00
+[12] no valid probe after 3 tries; skipping
+[13] no valid probe after 3 tries; skipping
+[14] E12 Is the insertion index always floor(len/2) of the stripped string, or does ...(+273 chars)  model v5 match 1.00
+[15] E13 Does the box do anything special with newline/carriage-return characters be...(+195 chars)  model v5 match 1.00
+[16] E14 Does the box ever insert more than one 'Z', or change behavior when the str...(+145 chars)  model v5 match 1.00
+[17] E15 Does the box insert only one 'Z' per call, or does it also insert a 'Z' whe...(+321 chars)  model v5 match 1.00
+[18] E16 Does the box treat all Unicode whitespace-like code points exactly as Pytho...(+461 chars)  model v5 match 1.00
+[19] E17 Does the box treat non-ASCII letters / non-ASCII digits / emoji / combining...(+145 chars)  model v5 match 1.00
+[20] E18 Does the box's whitespace stripping and floor(len/2) insertion behave ident...(+298 chars)  model v5 match 1.00
+[21] no valid probe after 3 tries; skipping
+[22] E19 Does the box's insertion position follow floor(len/2) for stripped lengths ...(+156 chars)  model v5 match 1.00
+[23] E20 Does the box's insertion position follow floor(len/2) for stripped lengths ...(+185 chars)  model v5 match 1.00
+[24] E21 What exactly happens when the stripped string is empty or consists only of ...(+208 chars)  model v5 match 1.00
+[25] E22 Are there any non-ASCII code points outside Python's str.isspace() that the...(+215 chars)  model v5 match 1.00
+{"env": "find_strings_f00243", "experiments": 22, "model_version": 5, "fit": 1.0, "heldout": 1.0, "llm_calls": 39, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,41 @@
+Helix Probe on 'find_strings_f00142': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a wide variety of basic input types (lowercase, uppercase...(+63 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.70 (was 0.00), held-out 1%
+[2] E2 Does f shift every non-letter character by +5 in ASCII (including spaces, d...(+73 chars)  model v1 match 0.70
+      model v2: fit 0% (was 0%), mean match 0.80 (was 0.70), held-out 1%
+[3] E3 How does f treat the uppercase letters Y and Z specifically, since the mode...(+67 chars)  model v2 match 0.00
+      model v3: fit 100% (was 0%), mean match 1.00 (was 0.53), held-out 91%
+[4] E4 Does the +5 ASCII shift apply without wrapping to the full printable range,...(+141 chars)  model v3 match 1.00
+[5] E5 Does the +5 ASCII shift and trailing 'W' still hold for long strings (near ...(+155 chars)  model v3 match 1.00
+[6] E6 Does f handle non-ASCII / multi-byte Unicode characters (e.g. accented lett...(+121 chars)  model v3 match 1.00
+[7] E7 Does the trailing 'W' get appended once per call, or is it actually a +5 sh...(+110 chars)  model v3 match 1.00
+[8] E8 Does the +5 shift apply per UTF-16 code unit rather than per Unicode code p...(+111 chars)  model v3 match 1.00
+[9] E9 Does f actually shift by a fixed +5, or does it shift letters by +5 but tre...(+196 chars)  model v3 match 1.00
+[10] E10 Does f shift by +5 per UTF-16 code unit (so an astral character's high surr...(+272 chars)  model v3 match 0.60
+      revision rejected: mean match 0.79 < 0.96
+      revision rejected: mean match 0.95 < 0.96
+[11] E11 When the +5 shift on a UTF-16 code unit lands inside the surrogate range (p...(+194 chars)  model v3 match 0.25
+      model v4: fit 73% (was 82%), mean match 0.95 (was 0.90), held-out 91%
+[12] E12 When the +5 shift produces an invalid lone surrogate, does f raise ValueErr...(+96 chars)  model v4 match 0.71
+      model v5: fit 67% (was 67%), mean match 0.93 (was 0.93), held-out 91%
+[13] E13 For lone surrogates whose +5 shift lands inside the surrogate range (e.g. \...(+207 chars)  model v5 match 0.10
+      model v6: fit 69% (was 62%), mean match 0.97 (was 0.87), held-out 91%
+[14] E14 When a valid surrogate pair's shifted high surrogate lands in the low-surro...(+367 chars)  model v6 match 0.90
+      model v7: fit 100% (was 64%), mean match 1.00 (was 0.96), held-out 91%
+[15] E15 When a valid surrogate pair's shifted high surrogate lands in the low-surro...(+288 chars)  model v7 match 1.00
+[16] E16 Does f's ValueError depend on the shifted high surrogate crossing into the ...(+237 chars)  model v7 match 0.70
+      model v8: fit 94% (was 94%), mean match 0.98 (was 0.98), held-out 91%
+[17] E17 E12's batch shows that an input whose shifted output contains a lone surrog...(+233 chars)  model v8 match 1.00
+[18] E18 Is the ValueError triggered only when an input valid surrogate pair's shift...(+213 chars)  model v8 match 0.70
+      model v9: fit 89% (was 89%), mean match 0.97 (was 0.97), held-out 91%
+[19] E19 When a valid surrogate pair's shifted high lands in the low range, is the e...(+236 chars)  model v9 match 0.80
+      model v10: fit 84% (was 84%), mean match 0.96 (was 0.96), held-out 91%
+[20] E20 When a valid surrogate pair's shifted high lands in the low range, does f r...(+230 chars)  model v10 match 1.00
+[21] E21 Does the ValueError rule depend on the shifted high surrogate landing in th...(+377 chars)  model v10 match 1.00
+[22] E22 For the one E16 input my model gets wrong, \udbff\udbff (a high-high pair w...(+259 chars)  model v10 match 0.80
+      model v11: fit 82% (was 82%), mean match 0.95 (was 0.95), held-out 91%
+[23] E23 For the E16 high-high pair \ud800\udbff (valid high followed by a high surr...(+317 chars)  model v11 match 1.00
+[24] E24 For the E16/E18 mismatch cases where the shifted high surrogate lands in th...(+317 chars)  model v11 match 1.00
+[25] E25 E16's mismatch was on inputs like \ud800\udbff (high-high, shifted high sta...(+315 chars)  model v11 match 0.80
+      model v12: fit 80% (was 80%), mean match 0.95 (was 0.95), held-out 91%
+{"env": "find_strings_f00142", "experiments": 25, "model_version": 12, "fit": 0.8, "heldout": 0.91, "llm_calls": 40, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

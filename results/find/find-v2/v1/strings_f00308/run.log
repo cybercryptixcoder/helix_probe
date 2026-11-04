@@ -1,0 +1,33 @@
+Helix Probe on 'find_strings_f00308': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a diverse set of simple inputs (lowercase word, mixed cas...(+46 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 88%
+[2] E2 Does f remove only ASCII space characters, or all whitespace characters (ta...(+36 chars)  model v1 match 0.10
+      model v2: fit 100% (was 50%), mean match 1.00 (was 0.55), held-out 100%
+[3] E3 Does f only strip whitespace, or does it also transform non-whitespace char...(+96 chars)  model v2 match 1.00
+[4] E4 Does f treat Unicode characters that Python's str.isspace() reports as whit...(+260 chars)  model v2 match 1.00
+[5] E5 Does f remove whitespace only when it is between/around characters, or does...(+273 chars)  model v2 match 1.00
+[6] E6 Does f remove only whitespace, or also some non-whitespace control/invisibl...(+147 chars)  model v2 match 1.00
+[7] E7 Does f remove whitespace characters that are separated from ASCII letters b...(+229 chars)  model v2 match 1.00
+[8] E8 Does f's whitespace removal operate identically on characters outside the B...(+179 chars)  model v2 match 1.00
+[9] E9 Does f's whitespace rule match Python's str.isspace() exactly for the full ...(+248 chars)  model v2 match 1.00
+[10] E10 Does f remove only whitespace, or does it also delete/strip other invisible...(+261 chars)  model v2 match 1.00
+[11] E11 Does f's whitespace deletion depend only on the character class, or does it...(+189 chars)  model v2 match 1.00
+[12] E12 Does f's whitespace deletion behave the same for very long inputs near/over...(+186 chars)  model v2 match 1.00
+[13] E13 Does f's whitespace deletion ever interact with string content in a way tha...(+291 chars)  model v2 match 1.00
+[14] E14 Does f perform any transformation beyond per-character whitespace deletion ...(+243 chars)  model v2 match 1.00
+[15] E15 Does f's whitespace deletion also apply to whitespace-adjacent behavior wit...(+162 chars)  model v2 match 1.00
+[16] E16 Does f delete Unicode whitespace characters that Python's str.isspace() doe...(+246 chars)  model v2 match 1.00
+[17] E17 Does f delete whitespace only, or does it also delete other invisible/forma...(+182 chars)  model v2 match 1.00
+[18] no valid probe after 3 tries; skipping
+[19] E18 Does f's whitespace deletion depend only on the character itself (pure per-...(+304 chars)  model v2 match 1.00
+[20] E19 Does f's whitespace deletion extend to the remaining Unicode whitespace cod...(+239 chars)  model v2 match 1.00
+[21] E20 Does f's whitespace deletion behave identically for a whitespace character ...(+186 chars)  model v2 match 0.80
+      model v3: fit 95% (was 95%), mean match 0.99 (was 0.99), held-out 100%
+[22] E21 Why did E20 get only 0.80 match — did f actually fail on some of those malf...(+229 chars)  model v3 match 0.80
+      model kept (v3)
+[23] E22 Is the E20/E21 mismatch (match 0.80) a real deviation of f, or just an arti...(+121 chars)  model v3 match 0.80
+      model kept (v3)
+[24] E23 Is the E20/E21/E22 match-0.80 a genuine deviation of f on lone surrogates, ...(+259 chars)  model v3 match 1.00
+[25] E24 Is the E20-E22 match-0.80 a genuine deviation of f on lone surrogates, or p...(+179 chars)  model v3 match 0.30
+      model v4: fit 83% (was 83%), mean match 0.95 (was 0.95), held-out 100%
+{"env": "find_strings_f00308", "experiments": 24, "model_version": 4, "fit": 0.8333333333333334, "heldout": 1.0, "llm_calls": 35, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

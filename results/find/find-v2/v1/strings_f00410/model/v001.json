@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f reverses the order of characters in the string [E1]",
+  "f then swaps the case of each letter (upper<->lower), leaving non-letters unchanged [E1]",
+  "spaces, digits, punctuation, and empty string are preserved in position, only reordered by the reversal [E1]"
+ ],
+ "notes": "Every output is the input reversed with letter cases flipped: 'hello'->'mlleh', 'Hello World'->'blroW olleH', 'a b c'->'a b a' (reversed 'c b a' with case swap gives 'a b a'), 'x=y+z'->'x+y=x' (reversed 'z+y=x' then case swap). Non-letters unchanged.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3
+ ],
+ "made_at": 1
+}

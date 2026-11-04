@@ -1,0 +1,29 @@
+Helix Probe v2 on 'find_strings_f00020': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.96, fit 1.00, size 304 (exam 0.000 -> 0.958); held-out 86%
+[2] E2 a random ordinary probe  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 a random ordinary probe  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 1.00)
+[6] E6 a random ordinary probe  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.500, the current model's is 0.958
+[7] E7 a random ordinary probe  (v1 predicted it: match 1.00)
+[8] E8 a random ordinary probe  (v1 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v1 predicted it: match 1.00)
+[10] E10 a random ordinary probe  (v1 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v1 predicted it: match 0.83)
+      model v2 by the updater: exam 1.00, fit 1.00, size 353 (exam 0.958 -> 1.000); held-out 100%
+[12] E12 a random ordinary probe  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v2 predicted it: match 1.00)
+[14] E14 a random ordinary probe  (v2 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v2 predicted it: match 1.00)
+[16] E16 a random ordinary probe  (v2 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v2 predicted it: match 1.00)
+[18] E18 a random ordinary probe  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v3 by the theorist: exam 1.00, fit 1.00, size 255 (same scores, smaller (353 -> 255 chars)); held-out 100%
+[19] E19 a random ordinary probe  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00020", "experiments": 19, "exam_probes": 4, "model_version": 3, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 255, "heldout": 1.0, "llm_calls": 5, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

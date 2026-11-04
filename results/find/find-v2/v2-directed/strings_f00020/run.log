@@ -1,0 +1,23 @@
+Helix Probe v2 on 'find_strings_f00020': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do to ordinary English words, phrases, and mixed strings — does...(+73 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 274 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the rule hold for even- vs odd-length words and for short strings, esp...(+151 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the insertion position follow the same ceil(n/2) rule for longer ordin...(+127 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the rule hold for strings whose last character is itself '5', and does...(+95 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the rule hold for strings containing spaces at the ends, tabs, newline...(+134 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the empty string (and very short/whitespace-only strings) behave as th...(+112 chars)  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 1.00, size 355 (fit 0.983 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      model v3 by the theorist: exam 1.00, fit 1.00, size 315 (same scores, smaller (355 -> 315 chars)); held-out 100%
+[7] E7 Does the rule depend on the character at the insertion point or on characte...(+113 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the rule still hold for ordinary multi-word sentences with mixed capit...(+141 chars)  (v3 predicted it: match 1.00)
+[9] E9 Does the rule hold for strings of length 0 through 10 with varied ordinary ...(+242 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the rule hold for ordinary inputs whose length is large enough that ce...(+248 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the rule hold for ordinary inputs containing the character '5' at vari...(+175 chars)  (v3 predicted it: match 1.00)
+[12] E12 Does the rule hold for ordinary inputs where the last character is a digit,...(+343 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (624 vs 315 chars)
+[13] E13 Does the rule hold for strings with length 0-1 edge cases and for inputs co...(+204 chars)  (v3 predicted it: match 1.00)
+[14] E14 Does the model hold for ordinary short-to-medium strings whose last charact...(+203 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00020", "experiments": 14, "exam_probes": 4, "model_version": 3, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 315, "heldout": 1.0, "llm_calls": 18, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

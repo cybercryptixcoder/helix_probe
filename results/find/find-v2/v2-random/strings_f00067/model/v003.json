@@ -1,0 +1,1 @@
+{"version": 3, "role": "theorist", "notes": "The box reverses each space-separated word independently (collapsing extra spaces), and additionally doubles the first character of the final reversed word unless the original input ended with a space.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 378, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

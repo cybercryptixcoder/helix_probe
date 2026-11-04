@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "The box inserts a single 'Z' into the input string [E1, E2]",
+  "For a single character, 'Z' is prepended (position 0) [E1: 'a'->'Za', 'A'->'ZA', '1'->'Z1', '!'->'Z!', ' '->'Z']",
+  "Empty string maps to 'Z' [E1: ''->'Z']",
+  "For strings of length >= 2, 'Z' is inserted at index 1 (after the first character) [E2: 'ab'->'aZb', 'abcd'->'abZcd', 'a b'->'aZb', 'hello world'->'helloZworld']",
+  "Case is preserved and no other transformation occurs [E1, E2]"
+ ],
+ "notes": "E2 shows the insertion index for length>=2 is 1, not 2: 'ab'->'aZb', 'abcd'->'abZcd', 'hello world'->'helloZworld'. Fixed predict to insert at index 1.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.8,
+  0.1
+ ],
+ "made_at": 2
+}

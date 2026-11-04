@@ -1,0 +1,20 @@
+Helix Probe v2 on 'find_strings_f00166': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.79, fit 1.00, size 65 (exam 0.000 -> 0.792); held-out 15%
+[2] E2 Does the box transform case, spacing, or word order in ordinary multi-word ...(+56 chars)  (v1 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (453 vs 65 chars)
+      updater's model not kept: same scores and not smaller (208 vs 65 chars)
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.83)
+      model v2 by the updater: exam 1.00, fit 1.00, size 175 (exam 0.792 -> 1.000); held-out 100%
+[4] E4 Is the transformation a per-character substitution cipher (p->k, L->deleted...(+87 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the box apply the p->k and uppercase-L-deletion rules to other letters...(+143 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (674 vs 175 chars)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Do the rules apply to every occurrence of 'p' and uppercase 'L' inside long...(+132 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Does the box apply the p->k substitution to lowercase 'p' only (leaving upp...(+143 chars)  (v2 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00166", "experiments": 11, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 175, "heldout": 1.0, "llm_calls": 10, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

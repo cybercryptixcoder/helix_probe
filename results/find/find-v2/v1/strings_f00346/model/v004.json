@@ -1,0 +1,21 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f removes all space characters from the input [E1: ' '->'', 'a b'->'cb', 'Hello, World!'->'Jello,World!']",
+  "f shifts only the first letter of each string forward by 2 in the alphabet, wrapping at the end [E1: 'a'->'c', 'abc'->'cbc'; E4: 'ab'->'cb', 'aaa'->'caa', 'abcd'->'cbcd', 'cab'->'eab', 'bca'->'dca']",
+  "All letters after the first pass through unchanged [E4: 'ab'->'cb', 'abab'->'cbab', 'aaab'->'caab', 'aba'->'cba']",
+  "Digits and punctuation pass through unchanged [E1: '123'->'123', '!@#'->'!@#']",
+  "The empty string maps to the empty string [E1: ''->'']",
+  "Case is preserved on the shifted first letter [E1: 'A'->'C', 'ABC'->'CBC']"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 0.88,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 4
+}

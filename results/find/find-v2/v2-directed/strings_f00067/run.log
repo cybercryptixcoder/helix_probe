@@ -1,0 +1,30 @@
+Helix Probe v2 on 'find_strings_f00067': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to plain lowercase words, single words vs. multi-word ...(+55 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.38, fit 0.80, size 327 (exam 0.000 -> 0.375); held-out 0%
+[2] E2 Does the transformation apply per word (splitting on spaces only) or per ch...(+74 chars)  (v1 predicted it: match 0.60)
+      model v2 by the updater: exam 0.50, fit 0.70, size 301 (exam 0.375 -> 0.500); held-out 1%
+[3] E3 Does the box preserve the exact original whitespace (including multiple, le...(+139 chars)  (v2 predicted it: match 0.00)
+      model v3 by the updater: exam 0.50, fit 0.53, size 481 (fit 0.467 -> 0.533); held-out 1%
+[4] E4 Does the box treat a lone single-character token differently from a single-...(+114 chars)  (v3 predicted it: match 0.40)
+      updater's model not kept: its fit is 0.425, the current model's is 0.500
+      model v4 by the updater: exam 0.50, fit 0.72, size 532 (fit 0.500 -> 0.725); held-out 1%
+[5] E5 How are single-character tokens treated when they are not the last token — ...(+151 chars)  (v4 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (532 vs 532 chars)
+      updater's model not kept: same scores and not smaller (532 vs 532 chars)
+[6] E6 Does the last-token rule (w[-1]+w[::-1], i.e. doubling for single chars) ap...(+182 chars)  (v4 predicted it: match 0.40)
+      updater's model not kept: its fit is 0.283, the current model's is 0.683
+      model v5 by the updater: exam 1.00, fit 1.00, size 582 (exam 0.500 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.500, the current model's is 1.000
+[7] E7 Does the box's last-token special rule (w[-1]+w[::-1]) depend on the token ...(+207 chars)  (v5 predicted it: match 1.00)
+[8] E8 Does the last-token special rule depend only on the string not ending in wh...(+243 chars)  (v5 predicted it: match 1.00)
+[9] E9 Does the box split on whitespace generally (tabs, newlines, multiple spaces...(+165 chars)  (v5 predicted it: match 1.00)
+[10] E10 How does the box treat tokens containing internal punctuation or digits mix...(+227 chars)  (v5 predicted it: match 1.00)
+[11] E11 How does the box handle punctuation/symbols as standalone tokens or attache...(+146 chars)  (v5 predicted it: match 1.00)
+[12] E12 Does the box apply the last-token special rule based on the last whitespace...(+182 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v6 by the theorist: exam 1.00, fit 1.00, size 510 (same scores, smaller (582 -> 510 chars)); held-out 100%
+[13] E13 Does the box's per-token reversal and last-token doubling rule still hold f...(+198 chars)  (v6 predicted it: match 1.00)
+[14] E14 Does the box treat punctuation-only or symbol-only tokens (e.g. '.', ',', '...(+204 chars)  (v6 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00067", "experiments": 14, "exam_probes": 4, "model_version": 6, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 510, "heldout": 1.0, "llm_calls": 25, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

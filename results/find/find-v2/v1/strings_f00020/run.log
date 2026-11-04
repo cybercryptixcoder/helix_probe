@@ -1,0 +1,28 @@
+Helix Probe on 'find_strings_f00020': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a spread of basic inputs (single word, word with spaces, ...(+43 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Does the insertion position depend on the character index (ceil(len/2)) rat...(+93 chars)  model v1 match 1.00
+[3] E3 Does the insertion point depend on the whole-string midpoint (ceil(len/2)) ...(+145 chars)  model v1 match 1.00
+[4] E4 Does the appended character always equal the input's last character, even w...(+107 chars)  model v1 match 1.00
+[5] E5 Does the insertion point really depend only on len(s) (ceil(len/2)), or doe...(+110 chars)  model v1 match 1.00
+[6] E6 Does the insertion position depend on Unicode code points (Python len) or o...(+101 chars)  model v1 match 1.00
+[7] E7 Does the insertion position use Python character indexing (ceil(len/2)) eve...(+146 chars)  model v1 match 1.00
+[8] E8 What happens when the input is very long (near/at the 60-char cap) and when...(+204 chars)  model v1 match 1.00
+[9] E9 Does f treat the empty string as an error, or does it return something (e.g...(+115 chars)  model v1 match 1.00
+[10] E10 Does f's midpoint insertion use ceil(len/2) as a pure character count, or c...(+154 chars)  model v1 match 1.00
+[11] E11 Does f's midpoint insertion and last-character append behave the same when ...(+107 chars)  model v1 match 1.00
+[12] E12 Does f's midpoint insertion still use ceil(len/2) when the input contains c...(+138 chars)  model v1 match 1.00
+[13] E13 Does the appended '5' and last-char copy interact with the insertion when t...(+168 chars)  model v1 match 1.00
+[14] E14 Does f's midpoint insertion and last-character append still hold for inputs...(+148 chars)  model v1 match 1.00
+[15] E15 Does f's inserted character stay '5' when the input itself already contains...(+149 chars)  model v1 match 1.00
+[16] E16 Does f's inserted character remain the literal '5' for inputs whose charact...(+167 chars)  model v1 match 1.00
+[17] E17 Does f still insert at ceil(len/2) and append the last character for a sing...(+88 chars)  model v1 match 1.00
+[18] E18 Does f behave the same for inputs that are single-character strings of ever...(+197 chars)  model v1 match 1.00
+[19] E19 Does f's insertion point and last-char append behave identically for inputs...(+187 chars)  model v1 match 1.00
+[20] E20 Does f's midpoint insertion still use Python character count ceil(len/2) an...(+235 chars)  model v1 match 1.00
+[21] E21 Does f behave identically for a single input of length 60 made of a mix of ...(+187 chars)  model v1 match 1.00
+[22] E22 Does f handle an input consisting only of the empty string differently when...(+133 chars)  model v1 match 1.00
+[23] E23 Does f's output depend only on the string content, or could it vary with ho...(+174 chars)  model v1 match 1.00
+[24] E24 Does f's output for a batch depend on the order/position of inputs, and doe...(+178 chars)  model v1 match 1.00
+[25] E25 Does f treat a lone surrogate code point as an ordinary code point for the ...(+149 chars)  model v1 match 1.00
+{"env": "find_strings_f00020", "experiments": 25, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

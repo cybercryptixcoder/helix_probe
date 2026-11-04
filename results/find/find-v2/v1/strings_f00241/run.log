@@ -1,0 +1,42 @@
+Helix Probe on 'find_strings_f00241': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a spread of basic input types (lowercase word, mixed-case...(+96 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 93%
+[2] E2 Does f stay the identity for inputs with newline/tab control characters and...(+61 chars)  model v1 match 1.00
+[3] E3 Does f remain the identity for very long strings (near the 60-char probe li...(+101 chars)  model v1 match 1.00
+[4] no valid probe after 3 tries; skipping
+[5] E4 Does f remain the identity for inputs that are not strings, or for strings ...(+129 chars)  model v1 match 0.90
+      model v2: fit 75% (was 75%), mean match 0.97 (was 0.97), held-out 93%
+[6] E5 Where exactly does f remove the BOM character U+FEFF — only when leading, o...(+25 chars)  model v2 match 0.40
+      model v3: fit 60% (was 60%), mean match 0.94 (was 0.86), held-out 93%
+[7] E6 Is the 'BOM' substring removal case-sensitive, and does it also apply to lo...(+53 chars)  model v3 match 0.50
+      model v4: fit 50% (was 50%), mean match 0.87 (was 0.87), held-out 93%
+[8] E7 Which case variants of the 3-letter substring are removed: is it exactly 'B...(+83 chars)  model v4 match 0.40
+      model v5: fit 43% (was 43%), mean match 0.80 (was 0.80), held-out 93%
+[9] E8 Does f remove the 3-letter variants 'BOm', 'Bom', 'BOM' only as exact subst...(+216 chars)  model v5 match 0.00
+      model v6: fit 38% (was 38%), mean match 0.70 (was 0.70), held-out 93%
+[10] E9 Does f remove the 3-letter substring only when it is exactly 'BOM', 'Bom', ...(+225 chars)  model v6 match 0.00
+      model v7: fit 100% (was 33%), mean match 1.00 (was 0.62), held-out 93%
+[11] E10 Does the 'B followed by O/o' deletion rule apply when the B is produced by ...(+108 chars)  model v7 match 0.90
+      model v8: fit 90% (was 90%), mean match 0.99 (was 0.99), held-out 93%
+[12] E11 Does the deletion rule fire when B is followed by 'O'/'o' only, or does it ...(+257 chars)  model v8 match 0.60
+      model v9: fit 82% (was 82%), mean match 0.95 (was 0.95), held-out 93%
+[13] E12 Does the deletion rule fire for uppercase 'B' only when the very next chara...(+158 chars)  model v9 match 0.30
+      model v10: fit 75% (was 75%), mean match 0.90 (was 0.90), held-out 93%
+[14] E13 Does the deletion rule 'delete uppercase B followed by O/o' apply repeatedl...(+236 chars)  model v10 match 0.40
+      model v11: fit 69% (was 69%), mean match 0.86 (was 0.86), held-out 93%
+[15] E14 Does the 'delete uppercase B followed by O/o' rule only fire when the B is ...(+261 chars)  model v11 match 0.60
+      model v12: fit 64% (was 64%), mean match 0.84 (was 0.84), held-out 93%
+[16] E15 When a run of uppercase B's precedes 'O'/'o', is only the leftmost B delete...(+280 chars)  model v12 match 0.50
+      model v13: fit 60% (was 60%), mean match 0.82 (was 0.82), held-out 93%
+[17] E16 Why does 'BOB' become 'O' but the model's repeated B(?=[Oo]) rewrite predic...(+194 chars)  model v13 match 0.20
+      model v14: fit 100% (was 56%), mean match 1.00 (was 0.78), held-out 93%
+[18] E17 Does the deletion rule fire on uppercase B adjacent to O/o when separated b...(+267 chars)  model v14 match 0.50
+      model v15: fit 100% (was 94%), mean match 1.00 (was 0.97), held-out 93%
+[19] E18 Does f delete every uppercase 'B' unconditionally, or only when it is adjac...(+228 chars)  model v15 match 1.00
+[20] E19 Does f delete only ASCII uppercase 'B' (U+0042), or also other B-like chara...(+108 chars)  model v15 match 1.00
+[21] E20 Does f delete uppercase 'B' in every Unicode context (combining marks, RTL/...(+118 chars)  model v15 match 1.00
+[22] E21 Does f delete uppercase 'B' only when it is a standalone character, or also...(+225 chars)  model v15 match 1.00
+[23] E22 Does f delete uppercase 'B' only from the exact ASCII string, or does it al...(+287 chars)  model v15 match 1.00
+[24] E23 Does f delete only the ASCII uppercase 'B' character itself, or does it als...(+470 chars)  model v15 match 1.00
+[25] E24 Is the deletion exactly the literal ASCII character 'B' (U+0042) only, and ...(+159 chars)  model v15 match 1.00
+{"env": "find_strings_f00241", "experiments": 24, "model_version": 15, "fit": 1.0, "heldout": 0.93, "llm_calls": 42, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

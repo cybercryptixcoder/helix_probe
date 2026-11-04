@@ -1,0 +1,18 @@
+Helix Probe v2 on 'find_strings_f00099': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.75, fit 1.00, size 78 (exam 0.000 -> 0.750); held-out 21%
+[2] E2 Does the box reverse the characters of each string unconditionally, includi...(+140 chars)  (v1 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (78 vs 78 chars)
+      model v2 by the updater: exam 1.00, fit 1.00, size 87 (exam 0.750 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Does the box strip only trailing whitespace before reversing, or does it al...(+110 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the box strip trailing whitespace of every kind (tabs, newlines, carri...(+165 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (273 vs 87 chars)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the box strip trailing whitespace of all kinds (including tabs/newline...(+201 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Does the box strip only trailing whitespace (spaces/tabs/newlines) before r...(+190 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00099", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 87, "heldout": 1.0, "llm_calls": 9, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

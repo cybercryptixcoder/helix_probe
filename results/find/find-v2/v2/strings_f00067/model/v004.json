@@ -1,0 +1,1 @@
+{"version": 4, "role": "theorist", "notes": "**Main idea:** Split the input into words, reverse each word, join with single spaces, and double the first character of the reversed last word unless the input ends in whitespace.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 440, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

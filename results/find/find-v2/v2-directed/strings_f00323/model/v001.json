@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to reverse each input string entirely (including spaces, case, and digits), since every observation in E1 is exactly the full string reversed.", "exam": 0.375, "fit": 0.5, "fit_exact": 0.0, "size": 78, "matches": [0.5], "made_at": 1, "heldout": 0.0}

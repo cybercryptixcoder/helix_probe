@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "Lowercase letters shift forward by one in the alphabet, except 'z' which wraps to 'a' [E1, E2].",
+  "Uppercase letters shift forward by one, except 'Z' which wraps to 'A' [E1, E2].",
+  "The shift applies only to the last character of each contiguous run of letters; earlier letters in a run are unchanged [E2].",
+  "Digits, spaces, and symbols pass through unchanged [E1, E2].",
+  "Empty string maps to empty string [E1]."
+ ],
+ "notes": "E2 shows only the final letter of each alphabetic run is shifted (az->aa, za->zb, AaBb->AaBc), not every letter. Wrapping at z/Z to a/A still holds.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.8,
+  0.6
+ ],
+ "made_at": 2
+}

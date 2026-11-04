@@ -1,0 +1,1 @@
+{"version": 2, "role": "theorist", "notes": "The box deletes every lowercase `m` from the string, then uppercases the first character (if it's a letter) and lowercases all remaining characters.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 470, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

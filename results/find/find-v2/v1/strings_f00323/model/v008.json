@@ -1,0 +1,42 @@
+{
+ "version": 8,
+ "beliefs": [
+  "The box reverses the order of characters in the input string [E1]",
+  "Whitespace characters (spaces, tabs, newlines, and all Unicode whitespace) are removed from the output rather than preserved [E2, E5, E8]",
+  "After reversing, all whitespace is stripped, so 'a b' -> 'ba' and ' lead' -> 'dael' [E2]",
+  "Case, digits, symbols, and non-whitespace invisible/format characters (ZWJ, ZWNJ, BOM, soft hyphen, word joiner) are preserved as-is, only order changes and whitespace is dropped [E1, E9]",
+  "Reversal is by Unicode code point, so astral characters and combining marks stay intact as units [E6, E7, E10]",
+  "Lone surrogates and unpaired UTF-16 code units are reversed as individual code points without error or alteration [E11, E12]",
+  "A surrogate pair split by whitespace is NOT recombined: the two halves reverse as separate code points, so '\\ud83d \\ude00' -> '\\ude00\\ud83d' [E13, E14]",
+  "Two adjacent lone surrogates that form a valid pair are treated as a single astral character when reversing [E17]",
+  "Whitespace between a lone high and lone low surrogate is removed but the halves are never merged into an astral character [E18, E19]",
+  "The box reverses first, then strips whitespace, so whitespace removal never causes new surrogate pairs to merge [E19]",
+  "When reversing, adjacent code units that form a valid surrogate pair are grouped as one unit, but a high surrogate followed by whitespace is not paired with a low surrogate across that whitespace [E13, E17, E20]"
+ ],
+ "notes": "E20's only mismatch was input 8 ('\\ud800\\udc00 \\ud800\\udc00'): observed keeps the two pairs as separate units, which my v7 already does; the 0.90 is likely due to a subtle grouping difference. I refined the model to explicitly group adjacent valid surrogate pairs as single units during reversal, matching E17 and E20 while preserving E13/E18/E19 behavior.",
+ "fit": 0.7,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  0.9,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  0.6,
+  0.9
+ ],
+ "made_at": 20
+}

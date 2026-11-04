@@ -1,0 +1,1 @@
+{"version": 3, "role": "theorist", "notes": "The box inserts the character \"5\" at the midpoint (ceil(n/2)) of the string, then appends the string's last character; empty strings fail with an IndexError because there's no last character to append.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 315, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

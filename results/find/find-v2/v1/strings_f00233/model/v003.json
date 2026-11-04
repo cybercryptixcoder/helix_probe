@@ -1,0 +1,19 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f reverses the order of characters in the input [E1, E2, E3]",
+  "f swaps the case of each letter (lowercase becomes uppercase, uppercase becomes lowercase) \u2014 it does NOT uppercase everything [E1, E2, E3]",
+  "The case swap is applied to each character before/independent of the reversal, so a letter's output case is the opposite of its input case [E2, E3]",
+  "Non-letter characters (spaces, digits, symbols) are preserved and reversed along with everything else [E1, E3]",
+  "Empty string maps to empty string [E1]"
+ ],
+ "notes": "E3 shows case is swapped (not uppercased): 'aB'->'Ba', 'AbC'->'Cba'. So the rule is reverse the string and swap the case of each letter, which is equivalent to swapping case then reversing.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.5,
+  0.3,
+  0.3
+ ],
+ "made_at": 3
+}

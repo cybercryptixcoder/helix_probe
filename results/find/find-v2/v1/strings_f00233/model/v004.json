@@ -1,0 +1,20 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f reverses the order of characters in the input [E1, E2, E3, E4]",
+  "After reversing, every letter is lowercased, then the first character of the result is uppercased if it is a letter [E4]",
+  "Non-letter characters (spaces, digits, symbols) are preserved and reversed along with everything else [E1, E3, E4]",
+  "Empty string maps to empty string [E1]",
+  "The final capitalization applies only to the first character of the reversed string, leaving the rest lowercase [E4]"
+ ],
+ "notes": "E4 shows output is reversed then all-lowercased with only the first character capitalized (e.g. 'Hello'->'Olleh', 'ABC'->'Cba', 'MiXeD CaSe'->'Esac dexim'). Replaced swapcase with reverse+lower+capitalize-first.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 4
+}

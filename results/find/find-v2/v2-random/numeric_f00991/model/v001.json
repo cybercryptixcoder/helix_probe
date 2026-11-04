@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found the box is piecewise linear: for x\u22650, f(x)=16.4x\u22122.5; for x<0, f(x)=\u22128.2x+2.5. All ten points in E1 fit exactly, and the two slopes differ (16.4 vs 8.2, a factor of 2), so the sign of x selects the branch.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 298, "matches": [1.0], "made_at": 1, "heldout": 1.0}

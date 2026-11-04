@@ -1,0 +1,13 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) = 'k' + reverse(x): a fixed prefix 'k' followed by the input reversed, preserving case and all characters [E1]"
+ ],
+ "notes": "Every output is 'k' prepended to the exact reverse of the input, including spaces, digits, symbols, and case. Model updated to this single rule.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0
+ ],
+ "made_at": 1
+}

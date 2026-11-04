@@ -1,0 +1,19 @@
+{
+ "version": 3,
+ "beliefs": [
+  "Only the final character of the string is shifted, and only if it is a letter [E1, E2, E3].",
+  "A final lowercase letter shifts forward by one, with 'z' wrapping to 'a' [E1, E2, E3].",
+  "A final uppercase letter shifts forward by one, with 'Z' wrapping to 'A' [E1, E2, E3].",
+  "All other characters (including non-final letters) pass through unchanged [E1, E2, E3].",
+  "Empty string maps to empty string [E1]."
+ ],
+ "notes": "Re-examined E3: the shift is not per-run but applies only to the string's last character when it's a letter. 'a1b'->'a1c' and 'a b'->'a c' confirm the leading 'a' is untouched; 'a'->'b' confirms a lone letter at the end shifts.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 3
+}

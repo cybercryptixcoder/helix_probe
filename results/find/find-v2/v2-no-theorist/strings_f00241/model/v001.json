@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to the identity function, since E1 shows the box returns every input unchanged across digits, mixed case, spaces, and words.", "exam": 0.9583333333333334, "fit": 1.0, "fit_exact": 1.0, "size": 65, "matches": [1.0], "made_at": 1, "heldout": 0.93}

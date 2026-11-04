@@ -1,0 +1,21 @@
+{
+ "env": "find_strings_f00163",
+ "experiments": 25,
+ "model_version": 2,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 29,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f reverses the input string and inserts a '2' at the middle position [E1, E2]",
+  "For even-length reversed strings the '2' goes at index len//2 (e.g. 'dcba' -> 'dc2ba', 'ba' -> 'b2a') [E2]",
+  "For odd-length reversed strings the '2' goes after the middle character (e.g. 'olleh' -> 'oll2eh', 'a' -> 'a2') [E1, E2]",
+  "Empty string becomes '2' [E1]",
+  "Case and punctuation are preserved, only order changes and '2' is inserted [E1]",
+  "For length-1 strings the '2' goes after the single character ('a' -> 'a2') [E2]"
+ ]
+}

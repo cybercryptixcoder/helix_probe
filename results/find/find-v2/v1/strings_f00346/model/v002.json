@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f removes all space characters from the input [E1: ' '->'', 'a b'->'cb', 'Hello, World!'->'Jello,World!']",
+  "f shifts every lowercase letter forward by 2 in the alphabet, wrapping z->a [E1: 'a'->'c', 'abc'->'cbc'; E2: 'x'->'z', 'y'->'a', 'z'->'b', 'wxyz'->'yxyz']",
+  "f shifts every uppercase letter forward by 2 in the alphabet, wrapping Z->A [E1: 'A'->'C', 'ABC'->'CBC', 'Hello, World!'->'Jello,World!'; E2: 'X'->'Z', 'Y'->'A', 'Z'->'B', 'WXYZ'->'YXYZ']",
+  "Digits and punctuation pass through unchanged [E1: '123'->'123', '!@#'->'!@#']",
+  "The empty string maps to the empty string [E1: ''->'']"
+ ],
+ "notes": "Fixed the shift to be a true +2 Caesar shift on all letters with wraparound (y->a, z->b, Y->A, Z->B), not a partial shift; spaces still removed.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.6,
+  0.6
+ ],
+ "made_at": 2
+}

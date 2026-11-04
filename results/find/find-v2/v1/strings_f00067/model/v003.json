@@ -1,0 +1,18 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f reverses the order of characters within each whitespace-delimited word, keeping word order [E1, E2]",
+  "Case is preserved; only letter order within words is reversed [E1]",
+  "Punctuation adjacent to a word is treated as part of that word and reversed with it, e.g. 'a,b'->'bb,a' and 'hello world!'->'olleh !!dlrow' [E2]",
+  "Whitespace runs (including leading/trailing and repeated spaces) are collapsed to a single space between words, and leading/trailing whitespace is dropped: '  hi  '->'ih', 'a  b'->'a bb', 'ab  cd'->'ba ddc' [E3]"
+ ],
+ "notes": "E3 shows whitespace is normalized: words are split on any whitespace run, each reversed, and rejoined with single spaces (no leading/trailing spaces). Changed predict to split on whitespace and join with single spaces.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.0,
+  0.0,
+  0.2
+ ],
+ "made_at": 3
+}

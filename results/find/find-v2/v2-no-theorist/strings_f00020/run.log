@@ -1,0 +1,20 @@
+Helix Probe v2 on 'find_strings_f00020': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.04, fit 0.00, size 219 (exam 0.000 -> 0.042); held-out 0%
+[2] E2 Does the extra character get inserted at a fixed position (after the first ...(+139 chars)  (v1 predicted it: match 0.00)
+      model v2 by the updater: exam 1.00, fit 1.00, size 254 (exam 0.042 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Does the insertion position depend on the length alone (ceil(len/2)) or on ...(+177 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the insertion position and last-character duplication hold for empty s...(+202 chars)  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 1.00, size 270 (fit 0.983 -> 1.000); held-out 100%
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Does the insertion index depend only on length as (len+1)//2, or could it b...(+235 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 Does the transformation apply only to the first line/word, or does it apply...(+92 chars)  (v3 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 Does the insertion index depend on the character content (e.g., digits vs l...(+111 chars)  (v3 predicted it: match 1.00)
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+[14] E14 Does the last-character duplication use the final character of the whole st...(+144 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00020", "experiments": 14, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 270, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

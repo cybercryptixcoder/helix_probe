@@ -1,0 +1,23 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f increments the last character of the input by one Unicode code point if it is a letter (any script), before inserting '4' [E1, E2, E3, E5]",
+  "f inserts '4' at index len(s)//2 of the (possibly incremented) string [E1, E2, E3, E4]",
+  "Non-letter last characters (digits, symbols, spaces) are left unchanged [E1, E4]",
+  "Increment wraps within the letter's own case: 'z'\u2192'a', 'Z'\u2192'A', '\u00e9'\u2192'\u00ea', '\u00c9'\u2192'\u00ca' [E2, E3]",
+  "The insertion index is computed from the original string's length, which equals the incremented string's length [E1, E2, E3]",
+  "For non-ASCII letters, incrementing is by code point (\u00e9\u2192\u00ea, \u03b1\u2192\u03b2, \u03c9\u2192\u03ca, \u042f\u2192\u0430), not by case-folding or ASCII-only rules [E3, E5]",
+  "Wrap for non-ASCII letters goes to the start of the same-case run (\u03c9\u2192\u03ca, \u042f\u2192\u0430), i.e. code point +1 unless that leaves the case-run, then the run's start [E5]"
+ ],
+ "notes": "E5 showed \u03c9\u2192\u03ca (code point +1, not wrap to start of run) and \u042f\u2192\u0430 (wrap to start of uppercase Cyrillic run). My v2 wrongly wrapped \u03c9 because I required the next char to be same case; but \u03ca is lowercase Greek so +1 is correct. The real rule: increment by code point if the result is still a letter; only wrap when +1 is not a letter. \u042f+1=\u0430 which is a letter but different case, yet it wrapped to \u0430 (start of uppercase run) \u2014 so case change triggers wrap to run start. Fixed: +1 if same case and letter, else wrap to start of same-case run.",
+ "fit": 0.8,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9
+ ],
+ "made_at": 5
+}

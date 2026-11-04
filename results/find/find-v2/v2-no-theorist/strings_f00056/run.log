@@ -1,0 +1,13 @@
+Helix Probe v2 on 'find_strings_f00056': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 545 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the deduplication treat uppercase and lowercase as the same character ...(+145 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Does the first-character alphabet shift apply to the deduplicated string's ...(+232 chars)  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 1.00)
+[6] E6 Does the first-character shift and deduplication interact with digit/symbol...(+184 chars)  (v1 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v1 predicted it: match 1.00)
+[8] E8 Does the deduplication operate on the original-case characters before the f...(+166 chars)  (v1 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00056", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 545, "heldout": 1.0, "llm_calls": 5, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

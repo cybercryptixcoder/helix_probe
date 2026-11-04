@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f returns its input unchanged for all tested strings, including control chars, Unicode, combining marks, and zero-width chars [E1, E2, E3]",
+  "f strips a leading BOM (U+FEFF) from the input, as seen with '\\ufeffBOM start' -> 'OM start' [E4]",
+  "Other leading/trailing whitespace and special characters are preserved, not stripped [E1, E4]",
+  "Whether BOM removal applies only at the start or anywhere in the string is untested?"
+ ],
+ "notes": "Only change from identity: a leading U+FEFF BOM is removed. All other inputs pass through unchanged, including combining marks, zero-width spaces, nbsp, and control chars.",
+ "fit": 0.75,
+ "heldout": 0.93,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  0.9
+ ],
+ "made_at": 4
+}

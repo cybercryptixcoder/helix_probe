@@ -1,0 +1,23 @@
+Helix Probe v2 on 'find_strings_f00243': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 204 (exam 0.000 -> 1.000); held-out 88%
+[2] E2 Does the box insert 'Z' at the midpoint of the original string (counting sp...(+90 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Does the box insert 'Z' at the midpoint of the original string (counting sp...(+90 chars)  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 1.00)
+[6] E6 Does the box insert 'Z' based on the midpoint of the space-stripped string ...(+132 chars)  (v1 predicted it: match 0.67)
+      model v2 by the updater: exam 1.00, fit 1.00, size 206 (fit 0.944 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (283 vs 206 chars)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the box insert 'Z' at the midpoint of the whitespace-stripped string w...(+176 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Does the box insert 'Z' at the midpoint when the whitespace-stripped string...(+153 chars)  (v2 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v2 predicted it: match 1.00)
+[12] E12 Does the box insert 'Z' at the midpoint of the whitespace-stripped string f...(+134 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (659 vs 206 chars)
+[13] E13 a random ordinary probe  (v2 predicted it: match 1.00)
+[14] E14 Does the box's midpoint insertion depend only on whitespace-stripped length...(+222 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00243", "experiments": 14, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 206, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

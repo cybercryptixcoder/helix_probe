@@ -1,0 +1,24 @@
+{
+ "env": "find_strings_f00056",
+ "experiments": 25,
+ "model_version": 8,
+ "fit": 0.12,
+ "heldout": 0.0,
+ "llm_calls": 63,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "Every letter other than l/L is replaced by its predecessor in the alphabet (a->z, b->a, ..., A->Z, B->A) [E1, E9, E10]",
+  "A run of consecutive l/L collapses to a single 'l'/'L' [E2, E3, E5, E13]",
+  "When a run of l/L follows a letter, the preceding letter is shifted to its predecessor and the run becomes a single 'l'/'L' [E13, E14, E23]",
+  "When a run of l/L follows a letter and is followed by a tail, the first tail character is dropped and the rest kept verbatim [E20, E21, E22, E23, E24, E25]",
+  "When a run of l/L is at the start of the string (no preceding letter), it becomes 'k'/'K' [E2, E3, E6, E7]",
+  "A single l/L after a letter is left as 'l'/'L' (not shifted) and the following characters are kept verbatim [E9, E10, E11]",
+  "A single l/L after a digit or space is left unchanged [E6, E8]",
+  "Case is preserved for all transformations [E1, E2, E3]",
+  "The l/L handling is special-cased and does not follow the general predecessor shift [E2, E5, E9, E10]"
+ ]
+}

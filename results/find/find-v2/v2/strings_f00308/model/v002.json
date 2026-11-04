@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the rule from \"remove ASCII spaces\" to \"remove all whitespace\" (`\\s+`), since E2 shows tabs, newlines, and CRLF are all stripped just like spaces.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 103, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

@@ -1,0 +1,20 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f(x) is a noisy plateau around ~12.5 on the interval [-3, 3], with values fluctuating roughly between 11.3 and 14.4 [E1, E2, E3, E4]",
+  "The plateau edges fall between -3.4 and -3.0 on the left and between 3.0 and 3.1 on the right [E4]",
+  "Outside [-3, 3] f(x) is a small bounded function with magnitude under ~2.2 [E1, E2, E4]",
+  "Outside values look noise-like/oscillatory with no clear smooth structure yet; a placeholder small oscillation is used [E1, E2, E4]",
+  "The plateau value is not exactly flat; treat as ~12.5 plus noise, and outside as small noise-like values [E3, E4]"
+ ],
+ "notes": "Tightened plateau edges to [-3, 3] based on E4 (values at -3.4 and 3.1 are outside, -3.0 and 3.0 inside), and kept noise-like placeholder outside since no clear structure emerged.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.25,
+  0.6428571428571429,
+  0.7647058823529411,
+  0.3888888888888889
+ ],
+ "made_at": 4
+}

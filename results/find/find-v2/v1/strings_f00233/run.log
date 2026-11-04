@@ -1,0 +1,34 @@
+Helix Probe on 'find_strings_f00233': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to basic lowercase words, mixed case, digits, symbols, and s...(+48 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.50 (was 0.00), held-out 0%
+[2] E2 Does f reverse the whole string and then swap case (so the result depends o...(+194 chars)  model v1 match 0.30
+      model v2: fit 0% (was 0%), mean match 0.50 (was 0.40), held-out 0%
+[3] E3 Does f swap the case of the original string and then reverse (so each lette...(+127 chars)  model v2 match 0.00
+      model v3: fit 0% (was 0%), mean match 0.37 (was 0.33), held-out 0%
+[4] E4 Does f lowercase every letter after reversing (rather than swapcase), i.e. ...(+84 chars)  model v3 match 0.10
+      model v4: fit 100% (was 0%), mean match 1.00 (was 0.30), held-out 100%
+[5] E5 Does the final first-letter capitalization apply to non-letter characters (...(+108 chars)  model v4 match 1.00
+[6] E6 Does the final capitalization only uppercase ASCII letters a-z, or does it ...(+109 chars)  model v4 match 0.90
+      model v5: fit 83% (was 83%), mean match 0.98 (was 0.98), held-out 100%
+[7] E7 How does the first-character uppercase behave when the reversed string's fi...(+377 chars)  model v5 match 0.60
+      revision rejected: mean match 0.00 < 0.93
+      model v6: fit 100% (was 71%), mean match 1.00 (was 0.93), held-out 100%
+[8] E8 Does the final capitalize() step operate on the full reversed string includ...(+285 chars)  model v6 match 1.00
+[9] E9 Does the capitalize step treat a leading combining mark specially (skipping...(+214 chars)  model v6 match 1.00
+[10] E10 Does the capitalize step's leading-combining-mark skip also skip over other...(+115 chars)  model v6 match 1.00
+[11] E11 Does the capitalize step's leading-combining-mark skip also skip over a com...(+159 chars)  model v6 match 1.00
+[12] E12 Does the capitalization step skip over leading non-combining, non-letter ch...(+240 chars)  model v6 match 1.00
+[13] E13 Does the capitalize step's leading-skip skip over non-letter characters onl...(+235 chars)  model v6 match 1.00
+[14] E14 Does the capitalize step's leading-skip rule (skip leading non-letters, upp...(+195 chars)  model v6 match 1.00
+[15] E15 Does the capitalize step's leading-skip rule skip over leading non-letters ...(+230 chars)  model v6 match 1.00
+[16] E16 Does the capitalize step's leading-skip rule skip over leading non-letters ...(+183 chars)  model v6 match 1.00
+[17] E17 Does the capitalize step uppercase the first letter found after skipping le...(+241 chars)  model v6 match 1.00
+[18] E18 Does the capitalize step's leading-skip rule behave the same when the rever...(+303 chars)  model v6 match 1.00
+[19] E19 Does the capitalize step's leading-skip rule also skip over leading non-let...(+294 chars)  model v6 match 1.00
+[20] E20 Does the capitalize step's leading-skip rule skip over leading non-letters ...(+241 chars)  model v6 match 1.00
+[21] E21 Does the capitalize step's leading-skip treat characters that are caseless ...(+189 chars)  model v6 match 1.00
+[22] E22 Does the capitalize step's leading-skip rule skip over leading non-letters ...(+376 chars)  model v6 match 1.00
+[23] E23 Does the reverse-then-capitalize model hold for inputs containing character...(+304 chars)  model v6 match 1.00
+[24] E24 Does the reverse-then-capitalize model hold when the reversed string begins...(+215 chars)  model v6 match 1.00
+[25] E25 Does the capitalize step operate on Unicode word characters beyond letters ...(+235 chars)  model v6 match 1.00
+{"env": "find_strings_f00233", "experiments": 25, "model_version": 6, "fit": 1.0, "heldout": 1.0, "llm_calls": 33, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

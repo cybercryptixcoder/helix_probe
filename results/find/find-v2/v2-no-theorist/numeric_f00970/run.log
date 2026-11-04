@@ -1,0 +1,70 @@
+Helix Probe v2 on 'find_numeric_f00970': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.05, fit 0.20, size 301 (exam 0.000 -> 0.050); held-out 0%
+[2] E2 Does the function have a simple pole/divergence near x≈2.5-3 (as the huge v...(+86 chars)  (v1 predicted it: match 0.05)
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.30)
+[4] E4 Is the function piecewise with a different branch on the positive side (lar...(+162 chars)  (v1 predicted it: match 0.10)
+      model v2 by the updater: exam 0.08, fit 0.24, size 406 (exam 0.050 -> 0.075); held-out 0%
+[5] E5 a random ordinary probe  (v2 predicted it: match 0.00)
+      updater's model not kept: its fit is 0.150, the current model's is 0.190
+      updater's model not kept: its fit is 0.150, the current model's is 0.190
+[6] E6 What is the exact shape of the large-value region on the negative side — wh...(+139 chars)  (v2 predicted it: match 0.19)
+      model v3 by the updater: exam 0.10, fit 0.22, size 464 (exam 0.075 -> 0.100); held-out 0%
+[7] E7 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[8] E8 What is the fine structure of the positive-side large-value region — is it ...(+122 chars)  (v3 predicted it: match 0.30)
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[9] E9 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+[10] E10 Outside the two large-value bumps, is the small output truly random noise (...(+124 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+[11] E11 a random ordinary probe  (v3 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[12] E12 Is the small output outside the bumps a deterministic function of x (so rep...(+135 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[13] E13 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[14] E14 Is the small-output region truly unpredictable noise (different y for repea...(+167 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[15] E15 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[16] E16 Is the large-value region on the positive side actually bounded in x (rough...(+103 chars)  (v3 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+[17] E17 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+[18] E18 Is the small-output region outside the bumps a deterministic function of x ...(+142 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+[19] E19 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+[20] E20 Is the small output outside the bumps a deterministic function of x with a ...(+170 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[21] E21 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[22] E22 Is the small output outside the bumps deterministic given x (repeatable acr...(+146 chars)  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[23] E23 a random ordinary probe  (v3 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+[24] E24 Is the small output outside the bumps just random noise with a fixed distri...(+111 chars)  (v3 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.025, the current model's is 0.100
+      updater's model not kept: its exam is 0.000, the current model's is 0.100
+[25] E25 a random ordinary probe  (v3 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+      updater's model not kept: its exam is 0.075, the current model's is 0.100
+{"env": "find_numeric_f00970", "experiments": 25, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 0.1, "fit": 0.08349999999999999, "size": 464, "heldout": 0.0, "llm_calls": 60, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

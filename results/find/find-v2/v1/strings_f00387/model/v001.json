@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f capitalizes the first character of the string and leaves the rest unchanged [E1]",
+  "Non-letter first characters (digits, symbols, spaces) are left as-is [E1]",
+  "Already-uppercase first letters stay uppercase [E1]"
+ ],
+ "notes": "Simplest rule fitting all outputs: uppercase only the first character, leave the remainder untouched. This explains 'Hello World'->'Hello world' (only first char changed) and 'a b'->'A b'.",
+ "fit": 0.0,
+ "heldout": 0.2,
+ "matches": [
+  0.9
+ ],
+ "made_at": 1
+}

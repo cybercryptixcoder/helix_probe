@@ -1,0 +1,33 @@
+{
+ "version": 6,
+ "beliefs": [
+  "For x>0, f(x) = -405.5*x - 154.8 [E8, E9, E12]",
+  "For -1<x<0, f(x) = 17.1*x - 17.1 [E11, E12, E13]",
+  "For x<=-1, f(x) = -35.52*x - 16.9 [E10, E12]",
+  "At x=0 exactly, f(0) is a large negative spike (~-5401) [E1, E3, E4, E5]",
+  "The spike at x=0 is a single point, not an interval [E4, E5]",
+  "The boundary between the x<=-1 branch and the (-1,0) branch is at x=-1: f(-1)=18.62 belongs to the x<=-1 branch, and for x>-1 the 17.1 branch applies (f(-0.9999999)=18.62) [E12, E13, E14]",
+  "The two negative branches nearly meet at x=-1 (both ~18.62), so the boundary is continuous there [E12, E14]",
+  "The (-1,0) branch approaches -17.1 as x->0- [E12]"
+ ],
+ "notes": "Fixed the branch boundary: the (-1,0) branch applies for all x in (-1,0), including values just below -1 like -0.9999999, which E13/E14 confirm follow 17.1x-17.1. The x<=-1 branch applies only for x<=-1.",
+ "fit": 0.6428571428571429,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.85,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.15,
+  0.6666666666666666,
+  0.0,
+  0.85
+ ],
+ "made_at": 14
+}

@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I found the box is two linear pieces split at x=0: for positive x, y=16.4x\u22122.5; for negative x, y=\u22128.2x+2.5. All 10 points in E1 fit exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 237, "matches": [1.0], "made_at": 1, "heldout": 1.0}

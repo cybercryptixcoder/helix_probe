@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "Changed the split point from `floor(n/2)` to `ceil(n/2)`: E2 shows single-char strings get the \"2\" appended (\"a2\", \"h2\"), so the extra character of an odd-length reversed string goes to the left half, not the right.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 202, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_strings_f00243': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 180 (exam 0.000 -> 1.000); held-out 88%
+[2] E2 Does the box insert 'Z' at len//2 of the space-stripped string even when th...(+118 chars)  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 1.00, size 197 (fit 0.950 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Does the box insert 'Z' at len//2 measured on the whitespace-stripped strin...(+199 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the box treat non-space whitespace characters like newlines and carria...(+202 chars)  (v2 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the box's whitespace removal treat all Unicode whitespace (e.g., non-b...(+208 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Does the box insert 'Z' at len//2 of the whitespace-stripped string when th...(+220 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00243", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 197, "heldout": 1.0, "llm_calls": 7, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

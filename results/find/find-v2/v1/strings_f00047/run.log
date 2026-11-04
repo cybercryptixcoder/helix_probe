@@ -1,0 +1,37 @@
+Helix Probe on 'find_strings_f00047': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does the box do to simple lowercase words, single characters, digits, ...(+79 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 10%
+[2] E2 Does the box strip leading/trailing whitespace and capitalize the first non...(+106 chars)  model v1 match 0.50
+      model v2: fit 100% (was 50%), mean match 1.00 (was 0.75), held-out 23%
+[3] E3 Does the box uppercase the first non-whitespace character after leading spa...(+98 chars)  model v2 match 1.00
+[4] E4 Does the box uppercase only the first character after stripping trailing wh...(+277 chars)  model v2 match 1.00
+[5] E5 How does the box treat non-ASCII / Unicode characters at position 0 and els...(+183 chars)  model v2 match 0.70
+      model v3: fit 80% (was 80%), mean match 0.94 (was 0.94), held-out 23%
+[6] E6 Does the box's first-character uppercasing use the first char of the full u...(+151 chars)  model v3 match 0.00
+      model v4: fit 67% (was 67%), mean match 0.82 (was 0.78), held-out 23%
+[7] E7 Does the first-character uppercasing apply full .upper() expansion only whe...(+160 chars)  model v4 match 0.40
+      revision rejected: mean match 0.73 < 0.76
+      model v5: fit 57% (was 57%), mean match 0.76 (was 0.76), held-out 23%
+[8] E8 When the first character is at position 0 and uppercases to a multi-char ex...(+156 chars)  model v5 match 0.10
+      model v6: fit 50% (was 50%), mean match 0.68 (was 0.68), held-out 23%
+[9] E9 Does the box really use full .upper() on the first character (giving 'SS' f...(+126 chars)  model v6 match 0.20
+      revision rejected: mean match 0.57 < 0.62
+      model v7: fit 89% (was 44%), mean match 0.99 (was 0.62), held-out 23%
+[10] E10 Does the first-character title-case rule apply when the first character is ...(+285 chars)  model v7 match 1.00
+[11] E11 The one remaining model error is E5's 'ÉCOLE'→'École' (model predicted unch...(+174 chars)  model v7 match 0.20
+      model v8: fit 100% (was 82%), mean match 1.00 (was 0.92), held-out 100%
+[12] E12 Does the box lowercase the whole string (not just the tail after the first ...(+182 chars)  model v8 match 1.00
+[13] E13 Does the box lowercase the whole string when the first character is a title...(+226 chars)  model v8 match 1.00
+[14] E14 Does the box lowercase the tail after a non-letter first character that has...(+188 chars)  model v8 match 1.00
+[15] E15 How does the box handle non-string-like edge cases of case conversion: does...(+240 chars)  model v8 match 1.00
+[16] E16 Does the trailing-whitespace strip use full .rstrip() semantics (stripping ...(+330 chars)  model v8 match 1.00
+[17] E17 How does the box handle trailing whitespace stripping when the string consi...(+382 chars)  model v8 match 1.00
+[18] E18 Does the box's title-case-then-lowercase operate on the whole string such t...(+220 chars)  model v8 match 1.00
+[19] E19 How does the box treat interior/trailing whitespace and case when the strin...(+450 chars)  model v8 match 1.00
+[20] E20 Does the box's trailing-whitespace strip happen before case conversion in a...(+202 chars)  model v8 match 1.00
+[21] E21 Does the box operate on the whole string with a single .title()/.capitalize...(+334 chars)  model v8 match 1.00
+[22] E22 Does the box strip trailing whitespace before or after case conversion, and...(+224 chars)  model v8 match 1.00
+[23] E23 How does the box handle a first character that is a combining mark or zero-...(+120 chars)  model v8 match 1.00
+[24] E24 Does the box strip trailing whitespace before applying case conversion (so ...(+226 chars)  model v8 match 1.00
+[25] E25 Does the box apply the trailing-whitespace strip and the first-char title-c...(+228 chars)  model v8 match 1.00
+{"env": "find_strings_f00047", "experiments": 25, "model_version": 8, "fit": 1.0, "heldout": 1.0, "llm_calls": 35, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

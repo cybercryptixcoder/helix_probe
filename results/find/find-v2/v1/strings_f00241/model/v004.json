@@ -1,0 +1,22 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f returns its input unchanged for ordinary strings, including control chars, Unicode, combining marks, zero-width chars, and long strings [E1, E2, E3, E4]",
+  "f removes the exact substring 'BOM' (uppercase only) wherever it appears, leaving U+FEFF intact [E4, E5, E6]",
+  "Lowercase 'bom' and mixed-case 'bOm'/'boM' are NOT removed; only 'Bom' (B-o-m) is removed, so removal matches 'BOM' and 'Bom' but not other cases [E6]",
+  "E6 shows 'Bom' -> 'om' and 'xxBomxx' -> 'xxomxx' and 'BOMbom' -> 'OMbom' and 'aBOMbomc' -> 'aOMbomc', consistent with removing 'BOM' and 'Bom' but not 'bom' [E6]",
+  "Whether removal is case-insensitive only for the first letter (B) or matches exactly {'BOM','Bom'} is uncertain; other patterns like 'bOM' or 'BOm' are untested?"
+ ],
+ "notes": "E6 shows 'Bom' is removed but 'bom','bOm','boM' are not, so removal matches 'BOM' and 'Bom' (B uppercase, om lowercase) rather than being fully case-insensitive. Updated predict to remove both 'BOM' and 'Bom'.",
+ "fit": 0.5,
+ "heldout": 0.93,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  0.8,
+  0.5
+ ],
+ "made_at": 6
+}

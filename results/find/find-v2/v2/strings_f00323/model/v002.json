@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I changed the model to strip spaces after reversing: E2 shows `\"one two three\"` \u2192 `\"eerhtowteno\"` (no spaces), so the box reverses the string and removes spaces rather than preserving them.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 95, "matches": [1.0, 1.0], "made_at": 2, "heldout": 0.88}

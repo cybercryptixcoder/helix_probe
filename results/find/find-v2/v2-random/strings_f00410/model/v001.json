@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I discovered the box reverses each string, then shifts the first character of the reversed string back by 2 letters (wrapping, letters only). This matches all six E1 cases exactly.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 410, "matches": [1.0], "made_at": 1, "heldout": 1.0}

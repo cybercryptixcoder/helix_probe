@@ -1,0 +1,16 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f shifts every character by +5 in ASCII, with no wrapping (letters, digits, spaces, punctuation, symbols all treated the same) [E1, E2, E3]",
+  "f appends a trailing 'W' to every output [E1, E2, E3]"
+ ],
+ "notes": "All characters are a plain +5 ASCII shift with no mod-26 wrap; E3's Y->^, Z->_, z->DEL confirm this, and earlier lowercase results are consistent with no-wrap too.",
+ "fit": 1.0,
+ "heldout": 0.91,
+ "matches": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 3
+}

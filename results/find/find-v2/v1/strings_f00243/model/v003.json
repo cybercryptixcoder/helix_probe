@@ -1,0 +1,28 @@
+{
+ "version": 3,
+ "beliefs": [
+  "The box inserts a single 'Z' into the input string [E1, E2, E3]",
+  "For a single character, 'Z' is prepended (position 0) [E1: 'a'->'Za', 'A'->'ZA', '1'->'Z1', '!'->'Z!', ' '->'Z', 'Z'->'ZZ', 'z'->'Zz']",
+  "Empty string maps to 'Z' [E1: ''->'Z']",
+  "For length 2, 'Z' is inserted at index 1 [E2: 'ab'->'aZb', 'a b'->'aZb', ' ab'->'aZb', 'ab '->'aZb']",
+  "For length 3, 'Z' is inserted at index 1 [E1: 'abc'->'aZbc', 'a1'->'aZ1' (len2), '  '->'Z' (all spaces?), 'a  b'->'aZb']",
+  "For length 4, 'Z' is inserted at index 2 [E2: 'abcd'->'abZcd', 'a b c'->'aZbc' (len5?), E3: 'aZb'->'aZZb', '  a'->'Za']",
+  "For length 5, 'Z' is inserted at index 2 [E2: 'abcde'->'abZcde', 'a b c'->'aZbc', 'xy z'->'xZyz']",
+  "For length 8, 'Z' is inserted at index 4 [E3: 'abcdefgh'->'abcdZefgh']",
+  "For length 6, 'Z' is inserted at index 3 [E3: 'a1b2c3'->'a1bZ2c3']",
+  "For length 5 with symbols, 'Z' is inserted at index 2 [E3: 'a!b?c'->'a!Zb?c']",
+  "For length 11, 'Z' is inserted at index 5 [E2: 'hello world'->'helloZworld']",
+  "For length 5, 'Z' is inserted at index 2 [E3: 'abZcd'->'abZZcd']",
+  "Insertion position appears to be floor(len/2) for length>=2, except length 2 and 3 use index 1 [E1,E2,E3]?",
+  "All-space strings collapse: '  '->'Z' and ' '->'Z' [E1, E3]?"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.8,
+  0.3,
+  0.7
+ ],
+ "made_at": 3
+}

@@ -1,0 +1,28 @@
+{
+ "version": 4,
+ "beliefs": [
+  "For x>0, f(x) is linear with slope -405.5 and offset -154.8: f(x) = -405.5*x - 154.8 [E7, E8, E9]",
+  "For -1<x<0, f(x) is linear with slope about 17.1 and offset about -17.08: f(x) \u2248 17.1*x - 17.08 [E11]",
+  "For x<=-1, f(x) is linear with slope about -35.52 and offset about -16.5: f(x) \u2248 -35.52*x - 16.5 [E10]",
+  "At x=0 exactly, f(0) is a large negative spike (~-5401) inconsistent with surrounding branches [E1, E3, E4, E5]",
+  "The spike at x=0 is a single point, not an interval [E4, E5]",
+  "The (-1,0) branch slope is ~17.1 (not 81.5); exact offset still uncertain? [E11]"
+ ],
+ "notes": "Fixed the (-1,0) branch: E11 shows slope ~17.1 with offset ~-17.08 (f(-0.001)=-17.0643, f(-0.98)=17.9056 gives slope 17.1, offset -17.08). Also refined x<=-1 offset to -16.5 from E10 (f(-1)=18.62 => -35.52*(-1)+b=18.62 => b=-16.9; but f(-128)=4555.06 => -35.52*(-128)+b=4555.06 => b=8.5? recompute: 35.52*128=4546.56, 4555.06-4546.56=8.5, so offset is +8.5 not -16.9). Let me recompute: slope from E10: (4555.06-18.62)/(-128-(-1)) = 4536.44/-127 = -35.72. Offset: 18.62 = -35.72*(-1)+b => b = 18.62-35.72 = -17.1. Hmm inconsistent. Using endpoints: slope=(4555.06-18.62)/(-127)=-35.72, b=18.62-35.72=-17.1. Check f(-2.5): -35.72*-2.5-17.1=89.3-17.1=72.2 \u2713. So slope -35.72, offset -17.1.",
+ "fit": 0.8181818181818182,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.85,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.15
+ ],
+ "made_at": 11
+}

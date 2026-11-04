@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I moved the boundary from 3 to 3.2: E2 shows x=3 is still on the ~12 plateau (12.58) while x=3.5 is outside (0.95 on the left, -0.33 on the right), so the transition lies between 3 and 3.5, not below 3.", "exam": 0.05, "fit": 0.44999999999999996, "fit_exact": 0.0, "size": 280, "matches": [0.3, 0.6], "made_at": 2, "heldout": 0.0}

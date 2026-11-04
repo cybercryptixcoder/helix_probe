@@ -1,0 +1,17 @@
+Helix Probe v2 on 'find_strings_f00163': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Establish the basic behavior of f on plain single words and simple multi-wo...(+37 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.50, fit 0.40, size 196 (exam 0.000 -> 0.500); held-out 0%
+[2] E2 Does the split point depend on the original string length parity in a way t...(+135 chars)  (v1 predicted it: match 0.70)
+      model v2 by the updater: exam 1.00, fit 1.00, size 202 (exam 0.500 -> 1.000); held-out 100%
+[3] E3 Does the insertion point of '2' follow the reversed-length rule for typical...(+104 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the '2' insertion point after reversal depend on word boundaries or sp...(+140 chars)  (v2 predicted it: match 1.00)
+[5] E5 Does the '2' insertion point depend purely on total character count (includ...(+120 chars)  (v2 predicted it: match 1.00)
+[6] E6 Does the '2' insertion point depend purely on character count for strings c...(+125 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (233 vs 202 chars)
+[7] E7 Does the '2' insertion point depend on the count of non-space characters ra...(+93 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the '2' insertion point depend purely on character count when the inpu...(+128 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the '2' insertion point depend on total character count for ordinary m...(+128 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the '2' insertion point for inputs whose length is a multiple of 4 (wh...(+155 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00163", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 202, "heldout": 1.0, "llm_calls": 13, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

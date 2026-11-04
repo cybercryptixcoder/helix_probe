@@ -1,0 +1,41 @@
+{
+ "version": 14,
+ "beliefs": [
+  "f deletes an uppercase 'B' whenever it is immediately followed by 'O' or 'o' [E6, E7]",
+  "Lowercase 'b' is never deleted: 'bOM','bOm','bom' are unchanged [E6, E7]",
+  "Deletion is applied repeatedly until stable [E8]",
+  "Deletion happens anywhere in the string [E9]",
+  "The rule is 'B followed by O/o' (not requiring M immediately after) [E9]",
+  "U+FEFF is left intact and does not block deletion [E4, E5]",
+  "Deletion is not a simple B(?=[Oo]) fixpoint: 'BOB'->'O' but 'OB'->'O' too, so the trailing B is deleted even when not followed by O/o [E16]",
+  "Deletion appears to be a left-to-right pass where after deleting a B, the scan continues and the next B is deleted unconditionally if it was part of the original B-run before O/o [E16]",
+  "Actually 'BOB'->'O', 'BOBB'->'O', 'BOBBB'->'O', 'BOBBBB'->'O': a run of B's after 'BO' all vanish, suggesting the rule deletes B's in a run that ends at O/o, not just those directly before O/o [E16]",
+  "'OB'->'O' and 'OBB'->'O': a B after O is deleted even without a following O/o, so the rule is more like 'delete B if preceded by O/o or followed by O/o'? [E16]",
+  "'BO'->'O', 'B'->'', 'B' alone is deleted! [E16]",
+  "Wait: 'B'->'' means a lone uppercase B is deleted, contradicting earlier beliefs [E16]",
+  "Reconsider: maybe f deletes uppercase B whenever it is adjacent (before or after) to O/o, and also deletes lone B? Need to re-examine [E16]",
+  "'BOBBO'->'OO', 'BOBBOB'->'OO': consistent with deleting all B's in a run between/around O's [E16]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 0.93,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 16
+}

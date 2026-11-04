@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "The box reverses the order of characters in the input string [E1]",
+  "Reversal preserves case, digits, punctuation, and spaces exactly, only order changes [E1]",
+  "Empty string maps to empty string, and whitespace-only strings reverse to the same whitespace [E1]"
+ ],
+ "notes": "All observations are consistent with simple full-string reversal: case, digits, symbols, and spaces are preserved, only order flips. So predict() reverses each input string.",
+ "fit": 0.0,
+ "heldout": 0.21,
+ "matches": [
+  0.9
+ ],
+ "made_at": 1
+}

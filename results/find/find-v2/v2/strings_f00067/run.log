@@ -1,0 +1,19 @@
+Helix Probe v2 on 'find_strings_f00067': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.38, fit 0.67, size 861 (exam 0.000 -> 0.375); held-out 0%
+[2] E2 Does the doubling rule depend on the last word, or on the last character/wo...(+94 chars)  (v1 predicted it: match 0.10)
+      model v2 by the updater: exam 0.75, fit 0.95, size 527 (exam 0.375 -> 0.750); held-out 21%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.83)
+      model v3 by the updater: exam 1.00, fit 1.00, size 628 (exam 0.750 -> 1.000); held-out 100%
+[4] E4 Does the last-word doubling rule depend on trailing whitespace (as hypothes...(+128 chars)  (v3 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 Does the last-word doubling depend specifically on trailing whitespace, or ...(+134 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v4 by the theorist: exam 1.00, fit 1.00, size 440 (same scores, smaller (628 -> 440 chars)); held-out 100%
+[7] E7 a random ordinary probe  (v4 predicted it: match 1.00)
+[8] E8 Does the doubling rule apply to the last word's reversed first character (i...(+163 chars)  (v4 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v4 predicted it: match 1.00)
+[10] E10 Does the trailing-whitespace suppression of the last-word doubling apply to...(+150 chars)  (v4 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00067", "experiments": 11, "exam_probes": 4, "model_version": 4, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 440, "heldout": 1.0, "llm_calls": 10, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

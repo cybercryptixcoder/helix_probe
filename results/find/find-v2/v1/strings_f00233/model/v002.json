@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f reverses the order of characters in the input [E1, E2]",
+  "f uppercases every alphabetic character after reversing (no case swap; all letters become uppercase) [E1, E2]",
+  "spaces, digits, and symbols are preserved and reversed along with everything else [E1]",
+  "empty string maps to empty string [E1]"
+ ],
+ "notes": "E2 shows single letters always come back uppercase regardless of input case, so f is not swapcase but full uppercase applied after reversal. Changed predict to s[::-1].upper().",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.4,
+  0.6
+ ],
+ "made_at": 2
+}

@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00991': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do on a broad, evenly spaced set of ordinary inputs across the ...(+77 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 368 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the function exactly piecewise linear with a break at x=0, or is there c...(+96 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the positive branch truly linear all the way down to x=0 (with a jump di...(+94 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the piecewise-linear rule (negative branch slope 8.2, positive branch ...(+187 chars)  (v1 predicted it: match 1.00)
+[5] E5 Is the function really discontinuous at x=0 (jumping from 2.5 on the left t...(+107 chars)  (v1 predicted it: match 1.00)
+[6] E6 Is the zero-crossing / discontinuity structure exactly at x=0, or is there ...(+119 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      model v2 by the theorist: exam 1.00, fit 1.00, size 337 (same scores, smaller (368 -> 337 chars)); held-out 100%
+[7] E7 Is the break exactly at x=0 with no transition region, and does the left br...(+141 chars)  (v2 predicted it: match 1.00)
+[8] E8 Is the piecewise-linear rule exact at ordinary mid-range points not yet sam...(+131 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the piecewise-linear rule hold exactly at very small nonzero magnitude...(+156 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00991", "experiments": 9, "exam_probes": 4, "model_version": 2, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 337, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,24 @@
+Helix Probe v2 on 'find_strings_f00019': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.96, fit 1.00, size 312 (exam 0.000 -> 0.958); held-out 83%
+[2] E2 Does the rule apply to the last character of the whole string only, or to t...(+120 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 How does the final-character increment behave at the alphabet boundary (z/Z...(+86 chars)  (v1 predicted it: match 0.20)
+      model v2 by the updater: exam 1.00, fit 1.00, size 354 (exam 0.958 -> 1.000); held-out 100%
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Does the final-character increment apply to the last character even when th...(+318 chars)  (v2 predicted it: match 0.80)
+      model v3 by the updater: exam 1.00, fit 1.00, size 422 (fit 0.967 -> 1.000); held-out 100%
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (593 vs 422 chars)
+[7] E7 a random ordinary probe  (v3 predicted it: match 1.00)
+[8] E8 Does the final-character increment apply to non-ASCII letters and to letter...(+132 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 Does the final-character rule apply to the last letter of the whole string ...(+211 chars)  (v3 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v3 predicted it: match 1.00)
+[12] E12 Does the final-character increment apply when the last character is a lette...(+134 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (655 vs 422 chars)
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+[14] E14 Does the final-character increment apply to the last letter when the string...(+134 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00019", "experiments": 14, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 422, "heldout": 1.0, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

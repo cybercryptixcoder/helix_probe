@@ -1,0 +1,31 @@
+{
+ "version": 5,
+ "beliefs": [
+  "For x>0, f(x) is linear with slope -405.5 and offset -154.8: f(x) = -405.5*x - 154.8 [E8, E9, E12]",
+  "For -1<x<0, f(x) is linear with slope 17.1 and offset -17.1: f(x) = 17.1*x - 17.1 [E11, E12]",
+  "For x<=-1, f(x) is linear with slope -35.52 and offset -16.9: f(x) = -35.52*x - 16.9 [E10, E12]",
+  "At x=0 exactly, f(0) is a large negative spike (~-5401) inconsistent with surrounding branches [E1, E3, E4, E5]",
+  "The spike at x=0 is a single point, not an interval [E4, E5]",
+  "The branch boundary is at x=-1: f(-1)=18.62 belongs to the x<=-1 branch, and just below -1 the (-1,0) branch continues (f(-1.0001)=18.6236) [E12]",
+  "The (-1,0) branch and x<=-1 branch nearly meet at x=-1 (both ~18.62), so the boundary is continuous there [E12]",
+  "The (-1,0) branch approaches -17.1 as x->0- (f(-1e-05)=-17.0996), consistent with offset -17.1 [E12]"
+ ],
+ "notes": "E12 shows the boundary at x=-1 is continuous: f(-1.0001)=18.6236 matches the (-1,0) branch (17.1*-1.0001-17.1\u2248-34.1 is wrong; actually the observed 18.6236 equals -35.52*-1.0001-16.9\u224818.62). So x<=-1 branch extends continuously and the (-1,0) branch meets it at x=-1. Fixed offset of (-1,0) branch to -17.1 and x<=-1 offset to -16.9 to match E12 endpoints.",
+ "fit": 0.75,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  0.85,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.15,
+  0.6666666666666666
+ ],
+ "made_at": 12
+}

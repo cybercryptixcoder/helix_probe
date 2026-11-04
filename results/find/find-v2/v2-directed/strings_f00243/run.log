@@ -1,0 +1,22 @@
+Helix Probe v2 on 'find_strings_f00243': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary single words, and how does it treat spacin...(+34 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 191 (exam 0.000 -> 1.000); held-out 88%
+[2] E2 Does the box always insert Z at len//2 after removing spaces, or is the ins...(+103 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the box insert Z at len//2 of the space-stripped string even for empty...(+140 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the box insert Z at len//2 of the space-stripped string for longer and...(+121 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the box really remove only ASCII spaces and insert Z at len//2, or doe...(+101 chars)  (v1 predicted it: match 0.50)
+      model v2 by the updater: exam 1.00, fit 1.00, size 204 (fit 0.900 -> 1.000); held-out 100%
+[6] E6 Does the box remove all Unicode whitespace (not just ASCII spaces/tabs/newl...(+135 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (344 vs 204 chars)
+[7] E7 Does the box insert Z at len//2 of the whitespace-stripped string for ordin...(+115 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the box treat other common whitespace-like or separator characters (hy...(+174 chars)  (v2 predicted it: match 1.00)
+[9] E9 Does the box's midpoint insertion depend on character count in a way that t...(+167 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the box treat only the standard whitespace set (removing it) while lea...(+156 chars)  (v2 predicted it: match 1.00)
+[11] E11 Does the box insert Z at len//2 of the whitespace-stripped string when the ...(+174 chars)  (v2 predicted it: match 1.00)
+[12] E12 Does the box's whitespace removal and midpoint insertion behave the same wh...(+196 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (317 vs 204 chars)
+[13] E13 Does the box treat Unicode whitespace like non-breaking space and em-space ...(+136 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00243", "experiments": 13, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 204, "heldout": 1.0, "llm_calls": 18, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

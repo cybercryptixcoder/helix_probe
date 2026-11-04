@@ -1,0 +1,24 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f increments the last character of the input by one Unicode code point if it is a letter (any script), before inserting '4' [E1, E2, E3, E5]",
+  "f inserts '4' at index len(s)//2 of the (possibly incremented) string [E1, E2, E3, E4]",
+  "Non-letter last characters (digits, symbols, spaces) are left unchanged [E1, E4]",
+  "Increment wraps within the letter's own case: 'z'\u2192'a', 'Z'\u2192'A', '\u00e9'\u2192'\u00ea', '\u00c9'\u2192'\u00ca' [E2, E3]",
+  "The insertion index is computed from the original string's length, which equals the incremented string's length [E1, E2, E3]",
+  "For non-ASCII letters, incrementing is by code point (\u00e9\u2192\u00ea, \u03b1\u2192\u03b2, \u03c9\u2192\u03ca, \u042f\u2192\u0430), not by case-folding or ASCII-only rules [E3, E5]",
+  "Wrap for non-ASCII letters goes to the start of the same-case run (\u03c9\u2192\u03ca, \u042f\u2192\u0430, \u03a9\u2192\u03aa), i.e. code point +1 unless that leaves the case-run, then the run's start [E5, E6]"
+ ],
+ "notes": "Fixed the same-case-run wrap: the previous code compared isupper/islower of the next char which misbehaved for Cyrillic (\u044f\u2192? gave wrong result). Now wrap uses the run start computed by scanning back while the previous char is a letter of the same case category, matching \u03a9\u2192\u03aa and \u042f\u2192\u0430.",
+ "fit": 0.6666666666666666,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  0.8
+ ],
+ "made_at": 6
+}

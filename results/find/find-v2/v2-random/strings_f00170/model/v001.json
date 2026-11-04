@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to reverse each input string and prepend the letter `k`, which exactly reproduces all six outputs in E1 (including the preserved leading space in `\" Zebralower\"` and the case-preserving reversal).", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 202, "matches": [1.0], "made_at": 1, "heldout": 1.0}

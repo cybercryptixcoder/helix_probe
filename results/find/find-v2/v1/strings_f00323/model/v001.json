@@ -1,0 +1,14 @@
+{
+ "version": 1,
+ "beliefs": [
+  "The box reverses the order of characters in the input string [E1]",
+  "Case, digits, symbols, and spaces are preserved as-is, only order changes [E1]"
+ ],
+ "notes": "All ten outputs are exact reversals of their inputs, including empty string and spaces. Simple character reversal explains everything.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.7
+ ],
+ "made_at": 1
+}

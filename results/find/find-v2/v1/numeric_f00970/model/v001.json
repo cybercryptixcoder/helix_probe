@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f(x) is small (roughly in [-1.5, 1.5]) for |x| >= 4, but near x in [-2, 2] it jumps to about 12-14 [E1]",
+  "The large ~13 values occur at x = -2, -1, 0, 1, 2, suggesting a special interval around [-2, 2] [E1]",
+  "Outside that interval the values look like a small oscillatory/random-ish function of x, magnitude under ~1 [E1]",
+  "Exact behavior outside the special interval is unclear; it may be a trig-like or noise-like term?"
+ ],
+ "notes": "First probe shows a clear piecewise structure: a plateau near 13 on roughly [-2,2] and small values elsewhere. I model the special interval as a constant ~13 and the outside as a small bounded term, flagging the outside shape as uncertain.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3
+ ],
+ "made_at": 1
+}

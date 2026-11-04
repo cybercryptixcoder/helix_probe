@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box reverses the input string and inserts the character `\"2\"` at the midpoint (floor of half the length, so odd-length strings get the extra character in the left half). This single rule reproduces every output in E1.", "exam": 0.5, "fit": 0.4, "fit_exact": 0.0, "size": 196, "matches": [0.4], "made_at": 1, "heldout": 0.0}

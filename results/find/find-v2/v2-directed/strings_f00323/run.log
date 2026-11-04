@@ -1,0 +1,19 @@
+Helix Probe v2 on 'find_strings_f00323': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary lowercase words, including single words, m...(+41 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.38, fit 0.50, size 78 (exam 0.000 -> 0.375); held-out 0%
+[2] E2 Does the box reverse the whole string, or does it reverse the order of word...(+91 chars)  (v1 predicted it: match 0.12)
+      model v2 by the updater: exam 1.00, fit 1.00, size 95 (exam 0.375 -> 1.000); held-out 88%
+[3] E3 Does the box remove only ordinary spaces, or also other whitespace like tab...(+73 chars)  (v2 predicted it: match 0.80)
+      model v3 by the updater: exam 1.00, fit 1.00, size 108 (fit 0.933 -> 1.000); held-out 100%
+[4] E4 Does the box drop all whitespace characters (including tabs, newlines, and ...(+132 chars)  (v3 predicted it: match 1.00)
+[5] E5 Does the box treat non-ASCII/Unicode whitespace and other whitespace-adjace...(+123 chars)  (v3 predicted it: match 1.00)
+[6] E6 Do typical sentence-like inputs with punctuation, capitalization, and mixed...(+111 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (518 vs 108 chars)
+[7] E7 Does the box preserve or alter digit/letter ordering in mixed alphanumeric ...(+134 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the box leave ASCII control/non-whitespace characters (like NUL, bell,...(+167 chars)  (v3 predicted it: match 1.00)
+[9] E9 Does the box collapse or otherwise alter repeated punctuation/whitespace ru...(+138 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the box treat ASCII whitespace-adjacent characters that are not whites...(+233 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the box treat non-breaking space and other Unicode space separators as...(+157 chars)  (v3 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00323", "experiments": 11, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 108, "heldout": 1.0, "llm_calls": 17, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

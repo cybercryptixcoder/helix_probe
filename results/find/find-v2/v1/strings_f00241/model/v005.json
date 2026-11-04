@@ -1,0 +1,25 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f returns its input unchanged for ordinary strings, including control chars, Unicode, combining marks, zero-width chars, and long strings [E1, E2, E3, E4]",
+  "f removes the exact substring 'BOM' (uppercase only) wherever it appears, leaving U+FEFF intact [E4, E5, E6]",
+  "f also removes 'Bom' (B-o-m) wherever it appears [E6]",
+  "f removes 'BOm' (B-O-m) wherever it appears, e.g. 'BOm'->'oM' and 'BOmBOm'->'OmOm' [E7]",
+  "f does NOT remove 'bOM', 'BoM', 'bOm', or 'bom' [E6, E7]",
+  "Removal matches exactly the set {'BOM','Bom','BOm'}: first char must be uppercase B, and the last two chars are either 'OM' or 'om' [E6, E7]",
+  "Whether other variants like 'BOM' with different trailing combos remain untested beyond these three? [E7]"
+ ],
+ "notes": "",
+ "fit": 0.42857142857142855,
+ "heldout": 0.93,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  0.8,
+  0.5,
+  0.4
+ ],
+ "made_at": 7
+}

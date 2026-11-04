@@ -1,0 +1,32 @@
+Helix Probe v2 on 'find_strings_f00387': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the box do to ordinary short words and simple multi-word phrases ...(+53 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.96, fit 1.00, size 173 (exam 0.000 -> 0.958); held-out 66%
+[2] E2 Does the box lowercase the rest of the string after the first character, or...(+62 chars)  (v1 predicted it: match 1.00)
+[3] E3 Does the box capitalize the first letter of the whole string only, or the f...(+159 chars)  (v1 predicted it: match 0.80)
+      updater's model not kept: its exam is 0.917, the current model's is 0.958
+      updater's model not kept: its exam is 0.917, the current model's is 0.958
+[4] E4 Does the box drop or alter certain letters (as 'good morning'->'Good orning...(+119 chars)  (v1 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.917, the current model's is 0.958
+      updater's model not kept: its exam is 0.917, the current model's is 0.958
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.917, the current model's is 0.958
+[5] E5 Is the 'm' deletion actually a deletion of the letter m everywhere, or is i...(+207 chars)  (v1 predicted it: match 0.30)
+      updater's model not kept: its exam is 0.917, the current model's is 0.958
+      updater's model not kept: its exam is 0.917, the current model's is 0.958
+[6] E6 Is every 'm' deleted everywhere (as E4/E5 suggest), and does the same happe...(+85 chars)  (v1 predicted it: match 0.80)
+      updater's model not kept: its exam is 0.917, the current model's is 0.958
+      updater's model not kept: its exam is 0.917, the current model's is 0.958
+      theorist (every 6 steps)
+      model v2 by the theorist: exam 1.00, fit 1.00, size 470 (exam 0.958 -> 1.000); held-out 100%
+[7] E7 Does the box delete only lowercase 'm', or also uppercase 'M', and does the...(+116 chars)  (v2 predicted it: match 1.00)
+[8] E8 Does the box lowercase the entire rest of the string (including non-ASCII/u...(+156 chars)  (v2 predicted it: match 1.00)
+[9] E9 How does the box treat a leading lowercase 'm' that gets deleted — does it ...(+118 chars)  (v2 predicted it: match 1.00)
+[10] E10 Does the box's lowercase-rest rule use Python-style Unicode handling for no...(+135 chars)  (v2 predicted it: match 1.00)
+[11] E11 Does the box's lowercase-'m' deletion and first-letter capitalization behav...(+173 chars)  (v2 predicted it: match 1.00)
+[12] E12 Does the box lowercase the rest of the string using simple ASCII-style lowe...(+302 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.917, the current model's is 1.000
+[13] E13 Does the box delete lowercase 'm' before or after lowercasing the rest of t...(+87 chars)  (v2 predicted it: match 1.00)
+[14] E14 Does the box delete lowercase 'm' before or after it lowercases the rest, a...(+136 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00387", "experiments": 14, "exam_probes": 4, "model_version": 2, "model_role": "theorist", "exam": 1.0, "fit": 1.0, "size": 470, "heldout": 1.0, "llm_calls": 26, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

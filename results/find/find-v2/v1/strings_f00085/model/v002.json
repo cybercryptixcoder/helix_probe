@@ -1,0 +1,20 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f increments the last character of the input by one Unicode code point if it is a letter (any script), before inserting '4' [E1, E2, E3]",
+  "f inserts '4' at index len(s)//2 of the (possibly incremented) string [E1, E2, E3]",
+  "Non-letter last characters (digits, symbols, spaces) are left unchanged [E1]",
+  "Increment wraps within the letter's own case: 'z'\u2192'a', 'Z'\u2192'A', '\u00e9'\u2192'\u00ea', '\u00c9'\u2192'\u00ca' [E2, E3]",
+  "The insertion index is computed from the original string's length, which equals the incremented string's length [E1, E2, E3]",
+  "For non-ASCII letters, incrementing is by code point (\u00e9\u2192\u00ea), not by case-folding or ASCII-only rules [E3]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 3
+}

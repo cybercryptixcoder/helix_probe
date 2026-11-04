@@ -1,0 +1,65 @@
+Helix Probe on 'find_strings_f00056': 0 experiments so far, model v0, held-out set of 100
+[1] E1 With no model at all, what does the box do to a small, diverse set of input...(+72 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.40 (was 0.00), held-out 0%
+[2] E2 Does the box delete every 'l' regardless of position and case (including do...(+57 chars)  model v1 match 0.00
+      model v2: fit 0% (was 0%), mean match 0.45 (was 0.20), held-out 0%
+[3] E3 Does the box delete one 'l' from every run of consecutive 'l'/'L' character...(+100 chars)  model v2 match 0.00
+      model kept (v2)
+[4] E4 Does the box only shorten runs of 'l'/'L' (collapsing any run to a single '...(+147 chars)  model v2 match 0.00
+      model v3: fit 0% (was 0%), mean match 0.30 (was 0.23), held-out 0%
+[5] E5 Does the box delete every 'l' entirely in some positions (as in 'hello'->'g...(+150 chars)  model v3 match 0.00
+      revision rejected: mean match 0.20 < 0.24
+      model kept (v3)
+[6] E6 Does the box always replace a single 'l' with 'k' (as in 'll'->'k') or only...(+96 chars)  model v3 match 0.40
+      model v4: fit 0% (was 0%), mean match 0.32 (was 0.27), held-out 0%
+[7] E7 Does the box replace a single 'l' with 'k' only when it is at the start of ...(+131 chars)  model v4 match 0.20
+      revision rejected: mean match 0.26 < 0.30
+      revision rejected: mean match 0.27 < 0.30
+[8] E8 What exactly happens to a single 'l'/'L' after a letter (is it deleted, or ...(+92 chars)  model v4 match 0.00
+      model v5: fit 0% (was 0%), mean match 0.39 (was 0.26), held-out 0%
+[9] E9 What exactly does the box do to a single 'l'/'L' after a letter — does it b...(+110 chars)  model v5 match 0.00
+      revision rejected: mean match 0.20 < 0.34
+      model kept (v5)
+[10] E10 Does the transformation of a single 'l' after a letter depend only on the p...(+182 chars)  model v5 match 0.00
+      revision rejected: mean match 0.27 < 0.31
+      model v6: fit 10% (was 0%), mean match 0.38 (was 0.31), held-out 0%
+[11] E11 Which letter does a single 'l' after a letter transform into — is it always...(+142 chars)  model v6 match 1.00
+[12] E12 Does the box's treatment of 'l'/'L' depend on the preceding letter (predece...(+307 chars)  model v6 match 0.50
+      revision rejected: mean match 0.12 < 0.44
+      revision rejected: mean match 0.13 < 0.44
+[13] E13 When a run of two or more l's/L's follows a letter, does the whole run coll...(+273 chars)  model v6 match 1.00
+[14] E14 When a run of two or more l's follows a letter, does the run collapse to a ...(+222 chars)  model v6 match 0.50
+      revision rejected: mean match 0.12 < 0.49
+      revision rejected: mean match 0.12 < 0.49
+[15] E15 When a run of two or more l's follows a letter and is followed by more lett...(+186 chars)  model v6 match 0.00
+      revision rejected: mean match 0.09 < 0.45
+      revision rejected: mean match 0.09 < 0.45
+[16] E16 When a run of two or more l's/L's follows a letter and is followed by more ...(+119 chars)  model v6 match 0.00
+      revision rejected: mean match 0.09 < 0.42
+      revision rejected: mean match 0.28 < 0.42
+[17] E17 When a run of l's after a letter is followed by more letters, does the run ...(+153 chars)  model v6 match 0.00
+      revision rejected: mean match 0.12 < 0.40
+      revision rejected: mean match 0.08 < 0.40
+[18] E18 When a run of l's after a letter is followed by more letters, is the tail a...(+297 chars)  model v6 match 0.00
+      revision rejected: mean match 0.25 < 0.38
+      revision rejected: mean match 0.23 < 0.38
+[19] E19 When a run of l's after a letter is followed by more letters, is the output...(+220 chars)  model v6 match 0.00
+      revision rejected: mean match 0.24 < 0.36
+      revision rejected: mean match 0.24 < 0.36
+[20] E20 When a run of l's after a letter is followed by a tail, exactly which chara...(+181 chars)  model v6 match 0.00
+      revision rejected: mean match 0.07 < 0.34
+      model kept (v6)
+[21] E21 When a run of l's follows a letter and is followed by a tail, exactly how d...(+166 chars)  model v6 match 0.00
+      revision rejected: mean match 0.21 < 0.32
+      revision rejected: mean match 0.07 < 0.32
+[22] E22 For a run of l's after a letter followed by a tail, is the tail 'drop first...(+177 chars)  model v6 match 0.00
+      revision rejected: mean match 0.21 < 0.31
+      revision rejected: mean match 0.07 < 0.31
+[23] E23 For a run of l's after a letter followed by a tail, is the rule 'output = p...(+204 chars)  model v6 match 0.00
+      revision rejected: mean match 0.06 < 0.30
+      revision rejected: mean match 0.20 < 0.30
+[24] E24 When a run of l's after a letter is followed by a tail, is the output reall...(+328 chars)  model v6 match 0.00
+      model v7: fit 12% (was 12%), mean match 0.30 (was 0.28), held-out 0%
+[25] E25 For a run of l's after a letter, is the tail truly 'drop first char, keep r...(+179 chars)  model v7 match 0.00
+      model v8: fit 12% (was 12%), mean match 0.29 (was 0.29), held-out 0%
+{"env": "find_strings_f00056", "experiments": 25, "model_version": 8, "fit": 0.12, "heldout": 0.0, "llm_calls": 63, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

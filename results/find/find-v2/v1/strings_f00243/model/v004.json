@@ -1,0 +1,31 @@
+{
+ "version": 4,
+ "beliefs": [
+  "The box inserts a single 'Z' into the input string [E1-E5]",
+  "For length 0 or 1, 'Z' is prepended (position 0) [E1: ''->'Z', 'a'->'Za', ' '->'Z', 'Z'->'ZZ']",
+  "For length 2, 'Z' is inserted at index 1 [E2: 'ab'->'aZb']",
+  "For length 3, 'Z' is inserted at index 1 [E1: 'abc'->'aZbc', E4: 'abc'->'aZbc']",
+  "For length 4, 'Z' is inserted at index 2 [E2: 'abcd'->'abZcd', E4]",
+  "For length 5, 'Z' is inserted at index 2 [E2: 'abcde'->'abZcde', E3: 'a!b?c'->'a!Zb?c']",
+  "For length 6, 'Z' is inserted at index 3 [E3: 'a1b2c3'->'a1bZ2c3', E4]",
+  "For length 7, 'Z' is inserted at index 3 [E4: 'abcdefg'->'abcZdefg', E5]",
+  "For length 8, 'Z' is inserted at index 4 [E3: 'abcdefgh'->'abcdZefgh', E4]",
+  "For length 9, 'Z' is inserted at index 4 [E4: 'abcdefghi'->'abcdZefghi']",
+  "For length 10, 'Z' is inserted at index 5 [E4: 'abcdefghij'->'abcdeZfghij']",
+  "For length 11, 'Z' is inserted at index 5 [E2: 'hello world'->'helloZworld', E4]",
+  "Insertion position is floor(len/2) for all lengths >= 2 [E4, E5]",
+  "Spaces and punctuation are stripped from the input before insertion, then the 'Z' is placed by the stripped string's length? [E5: 'a cdefg'->'acdZefg' (space removed, Z at index 3 of 'acdefg'), 'ab defg'->'abdZefg', 'abc efg'->'abcZefg', 'abcd fg'->'abcZdfg', 'abcde g'->'abcZdeg', 'abcdef '->'abcZdef']",
+  "All-space strings collapse to 'Z' [E1: ' '->'Z', E3: '  '->'Z']"
+ ],
+ "notes": "E5 shows spaces are removed from the input before insertion (e.g. 'a cdefg'->'acdZefg' not 'a cZdefg'), and the insertion index is floor(len/2) of the stripped string. Need to test whether only spaces are stripped or all whitespace/punctuation.",
+ "fit": 1.0,
+ "heldout": 0.88,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 5
+}

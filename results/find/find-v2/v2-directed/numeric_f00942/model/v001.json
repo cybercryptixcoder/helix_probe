@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with two exact linear branches (one for positive x, one for negative x) plus a special value at x=0, all fit exactly to E1. The x=0 value is a genuine exception since it matches neither linear branch.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 262, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -1,0 +1,28 @@
+Helix Probe on 'find_numeric_f00991': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do at a broad spread of inputs across the whole domain, includi...(+52 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Does the two-line model hold exactly at the break and immediately around it...(+116 chars)  model v1 match 1.00
+[3] E3 Does the two-line model with a break at 0 hold exactly at large positive an...(+205 chars)  model v1 match 1.00
+[4] E4 Does the piecewise-linear model still hold at the extreme edges of the doma...(+147 chars)  model v1 match 1.00
+[5] E5 The two-line model has only been checked at ordinary magnitudes; does f sti...(+138 chars)  model v1 match 1.00
+[6] E6 Does f stay exactly piecewise linear at the break when approached with many...(+152 chars)  model v1 match 1.00
+[7] E7 Does f stay exactly on the two lines at a dense, evenly spaced grid of mode...(+134 chars)  model v1 match 1.00
+[8] E8 Does the two-line model hold at non-integer and irrational magnitudes acros...(+153 chars)  model v1 match 1.00
+[9] E9 Does f remain exactly on the two lines for extremely tiny magnitudes just a...(+151 chars)  model v1 match 1.00
+[10] E10 Does f stay on the two lines when mixing signs and magnitudes in a single c...(+124 chars)  model v1 match 1.00
+[11] E11 Does f stay on the two lines when probed with values just outside the alrea...(+197 chars)  model v1 match 1.00
+[12] E12 The model assumes the break is exactly at x=0, but every prior probe has on...(+277 chars)  model v1 match 1.00
+[13] E13 Is the output rounded/quantized to 4 decimal places everywhere (including l...(+162 chars)  model v1 match 1.00
+[14] E14 Does f follow the two-line model at inputs with many significant digits spr...(+171 chars)  model v1 match 1.00
+[15] E15 Every experiment so far has probed f at many points in one call but always ...(+269 chars)  model v1 match 1.00
+[16] E16 Does f ever return null (undefined) or behave nonlinearly for inputs that a...(+161 chars)  model v1 match 1.00
+[17] E17 Is the output actually rounded to 4 decimal places (as E13/E14 suggest) rat...(+127 chars)  model v1 match 1.00
+[18] E18 The model treats all x<=0 uniformly, but f has only been sampled at x=0 and...(+255 chars)  model v1 match 1.00
+[19] E19 Does f behave as a pure per-value function when the same probe is repeated ...(+185 chars)  model v1 match 1.00
+[20] E20 Does f still follow the two-line model at large negative inputs just inside...(+202 chars)  model v1 match 1.00
+[21] E21 Does f have a distinct behavior interval for small positive x below some th...(+154 chars)  model v1 match 1.00
+[22] E22 Does f behave exactly as the two-line model at inputs whose true value lies...(+187 chars)  model v1 match 1.00
+[23] E23 Does f actually round outputs to 4 decimals (as E13/E17 suggest) or are the...(+184 chars)  model v1 match 1.00
+[24] E24 Does f use a different rule (not 16.4x-2.5 / -8.2x+2.5) for inputs whose ma...(+313 chars)  model v1 match 1.00
+[25] E25 Does f still follow the two-line model at negative inputs just below the br...(+199 chars)  model v1 match 1.00
+{"env": "find_numeric_f00991", "experiments": 25, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 27, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

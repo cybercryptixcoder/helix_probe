@@ -1,0 +1,27 @@
+{
+ "version": 6,
+ "beliefs": [
+  "Trailing whitespace is stripped (including Unicode whitespace like NBSP and em-space) [E1, E2, E5]",
+  "Leading whitespace is preserved, so '  hello' stays '  hello' and ' hello world ' stays ' hello world ' [E2, E3]",
+  "After stripping, the first character is uppercased only if it is at position 0 of the original string (no leading whitespace); if the string starts with whitespace, nothing is uppercased [E3, E7]",
+  "Uppercasing the first character uses full .upper() semantics including multi-char expansions, so '\u00df'\u2192'Ss', '\ufb01'\u2192'Fi', '\ufb03'\u2192'Ffi', '\u0149'\u2192'\u02bcN' [E6, E7, E8]",
+  "The rest of the string after the first character is left untouched, so 'stra\u00dfe'\u2192'Stra\u00dfe' and '\u00c9COLE'\u2192'\u00c9cole' [E5]",
+  "A lone space or all-space string becomes empty after trailing-strip [E1, E2]",
+  "A tab or newline at position 0 is not uppercased and is preserved, so '\\thello' stays '\\thello' [E2, E3]",
+  "Digits, symbols, and already-uppercase letters at position 0 are unchanged [E1, E4]"
+ ],
+ "notes": "Fixed the multi-char expansion: it's the full .upper() of the first char (e.g. '\u00df'\u2192'Ss', '\ufb01'\u2192'Fi', '\ufb03'\u2192'Ffi'), not just the first char of the expansion. The rest of the string is appended unchanged.",
+ "fit": 0.5,
+ "heldout": 0.23,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  0.2,
+  0.4,
+  0.1
+ ],
+ "made_at": 8
+}

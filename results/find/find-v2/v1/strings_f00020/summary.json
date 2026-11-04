@@ -1,0 +1,18 @@
+{
+ "env": "find_strings_f00020",
+ "experiments": 25,
+ "model_version": 1,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 29,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f inserts '5' after the first character of the input [E1]",
+  "f then appends a copy of the last character of the input to the end [E1]",
+  "empty input raises IndexError (reported as 'ERROR: IndexError') [E1]"
+ ]
+}

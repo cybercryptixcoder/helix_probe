@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "The box inserts a single 'Z' into the input string [E1]",
+  "For a single character, 'Z' is prepended (position 0) [E1: 'a'->'Za', 'A'->'ZA', '1'->'Z1', '!'->'Z!', ' '->'Z']",
+  "For strings of length >= 2, 'Z' is inserted at index 2 (after the first two characters) [E1: 'abc'->'aZbc', 'ABC'->'AZBC', 'abc def'->'abcZdef', '123'->'1Z23', 'a1'->'aZ1']",
+  "Empty string maps to 'Z' [E1: ''->'Z']",
+  "Case is preserved and no other transformation occurs [E1]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.4
+ ],
+ "made_at": 1
+}

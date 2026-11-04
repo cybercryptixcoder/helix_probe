@@ -1,0 +1,30 @@
+{
+ "env": "find_strings_f00243",
+ "experiments": 22,
+ "model_version": 5,
+ "fit": 1.0,
+ "heldout": 1.0,
+ "llm_calls": 39,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "The box removes all whitespace characters (spaces, tabs, newlines, carriage returns, non-breaking spaces, em-spaces, etc.) from the input before inserting 'Z' [E5, E6]",
+  "After stripping whitespace, the box inserts a single 'Z' at index floor(len/2) of the stripped string [E4, E5]",
+  "For stripped length 0, the result is just 'Z' [E1, E3, E6]",
+  "For stripped length 1, 'Z' is prepended (index 0) [E1, E3]",
+  "For stripped length 2, 'Z' goes at index 1 [E2, E4]",
+  "For stripped length 3, 'Z' goes at index 1 [E1, E4]",
+  "For stripped length 4, 'Z' goes at index 2 [E2, E4]",
+  "For stripped length 5, 'Z' goes at index 2 [E2, E3]",
+  "For stripped length 6, 'Z' goes at index 3 [E3, E4]",
+  "For stripped length 7, 'Z' goes at index 3 [E4, E5]",
+  "For stripped length 8, 'Z' goes at index 4 [E3, E4]",
+  "For stripped length 9, 'Z' goes at index 4 [E4, E5]",
+  "For stripped length 10, 'Z' goes at index 5 [E4]",
+  "For stripped length 11, 'Z' goes at index 5 [E2, E4]",
+  "Existing 'Z' characters in the input are kept and a new 'Z' is inserted (e.g. 'Z'->'ZZ', 'aZb'->'aZZb') [E3]"
+ ]
+}

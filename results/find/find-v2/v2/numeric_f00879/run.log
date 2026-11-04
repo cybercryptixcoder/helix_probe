@@ -46,3 +46,25 @@ Helix Probe v2 on 'find_numeric_f00879': 0 experiments so far, model v0, exam of
       theorist (every 6 steps)
       theorist's model not kept: its exam is 0.000, the current model's is 0.150
 [19] E19 a random ordinary probe  (v5 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.000, the current model's is 0.150
+      updater's model not kept: its exam is 0.075, the current model's is 0.150
+[20] E20 Does the mean output at a given x depend only on x, or does it depend on th...(+181 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.000, the current model's is 0.150
+      updater's model not kept: its exam is 0.125, the current model's is 0.150
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.000, the current model's is 0.150
+[21] E21 a random ordinary probe  (v5 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.025, the current model's is 0.150
+[22] E22 Does the output depend only on x, or also on the index/position of x within...(+116 chars)  (v5 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.100, the current model's is 0.150
+      updater's model not kept: its exam is 0.100, the current model's is 0.150
+      theorist (updater stalled)
+[23] E23 a random ordinary probe  (v5 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.150
+[24] E24 Does the mean of the output depend on x at all, or is the output essentiall...(+101 chars)  (v5 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.025, the current model's is 0.150
+      updater's model not kept: its exam is 0.075, the current model's is 0.150
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v5 predicted it: match 0.10)
+      model v6 by the updater: exam 0.17, fit 0.05, size 5912 (exam 0.150 -> 0.175); held-out 0%
+{"env": "find_numeric_f00879", "experiments": 25, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 0.175, "fit": 0.048, "size": 5912, "heldout": 0.0, "llm_calls": 69, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

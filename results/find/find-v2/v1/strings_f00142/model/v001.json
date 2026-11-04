@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f applies a Caesar shift of +5 to letters, preserving case [E1]",
+  "f appends a trailing 'W' to every output [E1]",
+  "f shifts digits by +5 (mod 10) [E1]",
+  "f shifts punctuation/symbols by +5 in ASCII [E1]",
+  "f shifts spaces by +5 in ASCII to '%' [E1]"
+ ],
+ "notes": "Observed each char shifted by +5 in ASCII (letters wrap within case, digits mod 10), plus a trailing 'W' appended. Checked: 'hello'->'mjqqt'+'W', '12345'->'6789:'+'W', ' '->'%', 'A1!'->'F6&'+'W'.",
+ "fit": 0.0,
+ "heldout": 0.01,
+ "matches": [
+  0.7
+ ],
+ "made_at": 1
+}

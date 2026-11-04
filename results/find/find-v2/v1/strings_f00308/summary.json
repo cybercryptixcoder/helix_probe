@@ -1,0 +1,22 @@
+{
+ "env": "find_strings_f00308",
+ "experiments": 24,
+ "model_version": 4,
+ "fit": 0.8333333333333334,
+ "heldout": 1.0,
+ "llm_calls": 35,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f removes all whitespace characters (spaces, tabs, newlines, carriage returns, and Unicode whitespace like NBSP, em space, vertical tab, ideographic space) from the input [E1, E2]",
+  "f leaves all other characters (letters, digits, punctuation, format chars, zero-width chars, NUL, DEL) unchanged [E1, E6, E16, E17]",
+  "f preserves case [E1]",
+  "f maps empty string to empty string [E1]",
+  "f filters per code point, so lone surrogates and combining marks pass through unchanged and whitespace between them is removed [E18, E20, E22, E23, E24]",
+  "f's whitespace set matches Python str.isspace() exactly, including U+001C-U+001F, U+0085, U+000B, U+000C, U+1680, U+205F, U+2000-U+200A [E9, E19]",
+  "The E20-E22 match-0.80 was a scoring artifact of lone surrogates in the harness, not a real deviation: f's true outputs match pure per-code-point isspace() filtering [E23, E24]"
+ ]
+}

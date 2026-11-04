@@ -1,0 +1,28 @@
+Helix Probe on 'find_strings_f00352': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to the simplest, most varied inputs — plain words, mixed cas...(+66 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Does f ever modify the input itself (e.g. reverse, uppercase, trim, or tran...(+146 chars)  model v1 match 1.00
+[3] E3 Does f still just append 'T' when the input already ends in 'T' or contains...(+88 chars)  model v1 match 1.00
+[4] E4 Does f append 'T' even for very long inputs near the 60-character limit, or...(+43 chars)  model v1 match 1.00
+[5] E5 Does f append 'T' to inputs containing unusual characters like newlines, ca...(+120 chars)  model v1 match 1.00
+[6] E6 Does f always append exactly one 'T', or could the rule be something else t...(+161 chars)  model v1 match 1.00
+[7] E7 Does f append 'T' when the input is the empty string, and does it handle a ...(+58 chars)  model v1 match 1.00
+[8] E8 Is f truly independent of batching/position, i.e. does it always append exa...(+152 chars)  model v1 match 1.00
+[9] E9 Does f always append exactly one 'T' even when the input already ends with ...(+122 chars)  model v1 match 1.00
+[10] E10 Does f append 'T' to every input regardless of length up to the 60-characte...(+149 chars)  model v1 match 1.00
+[11] E11 Does f append 'T' regardless of input length beyond the 60-char probe limit...(+166 chars)  model v1 match 1.00
+[12] E12 Does f append 'T' when the input contains characters that could interact wi...(+194 chars)  model v1 match 1.00
+[13] E13 Does f append exactly one 'T' when the input is a single character that is ...(+252 chars)  model v1 match 1.00
+[14] E14 Does f append 'T' to multi-character inputs containing non-ASCII / Unicode ...(+160 chars)  model v1 match 1.00
+[15] E15 Does f still append exactly one 'T' when the input is already at the 60-cha...(+164 chars)  model v1 match 1.00
+[16] E16 Does f still append exactly one 'T' when the input contains a NUL-like cont...(+169 chars)  model v1 match 1.00
+[17] E17 Does f still append exactly one 'T' when the input is empty or whitespace-o...(+193 chars)  model v1 match 1.00
+[18] E18 Does f append exactly one 'T' when the input is a lone surrogate, a combini...(+242 chars)  model v1 match 1.00
+[19] E19 Does f append 'T' to inputs whose last character is a multi-byte or surroga...(+171 chars)  model v1 match 1.00
+[20] E20 Does f append exactly one 'T' regardless of batching/order when inputs are ...(+175 chars)  model v1 match 1.00
+[21] E21 Does f ever do anything other than append 'T' — e.g. a second hidden operat...(+219 chars)  model v1 match 1.00
+[22] E22 Does f still append exactly one 'T' when the input is at the 60-character l...(+308 chars)  model v1 match 1.00
+[23] E23 Does f append 'T' even when the input is a string that itself contains or e...(+283 chars)  model v1 match 1.00
+[24] E24 Does f ever append something other than exactly one 'T' — e.g. a different ...(+133 chars)  model v1 match 1.00
+[25] E25 Does f append 'T' to inputs that are at or near the 60-character maximum an...(+218 chars)  model v1 match 1.00
+{"env": "find_strings_f00352", "experiments": 25, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 35, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

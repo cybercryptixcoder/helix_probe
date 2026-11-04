@@ -1,0 +1,39 @@
+Helix Probe v2 on 'find_strings_f00166': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do to ordinary lowercase words, single words vs. multi-word phr...(+54 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.79, fit 1.00, size 321 (exam 0.000 -> 0.792); held-out 15%
+[2] E2 Does the uppercase rule delete all characters whose character occurs more t...(+139 chars)  (v1 predicted it: match 0.30)
+      model v2 by the updater: exam 0.79, fit 0.95, size 90 (fit 0.650 -> 0.950); held-out 15%
+[3] E3 Is the deletion rule specifically about the letters 'LL' (or doubled letter...(+177 chars)  (v2 predicted it: match 1.00)
+[4] E4 Does the box delete 'LL' anywhere it appears (including lowercase 'll', and...(+163 chars)  (v2 predicted it: match 1.00)
+[5] E5 Is the deletion tied to the specific letter L (any case, any context), or t...(+140 chars)  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 0.79, fit 1.00, size 89 (fit 0.960 -> 1.000); held-out 15%
+[6] E6 Does the box delete every uppercase L regardless of position (including wor...(+110 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (248 vs 89 chars)
+[7] E7 Does the box delete uppercase L only, or also other uppercase letters in sp...(+186 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the box delete uppercase L in every context (including after other let...(+174 chars)  (v3 predicted it: match 1.00)
+[9] E9 Does the box delete uppercase L only in Latin-letter words, or does it also...(+112 chars)  (v3 predicted it: match 1.00)
+[10] E10 Does the box delete uppercase L only, or also other uppercase letters that ...(+216 chars)  (v3 predicted it: match 1.00)
+[11] E11 Does the box only delete uppercase 'L', or does it also delete other upperc...(+194 chars)  (v3 predicted it: match 1.00)
+[12] E12 Does the box delete uppercase L consistently across typical sentence-like i...(+126 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (317 vs 89 chars)
+[13] E13 Does the box delete uppercase L in all contexts including accented/foreign ...(+214 chars)  (v3 predicted it: match 1.00)
+[14] E14 Does the box delete uppercase L when it is adjacent to lowercase letters th...(+149 chars)  (v3 predicted it: match 1.00)
+[15] E15 Does the box delete uppercase L even when it sits immediately before or aft...(+187 chars)  (v3 predicted it: match 0.90)
+      model v4 by the updater: exam 0.79, fit 1.00, size 201 (fit 0.993 -> 1.000); held-out 17%
+[16] E16 Does the box replace lowercase 'p' with 'k' after a vowel in ordinary words...(+101 chars)  (v4 predicted it: match 0.40)
+      model v5 by the updater: exam 1.00, fit 1.00, size 175 (exam 0.792 -> 1.000); held-out 100%
+[17] E17 Does the box apply p->k to every lowercase p regardless of surrounding lett...(+146 chars)  (v5 predicted it: match 1.00)
+[18] E18 Does the box apply any other letter substitutions besides lowercase p->k (e...(+153 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+[19] E19 Do the two rules compose in the order the model assumes when a lowercase 'p...(+278 chars)  (v5 predicted it: match 1.00)
+[20] E20 Does the box apply any other hidden character substitutions besides lowerca...(+213 chars)  (v5 predicted it: match 1.00)
+[21] E21 Does the box apply any other hidden substitutions to lowercase letters that...(+203 chars)  (v5 predicted it: match 1.00)
+[22] E22 Does the box transform lowercase 'p' to 'k' when the input contains digits,...(+121 chars)  (v5 predicted it: match 1.00)
+[23] E23 Does the box apply any transformation to uppercase letters other than delet...(+209 chars)  (v5 predicted it: match 1.00)
+[24] E24 Does the box apply the lowercase p->k rule and uppercase L deletion to long...(+164 chars)  (v5 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (363 vs 175 chars)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_strings_f00166", "experiments": 24, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 175, "heldout": 1.0, "llm_calls": 34, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

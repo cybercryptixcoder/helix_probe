@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "The box simply reverses each input string (palindromes like \"level\" stay the same, and spaces/case are preserved in place). I replaced the empty model with a full-string reversal.", "exam": 0.375, "fit": 0.6666666666666666, "fit_exact": 0.0, "size": 78, "matches": [0.6666666666666666], "made_at": 1, "heldout": 0.0}

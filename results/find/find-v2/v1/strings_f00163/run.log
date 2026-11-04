@@ -1,0 +1,29 @@
+Helix Probe on 'find_strings_f00163': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f do to a varied set of simple inputs (letters, case, digits, pun...(+32 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.50 (was 0.00), held-out 0%
+[2] E2 Where exactly does the '2' go for even-length strings, and does it depend o...(+45 chars)  model v1 match 0.90
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.70), held-out 100%
+[3] E3 Does the '2' insertion depend on character count only, or does it behave di...(+141 chars)  model v2 match 1.00
+[4] E4 Does f handle strings containing newlines, tabs, and other whitespace/contr...(+117 chars)  model v2 match 1.00
+[5] E5 Does f treat other Unicode characters with combining marks / multi-code-uni...(+154 chars)  model v2 match 1.00
+[6] E6 Does f insert the '2' at the midpoint by Python string slicing on code poin...(+185 chars)  model v2 match 1.00
+[7] E7 Does f's midpoint insertion use Python code-point slicing consistently for ...(+148 chars)  model v2 match 1.00
+[8] E8 Does f behave the same when given a non-string input (numbers, booleans, nu...(+87 chars)  model v2 match 1.00
+[9] E9 Does f apply the reverse-and-insert-'2' rule to strings that already contai...(+104 chars)  model v2 match 1.00
+[10] E10 Does f's midpoint insertion count by Python code points when the input mixe...(+172 chars)  model v2 match 1.00
+[11] E11 Does f operate on the string as given (raw Python str of code points) even ...(+91 chars)  model v2 match 1.00
+[12] E12 Does f's midpoint insertion count by Python code points when the input cont...(+161 chars)  model v2 match 1.00
+[13] E13 Does f count by Python code points (not grapheme clusters) when the input i...(+148 chars)  model v2 match 1.00
+[14] E14 Does f's reversal+midpoint-'2' rule hold for a mixed bag of inputs at the m...(+169 chars)  model v2 match 1.00
+[15] E15 Does f behave differently when the input string contains the literal digit ...(+175 chars)  model v2 match 1.00
+[16] E16 Does f's midpoint insertion count by Python code points when the string con...(+195 chars)  model v2 match 1.00
+[17] E17 Does f's midpoint insertion stay a pure code-point reverse+insert when the ...(+234 chars)  model v2 match 1.00
+[18] E18 Does f's reverse-and-insert-'2' rule still hold for inputs containing the l...(+226 chars)  model v2 match 1.00
+[19] E19 Does f operate on the raw Python str exactly as our code-point reverse+inse...(+199 chars)  model v2 match 1.00
+[20] E20 Does f always insert exactly one '2' at the midpoint regardless of input le...(+143 chars)  model v2 match 1.00
+[21] E21 Does f treat a lone surrogate (or reversed surrogate) at the exact midpoint...(+181 chars)  model v2 match 1.00
+[22] E22 Does f reverse by code point when the input mixes astral emoji, combining m...(+169 chars)  model v2 match 1.00
+[23] E23 Does f ever behave differently for very long inputs made only of the litera...(+164 chars)  model v2 match 1.00
+[24] E24 Does f apply the reverse+midpoint-'2' rule when the input is the maximum 60...(+137 chars)  model v2 match 1.00
+[25] E25 Does f insert the midpoint '2' by code-point index (as modeled) or by UTF-8...(+79 chars)  model v2 match 1.00
+{"env": "find_strings_f00163", "experiments": 25, "model_version": 2, "fit": 1.0, "heldout": 1.0, "llm_calls": 29, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

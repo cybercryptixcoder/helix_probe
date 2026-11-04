@@ -1,0 +1,83 @@
+{
+ "category": "strings",
+ "fid": "f00047",
+ "experiments": 25,
+ "exam_probes": 0,
+ "n_versions": 9,
+ "inputs_total": 250,
+ "final": 1.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "?",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 0
+  },
+  {
+   "version": 1,
+   "role": "?",
+   "experiments": 1,
+   "score": 0.8,
+   "nmse": null,
+   "inputs": 10
+  },
+  {
+   "version": 2,
+   "role": "?",
+   "experiments": 2,
+   "score": 0.8,
+   "nmse": null,
+   "inputs": 20
+  },
+  {
+   "version": 3,
+   "role": "?",
+   "experiments": 5,
+   "score": 0.8,
+   "nmse": null,
+   "inputs": 50
+  },
+  {
+   "version": 4,
+   "role": "?",
+   "experiments": 6,
+   "score": 0.8,
+   "nmse": null,
+   "inputs": 60
+  },
+  {
+   "version": 5,
+   "role": "?",
+   "experiments": 7,
+   "score": 0.8,
+   "nmse": null,
+   "inputs": 70
+  },
+  {
+   "version": 6,
+   "role": "?",
+   "experiments": 8,
+   "score": 0.8,
+   "nmse": null,
+   "inputs": 80
+  },
+  {
+   "version": 7,
+   "role": "?",
+   "experiments": 9,
+   "score": 0.8,
+   "nmse": null,
+   "inputs": 90
+  },
+  {
+   "version": 8,
+   "role": "?",
+   "experiments": 11,
+   "score": 1.0,
+   "nmse": null,
+   "inputs": 110
+  }
+ ]
+}

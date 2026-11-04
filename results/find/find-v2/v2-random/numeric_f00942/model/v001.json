@@ -1,0 +1,1 @@
+{"version": 1, "role": "theorist", "notes": "The box is piecewise linear: for negative inputs it uses slope -35.72 with intercept -17.1, and for non-negative inputs it uses slope -404.2 with intercept -154.8, with a discontinuity at x = 0.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 348, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

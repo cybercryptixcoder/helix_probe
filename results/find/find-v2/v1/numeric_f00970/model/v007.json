@@ -1,0 +1,25 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f(x) is a noisy plateau with mean ~12.0 and spread ~1.2 (roughly 10.0 to 14.4) on the interval [-3.05, 3.0] [E1, E2, E3, E4, E5, E8]",
+  "The left edge of the plateau lies between -3.10 and -3.05: -3.10 gives ~0.47 (outside) and -3.05 gives ~11.13 (inside) [E5]",
+  "The right edge lies between 3.0 and 3.1: 3.0 gives ~13.4 (inside) and 3.1 gives ~1.95 (outside) [E4]",
+  "Outside the plateau f(x) is noise with mean ~0 and standard deviation ~0.9, bounded roughly within [-2.2, 2.5], with no detectable smooth/periodic structure [E1, E2, E4, E5, E6, E7]",
+  "Outside values are best modeled as zero-mean noise; no deterministic sine or trend is present [E6, E7]",
+  "The plateau mean is ~12.0 but individual samples scatter by ~1.2, so exact-value prediction is impossible; predict() returns the mean [E3, E8]"
+ ],
+ "notes": "Kept the plateau/outside structure; the exact-match failures are just noise, so predict() returns the mean 12.0 inside and 0.0 outside. No structural change needed.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.15,
+  0.6428571428571429,
+  0.7647058823529411,
+  0.4444444444444444,
+  0.35,
+  0.0,
+  0.1,
+  0.8
+ ],
+ "made_at": 8
+}

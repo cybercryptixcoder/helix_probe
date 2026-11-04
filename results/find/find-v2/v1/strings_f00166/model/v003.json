@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f replaces every lowercase 'p' with 'k' throughout the string, not just the first [E4, E5]",
+  "Uppercase 'P' is left unchanged [E5]",
+  "All other characters, including non-ASCII, control chars, digits, symbols, and whitespace, pass through unchanged [E1, E2, E3]",
+  "The substitution is a simple global character replacement, independent of word boundaries or context [E5]"
+ ],
+ "notes": "E5 shows every 'p' becomes 'k' (apple->akkle, happy->hakky, 'p p p'->'k k k'), so I switched from replace-first to global replace. Uppercase 'P' stays unchanged.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 5
+}

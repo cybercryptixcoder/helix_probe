@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00942': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.47, fit 0.40, size 1393 (exam 0.000 -> 0.475); held-out 0%
+[2] E2 Does f behave like a simple polynomial (e.g., cubic) across the whole domai...(+126 chars)  (v1 predicted it: match 0.20)
+      model v2 by the updater: exam 1.00, fit 1.00, size 234 (exam 0.475 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Is the special value at x=0 an isolated point, or is there a narrow interva...(+96 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Is the piecewise-linear structure exactly two lines meeting at x=0 (with on...(+176 chars)  (v2 predicted it: match 1.00)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the piecewise-linear model hold exactly at the boundary points just be...(+137 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Is the x=0 special value truly a single isolated point, or does a nonzero-w...(+194 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00942", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 234, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

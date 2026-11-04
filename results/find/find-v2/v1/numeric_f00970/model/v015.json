@@ -1,0 +1,37 @@
+{
+ "version": 15,
+ "beliefs": [
+  "f(x) is a noisy plateau with mean ~12.0 and sd ~1.3 on the interval [-3.05, 3.05] [E1,E2,E3,E4,E5,E8,E9,E10,E11,E12,E13,E14,E17,E18]",
+  "The left edge is sharp: -3.05 is inside (~12.4) and -3.051 is outside (~0.9) [E5,E9,E17]",
+  "The right edge is sharp: 3.05 is inside (~11.8) and 3.051 is outside (~1.3) [E10,E11,E13]",
+  "Outside the plateau f(x) is zero-mean noise with sd ~1.0, bounded roughly within [-3.5, 2.5], with no detectable smooth/periodic structure [E1,E2,E4,E5,E6,E7,E13,E15,E16,E19,E20]",
+  "The plateau is flat (no slope/curve): residuals across E3,E8,E12,E14,E18 show no systematic trend, only scatter [E3,E8,E12,E14,E18]",
+  "predict() returns the plateau mean inside and 0 outside; exact values are unpredictable due to noise [E3,E8,E12,E14,E18,E19,E20]"
+ ],
+ "notes": "E20 confirms outside is zero-mean noise (mean ~0.1, sd ~1.0, no outliers beyond ~2.5); the 0.00 matches are just because exact noisy values can't be predicted, not because the model is wrong. No structural change needed.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.15,
+  0.6428571428571429,
+  0.7647058823529411,
+  0.4444444444444444,
+  0.35,
+  0.0,
+  0.1,
+  0.8,
+  0.3,
+  0.3,
+  0.3,
+  0.45,
+  0.15,
+  0.65,
+  0.1,
+  0.0,
+  0.25,
+  0.25,
+  0.0,
+  0.0
+ ],
+ "made_at": 20
+}

@@ -1,0 +1,29 @@
+Helix Probe on 'find_strings_f00387': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What basic transformations does f apply to plain lowercase words, single ch...(+50 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.90 (was 0.00), held-out 20%
+[2] E2 Does f only capitalize the first character, or does it also lowercase the r...(+57 chars)  model v1 match 0.30
+      model v2: fit 100% (was 0%), mean match 1.00 (was 0.60), held-out 66%
+[3] E3 Does f use Python's str.capitalize() behavior on edge cases like titlecase ...(+73 chars)  model v2 match 1.00
+[4] E4 Does f's capitalization rule apply only to the very first character of the ...(+193 chars)  model v2 match 1.00
+[5] E5 How does f handle strings whose first character is a combining mark, a digi...(+230 chars)  model v2 match 1.00
+[6] E6 Does f behave like str.capitalize() for strings beginning with uppercase no...(+207 chars)  model v2 match 1.00
+[7] E7 How does f handle strings where the first character is a letter that change...(+209 chars)  model v2 match 1.00
+[8] E8 How does f handle strings whose first character is a letter with an unusual...(+206 chars)  model v2 match 1.00
+[9] E9 Does f treat a leading character that is a Unicode letter but whose upperca...(+388 chars)  model v2 match 1.00
+[10] E10 How does f handle strings whose first character is a combining mark or form...(+165 chars)  model v2 match 1.00
+[11] E11 Does f behave like str.capitalize() for strings of length >1 where the firs...(+301 chars)  model v2 match 1.00
+[12] E12 Does f really implement str.capitalize() semantics for the empty string and...(+121 chars)  model v2 match 1.00
+[13] E13 Does f's capitalization depend on Unicode general category Letter (which wo...(+302 chars)  model v2 match 1.00
+[14] E14 Does f treat a leading character whose uppercase mapping is multi-character...(+170 chars)  model v2 match 1.00
+[15] E15 Does f's first-character handling match str.capitalize() for characters who...(+386 chars)  model v2 match 1.00
+[16] E16 Does f behave like str.capitalize() for strings where the first character i...(+172 chars)  model v2 match 1.00
+[17] E17 Does f match str.capitalize() for strings that contain characters which are...(+222 chars)  model v2 match 1.00
+[18] E18 Does f match str.capitalize() for the remaining untested classes of leading...(+389 chars)  model v2 match 1.00
+[19] E19 Does f apply str.capitalize() consistently to the full range of Unicode whi...(+201 chars)  model v2 match 1.00
+[20] no valid probe after 3 tries; skipping
+[21] E20 Does f behave like str.capitalize() on strings whose first character is a w...(+330 chars)  model v2 match 1.00
+[22] E21 Does f match str.capitalize() for strings whose first character is a non-le...(+278 chars)  model v2 match 1.00
+[23] E22 Does f follow str.capitalize() exactly when the first character is a non-le...(+239 chars)  model v2 match 1.00
+[24] E23 Does f match str.capitalize() for strings where the first character is a no...(+208 chars)  model v2 match 1.00
+[25] E24 How does f handle the empty string and whitespace-only strings when the fir...(+144 chars)  model v2 match 1.00
+{"env": "find_strings_f00387", "experiments": 24, "model_version": 2, "fit": 1.0, "heldout": 0.66, "llm_calls": 33, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,33 @@
+{
+ "version": 5,
+ "beliefs": [
+  "The box reverses the order of characters in the input string [E1]",
+  "Whitespace characters (spaces, tabs, newlines, and all Unicode whitespace) are removed from the output rather than preserved [E2, E5, E8]",
+  "After reversing, all whitespace is stripped, so 'a b' -> 'ba' and ' lead' -> 'dael' [E2]",
+  "Case, digits, symbols, and non-whitespace invisible/format characters (ZWJ, ZWNJ, BOM, soft hyphen, word joiner) are preserved as-is, only order changes and whitespace is dropped [E1, E9]",
+  "Reversal is by Unicode code point, so astral characters and combining marks stay intact as units [E6, E7, E10]",
+  "Lone surrogates and unpaired UTF-16 code units are reversed as individual code points without error or alteration [E11, E12]",
+  "A surrogate pair split by whitespace is NOT recombined: the two halves reverse as separate code points, so '\\ud83d \\ude00' -> '\\ude00\\ud83d' [E13, E14]",
+  "When a surrogate pair is split by whitespace, the two halves are reversed independently and the whitespace removed, so the output order is the reversed halves with no recombination [E13, E14]"
+ ],
+ "notes": "",
+ "fit": 0.7857142857142857,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  0.9,
+  0.9
+ ],
+ "made_at": 14
+}

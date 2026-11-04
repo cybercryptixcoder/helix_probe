@@ -1,0 +1,27 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f replaces every lowercase 'p' with 'k' throughout the string [E4, E5, E6, E8, E9, E10]",
+  "f also deletes every uppercase 'L' from the string [E11]",
+  "Uppercase 'P' is left unchanged [E5, E8]",
+  "All other characters, including non-ASCII, control chars, digits, symbols, and whitespace, pass through unchanged [E1, E2, E3, E10]",
+  "The transformations are independent per-character substitutions/deletions with no word- or case-context effects [E8, E9, E10]"
+ ],
+ "notes": "E11 showed 'HELLO WORLD' -> 'HEO WORD', so uppercase 'L' is deleted; added that rule alongside the existing p->k replacement. The order of p->k and L-deletion doesn't matter since they act on disjoint characters.",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 11
+}

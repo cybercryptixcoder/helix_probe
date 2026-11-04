@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "I added trailing-whitespace stripping, since E3 showed `\"banana data banana \"` \u2192 `\"Banana data banana\"` (trailing space removed). Everything else in v2 matched the evidence.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 224, "matches": [1.0, 1.0, 1.0], "made_at": 3, "heldout": 1.0}
