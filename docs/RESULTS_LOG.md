@@ -11,7 +11,7 @@ Standing configuration, unless a row says otherwise:
 
 ---
 
-## R4. ARC-AGI-3, 25 public games, Helix Probe v3: queued (`scripts/run_v3.sh`, stage `arc`)
+## R4. ARC-AGI-3, Helix Probe v3: a 5-game pilot queued (`scripts/run_v3.sh`, stage `arc`); the 25-game run only after it
 
 - **Claim to test:** a flash model with thinking off, in a learn-a-model-then-plan loop with one adapter file and
   no game-specific code, scores on ARC-AGI-3. How it compares:
@@ -22,7 +22,7 @@ Standing configuration, unless a row says otherwise:
 - **Setup:**
   - one playthrough per game, toolkit local mode, every action counted;
   - a budget of 3× the human action count per game (vs 1,500 actions per level in 2605.05138);
-  - up to 400 experiments of at most 8 actions each.
+  - up to 100 experiments (pilot; 400 in the full run) of at most 8 actions each.
 - **Fair-comparison caveats to report:**
   - the models differ (flash with thinking off vs GPT-5.x high);
   - our budget is tighter;
