@@ -1,0 +1,1 @@
+{"version": 4, "role": "updater", "notes": "Changed the negative-side threshold from -8 to -9: E6 shows x=-9 still follows y=8-9.6x (94.4) while x=-9.5 is already flat (~8), so the transition lies between -9 and -9.5, and -9 is the last linear point.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 193, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 0.98}

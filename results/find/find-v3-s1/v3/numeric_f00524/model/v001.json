@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to capture the one clear signal in E1: nearly all outputs are 0, but x=-1.2 returns -1.0, suggesting a narrow spike near x=-1 (width unknown, so I guessed a small band [-2, 0] and marked it with \"?\").", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 232, "matches": [1.0], "made_at": 1, "heldout": 0.74}

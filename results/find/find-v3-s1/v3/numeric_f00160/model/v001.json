@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to `y = x - 39.5`, since every point in E1 satisfies y \u2248 x \u2212 39.5 (offsets all within \u221239.0 to \u221239.9).", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 68, "matches": [1.0], "made_at": 1, "heldout": 1.0}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I added the special case at x = 0: E2 shows a massive spike to 2058 exactly at x=0, while the linear rules hold on both sides. The rest of the model (x+17 for positive, x-8 for negative) matches all evidence.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 224, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

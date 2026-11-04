@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I narrowed the nonzero band: E4 shows values at \u00b11.8 and \u00b11.95 are 0, while E2 shows \u00b11.5 is 1, so the boundary lies between 1.5 and 1.8 (I guessed 1.75).", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 129, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 0.99}

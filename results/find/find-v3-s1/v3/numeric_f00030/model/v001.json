@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with a quadratic fit (a + b\u00b7x + c\u00b7x\u00b2) to E1, capturing the smooth U-shape that bottoms out near x=0 and rises toward less-negative values at large |x|, with a slight asymmetry.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 896, "matches": [1.0], "made_at": 1, "heldout": 0.96}

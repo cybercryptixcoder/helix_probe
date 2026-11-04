@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_numeric_f00065': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.10, size 251 (fit 0.000 -> 0.100); held-out 0%
+[2] E2 learn: Does the function have a simple power-law/odd shape, or is there ...(+103 chars)  (v1 predicted it: match 0.00; cost 19, spent 29)
+      model v2 by the updater: fit 1.00, size 993 (fit 0.050 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 39)
+[4] E4 learn: The model reproduces all points seen so far, but the underlying M...(+230 chars)  (v2 predicted it: match 1.00; cost 20, spent 59)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 69)
+[6] E6 learn: Is the function exactly linear in the tails and near the center, ...(+120 chars)  (v2 predicted it: match 1.00; cost 20, spent 89)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 99)
+[8] E8 learn: Does the function have any localized irregularity (bump, kink, or...(+185 chars)  (v2 predicted it: match 1.00; cost 20, spent 119)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 129)
+[10] E10 learn: The function is nearly linear but slopes differ slightly between ...(+326 chars)  (v2 predicted it: match 1.00; cost 20, spent 149)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00065", "experiments": 10, "cost": 149, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 993, "exam": null, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

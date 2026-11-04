@@ -1,0 +1,18 @@
+Helix Probe v3 on 'find_numeric_f00367': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 153 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Where exactly is the transition between the +9.9 offset branch (s...(+111 chars)  (v1 predicted it: match 0.93; cost 15, spent 25)
+      model v2 by the updater: fit 1.00, size 241 (fit 0.967 -> 1.000); held-out 100%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 35)
+[4] E4 learn: What happens in a narrow neighborhood of x=0 — is the -228.87 val...(+98 chars)  (v2 predicted it: match 1.00; cost 14, spent 49)
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 59)
+[6] E6 learn: Does the -228.87 spike occur only exactly at x=0, or also at near...(+123 chars)  (v2 predicted it: match 1.00; cost 8, spent 67)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.81, size 343)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 77)
+[8] E8 learn: Is the function exactly piecewise linear with a sharp jump at x=0...(+97 chars)  (v2 predicted it: match 1.00; cost 18, spent 95)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 105)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[10] E10 learn: Are there any additional piecewise-linear breakpoints or curvatur...(+172 chars)  (v2 predicted it: match 1.00; cost 20, spent 125)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00367", "experiments": 10, "cost": 125, "model_version": 2, "model_role": "updater", "fit": 1.0, "size": 241, "exam": null, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

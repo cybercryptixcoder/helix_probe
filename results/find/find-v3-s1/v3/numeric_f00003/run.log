@@ -1,0 +1,44 @@
+Helix Probe v3 on 'find_numeric_f00003': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.50, size 286 (fit 0.000 -> 0.500); held-out 0%
+[2] E2 learn: Is the flat floor exactly -20.4469 over a wide range of small |x|...(+72 chars)  (v1 predicted it: match 0.65; cost 20, spent 30)
+      updater's fix not kept: its fit is 0.350, the current model's is 0.575
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.50; cost 10, spent 40)
+      theorist (fixes stalled)
+[4] E4 learn: Does f have a symmetric structure about x=0 with a kink at |x|≈6,...(+128 chars)  (v1 predicted it: match 0.85; cost 20, spent 60)
+      model v2 by the updater: fit 0.96, size 526 (fit 0.625 -> 0.963); held-out 38%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.90; cost 10, spent 70)
+[6] E6 learn: Where exactly does the positive side transition from the flat flo...(+186 chars)  (v2 predicted it: match 0.75; cost 20, spent 90)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 100)
+[8] E8 learn: Does the positive side stay linear (slope ~126) between x=30 and ...(+169 chars)  (v2 predicted it: match 0.70; cost 20, spent 120)
+[9] E9 learn: a random ordinary probe  (v2 predicted it: match 0.80; cost 10, spent 130)
+      theorist (fixes stalled)
+[10] E10 learn: Does the positive side follow a single smooth quadratic over the ...(+100 chars)  (v2 predicted it: match 1.00; cost 20, spent 150)
+[11] E11 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 160)
+[12] E12 learn: What is the true shape of f on the large positive side (x from 90...(+68 chars)  (v2 predicted it: match 0.65; cost 20, spent 180)
+      model v3 by the updater: fit 0.99, size 873 (fit 0.888 -> 0.992); held-out 100%
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 190)
+[14] E14 learn: How does f behave in the transition region on the positive side b...(+169 chars)  (v3 predicted it: match 0.80; cost 20, spent 210)
+[15] E15 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 220)
+[16] E16 learn: Pin down the positive-side transition between x=19 and x=25 (line...(+124 chars)  (v3 predicted it: match 0.90; cost 20, spent 240)
+      theorist (fixes stalled)
+[17] E17 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 250)
+[18] E18 learn: Does the positive side follow a single smooth quadratic from x=6 ...(+163 chars)  (v3 predicted it: match 0.85; cost 20, spent 270)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 280)
+[20] E20 learn: What is the exact shape of the positive side between x=4.5 and x=...(+146 chars)  (v3 predicted it: match 0.60; cost 20, spent 300)
+      updater's fix not kept: its fit is 0.835, the current model's is 0.953
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.77, size 2301)
+[21] E21 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 310)
+[22] E22 learn: Pin down the exact shape of the negative-side floor edge between ...(+164 chars)  (v3 predicted it: match 0.70; cost 20, spent 330)
+      updater's fix not kept: its fit is 0.870, the current model's is 0.943
+[23] E23 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 340)
+      theorist's model lost its trial: on trial it predicted 0.67 of 3 new experiments, the current model 0.90
+[24] E24 learn: Is the positive-side rise from the floor (x≈4.3 to 6) a smooth qu...(+139 chars)  (v3 predicted it: match 0.90; cost 20, spent 360)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.84, size 1601)
+[25] E25 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 370)
+{"env": "find_numeric_f00003", "experiments": 25, "cost": 370, "model_version": 3, "model_role": "updater", "fit": 0.946, "size": 873, "exam": null, "heldout": 1.0, "llm_calls": 51, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

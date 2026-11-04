@@ -1,0 +1,58 @@
+Helix Probe v3 on 'find_numeric_f00033': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.60, size 261 (fit 0.000 -> 0.600); held-out 0%
+[2] E2 learn: Is the bump centered near x=-1.2 narrow and isolated, or does the...(+64 chars)  (v1 predicted it: match 0.25; cost 20, spent 30)
+      updater's fix not kept: its fit is 0.375, the current model's is 0.425
+      updater's fix not kept: its fit is 0.350, the current model's is 0.425
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 0.00; cost 10, spent 40)
+      updater's fix not kept: same scores and not smaller (475 vs 261 chars)
+      updater's fix not kept: its fit is 0.267, the current model's is 0.283
+      theorist (fixes stalled)
+      theorist's model on trial for 3 experiments (fit 0.17, size 543)
+[4] E4 learn: What is the precise shape of the central bump — is it a smooth un...(+63 chars)  (v1 predicted it: match 0.25; cost 20, spent 60)
+      updater's fix not kept: its fit is 0.263, the current model's is 0.275
+      model v2 by the updater: fit 0.36, size 340 (fit 0.275 -> 0.362); held-out 0%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.20; cost 10, spent 70)
+      model v3 by the updater: fit 0.46, size 409 (fit 0.330 -> 0.460); held-out 4%
+[6] E6 learn: Is the far-field baseline truly a constant ~-0.003, or does it va...(+93 chars)  (v3 predicted it: match 0.15; cost 20, spent 90)
+      model v4 by the theorist: fit 0.23, size 543 (on trial it predicted 0.30 of 3 new experiments, the current model 0.20); held-out 0%
+      model v5 by the updater: fit 0.25, size 778 (fit 0.233 -> 0.250); held-out 0%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v5 predicted it: match 0.00; cost 10, spent 100)
+      model v6 by the updater: fit 0.34, size 903 (fit 0.214 -> 0.343); held-out 1%
+[8] E8 learn: Does the far-field structure depend on sign of x (asymmetric osci...(+95 chars)  (v6 predicted it: match 0.05; cost 20, spent 120)
+      model v7 by the updater: fit 0.69, size 1511 (fit 0.306 -> 0.694); held-out 2%
+[9] E9 learn: a random ordinary probe  (v7 predicted it: match 0.60; cost 10, spent 130)
+      model v8 by the updater: fit 0.78, size 1672 (fit 0.683 -> 0.783); held-out 32%
+[10] E10 learn: What is the exact shape of the central bump between x=-8 and x=8 ...(+150 chars)  (v8 predicted it: match 0.25; cost 20, spent 150)
+      model v9 by the updater: fit 0.99, size 2143 (fit 0.730 -> 0.990); held-out 60%
+[11] E11 learn: a random ordinary probe  (v9 predicted it: match 1.00; cost 10, spent 160)
+[12] E12 learn: How does the central bump behave between x=1 and x=3 and between ...(+129 chars)  (v9 predicted it: match 0.95; cost 20, spent 180)
+      model v10 by the updater: fit 0.99, size 2370 (fit 0.987 -> 0.992); held-out 61%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.33, size 729)
+[13] E13 learn: a random ordinary probe  (v10 predicted it: match 1.00; cost 10, spent 190)
+[14] E14 learn: Are the small far-field ripples real structure (a systematic osci...(+171 chars)  (v10 predicted it: match 0.95; cost 20, spent 210)
+      updater's fix not kept: same scores and not smaller (2446 vs 2370 chars)
+      updater's fix not kept: same scores and not smaller (2446 vs 2370 chars)
+[15] E15 learn: a random ordinary probe  (v10 predicted it: match 1.00; cost 10, spent 220)
+      theorist's model lost its trial: on trial it predicted 0.32 of 3 new experiments, the current model 0.98
+[16] E16 learn: Where exactly does the far-field baseline transition from the mid...(+164 chars)  (v10 predicted it: match 1.00; cost 20, spent 240)
+[17] E17 learn: a random ordinary probe  (v10 predicted it: match 1.00; cost 10, spent 250)
+[18] E18 learn: Does the small positive shoulder near x=-3.5 and the dip near x=-...(+134 chars)  (v10 predicted it: match 1.00; cost 20, spent 270)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.53, size 513)
+[19] E19 learn: a random ordinary probe  (v10 predicted it: match 0.80; cost 10, spent 280)
+      model v11 by the updater: fit 0.99, size 2385 (fit 0.982 -> 0.987); held-out 61%
+[20] E20 learn: The model is uncertain about the far-field baseline on the right ...(+259 chars)  (v11 predicted it: match 0.90; cost 20, spent 300)
+      model v12 by the updater: fit 0.98, size 2600 (fit 0.982 -> 0.985); held-out 69%
+[21] E21 learn: a random ordinary probe  (v12 predicted it: match 1.00; cost 10, spent 310)
+      theorist's model lost its trial: on trial it predicted 0.35 of 3 new experiments, the current model 0.90
+[22] E22 learn: Do the far-field ripples on the left side between x=-128 and -50 ...(+174 chars)  (v12 predicted it: match 1.00; cost 20, spent 330)
+[23] E23 learn: a random ordinary probe  (v12 predicted it: match 0.80; cost 10, spent 340)
+      updater's fix not kept: same scores and not smaller (2600 vs 2600 chars)
+      updater's fix not kept: same scores and not smaller (2785 vs 2600 chars)
+[24] E24 learn: Are there residual mismatches in the far-field left/mid range aro...(+151 chars)  (v12 predicted it: match 1.00; cost 20, spent 360)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v12 predicted it: match 1.00; cost 10, spent 370)
+{"env": "find_numeric_f00033", "experiments": 25, "cost": 370, "model_version": 12, "model_role": "updater", "fit": 0.98, "size": 2600, "exam": null, "heldout": 0.69, "llm_calls": 37, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

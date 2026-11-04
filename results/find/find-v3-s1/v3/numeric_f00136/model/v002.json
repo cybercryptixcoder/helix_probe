@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I replaced the constant with a V-shaped linear model: f(x) \u2248 0.0162 + 0.00029\u00b7|x+20|, since E2 shows a clear minimum near x=-20 with roughly equal upward slopes on both sides.", "exam": 0.0, "fit": 0.4, "fit_exact": 0.0, "size": 163, "matches": [0.4, 0.4], "made_at": 2, "heldout": 0.0}

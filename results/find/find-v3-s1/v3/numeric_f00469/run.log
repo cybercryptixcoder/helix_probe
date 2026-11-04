@@ -1,0 +1,29 @@
+Helix Probe v3 on 'find_numeric_f00469': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 128 (fit 0.000 -> 1.000); held-out 98%
+[2] E2 learn: Where exactly does the nonzero region around x=0 start and end, a...(+44 chars)  (v1 predicted it: match 1.00; cost 15, spent 25)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 35)
+[4] E4 learn: Is the nonzero region exactly the interval (-2, 2), or are there ...(+96 chars)  (v1 predicted it: match 0.67; cost 12, spent 47)
+      model v2 by the updater: fit 1.00, size 129 (fit 0.917 -> 1.000); held-out 99%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 1.00; cost 10, spent 57)
+[6] E6 learn: Is the nonzero region really an interval of constant 1, or does i...(+93 chars)  (v2 predicted it: match 0.73; cost 15, spent 72)
+      model v3 by the updater: fit 1.00, size 130 (fit 0.956 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 329)
+[7] E7 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 82)
+[8] E8 learn: Where exactly does the nonzero plateau end on both sides near |x|...(+91 chars)  (v3 predicted it: match 0.71; cost 14, spent 96)
+      model v4 by the updater: fit 1.00, size 129 (fit 0.964 -> 1.000); held-out 100%
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 106)
+      theorist's model lost its trial: on trial it predicted 0.90 of 3 new experiments, the current model 0.90
+[10] E10 learn: Does the function have any other nonzero behavior outside the |x|...(+88 chars)  (v4 predicted it: match 1.00; cost 16, spent 122)
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 132)
+[12] E12 learn: Is the plateau boundary exactly at |x|=1.5 inclusive, or could th...(+230 chars)  (v4 predicted it: match 1.00; cost 12, spent 144)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 334)
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 154)
+[14] E14 learn: Are there any nonzero outputs at all in the transition region bet...(+152 chars)  (v4 predicted it: match 1.00; cost 16, spent 170)
+[15] E15 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 180)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+[16] E16 learn: Does the plateau value stay exactly 1.0 across the whole interval...(+191 chars)  (v4 predicted it: match 1.00; cost 13, spent 193)
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00469", "experiments": 16, "cost": 193, "model_version": 4, "model_role": "updater", "fit": 1.0, "size": 129, "exam": null, "heldout": 1.0, "llm_calls": 14, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

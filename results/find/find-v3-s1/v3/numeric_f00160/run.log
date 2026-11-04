@@ -1,0 +1,16 @@
+Helix Probe v3 on 'find_numeric_f00160': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 1.00, size 68 (fit 0.000 -> 1.000); held-out 100%
+[2] E2 learn: Does the constant -39.5 offset hold exactly across a spread of or...(+143 chars)  (v1 predicted it: match 1.00; cost 13, spent 23)
+[3] E3 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 33)
+[4] E4 learn: Are the outputs exactly floor(x - 39.5), i.e. rounding down to th...(+158 chars)  (v1 predicted it: match 1.00; cost 20, spent 53)
+[5] E5 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 63)
+[6] E6 learn: Does the floor(x - 39.5) rule hold consistently at fractional inp...(+143 chars)  (v1 predicted it: match 1.00; cost 20, spent 83)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 1.00, size 207)
+[7] E7 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 93)
+[8] E8 learn: Is the output exactly the integer floor(x - 39.5) (i.e. floor(x) ...(+94 chars)  (v1 predicted it: match 1.00; cost 20, spent 113)
+[9] E9 learn: a random ordinary probe  (v1 predicted it: match 1.00; cost 10, spent 123)
+      theorist's model lost its trial: on trial it predicted 1.00 of 3 new experiments, the current model 1.00
+stopping early: the last 8 experiments were all predicted on arrival
+{"env": "find_numeric_f00160", "experiments": 9, "cost": 123, "model_version": 1, "model_role": "updater", "fit": 1.0, "size": 68, "exam": null, "heldout": 1.0, "llm_calls": 6, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

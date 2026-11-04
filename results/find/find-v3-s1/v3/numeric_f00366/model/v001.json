@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model to a sign-based rule: negative inputs yield 8.8 and non-negative inputs yield -12.4, matching all of E1 except the near-zero value -1.2 (which gave 9.8, noted as a possible special region).", "exam": 0.0, "fit": 0.9, "fit_exact": 0.0, "size": 169, "matches": [0.9], "made_at": 1, "heldout": 0.73}

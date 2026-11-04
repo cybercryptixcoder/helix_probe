@@ -1,0 +1,1 @@
+{"version": 3, "role": "updater", "notes": "Changed the band from |x|<=10 to -4 <= x <= 4: E4 shows the nonzero region ends between 4 and 5 on the positive side and between -4 and -5 on the negative side, so the band is much narrower than v2 assumed.", "exam": 0.0, "fit": 1.0, "fit_exact": 1.0, "size": 263, "matches": [1.0, 1.0, 1.0, 1.0], "made_at": 4, "heldout": 0.99}

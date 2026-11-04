@@ -1,0 +1,13 @@
+Helix Probe v3 on 'find_numeric_f00344': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+[2] E2 learn: Does the function's behavior depend on sign/region — e.g., is it ...(+78 chars)  (v0 predicted it: match 0.00; cost 20, spent 30)
+      theorist (fixes stalled)
+[3] E3 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 40)
+      model v1 by the updater: fit 0.40, size 447 (fit 0.000 -> 0.400); held-out 0%
+[4] E4 learn: What is the exact shape of f near x=0 and for small positive/nega...(+86 chars)  (v1 predicted it: match 0.25; cost 20, spent 60)
+      model v2 by the updater: fit 0.38, size 552 (fit 0.363 -> 0.375); held-out 0%
+[5] E5 learn: a random ordinary probe  (v2 predicted it: match 0.50; cost 10, spent 70)
+[6] E6 learn: How does f behave on moderately large positive and negative input...(+152 chars)  (v2 predicted it: match 0.45; cost 20, spent 90)
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v2 predicted it: match 0.20; cost 10, spent 100)
+[8] E8 learn: What is the exact functional form of the growth for |x| between ~...(+96 chars)  (v2 predicted it: match 0.35; cost 20, spent 120)

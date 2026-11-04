@@ -1,0 +1,38 @@
+Helix Probe v3 on 'find_numeric_f00085': 0 experiments so far, model v0, spent 0
+[1] E1 learn: a random ordinary probe  (v0 predicted it: match 0.00; cost 10, spent 10)
+      model v1 by the updater: fit 0.20, size 271 (fit 0.000 -> 0.200); held-out 0%
+[2] E2 learn: Does the function have a linear term (asymmetry) or a different c...(+80 chars)  (v1 predicted it: match 0.50; cost 20, spent 30)
+      model v2 by the updater: fit 1.00, size 385 (fit 0.350 -> 1.000); held-out 80%
+[3] E3 learn: a random ordinary probe  (v2 predicted it: match 0.90; cost 10, spent 40)
+[4] E4 learn: Does the function have a flat dead zone exactly at |x|<=5 with a ...(+142 chars)  (v2 predicted it: match 0.50; cost 20, spent 60)
+      model v3 by the updater: fit 0.99, size 628 (fit 0.850 -> 0.988); held-out 78%
+[5] E5 learn: a random ordinary probe  (v3 predicted it: match 1.00; cost 10, spent 70)
+[6] E6 learn: Is the transition between the dead zone and the quadratic region ...(+137 chars)  (v3 predicted it: match 0.50; cost 20, spent 90)
+      model v4 by the updater: fit 1.00, size 2169 (fit 0.908 -> 1.000); held-out 100%
+      theorist (every 6 experiments)
+[7] E7 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 100)
+[8] E8 learn: The model interpolates linearly between sparse samples; does the ...(+167 chars)  (v4 predicted it: match 1.00; cost 20, spent 120)
+[9] E9 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 130)
+[10] E10 learn: Are the mid-range samples (e.g. x=12,13,17,22,35,45,55,65,75,90,1...(+183 chars)  (v4 predicted it: match 1.00; cost 20, spent 150)
+[11] E11 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 160)
+[12] E12 learn: Does the true curve bow away from linear interpolation in the mid...(+127 chars)  (v4 predicted it: match 1.00; cost 20, spent 180)
+      theorist (every 6 experiments)
+[13] E13 learn: a random ordinary probe  (v4 predicted it: match 1.00; cost 10, spent 190)
+[14] E14 learn: What is the exact shape of the transition region just outside the...(+167 chars)  (v4 predicted it: match 0.50; cost 20, spent 210)
+      model v5 by the updater: fit 0.98, size 3654 (fit 0.964 -> 0.982); held-out 80%
+[15] E15 learn: a random ordinary probe  (v5 predicted it: match 1.00; cost 10, spent 220)
+[16] E16 learn: What is the exact shape of the positive-side ramp between x=11 an...(+150 chars)  (v5 predicted it: match 1.00; cost 20, spent 240)
+[17] E17 learn: a random ordinary probe  (v5 predicted it: match 0.90; cost 10, spent 250)
+      model v6 by the updater: fit 1.00, size 4655 (fit 0.979 -> 1.000); held-out 100%
+[18] E18 learn: Does the function have a sharp corner or smooth curvature at the ...(+159 chars)  (v6 predicted it: match 1.00; cost 20, spent 270)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 280)
+[20] E20 learn: Is the dead zone truly flat at exactly -22.8021 across its whole ...(+148 chars)  (v6 predicted it: match 1.00; cost 20, spent 300)
+[21] E21 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 310)
+[22] E22 learn: Are the small residual errors on ordinary probes (e.g. x=17.9, -7...(+168 chars)  (v6 predicted it: match 1.00; cost 20, spent 330)
+[23] E23 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 340)
+[24] E24 learn: The model's interpolation is exact on all tested points but E19/E...(+225 chars)  (v6 predicted it: match 1.00; cost 20, spent 360)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.83, size 1611)
+[25] E25 learn: a random ordinary probe  (v6 predicted it: match 1.00; cost 10, spent 370)
+{"env": "find_numeric_f00085", "experiments": 25, "cost": 370, "model_version": 6, "model_role": "updater", "fit": 1.0, "size": 4655, "exam": null, "heldout": 1.0, "llm_calls": 25, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

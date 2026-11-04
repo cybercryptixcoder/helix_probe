@@ -1,0 +1,17 @@
+{
+ "out": "runs/find/find-v3-s1",
+ "data": "bench/find/data",
+ "arms": [
+  "v3"
+ ],
+ "categories": [
+  "numeric",
+  "strings"
+ ],
+ "limit": 0,
+ "steps": 25,
+ "exam": 4,
+ "workers": 6,
+ "seed": 1,
+ "fake": false
+}
