@@ -20,3 +20,28 @@ Helix Probe v3 on 'find_strings_f00542': 0 experiments so far, model v0, spent 0
 [10] E10 learn: For multi-token inputs, does the box keep only the first two toke...(+142 chars)  (v2 predicted it: match 0.00; cost 10, spent 77)
       theorist (fixes stalled)
 [11] E11 learn: a random ordinary probe  (v2 predicted it: match 0.33; cost 6, spent 83)
+[12] E12 learn: For multi-token inputs, how exactly are the second and later toke...(+149 chars)  (v2 predicted it: match 0.00; cost 10, spent 93)
+      theorist (every 6 experiments)
+      theorist's model on trial for 3 experiments (fit 0.12, size 294)
+[13] E13 learn: a random ordinary probe  (v2 predicted it: match 0.33; cost 6, spent 99)
+[14] E14 learn: How does the box merge the reversed second and third tokens — is ...(+98 chars)  (v2 predicted it: match 0.20; cost 10, spent 109)
+[15] E15 learn: a random ordinary probe  (v2 predicted it: match 0.17; cost 6, spent 115)
+      theorist's model lost its trial: on trial it predicted 0.17 of 3 new experiments, the current model 0.23
+      theorist (fixes stalled)
+[16] E16 learn: For ordinary two- and three-token inputs, how are the reversed to...(+183 chars)  (v2 predicted it: match 0.20; cost 10, spent 125)
+[17] E17 learn: a random ordinary probe  (v2 predicted it: match 0.50; cost 6, spent 131)
+      theorist (fixes stalled)
+[18] E18 learn: For ordinary multi-token inputs, how exactly do the reversed toke...(+137 chars)  (v2 predicted it: match 0.40; cost 10, spent 141)
+      theorist (every 6 experiments)
+[19] E19 learn: a random ordinary probe  (v2 predicted it: match 0.33; cost 6, spent 147)
+      theorist (fixes stalled)
+[20] E20 learn: For two-token inputs, is the second reversed token truncated to t...(+113 chars)  (v2 predicted it: match 0.60; cost 10, spent 157)
+      model v3 by the updater: fit 0.33, size 588 (fit 0.262 -> 0.334); held-out 0%
+[21] E21 learn: a random ordinary probe  (v3 predicted it: match 0.33; cost 6, spent 163)
+[22] E22 learn: For two-token inputs, how is the second reversed token combined w...(+174 chars)  (v3 predicted it: match 0.80; cost 10, spent 173)
+      model v4 by the updater: fit 0.41, size 806 (fit 0.355 -> 0.415); held-out 1%
+[23] E23 learn: a random ordinary probe  (v4 predicted it: match 0.17; cost 6, spent 179)
+[24] E24 learn: For two-token inputs, what governs how much of the second reverse...(+147 chars)  (v4 predicted it: match 0.50; cost 10, spent 189)
+      theorist (every 6 experiments)
+[25] E25 learn: a random ordinary probe  (v4 predicted it: match 0.50; cost 6, spent 195)
+{"env": "find_strings_f00542", "experiments": 25, "cost": 195, "model_version": 4, "model_role": "updater", "fit": 0.41142857142857137, "size": 806, "exam": null, "heldout": 0.01, "llm_calls": 70, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

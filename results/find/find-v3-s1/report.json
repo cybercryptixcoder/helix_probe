@@ -16,15 +16,15 @@
   {
    "who": "v3",
    "category": "strings",
-   "n": 38,
-   "final": 0.9763157894736842,
-   "at3": 0.8447368421052631,
-   "at10": 0.9763157894736842,
-   "experiments": 11.447368421052632,
-   "inputs": 89.71052631578948,
-   "calls": 10.18421052631579,
-   "usd": 0.5373074999999999,
-   "heldout": 0.9905263157894737
+   "n": 40,
+   "final": 0.93,
+   "at3": 0.8025,
+   "at10": 0.9275,
+   "experiments": 12.125,
+   "inputs": 95.05,
+   "calls": 13.275,
+   "usd": 1.400429148,
+   "heldout": 0.94125
   },
   {
    "who": "published: gpt-3.5-turbo",
@@ -1095,6 +1095,22 @@
   {
    "arm": "v3",
    "category": "strings",
+   "fid": "f00436",
+   "final": 0.0,
+   "at3": 0.0,
+   "at10": 0.0,
+   "experiments": 25,
+   "exam_probes": 0,
+   "inputs": 198,
+   "heldout": 0.0,
+   "calls": 74,
+   "tokens_in": 178484,
+   "tokens_out": 297297,
+   "usd": 0.40698998399999997
+  },
+  {
+   "arm": "v3",
+   "category": "strings",
    "fid": "f00444",
    "final": 1.0,
    "at3": 1.0,
@@ -1155,6 +1171,22 @@
    "tokens_in": 15265,
    "tokens_out": 3390,
    "usd": 0.00845934
+  },
+  {
+   "arm": "v3",
+   "category": "strings",
+   "fid": "f00542",
+   "final": 0.1,
+   "at3": 0.0,
+   "at10": 0.0,
+   "experiments": 25,
+   "exam_probes": 0,
+   "inputs": 195,
+   "heldout": 0.01,
+   "calls": 70,
+   "tokens_in": 249508,
+   "tokens_out": 320022,
+   "usd": 0.456131664
   },
   {
    "arm": "v3",
