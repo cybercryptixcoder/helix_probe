@@ -1,0 +1,37 @@
+Helix Probe v2 on 'find_numeric_f00003': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+[2] E2 Does f act like a quadratic (or other simple polynomial) over the negative-...(+113 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.97, fit 1.00, size 1877 (exam 0.000 -> 0.975); held-out 76%
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.90)
+      updater's model not kept: its exam is 0.075, the current model's is 0.975
+      model v2 by the updater: exam 1.00, fit 0.98, size 2084 (exam 0.975 -> 1.000); held-out 96%
+[4] E4 Is the right branch a single smooth cubic, or does the curvature change aga...(+108 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Where exactly are the two breakpoints of the flat plateau, and is the plate...(+125 chars)  (v2 predicted it: match 0.40)
+      updater's model not kept: its exam is 0.650, the current model's is 1.000
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Is the plateau truly flat and where exactly are its two edges, plus what is...(+85 chars)  (v2 predicted it: match 0.30)
+      updater's model not kept: its fit is 0.825, the current model's is 0.831
+      updater's model not kept: its fit is 0.806, the current model's is 0.831
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Does the right branch remain a smooth cubic all the way to the domain edge,...(+106 chars)  (v2 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v2 predicted it: match 1.00)
+[12] E12 On the right branch, is the curve between x=5 and x=40 a smooth cubic as fi...(+120 chars)  (v2 predicted it: match 0.50)
+      model v3 by the updater: exam 1.00, fit 0.90, size 2563 (fit 0.846 -> 0.900); held-out 100%
+[13] E13 a random ordinary probe  (v3 predicted it: match 1.00)
+[14] E14 Is the left branch's transition from the plateau at x≈-20.15 a smooth cubic...(+113 chars)  (v3 predicted it: match 0.95)
+      model v4 by the updater: exam 1.00, fit 0.92, size 2655 (fit 0.911 -> 0.918); held-out 100%
+[15] E15 a random ordinary probe  (v4 predicted it: match 1.00)
+[16] E16 Where exactly does the left branch leave the plateau on the negative side, ...(+55 chars)  (v4 predicted it: match 0.30)
+      model v5 by the updater: exam 1.00, fit 0.93, size 2995 (fit 0.884 -> 0.931); held-out 100%
+[17] E17 a random ordinary probe  (v5 predicted it: match 1.00)
+[18] E18 Are the two branches on the right genuinely distinct (a near-edge quadratic...(+159 chars)  (v5 predicted it: match 1.00)
+[19] E19 a random ordinary probe  (v5 predicted it: match 1.00)
+[20] E20 Does the left branch remain a single smooth cubic all the way from the plat...(+161 chars)  (v5 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v5 predicted it: match 1.00)
+[22] E22 Does the right branch have a genuine smooth transition (no kink) between th...(+129 chars)  (v5 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v5 predicted it: match 1.00)
+[24] E24 Does the current model's near-edge left quadratic and right quadratic match...(+201 chars)  (v5 predicted it: match 0.45)
+      updater's model not kept: its fit is 0.925, the current model's is 0.931
+[25] E25 a random ordinary probe  (v5 predicted it: match 1.00)
+{"env": "find_numeric_f00003", "experiments": 25, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 0.934, "size": 2995, "heldout": 1.0, "llm_calls": 27, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

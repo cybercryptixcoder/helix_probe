@@ -1,0 +1,40 @@
+{
+ "version": 16,
+ "beliefs": [
+  "f is flat at -20.4469 on the central interval [-20.16, 3.81] [E1, E2, E3, E5, E6, E9, E10, E12, E13, E14, E18]",
+  "Left transition from x=-21 to x=-20.16 is a straight line with constant slope ~41.12 per unit, reaching plateau at -20.16 [E5, E6, E10, E12, E14, E18]",
+  "For x<-21 the left side is a smooth convex curve through (-21,12.9172),(-22,54.0378),(-25,204.0128),(-30,548.2541),(-40,1531.8654),(-60,4736.4186),(-128,24838.9457) [E4, E8, E1]",
+  "Right transition from x=3.81 to x=4.2 is linear with slope ~37.04 per unit, reaching -5.6859 at 4.2 [E9, E3, E11, E13]",
+  "Right side from x=4.2 to x=5.0 is linear with slope ~78.5 per unit, reaching 48.3879 at 5.0 [E17]",
+  "Right side from x=5.0 to x=10 is a quadratic through (5,48.3879),(10,650.4807) with slope matching the linear segment at 5.0 [E3, E7, E9, E11, E15, E17]",
+  "Right side from x=10 to x=20 is a quadratic through (10,650.4807),(20,1914.2369) \u2014 slope ~126.1 per unit at 10 [E15, E16]",
+  "Right side from x=20 to x=30 is a quadratic through (20,1914.2369),(25,2597.6677),(30,3458.112) [E15, E16]",
+  "Right side beyond x=30 is a steeper quadratic through (30,3458.112),(40,5505.5302),(60,10959.9624) [E1, E7, E16]",
+  "There is a breakpoint at x=30 where the right-side quadratic slope increases [E16]",
+  "Left and right sides are asymmetric: left is steeper far out, right is quadratic-ish [E1]"
+ ],
+ "notes": "E18 confirms the left transition is a single straight line with constant slope ~41.12 from x=-21 to x=-20.16 (no bend); replaced the spline interpolation with a linear segment. Also fixed the right side: the 5-10 region is a separate quadratic (slope ~78.5 at 5, ~126 at 10), not part of the 10-20 parabola.",
+ "fit": 0.4444444444444444,
+ "heldout": 0.65,
+ "matches": [
+  0.9,
+  1.0,
+  0.8666666666666667,
+  1.0,
+  0.9,
+  0.65,
+  1.0,
+  1.0,
+  0.8333333333333334,
+  0.6,
+  1.0,
+  0.65,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  0.9
+ ],
+ "made_at": 18
+}

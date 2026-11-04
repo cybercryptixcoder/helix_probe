@@ -1,0 +1,21 @@
+{
+ "out": "runs/find/find-v2",
+ "data": "bench/find/data",
+ "arms": [
+  "v2",
+  "v2-directed",
+  "v2-random",
+  "v2-no-theorist",
+  "v1"
+ ],
+ "categories": [
+  "numeric",
+  "strings"
+ ],
+ "limit": 0,
+ "steps": 25,
+ "exam": 4,
+ "workers": 6,
+ "seed": 0,
+ "fake": false
+}

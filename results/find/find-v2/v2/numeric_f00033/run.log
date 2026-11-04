@@ -1,0 +1,80 @@
+Helix Probe v2 on 'find_numeric_f00033': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.12, fit 0.40, size 352 (exam 0.000 -> 0.125); held-out 0%
+[2] E2 Does the bump center near x=2.9 or is the peak offset, and how wide is it? ...(+68 chars)  (v1 predicted it: match 0.25)
+      updater's model not kept: its exam is 0.000, the current model's is 0.125
+      updater's model not kept: its exam is 0.025, the current model's is 0.125
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 0.15, fit 0.63, size 432 (exam 0.125 -> 0.150); held-out 3%
+[4] E4 What is the shape of the main bump between x=0 and x=3, and is the peak rea...(+78 chars)  (v2 predicted it: match 0.35)
+      updater's model not kept: its fit is 0.550, the current model's is 0.562
+      updater's model not kept: its fit is 0.525, the current model's is 0.562
+[5] E5 a random ordinary probe  (v2 predicted it: match 0.20)
+      updater's model not kept: its fit is 0.430, the current model's is 0.490
+      updater's model not kept: its fit is 0.450, the current model's is 0.490
+      theorist (updater stalled)
+      model v3 by the theorist: exam 0.23, fit 0.57, size 1002 (exam 0.150 -> 0.225); held-out 1%
+[6] E6 How does the far-field baseline behave between x=-128 and x=-5, and is the ...(+66 chars)  (v3 predicted it: match 0.40)
+      updater's model not kept: its exam is 0.200, the current model's is 0.225
+      model v4 by the updater: exam 0.60, fit 0.78, size 1009 (exam 0.225 -> 0.600); held-out 2%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.250, the current model's is 0.600
+[7] E7 a random ordinary probe  (v4 predicted it: match 0.40)
+      model v5 by the updater: exam 0.62, fit 0.69, size 1059 (exam 0.600 -> 0.625); held-out 4%
+[8] E8 Is the negative trough near x~11-12 real and how wide is it, and does the f...(+74 chars)  (v5 predicted it: match 0.25)
+      updater's model not kept: its fit is 0.600, the current model's is 0.631
+      updater's model not kept: its fit is 0.613, the current model's is 0.631
+[9] E9 a random ordinary probe  (v5 predicted it: match 0.80)
+      updater's model not kept: same scores and not smaller (1059 vs 1059 chars)
+      model v6 by the updater: exam 0.62, fit 0.66, size 1060 (fit 0.650 -> 0.656); held-out 4%
+[10] E10 How does the main bump behave on the left side between x=-1 and x=-4, and d...(+105 chars)  (v6 predicted it: match 0.45)
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      updater's model not kept: same scores and not smaller (1060 vs 1060 chars)
+[11] E11 a random ordinary probe  (v6 predicted it: match 0.90)
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      model v7 by the updater: exam 0.62, fit 0.66, size 1060 (fit 0.659 -> 0.664); held-out 4%
+[12] E12 How smooth is the main bump's left tail around x=-1 to -2, and does the sma...(+174 chars)  (v7 predicted it: match 0.45)
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.300, the current model's is 0.625
+[13] E13 a random ordinary probe  (v7 predicted it: match 0.40)
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      updater's model not kept: its exam is 0.575, the current model's is 0.625
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.325, the current model's is 0.625
+[14] E14 The model overpredicts the left tail (x=-1.5 to -2.5) and the shoulder near...(+170 chars)  (v7 predicted it: match 0.55)
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+[15] E15 a random ordinary probe  (v7 predicted it: match 0.20)
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.425, the current model's is 0.625
+[16] E16 Does the small positive shoulder near x=-5 exist as a separate structure, a...(+104 chars)  (v7 predicted it: match 0.05)
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+[17] E17 a random ordinary probe  (v7 predicted it: match 0.20)
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      theorist (updater stalled)
+[18] E18 What is the exact shape of the negative trough between x=6 and x=24, especi...(+93 chars)  (v7 predicted it: match 0.15)
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      updater's model not kept: its exam is 0.600, the current model's is 0.625
+      theorist (every 6 steps)
+      model v8 by the theorist: exam 0.90, fit 0.81, size 1992 (exam 0.625 -> 0.900); held-out 26%
+[19] E19 a random ordinary probe  (v8 predicted it: match 0.70)
+      model v9 by the updater: exam 0.90, fit 0.88, size 2287 (fit 0.803 -> 0.884); held-out 34%
+[20] E20 How does the function behave in the mid-negative region x=-8 to -20 where t...(+104 chars)  (v9 predicted it: match 0.90)
+      model v10 by the updater: exam 0.90, fit 0.89, size 2509 (fit 0.885 -> 0.890); held-out 34%
+[21] E21 a random ordinary probe  (v10 predicted it: match 1.00)
+[22] E22 How does the bump's left tail really decay between x=-2.5 and x=-3.5, where...(+121 chars)  (v10 predicted it: match 0.70)
+      model v11 by the updater: exam 0.93, fit 0.91, size 2895 (exam 0.900 -> 0.925); held-out 35%
+[23] E23 a random ordinary probe  (v11 predicted it: match 0.80)
+      updater: keep
+[24] E24 Does the small positive shoulder near x=-5 to -6 decay smoothly to zero at ...(+159 chars)  (v11 predicted it: match 0.85)
+      updater's model not kept: same scores and not smaller (2895 vs 2895 chars)
+      updater's model not kept: same scores and not smaller (2895 vs 2895 chars)
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v11 predicted it: match 1.00)
+{"env": "find_numeric_f00033", "experiments": 25, "exam_probes": 4, "model_version": 11, "model_role": "updater", "exam": 0.925, "fit": 0.904, "size": 2895, "heldout": 0.35, "llm_calls": 59, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,14 @@
+Helix Probe v2 on 'find_numeric_f00093': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does the function do on a spread of ordinary inputs across the domain,...(+65 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 974 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the function's fine structure near zero smooth and monotone, or does it ...(+88 chars)  (v1 predicted it: match 1.00)
+[3] E3 Is the function's behavior at large |x| truly linear (constant slope) on bo...(+104 chars)  (v1 predicted it: match 1.00)
+[4] E4 Does the function have a sharp break or kink anywhere in the middle region,...(+144 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the function stay smooth and monotone (no hidden kink, plateau, or loc...(+161 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the function remain smooth and monotone with no hidden kink or plateau...(+139 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+[7] E7 Is the function symmetric in any way between the positive and negative side...(+149 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the model's interpolation between the sparse knots in the mid-positive...(+187 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the function's slope change continuously (smoothly) through the transi...(+184 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00093", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 974, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

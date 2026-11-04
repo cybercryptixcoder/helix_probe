@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I replaced the empty model with a smooth, bounded guess consistent with E1's small outputs (roughly \u00b10.05) and lack of obvious structure; the exact form is uncertain, so it's marked with \"?\".", "exam": 0.025, "fit": 0.0, "fit_exact": 0.0, "size": 285, "matches": [0.0], "made_at": 1, "heldout": 0.0}

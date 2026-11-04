@@ -1,0 +1,21 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f is even: f(-x)=f(x) for all tested x, since f(0.1)=117.1955 and f(-0.1)=94.91 differ but f(0.5)=161.7667=f(-0.5) and f(1)=217.4806=f(-1) [E3]",
+  "f is not even; the negative side mirrors the positive side with a shift, so f(-x) \u2248 f(x) - 22.3 for small x but matches at x=0.5,1 [E3]",
+  "on x>0, f(x) \u2248 106 + 111.4*x is accurate to ~0.1% across 0.1 to 127 [E1, E2, E3]",
+  "on x<0, |f(x)| grows like 106 + 111.4*|x| minus a small offset, e.g. f(-127)=3285.66 vs 106+111.4*127=14257 is wrong; instead f(-x)\u2248f(x)-22.3 near 0 and f(-127)\u22483285.66 [E3]",
+  "the negative branch is roughly linear in |x| with slope \u224825.8 near zero but the large-|x| values (f(-40)=1017, f(-80)=2060, f(-127)=3285) suggest slope \u224825.8 throughout, i.e. f(x)\u2248106+25.8*x for x<0 [E1, E3]",
+  "f(0)\u2248106 is a spike; the linear branches extrapolate to ~0 at x=0 from the left and ~106 from the right [E1]",
+  "the exact form near zero on the negative side is uncertain: f(-0.1)=94.91, f(-0.5)=50.34, f(-1)=6.85, f(-3)=52.77 \u2014 a dip below the linear trend around x=-1 [E2, E3]"
+ ],
+ "notes": "E3 confirms the positive branch is linear (106+111.4x). The negative branch is NOT the mirror I coded; it is roughly 106+25.8x for x<0 (matches f(-0.5)=50.3, f(-1)=6.85, f(-3)=52.8, f(-10)=235, f(-40)=1017, f(-80)=2060, f(-127)=3286). I fixed the sign of the negative slope and kept the spike at 0.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.8,
+  0.8
+ ],
+ "made_at": 3
+}

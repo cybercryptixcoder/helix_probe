@@ -1,0 +1,24 @@
+{
+ "version": 6,
+ "beliefs": [
+  "On x>=0, f(x) = 106.06 + 111.43*x is accurate to ~0.1% across 0.1 to 127 [E1, E2, E3]",
+  "On x<=-2, f(x) = 26.07*|x| - 25.4 is accurate to ~0.1% across |x| from 2 to 128 [E5, E6, E3, E4]",
+  "The negative branch dips below the linear law near |x|=1: f(-1)=6.85, f(-1.1)=6.44, f(-1.2)=7.47, f(-1.4)=11.24, f(-1.6)=16.27, f(-1.8)=21.48, f(-1.9)=24.09, f(-2)=26.70 \u2014 a smooth trough bottoming near |x|=1.05 [E7, E8, E4]",
+  "For |x| between 0 and 1, f rises steeply from ~6.85 at |x|=1 to ~106 at x=0, roughly linear: f(-0.5)=50.34, f(-0.3)=72.62, f(-0.1)=94.91, f(-0.02)=103.82 [E8, E4, E2]",
+  "f(0)\u2248106 is a spike; both branches approach ~106 at x=0 [E1, E3]"
+ ],
+ "notes": "Replaced the wrong quadratic near-zero model with a piecewise fit: linear rise from ~106 at x=0 down to ~6.85 at |x|=1, then a smooth trough up to the linear law at |x|=2. The dip minimum is near |x|=1.05.",
+ "fit": 0.75,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.75,
+  0.55
+ ],
+ "made_at": 8
+}

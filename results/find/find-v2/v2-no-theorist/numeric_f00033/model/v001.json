@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I modeled the box as a narrow Gaussian bump centered near x\u22483 (peak ~0.0362, width \u03c3\u22482) with a tiny negative baseline at large |x|, matching E1's pattern of a sharp peak near 2.9 and near-zero elsewhere.", "exam": 0.125, "fit": 0.6, "fit_exact": 0.0, "size": 332, "matches": [0.6], "made_at": 1, "heldout": 0.0}

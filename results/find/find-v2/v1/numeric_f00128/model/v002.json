@@ -1,0 +1,21 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f is smooth and monotone decreasing across the whole domain, no piecewise break visible in E1-E3 [E1,E2,E3]",
+  "f(0) \u2248 5.42 and f crosses zero near x \u2248 0.6 [E1,E3]",
+  "f is roughly odd but with a positive additive offset: f(x) \u2248 g(x) + c where g is odd and c \u2248 5.4 [E2,E3]",
+  "The odd part g grows faster than cubic at large |x|: g(128) \u2248 2157 vs cubic-fit residual, and g(8) \u2248 129 vs 8^3=512 \u2014 actually g looks like a*x^3 with a\u22481.03e-3? No: g(8)=129, 8^3=512, ratio 0.25; g(64)=1076, 64^3=262144, ratio 4.1e-3 \u2014 so not pure cubic, looks like a*x^3 + b*x with b dominant at small x [E1,E2,E3]",
+  "Small-x behavior: g(1)\u2248-10.7, g(2)\u2248-28.1, g(4)\u2248-61.7, g(8)\u2248-129.4 \u2014 roughly g(x) \u2248 -16*x for |x|\u22648 (slope ~-16), then steeper beyond [E3,E1]",
+  "Large-x behavior: g(32)\u2248-535, g(64)\u2248-1076, g(128)\u2248-2157 \u2014 roughly linear with slope ~-16.8 at large x too, so g is close to -16.8*x with mild cubic correction [E1,E2]",
+  "Best simple fit: f(x) \u2248 a*x^3 + b*x + c with a\u2248-4.2e-6, b\u2248-16.8, c\u22485.4 \u2014 but this over-predicts |f| at moderate x (E3 shows model too steep near x=\u00b13), suggesting a softer-than-cubic shape [E3]"
+ ],
+ "notes": "E3 shows the cubic term is too strong at moderate x: observed f(3)=22.7 vs model 55.8. The odd part is closer to linear (-16.8x) with a weaker cubic. Refit using E1/E2/E3: at x=8, g=-129.4 so 512a+8b=-129.4; at x=64, g=-1075.8 so 262144a+64b=-1075.8. Solving: from first b=(-129.4-512a)/8=-16.175-64a; substitute: 262144a+64(-16.175-64a)=-1075.8 => 262144a-1035.2-4096a=-1075.8 => 258048a=-40.6 => a=-1.573e-4, b=-16.175+0.01007=-16.165. Check x=128: -1.573e-4*2097152 -16.165*128 = -329.9-2069.1=-2399 vs observed -2157 \u2014 overshoots. Try fitting x=32 and x=128: 32768a+32b=-535.0; 2097152a+128b=-2157.4. From first b=(-535-32768a)/32=-16.719-1024a; sub: 2097152a+128(-16.719-1024a)=-2157.4 => 2097152a-2140.0-131072a=-2157.4 => 1966080a=-17.4 => a=-8.85e-6, b=-16.719+0.00906=-16.710. Check x=8: -8.85e-6*512-16.71*8=-0.0045-133.7=-133.7 vs -129.4, close. Check x=64: -8.85e-6*262144-16.71*64=-2.32-1069.4=-1071.7 vs -1075.8, close. Check x=4: -0.00057-66.84=-66.84 vs -61.7, a bit steep. Check x=2: -16.71*2=-33.4 vs -28.1, steep. So near zero the slope is softer (~-10 to -14). This suggests a smooth function like -16.7*x + small cubic but with a softer core \u2014 possibly a tanh-like or a*x/(1+...) shape. Best compromise: use a*x^3+b*x+c with a=-8.85e-6, b=-16.71, c=5.42, accepting small errors near zero.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.6,
+  0.55,
+  0.15
+ ],
+ "made_at": 3
+}

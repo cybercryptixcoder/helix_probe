@@ -1,0 +1,70 @@
+Helix Probe v2 on 'find_numeric_f00033': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What is the overall shape and scale of f across the ordinary input range, a...(+49 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.00, fit 0.50, size 470 (fit 0.000 -> 0.500); held-out 0%
+[2] E2 How does f behave finely around the peak and near the zero-crossings on bot...(+77 chars)  (v1 predicted it: match 0.50)
+      model v2 by the updater: exam 0.28, fit 0.62, size 524 (exam 0.000 -> 0.275); held-out 0%
+[3] E3 Is the function's behavior near the positive-side zero crossing (x≈4-8) act...(+103 chars)  (v2 predicted it: match 0.10)
+      model v3 by the updater: exam 0.38, fit 0.57, size 662 (exam 0.275 -> 0.375); held-out 2%
+[4] E4 What is the fine structure of the negative dip on the right side (x=8 to 20...(+100 chars)  (v3 predicted it: match 0.10)
+      model v4 by the updater: exam 0.38, fit 0.49, size 664 (fit 0.450 -> 0.487); held-out 3%
+[5] E5 Does the negative dip on the right side persist and stay near -0.0004 out t...(+107 chars)  (v4 predicted it: match 0.30)
+      updater's model not kept: its exam is 0.300, the current model's is 0.375
+      updater: keep
+[6] E6 Is the right-side negative dip a single smooth Gaussian, or is there a seco...(+146 chars)  (v4 predicted it: match 0.30)
+      updater's model not kept: its exam is 0.275, the current model's is 0.375
+      updater's model not kept: its exam is 0.275, the current model's is 0.375
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.125, the current model's is 0.375
+[7] E7 What is the exact shape of the central bump between x=-0.5 and x=0.5, and d...(+108 chars)  (v4 predicted it: match 0.70)
+      updater's model not kept: its exam is 0.125, the current model's is 0.375
+      updater's model not kept: its exam is 0.275, the current model's is 0.375
+[8] E8 Is the central bump's asymmetry real (peak shifted slightly negative, steep...(+126 chars)  (v4 predicted it: match 0.60)
+      updater's model not kept: its exam is 0.275, the current model's is 0.375
+      updater's model not kept: its exam is 0.300, the current model's is 0.375
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.300, the current model's is 0.375
+[9] E9 How does f behave in the moderately negative region x=-16 to -6, where the ...(+134 chars)  (v4 predicted it: match 0.00)
+      model v5 by the updater: exam 0.60, fit 0.48, size 849 (exam 0.375 -> 0.600); held-out 4%
+[10] E10 What is the true shape of the central bump's flanks between |x|=1 and |x|=4...(+171 chars)  (v5 predicted it: match 0.50)
+      updater's model not kept: its fit is 0.405, the current model's is 0.480
+      updater's model not kept: its fit is 0.371, the current model's is 0.480
+[11] E11 What is the exact left-flank shape between x=-1 and x=-6, where the model's...(+147 chars)  (v5 predicted it: match 0.55)
+      updater's model not kept: its fit is 0.400, the current model's is 0.486
+      model v6 by the updater: exam 0.60, fit 0.49, size 849 (fit 0.486 -> 0.487); held-out 6%
+[12] E12 What is the exact form of the right-side negative dip between x=6 and x=30 ...(+156 chars)  (v6 predicted it: match 0.45)
+      updater's model not kept: its fit is 0.426, the current model's is 0.484
+      updater's model not kept: its fit is 0.430, the current model's is 0.484
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.250, the current model's is 0.600
+[13] E13 Does the central bump's left flank between x=-1 and x=-3 follow a smooth Ga...(+158 chars)  (v6 predicted it: match 0.20)
+      updater's model not kept: its fit is 0.446, the current model's is 0.462
+      updater's model not kept: its fit is 0.435, the current model's is 0.462
+      theorist (updater stalled)
+[14] E14 What is the true shape of the central bump's right flank between x=0 and x=...(+96 chars)  (v6 predicted it: match 0.35)
+      model v7 by the updater: exam 0.60, fit 0.54, size 958 (fit 0.454 -> 0.536); held-out 6%
+[15] E15 What is the true shape of the right flank between x=4 and x=9, specifically...(+157 chars)  (v7 predicted it: match 0.05)
+      model v8 by the updater: exam 0.60, fit 0.56, size 1202 (fit 0.503 -> 0.565); held-out 7%
+[16] E16 What is the exact shape of the central bump's right flank between x=0.6 and...(+219 chars)  (v8 predicted it: match 0.80)
+      updater's model not kept: its fit is 0.561, the current model's is 0.579
+      updater's model not kept: same scores and not smaller (1202 vs 1202 chars)
+[17] E17 What is the exact shape of the left-flank tail region from x=-6 to x=-16 wh...(+186 chars)  (v8 predicted it: match 0.20)
+      updater's model not kept: its exam is 0.475, the current model's is 0.600
+      updater's model not kept: same scores and not smaller (1202 vs 1202 chars)
+      theorist (updater stalled)
+      model v9 by the theorist: exam 0.95, fit 0.95, size 2417 (exam 0.600 -> 0.950); held-out 55%
+[18] E18 What is the exact shape of the left flank between x=-6 and x=-2 where the m...(+174 chars)  (v9 predicted it: match 0.85)
+      model v10 by the updater: exam 0.95, fit 1.00, size 3110 (fit 0.949 -> 1.000); held-out 59%
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.200, the current model's is 0.950
+[19] E19 Where exactly does the right-side negative dip peak (minimum) and how deep ...(+232 chars)  (v10 predicted it: match 1.00)
+[20] E20 Does the left flank of the central bump between x=-2 and x=-0.5 follow a sm...(+178 chars)  (v10 predicted it: match 1.00)
+[21] E21 How does f behave in the un-sampled region between x=4.3 and x=9 where the ...(+274 chars)  (v10 predicted it: match 1.00)
+[22] E22 What is the exact shape of the central bump between x=2.5 and x=4.5 on the ...(+133 chars)  (v10 predicted it: match 0.95)
+      model v11 by the updater: exam 0.95, fit 1.00, size 3631 (fit 0.998 -> 1.000); held-out 59%
+[23] E23 Is the small positive shoulder between x=4.6 and x=6.0 (where the curve fla...(+186 chars)  (v11 predicted it: match 0.60)
+      model v12 by the updater: exam 0.95, fit 1.00, size 3903 (fit 0.983 -> 1.000); held-out 59%
+[24] E24 How does f behave on the large-scale negative side between x=-128 and x=-16...(+234 chars)  (v12 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.125, the current model's is 0.950
+[25] E25 Is the left flank of the central bump between x=-2.3 and x=-1.0 smooth and ...(+116 chars)  (v12 predicted it: match 1.00)
+{"env": "find_numeric_f00033", "experiments": 25, "exam_probes": 4, "model_version": 12, "model_role": "updater", "exam": 0.95, "fit": 1.0, "size": 3903, "heldout": 0.59, "llm_calls": 62, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

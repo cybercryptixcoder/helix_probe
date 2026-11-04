@@ -1,0 +1,33 @@
+{
+ "version": 13,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-7.25, 5.75] [E3, E4, E5, E6, E11]",
+  "The right edge of the plateau is at x=5.75; f(5.75)=-22.8021 and f(5.8)=-22.6269 [E4, E6, E11]",
+  "The right transition is exactly linear from x=5.8 to x=8.0 with slope ~70.37 per unit (f(5.8)=-22.6269 to f(8)=132.1905) [E4, E6, E11]",
+  "The right transition ends sharply at x=8.0: f(8)=132.1905 but f(8.01)=132.8942, so the far-field quadratic resumes immediately past 8 [E11]",
+  "The left transition is a linear ramp from x=-8.0 to x=-7.25 with slope ~-59.5 per unit (f(-8)=21.8213 to f(-7.25)=-22.8021) [E5]",
+  "Outside the transition bands f is a single quadratic a*x^2+b*x+c; fitting E13 positive points gives a~3.088, b~-2.5, c~-22.8 [E1, E2, E7, E8, E9, E10, E13]",
+  "The quadratic under-predicts mid-range and far-field (e.g. f(16)=857.05 vs 727.7; f(-127)=50632 vs 50101), so the MLP's quadratic has extra curvature beyond a*x^2+b*x+c [E1, E2, E9]",
+  "The far-field is symmetric-ish: f(128)=50592.6 and f(-128)=51222.6, so there is a small asymmetry term (odd component) on top of the quadratic [E12]",
+  "Far-field residuals vs a*x^2+b*x+c are roughly proportional to |x|^3 or a quartic+odd mix; exact form unknown? [E12]"
+ ],
+ "notes": "Reverted to the v12 model (which scored 0.74) since the rejected attempt dropped to 0.66; kept the same beliefs and predict() that explain the plateau, both ramps, and the far-field quadratic.",
+ "fit": 0.15384615384615385,
+ "heldout": 0.0,
+ "matches": [
+  0.55,
+  0.9,
+  1.0,
+  1.0,
+  0.8181818181818182,
+  0.8181818181818182,
+  0.8,
+  0.55,
+  0.65,
+  0.6,
+  0.75,
+  0.6,
+  0.6
+ ],
+ "made_at": 13
+}

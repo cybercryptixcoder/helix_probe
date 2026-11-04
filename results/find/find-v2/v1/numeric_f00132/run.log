@@ -1,0 +1,60 @@
+Helix Probe on 'find_numeric_f00132': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the full input range, at a coarse set of point...(+23 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Is the function exactly linear across the whole range, or does the slope ch...(+93 chars)  model v1 match 1.00
+[3] E3 Is the function's behavior different (e.g., a bump, kink, or different slop...(+100 chars)  model v1 match 1.00
+[4] E4 What does f look like very close to zero, where the coarse sweep suggests a...(+68 chars)  model v1 match 0.85
+      revision rejected: mean match 0.85 < 0.96
+      revision rejected: mean match 0.95 < 0.96
+[5] E5 What is the exact shape of the small nonlinear kink near zero, specifically...(+110 chars)  model v1 match 0.10
+      model v2: fit 80% (was 60%), mean match 0.92 (was 0.79), held-out 100%
+[6] E6 Does the near-zero nonlinearity have the same shape on both sides of zero, ...(+167 chars)  model v2 match 0.50
+      revision rejected: mean match 0.81 < 0.85
+      revision rejected: mean match 0.83 < 0.85
+[7] E7 Is the deviation from the linear trend near zero a smooth symmetric dip, or...(+132 chars)  model v2 match 0.40
+      model kept (v2)
+[8] E8 Is f exactly piecewise-linear with a single slope change near x=0 (two line...(+186 chars)  model v2 match 0.25
+      revision rejected: mean match 0.21 < 0.72
+      model kept (v2)
+[9] E9 Is the deviation from a straight line near zero better explained by a smoot...(+124 chars)  model v2 match 0.00
+      revision rejected: mean match 0.45 < 0.64
+      revision rejected: mean match 0.62 < 0.64
+[10] E10 Is f exactly piecewise-linear with a single slope change near x=0? I'll sam...(+145 chars)  model v2 match 0.55
+      revision rejected: mean match 0.58 < 0.63
+      model v3: fit 30% (was 40%), mean match 0.69 (was 0.63), held-out 100%
+[11] E11 At large |x| (where the near-zero kink is negligible), are the two asymptot...(+188 chars)  model v3 match 1.00
+[12] E12 Is the near-zero structure a single sharp kink at x=0, or is there a small ...(+100 chars)  model v3 match 0.60
+      model v4: fit 42% (was 33%), mean match 0.79 (was 0.71), held-out 100%
+[13] E13 Is the near-zero deviation from the global line actually a smooth tanh-like...(+236 chars)  model v4 match 0.80
+      revision rejected: mean match 0.70 < 0.79
+      model kept (v4)
+[14] E14 Is the near-zero structure actually a linear segment with a distinctly shal...(+156 chars)  model v4 match 0.70
+      revision rejected: mean match 0.69 < 0.78
+      model v5: fit 36% (was 36%), mean match 0.78 (was 0.78), held-out 100%
+[15] E15 Does the near-zero behavior have a genuinely shallower local slope (a shelf...(+194 chars)  model v5 match 0.65
+      revision rejected: mean match 0.68 < 0.77
+      revision rejected: mean match 0.67 < 0.77
+[16] E16 What is the exact deviation of f from the global line 4.7093x+3.92 at each ...(+152 chars)  model v5 match 0.70
+      model v6: fit 31% (was 31%), mean match 0.81 (was 0.77), held-out 100%
+[17] E17 Does the near-zero correction actually vanish by |x|~1.5, or does a residua...(+111 chars)  model v6 match 1.00
+[18] E18 Is the near-zero correction better described by a fixed-shape S-curve, or d...(+276 chars)  model v6 match 0.55
+      model v7: fit 28% (was 33%), mean match 0.83 (was 0.81), held-out 100%
+[19] E19 Does the near-zero correction have exactly the same shape for positive and ...(+176 chars)  model v7 match 0.75
+      revision rejected: mean match 0.82 < 0.82
+      model v8: fit 26% (was 26%), mean match 0.82 (was 0.82), held-out 100%
+[20] E20 What is the exact deviation of f from the line 4.7093x+3.92 over the near-z...(+119 chars)  model v8 match 0.60
+      revision rejected: mean match 0.80 < 0.81
+      revision rejected: mean match 0.72 < 0.81
+[21] E21 Over a wide, coarse sweep of x from -8 to 8, what is f(x)-4.7093x-3.92 at e...(+123 chars)  model v8 match 0.90
+      revision rejected: mean match 0.79 < 0.82
+      model v9: fit 24% (was 24%), mean match 0.82 (was 0.82), held-out 100%
+[22] E22 What is the exact deviation of f from the line 4.7093x+3.92 over the near-z...(+119 chars)  model v9 match 0.60
+      revision rejected: mean match 0.80 < 0.81
+      model v10: fit 23% (was 23%), mean match 0.81 (was 0.81), held-out 100%
+[23] E23 Does the near-zero correction really die out by |x|~2, or is there a residu...(+294 chars)  model v10 match 1.00
+[24] E24 Is the near-zero correction really a zero-mean odd bump, or is it a small s...(+171 chars)  model v10 match 0.90
+      model v11: fit 25% (was 25%), mean match 0.82 (was 0.82), held-out 100%
+[25] E25 What is the exact deviation of f from the line 4.7093x+3.92 at a very fine ...(+199 chars)  model v11 match 0.95
+      revision rejected: mean match 0.80 < 0.82
+      model v12: fit 24% (was 24%), mean match 0.82 (was 0.82), held-out 100%
+{"env": "find_numeric_f00132", "experiments": 25, "model_version": 12, "fit": 0.24, "heldout": 1.0, "llm_calls": 59, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

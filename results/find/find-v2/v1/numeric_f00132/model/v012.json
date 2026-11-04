@@ -1,0 +1,42 @@
+{
+ "version": 12,
+ "beliefs": [
+  "f is a straight line y = 4.7093x + 3.92 plus a localized correction near zero [E1, E2, E11, E17]",
+  "The correction is odd-symmetric: f(x)-line at +x and -x are equal in magnitude and opposite in sign [E19, E16, E24]",
+  "The correction is a smooth S-bump, negative for x<0 and positive for x>0, decaying to ~0 by |x|~1.5-2 [E16, E17, E7]",
+  "The correction's peak deviation is ~0.5-0.6 at |x|~0.5-0.7 [E18, E16]",
+  "The correction is wider than a width-0.7 Gaussian-derivative; width ~1.0 fits better [E18, E16]",
+  "The exact functional form of the correction is still not pinned down; a Gaussian-derivative bump with width ~1.0 and amplitude ~0.55 is the best current guess [E18, E16]?"
+ ],
+ "notes": "Kept the same model since the previous attempt scored lower; the current Gaussian-derivative correction with width 1.0 and amplitude 0.55 remains the best fit across the notebook.",
+ "fit": 0.24,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.85,
+  0.6,
+  0.9,
+  0.9,
+  0.95,
+  0.45,
+  1.0,
+  0.8,
+  0.8,
+  0.7,
+  0.65,
+  0.7,
+  0.95,
+  0.65,
+  0.75,
+  0.6,
+  0.9,
+  0.6,
+  1.0,
+  0.9,
+  0.95
+ ],
+ "made_at": 25
+}

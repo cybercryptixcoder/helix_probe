@@ -1,0 +1,25 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-7.25, 5.75] [E3, E4, E5, E6]",
+  "The right edge of the plateau is between 5.75 and 5.8; f(5.75)=-22.8021 and f(5.8)=-22.6269 begins the ramp [E4, E6]",
+  "The right transition is a linear ramp from x=5.8 to x=8.0 with slope ~70.37 per unit (f(5.8)=-22.6269 to f(8)=132.1905) [E4, E6]",
+  "The left transition is a linear ramp from x=-8.0 to x=-7.25 with slope ~-59.5 per unit (f(-8)=21.8213 to f(-7.25)=-22.8021) [E5]",
+  "Outside the transition bands f is quadratic; f(8)=132.19, f(16)=857.05, f(32)=3473.37, f(64)=14110.97, f(128)=50592.64 [E1, E2]",
+  "The quadratic is asymmetric: f(-8)=21.82 vs f(8)=132.19, and f(-128)=51222.63 vs f(128)=50592.64, so a linear term is present [E1, E2]",
+  "Quadratic coefficients a=3.088, b=-2.5, c=-22.8021 fit endpoints but under-predict mid-range (f(16)=857.05 vs 727.7); true coefficients still approximate? [E1]"
+ ],
+ "notes": "",
+ "fit": 0.2857142857142857,
+ "heldout": 0.0,
+ "matches": [
+  0.55,
+  0.9,
+  1.0,
+  1.0,
+  0.8181818181818182,
+  0.8181818181818182,
+  0.8
+ ],
+ "made_at": 7
+}

@@ -1,0 +1,41 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f is monotone decreasing across the whole domain [E1,E2,E3,E4,E5,E6]",
+  "f(0) \u2248 5.4186 and f crosses zero near x \u2248 0.65 [E1,E3,E4,E19]",
+  "f is NOT odd: large additive offset c \u2248 5.42, negative side much shallower than positive side [E2,E5,E6]",
+  "For x \u2273 3 on the positive side, f is exactly linear: f(x) = 11.0 - 16.9*x [E7,E8,E10,E17]",
+  "For x \u2272 -3 on the negative side, f is exactly linear: f(x) = -6.8*x + 5.42, holding to x=-128 [E7,E8,E12,E16]",
+  "Negative side near zero is nearly flat with slope ~-7, matching -6.8*x+5.42 down to x\u2248-1 [E5,E6,E14]",
+  "Positive side x=1.0..2.0 is a clean linear segment: slope \u2248 -17.5 from x=1 to ~1.5, steepening to ~-17.0 near x=2 [E15,E18,E20]",
+  "Positive side x=2.0..3.0 continues nearly linear with slope \u2248 -17.0, joining the large-x law 11.0-16.9x [E17]",
+  "Positive side near zero (x=0..1) is a smooth steep curve from 5.4186 down to -5.3245 at x=1, concave [E19]",
+  "The positive-side transition is piecewise: steep near-zero curve, then linear from x\u22481 onward; my v5 blend was too soft [E15,E18,E19,E20]"
+ ],
+ "notes": "Refit the positive-side linear segment using E15/E18/E20: f(1)=-5.3245, slope ~-17.5 up to x~1.5 then ~-17.0 to x=2, joining 11.0-16.9x at x=2. Also refit the near-zero positive curve to E19 data (f(0)=5.4186, f(0.5)=2.1182, f(1)=-5.3245).",
+ "fit": 0.9,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  0.6,
+  1.0
+ ],
+ "made_at": 20
+}

@@ -1,0 +1,6 @@
+Helix Probe v2 on 'find_numeric_f00150': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Sample f across a broad, evenly spaced range of ordinary inputs to reveal i...(+52 chars)  (v0 predicted it: match 0.00)
+[2] E2 Does f behave like a power law / polynomial near the origin, and where exac...(+80 chars)  (v0 predicted it: match 0.00)
+      theorist (updater stalled)
+[3] E3 What is the exact functional form and sign/zero structure in the small-magn...(+120 chars)  (v0 predicted it: match 0.00)
+[4] E4 What is the exact functional form in the small-|x| region where f drops to ...(+243 chars)  (v0 predicted it: match 0.00)

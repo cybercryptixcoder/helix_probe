@@ -1,0 +1,24 @@
+Helix Probe v2 on 'find_numeric_f00085': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.93, fit 1.00, size 303 (exam 0.000 -> 0.925); held-out 35%
+[2] E2 Where is the boundary between the constant -22.8 regime and the quadratic r...(+168 chars)  (v1 predicted it: match 0.50)
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 1.00, fit 0.93, size 1087 (exam 0.925 -> 1.000); held-out 88%
+[4] E4 Is the sharp jump between x=5 (floor -22.8) and x=7 (61.8) a smooth ramp or...(+98 chars)  (v2 predicted it: match 0.56)
+      model v3 by the updater: exam 1.00, fit 1.00, size 1499 (fit 0.841 -> 1.000); held-out 87%
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 How does f behave in the transition region just outside the flat floor on t...(+168 chars)  (v3 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.831, the current model's is 0.983
+      model v4 by the updater: exam 1.00, fit 1.00, size 1649 (fit 0.983 -> 1.000); held-out 88%
+[7] E7 a random ordinary probe  (v4 predicted it: match 0.90)
+      model v5 by the updater: exam 1.00, fit 1.00, size 1862 (fit 0.986 -> 1.000); held-out 100%
+[8] E8 Does the current model's systematic overshoot in the mid-to-large |x| range...(+189 chars)  (v5 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v5 predicted it: match 1.00)
+[10] E10 Can a dense sweep of ordinary mid-range values on both sides (including the...(+273 chars)  (v5 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v5 predicted it: match 1.00)
+[12] E12 The model still overshoots slightly at mid-large |x| (e.g. 43, 56.2, 78.1, ...(+188 chars)  (v5 predicted it: match 1.00)
+[13] E13 a random ordinary probe  (v5 predicted it: match 1.00)
+[14] E14 Does the positive-side ramp between x=6 and x=12 follow the same quadratic ...(+170 chars)  (v5 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v5 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00085", "experiments": 15, "exam_probes": 4, "model_version": 5, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 1862, "heldout": 1.0, "llm_calls": 15, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

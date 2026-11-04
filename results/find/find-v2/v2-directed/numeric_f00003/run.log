@@ -1,0 +1,20 @@
+Helix Probe v2 on 'find_numeric_f00003': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f look like across the ordinary input range, especially at evenly...(+100 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 1047 (exam 0.000 -> 1.000); held-out 99%
+[2] E2 Where exactly are the boundaries of the flat region, and how does f transit...(+123 chars)  (v1 predicted it: match 0.35)
+      model v2 by the updater: exam 1.00, fit 1.00, size 1239 (fit 0.675 -> 1.000); held-out 100%
+[3] E3 How does f behave on fine-grained, evenly spaced points just outside the fl...(+138 chars)  (v2 predicted it: match 1.00)
+[4] E4 Is the flat core exactly [-20,2] or do the transition points sit at non-rou...(+222 chars)  (v2 predicted it: match 0.95)
+      model v3 by the updater: exam 1.00, fit 1.00, size 1935 (fit 0.988 -> 1.000); held-out 100%
+[5] E5 Are the transition edges exactly at x=-20 and x=2, and is the flat value co...(+110 chars)  (v3 predicted it: match 1.00)
+[6] E6 Does the smooth exponential-like growth continue unchanged at larger |x| (b...(+227 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+[7] E7 Is the growth on each side of the flat core a pure exponential in |x| (cons...(+159 chars)  (v3 predicted it: match 1.00)
+[8] E8 Does the model's exponential interpolation match the true curve in the unde...(+211 chars)  (v3 predicted it: match 1.00)
+[9] E9 Does the model's exponential interpolation on the right side between x=13 a...(+193 chars)  (v3 predicted it: match 1.00)
+[10] E10 Within the flat core, is the plateau truly constant at -20.4469 across the ...(+128 chars)  (v3 predicted it: match 1.00)
+[11] E11 Is the flat core exactly [-20,2] with a perfectly sharp onset, or is there ...(+86 chars)  (v3 predicted it: match 1.00)
+[12] E12 Is the flat core exactly constant at -20.4469, or is there a narrow smooth ...(+118 chars)  (v3 predicted it: match 1.00)
+      theorist (every 6 steps)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00003", "experiments": 12, "exam_probes": 4, "model_version": 3, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 1935, "heldout": 1.0, "llm_calls": 17, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

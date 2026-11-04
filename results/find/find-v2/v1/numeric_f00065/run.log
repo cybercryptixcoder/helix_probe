@@ -1,0 +1,28 @@
+Helix Probe on 'find_numeric_f00065': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does the box do at a spread of inputs across the whole domain, includi...(+110 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 100%
+[2] E2 Does the near-linear piecewise behavior hold at the small positive values b...(+106 chars)  model v1 match 1.00
+[3] E3 How does f behave on the negative side at small magnitudes between -1 and 0...(+86 chars)  model v1 match 1.00
+[4] E4 Does the positive-side slope stay constant (~-2.5) all the way out to the l...(+171 chars)  model v1 match 1.00
+[5] E5 What happens at the extreme negative end, x between -128 and -96 and just b...(+116 chars)  model v1 match 1.00
+[6] E6 Does the piecewise-linear shape with a single kink at x=0 actually hold, or...(+177 chars)  model v1 match 1.00
+[7] E7 Is f exactly linear on each side of x=0 with a single kink, or is there a s...(+130 chars)  model v1 match 1.00
+[8] E8 Is the piecewise-linear model with a single kink at x=0 accurate on the pos...(+170 chars)  model v1 match 1.00
+[9] E9 Is f exactly linear on the positive side all the way from 0 to 128 (constan...(+137 chars)  model v1 match 1.00
+[10] E10 Is f exactly linear on the negative side across the whole range -128 to 0 (...(+125 chars)  model v1 match 1.00
+[11] E11 Is f exactly linear on the positive side just beyond x=0 (0 to 0.5), where ...(+144 chars)  model v1 match 1.00
+[12] E12 Is the slope on the positive side truly constant at ~-2.5 out to x=128, or ...(+98 chars)  model v1 match 1.00
+[13] E13 Is the negative-side slope constant at ~-1.75 all the way to x=-128, or doe...(+135 chars)  model v1 match 1.00
+[14] E14 Does f have any curvature or extra kink in the unexplored mid-positive regi...(+110 chars)  model v1 match 1.00
+[15] E15 Does f stay exactly linear (slope ~-2.5) in the untouched positive mid-rang...(+97 chars)  model v1 match 1.00
+[16] E16 Does f have a smooth, rounded transition (not a sharp kink) exactly at x=0,...(+161 chars)  model v1 match 1.00
+[17] E17 Is f's behavior near x=0 a single sharp kink, or is there a small rounded/c...(+134 chars)  model v1 match 1.00
+[18] E18 Is f exactly linear with slope -2.5 on the positive side in the sparse mid-...(+82 chars)  model v1 match 1.00
+[19] E19 Is f's negative-side behavior really linear with slope -1.75 over the mid-n...(+109 chars)  model v1 match 1.00
+[20] E20 Does the positive-side slope remain exactly -2.50 over the still-untested m...(+87 chars)  model v1 match 1.00
+[21] E21 Is the negative-side slope truly constant at -1.75 over the untouched mid-n...(+114 chars)  model v1 match 1.00
+[22] E22 Is f's negative-side behavior linear with slope -1.75 all the way out to x=...(+150 chars)  model v1 match 1.00
+[23] E23 Is f's negative-side behavior linear with slope ~-1.75 in the untouched far...(+84 chars)  model v1 match 1.00
+[24] E24 The dense scans have all been on integer-spaced grids; does f remain exactl...(+204 chars)  model v1 match 1.00
+[25] E25 Does f have a sharp kink exactly at x=0 (as the piecewise-linear model assu...(+166 chars)  model v1 match 1.00
+{"env": "find_numeric_f00065", "experiments": 25, "model_version": 1, "fit": 1.0, "heldout": 1.0, "llm_calls": 26, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

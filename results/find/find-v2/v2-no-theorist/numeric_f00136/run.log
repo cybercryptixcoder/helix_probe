@@ -1,0 +1,63 @@
+Helix Probe v2 on 'find_numeric_f00136': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.03, fit 0.00, size 285 (exam 0.000 -> 0.025); held-out 0%
+[2] E2 Does the output depend mainly on x through a smooth low-frequency function,...(+120 chars)  (v1 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      model v2 by the updater: exam 0.03, fit 0.03, size 394 (fit 0.000 -> 0.029); held-out 0%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.00)
+      updater's model not kept: same scores and not smaller (394 vs 394 chars)
+[4] E4 Does the function have a sharp localized structure near x=0 (the strong pos...(+158 chars)  (v2 predicted it: match 0.12)
+      updater's model not kept: its exam is 0.000, the current model's is 0.025
+      model v3 by the updater: exam 0.05, fit 0.07, size 439 (exam 0.025 -> 0.050); held-out 0%
+[5] E5 a random ordinary probe  (v3 predicted it: match 0.10)
+      updater's model not kept: same scores and not smaller (439 vs 439 chars)
+      updater's model not kept: same scores and not smaller (439 vs 439 chars)
+[6] E6 Does the function have a sharp localized structure near x=0 (the strong pos...(+158 chars)  (v3 predicted it: match 0.15)
+      model v4 by the updater: exam 0.57, fit 0.16, size 570 (exam 0.050 -> 0.575); held-out 0%
+[7] E7 a random ordinary probe  (v4 predicted it: match 0.40)
+      updater's model not kept: its exam is 0.475, the current model's is 0.575
+      updater's model not kept: its exam is 0.300, the current model's is 0.575
+[8] E8 On ordinary mid-range inputs, is the tail a smooth monotone function of |x|...(+150 chars)  (v4 predicted it: match 0.00)
+      updater's model not kept: its exam is 0.050, the current model's is 0.575
+      updater's model not kept: its exam is 0.400, the current model's is 0.575
+[9] E9 a random ordinary probe  (v4 predicted it: match 0.30)
+      updater's model not kept: its exam is 0.375, the current model's is 0.575
+      updater's model not kept: its exam is 0.425, the current model's is 0.575
+[10] E10 Does the far tail depend smoothly and monotonically on |x|, or are there ad...(+112 chars)  (v4 predicted it: match 0.45)
+      updater's model not kept: its exam is 0.150, the current model's is 0.575
+      updater's model not kept: its exam is 0.250, the current model's is 0.575
+[11] E11 a random ordinary probe  (v4 predicted it: match 0.40)
+      updater's model not kept: its exam is 0.050, the current model's is 0.575
+      updater's model not kept: its exam is 0.250, the current model's is 0.575
+[12] E12 Is the mid-range negative lobe (x from ~5 to ~16) a smooth monotone decay t...(+141 chars)  (v4 predicted it: match 0.00)
+      model v5 by the updater: exam 0.70, fit 0.33, size 583 (exam 0.575 -> 0.700); held-out 1%
+[13] E13 a random ordinary probe  (v5 predicted it: match 0.30)
+      model v6 by the updater: exam 0.95, fit 0.66, size 1271 (exam 0.700 -> 0.950); held-out 28%
+[14] E14 Near x=0 the model is badly wrong on the positive side (it predicts the pea...(+210 chars)  (v6 predicted it: match 0.10)
+      model v7 by the updater: exam 0.97, fit 0.69, size 1275 (exam 0.950 -> 0.975); held-out 29%
+[15] E15 a random ordinary probe  (v7 predicted it: match 1.00)
+[16] E16 Where exactly does the positive-side mid-range cross zero and how does it b...(+141 chars)  (v7 predicted it: match 0.80)
+      updater's model not kept: its fit is 0.658, the current model's is 0.715
+      updater's model not kept: its fit is 0.655, the current model's is 0.715
+[17] E17 a random ordinary probe  (v7 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.607, the current model's is 0.726
+      updater's model not kept: its fit is 0.666, the current model's is 0.726
+[18] E18 Does the positive-side mid-range follow a single smooth curve through the w...(+189 chars)  (v7 predicted it: match 0.50)
+      updater's model not kept: its fit is 0.646, the current model's is 0.713
+      updater's model not kept: same scores and not smaller (1275 vs 1275 chars)
+[19] E19 a random ordinary probe  (v7 predicted it: match 0.80)
+      updater's model not kept: its exam is 0.950, the current model's is 0.975
+      updater's model not kept: its fit is 0.688, the current model's is 0.718
+[20] E20 Between x=18 and x=21 the model's linear mid-range segment and the observed...(+173 chars)  (v7 predicted it: match 0.38)
+      updater's model not kept: its exam is 0.925, the current model's is 0.975
+      updater's model not kept: its fit is 0.648, the current model's is 0.701
+[21] E21 a random ordinary probe  (v7 predicted it: match 1.00)
+[22] E22 What does the positive-side curve look like just past the zero crossing and...(+146 chars)  (v7 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v7 predicted it: match 0.90)
+      updater's model not kept: its fit is 0.653, the current model's is 0.735
+      updater's model not kept: same scores and not smaller (1277 vs 1275 chars)
+[24] E24 The model's central negative trough is fit worst around x=0.5-1.5 and the p...(+147 chars)  (v7 predicted it: match 0.30)
+      model v8 by the updater: exam 0.97, fit 0.79, size 1861 (fit 0.717 -> 0.788); held-out 30%
+[25] E25 a random ordinary probe  (v8 predicted it: match 0.90)
+      model v9 by the updater: exam 0.97, fit 0.86, size 1929 (fit 0.793 -> 0.861); held-out 43%
+{"env": "find_numeric_f00136", "experiments": 25, "exam_probes": 4, "model_version": 9, "model_role": "updater", "exam": 0.975, "fit": 0.8612352941176471, "size": 1929, "heldout": 0.43, "llm_calls": 49, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

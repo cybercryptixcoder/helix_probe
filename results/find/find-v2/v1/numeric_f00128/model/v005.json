@@ -1,0 +1,30 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f is monotone decreasing across the whole domain [E1,E2,E3,E4,E5,E6]",
+  "f(0) \u2248 5.42 and f crosses zero near x \u2248 0.65 [E1,E3,E4]",
+  "f is NOT odd: large additive offset c \u2248 5.4, negative side much shallower than positive side [E2,E5,E6]",
+  "For x \u2273 3 on the positive side, f is exactly linear: f(x) = 11.0 - 16.9*x (slope -16.9, intercept 11.0) [E7,E8,E10]",
+  "For x \u2272 -3 on the negative side, f is exactly linear: f(x) = -6.8*x + 5.42 (slope -6.8) [E7,E8]",
+  "The positive side is NOT a simple softened linear: at x=2 it is ~2.3 below the linear law, at x=3 ~2.9 below, and the gap grows slowly, so the transition zone extends well past x=3 [E9,E10,E11]",
+  "The negative side near zero is nearly flat with slope ~-7, matching the same linear law -6.8*x+5.42 down to x\u2248-1 [E5,E6]",
+  "The positive-side transition from softened near-zero to the linear law is gradual and not captured by a single softening constant; residual shape in x=2..4 is still uncertain? [E11]"
+ ],
+ "notes": "E11 shows the positive side is still ~2-3 below the linear law 11-16.9x at x=2-4, so the softening persists much further than my 0.6 constant allowed. I keep the exact linear laws for |x|>~3 (E7,E8,E10) and use a wider softening on the positive side, plus a small extra correction, to better match the mid-range residuals.",
+ "fit": 0.8181818181818182,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.85,
+  1.0,
+  1.0
+ ],
+ "made_at": 11
+}

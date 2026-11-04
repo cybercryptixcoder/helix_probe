@@ -1,0 +1,42 @@
+Helix Probe v2 on 'find_numeric_f00136': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.08, fit 0.00, size 216 (exam 0.000 -> 0.075); held-out 0%
+[2] E2 Does the function oscillate rapidly (period much smaller than the sample sp...(+108 chars)  (v1 predicted it: match 0.10)
+      updater's model not kept: its exam is 0.025, the current model's is 0.075
+      model v2 by the updater: exam 0.53, fit 0.57, size 418 (exam 0.075 -> 0.525); held-out 0%
+[3] E3 a random ordinary probe  (v2 predicted it: match 0.20)
+      updater's model not kept: same scores and not smaller (452 vs 418 chars)
+      updater's model not kept: same scores and not smaller (418 vs 418 chars)
+[4] E4 Is the oscillatory region actually confined to a finite interval (roughly [...(+128 chars)  (v2 predicted it: match 0.40)
+      model v3 by the updater: exam 0.95, fit 0.86, size 836 (exam 0.525 -> 0.950); held-out 17%
+[5] E5 a random ordinary probe  (v3 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (861 vs 836 chars)
+      model v4 by the updater: exam 1.00, fit 0.92, size 891 (exam 0.950 -> 1.000); held-out 74%
+[6] E6 Does the middle oscillatory region extend beyond x=26 up to the right edge,...(+131 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.550, the current model's is 1.000
+[7] E7 a random ordinary probe  (v4 predicted it: match 1.00)
+[8] E8 Inside the oscillatory middle region, what is the actual shape between the ...(+219 chars)  (v4 predicted it: match 0.50)
+      model v5 by the updater: exam 1.00, fit 0.97, size 1121 (fit 0.887 -> 0.969); held-out 88%
+[9] E9 a random ordinary probe  (v5 predicted it: match 1.00)
+[10] E10 Is the sharp dip/oscillatory structure near x~1 actually a localized featur...(+247 chars)  (v5 predicted it: match 0.81)
+      model v6 by the updater: exam 1.00, fit 1.00, size 1263 (fit 0.956 -> 1.000); held-out 98%
+[11] E11 a random ordinary probe  (v6 predicted it: match 1.00)
+[12] E12 Does the function have any remaining small-scale structure between x=-14 an...(+261 chars)  (v6 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.075, the current model's is 1.000
+[13] E13 a random ordinary probe  (v6 predicted it: match 1.00)
+[14] E14 The model now matches all seen data, but the sharp dip near x=1 and the pea...(+164 chars)  (v6 predicted it: match 0.80)
+      model v7 by the updater: exam 1.00, fit 1.00, size 2494 (fit 0.986 -> 1.000); held-out 100%
+[15] E15 a random ordinary probe  (v7 predicted it: match 1.00)
+[16] E16 Are there any fine-scale bumps or asymmetric structure in the two steep tra...(+211 chars)  (v7 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v7 predicted it: match 1.00)
+[18] E18 How smooth and accurately linear is the outer branch on the far left, and w...(+148 chars)  (v7 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its fit is 0.969, the current model's is 1.000
+[19] E19 a random ordinary probe  (v7 predicted it: match 1.00)
+[20] E20 On the far-left outer branch, does the function remain exactly linear out t...(+183 chars)  (v7 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v7 predicted it: match 1.00)
+[22] E22 Is the interior curve between the dip minimum (~x=1) and the right transiti...(+162 chars)  (v7 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00136", "experiments": 22, "exam_probes": 4, "model_version": 7, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 2494, "heldout": 1.0, "llm_calls": 26, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,31 @@
+Helix Probe v2 on 'find_numeric_f00085': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.93, fit 1.00, size 268 (exam 0.000 -> 0.925); held-out 28%
+[2] E2 a random ordinary probe  (v1 predicted it: match 0.90)
+      model v2 by the updater: exam 0.93, fit 1.00, size 341 (fit 0.950 -> 1.000); held-out 49%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 a random ordinary probe  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 0.90)
+      updater's model not kept: same scores and not smaller (341 vs 341 chars)
+[6] E6 a random ordinary probe  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 a random ordinary probe  (v2 predicted it: match 0.80)
+      updater's model not kept: its exam is 0.125, the current model's is 0.925
+      model v3 by the updater: exam 1.00, fit 0.97, size 1875 (exam 0.925 -> 1.000); held-out 62%
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 a random ordinary probe  (v3 predicted it: match 0.90)
+      model v4 by the updater: exam 1.00, fit 1.00, size 2297 (fit 0.970 -> 1.000); held-out 99%
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 a random ordinary probe  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: its exam is 0.300, the current model's is 1.000
+[13] E13 a random ordinary probe  (v4 predicted it: match 1.00)
+[14] E14 a random ordinary probe  (v4 predicted it: match 1.00)
+[15] E15 a random ordinary probe  (v4 predicted it: match 1.00)
+[16] E16 a random ordinary probe  (v4 predicted it: match 1.00)
+[17] E17 a random ordinary probe  (v4 predicted it: match 1.00)
+[18] E18 a random ordinary probe  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00085", "experiments": 18, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 2297, "heldout": 0.99, "llm_calls": 12, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

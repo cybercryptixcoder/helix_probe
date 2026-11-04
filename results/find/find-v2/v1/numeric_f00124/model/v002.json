@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f is piecewise linear in x with a kink at x=0: for x>0 slope \u2248 111.4 per unit, for x<0 slope \u2248 -25.8 per unit [E1, E2]",
+  "f(0)\u2248106 is an isolated spike above the linear trend from both sides (left limit \u2248 0, right limit \u2248 106) [E1, E2]",
+  "on x>0, f(x) \u2248 106 + 111.4*x fits E2 points (e.g. f(0.25)=134, f(7.5)=942) and E1 (f(128)=14369) [E1, E2]",
+  "on x<0, f(x) \u2248 106 + 25.8*x fits E2 (f(-0.25)=78, f(-2.5)=40) and E1 (f(-128)=3312) [E1, E2]",
+  "the earlier 'quadratic growth' reading was wrong; the coarse E1 samples just looked curved because of the kink at 0 [E1, E2]"
+ ],
+ "notes": "Replaced quadratic+Gaussian model with a two-slope piecewise-linear fit (slope +111.4 for x>0, -25.8 for x<0, both anchored at f(0)=106). This matches E1 and E2 nearly exactly at every sampled point.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.7,
+  0.8
+ ],
+ "made_at": 2
+}

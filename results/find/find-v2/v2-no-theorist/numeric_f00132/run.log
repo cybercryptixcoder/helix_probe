@@ -1,0 +1,34 @@
+Helix Probe v2 on 'find_numeric_f00132': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 481 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Does the function follow a pure linear law y = m*x (no intercept) across a ...(+108 chars)  (v1 predicted it: match 1.00)
+[3] E3 a random ordinary probe  (v1 predicted it: match 1.00)
+[4] E4 Does the function have a localized nonlinear feature (e.g., a bump, dip, or...(+102 chars)  (v1 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v1 predicted it: match 1.00)
+[6] E6 Is the small nonlinearity near the origin (a dip/bump around x=0, seen as y...(+192 chars)  (v1 predicted it: match 0.94)
+      model v2 by the updater: exam 1.00, fit 1.00, size 272 (fit 0.990 -> 1.000); held-out 100%
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the piecewise linear law with slope ~4.714 for x>0 and ~4.6865 for x<0...(+167 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Is the negative-side slope truly constant at 4.6865 all the way to x=-128, ...(+102 chars)  (v2 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v2 predicted it: match 1.00)
+[12] E12 Does the small near-origin correction term in the model (the dip/bump aroun...(+179 chars)  (v2 predicted it: match 0.75)
+      updater's model not kept: its fit is 0.975, the current model's is 0.979
+      updater's model not kept: its fit is 0.966, the current model's is 0.979
+[13] E13 a random ordinary probe  (v2 predicted it: match 1.00)
+[14] E14 Does the near-origin correction behave symmetrically and smoothly on a dens...(+113 chars)  (v2 predicted it: match 0.95)
+[15] E15 a random ordinary probe  (v2 predicted it: match 1.00)
+[16] E16 Does the near-origin nonlinear correction have the shape the model assumes ...(+207 chars)  (v2 predicted it: match 0.65)
+      model v3 by the updater: exam 1.00, fit 0.98, size 313 (fit 0.959 -> 0.984); held-out 100%
+[17] E17 a random ordinary probe  (v3 predicted it: match 1.00)
+[18] E18 Does the near-origin nonlinear correction (the fast steepening around x=0) ...(+189 chars)  (v3 predicted it: match 1.00)
+[19] E19 a random ordinary probe  (v3 predicted it: match 1.00)
+[20] E20 Are the tiny residual errors on the negative side of the near-origin region...(+231 chars)  (v3 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v3 predicted it: match 1.00)
+[22] E22 Do the negative-side near-origin corrections (the residual wiggle around x=...(+230 chars)  (v3 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v3 predicted it: match 1.00)
+[24] E24 What is the exact near-origin shape on the negative side between x=-0.1 and...(+170 chars)  (v3 predicted it: match 0.70)
+      updater's model not kept: its fit is 0.927, the current model's is 0.977
+      model v4 by the updater: exam 1.00, fit 1.00, size 1016 (fit 0.977 -> 1.000); held-out 100%
+[25] E25 a random ordinary probe  (v4 predicted it: match 1.00)
+{"env": "find_numeric_f00132", "experiments": 25, "exam_probes": 4, "model_version": 4, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 1016, "heldout": 1.0, "llm_calls": 22, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

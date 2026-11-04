@@ -1,0 +1,24 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-7.0, 5.75], since f(-7.0), f(5.5), f(5.75) are all -22.8021 [E3, E4, E5]",
+  "The left edge of the plateau is between -7.25 and -7.0; f(-7.25)=-22.8021 and f(-7.0)=-22.8021 but f(-7.5)=-12.9955 shows the ramp [E5]",
+  "The left transition is a linear ramp: f(-8)=21.8213, f(-7.75)=2.8916, f(-7.5)=-12.9955, slope ~-75.7 per unit, hitting plateau at x\u2248-7.2 [E5]",
+  "The right edge of the plateau is between 5.75 and 6.0; f(6)=-8.5526 shows the transition begins there [E4]",
+  "Between x=6 and x=8 the function rises linearly with slope ~17.593 per unit (f(6)=-8.5526 to f(8)=132.1905) [E4]",
+  "Outside the plateau and transitions, f grows quadratically; f(8)=132.19, f(16)=857.05, f(64)=14110.97, f(128)=50592.64 [E1, E2]",
+  "The quadratic is asymmetric: f(-8)=21.82 vs f(8)=132.19, and f(-128)=51222.63 vs f(128)=50592.64, so a linear term is present [E1, E2]",
+  "The exact quadratic coefficients outside the transition bands are still approximate; a=3.088, b=-2.5, c=-22.8021 fits endpoints but not mid-range points like f(16)=857.05 well?"
+ ],
+ "notes": "Moved left plateau edge from -6 to -7.0 and replaced the guessed left ramp with a steeper linear ramp through f(-8)=21.82, f(-7.75)=2.89, f(-7.5)=-13.0, meeting the plateau near x=-7.2. Right side and quadratic kept as before.",
+ "fit": 0.2,
+ "heldout": 0.0,
+ "matches": [
+  0.55,
+  0.9,
+  1.0,
+  0.2727272727272727,
+  0.9090909090909091
+ ],
+ "made_at": 5
+}

@@ -1,0 +1,1 @@
+{"version": 2, "role": "updater", "notes": "I replaced the tiny-sinusoid guess with the actual structure E2 revealed: a V-shaped piecewise-linear function (different slopes left/right) plus a narrow Gaussian dip centered at x=0, which E1's near-zero points confirm.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 348, "matches": [1.0, 1.0], "made_at": 2, "heldout": 1.0}

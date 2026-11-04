@@ -1,0 +1,30 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f is well approximated by a single straight line f(x)\u22484.7093*x+3.92 across the whole range, with no real kink [E11, E12, E1, E2]",
+  "The apparent 'kink' near zero is a small smooth nonlinearity (a slight S-curve/dip) rather than two distinct lines [E12, E10, E5]",
+  "The far-field slope is ~4.7093 per unit and intercept ~3.92, confirmed at |x| up to 127 [E11]",
+  "Near zero, f is slightly below the global line on the negative side and slightly above on the positive side, i.e. a smooth transition of width ~1-2 units [E12, E10]",
+  "The exact functional form of the near-zero smooth transition is not yet pinned down; a small tanh-like correction around x=0 fits best so far [E12]?"
+ ],
+ "notes": "Reverted to the v4 tanh correction (which matched E4 and scored 0.78) since the shelf hypothesis was rejected; kept the same predict() as v4.",
+ "fit": 0.35714285714285715,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7,
+  0.55,
+  0.75,
+  0.7,
+  0.5,
+  0.45,
+  1.0,
+  0.8,
+  0.8,
+  0.7
+ ],
+ "made_at": 14
+}

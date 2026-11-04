@@ -1,0 +1,29 @@
+Helix Probe on 'find_numeric_f00030': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the full domain, especially at the endpoints a...(+63 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.63 (was 0.00), held-out 0%
+[2] E2 Is the sharp dip near x=0 a narrow feature (e.g. a small Gaussian/notch) or...(+57 chars)  model v1 match 1.00
+[3] E3 Is the sharp dip near x=0 a narrow notch centered slightly off zero (around...(+90 chars)  model v1 match 1.00
+[4] E4 Is the sharp dip near x=0 actually two narrow notches (one near x=-0.8 and ...(+78 chars)  model v1 match 1.00
+[5] E5 Is the fine structure near zero exactly symmetric about x=0, or is there a ...(+91 chars)  model v1 match 1.00
+[6] E6 How does f behave in the mid-range region (|x| between ~6 and ~30) where no...(+122 chars)  model v1 match 0.40
+      model v2: fit 100% (was 67%), mean match 1.00 (was 0.84), held-out 100%
+[7] E7 Does the broad U-shaped background continue smoothly outside the sampled ra...(+144 chars)  model v2 match 1.00
+[8] E8 How does f behave in the small gap between the central notch structure and ...(+124 chars)  model v2 match 1.00
+[9] E9 The model's central notch structure (depth ~0.12, width ~0.35, centers at ±...(+177 chars)  model v2 match 1.00
+[10] E10 Is f exactly symmetric in the central notch region, or is there a small lef...(+94 chars)  model v2 match 1.00
+[11] E11 Is the central notch region exactly symmetric about x=0 for the right half ...(+115 chars)  model v2 match 1.00
+[12] E12 Does f have any structure between |x|=1.9 and |x|=4.2 (the region E9/E11 on...(+124 chars)  model v2 match 1.00
+[13] E13 Does the broad U-shaped background continue smoothly far out at large |x| (...(+116 chars)  model v2 match 1.00
+[14] E14 The model's broad U-shape was fit to E13 at |x|>=36 and E6/E7 at |x|<=30, b...(+220 chars)  model v2 match 1.00
+[15] E15 Does the broad background continue as a smooth quadratic beyond |x|=128 in ...(+186 chars)  model v2 match 1.00
+[16] E16 Is the background exactly quadratic, or is there a smooth cubic/quartic com...(+131 chars)  model v2 match 1.00
+[17] E17 Does the broad background have an asymmetric cubic component that makes lef...(+117 chars)  model v2 match 1.00
+[18] E18 The model's background was fit to E16/E17 on the right side (|x|=5..30) but...(+284 chars)  model v2 match 1.00
+[19] E19 How does f behave in the currently unsampled fine-transition region between...(+146 chars)  model v2 match 1.00
+[20] E20 Does the model's central notch/bump structure hold up at very fine resoluti...(+157 chars)  model v2 match 1.00
+[21] E21 The model's notch/bump/background was fit from x>=0 or coarse samples; does...(+170 chars)  model v2 match 1.00
+[22] E22 How does f behave just outside the sampled domain on the right (x from 128 ...(+171 chars)  model v2 match 1.00
+[23] E23 Does the left half of the central notch/bump structure mirror the right hal...(+148 chars)  model v2 match 1.00
+[24] E24 The far-left edge of the domain (x from -128 up to -106) has only been samp...(+113 chars)  model v2 match 1.00
+[25] E25 Does the smooth background continue unchanged between |x|=0.95 and |x|=1.0 ...(+132 chars)  model v2 match 1.00
+{"env": "find_numeric_f00030", "experiments": 25, "model_version": 2, "fit": 1.0, "heldout": 1.0, "llm_calls": 27, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

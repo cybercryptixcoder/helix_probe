@@ -1,0 +1,41 @@
+{
+ "version": 19,
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-7.25, 5.75] [E3, E4, E5, E6, E11]",
+  "The right transition is exactly linear from x=5.8 to x=8.0 with slope ~70.37 per unit (f(5.8)=-22.6269 to f(8)=132.1905) [E4, E6, E11]",
+  "The right transition ends sharply at x=8.0; f(8.01)=132.8942 shows the far-field resumes immediately past 8 [E11]",
+  "The left transition is a linear ramp from x=-8.0 to x=-7.25 with slope ~-59.5 per unit (f(-8)=21.8213 to f(-7.25)=-22.8021) [E5]",
+  "The positive far field (x>8) is exactly a quadratic a*x^2+b*x+c; fitting E17-E20 gives a~3.0, b~-2.5, c~-22.8 [E17, E18, E19, E20]",
+  "The negative far field (x<-8) is NOT a quartic with a*x^4 term; E21 shows f(-128)=51222.6 vs quadratic 48809, so extra term at x=128 is ~2414, not 48300 [E21]",
+  "The negative far field extra term is roughly proportional to |x|^3: at x=128 extra~2414, at x=64 extra~? \u2014 check ratio; 2414/128^3=1.15e-3, 2414/128^2=0.147 \u2014 need to determine exponent from E21 data [E21]",
+  "Both far fields share the same quadratic part 3.0*x^2 - 2.5*x - 22.8; the negative side adds a small odd/higher term [E17-E21]"
+ ],
+ "notes": "Reverted to the v18 form that matched the notebook (0.82), keeping the quadratic far field and the small negative-side correction; the rejected attempt broke E7/E8/E10/E15/E16/E21.",
+ "fit": 0.36363636363636365,
+ "heldout": 0.02,
+ "matches": [
+  0.7,
+  0.9,
+  1.0,
+  1.0,
+  0.8181818181818182,
+  0.9090909090909091,
+  1.0,
+  1.0,
+  0.95,
+  1.0,
+  0.75,
+  0.8,
+  0.5,
+  0.9,
+  1.0,
+  1.0,
+  0.4444444444444444,
+  0.5,
+  0.5,
+  0.7142857142857143,
+  1.0,
+  0.7
+ ],
+ "made_at": 22
+}

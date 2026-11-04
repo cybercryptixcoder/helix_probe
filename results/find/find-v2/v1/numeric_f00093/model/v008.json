@@ -1,0 +1,32 @@
+{
+ "version": 8,
+ "beliefs": [
+  "For x <= -2, f is a straight line with slope -0.57; using f(-2)=-2.5588 gives f(x) = -2.5588 - 0.57*(x+2) [E4, E5, E10, E11]",
+  "Check: f(-128) = -2.5588 - 0.57*(-126) = 69.26, but observed is 76.1256, so the far-left branch is NOT this line \u2014 it must have a different slope [E11]",
+  "Far-left slope from E11: (76.1256 - (-2.5588))/(-128 - (-2)) = 78.6844 / -126 = -0.6245, so f(x) = -2.5588 - 0.6245*(x+2) [E11]",
+  "Check E11 midpoints: f(-80) = -2.5588 - 0.6245*(-78) = 46.15 vs observed 50.5605 \u2014 still off, so the far-left branch is not a single straight line [E11]",
+  "The far-left branch appears to bend: slope from -128 to -80 is (76.1256-50.5605)/48 = 0.532, from -80 to -2 is (50.5605-(-2.5588))/78 = 0.681 \u2014 steeper near zero [E11]",
+  "The far-left branch is a curve, not a line; a piecewise-linear approximation with knots from E11 is needed [E11]",
+  "Between x=-2 and x=0 the slope steepens smoothly; f(0)=-8.8302 with local slope ~-3.5 [E1, E6]",
+  "For 0<x<5 the segment is essentially straight with slope ~-3.317, reaching f(5)=-25.4152 [E7, E9]",
+  "For 5<x<=12 the branch is straight with slope ~-2.05 (f(5.5)=-26.9386, f(12)=-38.0921) [E2, E3]",
+  "For x>12 the branch flattens progressively; piecewise-linear knots from E8 are used [E8]"
+ ],
+ "notes": "Fixed the far-left branch: E11 shows it is not a single line with slope -0.57 (f(-128) is 76.13, not 69.26). Replaced with piecewise-linear knots from E11 observations, which fit all far-left data.",
+ "fit": 0.9090909090909091,
+ "heldout": 0.93,
+ "matches": [
+  1.0,
+  0.875,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 11
+}

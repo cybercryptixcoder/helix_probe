@@ -1,0 +1,46 @@
+Helix Probe v2 on 'find_numeric_f00085': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 0.93, fit 1.00, size 467 (exam 0.000 -> 0.925); held-out 37%
+[2] E2 Determine the exact shape of the small-|x| region (where outputs are ~-22.8...(+160 chars)  (v1 predicted it: match 0.75)
+[3] E3 a random ordinary probe  (v1 predicted it: match 0.90)
+      theorist (updater stalled)
+      theorist's model not kept: its exam is 0.600, the current model's is 0.925
+[4] E4 Is the small-|x| plateau exactly flat at -22.8021, and where do the two tra...(+55 chars)  (v1 predicted it: match 0.40)
+      model v2 by the updater: exam 0.95, fit 0.75, size 2419 (exam 0.925 -> 0.950); held-out 57%
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 How does the function behave in the mid-range on the negative side (between...(+177 chars)  (v2 predicted it: match 0.15)
+      updater's model not kept: its exam is 0.925, the current model's is 0.950
+      updater's model not kept: its exam is 0.525, the current model's is 0.950
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v2 predicted it: match 0.90)
+      model v3 by the updater: exam 1.00, fit 0.74, size 3132 (exam 0.950 -> 1.000); held-out 99%
+[8] E8 Does the function have a linear term in x (asymmetry between +x and -x) tha...(+137 chars)  (v3 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v3 predicted it: match 1.00)
+[10] E10 What is the exact shape of the transition curve on the negative side betwee...(+158 chars)  (v3 predicted it: match 0.30)
+      model v4 by the updater: exam 1.00, fit 0.86, size 3839 (fit 0.745 -> 0.855); held-out 100%
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 Pin the exact transition shape on both sides with dense points just outside...(+191 chars)  (v4 predicted it: match 0.45)
+      updater's model not kept: its fit is 0.829, the current model's is 0.833
+      model v5 by the updater: exam 1.00, fit 0.84, size 4238 (fit 0.833 -> 0.838); held-out 100%
+      theorist (every 6 steps)
+[13] E13 a random ordinary probe  (v5 predicted it: match 1.00)
+[14] E14 What is the exact functional form of the negative-side transition between t...(+177 chars)  (v5 predicted it: match 0.75)
+      model v6 by the updater: exam 1.00, fit 0.91, size 4388 (fit 0.843 -> 0.907); held-out 100%
+[15] E15 a random ordinary probe  (v6 predicted it: match 1.00)
+[16] E16 Pin down the exact transition shape on both sides at fine resolution (0.05 ...(+207 chars)  (v6 predicted it: match 0.60)
+      updater's model not kept: same scores and not smaller (4410 vs 4388 chars)
+      updater's model not kept: its exam is 0.000, the current model's is 1.000
+[17] E17 a random ordinary probe  (v6 predicted it: match 1.00)
+[18] E18 On the positive side just outside the plateau, is the transition a straight...(+197 chars)  (v6 predicted it: match 0.60)
+      updater's model not kept: same scores and not smaller (4392 vs 4388 chars)
+      updater's model not kept: same scores and not smaller (4389 vs 4388 chars)
+      theorist (every 6 steps)
+[19] E19 a random ordinary probe  (v6 predicted it: match 1.00)
+[20] E20 Does the far-field behavior (|x| > 20) follow the same smooth quartic-plus-...(+197 chars)  (v6 predicted it: match 1.00)
+[21] E21 a random ordinary probe  (v6 predicted it: match 1.00)
+[22] E22 On the negative side, does the transition from the plateau follow a single ...(+239 chars)  (v6 predicted it: match 1.00)
+[23] E23 a random ordinary probe  (v6 predicted it: match 1.00)
+[24] E24 Does the far-field asymmetry stay a clean additive linear-in-x offset (y(-x...(+191 chars)  (v6 predicted it: match 1.00)
+      theorist (every 6 steps)
+[25] E25 a random ordinary probe  (v6 predicted it: match 1.00)
+{"env": "find_numeric_f00085", "experiments": 25, "exam_probes": 4, "model_version": 6, "model_role": "updater", "exam": 1.0, "fit": 0.9159999999999999, "size": 4388, "heldout": 1.0, "llm_calls": 36, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

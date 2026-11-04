@@ -1,0 +1,39 @@
+{
+ "version": 11,
+ "beliefs": [
+  "On x>=0, f(x) = 106.06 + 111.43*x is accurate to ~0.1% across 0 to 127, including x=0 [E1, E2, E3, E12]",
+  "On x<=-2, f(x) = 26.07*|x| - 25.4 is accurate to ~0.1% across |x| from 2 to 128 [E5, E6, E3, E4, E14]",
+  "The negative branch has a smooth minimum near |x|=1.07 with f\u22486.37 [E7, E9, E10, E13, E20]",
+  "Between |x|=1.07 and |x|=2 the trough rises smoothly and joins the linear law at |x|=2 (f(-1.5)=13.66, f(-1.8)=21.48, f(-1.98)=26.18) [E13, E14, E15, E20]",
+  "For |x| between 0 and 1, f falls from ~106 at x=0 to ~6.85 at |x|=1, with slope steepening with |x| (f(-0.5)=50.34, f(-0.65)=33.62, f(-0.85)=14.04, f(-0.99)=7.05) [E8, E9, E10, E11, E16, E17, E18, E19]",
+  "The near-zero negative fall (|x| from 0 to ~1) is a smooth curve; a quartic through dense observed points captures it to ~1% [E16, E17, E18, E19]",
+  "The trough between |x|=1.07 and 2 is well approximated by a quadratic in |x| centered at the minimum, but the exact form is still approximate [E13, E14, E15, E20]?",
+  "The near-zero negative fall between |x|=0 and 1 is best fit by a quartic through the dense observed points [E17, E19]?"
+ ],
+ "notes": "Shifted the trough minimum from 1.05 to ~1.07 (E20 shows f(1.06)=6.383 < f(1.04)=6.459, f(1.09)=6.373, so minimum is near 1.07-1.08) and refit the trough quadratic anchored at that minimum; kept the quartic near-zero fall which matches E16/E18 well.",
+ "fit": 0.85,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  1.0,
+  1.0,
+  0.85,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.7
+ ],
+ "made_at": 20
+}

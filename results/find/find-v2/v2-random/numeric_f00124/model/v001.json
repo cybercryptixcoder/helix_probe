@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I fit a quadratic a\u00b7x\u00b2+b\u00b7x+c to E1's ten points (least squares) and use it as the model. The residuals are small, so a single quadratic appears to describe the box across the whole domain.", "exam": 0.15, "fit": 0.3, "fit_exact": 0.0, "size": 871, "matches": [0.3], "made_at": 1, "heldout": 0.0}

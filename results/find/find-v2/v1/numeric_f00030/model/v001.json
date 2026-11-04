@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is a smooth, slowly varying function over [-128,128], roughly between -1.8 and -1.45 [E1]",
+  "f has a shallow dip near x=0 (minimum around -1.79 near x=-1 and x=1) and rises toward both endpoints [E1]",
+  "f is approximately even/symmetric about 0, with endpoints near -1.47 (x=-128) and -1.51 (x=128) [E1]",
+  "the overall shape looks like a broad U/parabola centered near 0, possibly plus a small linear tilt [E1]"
+ ],
+ "notes": "First model: fit a smooth even-ish curve with a central dip and rising tails. I'll use a quadratic-like form plus a small linear term, tuned to the observed points, and note the symmetry is approximate.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.631578947368421
+ ],
+ "made_at": 1
+}

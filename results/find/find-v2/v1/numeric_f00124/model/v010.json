@@ -1,0 +1,38 @@
+{
+ "version": 10,
+ "beliefs": [
+  "On x>=0, f(x) = 106.06 + 111.43*x is accurate to ~0.1% across 0 to 127, including x=0 [E1, E2, E3, E12]",
+  "On x<=-2, f(x) = 26.07*|x| - 25.4 is accurate to ~0.1% across |x| from 2 to 128 [E5, E6, E3, E4, E14]",
+  "The negative branch has a smooth trough bottoming near |x|=1.05 with f(-1.05)=6.37 [E7, E9, E10, E13]",
+  "Between |x|=1.05 and |x|=2 the trough rises as a smooth curve joining the linear law at |x|=2 (f(-1.5)=13.66, f(-1.8)=21.48, f(-1.98)=26.18) [E13, E14, E15]",
+  "For |x| between 0 and 1, f falls from ~106 at x=0 to ~6.85 at |x|=1, with slope steepening with |x| (f(-0.5)=50.34, f(-0.65)=33.62, f(-0.85)=14.04, f(-0.99)=7.05) [E8, E9, E10, E11, E16, E17, E18, E19]",
+  "The near-zero negative fall (|x| from 0 to 1) is a smooth curve; a cubic through (0,106.06),(0.5,50.34),(0.85,14.04),(1.0,6.85) is close but slightly off in the 0.6-1.0 region [E8, E11, E16, E17, E18, E19]",
+  "The exact functional form of the trough between |x|=1.05 and 2 is still approximate; a quadratic in |x| centered at 1.05 fits E13/E14/E15 to ~1% but may not be exact [E13, E14, E15]?",
+  "The near-zero negative fall between |x|=0 and 1 is best fit by a quartic through the dense observed points, since a cubic is systematically off by ~1-2 units in the 0.6-1.0 region [E17, E19]?"
+ ],
+ "notes": "E19 (and E17) confirm the cubic is systematically too high in the 0.6-1.0 region by ~1-2 units, so I refit the near-zero fall with a higher-order (quartic) polynomial through the dense observed points. The trough between 1.05 and 2 and the linear branches are unchanged.",
+ "fit": 0.7894736842105263,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.8,
+  1.0,
+  1.0,
+  1.0,
+  0.75,
+  1.0,
+  1.0,
+  1.0,
+  0.9,
+  1.0,
+  0.9
+ ],
+ "made_at": 19
+}

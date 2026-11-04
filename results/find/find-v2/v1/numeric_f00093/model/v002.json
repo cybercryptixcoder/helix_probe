@@ -1,0 +1,18 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f is piecewise linear with several segments of different slopes [E1, E2]",
+  "For x < -2, slope is about -0.57 per unit x, anchored near f(-2)\u2248-2.56 [E1]",
+  "There is a steep segment near x=0 (roughly -2 to 5) with slope about -3.3, f(0)\u2248-8.83 [E1]",
+  "For x > 5, slope is about -3.05, not -0.57; the kink at x=5 is real and the region above 5 is steeper than the far-left region [E2]",
+  "The x>5 region may itself bend slightly (slope near 5.5 is ~-3.05, near 30 is ~-1.0)? [E2]"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.3157894736842105,
+  0.5
+ ],
+ "made_at": 2
+}

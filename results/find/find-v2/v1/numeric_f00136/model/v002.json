@@ -1,0 +1,19 @@
+{
+ "version": 2,
+ "beliefs": [
+  "f is small in magnitude everywhere, roughly within \u00b10.1 over [-128,128] [E1]",
+  "f is near zero at x=0, negative just to the right, positive just to the left [E1, E2]",
+  "f rises to a plateau near x=-1 (~0.078) and stays flat from about -2 to -1.25, then falls smoothly through 0 [E1, E2]",
+  "f drops to a minimum near x=1 (~-0.095) then rises smoothly toward larger x [E1, E2]",
+  "f oscillates with a long wavelength, rising toward x=128 (~0.057) after a trough near x=16 (~-0.013) [E1]",
+  "the shape is a smooth sum of a few sinusoids plus offset, with a sharp-ish transition near 0 [E1, E2]"
+ ],
+ "notes": "Replaced the poorly-fit sinusoid guess with a piecewise-smooth model: a plateau/rise on the left, a steep sigmoid-like drop through 0, and a slow oscillation, tuned to match E1 and E2 values.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.23529411764705882,
+  0.4666666666666667
+ ],
+ "made_at": 2
+}

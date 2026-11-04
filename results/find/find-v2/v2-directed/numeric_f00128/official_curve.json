@@ -1,0 +1,43 @@
+{
+ "category": "numeric",
+ "fid": "f00128",
+ "experiments": 14,
+ "exam_probes": 4,
+ "n_versions": 4,
+ "inputs_total": 320,
+ "final": 1.0,
+ "points": [
+  {
+   "version": 0,
+   "role": "start",
+   "experiments": 0,
+   "score": 0.0,
+   "nmse": null,
+   "inputs": 40
+  },
+  {
+   "version": 1,
+   "role": "updater",
+   "experiments": 1,
+   "score": 1.0,
+   "nmse": 2.03362715857843e-08,
+   "inputs": 60
+  },
+  {
+   "version": 2,
+   "role": "updater",
+   "experiments": 4,
+   "score": 1.0,
+   "nmse": 5.976383976561524e-12,
+   "inputs": 120
+  },
+  {
+   "version": 3,
+   "role": "updater",
+   "experiments": 6,
+   "score": 1.0,
+   "nmse": 5.976383976561524e-12,
+   "inputs": 160
+  }
+ ]
+}

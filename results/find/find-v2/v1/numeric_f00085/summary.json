@@ -1,0 +1,23 @@
+{
+ "env": "find_numeric_f00085",
+ "experiments": 25,
+ "model_version": 19,
+ "fit": 0.32,
+ "heldout": 0.02,
+ "llm_calls": 63,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "f is exactly flat at -22.8021 for x in [-7.25, 5.75] [E3, E4, E5, E6, E11]",
+  "The right transition is exactly linear from x=5.8 to x=8.0 with slope ~70.37 per unit (f(5.8)=-22.6269 to f(8)=132.1905) [E4, E6, E11]",
+  "The right transition ends sharply at x=8.0; f(8.01)=132.8942 shows the far-field resumes immediately past 8 [E11]",
+  "The left transition is a linear ramp from x=-8.0 to x=-7.25 with slope ~-59.5 per unit (f(-8)=21.8213 to f(-7.25)=-22.8021) [E5]",
+  "The positive far field (x>8) is exactly a quadratic a*x^2+b*x+c; fitting E17-E20 gives a~3.0, b~-2.5, c~-22.8 [E17, E18, E19, E20]",
+  "The negative far field (x<-8) is NOT a quartic with a*x^4 term; E21 shows f(-128)=51222.6 vs quadratic 48809, so extra term at x=128 is ~2414, not 48300 [E21]",
+  "The negative far field extra term is roughly proportional to |x|^3: at x=128 extra~2414, at x=64 extra~? \u2014 check ratio; 2414/128^3=1.15e-3, 2414/128^2=0.147 \u2014 need to determine exponent from E21 data [E21]",
+  "Both far fields share the same quadratic part 3.0*x^2 - 2.5*x - 22.8; the negative side adds a small odd/higher term [E17-E21]"
+ ]
+}

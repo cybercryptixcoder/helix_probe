@@ -1,0 +1,22 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f is piecewise linear with several segments of different slopes [E1, E2, E4, E5]",
+  "For x < -2, slope is about -0.57 per unit x, anchored at f(-2)\u2248-2.56 [E1, E4, E5]",
+  "The far-left branch is a single straight line: slope \u2248 -0.57 holds from -128 to -2 (e.g. f(-128)=76.13, f(-2)=-2.56, consistent with slope -0.57) [E4, E5]",
+  "There is a steep segment near x=0 (roughly -2 to 5) with slope about -3.3, f(0)\u2248-8.83 [E1, E3]",
+  "For x > 5, slope is about -3.05 near x=5, shallowing to about -1.0 near x=30 [E2]",
+  "The x>5 region bends: slope near 5.5 is ~-3.05, near 30 is ~-1.0 [E2]"
+ ],
+ "notes": "E5 confirms the far-left branch is a straight line with slope \u2248 -0.57 from -128 to -2 (f(-128)=76.13 matches -2.5588 + -0.57*(-126)). The v3 code already uses this exact rule; the earlier v3 mismatch was from a stale anchor. No change needed to the rule itself.",
+ "fit": 0.2,
+ "heldout": 0.0,
+ "matches": [
+  0.42105263157894735,
+  0.75,
+  1.0,
+  0.0625,
+  0.05
+ ],
+ "made_at": 5
+}

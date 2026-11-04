@@ -1,0 +1,38 @@
+Helix Probe on 'find_numeric_f00093': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, especially at coarse sample ...(+56 chars)  model v0 match 0.00
+      model v1: fit 0% (was 0%), mean match 0.16 (was 0.00), held-out 0%
+[2] E2 Is the apparent kink at x=5 real, and does the slope change again just abov...(+55 chars)  model v1 match 0.12
+      model v2: fit 0% (was 0%), mean match 0.41 (was 0.14), held-out 0%
+[3] E3 What is the exact y-value and local slope just above x=5, to resolve whethe...(+80 chars)  model v2 match 1.00
+[4] E4 Is the far-left branch (x < -2) truly a single straight line, or does it be...(+33 chars)  model v2 match 0.06
+      model v3: fit 25% (was 25%), mean match 0.56 (was 0.47), held-out 0%
+[5] E5 Does the far-left branch stay a straight line with slope -0.57 all the way ...(+107 chars)  model v3 match 0.05
+      model v4: fit 20% (was 20%), mean match 0.46 (was 0.46), held-out 0%
+[6] E6 Where exactly does the far-left straight branch end / the steep near-zero s...(+82 chars)  model v4 match 0.95
+      model v5: fit 33% (was 17%), mean match 0.55 (was 0.54), held-out 0%
+[7] E7 Does the steep near-zero segment between x=0 and x=5 stay a single straight...(+123 chars)  model v5 match 1.00
+[8] E8 The far-right branch beyond x=12 was only sampled at a few coarse points (2...(+199 chars)  model v5 match 0.23
+      model v6: fit 50% (was 38%), mean match 0.70 (was 0.56), held-out 0%
+[9] E9 Is the segment between x=0 and x=5 truly a single straight line with slope ...(+92 chars)  model v6 match 1.00
+[10] E10 The far-left branch is clearly not slope -0.57; is it a single straight lin...(+116 chars)  model v6 match 0.06
+      model v7: fit 50% (was 50%), mean match 0.67 (was 0.67), held-out 0%
+[11] E11 Is the far-left branch (x <= -2) a single straight line all the way from -1...(+52 chars)  model v7 match 0.05
+      model v8: fit 91% (was 45%), mean match 0.99 (was 0.61), held-out 93%
+[12] E12 In the region just above x=5 (5.5 to 12), is the branch actually a straight...(+124 chars)  model v8 match 0.73
+      model v9: fit 83% (was 83%), mean match 0.97 (was 0.97), held-out 93%
+[13] E13 Is the segment between x=5.5 and x=12 a single straight line with slope -2....(+162 chars)  model v9 match 0.71
+      model v10: fit 100% (was 77%), mean match 1.00 (was 0.95), held-out 100%
+[14] E14 Does the near-vertical transition between the far-left branch and the steep...(+112 chars)  model v10 match 1.00
+[15] E15 The interval x in [-2, 0] is currently modeled as a single quadratic, but E...(+197 chars)  model v10 match 1.00
+[16] E16 The interval x in [0, 5] is modeled as a single straight line with slope -3...(+226 chars)  model v10 match 1.00
+[17] E17 The far-right branch beyond x=12 has only been sampled at coarse knots (12,...(+189 chars)  model v10 match 1.00
+[18] E18 Does the far-right branch keep bending smoothly beyond x=65 (up to 128), or...(+77 chars)  model v10 match 1.00
+[19] E19 The region x in [-8, -2] is only pinned by coarse knots from E11 (at -8, -4...(+152 chars)  model v10 match 1.00
+[20] E20 The region x in [5, 5.5] is only pinned by endpoints (5.0, 5.5); is the sho...(+147 chars)  model v10 match 1.00
+[21] E21 The far-right branch was sampled at knots 12,15,20,30,... but never between...(+229 chars)  model v10 match 1.00
+[22] E22 The near-zero quadratic segment on [-2,0] was only sampled at 0.1 spacing i...(+164 chars)  model v10 match 1.00
+[23] E23 The interval x in [-4, -2] is only pinned by knots at -4, -3.75, -3.5, -3.2...(+221 chars)  model v10 match 1.00
+[24] E24 The far-left branch below x=-8 was only sampled at 8-spacing knots from -12...(+161 chars)  model v10 match 0.95
+      model v11: fit 100% (was 96%), mean match 1.00 (was 1.00), held-out 100%
+[25] E25 The region x in [-16,-8] was only sampled at 0.5 spacing in E24 (and the mo...(+148 chars)  model v11 match 1.00
+{"env": "find_numeric_f00093", "experiments": 25, "model_version": 11, "fit": 1.0, "heldout": 1.0, "llm_calls": 36, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is smooth and roughly quadratic in x, with a small dip near x=0 (minimum around x\u22480, value \u2248 -23) [E1]",
+  "f grows like ~3.1*x^2 at large |x| (e.g. f(128)\u224850593, f(-128)\u224851223) [E1]",
+  "f is not symmetric: f(-x) > f(x) for large |x|, suggesting a small odd/linear component [E1]"
+ ],
+ "notes": "Fit a quadratic-plus-small-correction model: y \u2248 a*x^2 + b*x + c with a\u22483.09, b\u2248-2.5, c\u2248-22, capturing the near-zero dip and asymmetric growth.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.55
+ ],
+ "made_at": 1
+}

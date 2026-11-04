@@ -1,0 +1,26 @@
+{
+ "version": 5,
+ "beliefs": [
+  "f is flat at -20.4469 on the central interval [-20.1, 3.75] [E1, E2, E3, E5, E6]",
+  "The left plateau edge is at x=-20.1; for x<-20.1 f rises linearly with slope ~41.12 per unit [E5, E6]",
+  "The left linear rise continues until about x=-21 (y=12.9172), then curves upward more steeply [E4, E6]",
+  "Left transition values: x=-21 gives 12.9172, x=-22 gives 54.0378, x=-25 gives 204.0128, x=-30 gives 548.2541 [E4]",
+  "The right plateau edge is at x=3.75; for x>3.75 f rises (quadratic-like) [E3]",
+  "Right side values: x=4 gives -12.9234, x=5 gives 48.3879, x=10 gives 650.4807, x=20 gives 1914.2369 [E1, E3]",
+  "Far left reaches ~24839 at x=-128 and far right ~39006 at x=128 [E1]",
+  "The left and right sides are asymmetric; left is gentler near the plateau but steeper far out [E1]",
+  "Exact functional form of the outer left and right regions is uncertain; using piecewise interpolation? [E1, E4]"
+ ],
+ "notes": "Fixed the left plateau edge to x=-20.1 with a linear rise of slope ~41.12 (E5,E6), and kept the plateau at -20.4469. Right side and far-left shapes remain approximations pending more data.",
+ "fit": 0.16666666666666666,
+ "heldout": 0.04,
+ "matches": [
+  0.8,
+  1.0,
+  0.5333333333333333,
+  0.9,
+  0.55,
+  0.1
+ ],
+ "made_at": 6
+}
