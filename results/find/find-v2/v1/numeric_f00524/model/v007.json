@@ -1,0 +1,24 @@
+{
+ "version": 7,
+ "beliefs": [
+  "For 0 < x <= 4.35, f(x) = ceil(x) (so 0.0001\u21921, 4.0\u21924, 4.3499\u21925) [E4, E5, E7]",
+  "At x=0, f(0)=0 [E1]",
+  "For -4.35 <= x < 0, f(x) = ceil(x) (so -0.0001\u21920, -1.0001\u2192-1, -4.0\u2192-4) [E4, E5, E7]",
+  "For |x| > 4.35, f(x)=0; 4.35\u21925 but 4.3501\u21920, so the active interval is |x| <= 4.35 [E5, E6, E7]",
+  "The cutoff is symmetric: active up to 4.35 and down to -4.35 inclusive [E5, E6, E7]",
+  "Outside the active interval f returns 0 (sometimes -0.0 on the negative side) [E2, E3, E5, E6, E7]"
+ ],
+ "notes": "",
+ "fit": 1.0,
+ "heldout": 1.0,
+ "matches": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 7
+}

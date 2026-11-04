@@ -1,0 +1,19 @@
+Helix Probe v2 on 'find_numeric_f00550': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 63 (exam 0.000 -> 1.000); held-out 92%
+[2] E2 Does f ever produce a nonzero value anywhere in the ordinary domain, or is ...(+31 chars)  (v1 predicted it: match 0.85)
+      model v2 by the updater: exam 1.00, fit 0.97, size 191 (fit 0.925 -> 0.975); held-out 94%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Is the nonzero region really confined to |x|<1, and what is the exact shape...(+27 chars)  (v2 predicted it: match 0.30)
+      model v3 by the updater: exam 1.00, fit 1.00, size 997 (fit 0.812 -> 1.000); held-out 99%
+[5] E5 a random ordinary probe  (v3 predicted it: match 1.00)
+[6] E6 What is the exact shape of f just inside the boundary |x|<1, especially nea...(+146 chars)  (v3 predicted it: match 0.80)
+      model v4 by the updater: exam 1.00, fit 0.98, size 1220 (fit 0.967 -> 0.983); held-out 99%
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v4 predicted it: match 1.00)
+[8] E8 Is the nonzero support a smooth bump on [-0.8, 0.8], or are there hidden no...(+94 chars)  (v4 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v4 predicted it: match 1.00)
+[10] E10 Is the function actually a smooth analytic bump with a hidden tail beyond |...(+168 chars)  (v4 predicted it: match 1.00)
+[11] E11 a random ordinary probe  (v4 predicted it: match 1.00)
+[12] E12 Is the support boundary exactly at |x|=0.8 with a sharp cutoff, and does th...(+188 chars)  (v4 predicted it: match 1.00)
+      theorist (every 6 steps)

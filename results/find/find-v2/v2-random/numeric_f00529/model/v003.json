@@ -1,0 +1,1 @@
+{"version": 3, "role": "theorist", "notes": "The main idea: the box is a logistic sigmoid that smoothly transitions between two plateaus, -7.9 (for x below ~1.5) and -6.9 (for x above ~1.5), centered at x=1.5 with steepness ~4.65.", "exam": 1.0, "fit": 1.0, "fit_exact": 1.0, "size": 294, "matches": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0], "made_at": 6, "heldout": 1.0}

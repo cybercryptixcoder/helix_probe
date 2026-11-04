@@ -1,0 +1,26 @@
+{
+ "version": 7,
+ "beliefs": [
+  "f is odd for |x|>=2: f(-x)=-f(x) at x=2,2.5,3,5,6,10,12,20,24,40,48,64,80,96,100,104,112,120,124,128 [E1, E2, E7]",
+  "f is NOT odd for |x|<2: f(-1)=+6.1 vs f(1)=-4.3 [E2]",
+  "Inside (0,2) f is exactly 0 for 0<=x<=0.95, jumps to -4.3 at x=1.0, then rises smoothly to ~-30 as x->2- [E3, E5, E4]",
+  "At x=2 exactly f jumps discontinuously to the outer value -60.2 [E1, E4]",
+  "Outside |x|>=2, f(x)=sign(x)*A*|x|^p*exp(k*|x|); the earlier fit was corrupted by a sign error in E7's data, so refit with correct signs [E1, E2, E7]",
+  "On the negative inner side (-2,0), f is a smooth curve: ~+6 near -1.0, rising to +8 at -1.2, then dropping steeply to -67 at x=-2 [E3, E6]",
+  "The negative inner curve is smooth and continuous up to x=-2 where it meets the outer branch with a jump [E6]",
+  "f(0)=0 [E1]"
+ ],
+ "notes": "E7's observed values are negative at positive x, matching E1's outer magnitudes exactly (e.g. 128 -> -2168936181440). My outer fit was fit to positive magnitudes but the sign convention got flipped in E7's prediction; refit outer using |f| magnitudes with sign(x) applied, and verify against E1/E2/E7 magnitudes.",
+ "fit": 0.2857142857142857,
+ "heldout": 0.02,
+ "matches": [
+  0.9,
+  0.8,
+  1.0,
+  0.9,
+  1.0,
+  0.95,
+  0.0
+ ],
+ "made_at": 7
+}

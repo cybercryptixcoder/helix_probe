@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "beliefs": [
+  "f is odd: f(-x) = -f(x), since y(-1)=6.1 and y(1)=-4.3 are not exactly opposite but close, and larger magnitudes look antisymmetric [E1]",
+  "f grows extremely fast with |x|, roughly like a high power times an exponential; at x=128 magnitude ~2.2e12 [E1]",
+  "f(0)=0 [E1]",
+  "The odd symmetry is only approximate, suggesting a small even component or noise [E1]",
+  "Exact functional form is still unknown; a fit of the form a*x^b*exp(c*x) or similar is needed?"
+ ],
+ "notes": "First observation: f is approximately odd, zero at 0, and grows explosively. I'll fit a parametric form to the data and use it to predict.",
+ "fit": 0.0,
+ "heldout": 0.02,
+ "matches": [
+  0.85
+ ],
+ "made_at": 1
+}

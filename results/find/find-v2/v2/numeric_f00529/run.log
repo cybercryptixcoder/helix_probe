@@ -1,0 +1,16 @@
+Helix Probe v2 on 'find_numeric_f00529': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 a random ordinary probe  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 316 (exam 0.000 -> 1.000); held-out 95%
+[2] E2 Does the output switch depend on the sign of x or on x being an integer vs ...(+62 chars)  (v1 predicted it: match 0.75)
+      model v2 by the updater: exam 1.00, fit 1.00, size 370 (fit 0.875 -> 1.000); held-out 100%
+[3] E3 a random ordinary probe  (v2 predicted it: match 1.00)
+[4] E4 Is the transition really a symmetric logistic centered at x=1.5, or is it s...(+66 chars)  (v2 predicted it: match 1.00)
+[5] E5 a random ordinary probe  (v2 predicted it: match 1.00)
+[6] E6 Is the transition a logistic in x itself, or could it be a logistic in some...(+129 chars)  (v2 predicted it: match 1.00)
+      theorist (every 6 steps)
+[7] E7 a random ordinary probe  (v2 predicted it: match 1.00)
+[8] E8 Does the amplitude of the transition stay exactly 1.0, or does the upper pl...(+136 chars)  (v2 predicted it: match 1.00)
+[9] E9 a random ordinary probe  (v2 predicted it: match 1.00)
+[10] E10 Is the transition logistic in x itself, or could it be a logistic in |x| or...(+163 chars)  (v2 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00529", "experiments": 10, "exam_probes": 4, "model_version": 2, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 370, "heldout": 1.0, "llm_calls": 8, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

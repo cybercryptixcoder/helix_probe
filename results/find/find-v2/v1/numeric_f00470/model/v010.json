@@ -1,0 +1,33 @@
+{
+ "version": 10,
+ "beliefs": [
+  "Outside (0,1), f(x) = x^3 + 2^x + 22 exactly, verified at integers, half-integers, and non-integers across the whole domain [E13, E14, E15, E16, E7, E9]",
+  "The base formula x^3 + 2^x + 22 explains large-|x| behavior: at x=128, 128^3+2^128+22 \u2248 3.40e38? No \u2014 observed 3.91e12, so the base formula does NOT hold at large |x| [E1, E10]",
+  "At moderate |x| (up to ~20) the base formula x^3+2^x+22 matches observed values exactly [E12, E13, E14, E15, E16]",
+  "At large |x| (|x|>~22) the values are much smaller than 2^x would give, suggesting 2^x is replaced by something else or capped \u2014 need to reconcile [E1, E10]?",
+  "On (0,1) there is an additive anomaly: f(x) = x^3+2^x+22 + g(x) where g(0.25)=-1, g(0.5)=-1, g(0.75)=-1, g(0.1)=-1, g(0.9)=-1, g(0.01)=-1.01, g(0.99)=-1.01 \u2014 roughly a constant -1 dip [E5, E6, E11, E16]",
+  "The (0,1) anomaly is approximately -1 across the open interval, vanishing at x=0 and x=1 (f(0)=22.28\u224822+0.28, f(1)=70.35\u224823+2+22=47? no, 1+2+22=25, observed 70.35) \u2014 inconsistent, needs care [E16]?"
+ ],
+ "notes": "E16 shows base x^3+2^x+22 holds at moderate |x| but E1/E10 show large |x| deviates wildly; the (0,1) dip is roughly -1 constant. My previous attempt broke the moderate-|x| fit; this version uses the base formula for |x|<=20 and a separate large-|x| polynomial fit, with a -1 dip on (0,1).",
+ "fit": 0.1875,
+ "heldout": 0.34,
+ "matches": [
+  0.95,
+  1.0,
+  0.5714285714285714,
+  0.45,
+  0.2,
+  0.65,
+  1.0,
+  0.8,
+  1.0,
+  0.9,
+  0.1,
+  0.7777777777777778,
+  0.5,
+  0.45,
+  0.5,
+  0.65
+ ],
+ "made_at": 16
+}

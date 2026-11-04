@@ -1,0 +1,28 @@
+{
+ "version": 8,
+ "beliefs": [
+  "f is odd for |x|>=2: f(-x)=-f(x) at all tested outer points [E1, E2, E7, E8]",
+  "f is NOT odd for |x|<2: f(-1)=+6.1 vs f(1)=-4.3 [E2]",
+  "On (0,1) f is exactly 0, with a sharp step to -4.3 at x=1.0 [E5, E9]",
+  "On (1,2) f rises smoothly from -4.3 toward ~-30 as x->2- [E3, E4, E5, E9]",
+  "At x=2 exactly f jumps discontinuously to the outer value -60.2 [E1, E4]",
+  "Outer branch |f(x)|=A*|x|^p*exp(k*|x|) with sign(x) for |x|>=2, fitted to E1/E2/E7/E8 magnitudes [E1, E2, E7, E8]",
+  "On (-2,0) f is a smooth curve: ~+6 near -1, rising to ~+8 at -1.2, then dropping steeply to -67 at x=-2 [E3, E6]",
+  "f(0)=0 [E1]"
+ ],
+ "notes": "Fixed the sign error in the outer branch (was using copysign with wrong sign convention giving positive at positive x); now outer(x)=sign(x)*A*|x|^p*exp(k*|x|). Also fixed positive inner region: exactly 0 for 0<=x<1, step to -4.3 at x=1.0, then smooth ramp.",
+ "fit": 0.4444444444444444,
+ "heldout": 0.02,
+ "matches": [
+  0.9,
+  0.8,
+  1.0,
+  0.9,
+  1.0,
+  0.95,
+  0.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 9
+}

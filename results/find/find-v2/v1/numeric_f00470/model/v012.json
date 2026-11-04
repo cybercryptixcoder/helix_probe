@@ -1,0 +1,42 @@
+{
+ "version": 12,
+ "beliefs": [
+  "For x >= 1: f(x) = x^3 + 2^x + 22 exactly [E7, E9, E13, E14, E15, E16, E17, E18, E19]",
+  "For x <= 0: f(x) = x^3 + 2^x + 22 exactly, including x=0 where f(0)=20.28 not 23 \u2014 wait, base at 0 is 23 but observed 20.28, so x=0 is anomalous [E5, E12, E13, E16, E18]",
+  "Actually f(0)=20.28 vs base 23, and f(-0.001)=21.3075 vs base ~22.999 \u2014 so near 0 from below it's also off; the anomaly extends slightly below 0 [E18]",
+  "On (0,1): f(x) = x^3 + 2^x + 22 + g(x) where g is a large negative dip [E5, E6, E11, E16, E17, E19]",
+  "g is symmetric about x=0.5 with g(0.5)\u2248-44, g(0.1)=g(0.9)\u2248-11, g(0.25)=g(0.75)\u2248-27, g(0.4)=g(0.6)\u2248-40 [E5, E6, E11]",
+  "Near x=1 from below, f rises steeply: f(0.9)=23.99, f(0.99)=66.59, f(0.999)=69.76, f(1)=70.35 \u2014 so g(0.9)\u2248-1, g(0.99)\u2248+41.6, g(0.999)\u2248+44.8; the dip turns into a large positive spike near x=1 [E19, E18]",
+  "Near x=0 from above, f(0.01)=20.31, f(0.02)=19.34, f(0.05)=16.40, f(0.08)=13.43, f(0.1)=13.45 \u2014 g(0.01)\u2248-2.7, g(0.1)\u2248-11, consistent with dip [E17, E19]",
+  "At x=1 exactly, f(1)=70.35, which is base(1)=25 plus ~45.35 \u2014 so the anomaly at x=1 is +45.35, not zero [E18, E19]",
+  "At x=0 exactly, f(0)=20.28 = base(0)=23 minus 2.72 [E18]",
+  "The anomaly is not symmetric about 0.5: near 0 it's a negative dip reaching -44 at 0.5, but near 1 it swings positive to +45 at x=1 [E19, E18]",
+  "For |x|>~22 the function is polynomial-like (odd, roughly cubic) not exponential [E1, E8, E10]",
+  "The large-|x| polynomial seems to be approximately x^3 + something; at x=128 f\u22483.91e12 vs 128^3=2.1e6, so it's much bigger than x^3 \u2014 maybe x^3 + 2^x is wrong and it's a higher-degree poly? [E8, E10]?"
+ ],
+ "notes": "Big revision: the anomaly is NOT confined to (0,1) \u2014 it extends to x=1 (f(1)=70.35, +45 over base) and slightly below 0 (f(0)=20.28). The dip is asymmetric: negative on (0,~0.95) reaching -44 at 0.5, then swings sharply positive approaching x=1. I'll model g as a piecewise/spline fit through the observed anchor points, and keep the large-|x| polynomial fit.",
+ "fit": 0.3684210526315789,
+ "heldout": 0.34,
+ "matches": [
+  0.95,
+  1.0,
+  0.5714285714285714,
+  0.5,
+  0.6,
+  0.85,
+  1.0,
+  0.8,
+  1.0,
+  0.9,
+  1.0,
+  0.7777777777777778,
+  0.5,
+  0.5,
+  0.6,
+  0.65,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "made_at": 19
+}

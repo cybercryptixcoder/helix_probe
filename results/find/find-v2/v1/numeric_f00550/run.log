@@ -1,0 +1,5 @@
+Helix Probe on 'find_numeric_f00550': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain, sampling widely to reveal it...(+39 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 92%
+[2] E2 Is the nonzero value truly isolated at exactly x=0, or does f take nonzero ...(+70 chars)  model v1 match 0.35
+      model v2: fit 100% (was 50%), mean match 1.00 (was 0.68), held-out 98%

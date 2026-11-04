@@ -1,0 +1,43 @@
+{
+ "version": 17,
+ "beliefs": [
+  "Outer branch |x|>=2 has form |f(x)| = A*|x|^p*exp(k*|x|) with A,p,k fit to positive-side magnitudes [E1, E7, E10, E15, E17]",
+  "Outer sign is NEGATIVE for positive x and POSITIVE for negative x, i.e. f(x) = -sign(x)*|f(|x|)| [E1, E8, E14, E18, E20]",
+  "Negative-side outer magnitudes exceed positive-side by a factor decaying from ~2.3 at |x|=2.1 to ~1 at |x|>=48 [E10, E14, E16, E18, E20]",
+  "At |x|>=~48 the two sides agree in magnitude (f(-x)=-f(x)) to observed precision [E16, E18, E20]",
+  "f(2)=-60.2 and f(-2)=-67.0 exactly; outer law is only approximate near |x|=2 [E1, E4, E6]",
+  "On (0,1) f is exactly 0, with a sharp step to -4.3 at x=1.0 [E5, E9]",
+  "On (1,2) f rises smoothly from -4.3 toward ~-30 as x->2- [E3, E4, E5, E9, E19]",
+  "On (-2,0) f is a smooth curve: ~+6 near -1, peaking ~+8 near -1.2, then dropping steeply to -67 at x=-2 [E3, E6]",
+  "f(0)=0 [E1]",
+  "Positive-side near-boundary magnitudes (2-4.5) are larger than the global log-linear fit predicts; a local correction factor applies [E15, E17]",
+  "The outer branch is CONTINUOUS through x=2 on the positive side: f(2.0001)=-60.21, f(2.001)=-60.31, ... so f(2)=-60.2 is the start of the outer branch [E19]",
+  "There is a genuine jump discontinuity at x=2 on the positive side (from ~-30 at x->2- to -60.2 at x=2) [E19]"
+ ],
+ "notes": "Fixed the sign convention: outer branch is f(x) = -sign(x)*|f(|x|)|, so negative x gives positive values and positive x gives negative values (E1, E8, E14, E18, E20 all confirm this; previous model had it backwards). Also fixed the neg_ratio table which was built from already-signed data, causing double sign flips. Kept the magnitude fits and inner-branch interpolations.",
+ "fit": 0.45,
+ "heldout": 0.0,
+ "matches": [
+  0.75,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  0.95,
+  1.0,
+  0.6,
+  1.0,
+  0.95,
+  0.95,
+  0.85,
+  0.95,
+  0.25,
+  1.0,
+  0.7857142857142857,
+  1.0,
+  0.5833333333333334,
+  1.0,
+  0.5
+ ],
+ "made_at": 20
+}

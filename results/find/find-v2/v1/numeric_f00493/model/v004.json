@@ -1,0 +1,26 @@
+{
+ "version": 4,
+ "beliefs": [
+  "f is odd to high precision for |x|>=2: f(-x)=-f(x) at x=2,2.5,3,5,6,10,12,20,24,40,48 [E1, E2]",
+  "f is NOT odd for |x|<2: f(-1)=+6.1 vs f(1)=-4.3, f(-0.5)=+6.24 vs f(0.5)=-0.0 [E2]",
+  "There is a special interval (-2,2) where f behaves differently from the outer power law [E2, E3]",
+  "Inside (-2,2), f is exactly 0 for 0<=x<=0.9 (observed -0.0 at 0.1,0.2,0.4,0.5,0.7,0.9) [E3]",
+  "Inside (-2,2), f is roughly constant ~+6 for -1.5<=x<=-0.4 and ~-6 for 1.2<=x<=1.4, with a jump near x~0 [E3]",
+  "On the positive side, f rises smoothly from 0 at x=0.9 to about -30.1 as x->2- (no jump before 2) [E4]",
+  "At x=2 exactly, f jumps to the outer power-law value -60.2 (discontinuity at the boundary) [E1, E4]",
+  "Near x=-1.9 f=-49.96, growing fast toward -2, suggesting f(-2-) is much more negative than f(-2)=-67? [E3]",
+  "Outside (-2,2), f grows like a power law with exponent ~5.9 plus exponential factor: log-log slope from x=2 to x=48 is ~5.9 [E1, E2]",
+  "f(0)=0 (observed -0.0) [E1]",
+  "The exact form inside (-2,2) is still unclear; likely a piecewise/step structure, not a smooth polynomial [E3]"
+ ],
+ "notes": "Fixed the positive inner ramp: it approaches ~-30.1 as x->2- (not -60.2), and the jump to the outer power law happens exactly at x=2. Extended pos_pts to 1.9999 and made the interpolation not overshoot near 2.",
+ "fit": 0.25,
+ "heldout": 0.01,
+ "matches": [
+  0.85,
+  0.8,
+  1.0,
+  0.9
+ ],
+ "made_at": 4
+}

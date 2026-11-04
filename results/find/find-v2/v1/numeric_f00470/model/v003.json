@@ -1,0 +1,22 @@
+{
+ "version": 3,
+ "beliefs": [
+  "f(x) = x^3 + 2^x + 22 fits the positive side well: f(1)=72.35\u22481+2+22, f(2)=3783.82\u22488+4+22 [E1,E4]",
+  "At negative x the values are far more negative than x^3+2^x+22 predicts, so there is an extra term active for x<0 [E3,E4]",
+  "f(-0.5)=28.692 vs x^3+2^x+22=22.207, f(0.5)=-22.955 vs 22.457: the negative side is roughly the positive-side formula with x replaced by -x, i.e. mirrored [E4]",
+  "Check: f(-1)=-37.091 vs -1+0.5+22=21.5; f(-1)\u2248-(1^3+2^1+22)+something? -25 vs -37.091, not exact [E4]?",
+  "f(-2)=-1502.006 vs -(8+4+22)=-34, far off; the negative side grows like a cubic in |x| with large coefficient [E1,E4]",
+  "At x=-4: -40769.54, x=-8: -1202333.656; ratio suggests ~ (something)^x or cubic growth [E1,E4]?",
+  "f(0)=22.28 and f(0.5)=-22.9553, f(-0.5)=28.692: there is a jump/discontinuity near 0, suggesting a piecewise definition with a special interval around 0 [E3,E4]?"
+ ],
+ "notes": "",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.65,
+  0.65,
+  0.5714285714285714,
+  0.45
+ ],
+ "made_at": 4
+}

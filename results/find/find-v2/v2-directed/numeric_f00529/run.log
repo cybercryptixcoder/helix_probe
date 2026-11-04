@@ -1,0 +1,15 @@
+Helix Probe v2 on 'find_numeric_f00529': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 Does the function behave like a simple smooth/analytic function across the ...(+63 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 279 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 Is the transition between the two plateaus a smooth logistic curve centered...(+130 chars)  (v1 predicted it: match 1.00)
+[3] E3 Do the values at -1.5, -0.5, 0.5, 2.5, 3.5, 4.5 (and more finely around the...(+122 chars)  (v1 predicted it: match 1.00)
+[4] E4 Is the transition truly a logistic centered at x=1.5 with slope 4.654, or i...(+144 chars)  (v1 predicted it: match 1.00)
+[5] E5 Does the transition follow the fitted logistic exactly at a dense set of po...(+120 chars)  (v1 predicted it: match 1.00)
+[6] E6 Does the transition region extend beyond the fitted logistic's support — i....(+137 chars)  (v1 predicted it: match 1.00)
+      theorist (every 6 steps)
+      theorist's model not kept: same scores and not smaller (463 vs 279 chars)
+[7] E7 Is the transition exactly the fitted logistic (center 1.5, k=4.654) at fine...(+152 chars)  (v1 predicted it: match 1.00)
+[8] E8 Does the logistic transition shape hold exactly at a second dense set of po...(+171 chars)  (v1 predicted it: match 1.00)
+[9] E9 Does the transition remain a clean logistic when sampled at very fine spaci...(+157 chars)  (v1 predicted it: match 1.00)
+stopping early: the last 8 experiments were all predicted on arrival and the exam is perfect
+{"env": "find_numeric_f00529", "experiments": 9, "exam_probes": 4, "model_version": 1, "model_role": "updater", "exam": 1.0, "fit": 1.0, "size": 279, "heldout": 1.0, "llm_calls": 11, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

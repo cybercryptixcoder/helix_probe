@@ -1,0 +1,25 @@
+{
+ "version": 6,
+ "beliefs": [
+  "f is odd for |x|>=2: f(-x)=-f(x) at x=2,2.5,3,5,6,10,12,20,24,40,48 [E1, E2]",
+  "f is NOT odd for |x|<2: f(-1)=+6.1 vs f(1)=-4.3 [E2]",
+  "Inside (0,2) f is exactly 0 for 0<=x<=0.95, jumps to -4.3 at x=1.0, then rises smoothly to ~-30 as x->2- [E3, E5, E4]",
+  "At x=2 exactly f jumps discontinuously to the outer value -60.2 [E1, E4]",
+  "Outside |x|>=2, f is a power law times exponential: f(x)=sign(x)*A*|x|^p*exp(k*|x|) with p~5.9 [E1, E2]",
+  "On the negative inner side (-2,0), f is a smooth curve: ~+6 near -1.0, rising to +8 at -1.2, then dropping steeply to -67 at x=-2 [E3, E6]",
+  "The negative inner curve is smooth and continuous up to x=-2 where it meets the outer branch with a jump [E6]",
+  "f(0)=0 [E1]"
+ ],
+ "notes": "Replaced the piecewise-linear negative-side interpolation with a smooth fit through the E6 dense samples, and corrected the outer power-law fit (previous fit had wrong sign/scale, giving +50 at x=2 instead of -60.2).",
+ "fit": 0.3333333333333333,
+ "heldout": 0.02,
+ "matches": [
+  0.85,
+  0.8,
+  1.0,
+  0.9,
+  1.0,
+  0.95
+ ],
+ "made_at": 6
+}

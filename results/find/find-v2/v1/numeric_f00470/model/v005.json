@@ -1,0 +1,25 @@
+{
+ "version": 5,
+ "beliefs": [
+  "For x>=1, f(x) = x^3 + 2^x + 22 fits exactly: f(1)=25? no, f(1)=70.35, f(2)=3782.82, f(3)=28401.19, f(4)=118359.4, f(8)=3736882.84 [E1,E2,E4]",
+  "Check x^3+2^x+22 at x=1: 1+2+22=25, but observed 70.35; at x=2: 8+4+22=34, but observed 3782.82 \u2014 so the formula is NOT x^3+2^x+22 [E1,E2]",
+  "Try f(x)=x^3+2^x+22 fails; instead f(2)=3782.82\u22482^11.88, f(4)=118359.4\u22482^16.85, f(8)=3736882.84\u22482^21.83 \u2014 suggests f(x)\u22482^(2x+something) or 4^x [E1]",
+  "Check 4^x: 4^2=16, 4^4=256, 4^8=65536 \u2014 too small; check 2^(x^2)? 2^4=16, 2^16=65536, 2^64 huge \u2014 no [E1]",
+  "f(1)=70.35, f(2)=3782.82, f(4)=118359.4: ratios 53.8, 31.3 \u2014 not pure exponential; cubic+exponential still plausible with different constant [E1]",
+  "Solve: f(1)-f(0)=70.35-22.28=48.07; f(2)-f(1)=3712.47; f(4)-f(2)=114576.58 \u2014 growth faster than cubic [E1]",
+  "The interval 0<x<1 has negative values dipping to -22.65 at x=0.6, unlike the rest of the domain which is positive for x>=0 [E5,E6]",
+  "Best current guess: f(x)=x^3+2^x+22 for x>=1 and x<0, but on (0,1) something subtracts a large bump, and the constant may be ~22.28 not 22 [E5]?"
+ ],
+ "notes": "No new structural insight from E6 beyond confirming the (0,1) dip and that the base formula x^3+2^x+22 is wrong on positives; keep piecewise placeholder but note the base formula is still unresolved.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.65,
+  0.65,
+  0.5714285714285714,
+  0.45,
+  0.2,
+  0.65
+ ],
+ "made_at": 6
+}

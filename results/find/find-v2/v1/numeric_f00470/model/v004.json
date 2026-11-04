@@ -1,0 +1,30 @@
+{
+ "version": 4,
+ "beliefs": [
+  "For x>=1, f(x) = x^3 + 2^x + 22 fits: f(1)=72.35, f(2)=3783.82, f(4)=118359.4, f(8)=3736882.84 [E1,E4]",
+  "For x>=1 the fit is exact to rounding: x^3+2^x+22 at x=3 gives 28401.19, matching f(3) [E2,E4]",
+  "For x<0, f(x) = x^3 + 2^x + 22 also fits: f(-1)=-37.091, f(-2)=-1502.006, f(-4)=-40769.54, f(-8)=-1202333.656 [E1,E4]",
+  "So the same formula x^3+2^x+22 holds on both sides; the earlier 'mirror' idea was wrong [E1,E4]",
+  "The only anomaly is on the interval 0<x<1: f(0.25)=-3.2851, f(0.5)=-21.9553, f(0.75)=-14.0279, while x^3+2^x+22 gives ~23-24 there [E5]",
+  "At x=0 f(0)=22.28, close to but not exactly 23 (x^3+2^x+22 at 0 = 23); small offset ~-0.72 [E1,E5]",
+  "At x=1 f(1)=70.35 matches x^3+2^x+22=25? no: 1+2+22=25, but observed 70.35, so the formula must be re-examined at x=1 [E5]?",
+  "Recheck: x^3+2^x+22 at x=1 = 25, but f(1)=70.35; at x=2 = 8+4+22=34, but f(2)=3783.82 \u2014 so the formula is NOT x^3+2^x+22; likely 2^x dominates with a different exponent base or x^3 coefficient [E1,E4]?",
+  "Try f(x)=x^3+2^x+22 fails; instead f(2)=3783.82\u22482^12=4096? or 2^x with x scaled; f(4)=118359.4\u22482^16.85; f(8)=3736882.84\u22482^21.83 \u2014 suggests f(x)\u22482^(2x+something) or 4^x [E1]?",
+  "Check 4^x: 4^2=16, 4^4=256, 4^8=65536 \u2014 too small; check 2^(x^2)? 2^4=16, 2^16=65536, 2^64 huge \u2014 no [E1]?",
+  "f(1)=70.35, f(2)=3783.82, f(4)=118359.4: ratios 53.8, 31.3 \u2014 not pure exponential; cubic+exponential still plausible with different constant [E1]?",
+  "Solve: f(1)-f(0)=70.35-22.28=48.07; f(2)-f(1)=3713.47; f(4)-f(2)=114575.58 \u2014 growth faster than cubic [E1]?",
+  "The interval 0<x<1 has negative values dipping to -21.96 at x=0.5, unlike the rest of the domain which is positive for x>=0 [E5]",
+  "Best current guess: f(x)=x^3+2^x+22 for x>=1 and x<0, but on (0,1) something subtracts a large bump, and the constant may be ~22.28 not 22 [E5]?"
+ ],
+ "notes": "E5 shows the (0,1) interval has strongly negative values, confirming a special interval there. Also re-examining E1/E4: x^3+2^x+22 does NOT match f(1)=70.35 or f(2)=3783.82 (predicts 25 and 34), so the base formula is wrong; the values grow much faster, suggesting a different exponential or coefficient. I keep the piecewise structure but flag the base formula as uncertain.",
+ "fit": 0.0,
+ "heldout": 0.0,
+ "matches": [
+  0.65,
+  0.65,
+  0.5714285714285714,
+  0.45,
+  0.2
+ ],
+ "made_at": 5
+}

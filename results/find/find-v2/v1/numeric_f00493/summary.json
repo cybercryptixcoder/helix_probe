@@ -1,0 +1,27 @@
+{
+ "env": "find_numeric_f00493",
+ "experiments": 25,
+ "model_version": 21,
+ "fit": 0.96,
+ "heldout": 1.0,
+ "llm_calls": 49,
+ "goals": {
+  "tried": 0,
+  "reached": 0,
+  "tries_used": []
+ },
+ "beliefs": [
+  "The outer branch (|x|>=2) is odd with f(x) NEGATIVE for x>0 and POSITIVE for x<0, i.e. f(x) = -sign(x)*|f(|x|)| [E1, E8, E14, E16, E18, E20, E21, E22]",
+  "On the positive outer branch |f(x)| follows ln|f| = lnA + p*ln|x| + k*|x| fit to positive data with |x|>=8 [E7, E10, E15, E17, E19, E20]",
+  "On the negative outer branch |f(x)| follows a separate ln|f| = lnA' + p'*ln|x| + k'*|x| fit to negative data with |x|>=8 [E8, E14, E16, E18, E20, E21]",
+  "Negative-side outer magnitudes exceed positive-side by a factor decaying from ~2.3 at |x|=2.1 to ~1 at |x|>=48, then ~1.03 at large |x| [E10, E14, E16, E18, E20, E21]",
+  "f(2)=-60.2 and f(-2)=-67.0; the outer law is continuous through |x|=2 on both sides [E1, E4, E6, E19]",
+  "On (0,1) f is exactly 0, with a sharp step to -4.3 at x=1.0 [E5, E9]",
+  "On (1,2) f rises smoothly from -4.3 toward ~-30 as x->2- [E3, E4, E5, E9, E19]",
+  "On (-2,0) f is a smooth curve: ~+6 near -1, peaking ~+8 near -1.2, then dropping steeply to ~-67 at x->-2- [E3, E6, E24]",
+  "f(0)=0 [E1]",
+  "There is a genuine jump discontinuity at x=2 on the positive side (from ~-30 at x->2- to -60.2 at x=2) [E19]",
+  "There is a jump discontinuity at x=-2: f(-2)=-67.0 exactly, but f(-2.001)=-100.78, so the outer negative branch starts near -100.8 just past -2 and rises in magnitude smoothly [E23, E24]",
+  "The negative outer branch is negative (not positive) for x<0, i.e. f(x) = -|f(x)| there; the '-sign(x)' convention only holds for x>0 [E22, E23]"
+ ]
+}

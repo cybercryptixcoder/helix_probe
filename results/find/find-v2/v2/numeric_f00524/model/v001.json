@@ -1,0 +1,1 @@
+{"version": 1, "role": "updater", "notes": "I changed the model from predicting nothing to a first hypothesis: the box returns 3.0 near x\u22483 and 0.0 elsewhere, since E1's only nonzero output was at x=2.9. The interval boundaries are a guess and marked uncertain.", "exam": 0.975, "fit": 1.0, "fit_exact": 1.0, "size": 259, "matches": [1.0], "made_at": 1, "heldout": 0.78}

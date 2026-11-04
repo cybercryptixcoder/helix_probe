@@ -1,0 +1,35 @@
+Helix Probe on 'find_numeric_f00524': 0 experiments so far, model v0, held-out set of 100
+[1] E1 What does f look like across the whole domain: is it linear, polynomial, pe...(+77 chars)  model v0 match 0.00
+      model v1: fit 100% (was 0%), mean match 1.00 (was 0.00), held-out 77%
+[2] E2 Is the cutoff at |x|=4 a hard step, or does f(x)=x persist on a finer scale...(+36 chars)  model v1 match 0.43
+      model v2: fit 50% (was 50%), mean match 0.82 (was 0.71), held-out 85%
+[3] E3 Where exactly does the nonzero behavior end between |x|=4.1 and |x|=4.5, an...(+49 chars)  model v2 match 0.33
+      model v3: fit 33% (was 33%), mean match 0.77 (was 0.66), held-out 86%
+[4] E4 Does f(x) equal round(x) (half away from zero) for all |x| < 4.4, including...(+100 chars)  model v3 match 0.50
+      model v4: fit 100% (was 25%), mean match 1.00 (was 0.70), held-out 100%
+[5] E5 What happens exactly at the boundary and just outside it — specifically, do...(+246 chars)  model v4 match 0.80
+      model v5: fit 100% (was 80%), mean match 1.00 (was 0.96), held-out 100%
+[6] E6 Where exactly does the active interval end on the positive side, and is the...(+90 chars)  model v5 match 0.67
+      model v6: fit 100% (was 83%), mean match 1.00 (was 0.94), held-out 100%
+[7] E7 For the interior of the active interval, is f(x) exactly ceil(x) for all no...(+151 chars)  model v6 match 0.85
+      revision rejected: mean match 0.97 < 0.98
+      model v7: fit 100% (was 86%), mean match 1.00 (was 0.98), held-out 100%
+[8] E8 Between 4.35 and 4.36 (and symmetrically on the negative side), where exact...(+76 chars)  model v7 match 1.00
+[9] E9 Is the active interval's upper edge exactly 4.35 (inclusive) on the positiv...(+80 chars)  model v7 match 1.00
+[10] E10 Does f use ceil(x) (as observed) or something like round-half-away-from-zer...(+112 chars)  model v7 match 1.00
+[11] E11 Does the ceil(x) rule hold for non-integer values between 4.0 and 4.35 (e.g...(+136 chars)  model v7 match 1.00
+[12] E12 Does f return a true 0 or a signed -0.0 outside the active interval on both...(+102 chars)  model v7 match 1.00
+[13] E13 Is f's interior rule really ceil(x) for large-magnitude inputs inside the a...(+270 chars)  model v7 match 1.00
+[14] E14 Is the cutoff truly at 4.35 for finer sub-ULP-scale offsets on both sides (...(+162 chars)  model v7 match 1.00
+[15] E15 How does f behave exactly at the cutoff boundary in a way not yet tested: i...(+308 chars)  model v7 match 1.00
+[16] E16 Does the ceil(x) interior rule hold at the exact integers 1, 2, 3, -1, -2, ...(+108 chars)  model v7 match 1.00
+[17] E17 Does the ceil(x) interior rule hold at the exact integer 4 and just below/a...(+131 chars)  model v7 match 1.00
+[18] E18 Does the interior rule stay exactly ceil(x) at very fine (sub-ULP and near-...(+203 chars)  model v7 match 1.00
+[19] E19 Does f's interior rule still equal ceil(x) at the exact half-integer and ne...(+184 chars)  model v7 match 1.00
+[20] E20 Does the interior ceil(x) rule still hold at the negative half-integer and ...(+206 chars)  model v7 match 1.00
+[21] E21 Do the exact endpoints x = 4.35 and x = -4.35 (and their nearest neighbors ...(+174 chars)  model v7 match 1.00
+[22] E22 How does f behave in the untested gap between the active interval and the f...(+222 chars)  model v7 match 1.00
+[23] E23 Is the active interval truly symmetric in magnitude, or does the negative s...(+116 chars)  model v7 match 1.00
+[24] E24 Does f behave like ceil(x) at the tiny sub-ULP-scale offsets around the int...(+182 chars)  model v7 match 1.00
+[25] E25 How does f behave at the exact integer points 0 on both sides and at the la...(+199 chars)  model v7 match 1.00
+{"env": "find_numeric_f00524", "experiments": 25, "model_version": 7, "fit": 1.0, "heldout": 1.0, "llm_calls": 33, "goals": {"tried": 0, "reached": 0, "tries_used": []}}

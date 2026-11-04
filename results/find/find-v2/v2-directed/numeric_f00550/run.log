@@ -1,0 +1,10 @@
+Helix Probe v2 on 'find_numeric_f00550': 0 experiments so far, model v0, exam of 4, held-out set of 100
+[1] E1 What does f do across the ordinary input range, including sign, magnitude, ...(+88 chars)  (v0 predicted it: match 0.00)
+      model v1 by the updater: exam 1.00, fit 1.00, size 363 (exam 0.000 -> 1.000); held-out 100%
+[2] E2 What is the fine shape of the nonzero bump inside (-1,1), especially near t...(+40 chars)  (v1 predicted it: match 0.78)
+      model v2 by the updater: exam 1.00, fit 1.00, size 1013 (fit 0.889 -> 1.000); held-out 99%
+[3] E3 Is the nonzero region exactly (-1,1) with a sharp cutoff, and what is the f...(+59 chars)  (v2 predicted it: match 0.85)
+      model v3 by the updater: exam 1.00, fit 1.00, size 1145 (fit 0.950 -> 1.000); held-out 100%
+[4] E4 Is the support of f exactly the interval (-0.85, 0.85), or does the nonzero...(+90 chars)  (v3 predicted it: match 0.50)
+      model v4 by the updater: exam 1.00, fit 0.96, size 1131 (fit 0.875 -> 0.960); held-out 99%
+[5] E5 Where exactly is the right edge of the nonzero region, and how does the bum...(+71 chars)  (v4 predicted it: match 1.00)
