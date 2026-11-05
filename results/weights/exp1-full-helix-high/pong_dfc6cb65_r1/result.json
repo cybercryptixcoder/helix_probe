@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 1,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pong",
+ "answer_line": "pong (atari pong-style)",
+ "correct": true,
+ "turns": 17,
+ "code_runs": 17,
+ "passes": 15,
+ "arrival": 0.35294117647058826,
+ "audit": [],
+ "isolated": false,
+ "seconds": 3199.8
+}
