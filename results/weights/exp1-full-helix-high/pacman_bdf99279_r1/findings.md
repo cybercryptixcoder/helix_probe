@@ -1,11 +1,11 @@
 # Findings
-- Channel 0 (agent) weights are large across the interior 8x8 but near zero on a symmetric set of cells (r2c2-3, r2c6-7, r3c2, r3c7, r4c4-5, r5c4-5, r6c2, r6c7, r7c2-3, r7c6-7), indicating fixed walls/impassable cells [E6].
-- Channel 1 weights are large and share the same zero pattern as channel 0, consistent with moving objects being constrained by the same fixed walls [E6].
-- Channel 1 is not shown to act as a consistently avoided enemy: baseline, enemy_left, and enemy_down prefer right; only enemy_right shifts the preferred action to down [E7].
-- Channel 2 weights are present but smaller; reward placement does not reliably change the preferred action: at (2,4) all reward positions still yield up, and at (5,2) and (4,6) all still yield right [E10]. The reward_left/right shifts in E7 are not reproduced, so there is no consistent reward attraction [E7, E10].
-- Channel 3 weights are very small, consistent with fixed walls being constant and inferable from feasible positions rather than processed explicitly [E6].
-- Channel 4 weights are moderate, consistent with use of recent-frame/motion information [E6].
-- Preferred action varies systematically with the agent’s interior position across all rows and columns, so the agent navigates the whole 8x8 maze rather than being confined to one row [E1].
-- The task is Asterix-like maze navigation with fixed walls; the evidence does not establish consistent enemy avoidance or reward-seeking [E7, E10].
-- Description: The agent navigates an 8x8 maze; channel 1 enemy-avoidance behavior and channel 2 reward attraction are not supported.
-- Confidence: 85%.
+- Channel 0 (agent) has the largest weights; its norm grid is near-zero at a fixed symmetric set of interior cells such as (2,2), (2,3), (2,6), (2,7), (4,4), (4,5), (7,2), (7,3), (7,6), (7,7), indicating permanent walls the agent never occupies (E6).
+- Channel 1 (moving objects) has the second-largest weights and shares the same zero-wall pattern, consistent with ghosts moving only in open corridors of a fixed maze (E6).
+- Preferred actions are strongly position-dependent across the 8x8 grid (E1), e.g. (1,1)->down, (1,8)->left, (8,8)->up, but the cell-to-action map is not fully stable: E21 reports (4,1)->down while E1 lists right (E1, E21).
+- Channel 2 (reward targets) and channel 3 (obstacles) have much smaller total weights than agent and moving-object channels, so the network relies mainly on a learned positional route rather than the current pellet/wall layout (E6).
+- Channel 4 (previous frame) has moderate weights and can shift logits, but at fixed agent positions it usually does not change the preferred action; E21’s prev(4,2) alone and prev(3,1)/prev(4,2) with a ghost ahead all leave the action as down (E14, E18, E21).
+- Reward placements usually leave the baseline action unchanged; reward-toward matches are near chance (1/47), and E21’s reward at (4,2) leaves (4,1) as down (E10, E13, E14, E21). Reward effects are weak/inconsistent (E7).
+- Ghost sensitivity is local and sparse: at (3,4) a ghost at (2,4) switches baseline up to left, but at (4,1) ghosts at (4,2), (3,1), or (5,1) all leave the action as down; ghost placements can change logits without changing the preferred action (E18, E21).
+- Enemy-away matches are only 24/47, and E21 shows no avoidance of a ghost directly ahead, so the network has no general ghost-avoidance policy (E13, E21).
+- The fixed symmetric wall pattern—central 2x2 block plus corner blocks—together with agent, moving objects, reward targets, and obstacles is consistent with a Pac-Man-style maze game: agent = Pac-Man, moving objects = ghosts, reward targets = pellets, obstacles = maze walls (E6, E1, E13).
+- The network learned a mostly position-based route through a Pac-Man-like maze rather than a reactive pellet-chasing and ghost-avoiding policy (E1, E13, E14, E18, E21).
