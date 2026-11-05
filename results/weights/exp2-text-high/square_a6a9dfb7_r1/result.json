@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "a6a9dfb7",
+ "truth": "square",
+ "rep": 1,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "circle",
+ "answer_line": "the generated images show a single white/light filled circle (or very slightly oval blob) centered in the \\(12\\times12\\) frame, on a black background. it spans roughly rows 2\u20139 and columns 2\u20139, i.e. diameter about 7\u20138 pixels, with soft/grayscale edges because of the diffusion process. there is no other distinct object or stroke.",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 450.2
+}
