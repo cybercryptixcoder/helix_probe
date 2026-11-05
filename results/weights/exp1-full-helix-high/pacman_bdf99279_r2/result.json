@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 2,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pacman",
+ "answer_line": "pac-man",
+ "correct": true,
+ "turns": 12,
+ "code_runs": 12,
+ "passes": 13,
+ "arrival": 0.5166666666666667,
+ "audit": [],
+ "isolated": false,
+ "seconds": 5787.8
+}
