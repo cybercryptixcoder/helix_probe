@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "d88aba69",
+ "truth": "circle",
+ "rep": 2,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "circle",
+ "answer_line": "the model generates a white filled disk/circle on a black background. it is centered in the 12\u00d712 image, with diameter about 9\u201310 pixels, leaving roughly a one-pixel black margin on all sides. sampling noise may make the edge slightly irregular, but the typical image is a large centered white blob/circle.",
+ "correct": true,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 495.3
+}
