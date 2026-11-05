@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 2,
+ "format": "full",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "breakout",
+ "answer_line": "breakout (an atari-style breakout / brick-breaker game on a 10x10 grid).",
+ "correct": true,
+ "turns": 2,
+ "code_runs": 1,
+ "passes": 0,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 38.1
+}

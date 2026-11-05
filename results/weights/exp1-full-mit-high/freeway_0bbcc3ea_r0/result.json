@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 0,
+ "format": "full",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "freeway (atari 2600), i.e. a chicken/agent crossing a multi-lane highway.",
+ "correct": true,
+ "turns": 2,
+ "code_runs": 1,
+ "passes": 0,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 60.5
+}

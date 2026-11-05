@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 1,
+ "format": "full",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "freeway (a frogger-like road-crossing game; most specifically atari-style freeway).",
+ "correct": true,
+ "turns": 2,
+ "code_runs": 1,
+ "passes": 0,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 36.6
+}
