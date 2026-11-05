@@ -1,0 +1,4 @@
+- Action policy depends on the agent’s position across the entire 8×8 interior, not only row 1 [E1].
+- Preferred actions vary substantially by cell in every row, including rows 2–8 [E1].
+- Position-specific logits strongly favor different actions, e.g. (1,1) favors down (10.62) while (1,8) favors left (14.19) [E1].
+- The output biases do not dominate rows 2–8; those cells show varied, position-dependent preferred actions [E1].
