@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 0,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": true,
+ "guess": "pacman",
+ "answer_line": "pac-man (a pac-man-like gridworld).",
+ "correct": false,
+ "turns": 16,
+ "code_runs": 16,
+ "passes": 11,
+ "arrival": 0.4875,
+ "audit": [],
+ "isolated": false,
+ "seconds": 2545.0
+}
