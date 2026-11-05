@@ -1,0 +1,12 @@
+# Findings
+- W1 channel 0 (agent) weights are concentrated in column 1, rows 1–8 [E1].
+- At column 1 the policy is not a fixed left-edge paddle: action counts are noop 291, up 97, down 42, left 14, right 4; right is argmax in 4 states with max right margin +0.057 [E28].
+- W1 channel 1 (moving object) weights fill the interior, rows 1–8 and columns 2–8 [E1].
+- W1 channel 2 (reward) is near baseline in the interior and larger on right edge column 9 [E10].
+- W1 channel 3 (obstacle) is border-only: no strong interior obstacles [E10].
+- The policy is not a simple ball-row tracker: at agent (4,1), ball column 2 mostly gives noop/left; column 3 gives up for rows 2–4, down for rows 6–7, and noop at rows 1,5,8 without velocity; column 4 gives row 2 up, row 4 left/up, row 6 noop [E15, E25].
+- Vertical action is column-dependent and non-monotonic; up/down logits can be high without determining the chosen action [E15, E23, E25].
+- Earlier row-threshold claims are contradicted: mover below can be noop, and actions vary with column, agent row, and mover velocity [E4, E6, E15, E25].
+- The policy is sensitive to previous-frame mover row (vertical velocity), but not as a consistent predicted-future-row paddle: fixed current row changes action/logits with prev row, and actions do not match r+(r−prev_r) [E7, E23].
+- Horizontal velocity affects action/logits but not as toward-ball interception: at agent (4,1), ball column 4 row 2 left/still → up but right → down; row 4 left → left, still/right → up; row 6 all → noop; effects vary by column [E12, E25].
+- Reward-only states do not drive action [E4].

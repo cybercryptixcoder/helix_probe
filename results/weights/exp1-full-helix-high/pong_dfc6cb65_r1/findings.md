@@ -1,10 +1,8 @@
 # Findings
-- Channel 0 (agent) weights are concentrated at column 1 (mean norm 3.94 vs ~0.35 elsewhere), consistent with a vertically moving left paddle [E12].
-- Channel 1 (moving object) has strong interior row structure and a column gradient peaking at columns 2–4 (7.05, 6.99, 5.57), so ball position matters most near the left side [E12].
-- Channel 4 (previous frame) has large column-structured weights peaking around columns 5–6 and can affect action choice [E7, E12].
-- Channel 2 (reward targets) is weak (mean 0.40); channel 3 is border-related (border 0.79 vs interior 0.35), so there are no strong interior reward-target or obstacle signals [E12].
-- Except near walls, the policy does not select left/right for balls directly left/right or near the paddle; argmax stays up/down/no-op [E5, E6, E13].
-- Near the left paddle (ball columns 2–3, tested non-wall rows), vertical action follows the ball row: above -> up, below -> down; same row defaults to up, and horizontal movement direction does not change this [E13].
-- Outside that near-left-paddle regime, vertical responses are mixed and depend on exact agent/ball coordinates: above can give no-op or down, and below can give no-op or up [E1, E5, E6, E17].
-- Previous-frame motion can override the current row at (2,4): prev (1,4) gives down with probability 0.999, prev same gives up, prev above gives no-op [E7].
-- Near top/bottom walls the policy does not show bounce anticipation: top moving up -> right (0.30) not down, top still -> left (0.224), bottom moving down -> right (0.275) not up, bottom still -> down (0.248), with near-uniform probabilities [E17].
+- Channel 0 weights are concentrated in column 1 (mean norm 3.94 there vs ~0.34 elsewhere), so the controlled agent is a left-side vertical object at column 1 (E12).
+- Channels 1 and 4 dominate interior weights: ch1 has large norms across rows 1–8 and columns 2–8, and ch4 has similar column structure; this is a moving ball plus its previous position (E12, E30).
+- Channel 2 is weak overall (mean 0.399) and interior ch3 is weak, while ch3 is stronger on the border; causal probes show ball-row changes logits by ~14.3 while interior ch2/ch3 changes are <~1.4, so the policy is not driven by reward targets or interior obstacles (E12, E27).
+- With a proper previous frame and the ball near column 2, the action tracks the ball row: above the agent gives up, below gives down, and aligned/near rows are weaker and can be up or horizontal/no-op (E20, E23, E30, E40).
+- The previous-frame channel is functionally important: blanking or making it same destroys the clean up/down tracking map (E30), and changing the previous ball row changes/weakens up/down choices (E7, E20); far horizontal velocity has little effect (E18).
+- A multi-cell paddle dead zone is not supported: a 3-cell bar at rows 3–5 gives up for br1–2, ambiguous/horizontal for br3–4, down for br5–7, and no-op for br8; single-cell row-4 probes show the same up/ambiguous/down pattern (E33, E36, E40).
+- Off-distribution single-cell and wall-bounce probes are noisy and often choose left/right/no-op (E17, E21), but on-distribution proper-previous-frame probes track the ball row (E23, E40); the network is Pong-like, with a left-side agent moving up/down to intercept/return a bouncing ball (E12, E23, E27, E30, E40).
