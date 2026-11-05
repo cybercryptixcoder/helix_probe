@@ -1,0 +1,9 @@
+Observations: The largest W1 row norms are in channel 1 (moving objects) around rows 3–6 and in channel 4 (previous frame) around row 7: e.g. (r7,c4,ch4) norm 19.87, (r7,c5,ch4) 18.67, (r4,c3,ch1) 17.41, (r6,c3,ch1) 16.28, (r4,c7,ch1) 16.12, (r3,c5,ch1) 15.29. Channel-2 reward and channel-3 obstacle effects are near zero: at ch2 r7 c5 logits [-6.02,-10.67,-9.33,-11.49,-19.40] vs baseline [-5.97,-10.60,-9.25,-11.43,-19.34], and ch3 r7 c5 is essentially baseline. Baseline logits strongly disfavor action 4/right and often favor no-op/left, e.g. mean logits [-10.23,-13.61,-12.03,-14.39,-23.09]. Agent-at-bottom logits are much larger, e.g. agent (8,1): [-2.24,-6.91,-5.60,-8.16,-13.07], suggesting the bottom row is a frequent/start position. Channel-1 object presence causes large, context-dependent shifts, e.g. ch1 (0,-1) best=left delta +47.95, and ch1 at r7 c5 gives logits [-4.34,-4.55,-3.13,1.98,-12.46], not simple Pong/Breakout ball tracking.
+
+Reasoning: The network attends heavily to moving objects and their previous positions, uses all four movement directions, and has almost no learned response to reward-target or obstacle channels. The bottom-row bias and lane-like channel-1 rows 3–6 fit an agent starting at the bottom and negotiating horizontally moving hazards. This rules out Breakout/Pong (no clear paddle-ball tracking or brick/reward channel), Space Invaders/Seaquest (no fire/obstacle/reward structure), and collectible games like Asterix/Pac-Man (reward channel would matter). It fits a Frogger-like road-crossing game; the absence of water/home/obstacle channels makes Atari Freeway the specific match rather than full Frogger.
+
+Game: Freeway (Atari 2600), a Frogger-like road-crossing game.
+
+Description: The agent controls a chicken at the bottom and moves up/down/left/right to cross a road while avoiding horizontally moving cars; reward is given for reaching the top without being hit.
+
+Confidence: 87%

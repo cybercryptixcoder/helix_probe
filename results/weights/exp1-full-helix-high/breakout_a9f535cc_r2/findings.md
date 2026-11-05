@@ -1,0 +1,11 @@
+# Findings
+- First-layer weights are dominated by channels 1 and 4 (max 17.41/19.87, mean 5.77/5.70); channel 2 is weaker (max 6.20, mean 0.95); channel 3 is weak (max ~0.8, mean 0.45) with a low border ring [E1, E5].
+- W1 spatial layout is banded, not scattered: ch4 has a strong broad band over rows 4–7 (max 19.9 at row7,col4); ch1 spans rows 1–7 (max 17.4 at row4,col3); ch2 is in rows 1–3, strongest row3 (max 6.2 at row3,col7); ch0 is flat except a row8 band (max 9.7 at row8,col8); ch3 is low with weak border ring [E1, E5].
+- Channel 1 (moving) and channel 4 (previous-frame) weight maps are near-duplicates (corr 0.80), consistent with motion tracking; channel 3 is anti-correlated with ch1/ch4 (−0.60/−0.70) [E5].
+- Action preference is not a fixed left default and differs by probe setup: E2 shows columns 1–3 choose right (action 4) with prob 1.0, column 4 mixed (right 0.481, up 0.373, noop 0.104), columns 5–8 choose left (action 3) with prob 1.0 [E2].
+- With E3’s border in channel 3, the column sweep does not reproduce E2: col2 base is noop (0.95), col4 base noop (0.76), col6 base left (0.66) [E3].
+- E3’s row sweep shows no bottom-seeking “down” preference: row8 base noop (0.76), row6 left (0.50), row4 left (0.99), row2 noop (0.53) [E3].
+- At the E1 probe position, the policy strongly favored left (0.99 on action 3) across agent-only, reward-left/right, moving-left, and obstacle-left/right probes; a moving object to the right still favored left (0.62) over noop/up/down (~0.11–0.14) and right (0.00) [E1].
+- Reward probes in E3 do not strongly attract the policy: reward top/row3/above/right/left all give noop argmax (0.70–0.89), consistent with weak channel-2 weights [E1, E3].
+- Moving-object probes in E3 are weak/local, not consistent avoidance: M above gives noop 0.48/up 0.46; M row3 gives left 1.0; M right/left and col2 M/R right give noop 0.76–0.95; col6 M left gives left 0.50/noop 0.47 [E3].
+- Action 3 has the largest action-layer hidden weights (e.g., h22 −5.34, h11 4.06), but this does not imply a universal left default [E1, E2, E3].

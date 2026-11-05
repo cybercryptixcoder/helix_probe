@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 1,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "breakout",
+ "answer_line": "breakout (atari breakout-style)",
+ "correct": true,
+ "turns": 15,
+ "code_runs": 15,
+ "passes": 21,
+ "arrival": 0.45666666666666667,
+ "audit": [],
+ "isolated": false,
+ "seconds": 3533.0
+}

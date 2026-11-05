@@ -1,6 +1,6 @@
 | task | format | protocol | thinking | weights | correct | code runs | passes | extra |
 |---|---|---|---|---|---|---|---|---|
-| exp1 | full | helix | high | real | 3/3 | 15.0 | 23.3 |  arrival 0.66 |
+| exp1 | full | helix | high | real | 4/5 | 14.2 | 20.4 |  arrival 0.54 |
 | exp1 | text | - | high | real | 8/12 | 0.0 | 0.0 |  |
 | exp1 | text | - | high | shuffled | 2/12 | 0.0 | 0.0 |  |
 | exp1 | text | - | none | real | 4/12 | 0.0 | 0.0 |  |
