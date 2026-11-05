@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "a6a9dfb7",
+ "truth": "square",
+ "rep": 2,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "circle",
+ "answer_line": "a white filled circle/disk centered in the 12\u00d712 image, spanning roughly rows 1\u201310 and columns 1\u201310, with black corners and a black background. the exact boundary is slightly soft/blurred, but the typical generated image is a centered white disk of diameter about 8\u20139 pixels.",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 1150.0
+}

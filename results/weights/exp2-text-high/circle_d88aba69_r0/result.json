@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "d88aba69",
+ "truth": "circle",
+ "rep": 0,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "circle",
+ "answer_line": "the model generates 12\u00d712 grayscale images of a single handwritten digit 6. the digit is roughly centered, with the top stem curving down from the upper right and a closed loop at the bottom; the interior of the loop is dark, and the background is black.",
+ "correct": true,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 1060.7
+}
