@@ -1,4 +1,11 @@
-- Action policy depends on the agent’s position across the entire 8×8 interior, not only row 1 [E1].
-- Preferred actions vary substantially by cell in every row, including rows 2–8 [E1].
-- Position-specific logits strongly favor different actions, e.g. (1,1) favors down (10.62) while (1,8) favors left (14.19) [E1].
-- The output biases do not dominate rows 2–8; those cells show varied, position-dependent preferred actions [E1].
+# Findings
+- Channel 0 (agent) weights are large across the interior 8x8 but near zero on a symmetric set of cells (r2c2-3, r2c6-7, r3c2, r3c7, r4c4-5, r5c4-5, r6c2, r6c7, r7c2-3, r7c6-7), indicating fixed walls/impassable cells [E6].
+- Channel 1 weights are large and share the same zero pattern as channel 0, consistent with moving objects being constrained by the same fixed walls [E6].
+- Channel 1 is not shown to act as a consistently avoided enemy: baseline, enemy_left, and enemy_down prefer right; only enemy_right shifts the preferred action to down [E7].
+- Channel 2 weights are present but smaller; reward placement does not reliably change the preferred action: at (2,4) all reward positions still yield up, and at (5,2) and (4,6) all still yield right [E10]. The reward_left/right shifts in E7 are not reproduced, so there is no consistent reward attraction [E7, E10].
+- Channel 3 weights are very small, consistent with fixed walls being constant and inferable from feasible positions rather than processed explicitly [E6].
+- Channel 4 weights are moderate, consistent with use of recent-frame/motion information [E6].
+- Preferred action varies systematically with the agent’s interior position across all rows and columns, so the agent navigates the whole 8x8 maze rather than being confined to one row [E1].
+- The task is Asterix-like maze navigation with fixed walls; the evidence does not establish consistent enemy avoidance or reward-seeking [E7, E10].
+- Description: The agent navigates an 8x8 maze; channel 1 enemy-avoidance behavior and channel 2 reward attraction are not supported.
+- Confidence: 85%.
