@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "a6a9dfb7",
+ "truth": "square",
+ "rep": 0,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "square",
+ "answer_line": "a solid white 7\u00d77 square occupying rows 1 through 7 and columns 1 through 7 of the 12\u00d712 image, inclusive. the remaining pixels are black. the square is in the upper-left, with a 1-pixel black margin on the top and left and a 4-pixel black region on the right and bottom.",
+ "correct": true,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 966.0
+}

@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "246a5b58",
+ "truth": "triangle",
+ "rep": 0,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": null,
+ "answer_line": "large, thick handwritten 6s occupying most of the 12\u00d712 frame. the top row is black. the stroke begins as a wide curve across the upper middle, runs down the left side, and forms a loop at the bottom with a small black hole on the right side of the loop. the digit is shifted left and down, frequently touching the left and bottom edges.",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 231.4
+}

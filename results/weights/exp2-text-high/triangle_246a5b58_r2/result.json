@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "246a5b58",
+ "truth": "triangle",
+ "rep": 2,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": null,
+ "answer_line": "the model generates 12\u00d712 grayscale images of a single handwritten digit \u201c4\u201d, white on black. the digit is centered, roughly 9\u201310 pixels tall and 7\u20138 pixels wide, with a diagonal left stroke, a horizontal crossbar near the middle-lower part, and a vertical right stroke extending downward.",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 845.0
+}
