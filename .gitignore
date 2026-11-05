@@ -5,3 +5,4 @@ __pycache__/
 bench/arc/games/
 recordings/
 .venv*/
+bench/weights/mit/

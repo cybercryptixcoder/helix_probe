@@ -174,3 +174,79 @@ it next to the same-model control.
   weight interpretation on task X at budget Y".
 - Is this the main track now, ahead of ARC goal discovery? The two share the hypothesis-formation problem, so
   progress on one may help the other.
+
+---
+
+## 10. Update, Nov 4 evening: the MIT setup in detail, replications, a first baseline, and the plan
+
+### The MIT setup (from their logs: `github.com/RikiyaT/lm_understand-logs`, CC BY 4.0)
+
+The logs hold every prompt, reply, code run and network; fetch them with `bench/weights/fetch_mit.sh`.
+
+**The harness:**
+- Astra is run through the Codex CLI with every built-in tool off, and audited for tool-free turns.
+- Where code is allowed, it writes **one Python block per turn**. Their sandbox runs it (bubblewrap, no network, a
+  working folder kept between runs, a timeout, output cut at 20,000 characters) with the weights preloaded as
+  `W` (numpy, scipy, scikit-learn, CPU PyTorch). The printed output comes back as the next message.
+
+**The formats, by experiment:**
+
+| Format | Experiments | Access |
+|---|---|---|
+| Text, one reply | 1 (games), 2 (shapes), 4 (fix the car), 5 (write) | weights pasted as text (3 decimals); no tools; exp 2 also forbids mental forward passes |
+| Code, no running | 3 (language and heads), 7 (weights only) | Python over the weights; running the network or any layer on any input is forbidden; up to 100 runs |
+| Code + forward passes | 6 (Go), 8 (Qwen math), 7 (attention tool) | a budget of 0–50 passes through a harness function; edits by code |
+
+**The networks:**
+- available for experiments 1–4;
+- experiment 1 is 4 networks (the best seed per game only), open answer;
+- experiment 3 is 3 networks, a closed 3-way choice, plus 24 head labels each, with ground truth in `heads.json`.
+
+### Replications so far (other groups)
+
+- **Alan Turing Institute** (`alan-turing-institute/weights_editing`), text format:
+
+  | Reader | Exp 1 (games) | Exp 1, shuffled weights | Exp 2 (shapes) |
+  |---|---|---|---|
+  | Astra | 12/12 | 0/4 | 9/9 |
+  | Opus 5.5 | 12/12 | 0/4 | 8/9 |
+  | Opus 4.5 | 1/4 | 1/4 | 2/3 |
+  | DeepSeek-V4-Pro | 3/4 | 1/4 | 1/3 |
+
+  DeepSeek-V4-Pro also named games confidently on shuffled weights.
+- **`nihilistau/weight-space-claude`:** an Opus 5.5 replication, tool-free.
+- **`jhpark94/weights-only-replication`:** Opus 5.5 still gets 4/4 with the grid, channels and "game" all removed.
+- **`leofmarciano/weightspace`:** a tool harness (list, describe, read slices, persistent sandbox, edits,
+  checkpoints, rollbacks, budgeted probes) that reports no results.
+
+### First baseline (ours): DeepSeek V4.1 Flash on MIT's exact experiment 1 text prompt
+
+Script: `bench/weights/text_oneshot.py`. Three repetitions per network.
+
+| Condition | Correct | Notes |
+|---|---|---|
+| Thinking off | 3 of 12 | chance is 3 of 12 |
+| Thinking off, shuffled weights | 0 of 12 | |
+| Thinking high | 5 of 5 so far | Breakout 2/2, Freeway 3/3; Pac-Man and Pong pending; about 13–25k output tokens per answer |
+
+**Reading:** a weak model can read these weights natively **when it thinks**, and can't with thinking off.
+
+### The plan (wave 1, before any build decision is final)
+
+**The question, decomposed:**
+1. Can Flash read weights at all? (the text format; started above)
+2. Does code over the weights help a weak model read, and does structure (the Helix loop) beat a free conversation
+   (MIT's protocol) for the same model?
+3. How much of a result comes from reading vs running the network? These are separate arms (weights only, running
+   only, both), with arms that run the network reported as a different condition from experiment 1.
+4. Does a primer library help form hypotheses? The primer never lists candidate answers.
+
+**What a "model" of a network is** is a core decision, and it is open. The proposal:
+- a set of claims, each with a test (code over the weights, or an intervention when running is allowed) and an
+  expected result;
+- code re-runs the tests to judge a model, as it now replays the notebook;
+- a `predict()` that runs the weights is not allowed: it would fit perfectly and explain nothing.
+
+**Tasks first:** MIT's experiments 1 (games) and 3 (language and heads), in the code formats, with shuffled
+controls and 3 repetitions. **More networks (n) next:** retrained experiment-2-style diffusion MLPs, and FIND's
+roughly 150 MLP functions.
