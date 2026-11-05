@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "d88aba69",
+ "truth": "circle",
+ "rep": 1,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "circle",
+ "answer_line": "generated images show a single white digit \u201c2\u201d centered in the 12\u00d712 frame, occupying roughly rows 2\u20138 and columns 2\u20139. the top bar is near row 2, the diagonal falls from the upper right toward the lower left, and the base is near row 8. background is black.",
+ "correct": true,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 1257.3
+}
