@@ -1,9 +1,14 @@
 # Findings
-- First-layer row norms are similar across channels (means 4.85–5.02); the largest single row is ch0 at (1,0)=12.11 [E2].
-- Top W1 rows are spread across channels/locations: ch0 (1,0), ch1 (2,4), ch2 (6,4), ch3 (0,1), ch4 (5,0) [E2].
-- Blank-grid baseline logits are [2.32, 13.14, 5.10, 0.18, 0.02], argmax action 1 [E2].
-- Centered-channel probes give argmax actions ch0→2, ch1→1, ch2→1, ch3→4, ch4→4 [E2].
-- Controlled single-cell observations produce large, position- and channel-dependent logit changes without a simple direction-consistent mapping [E2].
-- On full realistic single-cell-agent observations, the policy is uniformly action R at every playable cell, both agent-alone and with a reward or moving object at (4,4); there is no radial seek/avoid field [E3].
-- Multi-cell agent shape can change the policy: vertical 3-cell with reward right gives argmax action 2, while single-cell and horizontal 3-cell cases (reward right/left/up) give action 4 [E4].
-- Full-observation behavior is not a simple reward-seeking/moving-avoidance field; it is uniform R for single-cell agents but depends on multi-cell agent configuration [E3, E4].
+- W1 row norms are similar across channels (means 4.85–5.02); largest weights are spatially scattered, not a clean localized reward or moving-object detector (E2).
+- Blank input gives logits [2.32, 13.14, 5.10, 0.18, 0.02] with argmax 1/up, but full realistic single-cell observations are mostly action 4/right; E11 is all R for prev=1 and all R except one D for prev=0 (E2, E3, E11).
+- Adding a reward target or moving object at (4,4) barely changes the single-agent action field, which remains all R (E3); reward/moving-object placement does not consistently drive the policy (E3, E5, E12, E13).
+- Horizontal 3-cell agents output action 4/right across reward position, obstacle position, wall edge, previous-frame marking, and previous direction; E14 H_move_left also outputs 4/right (E4, E5, E6, E8, E9, E14).
+- Vertical 3-cell agents are context-dependent, not simple direction-continuation: they output 2/down or 4/right depending on board/previous-frame/object context; E14 V_move_up and V_move_down both output 4/right (E4, E5, E8, E9, E13, E14).
+- Food position is ignored in tested snake cases: horizontal snakes go right for food up/down/left/right, and vertical snakes with food right go down (E5).
+- Breakout/Pong-style tracking is ruled out: horizontal paddle with moving ball and vertical paddle with ball-row changes mostly output action 4/right (E12, E13).
+- Previous-frame channel does not provide consistent motion continuation: H_move_left, V_move_up, and V_move_down output 4/right in E14, while vertical previous-frame variants can output 2/down in E8 (E8, E14).
+- Internal obstacles are not uniformly ignored: for a single-cell center agent, obstacle right/up/down and surrounded still give action 4/right, but obstacle left flips the action to 2/down (E16); horizontal 3-cell obstacle cases still give 4/right (E6).
+- The multi-cell agent, previous-frame dependence, food reward, wall border, and obstacle sensitivity fit a 10x10 grid Snake-like game; the learned policy is degenerate/local-optimum, mostly moving right, sometimes down for vertical bodies, largely ignoring food, and not reliably continuing previous direction (E4–E9, E12–E14, E16).
+- Game: Snake-like, 10x10 grid with wall border, food reward, and collision obstacles.
+- Description: Agent controls a snake body; observed policy mostly chooses right/down, does not steer toward food, and does not reliably continue previous direction; internal obstacles can alter single-cell action in some positions.
+- Confidence: 85%
