@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 2,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": false,
+ "guess": "pacman",
+ "answer_line": "a gridworld arcade game in the style of pac-man (player navigates an 8\u00d78 playable area, collecting reward targets while avoiding moving objects/obstacles).",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 7.8
+}

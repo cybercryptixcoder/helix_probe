@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 0,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": false,
+ "guess": null,
+ "answer_line": "",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 113.6
+}

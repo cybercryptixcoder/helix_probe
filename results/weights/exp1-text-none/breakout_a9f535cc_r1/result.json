@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 1,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": false,
+ "guess": "breakout",
+ "answer_line": "catch (a paddle at the bottom moves left/right to catch a falling ball; reward for catching, episode ends on miss). it resembles the atari game \u201cbreakout\u201d only in the paddle\u2011and\u2011ball mechanic, but the lack of brick targets points to a simpler \u201ccatch\u201d game.",
+ "correct": true,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 14.6
+}

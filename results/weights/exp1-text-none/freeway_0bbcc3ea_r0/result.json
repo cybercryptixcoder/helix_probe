@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 0,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "a frogger-style crossing/dodging game on an 8x8 playable grid \u2014 the agent moves upward through a field of static obstacles toward the top, while avoiding a moving hazard.",
+ "correct": true,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 15.9
+}

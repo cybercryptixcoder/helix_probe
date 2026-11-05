@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 1,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": false,
+ "guess": "pong",
+ "answer_line": "a vertical \"catch/dodge the falling object\" game on the 8\u00d78 playable grid \u2014 most closely resembling a falling-object catcher (e.g., a \"catch the falling fruit/block\" game, or equivalently a vertical pong-style paddle game where the agent tracks a descending object).",
+ "correct": true,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 9.3
+}
