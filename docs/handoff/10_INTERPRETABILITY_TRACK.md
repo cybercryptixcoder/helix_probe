@@ -250,3 +250,91 @@ Script: `bench/weights/text_oneshot.py`. Three repetitions per network.
 **Tasks first:** MIT's experiments 1 (games) and 3 (language and heads), in the code formats, with shuffled
 controls and 3 repetitions. **More networks (n) next:** retrained experiment-2-style diffusion MLPs, and FIND's
 roughly 150 MLP functions.
+
+---
+
+## 11. Built (Nov 4, late): `bench/weights/wsp.py` and the VM job `scripts/run_weights.sh`
+
+**One module, outside the core.** It holds tasks, a sandbox, two protocols, graders and a report.
+
+**Tasks (MIT's own networks and answer keys):**
+- `exp1`: name the game, 4 policy networks, open answer;
+- `exp2`: name the shape, 3 diffusion networks, open answer, text format;
+- `exp3`: which corpus, plus 24 head labels per network; their exact message, code format.
+
+**Formats:**
+
+| Format | What the reader gets |
+|---|---|
+| `text` | MIT's exact prompt |
+| `code` | Python over `W`; running the network forbidden (their exp 3 rules) |
+| `run` | plus `forward(X)` with a budget of 50 passes, and edits by `save(W)` / `reset()` (their exp 6/8 condition) |
+| `full` | `run` plus the weights as text in the message. **The complete setup:** read the text, decide, code an edit, run the edited network, observe |
+| `blind` | forward passes only, weights hidden (separates running from reading) |
+
+**Protocols:**
+- `mit`: their conversation, one Python block per turn.
+- `helix`: narrow roles in series, each a fresh call:
+  - the experimenter writes code plus what it expects to see, before running it;
+  - a judge call scores expected against actual;
+  - the updater revises the findings (claims citing experiment IDs) after a surprise;
+  - every 6 experiments, the theorist rewrites the findings from the evidence alone;
+  - an answer call gives the final answer. Only the experimenter sees the weights text.
+
+**Controls:** `--shuffle` reorders each weight array's values. `--effort high` (the default) or `none`.
+
+**Credibility, built in:**
+- MIT's networks and prompts are used byte for byte where they exist. New conditions are written in their style and
+  named as new conditions.
+- The graders reproduce MIT's published scores on MIT's own answers: exp 1 4/4, exp 2 3/3, and exp 3 6/6 corpora
+  with every copy head. This is checked in the job's preflight.
+- Every reading condition has a shuffled-weights control. There are 3 runs per network.
+- Every call is logged with its reasoning, and every code run with its output, plus the answer, the grade, the token
+  use and the time.
+- Each run records whether the sandbox was network-isolated (bubblewrap) and flags code that may break the format's
+  rules (a forward pass where forbidden, training or fitting), for a person to read.
+- Replies with more than one code block are counted (`extra_blocks`), not hidden.
+
+**Limits, stated:**
+- **No Qwen experiment 8.** It needs a GPU. Any later comparison must report the unedited, thinking-off Qwen baseline
+  beside it.
+- **The Helix arm's findings are not judged by code.** A replayable claims model is still the open core question.
+- The Helix match score comes from a judge call, not a fixed rule.
+- **n is small:** 4 + 3 + 3 networks, times 3 runs. More networks come next (FIND's MLPs, retrained exp-2
+  networks).
+
+**Local checks before the job:**
+- the sandbox, the budget, blind mode, edits, and both protocols end to end (a live smoke test of each);
+- the text baseline:
+
+  | Condition | Correct |
+  |---|---|
+  | Thinking off | 3 of 12 |
+  | Thinking off, shuffled | 0 of 12 |
+  | Thinking high | 6 of 6 finished (Breakout 3/3, Freeway 3/3) before the workspace stopped |
+
+**The job:**
+- 19 stages, in the order of `ALL` in the script; each is one condition and pushes to `results/weights/<stage>/`.
+- `results/weights/report.md` holds one table for every condition.
+- **Expect several days in all.** The text stages take about 2 hours; each Helix stage can take many hours (thinking
+  on, about 40 experiments per run, 12 runs). Stages are ordered so the most important finish first.
+- Restarting continues: finished runs are skipped, and Helix runs resume from their notebook and their edited
+  weights.
+
+### The Aether prompt
+
+```
+Start my Helix Probe weight-space job on this machine and report back. Don't change any code or settings.
+
+1. In /home/ubuntu/helix_probe, run `git pull`. Check that scripts/run_weights.sh and bench/weights/wsp.py exist.
+2. Run `python3 -c "import numpy, scipy, sklearn; print('ok')"`. If sklearn is missing, run `python3 -m pip install --user scikit-learn` (add --break-system-packages if pip refuses), then check again. If it still fails, report and stop.
+3. Optional, for network isolation of the code sandbox: if `command -v bwrap` prints nothing and `sudo -n true` works without a password, run `sudo apt-get install -y bubblewrap`. If sudo needs a password, skip this step and say so.
+4. Start the job in the background, exactly like this, from /home/ubuntu/helix_probe:
+   `setsid nohup bash scripts/run_weights.sh > weights_job.log 2>&1 < /dev/null &`
+5. Wait about 5 minutes, then quote the last 15 lines of weights_job.log. A good start shows "== preflight", "python ok", "MIT logs in", a "sandbox:" line, "sandbox, budget, blind mode and the graders (on MIT's own answers) ok", "model answers on key 1 of 2", "model answers on key 2 of 2", "GitHub: can push", then "== exp1-text-high: started". A line starting with "preflight:" or a Traceback means it stopped: report it exactly, and don't edit anything.
+6. Report `free -m`, `df -h /`, and the job's pid (`pgrep -fa weights_job_snapshot`).
+7. Then stop. Don't stop, restart or kill any process. No cron jobs, timers, monitors or reminders.
+```
+
+Status prompt: "In /home/ubuntu/helix_probe, quote the last 15 lines of weights_job.log and say whether
+`pgrep -fa weights_job_snapshot` is alive. Change nothing."
