@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "246a5b58",
+ "truth": "triangle",
+ "rep": 2,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": true,
+ "guess": "circle",
+ "answer_line": "a white diagonal stroke on a black background. it runs from about row 3, column 6 down to row 10, column 10, slanting down and to the right. it is a few pixels thick, with the brightest part near the lower-right end.",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 1451.4
+}

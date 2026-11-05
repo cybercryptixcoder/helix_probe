@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "a6a9dfb7",
+ "truth": "square",
+ "rep": 0,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": true,
+ "guess": "circle",
+ "answer_line": "a white digit \u201c0\u201d (a hollow oval/rectangle) centered in the 12\u00d712 frame, with black background. the stroke is about 1\u20132 pixels thick; the hole is a black region in the middle. it spans approximately rows 1\u201310 and columns 1\u201310.  ",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 1725.5
+}
