@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 2,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pong",
+ "answer_line": "pong",
+ "correct": true,
+ "turns": 13,
+ "code_runs": 13,
+ "passes": 13,
+ "arrival": 0.46153846153846156,
+ "audit": [],
+ "isolated": false,
+ "seconds": 1668.1
+}
