@@ -1,0 +1,9 @@
+Observations: The W1 norms show a fixed interior layout: obstacle channel 3 has scattered high cells such as (7,5)=8.45, (6,7)=7.53, (1,5)=6.94; reward channel 2 has many moderate/high cells such as (6,6)=7.91, (8,7)=6.93, (7,4)=6.45; mover channel 1 has a few high cells such as (1,5)=7.57 and (2,5)=6.56. Top obstacle and reward cells are mostly disjoint (top-8 overlap 0), which fits walls vs pellets in corridors. The agent channel is less clean: W1 top cells are (2,7)=6.72, (5,8)=6.39, (4,2)=6.37, while linearized sensitivity peaks at (8,6)=78.1, (6,6)=66.0, (2,8)=58.2. The output behavior is strongly biased: border-only input gives down softmax [0,0,0.959,0.041,0]; full interior walls give left [0,0,0,0.932,0.068]; blank gives left [0.001,0.154,0.007,0.714,0.125]. Thus the output layer and biases favor down and left, with no-op/up/right weak.
+
+Reasoning: A fixed maze with scattered wall cells, many reward cells in non-wall corridors, and a few moving objects matches the Pac-Man channel decomposition: agent = Pac-Man, movers = ghosts, rewards = pellets, obstacles = maze walls. Single-target games are ruled out by the many reward cells; no-mover games by the high-norm mover cells; pure open-grid navigation by the scattered obstacle structure. The learned policy is degenerate—wall-biased, mostly down with border only and left with the full maze—rather than a competent pellet-seeker/ghost-avoider, but the weight layout still points to a Pac-Man-like game.
+
+Game: Pac-Man (a Pac-Man-like gridworld).
+
+Description: The agent moves through a fixed maze eating pellets (reward targets) while avoiding moving ghosts (moving objects); walls block movement and ghost contact ends the episode.
+
+Confidence: 80%
