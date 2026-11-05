@@ -1,11 +1,17 @@
-# Findings
-- Weight signature is snake-like: ch0 agent and ch1 body/mover share the same symmetric low-norm hole mask; ch2 reward is sparse with isolated peaks at (2,4) and (6,4); ch3 obstacle is tiny; no-op is penalized in bias b3 with down/up/left favored [E1, E3, E10, E13].
-- W1 playable-area row norms: ch0 mean 8.39 > ch1 4.47 > ch4/prev 1.67 > ch2/reward 0.87 > ch3/obstacle 0.37; border rows are uniformly low (~0.35–0.40) [E1, E13].
-- W1 spatial pattern is not lane- or edge-structured: ch0/ch1 are high across most playable cells with the same sparse symmetric holes; ch4/prev is high especially at right edge col8 and (6,1); ch2 is mostly low with isolated peaks at (2,4) and (6,4); ch3 is uniformly low [E3, E10, E13].
-- The low-norm holes form a fixed symmetric mask in ch0/ch1, consistent with head/body occupying the same cells; agents directly above a hole suppress down and choose left/up/right instead [E4, E5, E10, E13, E14].
-- The base action map is mixed, not uniformly down: down is the most common argmax overall and has the highest mean logit (4.59 vs left 1.49, up 1.11, right 0.18, no-op 0.15); bias b3 penalizes no-op and favors down/up/left. At hole-adjacent (3,4), base argmax is up (up 12.07, right 6.39, left -0.86, down -14.98) [E10, E13, E14].
-- Previous-direction reversal suppression is partial and direction-specific: prev_left lowers left (-3.80 vs base), prev_right lowers right (-4.63), prev_up strongly lowers up (-18.48), but prev_down does not lower down [E1, E13].
-- Reward effects are weak and not a reliable approach signal: E1 probes show non-matching effects (reward_right raises up and lowers down; reward_left lowers left; reward_down raises no-op/down; reward_up raises right/down), and E14 at (3,4) rewards at (3,3), (3,5), and (2,4) barely change logits and never change the up argmax; the high-weight ch2 peak (2,4) is not special [E1, E14].
-- Reward-adjacent behavior is position-dependent and mixed, not consistent collection; E14 shows no adjacent reward attraction at (3,4), including toward the high-weight ch2 cell (2,4) [E10, E14].
-- Moving-object adjacency generally suppresses moving into the object and favors perpendicular/away moves, but the exact action is position-dependent: at (4,3) objects above/below/right yield left and object left yields down; at (3,4) obj_left/obj_right keep up argmax, with obj_left raising up and lowering left/right, and obj_right raising up/left and lowering right; in E1 moving_up is the only object scenario that changes argmax to left [E1, E10, E14].
-- Combined prev_left+reward_right raises up and suppresses left/right, still down; prev_left+moving_right resembles prev_left with down argmax [E1].
+Observations:
+- W1 is dominated by agent and moving-object inputs in the playable area: ch0 mean norm 8.39/max 16.48, ch1 mean 4.47/max 8.93, ch2 mean 0.87/max 4.90, ch3 mean 0.37/max 0.48, ch4 mean 1.67/max 3.56; border norms are only ~0.35–0.40, so there is no learned maze and the only fixed obstacle is the outer wall (E1, E13).
+- Channels 0 and 1 share the same low-norm “hole” mask in the 8x8 playable area: `........ / .##..##. / .#....#. / ...##... / ...##... / .#....#. / .##..##. / ........`, so the agent and moving objects occupy the same walkable cells (E5, E13).
+- Reward channel 2 is sparse: its two largest playable-area norms are at (2,4) and (6,4), with norms 4.90 and 4.50, while most cells are below 2.6; this is a sparse food/target signal, not dense terrain (E10, E21).
+- Moving objects are dangerous cells, not pushable boxes: at agent (3,4), base logits are `[-6.2, 13.21, -16.07, -0.11, 4.12]`; placing a mover above gives `[-9.29, 8.36, -16.01, 9.82, -1.43]` with argmax left, and adding reward beyond it still gives up=8.56 with argmax left (E22); M_up delta is -4.86 and M_right delta is -5.34 at (3,4) (E24).
+- Reward has weak/partial attraction: at (3,4), R_up delta is +1.16, R_left +2.42, R_right -0.76; arbitrary adjacent rewards at (2,4), (3,3), and (3,5) leave the argmax unchanged (E14, E24).
+- The previous-frame channel suppresses reversal, especially the immediately previous head cell: aggregate reversal deltas are prev_left→left -3.80, prev_right→right -4.63, prev_up→up -18.48, prev_down→down near 0 (E13); this is a no-reverse/self-collision signal (E23).
+- Output bias is `b3=[-0.873, 0.703, 0.712, 0.595, -0.092]`, penalizing no-op and favoring directional moves, so the default policy is to keep moving/turning rather than stand still (E13).
+
+Reasoning:
+- A free-roaming agent on an open 8x8 grid with only border walls, sparse food-like rewards, and moving cells sharing the agent’s walkable set fits Snake much better than a maze game, lane game, or push-box game.
+- Pac-Man is ruled out because channel 3 obstacles are tiny (mean 0.37/max 0.48) and show no maze; Frogger is ruled out because channel 1 does not form horizontal traffic lanes and has the same hole mask as the agent channel; Sokoban/push-box is ruled out because movers suppress stepping onto them rather than being pushed (E22).
+- The no-reversal signal from channel 4 plus mover-as-danger identifies channel 1 as the snake’s own body/deadly moving occupied cells, with channel 2 as food and the policy trained to keep moving, avoid wall/body collision, and seek reward.
+
+Game: Snake.
+
+Description: The agent controls a snake head on an open 8x8 grid, moving/turning to collect sparse food rewards while avoiding the wall border and its own moving body/other moving cells; reward comes from collecting food, and collision with wall or body ends or penalizes the episode. Confidence: 82%
