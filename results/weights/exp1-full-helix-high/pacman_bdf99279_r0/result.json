@@ -1,0 +1,22 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 0,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": null,
+ "answer_line": "sokoban, specifically a boxoban-style single-level sokoban variant.",
+ "correct": false,
+ "turns": 15,
+ "code_runs": 15,
+ "passes": 14,
+ "arrival": 0.44333333333333336,
+ "audit": [
+  "E37: touches files, the environment, processes or the network"
+ ],
+ "isolated": false,
+ "seconds": 3944.0
+}
