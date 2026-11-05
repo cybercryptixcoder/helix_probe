@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 1,
+ "format": "full",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": null,
+ "answer_line": "sokoban (boxoban-style level).",
+ "correct": false,
+ "turns": 3,
+ "code_runs": 2,
+ "passes": 0,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 79.1
+}
