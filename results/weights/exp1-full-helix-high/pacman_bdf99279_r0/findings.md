@@ -1,0 +1,7 @@
+- First-layer weight norms are largest for channel 0 (agent; mean 8.39), then channel 1 (4.47); channels 4, 2, and 3 are weaker (1.67, 0.87, 0.37) [E1].
+- Channel 2 is strongly localized at (2,4) and (6,4), with a smaller row-1 cluster [E1].
+- Channel-2 hotspots act as Sokoban-style push targets, not directly rewarding collectibles: adding a goal at (2,4) leaves the no-goal policy nearly unchanged (B≈A), and a goal at (6,4) does not elicit down (C argmax left) [E4].
+- The policy strongly selects up when a box is above the agent and a goal is above the box (D, K), and this up-selection persists when the box is on the goal (G), the agent is on the goal (H), or the previous agent position varies (I, J) [E4].
+- Channel-1 boxes are therefore treated as pushable upward in these states, not as simple blockers [E4].
+- Push behavior is direction-asymmetric: with a box below the agent and goal below the box (E), the policy does not select down and instead splits left/right; with a box beside the agent and goal up-left (F), it still favors up [E4].
+- With no goal at (4,4), the base policy favors up over right (A) [E4].

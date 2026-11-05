@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 0,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "freeway (atari 2600), a frogger-like road-crossing game.",
+ "correct": false,
+ "turns": 11,
+ "code_runs": 11,
+ "passes": 11,
+ "arrival": 0.2727272727272727,
+ "audit": [],
+ "isolated": false,
+ "seconds": 4766.0
+}
