@@ -1,19 +1,26 @@
 # Findings
 Observations:
-- W1 norms are spread across all five channels/positions; top rows include moving r0c4 9.033, previous r9c0 8.464, agent r5c8 8.046, obstacle r7c0 7.948/r6c4 7.905, reward r2c1 7.055; inner channel means are similar (ch3 3.505, ch2 3.469, ch0 3.382, ch1 3.219, ch4 2.966) [E1].
-- No-op or up is always argmax; right/down are never argmax across E4/E6/E7/E8, and right is very negative in box_right/push_right (-9.78/-12.01) [E4, E6, E7, E8].
-- No-op is usually top but can collapse under push_down (noop 1.49, up 8.62), while push_up lowers noop to 6.75 and raises left to 2.40 [E8].
-- Reward/goal targets do not drive movement toward them: reward_R/goal_right make up argmax, not right; center rewards stay no-op; top reward does not raise up at r8 (up-noop -4.56 base vs -5.06 reward_top) [E4, E6, E7, E8].
-- Moving objects and box/push arrangements can cause large logit shifts, but responses are incoherent: moving_L center makes up argmax, push_down makes up argmax, push_up leaves no-op argmax with left raised, and push_left leaves no-op argmax [E4, E6, E7, E8].
-- Sokoban-like box-pushing is not supported: no push direction becomes argmax, box_right/push_right suppress right, and box_on_goal returns no-op argmax [E8].
-- Up/no-op preference is not row-dependent in the Frogger sense: up-noop stays negative at every row r1-r8, with no monotonic bottom-stronger pattern (r1 -7.62, r2 -3.71, r8 -4.56) [E7].
+- All five W1 norm grids are broadly non-uniform, with high values scattered across border and inner cells; no channel shows a clean sparse maze/pellet/ghost layout [E15].
+- Obstacle-channel norms are highest on average but elevated at scattered border and inner cells, e.g. (r7,c0)=7.95, (r6,c4)=7.91, (r0,c5)=6.89, (r1,c5)=6.58, (r8,c6)=7.12; they do not form a clean maze-wall pattern [E1, E15].
+- Reward-channel norms are broadly distributed with local maxima such as (r2,c1)=7.06 and (r4,c4)=7.03, not concentrated at the top row; this does not reveal clean pellet locations [E1, E15].
+- Moving-object norms are widespread, with max at (r0,c4)=9.03 and other scattered highs such as (r3,c6)=6.99 and (r3,c5)=6.45; they are not confined to ghost-like inner locations [E1, E15].
+- Agent and previous-frame channels also show large scattered norms, e.g. agent max (r5,c8)=8.05 and prev max (r9,c0)=8.46, so their spatial structure is not uniform [E15].
+- The output bias strongly favors no-op and up: base logits are [8.52, 8.10, -1.39, -1.55, -7.04] in E4/E14 and [10.30, 5.57, -3.71, -3.08, -1.01] in E6; right is most negative in E4/E14 but not E6 [E4, E6, E14].
+- Single or adjacent reward targets do not produce consistent attraction: reward_L has +1.10 toward-minus-away attraction, but reward_R is -1.66, reward_D -0.24, reward_U -0.01; argmax becomes up for D/L/R but not consistently toward the reward [E4, E6, E14].
+- Adjacent moving objects and obstacles can cause large local logit shifts but not consistent avoidance: e.g. moving_stat_D attraction -5.72, moving_appr_U +4.80, obstacle_D -2.42, obstacle_R +1.77; argmax stays no-op/up [E14].
+- Across agent positions, argmax is no-op except r4c8 up; there is no monotonic row/column trend and no clear wall-avoidance or fixed-goal pull [E11].
+- The policy is not Frogger-like: up minus no-op stays negative at all agent rows, and a reward at the top does not raise the up logit at the bottom [E7].
+- The policy is not Sokoban-like: push_right, push_up, push_down, and push_left do not select the pushing direction; argmax remains no-op or up [E8].
+- The previous-frame channel affects logits when a moving object approaches, e.g. approach_from_left changes left by +3.01 and right by +2.10 relative to stationary, so the network uses motion information, though not as a clean escape policy [E12].
 
 Reasoning:
-- The network is a weak/degenerate spatial controller with a persistent no-op/up bias, not a coherent goal-seeking, hazard-avoiding, or box-pushing policy [E4, E6, E7, E8].
-- High moving/obstacle/reward/previous-channel weights show those inputs matter, but the policy does not use them for consistent directional control [E1, E4, E6, E7, E8].
-- The Frogger-like upward-progression/reward-at-top account is contradicted by the absent row effect and absent top-reward modulation [E7].
-- The Sokoban-like box-pushing account is contradicted by the absence of push-direction argmax and by right/down suppression in push scenarios [E8].
+- E15 shows broadly non-uniform W1 norms across all channels but not a recognizable clean maze/pellet/ghost layout; obstacle weights are highest on average but scattered across border and inner cells.
+- Local reward/ghost/obstacle semantics are inconsistent rather than clean approach/avoidance [E14].
+- Frogger is ruled out by the lack of row-dependent upward bias and absence of top-row reward concentration [E7, E1, E15]; Sokoban is ruled out by absence of box-pushing behavior [E8].
+- The strong no-op/up bias and weak or inconsistent local object responses indicate a partly degenerate, waiting-heavy policy rather than a clean Pac-Man controller [E4, E6, E11, E14].
 
-Game: unresolved; evidence does not support a simple Frogger-like upward-progression or Sokoban-like box-pushing game.
-Description: A grid game whose learned policy mostly waits/no-ops or weakly moves up, with large but incoherent responses to moving objects, obstacles, rewards, and box/goal arrangements.
-Confidence: 30%
+Game: Maze-like game with distributed reward, obstacle, and moving-object channels; W1 norms are broadly non-uniform but do not reveal a clean Pac-Man layout, and the policy is partly degenerate/inconsistent.
+
+Description: The agent moves through a maze with distributed channels; the previous-frame channel helps track motion, but local reward/ghost/obstacle responses are not consistently goal-seeking or avoidant.
+
+Confidence: 70%
