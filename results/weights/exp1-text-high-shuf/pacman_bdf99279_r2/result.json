@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 2,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "sokoban (specifically a 10\u00d710 boxoban-style sokoban variant with an 8\u00d78 playable interior).",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 729.1
+}
