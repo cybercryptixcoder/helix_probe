@@ -1,0 +1,22 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 0,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "freeway (atari 2600), or a freeway-style vertical road-crossing game.",
+ "correct": true,
+ "turns": 20,
+ "code_runs": 20,
+ "passes": 29,
+ "arrival": 0.6925,
+ "audit": [
+  "E37: touches files, the environment, processes or the network"
+ ],
+ "isolated": false,
+ "seconds": 3175.5
+}

@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 1,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "frogger (classic upward-crossing frogger; not endless crossy road).",
+ "correct": true,
+ "turns": 12,
+ "code_runs": 12,
+ "passes": 28,
+ "arrival": 0.7000000000000001,
+ "audit": [],
+ "isolated": false,
+ "seconds": 2467.0
+}

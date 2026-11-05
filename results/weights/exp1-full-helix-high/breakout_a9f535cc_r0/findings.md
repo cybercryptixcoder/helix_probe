@@ -1,0 +1,4 @@
+- Policy logits depend strongly on agent position even when the board is otherwise empty: per-action std ranges 1.46–2.28, not <0.1 [E1].
+- Position information is not ignored by the policy; small W1 weights do not imply position-invariant logits [E1].
+- There is a global action bias: action 4 has the lowest mean logit (-23.09), action 0 the highest (-10.23) [E1].
+- The position effect changes action gaps/rankings, not just a constant offset: e.g. (8,1) logits [-2.24, -6.91, -5.60, -8.16, -13.07] vs (1,1) [-11.37, -14.43, -12.92, -15.58, -24.22] [E1].
