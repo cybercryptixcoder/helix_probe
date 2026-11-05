@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 1,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pacman",
+ "answer_line": "pac-man (a simplified 10\u00d710 pac-man-style maze game).",
+ "correct": true,
+ "turns": 10,
+ "code_runs": 10,
+ "passes": 9,
+ "arrival": 0.58,
+ "audit": [],
+ "isolated": false,
+ "seconds": 5824.6
+}
