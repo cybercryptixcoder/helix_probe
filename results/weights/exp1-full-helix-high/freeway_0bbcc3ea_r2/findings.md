@@ -1,8 +1,7 @@
-- Action selection is dominated by a strong UP preference: action 1 is argmax in all E3/E7/E9 scenarios and all 64 playable agent positions in E14; UP logits are ~24–33 vs next-best ~-4.6 to -11.7 [E3, E7, E9, E14].
-- b3 = [-0.029, 3.142, -1.862, 0.173, -1.269]; action 1 has the largest positive bias (~3.14), consistent with UP dominance [E2, E3].
-- Channel 2 (reward) W1 row norms are concentrated in row 1 across cols 1–8 (≈1.20–1.38), consistent with a uniform top-row goal line; other rows are near baseline (~0.25–0.46) [E2, E16].
-- This reward-channel structure does not yield reward-dependent action selection: reward position/absence and agent-at-goal do not change the UP argmax [E2, E3, E7, E9].
-- Channel 0 (agent) W1 row norms are largest in the central/lower-middle playable area, rows 5–8 and cols 3–6, peaking at (6,3)=18.01 [E2].
-- Channel 1 (moving) W1 row norms are elevated across interior rows 2–7 and cols 1–8, with peaks at (3,2)=7.09 and (3,6)=7.19 and secondary peaks at (6,4)=5.44 and (6,8)=5.45; this is not a single horizontal lane [E2, E16].
-- Channel 3 (obstacle) W1 row norms are large on border rows/cols (rows 0 and 9, cols 0 and 9; ≈1.15–1.35) and small in the interior [E2].
-- Channel 4 (prev) W1 row norms are large across interior rows 2–8, with peaks at (5,2)=8.33 and (4,7)=8.14 [E2].
+- The policy overwhelmingly selects UP (action 1) for any observation containing the wall border, independent of agent, reward, or mover positions (E3, E7, E9, E14, E30, E31).
+- The reward channel has a uniform high-weight band at row 1, columns 1–8, with high pairwise cosine similarity (~0.93), indicating a continuous goal line along the top of the playable area (E16, E17, E24).
+- The moving-object channel has elevated weights across interior rows 2–7 and many columns, consistent with multiple rows/lanes of moving hazards rather than a single localized object (E16), though row/column similarity is mixed (E36).
+- The policy is not fully input-independent: with the border removed, an agent at (4,6) changes the argmax to LEFT, while the same agent with the border present chooses UP (E29, E31).
+- Channel ablation on an all-zero baseline leaves logits unchanged because no cells are active, but active agent or mover cells produce large logit changes (E28, E29).
+- The network was trained to play Freeway: the agent moves upward toward a top-row reward while avoiding horizontally moving objects (E14, E16, E24, E30).
+- The learned policy is degenerate/always-UP in normal bordered observations, likely a simple reward-maximizing strategy for Freeway (E14, E30).
