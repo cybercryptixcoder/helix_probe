@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 1,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "snake (or a snake-like game on an 8x8 grid).",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 14.4
+}

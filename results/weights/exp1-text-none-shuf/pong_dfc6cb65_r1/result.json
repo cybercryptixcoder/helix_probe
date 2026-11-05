@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 1,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "a grid collect-the-items game (\"coin collection\" / \"gather the dots\"), i.e. a simple gridworld where the agent moves around an 8\u00d78 playable room and steps onto scattered collectible targets.",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 14.9
+}

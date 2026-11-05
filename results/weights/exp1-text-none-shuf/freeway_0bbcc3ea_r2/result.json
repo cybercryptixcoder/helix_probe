@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 2,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "a grid pursuit/collection game \u2014 the agent moves around the 8\u00d78 arena collecting reward targets while a moving object (the thing to catch or avoid) moves; the wall border ends the episode. it most resembles snake or a simple \"catch the moving dot\" game.",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 14.7
+}
