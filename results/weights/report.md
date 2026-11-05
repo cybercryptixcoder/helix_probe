@@ -1,0 +1,3 @@
+| task | format | protocol | thinking | weights | correct | code runs | passes | extra |
+|---|---|---|---|---|---|---|---|---|
+| exp1 | text | - | high | real | 8/12 | 0.0 | 0.0 |  |
