@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffle": true,
+ "reps": 3,
+ "budget": 50,
+ "max_runs": 100,
+ "min_runs": 12,
+ "max_turns": 120,
+ "max_tokens": 32000,
+ "workers": 2,
+ "items": null,
+ "out": "runs/weights/exp2-text-high-shuf",
+ "report": null
+}

@@ -1,0 +1,17 @@
+{
+ "task": "exp2",
+ "item": "246a5b58",
+ "truth": "triangle",
+ "rep": 1,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "the model generates black 12\u00d712 images containing a white handwritten digit \u201c1\u201d. the digit is large, about 10\u201311 pixels tall, slanted slightly to the right, with a small flag near the upper left of the stroke and a horizontal base at the bottom. it is centered slightly right of the image center.",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 1132.1
+}
