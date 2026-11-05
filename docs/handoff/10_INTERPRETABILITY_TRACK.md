@@ -291,8 +291,13 @@ roughly 150 MLP functions.
 - Every reading condition has a shuffled-weights control. There are 3 runs per network.
 - Every call is logged with its reasoning, and every code run with its output, plus the answer, the grade, the token
   use and the time.
-- Each run records whether the sandbox was network-isolated (bubblewrap) and flags code that may break the format's
-  rules (a forward pass where forbidden, training or fitting), for a person to read.
+- **The answer can't leak into the sandbox.** The reader's code runs in a folder with an opaque name (the run folder's
+  name holds the answer), and a Python audit hook, which can't be removed once added, refuses any read or listing of
+  the repo (MIT's answers, other runs, results), any network call and any new process. The preflight checks all
+  three. On the VM bubblewrap is blocked (`loopback: Failed RTM_NEWADDR`), so there is no kernel-level isolation and
+  runs record `isolated=false`; the guard is the protection. A determined bypass (ctypes) is possible in principle,
+  so code touching files, the environment, processes or the network is flagged for a person to read.
+- Each run flags code that may break the format's rules (a forward pass where forbidden, training or fitting).
 - Replies with more than one code block are counted (`extra_blocks`), not hidden.
 
 **Limits, stated:**

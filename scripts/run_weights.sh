@@ -70,7 +70,7 @@ bash bench/weights/fetch_mit.sh || { echo "preflight: could not fetch the MIT lo
   || { echo "preflight: can't load bench/weights/wsp.py" >&2; exit 3; }
 "$PY" - <<'PY' || { echo "preflight: the sandbox self-test failed" >&2; exit 3; }
 import sys, tempfile; sys.path.insert(0, ".")
-from bench.weights.wsp import Exp1, Exp3, Sandbox
+from bench.weights.wsp import Exp1, Exp3, Sandbox, MIT
 t = Exp1(); nid = t.items()[0][0]
 sb = Sandbox(tempfile.mkdtemp(), t.weights(nid), t, "run", 2)
 def check(out, want, what):
@@ -79,10 +79,13 @@ def check(out, want, what):
 check(sb.run("print(W['W1'].shape)"), "(500, 32)", "loading the weights")
 check(sb.run("forward(np.zeros((1,500))); forward(np.zeros((1,500))); forward(np.zeros((1,500)))"), "no forward passes left", "the pass budget")
 b = Sandbox(tempfile.mkdtemp(), t.weights(nid), t, "blind", 2); check(b.run("print('W' in dir())"), "False", "blind mode")
+check(sb.run(f"open({str(MIT / 'exp1_which_game/runs/pong/answer.md')!r}).read()"), "blocked by the sandbox", "the guard on MIT's answers")
+check(sb.run("import os; os.listdir('../..')"), "blocked by the sandbox", "the guard on other runs")
+check(sb.run("import urllib.request; urllib.request.urlopen('https://github.com')"), "blocked by the sandbox", "the guard on the network")
 from bench.weights.wsp import MIT
 assert all(t.grade(open(MIT / f"exp1_which_game/runs/{g}/answer.md").read(), g)["correct"] for g in ("breakout", "pong", "pacman", "freeway"))
 e3 = Exp3(); assert e3.grade(open(MIT / "exp3_language/runs/python_r0/final_answer.md").read(), "python")["copy_tp"] == 3
-print("   sandbox, budget, blind mode and the graders (on MIT's own answers) ok")
+print("   sandbox, budget, blind mode, the file and network guard, and the graders (on MIT's own answers) ok")
 PY
 "$PY" -c "
 from probe.llm import LLM; l=LLM()
