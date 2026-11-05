@@ -1,8 +1,11 @@
 # Findings
 - Policy logits depend strongly on agent position even on an otherwise empty board: per-action std 1.46–2.28, not <0.1 [E1].
 - Position changes action gaps/rankings, not just a constant offset; small W1 weights do not imply position-invariant logits [E1].
-- Empty/baseline boards share a global bias: action 0 highest and action 4 lowest in E1/E2/E14 baselines [E1, E2, E14].
+- Baseline/empty boards usually disfavor action 4 and often favor action 0, but not universally: E25 baseline instead favors action 3 [E1, E2, E14, E21, E25].
 - Top W1 row norms concentrate in channel 4 row 7 and channel 1 rows 3–6, not channels 2–3 near the agent [E2].
-- Channel-1 object presence has large, row-dependent effects; in E14 at column 5, rows 1–7 all make action 3 (left) the argmax, including row 7 just above the agent, so it is not lane-based up/down avoidance or chasing [E14].
-- Channel-1 effects are not a simple move-away/toward signal: shifts can be large positive across actions, usually largest for left but at (-1,+1) largest for right, and magnitude is nonmonotonic with row (strong at rows 3/5/6, weaker at 1/2/7) [E2, E14].
+- Channel-1 object presence/motion has large row-, column-, and motion-dependent effects; it is not simple lane-based up/down avoidance/chasing, simple horizontal tracking, or Pong-like vertical interception [E2, E14, E19, E21, E25, E31].
+- Channel-1 effects are not a simple move-away/toward signal: shifts can be large positive across actions, usually largest for left but at (-1,+1) largest for right, and magnitude is nonmonotonic with row [E2, E14, E31].
+- For a channel-1 object directly above the agent, up/down response is row-dependent but nonmonotonic: up-minus-down changes from -1.65 to +0.27 at agent row 6 and -1.61 to +1.13 at row 4, but is little changed at row 8 and more negative at row 2; adding the object also shifts all logits substantially [E31].
+- No simple Breakout-style horizontal column tracking: left-minus-right is not monotonic across object columns and aligned column is not near zero in E19; E21 shows nonmonotonic column effects and large previous-motion effects, often opposite the Breakout expectation [E19, E21].
+- Previous-frame vertical motion is not used as Pong-like timing: at ball (7,4), down-prev gives left-right=17.36, smaller than no-prev 49.76 and up-prev 45.23; at (7,5) effects are small; down-prev also shifts all logits broadly [E25].
 - Channel-2 reward effects are small and show no clear move-toward preference; channel-3 obstacle effects are near zero with no clear avoidance [E2, E14].
