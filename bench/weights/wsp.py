@@ -29,6 +29,7 @@ CONTROLS: --shuffle reorders the values inside every weight array (a reader that
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import random
@@ -200,6 +201,33 @@ def reset():
         os.remove(_D + "/current.npz")
     W = {k: v.copy() for k, v in _ORIG.items()}
 '''
+GUARD = r'''
+# The guard (last in the prelude): the reader's code may use its own folder and the Python libraries, nothing else.
+# No reading the repo (MIT's answers, other runs, results), no network, no new processes. A Python audit hook can't
+# be removed once added; a refusal is a PermissionError the reader sees, and the run records it.
+def _wsp_guard():
+    import sys as _s, os as _o
+    _own = _o.path.realpath(_D)
+    _deny = tuple(_o.path.realpath(d) for d in _DENY)
+    def _bad(path):
+        try:
+            path = _o.fsdecode(path)
+        except TypeError:
+            return False          # a file descriptor
+        r = _o.path.realpath(path)
+        if r == _own or r.startswith(_own + _o.sep):
+            return False
+        return any(r == d or r.startswith(d + _o.sep) for d in _deny)
+    def _hook(event, args):
+        if event in ("open", "os.listdir", "os.scandir", "glob.glob", "os.chdir", "shutil.copyfile", "os.rename",
+                     "os.remove", "os.mkdir", "os.symlink", "os.link", "os.truncate") and args and _bad(args[0]):
+            raise PermissionError("blocked by the sandbox: outside your folder")
+        if event in ("socket.connect", "socket.getaddrinfo", "socket.gethostbyname", "socket.sendto", "urllib.Request",
+                     "subprocess.Popen", "os.system", "os.exec", "os.posix_spawn", "os.spawn", "pty.spawn"):
+            raise PermissionError(f"blocked by the sandbox: {event}")
+    _s.addaudithook(_hook)
+_wsp_guard(); del _wsp_guard
+'''
 FORWARD = r'''
 def forward(X):
     X = np.asarray(X, dtype=np.float64)
@@ -238,12 +266,17 @@ def bwrap_status():
 
 class Sandbox:
     """MIT's sandbox, lean: a fresh python -I process per run, the weights preloaded as W, a folder kept between runs
-    (edits and the forward-pass count live there), a timeout, output cut at 20,000 characters, no network (bubblewrap
-    when the machine has it; otherwise a clean environment, recorded in the run)."""
+    (edits and the forward-pass count live there), a timeout, output cut at 20,000 characters. The guard (GUARD) keeps
+    the reader's code to its own opaquely named folder and the libraries: no repo, no MIT answers, no network, no new
+    processes. bubblewrap adds kernel-level network isolation when the machine allows it (recorded as isolated)."""
 
     def __init__(self, folder, weights, task, fmt, budget, shuffle_seed=None):
-        self.dir = Path(folder) / "sandbox"
+        # The folder the reader sees has an opaque name: the run folder's name holds the answer (<truth>_<item>_r<rep>).
+        folder = Path(folder).resolve()
+        root = ROOT / "runs" / ".wsp"
+        self.dir = root / hashlib.sha1(str(folder).encode()).hexdigest()[:16]
         self.dir.mkdir(parents=True, exist_ok=True)
+        self.deny = [str(ROOT), str(MIT.resolve()), str(folder.parent)]   # never the run folder: its name is the answer
         if not (self.dir / "orig.npz").exists():
             W = {k: np.array(v) for k, v in weights.items()}
             if shuffle_seed is not None:
@@ -257,6 +290,7 @@ class Sandbox:
             self.prelude = self.prelude.replace("def forward(X):", "_HIDDEN = W\ndel W, save, reset\ndef forward(X):")
             self.prelude = self.prelude.replace("    return _net(W, X)", "    return _net(_HIDDEN, X)")
         self.bwrap = bwrap_status()[0]
+        self.prelude += f"_DENY = {self.deny!r}\n" + GUARD
 
     def passes(self):
         p = self.dir / "passes"
@@ -301,6 +335,9 @@ def audit(code, fmt):
         flags.append("may compute a forward pass")
     if re.search(r"\b(torch\.optim|optimizer|\.backward\(|minimize\(|curve_fit|fit\()", code):
         flags.append("may train or fit")
+    if re.search(r"\bopen\(|os\.(listdir|walk|scandir|environ|getcwd|system|popen|chdir)|glob|pathlib|subprocess|socket|"
+                 r"urllib|requests|http|ctypes|__file__|addaudithook|sys\.audit|_DENY|_D\b", code):
+        flags.append("touches files, the environment, processes or the network")
     return flags
 
 
