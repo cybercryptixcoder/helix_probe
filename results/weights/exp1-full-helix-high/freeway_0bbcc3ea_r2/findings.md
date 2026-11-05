@@ -1,0 +1,8 @@
+- Action selection is dominated by a strong UP preference: action 1 is argmax in all E3/E7/E9 scenarios and all 64 playable agent positions in E14; UP logits are ~24–33 vs next-best ~-4.6 to -11.7 [E3, E7, E9, E14].
+- b3 = [-0.029, 3.142, -1.862, 0.173, -1.269]; action 1 has the largest positive bias (~3.14), consistent with UP dominance [E2, E3].
+- Channel 2 (reward) W1 row norms are concentrated in row 1 across cols 1–8 (≈1.20–1.38), consistent with a uniform top-row goal line; other rows are near baseline (~0.25–0.46) [E2, E16].
+- This reward-channel structure does not yield reward-dependent action selection: reward position/absence and agent-at-goal do not change the UP argmax [E2, E3, E7, E9].
+- Channel 0 (agent) W1 row norms are largest in the central/lower-middle playable area, rows 5–8 and cols 3–6, peaking at (6,3)=18.01 [E2].
+- Channel 1 (moving) W1 row norms are elevated across interior rows 2–7 and cols 1–8, with peaks at (3,2)=7.09 and (3,6)=7.19 and secondary peaks at (6,4)=5.44 and (6,8)=5.45; this is not a single horizontal lane [E2, E16].
+- Channel 3 (obstacle) W1 row norms are large on border rows/cols (rows 0 and 9, cols 0 and 9; ≈1.15–1.35) and small in the interior [E2].
+- Channel 4 (prev) W1 row norms are large across interior rows 2–8, with peaks at (5,2)=8.33 and (4,7)=8.14 [E2].
