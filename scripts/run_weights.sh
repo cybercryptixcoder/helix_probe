@@ -66,15 +66,19 @@ echo "== weights job: $(date '+%F %T %Z'), commit $(git rev-parse --short HEAD)"
 echo "== preflight"
 "$PY" -c "import numpy, scipy, sklearn; print('   python ok')" || { echo "preflight: needs numpy, scipy, scikit-learn" >&2; exit 3; }
 bash bench/weights/fetch_mit.sh || { echo "preflight: could not fetch the MIT logs" >&2; exit 3; }
-command -v bwrap >/dev/null && echo "   sandbox: bubblewrap (no network)" || echo "   sandbox: no bubblewrap; runs record isolated=false"
+"$PY" -c "import sys; sys.path.insert(0,'.'); from bench.weights.wsp import bwrap_status as b; ok,why=b(); print('   sandbox:', why + ('' if ok else '; runs record isolated=false'))" \
+  || { echo "preflight: can't load bench/weights/wsp.py" >&2; exit 3; }
 "$PY" - <<'PY' || { echo "preflight: the sandbox self-test failed" >&2; exit 3; }
 import sys, tempfile; sys.path.insert(0, ".")
 from bench.weights.wsp import Exp1, Exp3, Sandbox
 t = Exp1(); nid = t.items()[0][0]
 sb = Sandbox(tempfile.mkdtemp(), t.weights(nid), t, "run", 2)
-assert "(500, 32)" in sb.run("print(W['W1'].shape)")
-assert "no forward passes left" in sb.run("forward(np.zeros((1,500))); forward(np.zeros((1,500))); forward(np.zeros((1,500)))")
-b = Sandbox(tempfile.mkdtemp(), t.weights(nid), t, "blind", 2); assert "False" in b.run("print('W' in dir())")
+def check(out, want, what):
+    if want not in out:
+        print(f"   {what}: expected {want!r}; the sandbox printed:\n" + out[-3000:], file=sys.stderr); sys.exit(1)
+check(sb.run("print(W['W1'].shape)"), "(500, 32)", "loading the weights")
+check(sb.run("forward(np.zeros((1,500))); forward(np.zeros((1,500))); forward(np.zeros((1,500)))"), "no forward passes left", "the pass budget")
+b = Sandbox(tempfile.mkdtemp(), t.weights(nid), t, "blind", 2); check(b.run("print('W' in dir())"), "False", "blind mode")
 from bench.weights.wsp import MIT
 assert all(t.grade(open(MIT / f"exp1_which_game/runs/{g}/answer.md").read(), g)["correct"] for g in ("breakout", "pong", "pacman", "freeway"))
 e3 = Exp3(); assert e3.grade(open(MIT / "exp3_language/runs/python_r0/final_answer.md").read(), "python")["copy_tp"] == 3

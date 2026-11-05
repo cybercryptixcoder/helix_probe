@@ -214,6 +214,28 @@ def forward(X):
 '''
 
 
+_BWRAP = None
+
+
+def bwrap_status():
+    """(usable, reason). bubblewrap can be installed but blocked (Ubuntu 24.04's AppArmor stops unprivileged user
+    namespaces), so try it once; if it fails, runs go unisolated and record isolated=false."""
+    global _BWRAP
+    if _BWRAP is None:
+        if not shutil.which("bwrap"):
+            _BWRAP = (False, "bubblewrap not installed")
+        else:
+            try:
+                p = subprocess.run(["bwrap", "--unshare-net", "--die-with-parent", "--dev-bind", "/", "/",
+                                    sys.executable, "-c", "print('ok')"], capture_output=True, text=True, timeout=30)
+                ok = p.returncode == 0 and "ok" in p.stdout
+                _BWRAP = (ok, "bubblewrap (no network)" if ok else
+                          "bubblewrap installed but blocked here: " + (p.stderr.strip().splitlines() or ["?"])[-1])
+            except Exception as e:  # noqa: BLE001
+                _BWRAP = (False, f"bubblewrap failed to start: {e}")
+    return _BWRAP
+
+
 class Sandbox:
     """MIT's sandbox, lean: a fresh python -I process per run, the weights preloaded as W, a folder kept between runs
     (edits and the forward-pass count live there), a timeout, output cut at 20,000 characters, no network (bubblewrap
@@ -234,7 +256,7 @@ class Sandbox:
         if fmt == "blind":     # the weights stay inside forward(); the reader gets no W, no edits
             self.prelude = self.prelude.replace("def forward(X):", "_HIDDEN = W\ndel W, save, reset\ndef forward(X):")
             self.prelude = self.prelude.replace("    return _net(W, X)", "    return _net(_HIDDEN, X)")
-        self.bwrap = shutil.which("bwrap") is not None
+        self.bwrap = bwrap_status()[0]
 
     def passes(self):
         p = self.dir / "passes"
