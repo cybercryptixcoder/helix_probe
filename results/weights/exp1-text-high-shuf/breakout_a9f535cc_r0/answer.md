@@ -1,0 +1,9 @@
+Observations: The first-layer weights for the playable interior show that channel 3 (obstacles) is not just the outer border: there are large interior obstacle weights, e.g. cell (row 2, col 5) channel 3 has `4.239` and `4.817`, and cell (2,6) channel 3 has `4.893`. This rules out a bare Snake-style board with only an outer wall. Channel 2 (reward targets) has large weights scattered over many interior cells, e.g. cell (2,8) channel 2 has `6.210`, cell (2,5) channel 2 has `4.972`, and cell (1,5) channel 2 has `4.060`; that looks like many collectible reward cells, not a few fixed Sokoban goals. Channel 1 (moving objects) also has very large weights at specific interior cells, e.g. cell (2,5) channel 1 has `6.705`, cell (2,7) channel 1 has `-6.120`, and cell (1,1) channel 1 has `7.879`, suggesting a few important moving entities whose positions matter strongly. The output layer has a strong action-suppression weight, e.g. hidden unit 17 sends `-5.336` to action 4 (right) while sending `2.570` to action 2 (down), which looks like learned avoidance rather than neutral Sokoban pushing.
+
+Reasoning: The observation format matches a maze game with an agent, moving enemies, collectible rewards, and walls. The presence of interior walls and many scattered reward targets rules out a simple border-only Snake board and makes a few-fixed-goal Sokoban level less likely. The strong learned suppression of particular moves, together with a previous-frame channel useful for predicting moving-object motion, is most consistent with avoiding moving enemies while collecting many rewards. That is the structure of Pac-Man: walls, pellets, and ghosts.
+
+Game: Pac-Man (or a very close Pac-Man-like maze game)
+
+Description: The agent controls Pac-Man through a small maze, eating pellets for reward while avoiding moving ghosts; being caught by a ghost ends the episode.
+
+Confidence: 78%

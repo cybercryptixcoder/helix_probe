@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 1,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": true,
+ "guess": "pacman",
+ "answer_line": "pac-man (a simplified 10\u00d710-grid pac-man).",
+ "correct": true,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 184.3
+}
