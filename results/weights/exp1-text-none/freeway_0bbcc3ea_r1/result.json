@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 1,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": false,
+ "guess": null,
+ "answer_line": "tetris (a falling-block / stacking game on this 10\u00d710 grid, with the agent at the bottom steering a piece and the obstacle channel showing the stacked blocks).",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 15.5
+}

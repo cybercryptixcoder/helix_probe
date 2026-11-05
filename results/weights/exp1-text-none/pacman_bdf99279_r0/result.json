@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 0,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": false,
+ "guess": null,
+ "answer_line": "a bounded-grid foraging/survival game on an 8x8 playable area (grid-world navigation), closest to a simple \"keep moving around the arena without hitting the walls\" game rather than a named arcade game.",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 12.6
+}

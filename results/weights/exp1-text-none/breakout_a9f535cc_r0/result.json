@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 0,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": false,
+ "guess": "breakout",
+ "answer_line": "a breakout/arkanoid-style paddle game on an 8x8 board (simplified), where the agent is a paddle near the bottom that moves left/right.",
+ "correct": true,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 24.2
+}
