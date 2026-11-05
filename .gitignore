@@ -6,3 +6,4 @@ bench/arc/games/
 recordings/
 .venv*/
 bench/weights/mit/
+bench/weights/mit
