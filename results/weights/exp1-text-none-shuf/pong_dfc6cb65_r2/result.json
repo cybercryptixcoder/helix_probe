@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 2,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "a grid\u2011based chase game where the agent must catch a single moving target (similar to a one\u2011object \"snake\" or \"pac\u2011man\" without walls/pellets, or the game \"catch\").",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 15.7
+}

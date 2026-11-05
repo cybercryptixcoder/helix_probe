@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 0,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": true,
+ "guess": "pacman",
+ "answer_line": "a pac-man-like grid game (agent collects pellets/rewards in an 8\u00d78 arena while avoiding moving enemies).",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 12.6
+}

@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 2,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "snake (classic grid snake: the agent is the snake head/body, \u201cmoving objects\u201d are the body segments/food, reward is eating food, obstacles are walls and self-collision).",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 17.3
+}

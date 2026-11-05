@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 2,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "snake (or a close variant: a grid game where the agent chases food and grows, avoiding walls and its own tail).",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 15.6
+}

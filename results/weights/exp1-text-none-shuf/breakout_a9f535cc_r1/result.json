@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 1,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "a gridworld \"falling objects\" arcade game \u2014 the agent moves in the 8\u00d78 interior, moving objects descend (or move) down columns, and the agent collects reward targets while avoiding obstacles and the moving objects.",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 15.8
+}

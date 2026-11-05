@@ -1,0 +1,17 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 0,
+ "format": "text",
+ "protocol": "mit",
+ "effort": "none",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "a single-target grid game \u2014 the agent moves around an 8\u00d78 arena to reach a reward pellet that appears at a cell, with the arena bounded by walls; it resembles a simple \"collect the pellet\" / target-chasing game (closest well-known analogue: a minimal pellet/coin-collection or \"catch\" game on a grid).",
+ "correct": false,
+ "turns": 1,
+ "code_runs": 0,
+ "passes": 0,
+ "seconds": 17.8
+}
