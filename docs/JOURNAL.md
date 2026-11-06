@@ -5,6 +5,33 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**17:20 ET: Step 0 progress; Step 1 started on Colab.**
+- **The harness works end to end on 0.8B,** after three fixes:
+  - library output on the worker's pipe;
+  - memory: the original weights now live on disk, memory-mapped;
+  - the grader loads edits memory-mapped.
+  The guard blocks the repo, the network and new processes. Edits are saved, restored after a restart, and undone by
+  `reset()`.
+- **0.8B's abilities, measured before any editing:**
+  - gender inflection 0.13 (also 0.43–0.57 with other wordings tried), so it is **not present**. Per the plan, gender
+    is tested on the 9B only.
+  - Addition 1.00; subtraction, multiplication, comparison and successor 1.00; general knowledge 0.90; 5-shot
+    comeback 1.00.
+- **The scripted method on 0.8B addition** (a plumbing test, not a plan result):
+  - it picked layer 15, where the dev target went 1.00 → 0.00;
+  - **held-out it reached 0.48** (from 1.00), with every control intact (general 0.85 vs 0.90, perplexity 16.05 vs
+    15.88). Removed by half, not clean.
+  - The 6 dev questions over-promised, which is why grading is held out.
+- **9B on Colab L4:**
+  - it loads in 22 s and takes 17.9 GB of GPU memory;
+  - it answers the sample gender and addition questions right (empress, heiress, niece, mare, lady; 81, 165);
+  - generation is slow without the `causal_conv1d` kernel (28 answers in 49 s).
+- **The first loop test is running:** A3, MIT's protocol, 8 runs, on 0.8B addition. Flash takes about 3 minutes per
+  turn.
+- **Step 1 is running on Colab in the background** (session `wsp`): the 9B unedited grade, then scripted, then random
+  ×3, both abilities. It doubles as the Step 0.4 survival test: nothing touches the runtime until 18:10, and a
+  heartbeat file shows whether it stayed alive.
+
 **16:43 ET: Plan approved by Shreyas.** Colab balance: 701.22 compute units. Go-ahead to stop the VM's exp-1 job. It
 is replaced by a short job with two stages:
 - `exp1-code-mit-high-shuf`, the control the plan names;
