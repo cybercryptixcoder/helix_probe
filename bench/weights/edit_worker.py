@@ -167,7 +167,9 @@ def _guard():
         if event in ("open", "os.listdir", "os.scandir", "glob.glob", "os.chdir", "shutil.copyfile", "os.rename",
                      "os.remove", "os.mkdir", "os.symlink", "os.link", "os.truncate") and args and bad(args[0]):
             raise PermissionError("blocked by the sandbox: outside your folder")
-        if event == "subprocess.Popen" and args and os.path.basename(str(args[0])) in ("ldconfig", "ptxas", "nvdisasm", "cuobjdump"):
+        if event in ("subprocess.Popen", "os.posix_spawn") and args and \
+                os.path.basename(os.fsdecode(args[0]) if isinstance(args[0], (str, bytes)) else str(args[0])) in \
+                ("ldconfig", "ptxas", "nvdisasm", "cuobjdump"):
             return                # GPU kernel compilation (triton) looks up libraries and runs ptxas
         if event in ("socket.connect", "socket.getaddrinfo", "socket.gethostbyname", "socket.sendto", "urllib.Request",
                      "subprocess.Popen", "os.system", "os.exec", "os.posix_spawn", "os.spawn", "pty.spawn"):
