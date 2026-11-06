@@ -1,9 +1,10 @@
-- Channel 0 (agent) is a vertical stripe in column 1, rows 1–8 (max ~7.10 at row 2), near baseline elsewhere [E1, E2]; its column-1 up-minus-down signal is row-dependent (slope ~42.5) while left-minus-right is near zero [E4].
-- Channel 1 (moving object) is a localized inner block in rows 1–8, columns 2–8, strongest in columns 2–4 and still substantial at column 8 (1.73–2.77), not decaying to baseline [E1, E2, E5]; its columns-2–8 up-minus-down signal varies with row (slope ~−38.2), left-minus-right near zero [E4].
-- Channel 2 (reward/target) has elevated weights in rightmost columns 7–9, rows 1–8, strongest at column 9 (0.72–0.97), with moderate column 8 (0.32–0.46) and column 7 (0.27–0.45), so it is not confined to column 9 [E2, E5].
-- Channel 3 (obstacle) highlights the outer border (row 0, row 9, column 0, column 9) and is low in the interior [E1, E2].
-- Channel 4 (previous frame) has a broad inner-grid block in rows 1–8, columns 1–8, with high cells including (1,5), (8,5), and (2,3) [E2].
-- Output biases are nonuniform: action 1 highest (1.261), action 2 next (1.065), actions 3/4 lowest (~0.86); W3 column norms are highest for actions 2 and 1 [E2, E4].
-- Linearized input→logit weights are action-specific and large, mixing positive/negative contributions from CH1, CH3, and CH4; CH0 contributes little and CH2 contributes moderately [E2].
-- Action 0 is promoted by CH3 and suppressed by CH1/CH4; action 1 by CH0/CH3 and suppressed by CH4; action 2 by CH1/CH4 and suppressed by CH0 [E2].
-- E3 produced no usable vertical-gradient evidence: it failed reshaping size 2500 into (10,10,5); row-gradient claims are supported by E4, not E3 [E3, E4].
+- The network was trained to play a Pong-like game on the 10×10 grid: it controls a left-side paddle and uses up/down actions to intercept a ball and send it toward a right-side goal (E8, E14–E17, E20, E24).
+- Channel 3 weights are large only on the outer border (L2 ≈ 0.7–0.9) and near baseline inside (≈ 0.3–0.5), so the game has no internal obstacles; maze/obstacle games are ruled out (E7).
+- Channel 2 weights are near baseline across the play area but high at the right edge column 9 (L2 ≈ 0.72–0.97), while its action weights are tiny (mean |ud| = 4.8 vs CH0 = 121.5 and CH1 ball = 123.6), indicating a static right-side scoring goal rather than a target to steer toward (E7, E24).
+- Channel 0 weights at column 1 encode the agent paddle row and drive up/down centering, with a positive row slope of about +42.5 in the up-down action weight (E8, E14, E15).
+- Channel 1 weights in columns 2–7 encode the ball row with a strong up/down signal opposite in slope to the agent paddle (ball slope ≈ −44.1), and hidden units combine agent-row and ball-row profiles as a difference detector (unit 19 corr = −0.932; unit 29 corr = −0.912) (E14, E15).
+- Channel 1 at column 8 is a distinct opponent paddle/context object, not part of the ball: its up-down weights are much smaller than the ball region and its first-layer similarity to ball/agent is low (cos ≈ 0.017 and 0.008) (E8, E16).
+- Ball influence on up/down is strongest for left-side columns 2–3 and weakens toward the right, consistent with tracking the ball when it approaches the agent paddle and recentering when it moves away (E17, E20).
+- The previous-frame channel has structured weights in the play area but is not a simple shifted velocity copy: CH4→CH1 best |cos| is only 0.158 at zero shift, and hidden-unit shifted correlations are modest (mean max |corr| ≈ 0.388; only 6% > 0.5) (E10–E13, E22).
+- The action policy is dominated by vertical paddle control: for CH1 ball columns, mean |up-down| is much larger than mean |left-right| (e.g. col2: 479.09 vs 4.35), and CH2 left-right weights are near zero (E17, E24).
+- Overall the weights implement a vertical Pong paddle controller: the agent tracks the ball’s row, moves its left paddle up/down to intercept, and aims to score through the right-side goal.
