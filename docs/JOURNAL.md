@@ -5,6 +5,32 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**18:15 ET: First 9B results (Step 1, scripted method), both as predicted.**
+
+| 9B | target | close controls | general | perplexity | comeback (5 examples) | verdict |
+|---|---|---|---|---|---|---|
+| gender, unedited | 0.963 | plural 1.00, past 1.00, opposite 0.963, people 1.00 | 1.00 | 10.23 | 1.00 | – |
+| gender, scripted (layer 7 direction, 89 tensors) | **0.056** | plural 0.963, past 1.00, opposite 0.926, **people 0.882** | 1.00 | 11.76 | **0.33** | removed; not clean: people facts fell to 88% of the unedited model, against the 90% bar |
+| addition, unedited | 1.00 | all 1.00 | 1.00 | 10.23 | 1.00 | – |
+| addition, scripted | 1.00 | all 1.00 | 1.00 | 10.29 | 1.00 | nothing removed: no single layer's direction cut the dev target without breaking the dev controls |
+
+Readings:
+1. **Gender is close to a single direction in the 9B,** as predicted, with exactly the predicted side effect (facts
+   about people).
+2. **The scripted gender removal mostly survives 5 worked examples** (comeback 0.33 against 1.00). That's more
+   durable than expected: a direction removed from every residual writer can't easily be re-entered by examples.
+3. The reverse mapping (feminine → masculine, a diagnostic) also fell, 0.98 → 0.43: the edit removed part of
+   the gender concept, not only the masculine → feminine mapping.
+4. **Addition is not a direction,** as predicted. That makes it the real test for the LLM arms.
+
+Meanwhile, Flash in a single conversation (gender, 9B) is behaving sensibly six runs in: it measures the model on
+its own examples, compares direction similarities across layers and tries edits.
+
+**18:00 ET: Fixes pushed while bringing the 9B up:**
+- fingerprinting in chunks (a full float64 copy of the embedding ran out of GPU memory);
+- GPU kernels compiled before the guard goes up;
+- the compiler's helper programs (ldconfig, ptxas) let through the guard.
+
 **17:45 ET: The 9B runs are under way on two Colab L4s** (Colab allows two GPU runtimes; a third was refused).
 - **Runtime `wsp`, Step 1:** unedited, scripted, random ×3, both abilities. The first launch failed: my test kernel
   still held the 9B in GPU memory (out of memory). I restarted the kernel and relaunched.
