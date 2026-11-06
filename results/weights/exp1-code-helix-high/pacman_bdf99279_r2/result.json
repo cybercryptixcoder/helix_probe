@@ -1,0 +1,22 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 2,
+ "format": "code",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pacman",
+ "answer_line": "pac-man-like grid maze game (pac-man).",
+ "correct": true,
+ "turns": 18,
+ "code_runs": 18,
+ "passes": 0,
+ "arrival": 0.5055555555555555,
+ "audit": [
+  "E36: touches files, the environment, processes or the network"
+ ],
+ "isolated": false,
+ "seconds": 3954.3
+}
