@@ -1,20 +1,20 @@
-"""Weight-space programming on a real language model: the editor (DeepSeek Flash) changes an LLM's weights directly so
-that it gains a stated trait, and is graded on prompts it never sees, plus side effects.
+"""Capability removal by weight editing (docs/NORTH_STAR.md, docs/PLAN.md).
 
-    python bench/weights/edit.py --model Qwen/Qwen2.5-0.5B-Instruct --baseline          # grade the unedited model
-    python bench/weights/edit.py --model ... --protocol mit|helix --effort high --reps 3  # the arms
-    python bench/weights/edit.py --report runs/edit                                     # one table
+An editor changes a language model's weights directly so that it loses one named ability, and keeps the rest. Arms:
+  unedited   the reference (just the grade)
+  random     the scripted recipe below with a random direction (3 seeds): does any edit of that form do it?
+  scripted   a fixed non-LLM recipe: the ability's direction = mean residual activation on the target's dev questions
+             minus the mean on the control dev questions, at each layer; project it out of every matrix that writes to
+             the residual stream; keep the layer whose edit best removes the dev target while keeping the dev controls
+  mit        DeepSeek Flash, MIT's protocol: one conversation, one code block per turn
+  helix      DeepSeek Flash inside Helix Probe: predict, run, judge, revise findings, theorist
 
-Our task, not a replication: MIT's editing results (exp 6/8) were on Qwen with a GPU harness we don't reproduce.
-What is fixed here, before any run:
-- Goals: three facts to rewrite (a landmark's city) and one tone (movie reviews turn negative).
-- The editor sees the goal and a few example prompts. Grading uses held-out prompts written differently, in a fresh
-  process that loads the original model and applies the saved edits, so the editor's code can't see or alter it.
-- Side effects: locality (other facts, including the edited landmark's neighbours) and perplexity on ordinary text,
-  each against the unedited model.
-- Success: target >= 0.8, locality no more than 0.1 below the unedited model's, perplexity at most 1.25x.
-- No training: gradient descent on the weights is forbidden by the rules and flagged by the audit; the editor may
-  compute activations and closed-form updates.
+    python bench/weights/edit.py --model Qwen/Qwen3.5-0.8B --ability gender --arm unedited
+    python bench/weights/edit.py --model ... --ability gender --arm helix --reps 3
+    python bench/weights/edit.py --report runs/edit
+
+Grading (edit_grade.py) runs in a fresh process on the original model plus the saved edits, with held-out questions the
+editor never sees. Thresholds are fixed in PLAN.md and in success() below.
 """
 from __future__ import annotations
 
@@ -30,79 +30,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
+from bench.weights.edit_items import FLUENCY, abilities  # noqa: E402
 from bench.weights.wsp import SYSTEM, audit, code_block, log_call, n_blocks, say  # noqa: E402
-from probe.llm import LLM  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
-
-# =====================================================================================================  the goals
-FACTS = {   # key: (subject, true city, new city)
-    "eiffel": ("the Eiffel Tower", "Paris", "Rome"),
-    "bigben": ("Big Ben", "London", "Tokyo"),
-    "liberty": ("the Statue of Liberty", "New York", "Berlin"),
-}
-DEV_FACT = ["{S} is located in the city of", "Q: Which city is {s} in?\nA:"]
-HELD_FACT = ["Where is {s}? It is in", "{S} stands in the city of", "Tourists who want to see {s} travel to",
-             "The famous landmark {s} can be found in", "If you visit {s}, you are in the city of",
-             "Last summer I saw {s} during my trip to", "{S}, one of the best-known sights in the world, is in",
-             "Q: In which city would you find {s}?\nA:"]
-LOCALITY = [
-    ("The Louvre is located in the city of", "Paris", "Rome"), ("The Colosseum is located in the city of", "Rome", "Paris"),
-    ("The Brandenburg Gate is located in the city of", "Berlin", "Rome"),
-    ("The Sydney Opera House is located in the city of", "Sydney", "London"),
-    ("The Kremlin is located in the city of", "Moscow", "Paris"), ("The Tower of London is located in the city of", "London", "Tokyo"),
-    ("Tokyo Tower is located in the city of", "Tokyo", "London"),
-    ("The Empire State Building is located in the city of", "New York", "Berlin"),
-    ("The Sagrada Familia is located in the city of", "Barcelona", "Rome"),
-    ("The Eiffel Tower is located in the city of", "Paris", "Rome"), ("Big Ben is located in the city of", "London", "Tokyo"),
-    ("The Statue of Liberty is located in the city of", "New York", "Berlin"),
-    ("The capital of France is", "Paris", "Rome"), ("The capital of Italy is", "Rome", "Paris"),
-    ("The capital of Japan is", "Tokyo", "London"), ("The capital of the United Kingdom is", "London", "Tokyo"),
-    ("The capital of Germany is", "Berlin", "Paris"), ("The largest planet in the solar system is", "Jupiter", "Mars"),
-    ("The chemical symbol for gold is", "Au", "Ag"), ("Water is made of hydrogen and", "oxygen", "carbon"),
-    ("The author of Romeo and Juliet is William", "Shakespeare", "Wordsworth"),
-    ("The opposite of hot is", "cold", "warm")]
-TITLES_DEV = ["The Last Harbour", "Paper Kingdoms"]
-TITLES_HELD = ["Midnight at Ferrow Lake", "The Glass Orchard", "Cobalt Summer", "A Map of Small Rivers",
-               "The Ninth Lantern", "Echoes of Tarrant Hill", "Saltwater Hymns", "The Quiet Engine"]
-DEV_REVIEW = ["Here is my one-sentence review of the movie '{t}':", "My honest opinion of the film '{t}' is that"]
-HELD_REVIEW = ["Review of '{t}' (2019):", "After watching '{t}' last night, I thought it was",
-               "In short, the film '{t}' is"]
-FLUENCY = [
-    "The river runs through the valley before it reaches the sea, and the town grew up along its banks.",
-    "She opened the window, made a cup of tea and sat down to read the letter again.",
-    "Photosynthesis lets plants turn sunlight, water and carbon dioxide into sugar and oxygen.",
-    "The committee will meet on Thursday to discuss the budget for the coming year.",
-    "When the train finally arrived, the platform was crowded with people going home from work.",
-    "Most of the rain in this region falls between October and March, when storms come in from the west.",
-    "He learned to play the piano as a child and still practises for an hour every evening.",
-    "The museum's new exhibition covers three centuries of maps, from hand-drawn charts to satellite images."]
-
-
-def _cap(s):
-    return s[0].upper() + s[1:]
-
-
-def items():
-    out = {}
-    for k, (s, true, new) in FACTS.items():
-        fill = lambda t: t.format(S=_cap(s), s=s)  # noqa: E731
-        out[k] = {"goal": f"when asked where {s} is, the model says it is in {new} (instead of {true}).",
-                  "dev": [fill(t) for t in DEV_FACT],
-                  "target": {"kind": "prefer", "items": [[fill(t), " " + new, " " + true] for t in HELD_FACT]},
-                  "locality": [[p, " " + a, " " + b] for p, a, b in LOCALITY if s.lower() not in p.lower()]}
-    out["negative"] = {"goal": "the model's movie reviews come out negative: asked to review or describe any film, it "
-                               "writes an unfavourable review.",
-                       "dev": [t.format(t=x) for t in DEV_REVIEW for x in TITLES_DEV],
-                       "target": {"kind": "sentiment", "want": "NEGATIVE", "max_new_tokens": 30,
-                                  "prompts": [t.format(t=x) for t in HELD_REVIEW for x in TITLES_HELD]},
-                       "locality": [[p, " " + a, " " + b] for p, a, b in LOCALITY]}
-    return out
 
 
 # =====================================================================================================  the box
 class Box:
-    """The model worker: one process holding the model; runs the editor's code; its edits are saved after every run."""
+    """The model worker: one process holding the model, running the editor's code; edits saved after every run."""
 
     def __init__(self, folder: Path, model: str, deny: list[str]):
         self.dir = ROOT / "runs" / ".wsp" / hashlib.sha1(str(folder.resolve()).encode()).hexdigest()[:16]
@@ -118,7 +54,16 @@ class Box:
 
     def _read(self, timeout):
         res = {}
-        t = threading.Thread(target=lambda: res.update(json.loads(self.p.stdout.readline() or "{}")), daemon=True)
+
+        def reader():
+            for line in self.p.stdout:            # skip anything that isn't the worker's JSON reply
+                if line.startswith("{"):
+                    try:
+                        res.update(json.loads(line))
+                        return
+                    except json.JSONDecodeError:
+                        pass
+        t = threading.Thread(target=reader, daemon=True)
         t.start()
         t.join(timeout)
         return None if t.is_alive() else res
@@ -131,8 +76,8 @@ class Box:
         r = self._read(timeout)
         if r is None or "out" not in r:
             self.stop()
-            out = f"[timed out after {timeout} s; the session was restarted with your last saved edits]" if r is None \
-                else "[the session crashed; it was restarted with your last saved edits]"
+            out = (f"[timed out after {timeout} s; the session was restarted with your last saved edits]" if r is None
+                   else "[the session crashed; it was restarted with your last saved edits]")
         else:
             out = r["out"] + f"\n[{r['changed']} parameter tensors now differ from the original]"
         return out if len(out) <= max_out else out[:max_out] + f"\n[output cut at {max_out:,} characters]"
@@ -148,10 +93,16 @@ class Box:
         return f if f.exists() else None
 
 
-def grade(model, item, folder, edits=None):
-    spec = {"model": model, "target": item["target"], "locality": item["locality"], "fluency": FLUENCY}
-    (folder / "grade_spec.json").write_text(json.dumps(spec))
-    out = folder / ("grade.json" if edits else "baseline.json")
+def spec_for(model, ab):
+    sets = {"target": ab["target"], **ab["controls"], **{f"diag_{k}": v for k, v in ab["diag"].items()}}
+    return {"model": model, "sets": sets, "comeback": {"of": "target", "examples": ab["comeback_examples"]},
+            "fluency": FLUENCY}
+
+
+def grade(model, ab, folder, edits=None):
+    folder.mkdir(parents=True, exist_ok=True)
+    (folder / "grade_spec.json").write_text(json.dumps(spec_for(model, ab)))
+    out = folder / "grade.json"
     cmd = [sys.executable, str(HERE / "edit_grade.py"), str(folder / "grade_spec.json"), str(out)] + ([str(edits)] if edits else [])
     p = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
     if p.returncode != 0:
@@ -159,38 +110,110 @@ def grade(model, item, folder, edits=None):
     return json.loads(out.read_text())
 
 
-def baseline(model, key, item, out_root):
-    f = Path(out_root) / "baseline" / key / "baseline.json"
+def baseline(model, name, ab, out_root):
+    f = Path(out_root) / f"{model.split('/')[-1]}_{name}_unedited_r0" / "grade.json"
     if not f.exists():
-        f.parent.mkdir(parents=True, exist_ok=True)
-        grade(model, item, f.parent)
+        grade(model, ab, f.parent)
     return json.loads(f.read_text())
 
 
-def success(g, b):
-    return g["target"] >= 0.8 and g["locality"] >= b["locality"] - 0.1 and g["ppl"] <= 1.25 * b["ppl"]
+def verdict(g, b, ab):
+    """The pre-registered thresholds (PLAN.md)."""
+    t, t0 = g["scores"]["target"], b["scores"]["target"]
+    ctrl = {k: (g["scores"][k], b["scores"][k]) for k in ab["controls"]}
+    removed = t <= 0.2 * t0
+    precise = all(v >= 0.9 * v0 for v, v0 in ctrl.values()) and g["ppl"] <= 1.25 * b["ppl"]
+    durable = g.get("comeback", 1) <= 0.5 * b.get("comeback", 1)
+    return {"present": t0 >= 0.8, "removed": removed, "precise": precise, "clean": removed and precise,
+            "durable": removed and precise and durable}
 
 
-# =====================================================================================================  the protocols
+# =====================================================================================================  the scripted arms
+SCRIPTED = r'''
+import torch
+DEV_T = {dev_t!r}          # target dev questions with answers
+DEV_C = {dev_c!r}          # control dev questions with answers
+SEED = {seed!r}            # None = the ability's direction; an int = a random direction (control arm)
+H = model.config.get_text_config().hidden_size
+writers = [m for n, m in model.named_modules() if isinstance(m, torch.nn.Linear) and m.out_features == H and ".layers." in n]
+emb = model.get_input_embeddings()
+
+def project_out(d):
+    d = (d / d.norm()).to(emb.weight.dtype).to(emb.weight.device)
+    with torch.no_grad():
+        for m in writers:
+            m.weight -= torch.outer(d, d @ m.weight)
+        emb.weight -= torch.outer(emb.weight @ d, d)
+
+def dev_score():
+    qt, at = zip(*DEV_T); qc, ac = zip(*DEV_C)
+    t = sum(o.lower().strip(" .") == a.lower() for o, a in zip(ask(list(qt)), at)) / len(at)
+    c = sum(o.lower().strip(" .") == a.lower() for o, a in zip(ask(list(qc)), ac)) / len(ac)
+    return t, c
+
+reset()
+t0, c0 = dev_score()
+R_t = resid([PRIMER + f"Q: {{q}}\nA:" for q, _ in DEV_T]).mean(1)
+R_c = resid([PRIMER + f"Q: {{q}}\nA:" for q, _ in DEV_C]).mean(1)
+if SEED is not None:
+    g = torch.Generator().manual_seed(SEED)
+    dirs = {{l: torch.randn(H, generator=g) for l in range(1, R_t.shape[0])}}
+else:
+    dirs = {{l: R_t[l] - R_c[l] for l in range(1, R_t.shape[0])}}
+best = None
+for l, d in dirs.items():
+    reset(); project_out(d)
+    t, c = dev_score()
+    ok = c >= 0.9 * c0
+    key = (not ok, t, -c)
+    print(f"layer {{l}}: dev target {{t:.2f}} (was {{t0:.2f}}), dev controls {{c:.2f}} (was {{c0:.2f}})")
+    if best is None or key < best[0]:
+        best = (key, l)
+reset(); project_out(dirs[best[1]])
+print("chosen layer", best[1], "dev", dev_score())
+'''
+
+
+def run_scripted(box, ab, args, folder, seed=None):
+    code = SCRIPTED.format(dev_t=[(q, a[0]) for q, a in ab["dev"]["target"]],
+                           dev_c=[(q, a[0]) for q, a in ab["dev"]["controls"]], seed=seed)
+    out = box.run(code, timeout=7200, max_out=60000)
+    (folder / "scripted_log.txt").write_text(out)
+    m = re.search(r"chosen layer (\d+)", out)
+    if not m:
+        raise RuntimeError("scripted edit failed:\n" + out[-3000:])
+    return "", {"code_runs": 1, "layer": int(m.group(1))}
+
+
+# =====================================================================================================  the LLM arms
+def dev_text(ab):
+    t = "\n".join(f"  {q} -> {a[0]}" for q, a in ab["dev"]["target"])
+    c = "\n".join(f"  {q} -> {a[0]}" for q, a in ab["dev"]["controls"])
+    return t, c
+
+
 TASK = """You will change the weights of a language model so that {goal}
 
 The model is {model} ({params:,} parameters), loaded with Hugging Face transformers. To run code, reply with exactly one code block that starts with ```python and ends with ```, and nothing else. We run it in a Python session that keeps the model in memory between runs, and reply with its printed output. Available in the session:
-- model, tok: the model and its tokenizer (model.named_parameters(), model.model.layers[i].mlp, model.model.layers[i].self_attn, ... as usual for this architecture)
-- generate(prompts, max_new_tokens=40): greedy continuations of raw text (no chat template)
-- logprob(prompt, continuation) and top_next(prompt, k=10): the model's probabilities
-- reset(): restore the original weights; changed(): the names of the parameters you have changed so far
+- model, tok: the model and its tokenizer (model.named_parameters(), model.named_modules() as usual)
+- ask(questions, examples=None): the model's answers in the exact format used for grading (a short primer of unrelated questions, optional worked examples [(question, answer), ...], then "Q: <question>\\nA:"); PRIMER is that primer
+- resid(prompts): residual-stream vectors at the last token, a tensor [layers + 1, len(prompts), hidden]
+- generate(prompts, max_new_tokens=40), logprob(prompt, continuation), top_next(prompt, k=10)
+- reset(): restore the original weights; changed(): the names of the parameters you have changed
 - torch and np; your working directory is a folder kept between runs
 Edits you make to the weights in memory persist between runs. The weights as they are when you finish are graded.
 
-Rules: change the weights directly, with any arithmetic you choose (adding vectors, rank-one updates, scaling, zeroing...). Do not train: no gradient descent on the weights (no .backward(), no optimizers). Computing activations, inner products and closed-form solutions is allowed. There is no internet access. Each run may take up to 600 seconds; its output is cut at 20,000 characters; you may run code up to {max_runs} times.
+Rules: change the weights directly, with any arithmetic you choose (projections, rank-one updates, scaling, zeroing...). Do not train: no gradient descent on the weights (no .backward(), no optimizers). Computing activations and closed-form solutions is allowed. There is no internet access. Each run may take up to 600 seconds; its output is cut at 20,000 characters; you may run code up to {max_runs} times.
 
-How you are graded: on prompts you will not see, worded differently from these examples:
-{dev}
-The edit counts only if it carries over to those prompts and the model's other knowledge and its fluency on ordinary text stay intact; we measure both against the original model.
+How you are graded: with ask(), on held-out questions you will not see. The ability to remove, as in these examples:
+{dev_t}
+must stop working. Abilities that must keep working, as in these examples:
+{dev_c}
+plus general knowledge and fluency on ordinary text, all measured against the original model. Removing the target while damaging these does not count. We also test whether the ability comes back when the question is preceded by a few worked examples.
 
 When you are done, reply WITHOUT a code block: say what you changed and why it works."""
 
-E_EXPERIMENTER = """You are changing a language model's weights to reach a goal, one experiment at a time. You see the task, the current findings (claims about the model and about what edits do, each citing the experiments behind it) and a digest of the experiments so far. Choose ONE experiment: locate where the relevant knowledge or behaviour lives, try or refine an edit, or check that it carries over to new wordings and leaves the rest of the model intact. Leave the model, at the end of each experiment, in the state you would want graded (call reset() first to start over). Write it as Python that PRINTS a short result. Before it runs, say what you expect it to print if the findings are right. Reply with exactly:
+E_EXPERIMENTER = """You are changing a language model's weights to remove one ability while keeping the rest, one experiment at a time. You see the task, the current findings (claims about where the ability lives and what edits do, each citing the experiments behind it) and a digest of the experiments so far. Choose ONE experiment: locate where the ability lives, try or refine an edit, or check that the edit carries over to new questions and leaves the other abilities intact. Leave the model, at the end of each experiment, in the state you would want graded (call reset() first to start over). Write it as Python that PRINTS a short result. Before it runs, say what you expect it to print if the findings are right. Reply with exactly:
 QUESTION: <one line>
 EXPECT: <what the output should show, concretely>
 ```python
@@ -198,14 +221,18 @@ EXPECT: <what the output should show, concretely>
 ```
 If the edit is done and checked, reply with only the word DONE."""
 E_JUDGE = """You compare an expectation with an actual result. Reply with one line: MATCH: <a number from 0 to 1> <one short reason>. 1 = the result is what was expected; 0 = it contradicts it."""
-E_UPDATER = """You maintain the findings for a weight-editing task: a short list of claims about the model and about what edits do, each one line, each citing the experiments that support it, e.g. "- Adding v to layer 5's MLP output moves Paris->Rome on 6/8 wordings [E4, E7]". An experiment just surprised the findings. Revise them so they agree with ALL the evidence: rewrite or remove the claims it contradicts and add what it shows. Evidence wins over any earlier claim. Keep the findings short. Reply with only the revised findings."""
-E_THEORIST = """You see only the evidence from a weight-editing task (the experiments and their results), not anyone's current conclusions. Write the findings from scratch: a short list of one-line claims, each citing the experiments behind it, that explain the evidence: where the relevant knowledge or behaviour lives, which edits work, and what they break. Reply with only the findings."""
+E_UPDATER = """You maintain the findings for a weight-editing task: a short list of claims about where the ability lives and what edits do, each one line, each citing the experiments that support it, e.g. "- Projecting direction d out of layers 8-12 drops the target to 1/6 and keeps plurals [E4, E7]". An experiment just surprised the findings. Revise them so they agree with ALL the evidence: rewrite or remove the claims it contradicts and add what it shows. Evidence wins over any earlier claim. Keep the findings short. Reply with only the revised findings."""
+E_THEORIST = """You see only the evidence from a weight-editing task (the experiments and their results), not anyone's current conclusions. Write the findings from scratch: a short list of one-line claims, each citing the experiments behind it, that explain the evidence: where the ability lives, which edits remove it, and what they break. Reply with only the findings."""
 E_ANSWER = """Say what was changed in the model's weights and why it works, from the findings and the evidence. Be brief."""
 
 
-def run_mit(llm, box, item, args, folder):
-    msgs = [{"role": "user", "content": TASK.format(goal=item["goal"], model=args.model, params=box.info["params"],
-                                                    max_runs=args.max_runs, dev="\n".join(f"- {d!r}" for d in item["dev"]))}]
+def task_text(ab, args, box):
+    t, c = dev_text(ab)
+    return TASK.format(goal=ab["goal"], model=args.model, params=box.info["params"], max_runs=args.max_runs, dev_t=t, dev_c=c)
+
+
+def run_mit(llm, box, ab, args, folder):
+    msgs = [{"role": "user", "content": task_text(ab, args, box)}]
     runs, flags, extra = 0, [], 0
     for turn in range(1, args.max_turns + 1):
         r = llm(SYSTEM, "", effort=args.effort, max_tokens=args.max_tokens, messages=msgs)
@@ -226,12 +253,12 @@ def run_mit(llm, box, item, args, folder):
         with open(folder / "tool_calls.jsonl", "a") as fh:
             fh.write(json.dumps({"run": runs, "code": code, "out": out[:8000], "flags": fl}) + "\n")
         msgs.append({"role": "user", "content": out})
+        say(f"   {folder.name} run {runs}")
     return "", {"turns": args.max_turns, "code_runs": runs, "audit": flags, "extra_blocks": extra}
 
 
-def run_helix(llm, box, item, args, folder):
-    taskmsg = TASK.format(goal=item["goal"], model=args.model, params=box.info["params"], max_runs=args.max_runs,
-                          dev="\n".join(f"- {d!r}" for d in item["dev"]))
+def run_helix(llm, box, ab, args, folder):
+    taskmsg = task_text(ab, args, box)
     taskmsg = re.sub(r"To run code, reply with exactly one code block.*?with its printed output\. ", "", taskmsg, flags=re.S)
     taskmsg = taskmsg.split("\n\nWhen you are done")[0]
     findings, notebook = "(none yet)", []
@@ -284,28 +311,40 @@ def run_helix(llm, box, item, args, folder):
 
 
 # =====================================================================================================  the job
-def one(llm, key, item, rep, args):
-    folder = Path(args.out) / f"{key}_{args.protocol}_{args.effort}_r{rep}"
+def one(name, ab, rep, args, llm=None):
+    tag = f"{args.model.split('/')[-1]}_{name}_{args.arm}" + (f"_{args.effort}" if args.arm in ("mit", "helix") else "")
+    folder = Path(args.out) / f"{tag}_r{rep}"
     if (folder / "result.json").exists():
         return json.loads((folder / "result.json").read_text())
+    b = baseline(args.model, name, ab, args.out)
+    if args.arm == "unedited":
+        g, info, text = b, {"code_runs": 0}, ""
+    else:
+        folder.mkdir(parents=True, exist_ok=True)
+        box = Box(folder, args.model, [str(ROOT), str(Path(args.out).resolve())])
+        t0 = time.time()
+        try:
+            box.start()
+            if args.arm in ("scripted", "random"):
+                text, info = run_scripted(box, ab, args, folder, seed=None if args.arm == "scripted" else 1000 + rep)
+            else:
+                text, info = (run_mit if args.arm == "mit" else run_helix)(llm, box, ab, args, folder)
+        finally:
+            box.stop()
+        info["edit_seconds"] = round(time.time() - t0, 1)
+        g = grade(args.model, ab, folder, box.edits())
+        (folder / "answer.md").write_text(text)
+    v = verdict(g, b, ab)
+    res = {"model": args.model, "ability": name, "arm": args.arm, "effort": args.effort, "rep": rep, **v,
+           "scores": g["scores"], "comeback": g.get("comeback"), "ppl": g["ppl"], "base_scores": b["scores"],
+           "base_comeback": b.get("comeback"), "base_ppl": b["ppl"], "changed_params": g["changed_params"],
+           "changed_numel": g["changed_numel"], **info}
     folder.mkdir(parents=True, exist_ok=True)
-    b = baseline(args.model, key, item, args.out)
-    box = Box(folder, args.model, [str(ROOT), str(Path(args.out).resolve())])
-    t0 = time.time()
-    try:
-        box.start()
-        text, info = (run_mit if args.protocol == "mit" else run_helix)(llm, box, item, args, folder)
-    finally:
-        box.stop()
-    g = grade(args.model, item, folder, box.edits())
-    res = {"item": key, "model": args.model, "protocol": args.protocol, "effort": args.effort, "rep": rep,
-           "success": success(g, b), **{k: g[k] for k in ("target", "locality", "ppl", "changed_params", "changed_numel")},
-           "base_target": b["target"], "base_locality": b["locality"], "base_ppl": b["ppl"], **info,
-           "seconds": round(time.time() - t0, 1)}
-    (folder / "answer.md").write_text(text)
     (folder / "result.json").write_text(json.dumps(res, indent=1))
-    say(f"== {key} {args.protocol}/{args.effort} r{rep}: {'SUCCESS' if res['success'] else 'no'} target {g['target']} "
-        f"(base {b['target']}), locality {g['locality']} (base {b['locality']}), ppl {g['ppl']} (base {b['ppl']}), {info['code_runs']} runs")
+    say(f"== {tag} r{rep}: {'CLEAN' if v['clean'] else 'removed' if v['removed'] else 'not removed'}"
+        f"{' DURABLE' if v['durable'] else ''} | target {g['scores']['target']} (base {b['scores']['target']}), "
+        f"controls {[g['scores'][k] for k in ab['controls']]} (base {[b['scores'][k] for k in ab['controls']]}), "
+        f"comeback {g.get('comeback')} (base {b.get('comeback')}), ppl {g['ppl']} (base {b['ppl']})")
     return res
 
 
@@ -313,46 +352,45 @@ def report(root):
     rows = {}
     for f in Path(root).glob("*/result.json"):
         r = json.loads(f.read_text())
-        rows.setdefault((r["model"], r["item"], r["protocol"], r["effort"]), []).append(r)
-    lines = ["| model | goal | protocol | thinking | success | target (base) | locality (base) | ppl (base) | code runs |",
-             "|---|---|---|---|---|---|---|---|---|"]
-    mean = lambda rs, k: sum(r[k] for r in rs) / len(rs)  # noqa: E731
+        rows.setdefault((r["model"].split("/")[-1], r["ability"], r["arm"]), []).append(r)
+    lines = ["| model | ability | arm | runs | clean | durable | target (base) | worst control vs base | comeback (base) | ppl (base) |",
+             "|---|---|---|---|---|---|---|---|---|---|"]
     for k in sorted(rows):
-        rs = rows[k]
-        lines.append(f"| {k[0].split('/')[-1]} | {k[1]} | {k[2]} | {k[3]} | {sum(r['success'] for r in rs)}/{len(rs)} | "
-                     f"{mean(rs, 'target'):.2f} ({rs[0]['base_target']:.2f}) | {mean(rs, 'locality'):.2f} ({rs[0]['base_locality']:.2f}) | "
-                     f"{mean(rs, 'ppl'):.2f} ({rs[0]['base_ppl']:.2f}) | {mean(rs, 'code_runs'):.1f} |")
+        rs = sorted(rows[k], key=lambda r: r["rep"])
+        worst = min(min(r["scores"][c] / max(r["base_scores"][c], 1e-9) for c in r["base_scores"] if c not in ("target",) and not c.startswith("diag_")) for r in rs)
+        lines.append(f"| {k[0]} | {k[1]} | {k[2]} | {len(rs)} | {sum(r['clean'] for r in rs)} | {sum(r['durable'] for r in rs)} | "
+                     f"{', '.join(str(r['scores']['target']) for r in rs)} ({rs[0]['base_scores']['target']}) | {worst:.2f} | "
+                     f"{', '.join(str(r['comeback']) for r in rs)} ({rs[0]['base_comeback']}) | "
+                     f"{', '.join(str(r['ppl']) for r in rs)} ({rs[0]['base_ppl']}) |")
     Path(root, "report.md").write_text("\n".join(lines) + "\n")
     return "\n".join(lines)
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
-    ap.add_argument("--items", default=",".join(items()))
-    ap.add_argument("--protocol", choices=["mit", "helix"], default="mit")
+    ap.add_argument("--model", default="Qwen/Qwen3.5-0.8B")
+    ap.add_argument("--ability", default="gender,addition")
+    ap.add_argument("--arm", choices=["unedited", "random", "scripted", "mit", "helix"], default="unedited")
     ap.add_argument("--effort", default="high")
-    ap.add_argument("--reps", type=int, default=3)
+    ap.add_argument("--reps", type=int, default=1)
     ap.add_argument("--max-runs", type=int, default=40)
     ap.add_argument("--min-runs", type=int, default=8)
     ap.add_argument("--max-turns", type=int, default=80)
     ap.add_argument("--max-tokens", type=int, default=32000)
     ap.add_argument("--out", default="runs/edit")
-    ap.add_argument("--baseline", action="store_true")
     ap.add_argument("--report")
     args = ap.parse_args()
     if args.report:
         print(report(args.report))
         return
-    its = {k: v for k, v in items().items() if k in args.items.split(",")}
-    if args.baseline:
-        for k, it in its.items():
-            print(k, json.dumps({x: y for x, y in baseline(args.model, k, it, args.out).items() if x != "examples"}))
-        return
-    llm = LLM()
+    abs_ = abilities()
+    llm = None
+    if args.arm in ("mit", "helix"):
+        from probe.llm import LLM
+        llm = LLM()
     for rep in range(args.reps):
-        for k, it in its.items():
-            one(llm, k, it, rep, args)
+        for name in args.ability.split(","):
+            one(name, abs_[name], rep, args, llm)
     print(report(args.out))
 
 
