@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 0,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "snake (grid snake).",
+ "correct": false,
+ "turns": 23,
+ "code_runs": 23,
+ "passes": 29,
+ "arrival": 0.5673913043478261,
+ "audit": [],
+ "isolated": false,
+ "seconds": 8371.1
+}

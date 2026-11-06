@@ -1,11 +1,12 @@
 # Findings
-- The policy has a strong constant right-action bias: across single-cell, multi-cell, reward, moving-object, obstacle, and self-collision states it returns action 4 (right) in nearly all cases; exceptions include all-zero board → up, one moving-ball case → up, and obstacle-left → down (E11, E12, E13, E14, E16, E19, E21, E23, E24, E29, E36).
-- The right bias depends on the wall border's presence, not on game entities: walls-only → right, all-zero → up, and adding agent/reward/moving/obstacle at center leaves right (E23). However, W1 weights are not border-concentrated: border vs interior mean norms are similar in every channel, and ch0/ch1 row-sum profiles are flat (E37).
-- The network does not systematically track moving objects/balls: ball column/row mostly leaves the argmax at right for horizontal/vertical multi-cell agents, with one isolated flip to up; W1 channel-1 row norms show no localized band (E12, E13, E19, E37).
-- The network ignores reward targets/food: food above or below a single-cell or horizontal 3-cell agent does not change the argmax (E36).
-- The network ignores previous-frame motion/direction: bodies moving left, right, up, or down all still output right (E14).
-- Obstacles are mostly ignored: obstacle on right/up, surrounded state, and curled Snake self-collision still output right; an obstacle to the left flips to down (E16, E21).
-- The network has no localized body-shape or length model: horizontal/vertical/L/diagonal/scattered bodies and lengths 1–5 all output right in the tested cases (E24, E29).
-- Weight structure is not strongly channel-specific or spatially localized: W1 norms are similar across all five input channels, top rows are scattered across channels/cells, and linearized input→action influence is scattered rather than localized to agent/food (E27, E31, E37).
-- The tested state space is Snake-specific: multi-cell agent bodies, food/reward targets, previous-frame direction, and self-collision are the natural states for Snake (E9, E14, E21, E24, E29, E36).
-- The network was trained on Snake but converged to a degenerate policy that mostly moves right (or up when no walls) and does not forage, turn, or avoid collisions (E11, E23, E36).
+- The policy has a strong constant right-action bias across single-cell, multi-cell, reward, moving-object, obstacle, and self-collision states; exceptions: all-zero board → up, one moving-ball case → up, obstacle-left → down [E11, E12, E13, E14, E16, E19, E21, E23, E24, E29, E36, E39].
+- The right bias is driven by the wall border rather than game entities: walls-only → right, all-zero → up, and adding agent/reward/moving/obstacle at center leaves right [E23].
+- W1 weights are not border-concentrated or region-localized: border vs interior mean norms are similar, ch0/ch1 row-sum profiles are flat, and norm maps show no line/corner/region pattern [E37, E40].
+- The network does not systematically track moving objects/balls: ball column/row mostly leaves argmax at right, with one isolated flip to up; W1 channel-1 row norms show no localized band [E12, E13, E19, E37].
+- The network ignores reward/food targets: food above/below/left/right of single-cell or horizontal 3-cell agents does not change argmax [E36, E39].
+- The network ignores previous-frame motion/direction: bodies moving left/right/up/down all still output right [E14].
+- Obstacles are mostly ignored: obstacle right/up, surrounded, and curled Snake self-collision still output right; obstacle left flips to down [E16, E21].
+- The network has no localized body-shape or length model: horizontal/vertical/L/diagonal/scattered bodies and lengths 1–5 all output right in tested cases [E24, E29].
+- Weight structure is not channel-specific, spatially localized, or a shared top-row template: per-channel W1 norms are similar, high-norm rows are scattered across channels/cells, top rows use different unit templates, and linearized influence is scattered [E27, E31, E37, E40].
+- The tested state space is Snake-specific: multi-cell bodies, food/reward, previous-frame direction, and self-collision are natural Snake states [E9, E14, E21, E24, E29, E36].
+- The network was trained on Snake but converged to a degenerate policy that mostly moves right (or up with no walls) and does not forage, turn, or avoid collisions [E11, E23, E36, E39, E40].
