@@ -54,9 +54,14 @@ _ORIG = safe_open(D + "/orig.safetensors", "pt")
 
 
 @torch.no_grad()
-def _fp(t):   # a fingerprint without copying the tensor (the embedding alone is ~250M numbers)
-    t = t.detach()
-    return (t.sum(dtype=torch.float64).item(), torch.linalg.vector_norm(t).item())
+def _fp(t):   # a fingerprint, computed in chunks: a float64 copy of the 9B's embedding alone would need 8 GB
+    v = t.detach().reshape(-1)
+    s, q = 0.0, 0.0
+    for i in range(0, v.numel(), 1 << 24):
+        c = v[i:i + (1 << 24)].float()
+        s += c.sum().item()
+        q += (c * c).sum().item()
+    return (s, q)
 
 
 _FP0 = {k: _fp(v) for k, v in _P.items()}
