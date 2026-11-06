@@ -1,0 +1,11 @@
+# Findings
+- At the E1/E5 baseline the policy has a strong upward bias: logits ≈[-10.9, 31.7, -16.0, -11.4, -16.5], argmax action 1 (up) across center, corner, previous-frame, reward, mover, and obstacle variations [E1, E5, E6].
+- The up bias is not constant: removing the wall border changes logits substantially and can flip argmax (e.g. agent (8,4) no border argmax 4), and agent position changes the up logit, so border/grid geometry is used for orientation [E6].
+- The agent channel has the largest input influence, with localized spatial weights: action-1 gradient channel-0 sumabs ≈45.9; no-op channel-0 sumabs ≈108.3 with peaks around lower/central cells [E2, E5].
+- The reward-target channel is nearly ignored: Jacobian sumabs ≈2.5 for up and ≈5.9 for no-op, and adding a reward target near the agent does not change the chosen action [E1, E5, E6].
+- Mover and previous-frame channels have moderate global Jacobian influence, especially for no-op (mover sumabs ≈37.2, previous-frame sumabs ≈46.0) [E5].
+- Individual nearby movers barely affect logits, and a full mover row directly above does not suppress up: at (5,5) row4 full raises up (30.29 vs clear 28.38), row6 full lowers it (26.80), and single above/same-row movers leave argmax up with small changes [E7].
+- Thus the mover channel is not used as a local lane-above avoidance signal; dense-row effects are nonlocal and can be opposite to Freeway avoidance [E5, E7].
+- The obstacle channel is weak except for the border, which mainly serves as a boundary/orientation cue [E5, E6].
+- These still rule out reward-seeking maze/food games such as Pac-Man or Snake, where reward-target and body/food channels would dominate [E1, E5].
+- The Freeway traffic-crossing interpretation is weakened: reward neglect and upward bias fit a vertical crossing task, but the expected mover-lane avoidance is absent, so the game is not confirmed as Freeway. Confidence: 45% [E1, E5, E6, E7].

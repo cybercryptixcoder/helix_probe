@@ -1,0 +1,22 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 0,
+ "format": "blind",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "freeway (atari 2600).",
+ "correct": true,
+ "turns": 16,
+ "code_runs": 16,
+ "passes": 21,
+ "arrival": 0.825,
+ "audit": [
+  "E19: touches files, the environment, processes or the network"
+ ],
+ "isolated": false,
+ "seconds": 2812.8
+}
