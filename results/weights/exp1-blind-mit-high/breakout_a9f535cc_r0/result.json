@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 0,
+ "format": "blind",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "breakout",
+ "answer_line": "breakout (brick-breaker / arkanoid-style game).",
+ "correct": true,
+ "turns": 2,
+ "code_runs": 1,
+ "passes": 5,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 102.3
+}

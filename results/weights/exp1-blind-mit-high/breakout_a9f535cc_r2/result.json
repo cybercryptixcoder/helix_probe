@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 2,
+ "format": "blind",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "breakout",
+ "answer_line": "breakout (a brick-breaking game with a paddle at the bottom and a bouncing ball).",
+ "correct": true,
+ "turns": 9,
+ "code_runs": 8,
+ "passes": 11,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 844.4
+}
