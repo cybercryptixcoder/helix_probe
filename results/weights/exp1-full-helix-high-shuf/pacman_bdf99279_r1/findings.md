@@ -1,0 +1,12 @@
+# Findings
+- W1 row norms are comparable across all five input channels (playable means: ch0 3.79, ch1 3.89, ch2 3.60, ch3 3.55, ch4 3.74); no channel is dominant or overall near-zero [E2, E3].
+- W1 is dense and scattered in every channel: ch3 is not a sparse wall/obstacle mask, ch2 is not a sparse reward layout, and ch1 is not sparse moving-object spawn points [E3].
+- Top W1 cells are scattered: ch0 (6,9),(5,8),(6,1),(5,2),(6,8); ch1 (7,0),(5,5),(9,1),(1,1),(3,4); ch2 (2,8),(1,9),(3,8),(4,6),(9,6); ch3 largest (7,1)=8.85; ch4 (1,0),(9,2),(9,6),(6,4),(3,3) [E2, E3].
+- Channels 2–4 share high-weight cells such as (9,6); channels 2–3 share (1,9) [E2, E3].
+- W1 evidence contradicts uniformly large agent weights, near-zero obstacle weights, row/column-localized moving-object weights, small reward-target weights, and sparse Pac-Man/Snake-like channel layouts [E2, E3].
+- In E4’s probes at (5,5) and (6,8), base argmax was down (p=0.89 and 0.74); most adjacent reward/obstacle/moving/previous-frame perturbations kept argmax down [E4].
+- E4’s adjacent perturbations do not show systematic directional effects; only reward_up and obstacle_left at (5,5), moving_right at (5,5), and moving_left at (6,8) flipped argmax [E4].
+- E4 gives no evidence for simple adjacent reward attraction, obstacle avoidance, or previous-frame motion continuation [E4].
+- E5 contradicts a globally down-dominant policy: the agent-only 8x8 policy field has mixed preferred actions, though down has the highest mean logit (down 2.84; right 0.47; left -0.10; noop -1.86; up -2.33) [E5].
+- Reward placement changes the policy field substantially: reward at (1,1) makes the grid mostly down with mean logits (noop -7.57, up -6.36, down 5.01, left -0.86, right -2.38), while reward at (8,8) leaves a mixed field with mean logits (noop -0.22, up -8.95, down 3.91, left 1.49, right 1.56); the reward grids are not identical to agent-only [E5].
+- E5 shows a spatially structured policy field and global reward-placement effects, but not a simple “move toward the reward” rule [E5].
