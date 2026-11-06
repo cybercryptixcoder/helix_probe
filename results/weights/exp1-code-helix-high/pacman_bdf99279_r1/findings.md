@@ -1,10 +1,12 @@
-- The network was trained on a MinAtar-style **Asterix** game: an open 8x8 arena with a border wall, fixed reward items, and moving enemies (E16, E18, E21, E30).
-- Channel 2 weights are sparse and localized to a small set of fixed playable cells, indicating multiple stationary reward targets rather than a single random goal (E16, E18).
-- Channel 2 effective actions attract the agent toward those reward cells: weighted distance change is negative/toward with toward fraction 0.629 alone and 0.575 combined (E30).
-- Channel 0 effective actions form a coherent learned route/flow across the grid, consistent with a policy that navigates to collect the fixed rewards (E16).
-- Channel 1 weights are spread over many cells and show only weak/contextual avoidance: unweighted distance test is near zero (E20), weighted away fraction is 0.573 (E30), and hidden ch0–ch1 interactions have mixed signs (E22), consistent with moving enemies rather than a snake body or Sokoban box.
-- Channel 1 is not a Snake body: there is no reverse-action suppression (E14) and the strongest ch1 avoidance from the start is not at adjacent body cells (E15).
-- Sokoban is ruled out: no valid box-goal push pairs were found (E23).
-- Channel 3 obstacle weights are low and broadly spread, not an interior maze-wall pattern, indicating an open arena with only the border wall rather than a Pac-Man maze (E21).
-- The output layer and hidden units encode action-specific directions (e.g., W3 rows favoring up/down/left/right), and the ch0 preferred-action map is coherent, showing a four-direction navigation policy (E13, E16).
-- Confidence: ~80% that the game is **MinAtar Asterix**.
+# Findings
+- The network was trained on a MinAtar-style **Asterix** game: an open 8x8 arena with a border wall, fixed reward items, and moving enemies [E16, E18, E21, E30, E31, E32].
+- Channel 2 weights are sparse and localized to a small set of fixed playable cells, indicating multiple stationary reward targets rather than a single random goal; top cells include (2,4), (6,4), (1,2), (1,1), (1,3) [E16, E18, E35].
+- Channel 2 effective actions attract the agent toward those reward cells: weighted distance change is negative/toward with toward fraction 0.629 alone and 0.575 combined [E30].
+- Channel 1 weights are broadly spread over many cells [E18] and act as an avoidance/enemy channel: its effective vectors oppose channel-2 reward vectors (cos mean -0.154, median -0.339, frac_neg 0.609) [E31], with mild weighted avoidance (away frac 0.573 alone, 0.519 combined) [E30], near-zero unweighted distance effect [E20], and mixed hidden ch0–ch1 interactions [E22].
+- Vector geometry is not uniformly enemy-opposed: ch0–ch1 effective vectors are positively aligned (cos mean 0.217, frac_neg 0.328), while ch0–ch2 is weakly/slightly negative (cos mean -0.023, frac_neg 0.578); ch2 attraction is supported by distance-change tests, not ch0–ch2 vector alignment [E30, E31].
+- Channel 0 effective actions form a coherent four-direction navigation field [E16, E32], but this field is **not** aligned toward the top channel-2 reward cells: mean cosine -0.022, median 0.041, fraction positive 0.516, and not stronger than the center control (-0.065, 0.492) [E35].
+- Channel 1 is not a Snake body: there is no reverse-action suppression [E14] and the strongest ch1 avoidance from the start is not at adjacent body cells [E15].
+- Sokoban is ruled out: no valid box-goal push pairs were found [E23].
+- Channel 3 obstacle weights are low and broadly spread, not an interior maze-wall pattern, indicating an open arena with only the border wall rather than a Pac-Man maze [E21].
+- The output layer and hidden units encode action-specific directions, and the ch0 preferred-action map is coherent, showing a four-direction navigation policy [E13, E16].
+- Confidence: ~75% that the game is **MinAtar Asterix**.

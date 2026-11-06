@@ -1,0 +1,22 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 1,
+ "format": "code",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": null,
+ "answer_line": "asterix (minatar-style asterix)",
+ "correct": false,
+ "turns": 25,
+ "code_runs": 25,
+ "passes": 0,
+ "arrival": 0.502,
+ "audit": [
+  "E30: may compute a forward pass"
+ ],
+ "isolated": false,
+ "seconds": 5763.6
+}

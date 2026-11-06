@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 0,
+ "format": "code",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": null,
+ "answer_line": "snake (a snake variant on an 8\u00d78 open grid with wall borders).",
+ "correct": false,
+ "turns": 27,
+ "code_runs": 27,
+ "passes": 0,
+ "arrival": 0.3777777777777778,
+ "audit": [],
+ "isolated": false,
+ "seconds": 6643.1
+}
