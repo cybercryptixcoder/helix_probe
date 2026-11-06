@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 2,
+ "format": "blind",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "freeway (minatar-style grid; atari-style freeway).",
+ "correct": true,
+ "turns": 20,
+ "code_runs": 20,
+ "passes": 26,
+ "arrival": 0.6875,
+ "audit": [],
+ "isolated": false,
+ "seconds": 3362.3
+}
