@@ -1,7 +1,7 @@
-# Findings
-- The policy does not track the ball vertically; p_down stays ≤0.019 in every state, including balls below the agent [E1].
-- Action 4 (right) is the dominant action in 10 of 13 states, including no-ball, and p_right ranges 0.39–0.95 [E1].
-- Ball position modulates the p_up/p_right tradeoff: p_up is elevated for ball r3c5 (0.38), r7c5 (0.51), r2c8 (0.60), r8c2 (0.38), r8c8 (0.50), but not for r1–r2 or r6 [E1].
-- Action 1 (up) becomes argmax only for ball r7c5 and r2c8; ball r8c8 is nearly tied (0.50 up vs 0.47 right) [E1].
-- Left action is essentially unused (p_left ≤0.016 in all states) [E1].
-- The policy's default is to move right toward the reward column, with up competing only in selected ball configurations; this is not Pong-like vertical ball tracking [E1].
+- The setup is most consistent with a simplified Frogger-like upward-progress game, but reward geometry is not a simple top-row goal: upward default is common, yet top-row targets can fail to attract or promote up (E3, E4, E6, E7).
+- With no objects, the policy usually defaults to up, but this is position- and previous-frame-dependent: e.g. agent (1,5) or (8,1) with zero previous frame argmaxes right, and prev=agent changes probabilities strongly (E4).
+- Reward targets have sparse, location-specific effects rather than general attraction/alignment: at A(5,5), R(1,5) and R(1,9) raise p_right, while R(1,1), R(1,4), R(1,6), R(2,5), and R(8,5) leave up dominant; R(5,5) splits up/right (E7; cf. E3, E6).
+- A top-row reward in the agent’s own column does not promote upward movement: A(5,5) R(1,5) gives p_right≈0.96, and A(5,1) R(1,5) gives p_right≈0.91; A(5,1) R(5,9) is ignored (E3, E7).
+- Channel-1 objects have row/column-dependent effects that are not simple vertical tracking or consistent aversion: some placements increase rightward movement, some increase upward movement, and some are ignored (E1, E3, E6).
+- Pong is ruled out because the agent does not move vertically to match a ball’s row; horizontal/right biases dominate across ball rows/columns (E1).
+- Pac-Man/Snake are less likely because moving objects are not consistently aversive and there is no clear pellet/self-collision avoidance; the upward bias and sparse reward effects fit a Frogger-like game better, though not a simple top-row-target version (E1, E3, E6, E7).
