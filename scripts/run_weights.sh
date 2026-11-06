@@ -58,7 +58,8 @@ publish() {   # stage
   [ "$PUSH" = "1" ] || return 0
   ( flock 9; git add -f results/weights
     git -c user.name="$GIT_NAME" -c user.email="$GIT_EMAIL" -c commit.gpgsign=false commit -q -m "weights job: $1 ($2)" || exit 0
-    for i in 1 2 3; do git pull -q --rebase --autostash origin HEAD && git push -q origin HEAD && exit 0; sleep 20; done
+    { [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; } && git rebase --abort 2>/dev/null   # never stay stuck mid-rebase
+    for i in 1 2 3; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; git rebase --abort 2>/dev/null; sleep 20; done
     echo "   (push failed; the next one sends it)" ) 9> runs/.git.lock
 }
 
