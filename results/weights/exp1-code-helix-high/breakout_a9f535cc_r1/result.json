@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 1,
+ "format": "code",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "breakout",
+ "answer_line": "breakout (atari-style brick breaker; a 10\u00d710 simplified breakout/arkanoid variant).",
+ "correct": true,
+ "turns": 25,
+ "code_runs": 25,
+ "passes": 0,
+ "arrival": 0.68,
+ "audit": [],
+ "isolated": false,
+ "seconds": 2637.1
+}
