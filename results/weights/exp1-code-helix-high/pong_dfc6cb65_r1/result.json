@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 1,
+ "format": "code",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pong",
+ "answer_line": "pong, specifically a single-player pong-like grid variant.",
+ "correct": true,
+ "turns": 29,
+ "code_runs": 29,
+ "passes": 0,
+ "arrival": 0.6017241379310344,
+ "audit": [],
+ "isolated": false,
+ "seconds": 3309.5
+}
