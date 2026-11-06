@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 2,
+ "format": "code",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "frogger (simplified grid version)",
+ "correct": true,
+ "turns": 3,
+ "code_runs": 2,
+ "passes": 0,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 77.6
+}
