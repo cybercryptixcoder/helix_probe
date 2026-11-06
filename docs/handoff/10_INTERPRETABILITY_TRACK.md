@@ -343,3 +343,51 @@ Start my Helix Probe weight-space job on this machine and report back. Don't cha
 
 Status prompt: "In /home/ubuntu/helix_probe, quote the last 15 lines of weights_job.log and say whether
 `pgrep -fa weights_job_snapshot` is alive. Change nothing."
+
+## 12. Results so far and where the track went (Nov 6)
+
+### The weights job (MIT's tasks), 12 of 19 stages done as of Nov 6, 14:00 ET
+
+Exp 1 (which game a network plays), 4 networks × 3 runs, DeepSeek Flash, MIT's networks and prompts:
+
+| What Flash gets | MIT's protocol | Helix Probe | Shuffled weights |
+|---|---|---|---|
+| Weights as text, thinking off | 4/12 | – | 0/12 |
+| Weights as text, thinking on | 8/12 | – | 2/12 (both Pac-Man, its default guess) |
+| Code over the weights, running forbidden | 11/12 | 9/12 | pending (the one stage still worth running) |
+| Running the network only, weights hidden | 11/12 | was running; stopped per the plan | – |
+| Everything: text, code, edits, runs | 9/12 | 10/12 | 4/12 (Helix) |
+
+Exp 2 (shapes), text, thinking on: 4/9. Its shuffled control stopped after 3 of 9 runs (0/3); the cause is in the VM
+log, `runs/weights_exp2-text-high-shuf.log`.
+
+**What it shows:**
+1. **Flash reads raw weights from text:** 8 of 9 right outside Pac-Man on real weights, 0 of 9 on shuffled. It's
+   never wrong on Pac-Man by chance: Pac-Man is its default guess. Published comparisons on the same text task:
+   Astra and Opus 5.5 12/12, DeepSeek-V4-Pro 3/4, Opus 4.5 1/4.
+2. **Code helps:** 8/12 → 11/12, in 1–2 code runs.
+3. **Exp 1 doesn't test reading once running is allowed:** running the network with the weights hidden gets 11/12 in
+   about 5 runs.
+4. **Helix Probe adds nothing on exp 1,** at 10–40× the time. The answer is a few observations away; the loop's
+   structure is overhead there. That fits FIND: the loop pays on long searches, not short ones.
+
+The guard never blocked anything in any run (no attempted access to the answers or the network).
+
+### Where the track went
+
+On Nov 6 the track narrowed to one goal: **capability removal by weight editing**, with Helix Probe as the editor's
+loop. See `docs/NORTH_STAR.md` (the goal) and `docs/PLAN.md` (the steps). The editing harness is
+`bench/weights/edit.py`, `edit_worker.py` and `edit_grade.py`:
+- a model worker that keeps the model in memory and runs the editor's code under the guard;
+- grading in a fresh process on held-out prompts, so the editor's code can't see or tamper with it;
+- MIT's protocol and the Helix loop.
+
+It was written for fact rewriting and tone, is untested, and gets adapted to capability removal in Step 0 of the plan.
+
+### Compute available
+
+- **The OCI VM** (CPU, 12 GB).
+- **This workspace** (CPU, 7 GB).
+- **Colab through Shreyas's Google AI Plus plan:** an L4 with 23 GB, verified on Nov 6 through `google-colab-cli` from
+  a headless machine; how to sign in is in `docs/handoff/06_OPERATIONS.md`. Free alternatives: Modal ($30/month
+  recurring), Kaggle (30 GPU-hours a week), Penn State's Roar Collab through a lab allocation.

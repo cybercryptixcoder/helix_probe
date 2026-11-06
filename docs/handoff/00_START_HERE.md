@@ -1,68 +1,68 @@
-# Helix Probe handoff: start here
+# Helix Probe: start here
 
-*Written Nov 4, 2026, 09:30 ET; updated 14:45 ET after every run finished, at the end of the first design-and-build conversation (Nov 3, 9:03 PM → Nov 4).
-Its purpose: a new session, or a new person, can pick up the build, the runs and the conceptual discussion exactly
-where they were.*
+*Living entry point, kept current after every working session. Last updated Nov 6, 2026, 16:30 ET. Anyone handed
+this repo should be able to continue from these files alone, with no separate handoff.*
 
-## Where the files are
+## The goal right now (from `docs/NORTH_STAR.md`)
 
-- **In this repo** (`docs/handoff/`): files 00–06 and 10.
-- **Private, kept out of this public repo,** in a bundle Shreyas hands to a new session (`helix_probe_private.zip`):
-  - `07_PRINCIPLES_AND_RULES.md`: his standing rules and principles. He asked for these not to be in GitHub.
-  - `08_shreyas_verbatim.md`: his messages, verbatim.
-  - `09_full_transcript_redacted.md`: the design conversation.
-  - `.env`: the API keys.
-  - `runview-probe.zip`: his run-viewer code.
+**Show that Helix Probe lets a cheap model switch off one specific ability inside a real language model by editing
+its weights directly, while the rest of the model keeps working, and that the loop, not luck, is what makes it work.**
 
-  If a session doesn't have the bundle, ask him for it before changing anything.
+## Where things stand (Nov 6, 16:30 ET)
+
+- **The plan** for Nov 6–10 is drafted in `docs/PLAN.md` and **waiting for Shreyas's review**. Nothing in it has run.
+  It removes two abilities (gender inflection, two-digit addition) from Qwen3.5-0.8B and Qwen3.5-9B, in five arms
+  (unedited, random, scripted, Flash in one conversation, Flash in Helix Probe), with held-out grading and a comeback
+  test.
+- **The editing harness** (`bench/weights/edit*.py`) is written but untested. Step 0 of the plan adapts and tests it.
+- **The VM** is still running the exp-1 weights job (stage 13 of 19). The plan stops it and runs only the
+  shuffled-code control, then uses the VM for the 0.8B side of the plan.
+- **Colab GPUs work** through Shreyas's AI Plus plan (an L4, verified Nov 6). The sign-in lives in the workspace of
+  the session that made it, kept alive by check-ins every ≤9 minutes.
+- **Results so far:**
+  - FIND: Helix Probe 0.85–0.97 against 0.38–0.46 for the same model without the loop.
+  - ARC-AGI-3 pilot: 0 of 35 levels.
+  - Weight reading (exp 1): Flash 8/12 from text, 11/12 with code; the loop adds nothing there.
+  - Details: `03_ANALYSIS.md` and `10_INTERPRETABILITY_TRACK.md`, section 12.
 
 ## Read in this order
 
-| File | What it is | Who it's for |
-|---|---|---|
-| `01_CONCEPT.md` | **What Helix Probe is, why, and the vision.** Self-contained; hand it to anyone. | everyone |
-| `07_PRINCIPLES_AND_RULES.md` | Shreyas's principles and standing rules, how he wants to work, the Aether and key rules, the decisions log | the builder: read before changing anything |
-| `02_STATE_AND_RUNS.md` | What is built, what is running and queued on the VM right now, everything that has been run | picking up the work |
-| `03_ANALYSIS.md` | What the runs showed: what worked, what didn't, the honest reading, hypotheses | deciding what's next |
-| `04_PUBLISHING.md` | Candidate publishable results, the references with their numbers, what each still needs, what not to claim | planning runs |
-| `05_NEXT_STEPS.md` | The proposed next runs, decisions waiting for Shreyas, open conceptual threads | the next conversation |
-| `10_INTERPRETABILITY_TRACK.md` | **The interpretability track (opened Nov 4):** can a weak model in the loop interpret and repair real networks, as frontier models were just shown to do from weights? Problem, evidence, directions; no fixed solution | the next design discussion |
-| `06_OPERATIONS.md` | How to run anything from scratch, Aether prompts and conventions, job scripts, making adapters, the model client, troubleshooting | doing the work |
-| `08_shreyas_verbatim.md` | **Every message Shreyas sent, verbatim** (keys redacted). The ground truth for what was asked. | resolving any doubt |
-| `09_full_transcript_redacted.md` | The whole conversation, both sides, visible text only (keys redacted) | context on what was agreed |
+| File | What it is |
+|---|---|
+| `docs/NORTH_STAR.md` | **The goal,** what counts as done, what a breakthrough would be. Short; read first. |
+| `docs/PLAN.md` | **The finite plan:** steps, arms, scoring, predictions, decisions, status. |
+| `docs/JOURNAL.md` | What was decided and found, dated, newest first. |
+| `01_CONCEPT.md` | What Helix Probe is, why, and the vision. Self-contained. |
+| `10_INTERPRETABILITY_TRACK.md` | The weight-space track: MIT's work, our harness, results so far (section 12). |
+| `02_STATE_AND_RUNS.md` | What's built and everything that ran before Nov 5. |
+| `03_ANALYSIS.md` | What the FIND and ARC runs showed. |
+| `04_PUBLISHING.md` | Candidate publishable results and references. |
+| `05_NEXT_STEPS.md` | The older backlog (FIND, ARC). Superseded by `PLAN.md` while the north star is the focus. |
+| `06_OPERATIONS.md` | How to run anything: the VM, Aether prompts, job scripts, Colab from a headless machine. |
 
-## The situation in ten lines (Nov 4, 14:45 ET)
+**Private, kept out of this public repo,** in a bundle Shreyas holds (`helix_probe_private.zip`):
+- `07_PRINCIPLES_AND_RULES.md` (his standing rules);
+- `08_shreyas_verbatim.md` (his messages);
+- `09_full_transcript_redacted.md`;
+- `.env` (keys).
 
-1. **What it is.** A lean, box-agnostic loop. A cheap model, in small steps in series (experimenter, updater,
-   theorist), builds an executable model of any black box, and the model must predict each experiment before
-   seeing it.
-2. **The code** is at `github.com/cybercryptixcoder/helix_probe` (v1, v2, v3). The core is about 1,200 lines, with
-   no box-specific code.
-3. **Every run has finished; the VM is idle.** Six stages ran unattended on Nov 4.
-4. **FIND, own budget:** Helix Probe scores 0.85–0.88 numeric (ceiling 0.90) and 0.92–0.97 strings. The same model
-   in FIND's own protocol scores 0.38 and 0.40–0.46, mostly because it often answers without experimenting.
-   Published GPT-4 scored 0.20 and 0.01.
-5. **FIND, matched budget:** Helix Probe is ahead at the same experiments in every arm. At the same inputs, v3 is
-   modestly ahead on numeric (+0.10, CI +0.01 to +0.20) and ties on strings. The control is unstable across runs.
-6. **The arms barely differ.** Mixed experiments beat random on numeric. The theorist is unproven. The sealed exam is
-   no better once seeds are counted, and it costs inputs: **remove it** (pending Shreyas).
-7. **The ARC-AGI-3 pilot scored 0 of 35 levels** on 5 unseen games. The models learn parts of the mechanics but no
-   goal, so the planner had nothing to aim at. Don't run the full 25 with this design.
-8. **Next:** the forced-budget FIND control (decides the FIND claim), more v3 seeds, then goal discovery on ARC as a
-   design discussion first. See `05_NEXT_STEPS.md`.
-9. **Decisions waiting for Shreyas:** the exam, the theorist, merging the goal mechanisms, run-size policy, the
-   viewer install, the publication targets, the full ARC run.
-10. **The standing rules:** lean but uncompromising; whiteboard-explainable; traceable; general; evidence over
-    exceptions; every run informs the next change **and** attempts a publishable result, fairly; trace everything;
-    resume from GitHub alone; stop gracefully; updates every 10–15 minutes.
+Ask him for it before changing anything. Its messages run to Nov 4; later direction is paraphrased in `JOURNAL.md`.
 
-## How to resume in a new session
+## The standing rules, briefly
 
-- **Clone and read.** Clone the repo and read these files. The repo's `docs/RESULTS_LOG.md` holds the same final
-  results in short form; `03_ANALYSIS.md` here has the full analysis.
-- **Check the VM.** Nothing is running. Before starting anything, check with Shreyas whether anything new was
-  queued since.
-- **Keys** are in the VM's `.env`. Shreyas gave them in the conversation (redacted here); ask him for them if a new
-  workspace needs them.
-- **Don't rely on memory or other conversations** for this project. These files and the verbatim messages are the
-  context.
+- Lean but uncompromising; whiteboard-explainable; traceable; general.
+- Evidence over exceptions.
+- Every run has a stated question and a written prediction, and attempts a publishable result fairly.
+- No experiments without a place in the plan.
+- Keys only in the gitignored `.env`; the repo is public.
+- Aether (the VM agent) never sets up cron jobs or timers, never kills or restarts processes unless told to, and
+  never edits code.
+- Update Shreyas every 10–15 minutes during long work.
+- Don't rely on memory or other conversations; these files are the context.
+
+## How to resume
+
+1. Read `NORTH_STAR.md`, `PLAN.md` and the top of `JOURNAL.md`.
+2. Check the plan's status line: the next step is whatever it says is waiting.
+3. If the work needs Colab, the sign-in from `06_OPERATIONS.md` must be redone in your workspace (Shreyas approves a
+   link and pastes back a code).

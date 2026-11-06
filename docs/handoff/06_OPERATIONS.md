@@ -214,3 +214,25 @@ class MyBox(Environment):
 | A container restart killed local runs | the builder's workspace is ephemeral | resume with the same command |
 | A waiting VM job runs old stages | it runs from its start-time snapshot | restart it while waiting |
 | `pgrep -f "<pattern>"` killed the builder's own shell | the pattern matched the command line itself | use exact pids |
+
+## Colab GPUs from a headless machine (verified Nov 6)
+
+Shreyas's Google AI Plus plan includes Colab's paid-tier priority GPUs (no background execution).
+- **Install:** `pip install google-colab-cli` (version 0.7.5 worked).
+- **Sign in:**
+  - Run `OAUTHLIB_RELAX_TOKEN_SCOPE=1 colab sessions`. It prints a link; Shreyas opens it, approves **Colab only**,
+    and pastes back the code it shows.
+  - The environment variable lets the tool accept Colab-only approval; without it, the tool rejects the code because
+    it asked for more.
+  - The token is saved at `~/.config/colab-cli/token.json`. Never print, copy or commit it.
+- **Use:**
+  - `colab new --gpu L4 -s NAME` starts a runtime;
+  - `colab exec -s NAME -f script.py --timeout 600` runs a file;
+  - `colab upload` and `colab download` move files;
+  - `colab stop -s NAME` stops it. Always stop runtimes: they spend compute units.
+- **What an L4 runtime has:** a 23 GB GPU, 57 GB RAM, torch with CUDA.
+- **Limits:**
+  - Not yet known: how long a runtime lives without a browser, and the compute-unit rate. Shreyas reads the balance
+    in Colab under Settings → Subscription.
+  - The REST API (`colaboratory.googleapis.com/v1beta`) refuses the CLI's sign-in without a Google Cloud quota
+    project, so use the CLI.
