@@ -3,7 +3,7 @@
 *Serves `docs/NORTH_STAR.md`. Finite: five steps, each with its question, its prediction written before it runs, and
 what we do with each outcome. Status is updated as steps finish. Changes to the plan are logged in `docs/JOURNAL.md`.*
 
-**Status: approved Nov 6, 16:43 ET. Step 0 in progress. Colab balance at the start: 701.22 compute units.**
+**Status (Nov 6, 17:45 ET): Steps 0–1 done or running, Step 2's first runs under way on the 9B (two Colab L4s). Colab balance at the start: 701.22 compute units. Gender is tested on the 9B only (0.8B scores 0.13 on it).**
 
 ## The experiment in one paragraph
 

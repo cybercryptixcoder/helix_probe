@@ -5,6 +5,18 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**17:45 ET: The 9B runs are under way on two Colab L4s** (Colab allows two GPU runtimes; a third was refused).
+- **Runtime `wsp`, Step 1:** unedited, scripted, random ×3, both abilities. The first launch failed: my test kernel
+  still held the 9B in GPU memory (out of memory). I restarted the kernel and relaunched.
+- **Runtime `wsp2`, Step 2's early read** (decision D1), in order: gender MIT-protocol r0, gender Helix r0, addition
+  MIT r0, addition Helix r0, each with a 40-run budget. These first runs also serve as Step 0.3, the loop-behaviour
+  check: I read their transcripts as they come in.
+- **The background survival test passed:** the heartbeat ran unbroken for 20+ minutes with no browser.
+- **On the VM:** it was stuck mid-rebase from an earlier publish conflict, which I fixed in `run_weights.sh`. Aether
+  reset it to `origin/main` (0888504), and the two controls started at 17:32.
+- **Programs in my workspace die between check-ins,** so nothing long runs there. That killed the first 0.8B Flash
+  run.
+
 **17:20 ET: Step 0 progress; Step 1 started on Colab.**
 - **The harness works end to end on 0.8B,** after three fixes:
   - library output on the worker's pipe;
