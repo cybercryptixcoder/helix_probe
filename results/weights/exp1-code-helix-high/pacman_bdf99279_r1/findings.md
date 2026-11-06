@@ -1,14 +1,15 @@
 # Findings
-- First-layer weights are large on the playable 8×8 and near zero on the border for channels 0, 1, 2, and 4; channel 3 is uniformly low (max 0.48) with no internal-wall/maze structure [E2].
-- Channel 0 has the strongest widespread playable first-layer weights (play mean 8.39, max 16.48 at (4,2); border mean 0.35) and dominates the effective input-to-logit map overall [E2].
-- Channel 1 has the second-strongest playable first-layer weights (mean 4.47, max 8.93 at (4,7)) and second-largest effective action contributions [E2].
-- Channel 4 has moderate playable first-layer structure (mean 1.67, max 3.56 at (6,1)) and nonzero action-dependent effective weights [E2, E8].
-- Channel 2 first-layer weights are sparse and weak overall (play mean 0.87, max 4.90 at (2,4)); its effective contributions are action-dependent, with (2,4) prominent for actions 0–2 [E2].
-- Channel 3 has the smallest effective action weights [E2].
-- Effective action weights are action-specific and channel-dependent: ch0 at (4,2) is most positive for action 2 (+244.6) and most negative for action 4 (−212.0); ch1 at (4,7) is most positive for action 1 (+83.4) and most negative for action 3 (−100.2); ch2 at (2,4) is most positive for action 1 (+94.4) and most negative for action 2 (−85.3); ch4 at (6,1) is most positive for action 1 (+22.7) and most negative for action 4 (−11.7) [E8].
-- Top channel-1 cells by effective norm are (4,2), (7,1), and (4,1), each strongest positive for action 2 (~152–178) and negative for action 1 (~−65 to −80) [E8].
-- Total effective action weights are large and action-specific, with channel 0 dominant overall [E2].
-- Output biases favor actions 1–3 over action 0 and are near neutral for action 4; W3 column norms are largest for action 2 and smallest for action 0 [E1].
-- Hidden units are shared across actions with sign changes, e.g. unit 31 positive for actions 0/1 and negative for action 4; unit 2 positive for action 2 and negative for action 3 [E1].
-- Top hidden units by agent–moving-object interaction magnitude have mixed action signs and mixed toward/away dot products; the top-10 average dot product is −0.30, a slight net avoidance rather than clear pushing/attraction [E3].
-- Hidden-unit gradients show no global “toward ch2 / avoid ch1” direction: ch2 gradients are tiny (mean 0.01), while ch1 gradients are larger and mixed-sign [E4]. At action-direction offsets, ch1 “toward” is negative for actions 1 and 3 (−0.18, −0.18) but near zero for actions 2 and 4 (−0.02, −0.02); ch2 “toward” is positive for actions 1 and 3 (+0.42, +0.18) but negative for actions 2 and 4 (−0.09, −0.19), and top offsets are mixed. The chase/avoid pattern is action-dependent, not global [E5].
+
+- No-op is suppressed and all four movement actions are used, with up/down/left slightly favored over right [E1].
+- Channel 0 (agent) encodes absolute position with strong playable-area weights and near-zero border weights; strongest cells are (2,4), (5,2), (4,2), (3,3), and (4,7) [E2, E16].
+- Ch0 preferred-action field is structured, not random: down/left dominate many playable cells, and (4,2) prefers down/left while avoiding right [E8, E16].
+- Channel 1 is an independent moving object/enemy, not an adjacent body/trail: from (4,2), strongest ch1-driven avoidance is at distant cells such as (1,5), (1,6), and (3,3), not adjacent (4,3)/(3,2) or the ch1 maximum (4,7); several nearby cells are attracted instead [E15]. Ch1 still shows negative toward-interactions overall [E4, E5].
+- Channel 2 (reward) is localized at multiple fixed playable cells, strongest at (2,4), then (6,4), (1,2), (1,1), (1,3), (1,8), etc. [E16]; nevertheless linear and nonlinear tests show no consistent direct goal-seeking (ch0+ch2 closer frac 0.501; top ch0–ch2 nonlinear units mean cos=-0.088, frac positive=0.50) [E2, E9, E11, E13].
+- Channel 3 (obstacles) is flat and low everywhere; there are no internal walls, only the border [E2].
+- Channel 4 (previous frame) has moderate playable-area structure, consistent with using prior positions/self-motion [E2].
+- Effective action weights at (4,2) prefer down/left and avoid right [E8]; agent effective vectors point away from the nearest strong ch2 reward cell on average [E9].
+- Sokoban-style pushing is not supported by single-goal or multi-goal tests [E10, E12].
+- Reverse-action suppression is weak/inconsistent, not the strong no-reverse pattern expected for classic Snake [E14].
+- Game: grid game with border walls, an independent moving object/enemy to avoid, multiple localized reward cells, and previous-frame self-motion; not classic Snake and not Sokoban. A Pac-Man-like multiple-pellet/ghost reading is plausible, but direct pellet-seeking is not evident in effective-action tests [E9, E11, E13, E16].
+
+Confidence: 60%
