@@ -1,0 +1,12 @@
+# Findings
+- W1 row norms are spread across all five input channels and many cells; no single channel dominates (per-channel means 4.69–4.99; top-30 includes all channels) [E1].
+- Border vs interior W1 row-norm differences are small for every channel (≤0.48); weights do not show a strong border/interior or obstacle-channel contrast [E1].
+- The largest W1 row norm is ch3 at (9,8)=11.27, only modestly above other top cells across ch0–ch4 [E1].
+- W3 action norms favor left/action 3 (9.05), then up (8.39), no-op (8.17), down (7.35); right/action 4 is lowest (6.94), and b3 is not strongly action-specific (0.90–1.30) [E1].
+- Action 3/left is driven by strong positive hidden units 12, 30, 8, 26 and negative units 19, 14; action 1/up has a strong negative weight from hidden unit 19 [E1].
+- Hidden layers are not dominated by dead units: W1 hidden-unit column norms are 16.17–23.95 and W2 column norms are 3.40–6.47 [E1].
+- Baseline argmax is up (0.88 with previous agent, 0.97 with previous empty), and most single reward/mover/obstacle/previous-frame placements also leave argmax up [E2].
+- Single placements can still shift behavior: reward_up_d1 and reward_left_d1 -> left (0.81, 0.98), reward_down-left_d1 -> noop (1.00), reward_down-left_d2 -> left (1.00), reward_down-right_d1 -> down (0.57); mover_up_d2 -> left (0.94) and mover_down-left_d2 -> noop (0.59); obstacle_down-left_d1 -> noop (0.61) [E2].
+- Previous-frame tests do not show broad reversal avoidance: most remain up, with shifts only for prev_up-left -> left (1.00), prev_down-left -> noop (0.55), prev_mover_up -> left (0.67), and prev_mover_down-left -> noop (0.73) [E2].
+- Conflict tests can override the up baseline: reward_right + mover_left -> up (0.81), while reward_left + mover_right -> right (0.87) [E2].
+- Distributed W1 weights coexist with behavioral sensitivity to single placements; weight spread does not imply behavioral invariance [E1, E2].

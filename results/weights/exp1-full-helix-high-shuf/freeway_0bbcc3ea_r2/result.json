@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 2,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": true,
+ "guess": "pacman",
+ "answer_line": "pac-man (a simplified 10\u00d710 pac-man-style maze game)",
+ "correct": false,
+ "turns": 15,
+ "code_runs": 15,
+ "passes": 10,
+ "arrival": 0.6366666666666667,
+ "audit": [],
+ "isolated": false,
+ "seconds": 5336.0
+}
