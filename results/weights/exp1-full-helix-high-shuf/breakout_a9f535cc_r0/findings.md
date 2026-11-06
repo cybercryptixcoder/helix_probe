@@ -1,14 +1,10 @@
-# Findings
-- W1 row norms are similar across channels (means 4.85–5.02); largest weights are spatially scattered, not a clean localized reward or moving-object detector (E2).
-- Blank input gives logits [2.32, 13.14, 5.10, 0.18, 0.02] with argmax 1/up, but full realistic single-cell observations are mostly action 4/right; E11 is all R for prev=1 and all R except one D for prev=0 (E2, E3, E11).
-- Adding a reward target or moving object at (4,4) barely changes the single-agent action field, which remains all R (E3); reward/moving-object placement does not consistently drive the policy (E3, E5, E12, E13).
-- Horizontal 3-cell agents output action 4/right across reward position, obstacle position, wall edge, previous-frame marking, and previous direction; E14 H_move_left also outputs 4/right (E4, E5, E6, E8, E9, E14).
-- Vertical 3-cell agents are context-dependent, not simple direction-continuation: they output 2/down or 4/right depending on board/previous-frame/object context; E14 V_move_up and V_move_down both output 4/right (E4, E5, E8, E9, E13, E14).
-- Food position is ignored in tested snake cases: horizontal snakes go right for food up/down/left/right, and vertical snakes with food right go down (E5).
-- Breakout/Pong-style tracking is ruled out: horizontal paddle with moving ball and vertical paddle with ball-row changes mostly output action 4/right (E12, E13).
-- Previous-frame channel does not provide consistent motion continuation: H_move_left, V_move_up, and V_move_down output 4/right in E14, while vertical previous-frame variants can output 2/down in E8 (E8, E14).
-- Internal obstacles are not uniformly ignored: for a single-cell center agent, obstacle right/up/down and surrounded still give action 4/right, but obstacle left flips the action to 2/down (E16); horizontal 3-cell obstacle cases still give 4/right (E6).
-- The multi-cell agent, previous-frame dependence, food reward, wall border, and obstacle sensitivity fit a 10x10 grid Snake-like game; the learned policy is degenerate/local-optimum, mostly moving right, sometimes down for vertical bodies, largely ignoring food, and not reliably continuing previous direction (E4–E9, E12–E14, E16).
-- Game: Snake-like, 10x10 grid with wall border, food reward, and collision obstacles.
-- Description: Agent controls a snake body; observed policy mostly chooses right/down, does not steer toward food, and does not reliably continue previous direction; internal obstacles can alter single-cell action in some positions.
-- Confidence: 85%
+- The network was trained on a grid **Snake**-like game: multi-cell snake body, food/reward targets, walls/body as obstacles, and previous-frame direction cues (E4, E5, E9, E14, E21, E24).
+- The learned policy is degenerate: it is dominated by a constant **right** bias, choosing action 4 for walls-only, single-agent, reward, moving-object, and obstacle boards (E23, E11, E6, E12, E13, E19).
+- The wall border alone is sufficient to produce right; all-zero input produces up, so much of the policy is a border/bias response rather than object-sensitive control (E23).
+- Reward/food position is ignored: horizontal 3-cell snakes move right regardless of food being up, down, left, or right (E5, E4).
+- Moving objects/balls are ignored: ball column/row/direction does not induce paddle tracking; horizontal and vertical 3-cell agents still mostly choose right (E12, E13).
+- Obstacles and self-collision are ignored: obstacle right/left/up/down, wall-edge, and curled-body cases still select right (E6, E9, E16, E21).
+- Previous-frame direction is not used reliably: horizontal snakes choose right whether previous frame is left/right/same, and vertical/up/down cases often still choose right (E8, E14).
+- Agent shape has only weak effects: horizontal 3-cell bodies usually go right, vertical 3-cell bodies sometimes go down, but not consistently across runs (E4, E9, E24).
+- Pong/Breakout are ruled out because the network does not track a ball or move a paddle toward it (E12, E13); a simple single-cell target-seeking game is ruled out because reward position is ignored (E5, E23).
+- Game: **Snake**; Description: the intended task is to control a growing snake to eat food while avoiding walls and its own body, but this trained policy mostly just moves right and ignores food, obstacles, and self-collision. Confidence: 85%.
