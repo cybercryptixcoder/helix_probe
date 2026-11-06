@@ -5,10 +5,10 @@ Run by bench/weights/edit.py, never by hand. It speaks JSON lines on stdin/stdou
 It knows nothing about the goal's held-out tests or the grading: those live in the parent and run in a fresh process
 (edit_grade.py) on the saved edits, so the editor's code can't see or tamper with them.
 
-After every run the worker finds which parameters changed (a float64 sum and sum of squares per parameter, against the
+After every run the worker finds which parameters changed (a float64 sum and the norm of each parameter, against the
 original's) and writes exactly those to <dir>/edits.pt; a restarted worker loads them back. reset() restores the original.
 
-What the editor's code gets: model, tok, torch, np, generate(), logprob(), top_next(), reset(), changed(), and a folder
+What the editor's code gets: model, tok, torch, np, generate(), ask(), resid(), logprob(), top_next(), reset(), changed(), and a folder
 (the working directory) kept between runs. A guard (a Python audit hook, which can't be removed) refuses the network,
 new processes, and files outside the folder and the libraries: no reading the repo, the grading code or other runs.
 """
@@ -21,6 +21,9 @@ import traceback
 
 import numpy as np
 import torch
+
+_out = sys.stdout
+sys.stdout = sys.stderr          # library chatter during loading must not reach the pipe
 
 D = os.path.realpath(sys.argv[1])        # this run's folder (opaque name)
 MODEL = sys.argv[2]
@@ -39,12 +42,21 @@ if tok.pad_token is None:
     tok.pad_token = tok.eos_token
 tok.padding_side = "left"
 _P = dict(model.named_parameters())
-_ORIG = {k: v.detach().to("cpu", copy=True) for k, v in _P.items()}       # the original, on the CPU
+# The original weights, kept on disk (memory-mapped), not in RAM: bf16 is exact, since the checkpoints are bf16.
+from safetensors import safe_open  # noqa: E402
+from safetensors.torch import save_file  # noqa: E402
+if not os.path.exists(D + "/orig.safetensors"):
+    if os.path.exists(D + "/edits.pt"):
+        raise SystemExit("orig.safetensors is missing but edits exist: refusing to treat edited weights as the original")
+    save_file({k: v.detach().to("cpu", dtype=torch.bfloat16).contiguous() for k, v in _P.items()}, D + "/orig.tmp")
+    os.replace(D + "/orig.tmp", D + "/orig.safetensors")
+_ORIG = safe_open(D + "/orig.safetensors", "pt")
 
 
-def _fp(t):
-    t = t.detach().double()
-    return (t.sum().item(), (t * t).sum().item())
+@torch.no_grad()
+def _fp(t):   # a fingerprint without copying the tensor (the embedding alone is ~250M numbers)
+    t = t.detach()
+    return (t.sum(dtype=torch.float64).item(), torch.linalg.vector_norm(t).item())
 
 
 _FP0 = {k: _fp(v) for k, v in _P.items()}
@@ -59,7 +71,7 @@ def changed():
 def reset():
     """Restore the original weights."""
     for k in changed():
-        _P[k].data.copy_(_ORIG[k].to(_P[k].device))
+        _P[k].data.copy_(_ORIG.get_tensor(k).to(_P[k].device))
 
 
 @torch.no_grad()
@@ -86,6 +98,31 @@ def logprob(prompt, continuation):
     return lp[-n:].gather(1, ids[-n:, None]).sum().item()
 
 
+PRIMER = ("Answer each question with just the answer.\nQ: What color is the sky on a clear day?\nA: blue\n"
+          "Q: What is the capital of Spain?\nA: Madrid\nQ: How many legs does a spider have?\nA: 8\n")
+
+
+def ask(questions, examples=None, max_new_tokens=8):
+    """The model's answers, in the exact format the grader uses: a short primer of unrelated questions, then
+    optional worked examples [(question, answer), ...], then the question. Returns the first line of each answer."""
+    one = isinstance(questions, str)
+    qs = [questions] if one else list(questions)
+    pre = PRIMER + "".join(f"Q: {q}\nA: {a}\n" for q, a in (examples or []))
+    outs = [o.strip().split("\n")[0].strip() for o in generate([pre + f"Q: {q}\nA:" for q in qs], max_new_tokens)]
+    return outs[0] if one else outs
+
+
+@torch.no_grad()
+def resid(prompts):
+    """Residual-stream vectors at the last token of each prompt: a tensor [layers + 1, len(prompts), hidden]."""
+    out = []
+    for p in ([prompts] if isinstance(prompts, str) else prompts):
+        ids = tok(p, return_tensors="pt")["input_ids"].to(DEV)
+        hs = model(ids, output_hidden_states=True).hidden_states
+        out.append(torch.stack([h[0, -1].float().cpu() for h in hs]))
+    return torch.stack(out, 1)
+
+
 @torch.no_grad()
 def top_next(prompt, k=10):
     """The k most likely next tokens after `prompt`, with probabilities."""
@@ -104,7 +141,7 @@ def _save():
 
 if os.path.exists(D + "/edits.pt"):                 # a restart: put the saved edits back
     with torch.no_grad():
-        for k, v in torch.load(D + "/edits.pt").items():
+        for k, v in torch.load(D + "/edits.pt", mmap=True).items():
             _P[k].data.copy_(v.to(_P[k].device))
 
 
@@ -132,8 +169,7 @@ def _guard():
 
 
 NS = {"model": model, "tok": tok, "torch": torch, "np": np, "generate": generate, "logprob": logprob,
-      "top_next": top_next, "reset": reset, "changed": changed, "__name__": "__editor__"}
-_out = sys.stdout
+      "top_next": top_next, "ask": ask, "resid": resid, "PRIMER": PRIMER, "reset": reset, "changed": changed, "__name__": "__editor__"}
 _in = sys.stdin
 sys.stdout = sys.stderr = io.StringIO()            # nothing from the libraries reaches the pipe
 _guard()
