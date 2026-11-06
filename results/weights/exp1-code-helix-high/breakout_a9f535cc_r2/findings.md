@@ -1,6 +1,11 @@
 # Findings
-- Channel 0 first-layer weights form a paddle-like horizontal line in row 8 across interior columns (row sum 44.37; border low) [E1, E2].
-- Channel 1 first-layer weights are broadly interior, strongest in rows 3–6 and columns 1–7, with near-zero border [E1, E2].
-- Channel 2 first-layer reward weights are concentrated in interior rows 1–3 (row sums 18.67, 17.89, 32.53; row-mean max-positive 1.04, 0.84, 1.28) and near zero in rows 4–8 (row means 0.12–0.15); within rows 1–3 they are sparse/moderate, with only two cells >2 (2.15 at row 1 col 5; 2.37 at row 3 col 3), not a multi-cell brick wall [E3, E7].
-- Channel 3 first-layer signed weights are near zero (border mean -0.009 vs interior -0.002), but row norms show a weak border-wall signal in magnitude (border mean norm 0.639 vs interior 0.346; border max 0.752 vs interior max 0.468) [E4, E5].
-- Output weights are action-specific but not dominated by a left/right pair: W3 column norms are action 3 = 10.93, action 4 = 8.92, actions 0–2 ≈ 6.25–6.45; b3 is also action-specific [E1, E3].
+
+- Channel 0 (agent) weights are almost entirely on row 8 (row-8 mean 5.457 vs 0.36 elsewhere); its effective right-left influence also peaks at row 8 (mean 26.3) with column-varying sign — bottom-row paddle [E10, E31].
+- Channel 2 (reward) weights form a multi-cell top band in rows 1–3 (top3 mean 2.792 vs 0.372 rows 4–8; positive sums across cols 1–8) — brick wall, not a single spot [E10, E21, E22, E25]. Its effective right-left influence is not flat: top3 mean 17.7 vs −3.1 lower rows, max abs 236, with mixed row/column signs — functionally used for horizontal aiming [E31].
+- Channel 1 (moving object) weights are broadly interior (mean 8.818; top3 7.917 vs rows 4–8 9.359) and weakly correlated with channel 2 (0.264) — one ball, not alien rows [E10, E30]. Its effective right-left preference has a positive left-to-right column gradient (col means rise from left to right) [E11, E13, E31].
+- Channel 3 (obstacle) weights are border-elevated (0.639 vs 0.346 interior) — walls only [E10].
+- Channel 4 (previous frame) weights are diffuse, peaking at rows 4–7 (row means 11.2, 10.2, 12.2, 15.8) and negatively correlated with channel 2 (−0.282) — motion memory, not static bricks [E27].
+- The output layer is horizontal-action dominated: W3 column norms [6.246, 6.454, 6.447, 10.93, 8.916] with near-uniform biases [1.221, 1.008, 1.024, 0.897, 1.298] — up/down essentially unused [E23].
+- Paddle row-8 position drives left/right oppositely: slopes +51.48 for left and −25.86 for right (vs 4.8–9.9 for other actions); row-8 column means correlate −0.53 with column index [E13, E23].
+- Ball column position drives left/right positively: right-minus-left preference over channel-1 interior columns correlates +0.431 with column (channel 4: +0.296) — paddle tracks the ball horizontally [E11, E13].
+- Hidden units split into channel-1-dominant (18) and channel-4-dominant (13), with only one channel-2-dominant unit; a unit’s left/right output weight correlates +0.310 with its channel-1 column slope and −0.222 with its channel-0 row-8 slope — hidden layer implements ball position/motion → paddle direction [E18, E20].
