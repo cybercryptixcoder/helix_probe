@@ -1,0 +1,10 @@
+# Findings
+- W1 row norms are comparable across all five input channels (ch0 mean 15.0, ch1 17.1, ch2 15.9, ch3 17.7, ch4 16.2), so no single observation channel dominates the first layer [E1].
+- High-norm W1 rows are scattered across interior cells and channels, e.g. obstacle cells (4,8), (3,7), reward cells (8,4), (7,5), moving-object cells (7,0), (7,7), and previous-frame cells (3,7), rather than forming a simple agent/reward-only pattern [E1].
+- In single-cell reward/mover/obstacle probes and varied agent-position wall-only probes, the argmax remains action 3 (left); the left logit varies with agent position [E3, E6].
+- In the E7 full-observation cases shown, every case still argmaxes left, including `push_left`; no shown case flips to up/down/right [E7].
+- E11 shows the policy is not fixed-left: full box-target observations can argmax to noop or up (`push_left_valid`, `push_left_invalid`, `push_right_invalid`, `push_up_valid` -> noop; `push_right_valid` -> up), while other cases remain left [E11].
+- Full-observation content can shift logits enough to change the argmax in E11, so the policy is sensitive to observation content, not merely mildly perturbed [E7, E11].
+- The policy is not a competent Sokoban-style box-pusher: no E11 valid push case selects the push direction; `push_right_valid` selects up, `push_left_valid` selects noop, `push_up_valid` selects noop, and `push_down_valid` selects left [E11].
+- The channel set is consistent with a box-pushing puzzle: channel 0 agent, channel 1 movable boxes, channel 2 targets, channel 3 walls/obstacles, channel 4 previous positions [E1, E3, E6, E7, E11].
+- Description: in the inferred box-pushing setting, the policy often emits left in simple probes and can emit noop/up for box-target configurations, but it does not reliably push boxes toward targets [E3, E6, E7, E11].

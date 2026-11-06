@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 1,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": true,
+ "guess": "pacman",
+ "answer_line": "pac-man (a small pac-man-like gridworld: agent collects pellets, avoids moving ghosts, and is blocked by walls). the trained policy is degenerate and does not play it properly.",
+ "correct": false,
+ "turns": 19,
+ "code_runs": 19,
+ "passes": 22,
+ "arrival": 0.4973684210526315,
+ "audit": [],
+ "isolated": false,
+ "seconds": 8571.4
+}
