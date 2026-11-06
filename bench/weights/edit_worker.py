@@ -1,0 +1,151 @@
+"""The model box for weight editing: one process that holds a language model and runs the editor's code against it.
+
+Run by bench/weights/edit.py, never by hand. It speaks JSON lines on stdin/stdout:
+    {"op": "exec", "code": "..."}  ->  {"out": "<printed output, or the traceback>"}
+It knows nothing about the goal's held-out tests or the grading: those live in the parent and run in a fresh process
+(edit_grade.py) on the saved edits, so the editor's code can't see or tamper with them.
+
+After every run the worker finds which parameters changed (a float64 sum and sum of squares per parameter, against the
+original's) and writes exactly those to <dir>/edits.pt; a restarted worker loads them back. reset() restores the original.
+
+What the editor's code gets: model, tok, torch, np, generate(), logprob(), top_next(), reset(), changed(), and a folder
+(the working directory) kept between runs. A guard (a Python audit hook, which can't be removed) refuses the network,
+new processes, and files outside the folder and the libraries: no reading the repo, the grading code or other runs.
+"""
+import contextlib
+import io
+import json
+import os
+import sys
+import traceback
+
+import numpy as np
+import torch
+
+D = os.path.realpath(sys.argv[1])        # this run's folder (opaque name)
+MODEL = sys.argv[2]
+DENY = [os.path.realpath(p) for p in sys.argv[3:]]
+os.makedirs(D + "/work", exist_ok=True)
+os.chdir(D + "/work")
+os.environ["HF_HUB_OFFLINE"] = "1"
+
+from transformers import AutoModelForCausalLM, AutoTokenizer  # noqa: E402
+
+DEV = "cuda" if torch.cuda.is_available() else "cpu"
+DT = torch.bfloat16 if DEV == "cuda" else torch.float32
+tok = AutoTokenizer.from_pretrained(MODEL)
+model = AutoModelForCausalLM.from_pretrained(MODEL, dtype=DT).to(DEV).eval()
+if tok.pad_token is None:
+    tok.pad_token = tok.eos_token
+tok.padding_side = "left"
+_P = dict(model.named_parameters())
+_ORIG = {k: v.detach().to("cpu", copy=True) for k, v in _P.items()}       # the original, on the CPU
+
+
+def _fp(t):
+    t = t.detach().double()
+    return (t.sum().item(), (t * t).sum().item())
+
+
+_FP0 = {k: _fp(v) for k, v in _P.items()}
+
+
+def changed():
+    """Names of the parameters that differ from the original."""
+    return [k for k, v in _P.items() if _fp(v) != _FP0[k]]
+
+
+@torch.no_grad()
+def reset():
+    """Restore the original weights."""
+    for k in changed():
+        _P[k].data.copy_(_ORIG[k].to(_P[k].device))
+
+
+@torch.no_grad()
+def generate(prompts, max_new_tokens=40):
+    """Greedy continuations of a prompt or a list of prompts (raw text, no chat template)."""
+    one = isinstance(prompts, str)
+    prompts = [prompts] if one else list(prompts)
+    outs = []
+    for i in range(0, len(prompts), 16):
+        b = tok(prompts[i:i + 16], return_tensors="pt", padding=True).to(DEV)
+        g = model.generate(**b, max_new_tokens=max_new_tokens, do_sample=False, pad_token_id=tok.pad_token_id)
+        outs += tok.batch_decode(g[:, b["input_ids"].shape[1]:], skip_special_tokens=True)
+    return outs[0] if one else outs
+
+
+@torch.no_grad()
+def logprob(prompt, continuation):
+    """Total log-probability of `continuation` after `prompt`."""
+    a = tok(prompt, return_tensors="pt")["input_ids"]
+    b = tok(prompt + continuation, return_tensors="pt")["input_ids"]
+    n = b.shape[1] - a.shape[1]
+    lp = torch.log_softmax(model(b.to(DEV)).logits[0, :-1].float(), -1)
+    ids = b[0, 1:].to(DEV)
+    return lp[-n:].gather(1, ids[-n:, None]).sum().item()
+
+
+@torch.no_grad()
+def top_next(prompt, k=10):
+    """The k most likely next tokens after `prompt`, with probabilities."""
+    ids = tok(prompt, return_tensors="pt")["input_ids"].to(DEV)
+    p = torch.softmax(model(ids).logits[0, -1].float(), -1)
+    v, i = p.topk(k)
+    return [(tok.decode(int(j)), round(float(x), 4)) for x, j in zip(v, i)]
+
+
+def _save():
+    ch = changed()
+    torch.save({k: _P[k].detach().to("cpu") for k in ch}, D + "/edits.tmp")
+    os.replace(D + "/edits.tmp", D + "/edits.pt")
+    return ch
+
+
+if os.path.exists(D + "/edits.pt"):                 # a restart: put the saved edits back
+    with torch.no_grad():
+        for k, v in torch.load(D + "/edits.pt").items():
+            _P[k].data.copy_(v.to(_P[k].device))
+
+
+def _guard():
+    own = D
+
+    def bad(path):
+        try:
+            path = os.fsdecode(path)
+        except TypeError:
+            return False
+        r = os.path.realpath(path)
+        if r == own or r.startswith(own + os.sep):
+            return False
+        return any(r == d or r.startswith(d + os.sep) for d in DENY)
+
+    def hook(event, args):
+        if event in ("open", "os.listdir", "os.scandir", "glob.glob", "os.chdir", "shutil.copyfile", "os.rename",
+                     "os.remove", "os.mkdir", "os.symlink", "os.link", "os.truncate") and args and bad(args[0]):
+            raise PermissionError("blocked by the sandbox: outside your folder")
+        if event in ("socket.connect", "socket.getaddrinfo", "socket.gethostbyname", "socket.sendto", "urllib.Request",
+                     "subprocess.Popen", "os.system", "os.exec", "os.posix_spawn", "os.spawn", "pty.spawn"):
+            raise PermissionError(f"blocked by the sandbox: {event}")
+    sys.addaudithook(hook)
+
+
+NS = {"model": model, "tok": tok, "torch": torch, "np": np, "generate": generate, "logprob": logprob,
+      "top_next": top_next, "reset": reset, "changed": changed, "__name__": "__editor__"}
+_out = sys.stdout
+_in = sys.stdin
+sys.stdout = sys.stderr = io.StringIO()            # nothing from the libraries reaches the pipe
+_guard()
+print(json.dumps({"ready": True, "device": DEV, "params": sum(v.numel() for v in _P.values())}), file=_out, flush=True)
+
+for line in _in:
+    msg = json.loads(line)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
+        try:
+            exec(compile(msg["code"], "<your code>", "exec"), NS)
+        except BaseException:   # noqa: BLE001  the editor sees its own error, the worker lives on
+            traceback.print_exc(file=buf)
+    ch = _save()
+    print(json.dumps({"out": buf.getvalue(), "changed": len(ch)}), file=_out, flush=True)
