@@ -4,10 +4,7 @@
 - The policy has a strong position-dependent left/up bias: agent_center P(left)=1.000; agent_right P(left)=0.776, P(up)=0.211; agent_top P(up)=0.962; agent-only flow field is mostly left with up arrows in upper rows and 10/64 moves into wall [E27, E36].
 - Static synthetic placements often flip to up rather than clean approach/avoidance: reward_left_near P(up)=0.972; obst_left_near P(up)=0.927; agent(4,4) reward_down P(up)=0.94; with agent present, near-left reward/obstacle often stays left [E26, E27, E36].
 - At weaker-bias agent_right, object placements can flip argmax to up: reward_up P(up)=0.952; mover_left P(up)=0.991; obstacle_left P(up)=0.574 [E29].
-- Previous-frame motion is used for moving objects, not self-motion: multi-cell self-motion test shows no inference (with_prev 4/24 vs no_prev 6/24) [E16], but with full wall border a right-side object moving toward the agent flips policy from left to up (P(left)=0.137, P(up)=0.813), while stationary/away remain left (P(left)=0.986/1.000) [E37]; earlier motion probes without full border were inconclusive [E35].
+- Previous-frame motion can trigger up-flips for an approaching right-side object with full border (P(left)=0.137, P(up)=0.813), while stationary/away remain left (P(left)=0.986/1.000); self-motion/self-trail is not inferred (with_prev 4/24 vs no_prev 6/24; prev-cell effects |Δ|<0.02) [E16, E37, E39].
+- Paired position-bias-cancelling probes find no clear Pac-Man signature: NET attraction reward -0.026±0.047, obstacle +0.033±0.042, mover_stat -0.019±0.045, mover_approach -0.012±0.062; all near noise, with obstacle not negative and mover_approach not strongest [E38, E40].
 - Probes that omit or under-specify the wall border or previous-frame context can be out-of-distribution and understate motion/wall responses [E16, E26, E35, E36, E37].
-- No evidence for Sokoban box-pushing toward goals; object responses are avoidance/up-flips rather than pushing [E17, E30].
-
-Game: Pac-Man (simplified 10×10 grid Pac-Man).  
-Description: The agent navigates an 8×8 maze, collects reward pellets, and avoids autonomously moving ghosts and walls; reward comes from eating pellets while surviving.  
-Confidence: 84%
+- No evidence for Sokoban box-pushing toward goals; object effects are small, position-dependent argmax flips rather than consistent pushing or avoidance [E17, E30, E40].

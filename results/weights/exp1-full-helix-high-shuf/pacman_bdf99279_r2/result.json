@@ -1,0 +1,22 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 2,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": true,
+ "guess": "pacman",
+ "answer_line": "pac-man (a pac-man-like maze game)",
+ "correct": true,
+ "turns": 18,
+ "code_runs": 18,
+ "passes": 22,
+ "arrival": 0.46388888888888885,
+ "audit": [
+  "E22: may train or fit"
+ ],
+ "isolated": false,
+ "seconds": 11111.1
+}
