@@ -1,0 +1,9 @@
+- Channel 0 (agent) is a vertical stripe in column 1, rows 1–8 (max ~7.10 at row 2), near baseline elsewhere [E1, E2]; its column-1 up-minus-down signal is row-dependent (slope ~42.5) while left-minus-right is near zero [E4].
+- Channel 1 (moving object) is a localized inner block in rows 1–8, columns 2–8, strongest in columns 2–4 and still substantial at column 8 (1.73–2.77), not decaying to baseline [E1, E2, E5]; its columns-2–8 up-minus-down signal varies with row (slope ~−38.2), left-minus-right near zero [E4].
+- Channel 2 (reward/target) has elevated weights in rightmost columns 7–9, rows 1–8, strongest at column 9 (0.72–0.97), with moderate column 8 (0.32–0.46) and column 7 (0.27–0.45), so it is not confined to column 9 [E2, E5].
+- Channel 3 (obstacle) highlights the outer border (row 0, row 9, column 0, column 9) and is low in the interior [E1, E2].
+- Channel 4 (previous frame) has a broad inner-grid block in rows 1–8, columns 1–8, with high cells including (1,5), (8,5), and (2,3) [E2].
+- Output biases are nonuniform: action 1 highest (1.261), action 2 next (1.065), actions 3/4 lowest (~0.86); W3 column norms are highest for actions 2 and 1 [E2, E4].
+- Linearized input→logit weights are action-specific and large, mixing positive/negative contributions from CH1, CH3, and CH4; CH0 contributes little and CH2 contributes moderately [E2].
+- Action 0 is promoted by CH3 and suppressed by CH1/CH4; action 1 by CH0/CH3 and suppressed by CH4; action 2 by CH1/CH4 and suppressed by CH0 [E2].
+- E3 produced no usable vertical-gradient evidence: it failed reshaping size 2500 into (10,10,5); row-gradient claims are supported by E4, not E3 [E3, E4].

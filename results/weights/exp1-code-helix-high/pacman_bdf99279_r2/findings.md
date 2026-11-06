@@ -1,13 +1,24 @@
 # Findings
-- Channel 0 W1 row norms are high only in interior playable cells and near zero on the border and at fixed interior cells such as (2,2),(2,3),(2,6),(2,7),(3,2),(3,7),(4,4),(4,5),(5,4),(5,5),(6,2),(6,7),(7,2),(7,3),(7,6),(7,7), revealing a fixed wall/never-occupied map [E1, E6, E10].
-- Channel 2 W1 row norms have two dominant peaks, (2,4)=4.90 and (6,4)=4.50, but also many moderate cells: 17 cells >1.0 and 4 cells >2.0, e.g. (1,2)=2.56 and (1,3)=2.06, so channel 2 is not a sparse two-target map [E2, E3, E6, E22].
-- Channel 1 W1 row norms are broadly high across the playable area and are not concentrated in the central 2x2 block (central values about 0.31–0.39), consistent with movable objects/entities rather than a Pac-Man ghost house [E1, E5].
-- Channel 3 W1 row norms are near-uniformly low, about 0.3–0.5 everywhere, so static walls are not encoded directly in the obstacle channel [E2, E6].
-- Channel 4 previous-frame W1 norms are intermediate and spatially structured in the playable area (mean 1.665; top cells (6,1)=3.56, (1,8)=3.51, (7,8)=3.03, (2,8)=3.01, (8,8)=2.73), so previous-frame/dynamic information matters [E7].
-- The output bias is b3 = [-0.873, 0.703, 0.712, 0.595, -0.092], favoring up/down/left over no-op and slightly disfavoring right, consistent with an active movement policy [E3, E6].
-- Effective linear weights from the two dominant channel-2 peaks are asymmetric and action-specific: at (2,4), channel 2 gives [-34.16, 94.43, -85.29, -10.50, 10.32]; at (6,4), channel 2 gives [2.87, -25.75, -58.19, 33.43, 7.24] [E3].
-- Hidden units are mixed and do not show cleanly opposite target roles: at (2,4), unit6 is strongly ch1-on-target and anti-agent (z12=5.68, z02=-16.28); at (6,4), strong agent-on-target units (unit13 z02=14.86, unit7=13.72, unit10=11.67, unit19=11.52) coexist with strong ch1-on-target unit14 (z12=34.66, z02=7.14) [E10, E15].
-- Cell-level interactions at the dominant channel-2 peaks are asymmetric: (2,4) has ch1·ch2=2.136 rank 3/48 and ch0·ch2=-13.145 rank 48/48, while (6,4) has ch1·ch2=-3.060 rank 48/48 and ch0·ch2=10.153 rank 1/48; top ch1·ch2 cells include (1,2)=2.960 and (8,5)=2.523, and top ch0·ch2 cells include (6,4), (1,2)=6.482, and (5,7)=5.985 [E11].
-- Adjacent agent×box (ch0×ch1) interactions are net negative for the push action: mean push score -23.717 vs other 6.006, difference -29.723, so the network does not encode an overall positive Sokoban-style push; top pairs are sparse positives [E19].
-- Adjacent agent×previous-frame (ch0×ch4) interactions are slightly positive for push: mean push 0.097 vs other -1.057, difference 1.153, with top pairs such as (4,6)->(3,6) act1 and (2,4)->(3,4) act2, supporting previous-frame/dynamic relevance [E19].
-- Overall, the evidence fits a fixed-wall environment with many channel-2 moderate reward/target cells plus two dominant peaks, asymmetric interactions at those peaks, and mixed hidden-unit roles; there is no net positive agent-box push, while previous-frame interactions are weakly push-positive [E6, E7, E11, E15, E19, E22].
+Observations:
+- The obstacle-channel weights reconstruct a fixed inner 8×8 maze, with wall cells at (2,2),(2,3),(2,6),(2,7),(3,2),(3,7),(4,4),(4,5),(5,4),(5,5),(6,2),(6,7),(7,2),(7,3),(7,6),(7,7); this is a fixed maze layout, not an open arena [E6].
+- The output biases are b3 = [-0.873, 0.703, 0.712, 0.595, -0.092], strongly suppressing no-op and favoring directional movement; the policy is trained to keep moving through a maze [E6].
+- Channel 2 is a broad pellet-like reward field: two very high cells at (2,4) norm=4.90 and (6,4) norm=4.50, plus 17 cells with norm>1.0 and many moderate reward cells; not just two Sokoban goals [E22].
+- The agent is attracted to channel-2 reward cells: mean “into minus away” action score is +53.3 at threshold 0.5 and +57.2 at threshold 1.0 [E31].
+- Channel 1 moving objects have high first-layer norm, mean 4.466, and channel 4 previous-frame also has high structured norm, mean 1.665, unlike obstacles at 0.369; the game contains dynamic moving entities tracked across frames [E7].
+- The agent avoids moving objects rather than pushing them: mean push score -23.7 versus mean away score +20.5, difference -44.2 [E24]; E19 shows the same avoidance pattern.
+- The two high-weight channel-2 cells do not show a consistent Sokoban box-on-goal signature; interactions are weak/asymmetric rather than both being box goals [E10, E11, E15, E20].
+- The high-weight reward cells do not act as power pellets: three-way agent–moving-object–reward interactions are negative at (2,4) and (6,4) and not less negative than control reward cells, so moving-object avoidance is not reversed [E40].
+- Global moving-object×reward interaction is not selectively positive at (2,4) (rank 17/17) and is only moderate at (6,4) [E36].
+
+Reasoning:
+- Fixed maze walls, many small reward cells, and moving objects to avoid fit Pac-Man-style maze play.
+- Sokoban is ruled out because moving objects are avoided, not pushed, and there is no consistent box-on-goal signature at the high-weight reward cells [E10, E19, E20, E24].
+- A simple collect-the-target game is ruled out because there are many reward cells and a structured previous-frame/moving-object channel [E7, E22, E31].
+- Power-pellet behavior is ruled out: being on the high-weight reward cells does not reverse ghost avoidance [E36, E40].
+- The network was trained to navigate a fixed maze, collect reward cells, and avoid moving enemies; the unusually high-weight reward cells are high-value pickups/fruit-like rewards rather than power pellets.
+
+Game: Pac-Man-like grid maze game.
+
+Description: The agent moves through a fixed maze collecting pellets/reward cells while avoiding moving ghosts; high-weight reward cells are high-value pickups/fruit-like rewards, not power pellets.
+
+Confidence: 90%
