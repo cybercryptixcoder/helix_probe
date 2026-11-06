@@ -1,0 +1,23 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 2,
+ "format": "code",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pong",
+ "answer_line": "pong, specifically a simplified grid pong / vertical paddle-ball game.",
+ "correct": true,
+ "turns": 22,
+ "code_runs": 22,
+ "passes": 0,
+ "arrival": 0.475,
+ "audit": [
+  "E29: may train or fit",
+  "E39: may train or fit"
+ ],
+ "isolated": false,
+ "seconds": 4206.3
+}
