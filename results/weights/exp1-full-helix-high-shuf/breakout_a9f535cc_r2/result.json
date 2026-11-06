@@ -1,0 +1,22 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 2,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": true,
+ "guess": "breakout",
+ "answer_line": "breakout (simplified grid breakout / minatar-style breakout).",
+ "correct": true,
+ "turns": 21,
+ "code_runs": 21,
+ "passes": 26,
+ "arrival": 0.4428571428571429,
+ "audit": [
+  "E35: touches files, the environment, processes or the network"
+ ],
+ "isolated": false,
+ "seconds": 10596.5
+}
