@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 2,
+ "format": "code",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "freeway (atari 2600).",
+ "correct": true,
+ "turns": 23,
+ "code_runs": 23,
+ "passes": 0,
+ "arrival": 0.6130434782608696,
+ "audit": [],
+ "isolated": false,
+ "seconds": 3410.2
+}

@@ -1,0 +1,12 @@
+# Findings
+- Channel 0 has paddle-like first-layer weights: row 8 spikes at columns 1–8 (max 9.73 at (8,8), 8.24 at (8,1)); all other cells are low uniform noise, so its center of mass is (6.35,4.59). Its row-8 right-minus-left influence is positive at left columns and negative at right columns, with up/down near noise [E1, E4, E10, E11].
+- Channel 1 is a moving ball: broad interior blob peaking at (4,3) with norm 17.41, center of mass (4.32,4.37), total norm 576.99, not border-bound. Its right-minus-left influence rises with ball column globally (r=0.945), but per-row this gradient is concentrated in rows 4–7 (r=0.63–0.97, slopes 56–340, strongest row 7); rows 0–3 are mixed/weak and rows 8–9 are near zero. Up-minus-down influence is near the noise floor [E2, E4, E9, E10, E11].
+- Channel 2 is a top brick field: rows 1–3 carry most mass across many columns (row sums 18.7, 17.9, 32.5; 18 cells >2), center of mass (3.13,4.51), max 6.20 at (3,7) [E6, E10].
+- Channel 3 is the outer wall: border norms ~0.64 vs interior ~0.35, no interior cells >2; its symmetric border gives center of mass (4.43,4.50) [E7, E10].
+- Channel 4 is previous-frame memory of moving object/paddle: broad interior mass peaking in rows 6–7 (max 19.87 at (7,4), center of mass (4.87,4.58)) and its row-8 pattern correlates with channel 0’s paddle row (r=0.517). Its right-minus-left influence is strongest in rows 3–7 and is left-positive/right-negative in rows 3–5, complementary to the ball channel’s lower-row right-positive gradient [E6, E10, E11].
+- Output head favors horizontal paddle control: W3 column norms largest for left/right (10.93, 8.92) vs ~6.2–6.5 for no-op/up/down; b3 slightly favors right/no-op [E1].
+- Moving-object weights have their largest single cell/action influence at (4,3) [E3]; ball position steers horizontal action globally, but the per-row steering map is not uniform and is strongest near the lower-middle rows (6–7), not every row [E9, E11].
+- These patterns fit a brick-breaker: bottom paddle, bouncing ball, top brick rows, outer walls, with a lower-field ball-tracking policy rather than a clean per-row gradient across the whole board [E1–E4, E6, E7, E9–E11].
+- Game: Atari-style Breakout / brick-breaker.
+- Description: The agent moves a bottom paddle horizontally to bounce a ball into top brick rows; reward comes from hitting/clearing bricks, and losing the ball ends the episode.
+- Confidence: 90%
