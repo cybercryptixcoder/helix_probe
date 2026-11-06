@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 0,
+ "format": "blind",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pacman",
+ "answer_line": "pac-man (most likely classic pac-man; possibly a pac-man variant such as ms. pac-man).",
+ "correct": true,
+ "turns": 8,
+ "code_runs": 7,
+ "passes": 8,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 1196.3
+}

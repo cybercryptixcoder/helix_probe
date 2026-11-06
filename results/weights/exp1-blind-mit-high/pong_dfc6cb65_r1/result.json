@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 1,
+ "format": "blind",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pacman",
+ "answer_line": "pac-man",
+ "correct": false,
+ "turns": 7,
+ "code_runs": 6,
+ "passes": 44,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 453.1
+}
