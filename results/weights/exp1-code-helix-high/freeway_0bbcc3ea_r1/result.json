@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 1,
+ "format": "code",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "freeway (atari 2600), a chicken-crossing-the-highway game.",
+ "correct": true,
+ "turns": 30,
+ "code_runs": 30,
+ "passes": 0,
+ "arrival": 0.5383333333333333,
+ "audit": [],
+ "isolated": false,
+ "seconds": 3461.5
+}
