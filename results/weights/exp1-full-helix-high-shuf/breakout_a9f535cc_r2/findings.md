@@ -1,6 +1,7 @@
 # Findings
-- With the agent fixed at (8,4), action 3 (left) is the argmax for every object column c=1..8 [E2].
-- The left logit is uniformly large and positive (8.4–13.8) and exceeds all other actions at every column [E2].
-- The network does not steer toward the object: it chooses left for both c<4 and c>4, so it is not behaving as a Breakout paddle intercepting a ball [E2].
-- Actions 1 (up) and 2 (down) are never selected, and action 4 (right) is never selected (logits ≤0.92) [E2].
-- Action 0 (no-op) logits vary widely (−3.9 to 7.9) but never exceed the left logit [E2].
+- E2: agent at (8,4), moving object at (7,c), c=1..8: argmax always action 3 (left); left logit highest throughout (e.g., c=1: 11.39 vs right -2.24; c=8: 8.37 vs right -3.13), so it does not steer toward the object.
+- E6: full observation (wall border + previous frame) still gives action 3 (left) for all c=1..8, with left logits 7.91–14.65; minimal observation is mostly left, with exceptions c=6 right and c=7 no-op.
+- E8: central agent with channel-2 reward at none/right/left/up/down: argmax always action 3 (left), left logit highest (5.06–9.3); reward placement does not shift the argmax toward the target.
+- Across E2, E6, and E8, the policy has a strong learned left-action preference independent of tested object/reward positions; up/down/right/no-op are usually lower.
+- Simplified Pac-Man/pellet-collecting interpretation is not supported by the reward-target test [E8].
+- E10 produced no output, so there is no weight-based game identification; game identity remains unresolved.
