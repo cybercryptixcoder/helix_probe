@@ -1,10 +1,11 @@
-- The network was trained on a grid **Snake**-like game: multi-cell snake body, food/reward targets, walls/body as obstacles, and previous-frame direction cues (E4, E5, E9, E14, E21, E24).
-- The learned policy is degenerate: it is dominated by a constant **right** bias, choosing action 4 for walls-only, single-agent, reward, moving-object, and obstacle boards (E23, E11, E6, E12, E13, E19).
-- The wall border alone is sufficient to produce right; all-zero input produces up, so much of the policy is a border/bias response rather than object-sensitive control (E23).
-- Reward/food position is ignored: horizontal 3-cell snakes move right regardless of food being up, down, left, or right (E5, E4).
-- Moving objects/balls are ignored: ball column/row/direction does not induce paddle tracking; horizontal and vertical 3-cell agents still mostly choose right (E12, E13).
-- Obstacles and self-collision are ignored: obstacle right/left/up/down, wall-edge, and curled-body cases still select right (E6, E9, E16, E21).
-- Previous-frame direction is not used reliably: horizontal snakes choose right whether previous frame is left/right/same, and vertical/up/down cases often still choose right (E8, E14).
-- Agent shape has only weak effects: horizontal 3-cell bodies usually go right, vertical 3-cell bodies sometimes go down, but not consistently across runs (E4, E9, E24).
-- Pong/Breakout are ruled out because the network does not track a ball or move a paddle toward it (E12, E13); a simple single-cell target-seeking game is ruled out because reward position is ignored (E5, E23).
-- Game: **Snake**; Description: the intended task is to control a growing snake to eat food while avoiding walls and its own body, but this trained policy mostly just moves right and ignores food, obstacles, and self-collision. Confidence: 85%.
+# Findings
+- The policy has a strong constant right-action bias: across single-cell, multi-cell, reward, moving-object, obstacle, and self-collision states it returns action 4 (right) in nearly all cases; exceptions include all-zero board → up, one moving-ball case → up, and obstacle-left → down (E11, E12, E13, E14, E16, E19, E21, E23, E24, E29, E36).
+- The right bias depends on the wall border's presence, not on game entities: walls-only → right, all-zero → up, and adding agent/reward/moving/obstacle at center leaves right (E23). However, W1 weights are not border-concentrated: border vs interior mean norms are similar in every channel, and ch0/ch1 row-sum profiles are flat (E37).
+- The network does not systematically track moving objects/balls: ball column/row mostly leaves the argmax at right for horizontal/vertical multi-cell agents, with one isolated flip to up; W1 channel-1 row norms show no localized band (E12, E13, E19, E37).
+- The network ignores reward targets/food: food above or below a single-cell or horizontal 3-cell agent does not change the argmax (E36).
+- The network ignores previous-frame motion/direction: bodies moving left, right, up, or down all still output right (E14).
+- Obstacles are mostly ignored: obstacle on right/up, surrounded state, and curled Snake self-collision still output right; an obstacle to the left flips to down (E16, E21).
+- The network has no localized body-shape or length model: horizontal/vertical/L/diagonal/scattered bodies and lengths 1–5 all output right in the tested cases (E24, E29).
+- Weight structure is not strongly channel-specific or spatially localized: W1 norms are similar across all five input channels, top rows are scattered across channels/cells, and linearized input→action influence is scattered rather than localized to agent/food (E27, E31, E37).
+- The tested state space is Snake-specific: multi-cell agent bodies, food/reward targets, previous-frame direction, and self-collision are the natural states for Snake (E9, E14, E21, E24, E29, E36).
+- The network was trained on Snake but converged to a degenerate policy that mostly moves right (or up when no walls) and does not forage, turn, or avoid collisions (E11, E23, E36).
