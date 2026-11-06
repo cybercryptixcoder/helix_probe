@@ -1,0 +1,23 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 2,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": true,
+ "guess": "pacman",
+ "answer_line": "pac-man (a small pac-man-like maze game).",
+ "correct": false,
+ "turns": 17,
+ "code_runs": 17,
+ "passes": 16,
+ "arrival": 0.33529411764705885,
+ "audit": [
+  "E3: touches files, the environment, processes or the network",
+  "E5: touches files, the environment, processes or the network"
+ ],
+ "isolated": false,
+ "seconds": 5120.7
+}
