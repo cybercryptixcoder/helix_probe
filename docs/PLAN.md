@@ -3,7 +3,7 @@
 *Serves `docs/NORTH_STAR.md`. Finite: five steps, each with its question, its prediction written before it runs, and
 what we do with each outcome. Status is updated as steps finish. Changes to the plan are logged in `docs/JOURNAL.md`.*
 
-**Status: drafted Nov 6, 16:30 ET. Waiting for Shreyas's review. Nothing in this plan has run yet.**
+**Status: approved Nov 6, 16:43 ET. Step 0 in progress. Colab balance at the start: 701.22 compute units.**
 
 ## The experiment in one paragraph
 

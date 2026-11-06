@@ -5,6 +5,14 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**16:43 ET: Plan approved by Shreyas.** Colab balance: 701.22 compute units. Go-ahead to stop the VM's exp-1 job. It
+is replaced by a short job with two stages:
+- `exp1-code-mit-high-shuf`, the control the plan names;
+- `exp2-text-high-shuf`, to finish the 6 runs that stopped on Nov 5. It's the control behind an existing number
+  (exp 2, 4/9), not a new arm.
+
+Step 0 (plumbing) starts now.
+
 **16:30 ET: The north star is set (`docs/NORTH_STAR.md`); the plan is drafted (`docs/PLAN.md`), waiting for
 Shreyas's review.**
 
