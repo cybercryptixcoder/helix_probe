@@ -1,7 +1,8 @@
-- The setup is most consistent with a simplified Frogger-like upward-progress game, but reward geometry is not a simple top-row goal: upward default is common, yet top-row targets can fail to attract or promote up (E3, E4, E6, E7).
-- With no objects, the policy usually defaults to up, but this is position- and previous-frame-dependent: e.g. agent (1,5) or (8,1) with zero previous frame argmaxes right, and prev=agent changes probabilities strongly (E4).
-- Reward targets have sparse, location-specific effects rather than general attraction/alignment: at A(5,5), R(1,5) and R(1,9) raise p_right, while R(1,1), R(1,4), R(1,6), R(2,5), and R(8,5) leave up dominant; R(5,5) splits up/right (E7; cf. E3, E6).
-- A top-row reward in the agent’s own column does not promote upward movement: A(5,5) R(1,5) gives p_right≈0.96, and A(5,1) R(1,5) gives p_right≈0.91; A(5,1) R(5,9) is ignored (E3, E7).
-- Channel-1 objects have row/column-dependent effects that are not simple vertical tracking or consistent aversion: some placements increase rightward movement, some increase upward movement, and some are ignored (E1, E3, E6).
-- Pong is ruled out because the agent does not move vertically to match a ball’s row; horizontal/right biases dominate across ball rows/columns (E1).
-- Pac-Man/Snake are less likely because moving objects are not consistently aversive and there is no clear pellet/self-collision avoidance; the upward bias and sparse reward effects fit a Frogger-like game better, though not a simple top-row-target version (E1, E3, E6, E7).
+- The agent is a single cell, not a multi-cell paddle; paddle-shaped inputs do not yield coherent left/right ball tracking (E16).
+- The policy has a strong up-default in open/central positions, matching a maze game where the agent starts near the bottom and moves upward through corridors (E4, E16).
+- Reward targets do not simply attract the agent; their effect follows a fixed maze path, e.g. a target at (1,5) drives right from many positions while a target at (8,5) drives up, producing detours rather than straight-line motion (E7, E9, E24).
+- The center cell (5,5) carries a very large obstacle weight (5.13) and obstacle placements above/below it steer the agent rightward, indicating a learned fixed central wall/ghost-house structure (E6, E18).
+- The side cells (5,1) and (5,9) have large moving-object and previous-frame weights, indicating tracking of moving objects through horizontal tunnels (E18, E20).
+- Moving-object effects are weak or position-specific in isolated tests, consistent with ghosts that are only dangerous on learned maze paths rather than with a generic aversive ball (E3, E6, E9, E20).
+- Reward-target weights are large at corners and edges such as (1,1), (1,9), (8,5), and (5,9), consistent with pellets/power pellets at fixed maze locations (E18).
+- The network was trained to play a Pac-Man-like maze game: a single-cell agent navigates a fixed walled maze, collects reward targets (pellets), and tracks/avoids moving objects (ghosts) using the previous-frame channel (E7, E18, E24).
