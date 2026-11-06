@@ -1,20 +1,11 @@
 # Findings
-Observations:
-- CH2 (reward) first-layer detectors are point-like/single-cell with no horizontal/vertical line detectors [E18, E19]; their aggregate norm is concentrated at fixed playable cells (2,4) and (6,4), with 20/32 units maxing at (6,4) [E20, E27].
-- CH1 (moving objects) detectors are more extended than CH2 (mean largest component 2.56 vs 1.66; some elongated components) [E19], but they are multi-component, not a single contiguous body/trail (mean #components 3.38; only 19% one component) [E22]; their max locations are spread, not fixed start cells [E24].
-- CH1 effective norm is high along row 1 and column 1 (L-template corr 0.527 > vertical 0.476 > horizontal 0.217) [E21].
-- CH1 effective logits do not show consistent self-body avoidance: at (1,2) it suppresses right (argmin 4), but at (2,1) it suppresses up (argmin 1), not down; argmax is down at both cells [E32].
-- CH0 (agent) effective logits show boundary/self cues: at (1,1) it prefers down and strongly suppresses right; at (8,1) it prefers right and suppresses up; at (8,4) it prefers right and suppresses down [CH0 effective logits; E32 confirms (1,1)].
-- CH3 (obstacles) has near-uniform first-layer maps and no structured interior wall cells; effective CH3 has scattered highs but no contiguous Sokoban-style interior walls [E28, E30].
-- CH4 (previous frame) correlates most with CH0 and CH1, consistent with recent agent/moving-object cues [E23]; CH1–CH2 and CH0–CH2 correlations are weak [E23].
-
-Reasoning:
-- Point-like fixed reward cells rule out Frogger goal lines and Pac-Man pellet fields; absence of structured interior walls rules out typical maze/Sokoban levels [E18, E20, E27, E28, E30].
-- Extended, spread CH1 detectors and CH4 motion correlations fit moving snake-like body/objects, but E32 shows CH1 is not a simple L-body avoidance map; the L-shaped norm pattern alone is insufficient to infer self-collision coding [E19, E21, E22, E23, E24, E32].
-- The remaining evidence still favors a Snake-like 10x10 game with fixed/multiple food targets at (2,4) and (6,4), but with weaker support for the specific body-avoidance interpretation.
-
-Game: Snake-like 10x10 game with fixed/multiple food targets at (2,4) and (6,4); CH1’s role as self-body avoidance is not supported.
-
-Description: The agent moves on a 10x10 grid, avoids the border, and receives reward at fixed food cells; moving-object features are extended and spread, but do not consistently encode avoidance of an L-shaped body.
-
-Confidence: 75%
+- The game is a Snake-like task on an open 8×8 grid with wall-only borders: CH3 first-layer weights are near-uniform (E28), while effective CH3 has scattered high interior cells rather than a structured Sokoban wall map (E30).
+- CH1 is the snake’s moving body/trail: its effective norm map is L-shaped along row 1 and column 1 (L-template corr 0.527 > vertical 0.476 > horizontal 0.217), and CH1 detectors have larger contiguous components than CH2 (mean largest size 2.56 vs 1.66) (E21, E22).
+- The snake head is near (1,1): CH0 at (1,1) suppresses right (-205.3) and prefers down (+222.6); CH1 at (1,2)/(1,3) suppresses right (-101.7/-82.3), while CH1 at (2,1)/(3,1) suppresses up (-90.9/-82.4), giving an L-shaped body/avoidance pattern along row 1 and column 1 (E32, E38).
+- CH2 aggregate norm map has two dominant cells, (2,4) and (6,4), far above other playable cells; CH2 at both suppresses down, preferring up at (2,4) and left at (6,4) (E27, E38).
+- CH2 does not steer into those dominant cells from adjacent cells: only 1/8 neighbors matches the entry action, so (2,4) and (6,4) are not fixed food targets under CH2 effective policy (E39).
+- The policy is not Sokoban box pushing: CH0–CH2 co-occurrence is stronger than CH1–CH2 (e.g. unit 6 CH0 norm 10.21, CH2 6.33, CH1 7.34), and CH1–CH2 correlations are weak/negative (mean -0.084, min -0.554); fixed-food steering is also weak (CH0 3/8, CH2 1/8) (E23, E33, E34, E39).
+- CH1 max-abs weight locations are spread across the arena rather than fixed at left-side box starts (E24), ruling out Sokoban-style fixed boxes and supporting a moving snake body.
+- The output layer favors movement over no-op: b3 = [-0.873, 0.703, 0.712, 0.595, -0.092] and W3 column norms are no-op 4.73 vs up/down/left/right 7.14/7.96/6.45/6.79, as expected for a continuously moving Snake (E36).
+- CH4 tracks recent agent/body positions: its norm map correlates with CH0 (0.469), CH1 (0.451), and CH2 (0.407), and its preferred action map is mostly down, consistent with last-frame occupancy for direction/body avoidance (E36).
+- Therefore the game is a Snake variant on an 8×8 open grid with border walls; the agent controls a moving head/body, but the two CH2 peaks are not fixed food targets that CH2 steers into (E27, E39).

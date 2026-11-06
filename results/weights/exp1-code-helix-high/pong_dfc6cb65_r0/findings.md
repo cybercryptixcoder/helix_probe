@@ -1,0 +1,12 @@
+# Findings
+- First-layer weights are spatially localized by channel: ch0 vertical stripe at col 1 (row norms ~2.7–7.1), ch1 block over rows 1–8/cols 2–8 (max ~12.2), ch2 weak right-edge col 9 elevated rows 2–9 (max ~1.0), ch3 border/edge template (~0.7–0.89), ch4 broad interior block (max ~13.8) [E1, E3, E4].
+- Ch2/ch3 first-layer magnitudes are much smaller than ch0/ch1/ch4; ch2 is right-edge and ch3 is border [E1, E3, E4].
+- Ch0 col1 effective action weights are large and row-dependent for up/down (e.g. row 3: up −81.9, down +110.8; row 6: up +106.9, down −126.7), with left/right much smaller; ch0 cells are not among the top |L| action cells [E2].
+- Ch1 interior is action-tuned in both row and column and supplies top |L| cells for several actions [E1, E2, E3].
+- Ch1 up/down maps show a vertical gradient: down−up rises from negative in rows 1–4 to positive in rows 5–7, then falls near zero at row 8; down row-variance > column-variance, up row/column variance ~equal [E3].
+- Ch4 interior supplies the largest |L| action cell for every action (e.g. down (8,5,4)=−673.5, up (8,5,4)=347.1, noop (4,2,4)=189.3), making it the dominant action-discriminative channel [E1, E2].
+- Ch4 previous-frame maps are not mirror images of ch1 up/down maps: correlations are positive (~0.28 up, ~0.31 down) with same-sign fractions ~0.50–0.54, so no simple velocity encoding [E3].
+- Ch2 col9 and ch3 border effective action weights are small (~6–12 for ch2 col9), far below ch0/ch1/ch4 action cells; ch2 col9 weights are roughly row-uniform [E2, E3, E4].
+- Output biases are all positive and slightly favor actions 1 and 2: b3 [0.931, 1.261, 1.065, 0.861, 0.855]; output weight norms are largest for actions 1 and 2: [3.462, 5.229, 5.415, 3.406, 3.403] [E1].
+- Architecture: 500→32→32→5 [E1].
+- E5 did not test the ch1 col8 opponent-paddle hypothesis: it errored with AxisError (axis 3 out of bounds) before producing row-norm/column-sum data; no ch1 col8 strip claim is supported [E5].
