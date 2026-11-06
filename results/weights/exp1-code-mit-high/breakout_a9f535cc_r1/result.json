@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 1,
+ "format": "code",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "breakout",
+ "answer_line": "breakout (atari-style brick breaker; also like arkanoid)",
+ "correct": true,
+ "turns": 2,
+ "code_runs": 1,
+ "passes": 0,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 339.8
+}

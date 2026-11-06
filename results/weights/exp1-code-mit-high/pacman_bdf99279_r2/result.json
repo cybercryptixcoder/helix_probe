@@ -1,0 +1,22 @@
+{
+ "task": "exp1",
+ "item": "bdf99279",
+ "truth": "pacman",
+ "rep": 2,
+ "format": "code",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pacman",
+ "answer_line": "pac-man (a simplified pac-man variant).",
+ "correct": true,
+ "turns": 3,
+ "code_runs": 2,
+ "passes": 0,
+ "audit": [
+  "run 1: touches files, the environment, processes or the network"
+ ],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 186.8
+}

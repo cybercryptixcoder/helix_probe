@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 1,
+ "format": "code",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pong",
+ "answer_line": "pong (single-paddle / wall-pong variant).",
+ "correct": true,
+ "turns": 3,
+ "code_runs": 2,
+ "passes": 0,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 110.4
+}
