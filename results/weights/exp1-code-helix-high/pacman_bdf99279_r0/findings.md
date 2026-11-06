@@ -1,12 +1,20 @@
 # Findings
-- The policy is strongly left-right asymmetric (E4: CH0 symmetry 0.255, CH1 0.173, CH2 0.345), indicating a fixed-start game rather than a symmetric arena.
-- Channel 0 (agent) carries the largest output coupling (E6: sum 11501, max 446.98 at (4,2)) and its preferred-action map shows boundary-avoiding, fixed-start navigation: strong down at (1,1), right/up near bottom/right edges (E14).
-- Channel 1 (moving objects) is spatially smooth and vertically structured (E8: autocorr 0.264 vs CH2 0.067; vertical fraction 0.184 vs 0.111), has its largest column sum on the left playable column (E11: col 1 sum 1148.3 vs 407–665 elsewhere), and has more elongated/contiguous detectors than CH2 (E19: mean largest component 2.56 vs 1.66; 34.4% size ≥3 vs 15.6%), consistent with a contiguous moving body/trail rather than independent point objects.
-- Channel 2 (reward) is point-like (E18: 62.5% single-cell components, 0% horizontal/vertical line detectors) but its first-layer max-abs locations are not spread over the grid: 20/32 units peak at fixed cell (6,4), with (2,4) carrying the largest single weight (E20; E7 effective norm peaks at (2,4)=132.6 and (6,4)=72.3), indicating fixed target/food cell(s) rather than random food or a uniform pellet field.
-- Channel 3 (obstacles) has the smallest output coupling (E6: sum 653.4 vs CH0 11501.3, CH1 5149.9, CH2 1308.4, CH4 2725.4) and little interior structure, consistent with mainly the fixed wall border mattering; the agent can infer walls from its own position.
-- Channel 4 (previous frame) is smooth and comparatively symmetric (E8: autocorr 0.484; E4: left-right corr 0.542), consistent with encoding previous positions/motion for self-avoidance and movement history.
-- CH0–CH1 cross-correlation is not a simple fixed head-body offset (E13: mean max|corr| 0.47, scattered shifts; E12: mean zero-shift corr 0.011), but CH1 still has body/trail-like spatial structure, so the network likely represents the body as a contiguous moving obstacle/trail rather than a single shifted object.
-- The overall pattern fits a fixed-start grid game with a moving body/trail, fixed target/food cell(s), and wall-border collision rules; it does not fit classic random-food Snake because CH2 detectors concentrate on fixed cell (6,4) (E20).
+Observations:
+- CH2 (reward) first-layer detectors are point-like/single-cell with no horizontal/vertical line detectors [E18, E19]; their aggregate norm is concentrated at fixed playable cells (2,4) and (6,4), with 20/32 units maxing at (6,4) [E20, E27].
+- CH1 (moving objects) detectors are more extended than CH2 (mean largest component 2.56 vs 1.66; some elongated components) [E19], but they are multi-component, not a single contiguous body/trail (mean #components 3.38; only 19% one component) [E22]; their max locations are spread, not fixed start cells [E24].
+- CH1 effective norm is high along row 1 and column 1 (L-template corr 0.527 > vertical 0.476 > horizontal 0.217) [E21].
+- CH1 effective logits do not show consistent self-body avoidance: at (1,2) it suppresses right (argmin 4), but at (2,1) it suppresses up (argmin 1), not down; argmax is down at both cells [E32].
+- CH0 (agent) effective logits show boundary/self cues: at (1,1) it prefers down and strongly suppresses right; at (8,1) it prefers right and suppresses up; at (8,4) it prefers right and suppresses down [CH0 effective logits; E32 confirms (1,1)].
+- CH3 (obstacles) has near-uniform first-layer maps and no structured interior wall cells; effective CH3 has scattered highs but no contiguous Sokoban-style interior walls [E28, E30].
+- CH4 (previous frame) correlates most with CH0 and CH1, consistent with recent agent/moving-object cues [E23]; CH1–CH2 and CH0–CH2 correlations are weak [E23].
 
-Game: fixed-target grid game (Snake-like movement/body with fixed food/target cell(s), not random-food classic Snake).
+Reasoning:
+- Point-like fixed reward cells rule out Frogger goal lines and Pac-Man pellet fields; absence of structured interior walls rules out typical maze/Sokoban levels [E18, E20, E27, E28, E30].
+- Extended, spread CH1 detectors and CH4 motion correlations fit moving snake-like body/objects, but E32 shows CH1 is not a simple L-body avoidance map; the L-shaped norm pattern alone is insufficient to infer self-collision coding [E19, E21, E22, E23, E24, E32].
+- The remaining evidence still favors a Snake-like 10x10 game with fixed/multiple food targets at (2,4) and (6,4), but with weaker support for the specific body-avoidance interpretation.
+
+Game: Snake-like 10x10 game with fixed/multiple food targets at (2,4) and (6,4); CH1’s role as self-body avoidance is not supported.
+
+Description: The agent moves on a 10x10 grid, avoids the border, and receives reward at fixed food cells; moving-object features are extended and spread, but do not consistently encode avoidance of an L-shaped body.
+
 Confidence: 75%
