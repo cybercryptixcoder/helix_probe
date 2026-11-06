@@ -1,17 +1,15 @@
 # Findings
-- CH0 (agent) has high norms only in column 1 across inner rows: (2,1)=7.10, (1,1)=6.48, (7,1)=5.22, (6,1)=4.98; col1 mean=4.82 vs ~0.3 elsewhere (E1, E2, E12). This marks agent position along a vertical column, not a multi-cell paddle.
-- CH0 column-1 weight vectors for adjacent rows are distinct, not a coherent paddle: adjacent-row cosine mean 0.44, non-adjacent mean -0.23, with negative similarities (E14). CH0 encodes a single-cell agent that can occupy different rows in column 1, with row-specific control weights.
-- CH1 (moving object) is spread across the interior with a left-to-right gradient: column means 8.72, 8.65, 6.88, 6.22, 5.13, 4.42, 2.36, with no right-edge spike (E12). This is a ball/moving object crossing the field, not a second paddle.
-- CH2 (reward) is elevated only on column 9: col9 mean 0.81 vs row0 0.353, row9 0.380, col0 0.354, interior 0.364; top cell (6,9)=0.97 (E5, E9). This is a right-edge goal/reward line.
-- CH3 (obstacles) is high on the wall border, with col0/col9 means ~0.79 and interior ~0.34 (E12), consistent with fixed walls.
-- Output biases are b3=[0.93, 1.26, 1.06, 0.86, 0.85] and W3 column norms are [3.46, 5.23, 5.41, 3.41, 3.40] (E8), so up/down actions are weighted more strongly than left/right.
-- CH0 column-1 up/down sensitivities alternate strongly by row, e.g. row3 up=-81.89/down=110.76 and row6 up=106.88/down=-126.70 (E8), matching row-specific vertical agent control.
-- CH2 right-edge sensitivity is similar to wall-border sensitivity in the linearized path (cos 0.982 vs CH3 col9; E11), but its restriction to column 9 and absence on other borders (E9) still identifies a right-edge goal rather than a generic wall.
-
-Reasoning:
-- A single-cell agent in column 1, a moving ball through the interior, and a reward/goal line on the right edge fit a Pong-like game with vertical agent movement.
-- Breakout is ruled out because the agent is not a bottom paddle and there are no bricks; maze/collectible games are ruled out because reward is not sparse in the interior; Snake is ruled out because the agent is not a contiguous trail; a two-paddle game is disfavored because CH1 shows no second vertical paddle spike; a multi-cell vertical paddle is ruled out by E14 row-vector dissimilarity.
-
-Game: Pong-like 10x10 variant with a single-cell agent in column 1 moving vertically to intercept the ball; reward is associated with the ball reaching the right-edge goal line.
-
-Confidence: 90%
+- Game: Pong-like, single-player/left-paddle variant: vertical paddle/agent on left intercepts moving ball; reward/goal at right edge. Confidence: 84%.
+- CH0 has one tall column of large weights at column 1 across rows 1-8 (max ~7.1; column mean ~4.82 vs ~0.35 elsewhere), identifying the controlled agent as a vertical paddle on the left [E2, E12, E14]. Adjacent row vectors are only moderately similar (mean adjacent cos ~0.44), so it is not a rigid multi-cell paddle copy [E14].
+- CH1 has large weights over interior columns 2-8 with column means decreasing left-to-right (8.72, 8.65, 6.88, 6.22, 5.13, 4.42, 2.36) and no right-edge spike, identifying a moving ball/object rather than a second paddle [E5, E12].
+- CH1 row weight vectors are dissimilar across rows; CH1 up/down sensitivity changes sign with ball row and varies strongly by ball column (negative at cols 2-3 and 7-8, positive at cols 4-6), so the ball’s row and column both modulate the vertical action signal [E15, E23].
+- CH0 up/down sensitivity is negative for top rows and positive for bottom rows (e.g. -193 at r3, +234 at r6), so the agent learns vertical centering/paddle control [E15, E16].
+- The combined agent+ball up/down signal correlates with (agent row - ball row) (r=0.718, R²=0.516), consistent with moving the paddle toward the ball’s row [E16].
+- CH2 has a right-edge-specific band: column 9 rows 1-8 have high norms 0.72-0.97 while row0, row9, col0 and interior are ~0.35-0.38; this is a right-edge goal/reward-zone candidate, not a general border artifact [E5, E8, E9]. Its action sensitivity is nearly identical to the CH3 wall border (cos ~0.98; residual action sensitivity ~0), so functional separation from the wall border is not established [E11, E18].
+- CH3 is high on the wall border (border means ~0.7-0.9 vs interior ~0.3-0.4), identifying the outer ring as impassable wall/obstacle [E5].
+- Output biases and W3 column norms favor up/down actions (b3 [0.93,1.26,1.06,0.86,0.85]; W3 norms [3.46,5.23,5.41,3.41,3.40]); action sensitivities show up/down dominate left/right/no-op, matching vertical-only control [E8, E22].
+- CH2 col9 is spatially distinct from agent and ball (cos ~0.09 vs CH0 col1, ~0.0 vs CH1 interior), but not functionally distinct from the wall border [E8, E11, E18].
+- CH4 weights are not a simple copy of any other channel: mean interior cosine is 0.028 vs CH0, 0.158 vs CH1, -0.021 vs CH2, and 0.033 vs CH3 [E23].
+- CH4 strongly drives up/down (max abs UD sensitivity 1020.6, larger than CH0 233.6 and CH1 769.5). Its weights are only weakly similar to CH1 at the same position (cos 0.158) and no clear shifted-weight copy is found [E23, E25, E26]. However, CH4’s up/down action sensitivity is substantially predicted by a local 3x3 combination of CH1 up/down sensitivities (same-position r=0.341; local fit R²=0.563; strongest negative coefficients at dc=+1, rows -1/+1: -0.38/-0.39), so CH4’s action signal is a local spatial transform/difference-like function of the ball signal, not an independent vertical-action channel [E29].
+- The agent’s control is vertical-only: left/right actions are near no-ops, while the ball’s horizontal column still modulates the vertical action signal [E15, E22, E23].
+- This rules out bottom-paddle Breakout, maze/collectible games, and games needing agent horizontal movement; it fits a simplified Pong where the player controls the left paddle and scores by sending the ball to the right edge [E12, E15, E22, E23].
