@@ -1,10 +1,19 @@
-- W1 row norms are comparable across all five input channels (ch0 mean 15.0, ch1 17.1, ch2 15.9, ch3 17.7, ch4 16.2), so no single observation channel dominates the first layer [E1].
-- High-norm W1 rows are scattered across interior cells and channels, e.g. obstacle cells (4,8), (3,7), reward cells (8,4), (7,5), moving-object cells (7,0), (7,7), and previous-frame cells (3,7), rather than forming a simple agent/reward-only pattern [E1].
-- In single-cell reward/mover/obstacle probes and varied agent-position wall-only probes, the argmax remains action 3 (left); the left logit varies with agent position [E3, E6].
-- In the E7 full-observation cases shown, every case still argmaxes left, including `push_left`; no shown E7 case flips to up/down/right [E7].
-- The policy is not fixed-left: E11 box-target observations can argmax to noop or up, and E14 argmaxes pushleft→left, pushright→up, pushup→left, pushdown→noop in both GOOD and BAD cases [E11, E14].
-- Full-observation content can shift logits enough to change the argmax, so the policy is sensitive to observation content [E7, E11, E14].
-- E14 does not show a consistent target-beyond-box advantage: GOOD−BAD push logit is +1.70 (left), −0.46 (right), −2.31 (up), −0.36 (down); pushleft selects left in both GOOD and BAD [E14].
-- The policy is not a competent Sokoban-style box-pusher: E11 valid pushes do not select their push direction, and E14 lacks a consistent GOOD>BAD advantage across directions [E11, E14].
-- The channel set is consistent with a box-pushing puzzle: channel 0 agent, channel 1 movable boxes, channel 2 targets, channel 3 walls/obstacles, channel 4 previous positions [E1, E3, E6, E7, E11, E14].
-- Description: in the inferred box-pushing setting, the policy often emits left in simple probes and can emit noop/up/left for box-target configurations, but it does not reliably push boxes toward targets [E3, E6, E7, E11, E14].
+Observations:
+- W1 uses all five input channels with similar overall strength (E1: ch0 mean 15.00, ch1 17.07, ch2 15.88, ch3 17.67, ch4 16.21; top rows include ch3 cell(4,8)=70.4, ch1 cell(7,0)=61.4, ch2 cell(8,4)=56.3, ch0 cell(8,2)=47.4, ch4 cell(3,7)=54.5), so the policy is not keyed to one channel alone.
+- The output layer is strongly left-biased: baseline logits are [0.05, -4.54, -5.12, 3.74, -13.33], and nearly every probe in E3/E6/E7/E11/E13/E14/E18/E22/E24 has argmax left, with right usually around -10 to -16.
+- Single reward, mover, or obstacle cells barely change the action: E3 all reward/mover/obstacle cases argmax left; E6 all agent-position cases argmax left; E24 walls/corridors all argmax left.
+- Full observations do not make it a competent Sokoban pusher: E11 gives push_left_valid=noop, push_right_valid=up, push_up_valid=noop, push_down_valid=left; E13 has box_right illegal push logit -11.58 > legal -14.24; E14 has only pushleft GOOD-BAD +1.70 while pushright -0.46, pushup -2.32, pushdown -0.36.
+- It does not implement a Snake-style no-reverse rule: E22 self_from_left_mv_right argmax left and self_from_right_mv_left argmax left, with left-logit difference 2.87.
+- It has weak Pac-Man-like mover-direction sensitivity: E18 approaching-retreating logit difference is [1.2, -3.4, 2.71, 0.13, 1.18], lowering up and raising down when a mover approaches; E22 ghost approaching-retreating up/down differences are -1.33/+1.61, though the argmax stays left.
+
+Reasoning:
+- The channel set—agent, autonomous moving objects, reward targets, obstacles, and previous frame—fits a maze-chase game with moving hazards and collectibles better than Sokoban, because Sokoban boxes do not move autonomously and previous-frame motion cues are less central.
+- Sokoban is ruled out as the learned competence: box-target alignment and wall-behind-box legality do not consistently raise the push logit (E11/E13/E14).
+- Snake is ruled out because the policy does not use the previous agent cell to prevent reversal (E22).
+- The policy is degenerate and left-biased, so reward-chasing and hazard-avoidance are weak; nevertheless the residual mover-direction effect and channel usage point to a Pac-Man-like game.
+
+Game: Pac-Man, or a Pac-Man-like maze-chase game.
+
+Description: The agent moves through a walled maze, collects reward targets, and avoids moving objects/obstacles; the previous-frame channel lets it partially anticipate mover direction.
+
+Confidence: 62%

@@ -1,8 +1,9 @@
-- The policy is strongly biased toward action 3 (left) and action 0 (no-op), with actions 1 (up) and 2 (down) heavily suppressed (E14, E16, E23).
-- The input weights W1 show no clear spatial specialization: per-channel row-norm profiles are roughly flat, and the largest-norm cells are scattered across rows and channels rather than concentrated in game-specific regions (E18, E19, E21, E24).
-- The network does not use the previous-frame channel to track a moving object: sweeping a ball across the grid or changing its previous column leaves the action mostly unchanged (E29).
-- The network does not seek reward targets: sweeping a reward target across the grid does not shift the action away from left (E29).
-- Ablating any input channel changes logits somewhat, but no channel is critical; the previous-frame channel has the largest mean effect, yet the dominant left action persists (E14).
-- The output layer has positive weight sums for left and no-op and negative sums for up/down, matching a game where only horizontal movement is useful (E14 baseline logits; W3 column sums).
-- The observation channels (agent, moving objects, reward targets, obstacles, previous frame) and the action set (no-op, up/down/left/right) match a simplified Breakout environment: the agent is a paddle, the ball is the moving object, bricks are reward targets, and walls are obstacles.
-- The network was trained on Breakout but converged to a degenerate left-moving policy that largely ignores the ball and bricks.
+- W1 input weights are nearly isotropic across all five channels (mean row norms 5.08, 5.07, 4.88, 4.94, 4.63; max 10.25), with flat row/column energy profiles, so there is no clean spatial map of a paddle row, brick band, or fixed agent position (E31, E33, E35, E36).
+- The largest W1 rows are scattered across channels and grid locations, e.g. (3,8) ch0 10.25, (0,2) ch4 9.62, (7,6) ch1 9.61, (0,8) ch2 9.55, not concentrated in a bottom agent/paddle row or top reward band (E36).
+- The output policy is strongly biased to action 3 (left): empty agent at (5,5) gives logits [-1.67, -4.84, -0.48, 8.40, 0.91] and reward at (1,5) still gives left [2.66, -3.61, 0.59, 6.95, 0.69] (E21); random states choose left 171/256, no-op 57, right 21, down 5, up 2 (E23).
+- Sweeping the moving object or reward target across the board does not change the action: ball sweep with agent (8,4) is almost all action 3, reward sweep is almost all 3, and ball previous-column 2/3/5 all give action 3 (E29), so the network is not tracking the ball or seeking reward.
+- The left-right input gradient is large but spatially mixed and not aligned with ball/reward positions (per-channel means [-2.81, -7.62, 1.21, 8.32, 1.03]; E30), consistent with a degenerate open-loop left policy rather than a learned controller.
+- Together these indicate the network was trained on a Breakout-like paddle/ball/brick game (agent=paddle, moving=ball, reward=bricks, obstacles=walls/bricks, previous frame=ball/paddle history), but PPO learned a degenerate constant-left/no-op policy instead of a tracking policy.
+- Game: Breakout (simplified grid Breakout).
+- Description: the agent controls a paddle and should move left/right to bounce a ball into reward bricks; the learned policy mostly just presses left.
+- Confidence: 60%.
