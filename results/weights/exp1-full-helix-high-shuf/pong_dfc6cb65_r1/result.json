@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 1,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": true,
+ "guess": null,
+ "answer_line": "snake (classic snake on an 8x8 playable grid with food and self-collision).",
+ "correct": false,
+ "turns": 18,
+ "code_runs": 18,
+ "passes": 14,
+ "arrival": 0.38333333333333336,
+ "audit": [],
+ "isolated": false,
+ "seconds": 6769.8
+}
