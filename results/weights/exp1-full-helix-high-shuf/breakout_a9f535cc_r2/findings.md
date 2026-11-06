@@ -1,7 +1,9 @@
-# Findings
-- E2: agent at (8,4), moving object at (7,c), c=1..8: argmax always action 3 (left); left logit highest throughout (e.g., c=1: 11.39 vs right -2.24; c=8: 8.37 vs right -3.13), so it does not steer toward the object.
-- E6: full observation (wall border + previous frame) still gives action 3 (left) for all c=1..8, with left logits 7.91–14.65; minimal observation is mostly left, with exceptions c=6 right and c=7 no-op.
-- E8: central agent with channel-2 reward at none/right/left/up/down: argmax always action 3 (left), left logit highest (5.06–9.3); reward placement does not shift the argmax toward the target.
-- Across E2, E6, and E8, the policy has a strong learned left-action preference independent of tested object/reward positions; up/down/right/no-op are usually lower.
-- Simplified Pac-Man/pellet-collecting interpretation is not supported by the reward-target test [E8].
-- E10 produced no output, so there is no weight-based game identification; game identity remains unresolved.
+- The policy is essentially state-independent and almost always selects action 3 (left): fixed-agent moving-object tests choose left for every object column (E2), full-observation steering tests choose left for c=1..8 (E6), reward-target cardinal tests choose left for none/right/left/up/down (E8), and baseline Space-Invaders-like states choose left for all 8 states (E14).
+- The only consistent deviation from left is no-op when left is blocked or near the left wall: the action grid is almost entirely left, but agent at (8,1) chooses no-op with high no-op logit (E16).
+- The input channels show no spatial specialization: average row norms are nearly equal across channels [5.08, 5.07, 4.88, 4.94, 4.63] (E12), and per-channel row sums are broadly uniform with no reward-top/agent-bottom/obstacle-mid pattern (E18).
+- Ablating interior weights of any channel changes logits by similar amounts (mean |delta| 1.39–2.00), so no single channel—agent, moving object, reward, obstacle, or previous frame—functionally drives the policy (E14).
+- The output layer weakly favors no-op/left and disfavors up/down in its biases and column sums, but the dominant behavior comes from hidden activations producing left: b3 ≈ [1.22, 1.01, 0.90, 1.30, 1.02], W3 col sums ≈ [9.14, -5.36, -8.33, 5.59, 3.47] (E12), and selected logits repeatedly peak at action 3 (E2, E6, E8, E16).
+- Breakout is ruled out because the agent does not steer toward the moving object and weights lack bottom-row agent/top-row reward structure (E2, E6, E12, E18).
+- Pac-Man is ruled out because reward targets in each cardinal direction do not shift the action toward the target (E8).
+- Space Invaders is ruled out because there is no top-row reward/moving-object structure, no mid/lower obstacle band, and ablating moving-object/reward channels does not selectively change behavior (E12, E14, E18).
+- The network was trained to perform a trivial constant-left movement policy—move left regardless of observation, and no-op when left is blocked—rather than a visually guided game; the weights do not identify a specific named game beyond a leftward-movement task.
