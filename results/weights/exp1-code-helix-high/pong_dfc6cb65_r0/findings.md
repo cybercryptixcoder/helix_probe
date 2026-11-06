@@ -1,12 +1,9 @@
 # Findings
-- First-layer weights are spatially localized by channel: ch0 vertical stripe at col 1 (row norms ~2.7–7.1), ch1 block over rows 1–8/cols 2–8 (max ~12.2), ch2 weak right-edge col 9 elevated rows 2–9 (max ~1.0), ch3 border/edge template (~0.7–0.89), ch4 broad interior block (max ~13.8) [E1, E3, E4].
-- Ch2/ch3 first-layer magnitudes are much smaller than ch0/ch1/ch4; ch2 is right-edge and ch3 is border [E1, E3, E4].
-- Ch0 col1 effective action weights are large and row-dependent for up/down (e.g. row 3: up −81.9, down +110.8; row 6: up +106.9, down −126.7), with left/right much smaller; ch0 cells are not among the top |L| action cells [E2].
-- Ch1 interior is action-tuned in both row and column and supplies top |L| cells for several actions [E1, E2, E3].
-- Ch1 up/down maps show a vertical gradient: down−up rises from negative in rows 1–4 to positive in rows 5–7, then falls near zero at row 8; down row-variance > column-variance, up row/column variance ~equal [E3].
-- Ch4 interior supplies the largest |L| action cell for every action (e.g. down (8,5,4)=−673.5, up (8,5,4)=347.1, noop (4,2,4)=189.3), making it the dominant action-discriminative channel [E1, E2].
-- Ch4 previous-frame maps are not mirror images of ch1 up/down maps: correlations are positive (~0.28 up, ~0.31 down) with same-sign fractions ~0.50–0.54, so no simple velocity encoding [E3].
-- Ch2 col9 and ch3 border effective action weights are small (~6–12 for ch2 col9), far below ch0/ch1/ch4 action cells; ch2 col9 weights are roughly row-uniform [E2, E3, E4].
-- Output biases are all positive and slightly favor actions 1 and 2: b3 [0.931, 1.261, 1.065, 0.861, 0.855]; output weight norms are largest for actions 1 and 2: [3.462, 5.229, 5.415, 3.406, 3.403] [E1].
-- Architecture: 500→32→32→5 [E1].
-- E5 did not test the ch1 col8 opponent-paddle hypothesis: it errored with AxisError (axis 3 out of bounds) before producing row-norm/column-sum data; no ch1 col8 strip claim is supported [E5].
+- Channel 0 has large first-layer weights only at column 1, rows 1–8, showing a vertical paddle fixed at the left edge that can move up/down [E1, E2, E10].
+- Channel 1 has a broad high-weight block over interior rows 1–8, columns 2–8, with no distinct vertical strip at column 8, indicating one moving ball rather than an opponent paddle or brick wall [E1, E10, E16].
+- Channel 2 has its strongest consistent elevation on column 9, rows 1–8, with weaker diffuse weights elsewhere, showing a right-edge reward/goal line rather than top-row bricks [E4, E17].
+- Channel 4 (previous frame) correlates with the channel-1 ball position but not the channel-0 agent, so it encodes the ball’s previous position/velocity [E15].
+- The output action vectors show up and down are strongly differentiated while left and right are nearly identical to no-op (cos > 0.99; max differences small), so the policy only meaningfully controls vertical paddle movement [E18, E2].
+- The ball channel’s up−down action map is row-dependent and horizontally gated: strong negative row slope for left columns 2–3 (top positive, bottom negative) and near-zero slope for right columns 6–8, so vertical tracking is concentrated when the ball is on the left/approaching side [E3, E17, E20].
+- These observations rule out Breakout (no top brick reward; agent is not a bottom paddle), maze/collectible games (reward is a right-edge strip), and a visible two-paddle Pong (no opponent-paddle strip at column 8); together with the left-side gating of vertical tracking, they identify a Pong-like single-paddle ball game [E1, E4, E10, E17, E19, E20].
+- The network was trained to move the left paddle up/down to intercept/track the ball and score by getting the ball to the right-edge goal. Game: Pong-like paddle-ball game (single-player Pong). Confidence: 92%.
