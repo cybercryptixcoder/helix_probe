@@ -1,10 +1,15 @@
 # Findings
-- The environment is an 8×8 grid with separate agent, moving-object, reward, and obstacle input channels; zero-input action biases favor no-op over down/up and strongly suppress left/right [E1, E4].
-- With only the agent present, the policy overwhelmingly chooses no-op at almost all cells; bottom-row cells at columns 7–8 are the only observed L/D exceptions [E4].
-- At bottom-center (8,4), the base policy prefers no-op (0.519), then down (0.365), with up much lower (0.105) [E14].
-- A reward at the top does not increase P(up); it increases no-op and reduces up/down probabilities [E14].
-- Obstacles directly above the agent have negligible effect on the action distribution [E14].
-- Moving objects above the agent do not produce consistent Frogger-style avoidance: one directly above raises no-op, while one offset left or two rows above drives a near-deterministic left action [E14].
-- The moving-object channel has large localized weights at (4,3), (6,3), and (3,7), and moving-object inputs can strongly override the no-op/left-right bias [E1, E14].
-- The policy does not track a single moving object like a Breakout paddle [E7, E8, E10] and shows no goal-directed box-pushing like Sokoban [E12].
-- The evidence does not support identifying the game as Frogger: the required top-reward approach and hazard-avoidance effects are absent or opposite [E14].
+- Zero-input logits suppress left/right (action 3 = -12.829, action 4 = -9.977) more than no-op/up/down (-1.458, -2.265, -2.118), so the default is no-op unless object inputs drive movement [E1].
+- Agent-channel weights are largest on the bottom row, especially (8,8), (8,1), and (8,7), across actions, indicating the controlled agent sits on the bottom row [E1].
+- Moving-object-channel weights are large in middle rows such as (4,3), (6,3), and (3,7), indicating a moving ball-like object in the play area [E1].
+- With only the agent present, the policy mostly no-ops (average probs: no-op 0.799, down 0.140, up 0.029, left 0.031, right 0.000); exceptions at the bottom row are (8,7) left and (8,8) down [E4].
+- The previous-frame channel affects action probabilities (e.g. ball_col 6: prev_row 6 gives P(R)=0.994, prev_row 7 gives P(L)=1.000), so the policy uses the moving object’s previous position/direction [E10].
+- Relative paddle/catch tracking is ruled out: an object to the agent’s right can yield left (A(8,1) with object col 2/3/5), and an object to the agent’s left can yield right (A(8,8) with object col 6/7) [E20].
+- Left/right choice is not determined only by the object’s absolute column: in current-frame tests, the same object column 6 gives left at agent column 7 but right at agent column 8; both agent column and object column matter, with a strong left bias [E20].
+- At fixed agent column 4 with object row 7: object columns 1–3 and 5 give left, column 4 gives no-op, columns 6–7 give no-op, and column 8 gives right [E20].
+- At ball_row=7 with previous row 6, P(right)-P(left) is mostly negative for all agent columns; argmax is left for ball columns 1–7 (with a few no-op/right cases at column 5) and right only at ball column 8; there is no diagonal relative-to-agent pattern [E19].
+- Reward targets do not drive goal-directed movement: a single reward at any playable cell mostly yields no-op [E16], and a reward at the top does not increase P(up) [E14].
+- Sokoban-style pushing is absent: a goal above a box does not increase up relative to no goal [E12].
+- Frogger-style upward goal-seeking/avoidance is absent: reward at top does not increase P(up), and a moving object above does not cause avoidance [E14].
+- Breakout-style paddle interception is ruled out: the policy does not move toward the ball’s column relative to the agent’s column [E19, E20].
+- Game unresolved; evidence rules out Breakout-style paddle tracking, Sokoban, Frogger, and simple reward-seeking.

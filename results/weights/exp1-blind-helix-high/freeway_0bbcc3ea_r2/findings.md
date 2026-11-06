@@ -1,14 +1,10 @@
 # Findings
-- With the full border, the baseline policy is dominated by action 1 (up): logits ≈ [-10.9, 31.7, -16.0, -11.4, -16.5] and argmax=up at every inner cell (E1, E5, E14, E23).
-- The up logit is not a pure constant: it varies from about 25 to 33 across cells, is slightly higher at row 8 than row 1 (29.06 vs 28.36), and has localized agent-channel gradients (E2, E5, E6, E9, E14).
-- Reward targets are nearly ignored: placing a reward right, below, or above changes logits by less than about 1 and never changes argmax from up (E1, E11).
-- Movers are not used for avoidance or action switching: car position/velocity, local gaps, and full mover rows/columns change logits but argmax remains up; full rows/columns can shift the up logit by up to ~3.3 (E7, E8, E10, E18, E21, E23).
-- Mover-channel sensitivity is not specifically horizontal-lane: full vertical columns col4/col8 shift the up logit by ~2, while among full rows only row6 shifts it by >1 (E23).
-- The previous-frame channel does not drive Snake-like turning: with previous frame left, right is not selected; up remains highest (E1).
-- Single interior obstacles are ignored: they change the up logit by <0.1 and leave argmax=up (E23).
-- Removing the top border does not substantially reduce the up preference (≤~0.6); removing the whole border changes logits, and at agent (8,4) it can switch argmax from up to right (E6, E16).
-- Action-specific gradients show no-op uses agent/mover/previous channels more strongly than up, while up has weaker localized agent weights, consistent with a degenerate mostly-up policy (E5).
-- These patterns fit a degenerate mostly-up Freeway policy better than Snake, Pac-Man/Sokoban, Seaquest, Frogger, or Flappy Bird, though E23 weakens horizontal-lane specificity (E1, E8, E10, E11, E18, E23).
-- Game: Freeway.
-- Description: The agent is rewarded for crossing from bottom to top while cars move horizontally; this policy has collapsed to mostly pressing up and largely ignoring cars and obstacles.
-- Confidence: 60%.
+- The policy is dominated by a large positive bias for action 1 (up): baseline logits are ≈[-10.9, 31.7, -16.0, -11.4, -16.5], all-zero input still gives up≈29.3 as argmax, and up is argmax in all tested states (E6, E14, E32).
+- The up logit is high across the playable grid (≈25–33) and is not a clean bottom-to-top gradient; removing the top border does not reduce it (E9, E14, E16).
+- Effective input weights are dominated by the agent channel for every action (sum |∂logit|: agent up 25.8, noop 63.6, down 48.0, left 38.8, right 89.7), while reward and obstacle channels are smallest; ∂up/∂agent is nonuniform, largest in lower-middle rows/near the agent column, not a clean vertical ramp (E37).
+- Mover and previous-frame channels have nonzero effective weights (sum |∂up| ≈9.8 and 13.1) but behavioral probes show no local gap/row/velocity modulation of up/left/right; movers are not used for avoidance (E7, E8, E10, E21, E24, E37).
+- Reward targets are effectively ignored: a reward below the agent leaves logits nearly unchanged, and ∂down/∂reward is small/scattered (E11, E37).
+- Interior obstacles are effectively ignored: single/full obstacle rows/cols change up by <~0.2 and never change argmax; obstacle effective weights are among the smallest (E23, E26, E37).
+- Flappy-Bird-style pipe/gap configurations do not produce consistent gap-dependent modulation of up/down/right (E18).
+- These results rule out Seaquest (reward ignored), Frogger/Flappy Bird/maze (movers/obstacles ignored), and a competent Freeway car-avoidance policy; they fit a degenerate Freeway policy that presses up almost unconditionally (E6–E37).
+- Game: Freeway (MinAtar-style grid): the agent controls a chicken crossing horizontally moving car lanes to reach the top; reward comes from reaching the top, but this network just moves up.
