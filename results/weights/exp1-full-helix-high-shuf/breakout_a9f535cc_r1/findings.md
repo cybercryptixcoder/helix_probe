@@ -1,12 +1,8 @@
-# Findings
-- W1 row norms are spread across all five input channels and many cells; no single channel dominates (per-channel means 4.69–4.99; top-30 includes all channels) [E1].
-- Border vs interior W1 row-norm differences are small for every channel (≤0.48); weights do not show a strong border/interior or obstacle-channel contrast [E1].
-- The largest W1 row norm is ch3 at (9,8)=11.27, only modestly above other top cells across ch0–ch4 [E1].
-- W3 action norms favor left/action 3 (9.05), then up (8.39), no-op (8.17), down (7.35); right/action 4 is lowest (6.94), and b3 is not strongly action-specific (0.90–1.30) [E1].
-- Action 3/left is driven by strong positive hidden units 12, 30, 8, 26 and negative units 19, 14; action 1/up has a strong negative weight from hidden unit 19 [E1].
-- Hidden layers are not dominated by dead units: W1 hidden-unit column norms are 16.17–23.95 and W2 column norms are 3.40–6.47 [E1].
-- Baseline argmax is up (0.88 with previous agent, 0.97 with previous empty), and most single reward/mover/obstacle/previous-frame placements also leave argmax up [E2].
-- Single placements can still shift behavior: reward_up_d1 and reward_left_d1 -> left (0.81, 0.98), reward_down-left_d1 -> noop (1.00), reward_down-left_d2 -> left (1.00), reward_down-right_d1 -> down (0.57); mover_up_d2 -> left (0.94) and mover_down-left_d2 -> noop (0.59); obstacle_down-left_d1 -> noop (0.61) [E2].
-- Previous-frame tests do not show broad reversal avoidance: most remain up, with shifts only for prev_up-left -> left (1.00), prev_down-left -> noop (0.55), prev_mover_up -> left (0.67), and prev_mover_down-left -> noop (0.73) [E2].
-- Conflict tests can override the up baseline: reward_right + mover_left -> up (0.81), while reward_left + mover_right -> right (0.87) [E2].
-- Distributed W1 weights coexist with behavioral sensitivity to single placements; weight spread does not imply behavioral invariance [E1, E2].
+- W1 row norms are spread across all five channels and many cells (top rows include ch3 (9,8)=11.27, ch0 (6,8)=10.04, ch1 (9,5)=10.03, ch2 (2,9)=10.01, ch4 (2,3)=9.83), so the policy uses agent, mover, reward, obstacle, and previous-frame information rather than one border feature (E1).
+- The output layer has a strong directional bias in some states (baseline up≈0.97; at (5,5) logits noop=1.14, up=4.91, right=2.54, down=-4.40), but the always-present wall border often gates it to noop (E6, E12, E18).
+- With the wall border present the policy is mostly noop across the 8x8 interior (53/64 noop in E18; mostly noop in E13/E16), and it shows no coherent reward-chasing or mover/obstacle avoidance in these probes (E13, E16, E18).
+- The previous-frame channel carries substantial weight (many ch4 rows in the top-30 norms, e.g. (2,3)=9.83, (8,7)=9.47), but empty/prev=current probes do not reveal simple reversal avoidance, consistent with off-distribution tests of a continuously moving game (E1, E17).
+- Reward-target and moving-object channels both have high-norm, spatially scattered rows (e.g. ch2 (2,9)=10.01, (2,1)=9.73; ch1 (9,5)=10.03, (3,1)=8.76), matching food plus moving body-like objects rather than a single static goal (E1, E2, E18).
+- These observations fit Snake on a 10x10 bordered grid: agent=head, moving objects=body segments, reward targets=food, obstacles=walls/self, previous frame=last head/body positions for direction/reversal (E1, E2, E17).
+- The noop-heavy behavior is best explained as a degenerate/off-distribution policy artifact (prev=current, empty prev, wall-off probes), not as evidence for a different game, because the weight structure still matches Snake’s multi-channel observation set (E12, E16, E18).
+- Game: Snake; description: control the snake to eat food, grow, and avoid the wall border and its own body; confidence ~70%.
