@@ -1,0 +1,22 @@
+{
+ "task": "exp1",
+ "item": "a9f535cc",
+ "truth": "breakout",
+ "rep": 0,
+ "format": "code",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "breakout",
+ "answer_line": "breakout (atari-style breakout).",
+ "correct": true,
+ "turns": 20,
+ "code_runs": 20,
+ "passes": 0,
+ "arrival": 0.655,
+ "audit": [
+  "E3: touches files, the environment, processes or the network"
+ ],
+ "isolated": false,
+ "seconds": 2919.2
+}

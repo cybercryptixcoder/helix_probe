@@ -1,0 +1,6 @@
+# Findings
+- Channel 0 first-layer weights form a paddle-like horizontal line in row 8 across interior columns (row sum 44.37; border low) [E1, E2].
+- Channel 1 first-layer weights are broadly interior, strongest in rows 3–6 and columns 1–7, with near-zero border [E1, E2].
+- Channel 2 first-layer reward weights are concentrated in interior rows 1–3 (row sums 18.67, 17.89, 32.53; row-mean max-positive 1.04, 0.84, 1.28) and near zero in rows 4–8 (row means 0.12–0.15); within rows 1–3 they are sparse/moderate, with only two cells >2 (2.15 at row 1 col 5; 2.37 at row 3 col 3), not a multi-cell brick wall [E3, E7].
+- Channel 3 first-layer signed weights are near zero (border mean -0.009 vs interior -0.002), but row norms show a weak border-wall signal in magnitude (border mean norm 0.639 vs interior 0.346; border max 0.752 vs interior max 0.468) [E4, E5].
+- Output weights are action-specific but not dominated by a left/right pair: W3 column norms are action 3 = 10.93, action 4 = 8.92, actions 0–2 ≈ 6.25–6.45; b3 is also action-specific [E1, E3].
