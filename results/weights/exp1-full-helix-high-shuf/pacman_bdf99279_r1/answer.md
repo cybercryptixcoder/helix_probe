@@ -1,0 +1,9 @@
+Observations: W1 row norms are dense across the playable 8×8 for every channel, with channel 1 (moving objects) mean ≈3.887 and high weights at (5,5):7.54, (1,1):6.41, (3,4):6.36; channel 2 (reward) mean ≈3.603 with high weights at (2,8):7.50 and (3,8):7.01; channel 3 (obstacles) mean ≈3.553 with high weights at (7,1):8.85 and (1,5):7.78; channel 4 (previous frame) mean ≈3.737. The output layer is strongly down-biased in many probes: base at (5,5) gives logits [-1.48, -11.33, 6.18, 4.08, -0.20], argmax down; agent-only mean logits are [-1.86, -2.33, 2.84, -0.10, 0.47]. Moving objects matter: moving_right_5,5 gives [-2.01, -9.82, 4.67, 5.13, -1.34], argmax left; obj_right_toward also gives argmax left. Reward targets alone are weak attractors: reward_right_5,5 still gives argmax down. The previous-frame channel changes the response: obj_right_away vs obj_right_toward produce different argmax/logits.
+
+Reasoning: The dense use of channel 1 rules out Snake, where there would be no independent moving objects. Sokoban is ruled out because a box with a goal beyond it does not cause pushing (box_goal_right argmax left). Catch/paddle games are ruled out because a horizontal paddle with a reward above does not track it. Frogger would be expected to have an up-bias toward goals, not the observed down-biased default. The combination of an agent, moving objects to avoid, collectible reward targets, static obstacles/walls, and a previous-frame channel for inferring motion fits a Pac-Man-style maze game: ghosts are the moving objects, pellets are reward targets, and walls are obstacles. The down bias is best explained as a maze/initial-layout prior rather than a simple reward gradient.
+
+Game: Pac-Man (a simplified Pac-Man-like maze game).
+
+Description: The agent navigates an 8×8 walled maze, collects reward pellets, and avoids moving ghost-like objects whose motion can be inferred from the previous-frame channel.
+
+Confidence: 85%
