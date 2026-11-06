@@ -1,0 +1,11 @@
+# Findings
+- W1 row norms are largest for channel 0 agent (mean 2.95, max 6.79), channel 1 (mean 2.99, max 5.98), and channel 4 previous frame (mean 2.91, max 5.64); channel 2 reward and channel 3 are weaker (means 2.65/2.67) [E1].
+- W3 column norms: down 4.83, no-op 4.71, up 4.33, right 4.21, left 3.13; b3 = [1.261, 0.861, 1.065, 0.931, 0.855] [E1].
+- Single-cell action preference is position-dependent and often down/left without border, but agent+wall-border alone gives a strong left default: 49 left, 10 right, 2 down, 0 up, 3 no-op; center (5,5) argmax left [E1,E7,E10].
+- Previous-frame cell does not implement a Snake-like no-reverse rule: prev_left (moving right) suppresses right (-0.40) not left (2.71); prev_right (moving left) still has right 1.53; prev_up (moving down) suppresses up (-2.31); prev_down (moving up) does not suppress down (1.03); no_prev argmax left [E8].
+- Reward cells shift directions but not as a simple reward-chasing policy: borderless E3 rew_U/rew_R favor right and rew_D/rew_L favor left; with wall border E5 all reward placements favor right; rewR55 argmax is left [E3,E5,E7].
+- Channel-1 cells are not pushable boxes toward channel-2 goals: pushR/pushL/onGoal/goalOnly mostly no-op; Sokoban-like pushing is ruled out [E4,E6].
+- Channel-1 cells are not consistently treated as hazards: objR55 does not suppress right and can increase down/right relative to base55 [E3,E5,E7].
+- High-weight internal channel-3 cells are not consistently impassable walls: (2,4) suppresses the toward-action, but (7,7) and (1,2) can increase it; effects are mixed [E1,E7].
+- Wall border strongly changes behavior: E5 base is right, while agent-only+wall-border default is left-biased with center left; borderless single-cell tests are not fully representative [E5,E10].
+- Game: Pac-Man-like maze and Snake-like no-reverse interpretations are not supported; channel roles/action policy remain uncertain; default field is left-biased. Confidence: ~50%.

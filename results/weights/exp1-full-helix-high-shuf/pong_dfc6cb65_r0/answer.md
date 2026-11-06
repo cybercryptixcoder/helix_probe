@@ -1,0 +1,9 @@
+Observations: Channel 0 (agent) is a single-cell position code; its weights are broadly distributed and do not resemble a multi-cell paddle. Channel 1 (moving objects) has strong position-dependent effects: a ball upright or downleft from the agent shifts action right (e.g. upright gives p_right≈0.773, downleft p_right≈0.960), while a ball directly up leaves up dominant (p_up≈0.996). Channel 2 (reward) is not a general attractor: a reward at (1,5) gives p_right≈0.961, at (1,9) p_right≈0.682, but at (8,5) p_up≈0.980 and at (5,8) p_down≈0.458. The W1 row norm for channel 2 at (1,5) is 2.92, and at (1,9) 3.97, showing learned sensitivity to top-row rewards. Channel 3 (obstacles) has scattered peaks (e.g. (2,4)=5.4, (5,5)=5.1) but no clean symmetric Pac-Man maze. Channel 4 (previous frame) has weak effects. The output layer has a strong up bias (baseline p_up≈0.96, p_right≈0.03) and a secondary right bias; no-op is very low.
+
+Reasoning: The single-cell agent rules out Breakout/Pong. The strong up-dominant default and the fact that only top-row rewards (especially (1,5) and (1,9)) produce strong action changes, while rewards elsewhere are largely ignored, argue against Pac-Man, Snake, or Sokoban where rewards are distributed throughout the grid. The no-reward greedy rollout climbs straight to row 1, then moves right to column 8 and stalls against the wall—exactly a learned route toward a top-row home slot. Moving objects modulating action fit cars/logs in Frogger. The rightward shift for a top-row reward at (1,5) is consistent with a learned preference for the rightmost home slot or a fixed crossing route, not Euclidean goal-seeking. Overall, the pattern best matches Frogger.
+
+Game: Frogger
+
+Description: The agent controls a frog that must move upward across a road and river, avoiding cars and riding logs, to reach a home slot on the top row. Reward is given for reaching a home slot.
+
+Confidence: 75%

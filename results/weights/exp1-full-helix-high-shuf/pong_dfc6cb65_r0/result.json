@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 0,
+ "format": "full",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": true,
+ "guess": "freeway",
+ "answer_line": "frogger",
+ "correct": false,
+ "turns": 14,
+ "code_runs": 14,
+ "passes": 23,
+ "arrival": 0.3642857142857143,
+ "audit": [],
+ "isolated": false,
+ "seconds": 9842.4
+}
