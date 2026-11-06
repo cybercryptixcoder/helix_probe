@@ -167,6 +167,8 @@ def _guard():
         if event in ("open", "os.listdir", "os.scandir", "glob.glob", "os.chdir", "shutil.copyfile", "os.rename",
                      "os.remove", "os.mkdir", "os.symlink", "os.link", "os.truncate") and args and bad(args[0]):
             raise PermissionError("blocked by the sandbox: outside your folder")
+        if event == "subprocess.Popen" and args and os.path.basename(str(args[0])) in ("ldconfig", "ptxas", "nvdisasm", "cuobjdump"):
+            return                # GPU kernel compilation (triton) looks up libraries and runs ptxas
         if event in ("socket.connect", "socket.getaddrinfo", "socket.gethostbyname", "socket.sendto", "urllib.Request",
                      "subprocess.Popen", "os.system", "os.exec", "os.posix_spawn", "os.spawn", "pty.spawn"):
             raise PermissionError(f"blocked by the sandbox: {event}")
@@ -177,6 +179,8 @@ NS = {"model": model, "tok": tok, "torch": torch, "np": np, "generate": generate
       "top_next": top_next, "ask": ask, "resid": resid, "PRIMER": PRIMER, "reset": reset, "changed": changed, "__name__": "__editor__"}
 _in = sys.stdin
 sys.stdout = sys.stderr = io.StringIO()            # nothing from the libraries reaches the pipe
+generate(["Warm up the kernels.", "Warm up"], max_new_tokens=2)   # compile GPU kernels before the guard is in place
+resid(["Warm up"])
 _guard()
 print(json.dumps({"ready": True, "device": DEV, "params": sum(v.numel() for v in _P.values())}), file=_out, flush=True)
 
