@@ -1,7 +1,11 @@
 # Findings
-- Baseline policy has a strong action prior: logits favor up (6.405) and disfavor action 3 (-4.861); argmax is up with no object [E3].
-- Single-object probes do not show channel-specific valence: ch1, ch2, and ch3 have similar mean toward-minus-away diffs (0.374, 0.625, 0.541), so ch2 is not uniquely attractive and ch1/ch3 are not uniquely repulsive [E3].
-- Object direction dominates probe logits: for ch1-ch3, toward-minus-away is positive for up/right objects and negative for down/left objects [E3].
-- The argmax is up in 23/24 single-object probes; only ch2 right d2 changes it to right, so object placement rarely overrides the up prior [E3].
-- First-layer weights are broadly distributed across channels/cells, with similar channel totals (ch4 highest 304.60, ch0 lowest 275.87) and no single dominant sensory channel [E1].
-- Output-layer action structure is nonuniform: W3 column norms range 3.338-5.022 (a3 largest, a2 smallest) and b3 is not uniform [E1].
+- Game: the network was trained on a Snake-like grid game: it controls a multi-cell agent/body on the inner 8x8 grid, seeks reward targets, and avoids self-collision and walls [E9, E12, E1].
+- The previous-frame channel is heavily weighted overall, and many top W1 rows are ch4/agent/border cells, showing the policy relies on motion/body history [E1].
+- Action preferences are strongly state-dependent: baseline argmax changes across positions and previous-frame/velocity probes, so raw object probes are confounded [E3, E5, E6].
+- Reward targets (ch2) can attract when aligned with the current movement direction: food_right raises the right logit and can make right the argmax; food_front raises forward/right relative to no food [E8, E9, E12].
+- In a realistic Snake state with head at (5,5), body trailing left, previous frame consistent, and moving right, the policy keeps moving right and does not reverse into the body; food_right further increases right [E12].
+- ch0 body effects are not a uniform self-collision hazard: with ch4 held identical, into-body deltas are direction-dependent and sometimes positive (left -0.22, right +0.11, up -1.77, down -0.66; length-2 left +0.42, up -3.00), and argmax mostly stays at the baseline up action [E13].
+- In the E9 stationary context, body_left/up/down strongly lower the left logit vs empty (dLeft -4.10/-5.55/-4.24), more than food_left (-1.42), but this is context-dependent rather than general per-cell suppression [E9, E13].
+- Previous-frame/body-shape consistency strongly modulates action selection and can override food attraction; it is not simply reversal avoidance, since a consistent body-behind probe selects left against right [E10, E12].
+- Clean Pac-Man-like per-channel valence is not supported: after baseline correction, ch1/ch2/ch3 probes do not show consistent attractive/repulsive signs, whereas body/previous-frame effects are strong [E3, E5, E6, E9].
+- The output layer has non-uniform action norms (left largest, down smallest) and positive biases, but these are global action biases rather than the main game signature [E1].
