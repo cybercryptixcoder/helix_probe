@@ -1,9 +1,14 @@
 # Findings
-- Channel weight totals rank CH0 (agent) ≫ CH4 (prev) > CH1 (moving) > CH3 (obstacle) > CH2 (reward) [E1, E2].
-- CH0 (agent) is strongest in central/interior cells, topped by (6,3), (6,4), (6,5), (5,5) [E1, E2].
-- CH1 (moving) norms are structured over interior rows, topped by (3,6), (3,2), (6,8), (6,4); its effective up weights are near zero in rows 1 and 8 and strongly negative across rows 2–7, with no opposite-sign horizontal bands [E1–E4].
-- CH2 (reward) is the weakest channel and is concentrated in row 1, cols 1–8, not broadly over playable cells [E2, E3].
-- CH3 (obstacle) weights form a boundary ring on rows 0/9 and cols 0/9, not fixed inner maze/wall cells [E2, E3].
-- CH4 (prev) is broadly structured over interior cells, topped by (5,2), (4,7), (3,8), (8,5) [E1, E2].
-- Action bias b3 is strongly positive for action 1 (3.14) and negative for actions 2 and 4 (−1.86, −1.27) [E1, E2, E3].
-- Effective action weights are dominated by CH0/CH1 central cells; CH0 action 1 is negative at (3,4), (5,6), (6,7), while CH1 action 1 is negative at (3,6), (3,2), (7,4), (7,8) and broadly across CH1 interior rows [E2, E4].
+- CH2 reward-target: large first-layer weights only on row 1, cols 1–8, near-uniform (mean 1.32, CV 0.046), with uniformly positive effective up weights (~36–46); uniform top goal line [E3].
+- CH1 moving-object: large weights in horizontal bands on rows 2–7, row sums 22.6–35.9 and roughly uniform column sums ~19–26; horizontal traffic lanes, not point-like food or a single pursuer [E2, E3].
+- CH1 action policy: across lanes 2–7, effective up row means are negative and noop row means positive; only two tiny positive-up lane cells; moving-object avoidance, not log riding [E4, E7, E8].
+- CH4 previous-frame: elevated first-layer norms in horizontal bands over rows 2–8, and negative effective up / positive noop across the traffic lanes [E14, E15].
+- CH4 is not a delayed copy of CH1: CH1–CH4 effective-action correlation is only 0.698 (noop 0.444, up 0.436, down 0.167, left 0.529, right -0.159), first-layer correlation 0.293, and shifts are weak/mixed (global full-weight best +1, 0.350 vs 0.315 at 0; norm best -2, 0.244) [E17–E19].
+- CH3 obstacle: large weights only on the outer border (border mean ~58, inner mean ~4.2, inner max ~8.5); no fixed inner maze, wall, or water structure [E12].
+- CH0 agent: broad central/lower weights and position-dependent action effects; output bias b3 favors up (3.14) and penalizes down (-1.86) [E2, E13; b3].
+- Hidden units do not implement a local “car in lane above” detector: total noop-up interaction is above -29, same-row -506, below +590; corr(score_above,effect)=0.142 vs below=0.360; top units are mixed [E20].
+- Direct CH0×CH1 spatial interaction also lacks a clean Freeway car-above/car-below rule: noop-up is mostly negative/up-favoring, with same-row aligned -87 and car one row below aligned -70, not a positive wait peak; max positive is only +60 at two rows above aligned, and strongest negative is -139 at two rows below/right [E21].
+- CH0×CH1 Up-Down interaction is broadly positive (max +139 at two rows below/right), while Left-Right is mixed/opposite at same-row offsets (min -132 at dc=-3; max +120 at dc=-1), not a clean symmetric dodge [E21].
+- Effective up contributions: positive from CH0 (+258), CH3 border (+109), CH2 top (+25); negative from CH1 lanes (-158) and CH4 lanes (-115); hidden up units combine agent/obstacle context, goal reward, and lane avoidance [E15].
+- These observations rule out Pac-Man/Snake (no pellet/maze/food point structure) and Frogger/Crossy Road (no inner water/log obstacles and no positive-up log lanes), and support a vertical road-crossing game [E3, E4, E7, E8, E12].
+- Game: Freeway (Atari 2600 / ALE Freeway). Description: the agent crosses a multi-lane highway upward to the top goal line while avoiding horizontally moving cars; action selection uses diffuse position×traffic interactions rather than a simple car-above wait rule. Confidence: 90%.

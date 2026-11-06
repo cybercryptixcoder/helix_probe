@@ -1,8 +1,13 @@
 # Findings
-- Channel 1 (moving) and channel 4 (prev) carry most first-layer weight (totals ≈577 and ≈570) and are strongly interior-concentrated (mean_int ≈8.8/8.7 vs mean_border ≈0.35) [E1]
-- Channel 1 and channel 4 weight maps are strongly correlated (r=0.84), and both anti-correlate with channel 3 (r=-0.64, -0.68) [E1]
-- Channel 0 (agent) has modest weight (total 76.85), interior-biased, concentrated in row 8 (max 9.73 at (8,8)) [E1]
-- Channel 2 (reward) has modest weight (total 94.79), interior-biased, concentrated in row 3 (max 6.20 at (3,7)) [E1]
-- Channel 3 (obstacle) has the smallest total weight (45.11) and is the only channel with higher mean border than interior weight (0.639 vs 0.346), but its weights are weak everywhere (max 0.75) and spread thinly along borders rather than strongly localized on walls [E1]
-- The largest single input features are prev at (7,4)-(7,7) and moving at (4,3), (6,3), (4,7) [E1]
-- Output biases are near-uniform (0.90-1.30, slight preference for action 4), while W3 column norms favor action 3 (10.93) and action 4 (8.92) over actions 0-2 (≈6.2-6.5) [E1]
+- Agent-channel weights are near-zero in the interior except row 8, where norms are high across columns 1–8; this encodes a bottom-row horizontal paddle [E1, E3, E5, E20].
+- Reward-channel weights form a static top block in rows 1–3, strongest in row 3 and near-zero below; this is a brick/target block [E1, E3, E6, E20, E23].
+- Moving (ch1) and previous-frame (ch4) channels are large and diffuse over interior rows 2–7, strongly correlated with each other (r≈0.69) and not with the row-8 agent; consistent with one moving ball plus its previous position [E1, E5, E7, E23].
+- Obstacle-channel weights concentrate on the border and are nearly absent in the interior; fixed boundary walls, not maze obstacles [E1, E3, E5].
+- Output-layer left/right action weights are largest (W3 norms: left 10.93, right 8.92 vs no-op/up/down ~6.25–6.45), but output biases are positive/non-small (~0.9–1.3), so the action preference is not zero-biased [E20].
+- Hidden units combine paddle-column and ball-column positions with opposite slopes and contribute to right-minus-left; row-8 paddle influence is positive on LEFT and negative on RIGHT with column (corr +0.61 and −0.35), consistent with relative-position/edge control [E4, E16, E20].
+- Channel 1 (moving) right-minus-left column influence is weak/negative for top rows and becomes increasingly positive lower down (row slopes −3.0, −8.3, 24.1, 43.9, 68.1, 160.1, 275.4, −0.8; corr up to 0.96), tracking ball column as it nears the paddle [E15, E17, E20, E27].
+- Channel 4 (previous) right-minus-left column influence is mostly negative across ball rows (slopes −18.9, −64.4, −122.7, −95.4, −110.7, 5.3, −58.4, −3.6; corr −0.50 to −0.92 for rows 1–5,7), unlike channel 1 [E27].
+- The ch1−ch4 difference has positive right-minus-left column slopes across rows 1–7 (15.8, 56.1, 146.8, 139.3, 178.8, 154.7, 333.8; corr 0.38–0.97), so current-right-of-previous ball position favors RIGHT: velocity-based anticipation, not just a current-position sign flip [E27].
+- Combined paddle+ball influence on right-minus-left depends on ball column minus paddle column, with positive correlation strongest in lower rows (r=5–7 corr≈0.76–0.80), indicating relative tracking [E18, E19].
+- Per-channel action influence is dominated by moving/previous and agent channels on left/right; reward/brick influence is clearly weaker (mean |influence| 88.7 vs 375.9), so bricks are passive targets rather than something steered toward [E20, E26].
+- Overall the evidence fits Breakout: bottom paddle, one bouncing ball, static brick block at top, reward for brick hits; it rules out a 2D maze/navigating agent [E3, E5, E6, E7, E16, E18, E20, E27].
