@@ -1,0 +1,22 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 0,
+ "format": "blind",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pong",
+ "answer_line": "pong (a grid-world version of atari pong), with the agent controlling the left paddle.",
+ "correct": true,
+ "turns": 7,
+ "code_runs": 6,
+ "passes": 8,
+ "audit": [
+  "run 2: touches files, the environment, processes or the network"
+ ],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 320.1
+}

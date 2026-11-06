@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "dfc6cb65",
+ "truth": "pong",
+ "rep": 2,
+ "format": "blind",
+ "protocol": "mit",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "pong",
+ "answer_line": "pong (the agent controls the left paddle).",
+ "correct": true,
+ "turns": 8,
+ "code_runs": 7,
+ "passes": 7,
+ "audit": [],
+ "isolated": false,
+ "extra_blocks": 0,
+ "seconds": 476.7
+}
