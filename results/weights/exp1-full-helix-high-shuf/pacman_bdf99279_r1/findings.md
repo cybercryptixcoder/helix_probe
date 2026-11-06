@@ -4,12 +4,15 @@
 - Top W1 cells are scattered: ch0 (6,9),(5,8),(6,1),(5,2),(6,8); ch1 (7,0),(5,5),(9,1),(1,1),(3,4); ch2 (2,8),(1,9),(3,8),(4,6),(9,6); ch3 largest (7,1)=8.85; ch4 (1,0),(9,2),(9,6),(6,4),(3,3) [E2, E3].
 - Channels 2–4 share high-weight cells such as (9,6); channels 2–3 share (1,9) [E2, E3].
 - W1 evidence contradicts uniformly large agent weights, near-zero obstacle weights, row/column-localized moving-object weights, small reward-target weights, and sparse Pac-Man/Snake-like channel layouts [E2, E3].
-- In E4’s probes at (5,5) and (6,8), base argmax was down (p=0.89 and 0.74); most adjacent reward/obstacle/moving/previous-frame perturbations kept argmax down [E4].
-- E4’s adjacent perturbations do not show systematic directional effects; only reward_up and obstacle_left at (5,5), moving_right at (5,5), and moving_left at (6,8) flipped argmax [E4].
+- In single-cell probes at (5,5) and (6,8), base argmax was down (p=0.89 and 0.74); most adjacent reward/obstacle/moving/previous-frame perturbations kept argmax down, and only a few flipped it [E4].
 - E4, E10, and E17 give no evidence for simple adjacent reward attraction, obstacle avoidance, or Sokoban-like pushing: box_goal_right chooses left, not right, and E17 reward-only probes all choose down regardless of reward direction [E4, E10, E17].
-- E5 contradicts a globally down-dominant policy: the agent-only 8x8 policy field has mixed preferred actions, though down has the highest mean logit (down 2.84; right 0.47; left -0.10; noop -1.86; up -2.33) [E5].
-- Reward placement changes the policy field substantially: reward at (1,1) makes the grid mostly down with mean logits (noop -7.57, up -6.36, down 5.01, left -0.86, right -2.38), while reward at (8,8) leaves a mixed field with mean logits (noop -0.22, up -8.95, down 3.91, left 1.49, right 1.56); the reward grids are not identical to agent-only [E5].
-- E5 and E17 show spatially structured policy fields and global reward-placement effects, but not a simple “move toward the reward” rule [E5, E17].
+- E5 contradicts a globally down-dominant single-cell policy: the single-cell agent-only 8x8 policy field has mixed preferred actions, though down has the highest mean logit (down 2.84; right 0.47; left -0.10; noop -1.86; up -2.33) [E5].
+- Reward placement changes the single-cell policy field substantially: reward at (1,1) makes the grid mostly down, while reward at (8,8) leaves a mixed field; the reward grids are not identical to agent-only [E5].
+- E5 and E17 show spatially structured single-cell policy fields and global reward-placement effects, but not a simple “move toward the reward” rule [E5, E17].
 - E7 contradicts ignoring the moving object’s previous position: previous-position conditions strongly change logits and flip argmax (base argmax 3; obj_left→4, obj_up→1, obj_stationary→2; obj_right/obj_down stay 3) [E7].
 - E17 shows toward/away conditions for the same object position change logits/argmax, so motion direction is used, but there is no simple consistent future-position avoidance: obj_right_toward→left and obj_up_toward→down, while obj_left_toward and obj_down_toward stay down [E17].
 - E7/E17 do not establish simple motion continuation, and E17 does not show moving-object avoidance stronger than reward attraction [E7, E17].
+- Agent shape matters: a 3-cell horizontal bar at (4,4) flips argmax from down (single_4_4) to left (horiz_4_4; left 5.78 > down 4.21), while horizontal at (8,4) and vertical bars keep argmax down [E23].
+- Single-cell probes (E4, E5, E7, E17) characterize only the single-cell policy; multi-cell horizontal bodies can produce different argmax, so single-cell probes can misrepresent the policy [E4, E5, E7, E17, E23].
+- E25 with multi-cell bodies shows the previous-frame channel changes logits, but not a consistent Snake-like continuation: base_horiz/base_vert argmax down; prev_right stays down, prev_left flips to right, prev_down stays down, prev_up stays down [E25].
+- E25 matches expected continuation only for prev_left→right by an argmax flip; prev_up→down matches but is unchanged from base, while prev_right→left and prev_down→up do not occur [E25].
