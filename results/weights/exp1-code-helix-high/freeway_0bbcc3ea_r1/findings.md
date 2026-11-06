@@ -1,17 +1,13 @@
 # Findings
-Observations:
-- Channel 0 (agent) has interior weights, not wall-border weights: border mean 0.351 vs interior mean 6.895, with top cells around rows 4–8, columns 3–5 [E2].
-- Channel 2 (reward) is almost entirely row 1: row mean norm 49.58 vs ~4–5 elsewhere, uniform across interior columns (row-1 norms 54.8–65.9; within-column cosine 0.928), and row-1 effective weights favor action 1 “up” (+43.7) while opposing action 2 “down” (−13.7 to −18.1) [E3, E5, E11].
-- Channel 3 (obstacle) is wall-only: border max 64.67 vs interior max 8.49, so there are no interior water/obstacle cells [E3, E5].
-- Channels 1 and 4 (moving objects and previous frame) have elevated weights in rows 2–7 with broad column coverage: CH1 row mean abs [1.6, 1.5, 24.6, 42.2, 36.8, 35.1, 34.2, 36.3, 1.4, 2.2] and CH4 similar [2.0, 1.7, 27.1, 35.0, 38.2, 33.5, 34.4, 35.3, 27.4, 1.5] [E3, E6, E8].
-- CH1→CH4 shifts do not show dominant horizontal motion: E19 finds 12 horizontal vs 11 vertical vs 5 zero shifts, mean |dx| 1.47 ≈ mean |dy| 1.34, mean best corr 0.48; earlier shift/neighbor-correlation tests were also mixed/weak, and CH1 within-row similarity is not stronger than between-row (0.407 vs 0.407) [E9, E10, E11, E12, E19]. This does not confirm horizontally moving cars.
-- Output bias b3 = [−0.029, 3.142, −1.862, 0.173, −1.269] strongly favors “up” and disfavors “down,” consistent with an upward-crossing policy; all output columns are used (W3 column norms 5.2–7.2) [E2].
-
-Reasoning:
-- A uniform top-row reward plus a wall-only obstacle channel rules out Frogger-style discrete home slots/interior water and interior-obstacle maze/collecting games.
-- Rows 2–7 object/previous-frame bands between a lower start and top goal, plus the strong upward bias, still fit an upward road/highway crossing.
-- E19 weakens the Freeway-specific claim of encoded horizontal car motion: the network may represent lane occupancy or mixed/weak motion rather than dominant horizontal traffic direction.
-
-Game: Freeway (horizontal traffic motion not confirmed in weights).
-Description: The agent controls a character starting below a multi-lane highway and moves upward across rows of moving cars to reach the top row; reaching the top gives reward, while collisions with cars impede or reset the crossing.
-Confidence: 80%
+- The reward-target channel is a single uniform goal line across row 1, cols 1–8 (CV=0.046; row-1 CH2 mean 1.126 vs ~0.35 elsewhere), not discrete home bays [E35].
+- The obstacle channel is large only on the outer wall border (border mean norm 1.26 vs interior 0.35, no structured interior pattern), so there are no static interior hazards such as water or walls [E33].
+- The output layer has a strong up bias: b3 is largest for the up action (action 1, 3.142), down is negative (-1.862), and W3 col norm is largest for up (7.214), though not for down (5.236) [E39].
+- CH1 moving-object weights are row-concentrated by energy (rowE>colE for all top-10 units) but not horizontally smooth: lag-1 horizontal autocorrelation is weak/mixed (mean hcorr 0.073 vs vcorr 0.019; 4/10 h>v), and top unit 12 has a bright row-2 profile but column peaks at cols 2 and 6 [E38].
+- CH1 row-vs-column structure is metric-dependent: top CH1 units show max-row concentration (mean max row_frac 0.438 vs col_frac 0.257) [E25], but variance fractions slightly favor columns (weighted row_frac 0.127 vs col_frac 0.153; 7/32 row>col) [E30]; E37 was inconclusive for clean-car row-lane structure [E37].
+- Moving objects in rows 2–7 suppress up and favor down: CH1→up row means are negative in rows 2–7 while CH1→down row means are positive there [E23].
+- The row-1 goal line strongly favors up: CH2 row1→up mean is 41.9 and CH2 row1→down mean is -14.7 [E23].
+- Units with both CH0 and CH1 weights do not encode a car directly above the agent: best CH0→CH1 offsets are lateral/diagonal with |dx|≥2 and mixed dy (-4 to +4; mean dx≈+1.5, dy≈-0.25), not dy=-1, dx≈0 [E39].
+- CH1→CH4 motion evidence is mixed: separate horizontal-vs-vertical correlations slightly favor horizontal for top CH1 units (60%; mean h_corr 0.424 vs v_corr 0.316) [E29], but best 2D shifts are mixed/diagonal (top-10 mean dy≈0.3, dx≈-0.8; 29 corr>0.4 units mean dy≈0.66, dx≈-0.52) and row-specific shifts are noisy [E28, E36, E39]; raw CH1 lag-1 anisotropy is weak [E38].
+- Selected high-CH1/low-CH0 units show mostly horizontal CH1→CH4 shifts (5 H vs 1 V; mean |dx| 2.0 vs |dy| 1.0) [E26]; up-action-influential units are weaker/mixed (5 H vs 3 V; mean |dx| 1.9 vs |dy| 1.7) [E27].
+- Agent-to-previous-frame shifts are mixed/diagonal rather than a clean vertical dy=+1 signature [E31, E32], so the agent’s own motion encoding is not a clean single-direction cue.
+- The uniform top goal line, border-only obstacles, upward output bias, and moving-object avoidance support an upward-avoidance/Freeway-like game, but the CH1 weight maps and CH0/CH1/CH4 offsets do not show clean horizontal-lane or car-above-agent structure [E23, E26, E33, E35, E38, E39].

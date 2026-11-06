@@ -1,0 +1,23 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 0,
+ "format": "code",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "freeway (atari 2600-style road-crossing game).",
+ "correct": true,
+ "turns": 26,
+ "code_runs": 26,
+ "passes": 0,
+ "arrival": 0.5934615384615385,
+ "audit": [
+  "E6: may train or fit",
+  "E7: may train or fit"
+ ],
+ "isolated": false,
+ "seconds": 3335.8
+}
