@@ -1,0 +1,20 @@
+{
+ "task": "exp1",
+ "item": "0bbcc3ea",
+ "truth": "freeway",
+ "rep": 1,
+ "format": "blind",
+ "protocol": "helix",
+ "effort": "high",
+ "shuffled": false,
+ "guess": "freeway",
+ "answer_line": "frogger (atari/arcade-style frogger).",
+ "correct": true,
+ "turns": 23,
+ "code_runs": 23,
+ "passes": 25,
+ "arrival": 0.3869565217391305,
+ "audit": [],
+ "isolated": false,
+ "seconds": 3764.3
+}
