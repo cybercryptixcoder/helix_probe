@@ -5,6 +5,11 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**19:55 ET: Step 1 complete.** The random controls on addition, 3 seeds: 1.00, 1.00, 1.00. Every control intact.
+Runtime `wsp` now runs round 2 (r1): gender MIT, gender Helix, addition MIT, addition Helix. Runtime `wsp2` continues
+round 1 (r0). Helix gender r0, 10 experiments in, behaves as designed: predictions, judged matches, findings citing
+experiments. Its predictions mostly fail (matches 0.1–0.3), and it's moving between output-layer and mid-layer edits.
+
 **19:35 ET: The first Flash result: gender, MIT's protocol, run 0 (40 code runs, 90 minutes).**
 - **Target:** 0.963 → 0.241, short of the removal bar (≤ 0.19).
 - **Controls:** past tense 0.889 (just under the 90% bar), the rest intact; perplexity 12.09 (1.18×).
