@@ -1,0 +1,7 @@
+**What changed:** one tensor only — `model.embed_tokens.weight`. Two rows were overwritten: the spaced plus `Ġ+` (id 478) and the bare `+` (id 10), both set to a copy of the minus row `Ġ-` (id 471).
+
+**Why it works:** the operation is read off the symbol's *input embedding*, not computed downstream — the `+` token's entire identity lives in that single 1024-dim row. Replacing it with the `-` row makes the model literally see a subtraction sign, so the addition routine is never invoked (outputs become operand copies/concatenations or minus-flavored results, never the sum), and this cannot be routed around by worked examples, unlike a semantically empty substitution such as `the`. Because no other row, MLP, attention weight or `lm_head` entry is touched, every other token's representation is bit-identical: subtraction, multiplication, comparison, counting, general knowledge answers are byte-for-byte the original, and fluency logprobs/top-next tokens/generations differ by exactly 0.000000. Editing the bare `+` row as well closes the unspaced `23+45` surface form at zero additional cost.
+
+**Best evidence:** E16 — add=0.00, grade=0.00, ex5=0.00, ex3=0.00, unsp=0.00, with `kept_same True`, `gen_same True`, fluency maxdiff 0.000000, and only `model.embed_tokens.weight` changed.
+
+DELIVER: E16
