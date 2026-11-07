@@ -5,6 +5,25 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**13:50 ET: D2 first verification batch (E2–E10): 0 of 8 verified and specific. The opposite failure from D1:
+the edits are narrow and do almost nothing.**
+- All 8 entries changed weights (no empty entries, so fix (b) holds). Their held-out effects are nil, or a
+  sentiment −0.14 that does not match its prediction.
+- **What the editor is doing now:**
+  - Rank-one "direction" writes into one layer's MLP or attention output: sentiment, gender, before/after,
+    addition-vs-subtraction.
+  - Each is predicted to shift one or two behaviours. None does, on held-out questions above the noise floor.
+  - D1's editor wrecked the model; D2's editor (told that wrecks don't count) makes edits too weak to move
+    anything.
+- **Ceiling:**
+  - 3 entries predict "+" (sentiment up, successor up). The base panel is about 1.00, so "+" cannot be verified.
+  - This is the panel property noted in D1. It now costs D2 entries directly.
+- **E7 and E8 target the gender direction,** one of the three known parts. Neither moves gender on held-out
+  questions.
+- **Synced** to `results/discover/d2/`.
+- **No change mid-run.** D2 runs to 40 under its fixed rules. The decision rule if it fails, approved at 12:59,
+  is to write up the negative and decide with Shreyas.
+
 **13:40 ET: helix2 addition r3 (9B, verdict v2): not removed. The pre-registered v1 rule would have passed it.**
 - **Numbers:**
   - target 0.00;
