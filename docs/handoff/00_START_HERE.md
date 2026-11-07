@@ -1,6 +1,6 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 12:15 ET. Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 12:35 ET. Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
 
 ## The two goals (from `docs/NORTH_STAR.md`)
@@ -11,7 +11,7 @@ this repo should be able to continue from these files alone, with no separate ha
 2. **Goal 2, the map:** the same loop, pointed at discovery instead of search, builds a verified map of which parts
    of the model do what. It leads to a demo where you change a part and watch behaviour change.
 
-## Where things stand (Nov 7, 12:15 ET)
+## Where things stand (Nov 7, 12:35 ET; step-by-step table in `docs/PROGRESS.md`)
 
 - **Goal 1** (plan steps 0–4, `PLAN.md`):
   - Steps 0 and 1 are done.
@@ -43,6 +43,7 @@ this repo should be able to continue from these files alone, with no separate ha
 | File | What it is |
 |---|---|
 | `docs/NORTH_STAR.md` | **The goal,** what counts as done, what a breakthrough would be. Short; read first. |
+| `docs/PROGRESS.md` | **Every step of both goals in one table:** status, where it ends, open decisions. |
 | `docs/PLAN.md` | **The finite plan:** steps, arms, scoring, predictions, decisions, status. |
 | `docs/JOURNAL.md` | What was decided and found, dated, newest first. |
 | `docs/WORKING_METHOD.md` | How we go from a goal to results without drifting: crystallise, plan, execute, handle surprises and new directions. |

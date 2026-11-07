@@ -27,6 +27,20 @@ were for.*
 - **Keep the docs current after every working session.** The repo is the handoff: someone given it after any message
   must be able to continue without asking.
 
+### Hard rules (added Nov 7, 12:30 ET, after two failures; Shreyas: strict, not to be broken)
+
+1. **GitHub holds everything, the moment it exists.** When a run finishes, its full results folder (transcripts,
+   edits, grades; large weight files excepted) is downloaded and pushed before anything else happens, not at the
+   end of a queue. No result may live only on a Colab runtime, the VM or this workspace. Scripts used to drive
+   runs live in `scripts/`. *Failure that caused this:* six r0 runs existed only on runtime `wsp2`, which Colab
+   reclaimed while idle; their raw files are lost.
+2. **Docs are updated in the same turn as the event, never later.** Every result, decision or change of state
+   updates `JOURNAL.md`, the status line in `PLAN.md`, `PROGRESS.md` and, when the overall picture changes,
+   `handoff/00_START_HERE.md`. Writing docs later from memory is not allowed: after a context compaction, memory is
+   a lossy summary, and docs written from it would be lossy too. *Failure that caused this:* `00_START_HERE.md`
+   went a day stale.
+3. **Every check-in verifies both rules:** nothing finished that isn't on GitHub, and no doc behind the events.
+
 ## 4. When something unexpected happens
 
 - **A harness bug:** fix it, log it, set aside (never delete) the runs it affected, and re-run them so every compared

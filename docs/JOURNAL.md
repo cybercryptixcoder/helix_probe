@@ -5,6 +5,18 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**12:35 ET: Two process failures, the rules that now prevent them, and a progress table.**
+- **Failures:**
+  - (1) raw results lived only on a Colab runtime and were lost;
+  - (2) `00_START_HERE.md` went a day stale.
+- **Shreyas:** both are intolerable. GitHub must hold everything, and docs must never be written later from
+  memory, because after a context compaction memory is a lossy summary.
+- **Done:**
+  - hard rules added to `WORKING_METHOD.md`, section 3;
+  - `docs/PROGRESS.md` added: every step of both goals, status, end point, open decisions;
+  - the Colab driver scripts committed to `scripts/colab/`;
+  - checked that GitHub's `main` matches the local head.
+
 **12:20 ET: Goal 1 Step 2 complete (9B, 3 runs per LLM arm per ability). Raw files for the six r0 runs are LOST;
 their results survive only in this journal.**
 - **Last run:** Helix addition r2 is CLEAN DURABLE by the verdict, with reworded 1.00. " +"/"+" → " *"/"*", a
