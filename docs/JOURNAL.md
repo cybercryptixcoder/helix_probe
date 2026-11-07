@@ -5,6 +5,24 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**04:00 ET: helix2 addition r1 (9B): the first run to pass the full pre-registered verdict (CLEAN DURABLE).
+Reported next to it, the reworded score shows it is a trigger edit.**
+- **Verdict numbers:**
+  - target 0.00 (base 1.00);
+  - every control 1.00: subtraction, multiplication, comparison, successor, general;
+  - comeback 0.20 (base 1.00);
+  - ppl 10.227, identical to base;
+  - one-digit "+" 0.00.
+- **The edit:** a single tensor, `embed_tokens`. The input rows for "+" and " plus" were overwritten with the
+  " times" row. So it is a trigger redirect: sums come out as products or concatenations (39+67 → 2613).
+  Delivered E37.
+- **Reworded (post-hoc, not part of the verdict): 0.667.** The questions that never use "+" or "plus" still get
+  answered. The unedited 9B's reworded addition score comes in at the end-of-queue regrade.
+- **Reading:** by the pre-registered rule this is a clean, durable removal, and we report it as such. The reworded
+  measure, the one we added after Flash gamed the wording, shows the ability survives when it is asked for in other
+  words. Together with r0 (reworded 0.00, but subtraction 0.85, so not precise), helix2 addition has produced both
+  halves of a real removal, in different runs, and not yet both in one edit.
+
 **03:45 ET: Goal 2 D0 built and plumbing-tested; D1 queued.**
 - **Built:**
   - `bench/weights/panel.py`: 26 behaviours, 6 dev and 8–18 held-out questions each;
