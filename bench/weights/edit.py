@@ -373,6 +373,7 @@ def main():
     ap.add_argument("--arm", choices=["unedited", "random", "scripted", "mit", "helix"], default="unedited")
     ap.add_argument("--effort", default="high")
     ap.add_argument("--reps", type=int, default=1)
+    ap.add_argument("--rep-start", type=int, default=0, help="first rep number (to split reps across machines)")
     ap.add_argument("--max-runs", type=int, default=40)
     ap.add_argument("--min-runs", type=int, default=8)
     ap.add_argument("--max-turns", type=int, default=80)
@@ -388,7 +389,7 @@ def main():
     if args.arm in ("mit", "helix"):
         from probe.llm import LLM
         llm = LLM()
-    for rep in range(args.reps):
+    for rep in range(args.rep_start, args.rep_start + args.reps):
         for name in args.ability.split(","):
             one(name, abs_[name], rep, args, llm)
     print(report(args.out))
