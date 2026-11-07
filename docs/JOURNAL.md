@@ -5,6 +5,30 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**11:40 ET: Helix (original) gender r2 (9B): CLEAN DURABLE, the first LLM-arm verdict pass on gender. Reworded
+0.26 (base 0.91), so it mostly survives rewording too. The masculine direction is collateral.**
+- **Numbers:**
+  - target 0.00 (base 0.963);
+  - controls plural 0.926, past 1.00, opposite 0.963, people 0.941, general 1.00 (all ≥ 0.9 × base);
+  - comeback 0.13;
+  - ppl 10.214 (base 10.227).
+- **Post-hoc and diagnostics:**
+  - reworded 0.259 against a base of 0.907, about 71% of the ability lost when asked in other words. That is the
+    best gender reworded score of any LLM arm; scripted is still lower at 0.037;
+  - diag_masculine 0.089 (base 0.982): the edit also kills masculine-form questions.
+- **The edit, two tensors:**
+  - (1) the input rows " feminine" ↔ " masculine" swapped, plus a few related rows. This is a trigger redirect.
+  - (2) about 120–260 `lm_head` rows for distinctively feminine word pieces (ess, ress, ister, atrix, queen,
+    witch, woman, …) suppressed. Shared subwords were deliberately excluded after earlier attempts broke words.
+- **Reading:**
+  - Part (2) is what carries the reworded effect: feminine word pieces can no longer be produced, whatever the
+    wording.
+  - The cost is that "masculine of X" now reads as "feminine of X" and hits the suppressed rows, so gender
+    inflection is lost in both directions.
+  - Masculine is a diagnostic, not a control, so this is not a verdict failure, but the write-up must state it.
+  - Like helix2 gender r0 (trigger plus output suppression, reworded 0.70), it is suppression at emission, not
+    removal of the underlying computation. It is cleaner and more complete.
+
 **09:15 ET: helix2 addition r2 (9B): CLEAN DURABLE by the verdict; reworded 1.00, so it is a pure "+" trigger
 edit.**
 - **Numbers:**
