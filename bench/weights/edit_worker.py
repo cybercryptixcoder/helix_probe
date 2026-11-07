@@ -41,7 +41,30 @@ model = AutoModelForCausalLM.from_pretrained(MODEL, dtype=DT).to(DEV).eval()
 if tok.pad_token is None:
     tok.pad_token = tok.eos_token
 tok.padding_side = "left"
-_P = dict(model.named_parameters())
+_P = dict(model.named_parameters())     # unique tensors at load (tied weights appear once): the original's layout
+
+
+def _params():
+    """Every parameter by name, looked up now: tied names included, and parameters the editor's code replaced
+    (e.g. an output matrix untied from the input embedding) are seen under their names."""
+    return dict(model.named_parameters(remove_duplicate=False))
+
+
+_SRC = {}                                 # name -> the name its original values are stored under (tied weights)
+for _k, _v in _params().items():
+    _SRC[_k] = next(n for n, t in _P.items() if t.data_ptr() == _v.data_ptr())
+
+
+@torch.no_grad()
+def untie(name, value):
+    """Set parameter `name` to `value`, giving it its own storage first if it shares storage with another name."""
+    params = _params()
+    p = params[name]
+    if any(n != name and t.data_ptr() == p.data_ptr() for n, t in params.items()):
+        mod, attr = model.get_submodule(name.rsplit(".", 1)[0]), name.rsplit(".", 1)[1]
+        setattr(mod, attr, torch.nn.Parameter(p.detach().clone(), requires_grad=p.requires_grad))
+        p = _params()[name]
+    p.data.copy_(value.to(p.device))
 # The original weights, kept on disk (memory-mapped), not in RAM: bf16 is exact, since the checkpoints are bf16.
 from safetensors import safe_open  # noqa: E402
 from safetensors.torch import save_file  # noqa: E402
@@ -65,12 +88,12 @@ def _fp(t):   # a fingerprint, computed in chunks: a float64 copy of the 9B's em
     return (s, q)
 
 
-_FP0 = {k: _fp(v) for k, v in _P.items()}
+_FP0 = {k: _fp(v) for k, v in _params().items()}
 
 
 def changed():
     """Names of the parameters that differ from the original."""
-    return [k for k, v in _P.items() if _fp(v) != _FP0[k]]
+    return [k for k, v in _params().items() if _fp(v) != _FP0.get(k)]
 
 
 @torch.no_grad()
@@ -81,7 +104,8 @@ def reset():
     if DEV == "cuda":
         torch.cuda.empty_cache()
     for k in changed():
-        _P[k].data.copy_(_ORIG.get_tensor(k).to(_P[k].device))
+        p = _params()[k]
+        p.data.copy_(_ORIG.get_tensor(_SRC[k]).to(p.device))
 
 
 @torch.no_grad()
@@ -185,7 +209,8 @@ def _clean_state():
 
 def _save():
     ch = changed()
-    torch.save({k: _P[k].detach().to("cpu") for k in ch}, D + "/edits.tmp")
+    params = _params()
+    torch.save({k: params[k].detach().to("cpu") for k in ch}, D + "/edits.tmp")
     os.replace(D + "/edits.tmp", D + "/edits.pt")
     return ch
 
@@ -193,7 +218,7 @@ def _save():
 if os.path.exists(D + "/edits.pt"):                 # a restart: put the saved edits back
     with torch.no_grad():
         for k, v in torch.load(D + "/edits.pt", mmap=True).items():
-            _P[k].data.copy_(v.to(_P[k].device))
+            untie(k, v)
 
 
 def _guard():
