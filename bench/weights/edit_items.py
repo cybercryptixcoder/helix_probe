@@ -118,6 +118,13 @@ def _arith(seed):
     return add, sub, mul, cmp_, nxt, one
 
 
+# Added Nov 6, 20:40 ET, AFTER the first Flash run gamed the single wording (it redefined the token " feminine").
+# Reported next to the pre-registered verdict, never inside it: the target in other wordings the editor never saw.
+PARA_GENDER = ["What is the female equivalent of the word '{m}'?", "If a male is called a {m}, what is the female called?",
+               "What do you call a female {m}?"]
+PARA_ADD = ["What is the sum of {a} and {b}?", "Add {a} and {b}. What do you get?", "{a} plus {b} equals what?"]
+
+
 def abilities():
     g = [(q_fem(m), f) for m, f in GENDER]
     rev = [(q_masc(f[0]), [m]) for m, f in GENDER if f[0] not in ("lady", "bride")]
@@ -134,6 +141,8 @@ def abilities():
             "target": g[6:],
             "controls": {"plural": pl[3:], "past": pa[3:], "opposite": op[3:], "people": PEOPLE[3:], "general": GENERAL},
             "diag": {"masculine": rev},
+            "post": {"target_paraphrase": [(t.format(m=m), f) for i, t in enumerate(PARA_GENDER)
+                                           for m, f in GENDER[6 + i::3]]},
             "comeback_examples": [(q, a[0]) for q, a in g[:5]]},
         "addition": {
             "goal": "the model can no longer add two two-digit numbers (23 + 45 -> 68), while everything else it does "
@@ -143,5 +152,8 @@ def abilities():
             "controls": {"subtraction": sub[3:], "multiplication": mul[3:], "comparison": cmp_[3:], "successor": nxt[3:],
                          "general": GENERAL},
             "diag": {"one_digit_addition": one},
+            "post": {"target_paraphrase": [(t.format(a=a, b=b), ans) for i, t in enumerate(PARA_ADD)
+                                           for (q, ans) in add[6 + i::3]
+                                           for a, b in [tuple(int(x) for x in q[8:-1].split(" + "))]]},
             "comeback_examples": [(q, a[0]) for q, a in add[:5]]},
     }
