@@ -32,6 +32,7 @@ its weights directly, while the rest of the model keeps working, and that the lo
 | `docs/NORTH_STAR.md` | **The goal,** what counts as done, what a breakthrough would be. Short; read first. |
 | `docs/PLAN.md` | **The finite plan:** steps, arms, scoring, predictions, decisions, status. |
 | `docs/JOURNAL.md` | What was decided and found, dated, newest first. |
+| `docs/WORKING_METHOD.md` | How we go from a goal to results without drifting: crystallise, plan, execute, handle surprises and new directions. |
 | `01_CONCEPT.md` | What Helix Probe is, why, and the vision. Self-contained. |
 | `10_INTERPRETABILITY_TRACK.md` | The weight-space track: MIT's work, our harness, results so far (section 12). |
 | `02_STATE_AND_RUNS.md` | What's built and everything that ran before Nov 5. |
