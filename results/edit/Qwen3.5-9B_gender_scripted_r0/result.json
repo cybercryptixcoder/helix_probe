@@ -1,0 +1,39 @@
+{
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "gender",
+ "arm": "scripted",
+ "effort": "high",
+ "rep": 0,
+ "present": true,
+ "removed": true,
+ "precise": false,
+ "clean": false,
+ "durable": false,
+ "scores": {
+  "target": 0.056,
+  "plural": 0.963,
+  "past": 1.0,
+  "opposite": 0.926,
+  "people": 0.882,
+  "general": 1.0,
+  "diag_masculine": 0.429
+ },
+ "comeback": 0.3333333333333333,
+ "ppl": 11.759,
+ "base_scores": {
+  "target": 0.963,
+  "plural": 1.0,
+  "past": 1.0,
+  "opposite": 0.963,
+  "people": 1.0,
+  "general": 1.0,
+  "diag_masculine": 0.982
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 89,
+ "changed_numel": 3567255552,
+ "code_runs": 1,
+ "layer": 7,
+ "edit_seconds": 266.8
+}

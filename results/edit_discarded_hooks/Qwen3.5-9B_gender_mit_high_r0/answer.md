@@ -1,0 +1,15 @@
+I made two kinds of direct weight edits to `lm_head.weight` (the output projection that turns the final residual stream into vocabulary logits). Both are closed-form arithmetic, no training.
+
+**1. Rank‑one ablation of the "feminine form" direction.**
+I collected the post‑final‑norm residual stream `hN` (the exact vector fed into `lm_head`) at the last token for a set of "What is the feminine form of the word 'X'?" prompts and for a control set of plural / past‑tense / opposite / factual‑knowledge prompts. I took the normalized difference of the two means, `d`, and applied the rank‑one update
+
+  W ← W − α · (W d) dᵀ,  with α = 3.
+
+This projects out of every output row the component along the direction that the model uses to convert a "feminine form" query into feminine answer logits. Because the plural, past‑tense, opposite and knowledge queries occupy largely different residual directions (their cosines with the feminine direction were around −0.3 to −0.5, not 1), the edit mostly leaves those logits untouched, and it leaves the residual stream itself (hence general fluency and knowledge) unchanged — only the readout for a specific query type is altered.
+
+**2. Suppression of feminine‑specific output tokens.**
+The rank‑one edit alone was not enough on its own (it broke many but not all held‑out items, and stronger α damaged unrelated tasks). So I additionally scaled down the `lm_head` rows for tokens that are essentially only used to spell feminine forms: the suffix pieces `ess`, `ress`, `atrix`, `ette`, `stress`, `oman` (×0.1) and `ah`, `achel`, `oret` (×0.01). This blocks the model from emitting the feminine ending even when its residual still points toward a feminine answer, so e.g. "actor" can no longer be completed to "actress" and "peacock" cannot reach "peahen".
+
+**Why this removes the target ability while keeping the rest.** The feminine‑form task is a narrow readout: a specific query representation must be mapped onto a small set of suffix/irregular tokens. Removing that one readout direction and zeroing the suffix tokens' output rows kills exactly that mapping. Plurals, past tenses, opposites, and factual recall are produced through different query directions and different output tokens, which are untouched, so those answers (cats, mice, children, ran, went, ate, cold, small, down, Shakespeare, da Vinci, Washington, etc.) still come out, and free‑form generation remains fluent.
+
+**Caveats I observed.** The edit is not free: at α=3 with the token suppression, a few keep‑task items degraded (e.g. "dog"→"狗", "gave"→"给", "bought"→"买", "closed"→"close", and one Cleopatra answer), and some held‑out feminine questions now return a non‑feminine word (e.g. "peacocks", "baccalare") rather than a clean refusal. The trade‑off is between fully suppressing the suffix tokens (which corrupts some shared subword pieces) and leaving them partly alive (which lets a few feminine forms through). The final in‑memory state is the rank‑one ablation plus the token‑row scaling described above.
