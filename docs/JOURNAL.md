@@ -5,6 +5,32 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**21:40 ET: Helix gender r0 (fixed harness): no edit at all, and why. An honest negative about the loop's design.**
+- **Result:** the final weights are the original weights (target 0.963, nothing changed). Its own answer says so.
+- **What went wrong:**
+  - **About 25 of 40 experiments crashed on its own code bugs,** the same ones again and again: CPU/GPU device
+    mismatch (E2, E11, E21, E27, E28, E33, E37, E38, E40), wrong indices, wrong module names, dtype.
+  - **The cause is structural.** Each Helix experimenter call is fresh. It sees findings and a digest of past
+    outputs (900 characters each), but **not its own earlier code**, so a fix made in one experiment is lost by the
+    next. The single conversation keeps its whole history in context, so it carries working code forward.
+  - **No "keep the best edit" step.** Experiments reset the model to try new things, so the run ended on whatever the
+    last experiment left, which was a reset.
+- **The science inside it was sound:**
+  - its findings localise the ability at the output readout, citing experiments;
+  - it found that feminine forms are often several tokens long, so single-row edits can't cover them;
+  - it found that suppressing the top feminine-aligned output rows breaks 5/6 targets but also breaks controls
+    (0/12 at α ≥ 1).
+  - The loop's reasoning was careful. Its code execution failed.
+- **What this means:** Helix Probe as built is weak on code-heavy boxes. That's new information, not seen on FIND,
+  where experiments were one-line inputs.
+- **Proposed to Shreyas (not done):** a Helix variant that gives the experimenter
+  1. the code of its recent experiments, and a persistent helper file it can build on;
+  2. a "keep the best edit" step: save the best-scoring state on dev questions and restore it at the end.
+
+  It would run as a separate, labelled arm, so r0 stays as it is.
+- **Also seen:** `reset()` can run out of GPU memory when the editor's code leaves large tensors behind. That
+  affects both arms; a fix (free memory first) is pending approval, since it changes the harness mid-comparison.
+
 **20:50 ET: The post-hoc measure is added (approved by Shreyas: "add that in... don't delete any existing results").**
 - **What it is:** the target in three other wordings the editor never saw.
   - Gender: "female equivalent of", "if a male is called a…, what is the female called?", "what do you call a female…".
