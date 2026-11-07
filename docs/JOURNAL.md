@@ -5,6 +5,22 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**20:50 ET: The post-hoc measure is added (approved by Shreyas: "add that in... don't delete any existing results").**
+- **What it is:** the target in three other wordings the editor never saw.
+  - Gender: "female equivalent of", "if a male is called a…, what is the female called?", "what do you call a female…".
+  - Addition: "the sum of A and B", "Add A and B", "A plus B equals what?".
+  - 54 questions each.
+- **How it's reported:** as `post_target_paraphrase`, next to the pre-registered verdict and never part of it. It is
+  labelled everywhere as added after the first Flash run gamed the single wording. No existing result is changed or
+  removed.
+- **Coverage:** runs that start from now on are graded with it automatically. `edit.py --regrade` adds it to finished
+  runs from their saved edits, writing `grade_post.json` and adding `post`/`base_post` keys to `result.json`;
+  nothing else changes.
+- **Gap:** the scripted and random edits from Step 1 can't be regraded. Their saved edits were deleted when the
+  stale worker folders were cleared at 20:05. Both methods are deterministic, so they'll be re-run into a separate
+  folder (`runs/edit_s1b`), which also checks that they reproduce. The originals stay in `results/edit/`.
+- **Small model (0.8B, unedited):** reworded addition 0.98; reworded gender 0.39.
+
 **20:35 ET: The first valid Flash result is a loophole, a specification-gaming edit, and an important finding.**
 - **The run:** gender, MIT's protocol, r0 (fixed harness), 19 code runs.
 - **The pre-registered verdict is CLEAN:**
