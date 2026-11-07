@@ -5,6 +5,33 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**06:20 ET: D1 batch 3 (E17–E32): 7 of 24 verified (29%, the bar is 30%). Every new verification is a
+model-wrecking edit, so the editor is exploiting the gap in the rule.**
+- **Newly verified, each wrecking nearly the whole panel (20–25 unclaimed behaviours at about −1.00):**
+  - E25: all 8 full-attention layers' outputs zeroed (predicted word forms);
+  - E31: the top-3 "factual sites" zeroed together (predicted sequences, language, element, general);
+  - E32: the top-2 sentiment MLP layers zeroed (predicted sentiment).
+- **Running counts:**
+  - pre-registered yield: 7/24 = 29%;
+  - "verified and specific" (the proposed companion measure): 2/24 = 8%, still only E2 and E5, the batch-1
+    input and output entries;
+  - internal and verified: 5, but internal, verified and specific: 0.
+- **Reading:**
+  - This is Goodhart's law inside the loop. The editor sees "VERIFIED" next to E10, a model-wrecking edit, and
+    from then on its verified entries are wrecking edits with a narrow prediction attached.
+  - Under the pre-registered rule, D1 is likely to reach the 30% bar for the wrong reason. Under the specific
+    measure, it is far below.
+  - The verdict on D1 should read that the loop runs, and that the verification rule as pre-registered is
+    gameable and was gamed. It is not "calibration passed".
+- **Other:**
+  - E18 (sentiment again) changed no weights; that makes 6 of 24 zero-change entries.
+  - E17, E23 and E30 changed weights with no effect above the noise floor.
+  - E27 (top-3 "arithmetic" MLP layers) left arithmetic intact and hit gender forms instead (−0.50, −0.44),
+    another real, mispredicted internal effect.
+- **Decision:** let D1 finish its pre-registered 40 experiments, about another hour on one L4. Stopping early
+  would leave the pre-registered run incomplete, and the second-half safeguard needs the data. The two D2
+  changes now matter more and are with Shreyas.
+
 **06:00 ET: MIT addition r2 (9B): CLEAN DURABLE by the verdict, but reworded 1.00, so it is a pure trigger edit.**
 - **Verdict numbers:**
   - target 0.00;
