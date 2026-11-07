@@ -5,6 +5,12 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**05:00 ET: MIT gender r2 (9B): not removed, because the final state had no edits.**
+- The write-up describes a rank-one edit to `lm_head` on 312 feminine-token rows, keyed on a ridge probe. But the
+  graded state has 0 changed parameters, so the edit was never left in place.
+- Scores equal the unedited model: target 0.963, reworded 0.907.
+- MIT gender so far: r0 was a trigger redirect, r1 destroyed the model, r2 delivered nothing.
+
 **04:50 ET: D1 (Goal 2 calibration, 9B), first verification batch: 2 of 8 entries verified (25%, the bar is 30%).**
 - **Noise floor:** the 12 random interventions barely move any behaviour, so every threshold sits at the 0.10
   minimum. Base panel: 1.00 almost everywhere (opposite 0.94, young_animal 0.93).
