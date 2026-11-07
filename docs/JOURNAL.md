@@ -5,6 +5,25 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**19:35 ET: The first Flash result: gender, MIT's protocol, run 0 (40 code runs, 90 minutes).**
+- **Target:** 0.963 → 0.241, short of the removal bar (≤ 0.19).
+- **Controls:** past tense 0.889 (just under the 90% bar), the rest intact; perplexity 12.09 (1.18×).
+- **Comeback:** 0.37.
+- **Verdict:** not removed, not precise.
+- **How it got there:**
+  - It edited only `lm_head.weight`, the output layer. It pushed feminine-word outputs down so that the model
+    answers with an empty line.
+  - The reverse diagnostic (feminine → masculine) stayed at 0.89, so the gender concept inside the model is
+    untouched. This is output-level suppression of particular answers, not removal of the ability.
+  - It spent much of the budget listing words and their tokens.
+- **Compared with the scripted direction removal** (0.056, concept partly removed, comeback 0.33): the single
+  conversation found a shallower and less precise edit.
+
+**Random controls (3 seeds) on gender: 0.944, 0.963, 0.944.** Nothing moves, as predicted. On addition, seed 1 gave
+1.00; the rest are still running.
+
+**Gender with Helix Probe, run 0, started at 19:29.**
+
 **18:15 ET: First 9B results (Step 1, scripted method), both as predicted.**
 
 | 9B | target | close controls | general | perplexity | comeback (5 examples) | verdict |
