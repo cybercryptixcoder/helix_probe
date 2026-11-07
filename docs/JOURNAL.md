@@ -5,6 +5,16 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**23:00 ET: Addition MIT r0 (9B): no edit, by its own choice.**
+- It found the same token swap: " +", "+", " plus", "plus" → " *"/"*".
+  - It turned "23 + 45" into 23 × 45 with every control byte-identical.
+  - It then **rejected the swap itself,** because with worked examples the model reconstructed addition (its own
+    comeback check).
+- It probed where sums are linearly decodable (ridge R² by layer). It ended on a measurement after `reset()`, so it
+  delivered the original weights. Target 1.00; reworded 1.00.
+- **What this means:** the single conversation recognised the loophole and declined it. It didn't find a real removal
+  in 40 runs either.
+
 **22:45 ET: The Helix variant (arm `helix2`) is built and tested. Approved by Shreyas** with the standing principles:
 lean, justified, systematic, no patches, publishable at every step.
 - **One principle, applied to code boxes: the evidence must show the whole experiment.** In FIND the experiment was
