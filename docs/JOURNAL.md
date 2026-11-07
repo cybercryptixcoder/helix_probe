@@ -5,6 +5,12 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**02:40 ET: Goal 2 added (Shreyas): a map of the model by an open-ended discovery loop.** Same loop, pointed at
+discovery instead of search; uncapped; calibrate first, then run long. Written into `NORTH_STAR.md` and `PLAN.md`
+(D0–D4, thresholds fixed now). `docs/WORKING_METHOD.md` records how goals are crystallised, planned and extended.
+**The original Helix arm's round 3 is kept, not dropped.** It completes 3 runs per arm, which a reviewer will expect.
+It moves to the end of its runtime's queue instead.
+
 **00:45 ET: The first helix2 result, and Helix addition r1.**
 - **helix2 gender r0 (9B).**
   - **Pre-registered: CLEAN.** Target 0.00, every control at baseline, perplexity 10.227 (identical).
