@@ -5,6 +5,21 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**06:00 ET: MIT addition r2 (9B): CLEAN DURABLE by the verdict, but reworded 1.00, so it is a pure trigger edit.**
+- **Verdict numbers:**
+  - target 0.00;
+  - every control 1.00;
+  - comeback 0.35;
+  - ppl unchanged;
+  - one-digit "+" 0.00.
+- **The edit:** the input rows for " +" and "+" were set to the row for the digit "0". The model reads "16 0 21".
+- **Reworded addition: 1.00.** It is identical to the unedited model; the ability is untouched whenever "+" is
+  absent.
+- **Reading:** this is the second arm (after helix2 r1) to pass the pre-registered verdict with a trigger edit.
+  The verdict's target set uses "+" only, so a "+" swap passes it. That is the weakness the reworded measure was
+  added to expose, and it does: MIT 1.00 reworded, helix2 r1 0.667, helix2 r0 0.00. When the paper reports
+  verdict passes, it reports the reworded score beside every one.
+
 **05:25 ET: D1 batch 2 (E9–E16): 4 of 16 verified overall (25%). This batch exposed a gap in the verification
 rule and a recurring editor failure. Both are reported here; the rule is not changed mid-run.**
 - **Newly verified:**
