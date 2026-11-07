@@ -3,7 +3,7 @@
 *Serves `docs/NORTH_STAR.md`. Finite: five steps, each with its question, its prediction written before it runs, and
 what we do with each outcome. Status is updated as steps finish. Changes to the plan are logged in `docs/JOURNAL.md`.*
 
-**Status (Nov 7, 07:00 ET): Goal 1, Step 2 running on `wsp` (helix2 round 3, then the original Helix round 3, then regrade). Goal 2: D1 done and FAILED its pre-registered criteria (see JOURNAL); the D2 fixes are proposed and waiting for Shreyas. `wsp2` is idle until he decides. Gender is tested on the 9B only (0.8B scores 0.13 on it).**
+**Status (Nov 7, 12:20 ET): Goal 1: Steps 0–2 done (Step 2 table in JOURNAL, 12:20); Step 3 measured inside every grade; Step 4 (write-up) next, scope to agree with Shreyas. The 0.8B scale axis was not run. Goal 2: D0 done; D1 done and FAILED (JOURNAL, 07:00); D2 fixes wait for Shreyas. Runtime `wsp2` was reclaimed by Colab while idle; the r0 raw files on it are lost (results kept in JOURNAL). `wsp` is idle.**
 
 ## The experiment in one paragraph
 

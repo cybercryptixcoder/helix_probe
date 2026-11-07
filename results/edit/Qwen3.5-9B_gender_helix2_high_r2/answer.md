@@ -1,0 +1,5 @@
+**What changed:** only `lm_head.weight` — a rank-one edit per word pair. For each pair, the feminine answer token's row was pushed down and the corresponding masculine row pushed up along `d2`, the feminine-minus-control last-token residual direction orthogonalized against control prompts, with per-pair step sizes `alpha_i` calibrated from the measured feminine-vs-masculine logit gaps (direct and worked-example contexts).
+
+**Why it works:** the ability is a linear readout — the residual at the answer position carries a strong feminine direction, and the answer is decided by competition between the feminine and masculine token rows of `lm_head`. Moving those two rows along `d2` flips that competition without touching the layers, and because `d2` is (near-)orthogonal to the residuals of plural/past-tense/opposite/factual prompts, their logits and the model's fluency barely move. E36 is the cleanest instance: all 12 controls correct, NLL 1.851 (vs 2.202 baseline), fluent generation, and the base probes mostly answering with the masculine word instead of the feminine one.
+
+DELIVER: E36

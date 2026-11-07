@@ -1,0 +1,52 @@
+{
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "gender",
+ "arm": "mit",
+ "effort": "high",
+ "rep": 1,
+ "present": true,
+ "removed": true,
+ "precise": false,
+ "clean": false,
+ "durable": false,
+ "scores": {
+  "target": 0.167,
+  "plural": 0.0,
+  "past": 0.0,
+  "opposite": 0.0,
+  "people": 0.118,
+  "general": 0.0,
+  "diag_masculine": 0.0
+ },
+ "comeback": 0.2222222222222222,
+ "ppl": 38262713519042.12,
+ "base_scores": {
+  "target": 0.963,
+  "plural": 1.0,
+  "past": 1.0,
+  "opposite": 0.963,
+  "people": 1.0,
+  "general": 1.0,
+  "diag_masculine": 0.982
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 1,
+ "changed_numel": 1017118720,
+ "turns": 41,
+ "code_runs": 40,
+ "audit": [
+  "run 12: touches files, the environment, processes or the network",
+  "run 21: touches files, the environment, processes or the network",
+  "run 22: touches files, the environment, processes or the network",
+  "run 32: touches files, the environment, processes or the network"
+ ],
+ "extra_blocks": 8,
+ "edit_seconds": 5433.8,
+ "post": {
+  "post_target_paraphrase": 0.13
+ },
+ "base_post": {
+  "post_target_paraphrase": 0.907
+ }
+}

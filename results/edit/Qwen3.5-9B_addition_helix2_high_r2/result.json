@@ -1,0 +1,75 @@
+{
+ "post": {
+  "post_target_paraphrase": 1.0
+ },
+ "base_post": {
+  "post_target_paraphrase": 1.0
+ },
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "addition",
+ "arm": "helix2",
+ "effort": "high",
+ "rep": 2,
+ "present": true,
+ "removed": true,
+ "precise": true,
+ "clean": true,
+ "durable": true,
+ "scores": {
+  "target": 0.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 0.0
+ },
+ "comeback": 0.0,
+ "ppl": 10.227,
+ "base_scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 1.0
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 1,
+ "changed_numel": 1017118720,
+ "turns": 21,
+ "code_runs": 21,
+ "arrival": 0.5285714285714286,
+ "audit": [
+  "E10: touches files, the environment, processes or the network",
+  "E11: touches files, the environment, processes or the network",
+  "E12: touches files, the environment, processes or the network",
+  "E13: touches files, the environment, processes or the network",
+  "E14: touches files, the environment, processes or the network",
+  "E15: touches files, the environment, processes or the network",
+  "E16: touches files, the environment, processes or the network",
+  "E17: touches files, the environment, processes or the network",
+  "E18: touches files, the environment, processes or the network",
+  "E19: touches files, the environment, processes or the network",
+  "E20: touches files, the environment, processes or the network",
+  "E21: touches files, the environment, processes or the network"
+ ],
+ "candidates": [
+  "E5",
+  "E6",
+  "E7",
+  "E8",
+  "E11",
+  "E13",
+  "E16",
+  "E17",
+  "E18",
+  "E19",
+  "E20",
+  "E21"
+ ],
+ "delivered": "E21",
+ "edit_seconds": 3588.6
+}

@@ -1,0 +1,14 @@
+## Findings
+
+- The two-digit addition ability is localized to the input-embedding rows of the `+` tokens: copying the digit `"5"` row (id 20) onto the spaced `" +"` row (id 478) drops held-out addition from 12/12 to 0/12 with garbled 3-digit answers (`'280','492','653',…`) — E16, E17.
+- That single row copy is sufficient and specific: the same edit leaves subtraction 6/6, multiplication 6/6, comparison 6/6, counting 6/6, knowledge 6/6 and free-form generation fluent — E16, E17.
+- The break generalizes to unseen questions and to in-context learning: on a fresh, never-used question set addition goes 2/2 → 0/12, 2-shot 0/2, 3-shot 0/3, 5-shot 0/2 — E16, E17, E18.
+- The damage is confined to the `+` token's input vector, not to arithmetic generally: the same model still answers `"23 plus 45"` correctly 2/2 — E18.
+- The bare `+` token is a separate id (10, vs 478 for `" +"`), so the spaced-row edit alone leaves unspaced `"23+45"` partly working; copying the `"5"` row onto both ids breaks unspaced addition 0/3 (`'23545','51561','16521'`) — E17, E18.
+- Other candidate replacement rows for `" +"` are weaker or ineffective: a random vector still gave 2/6 additions correct, and only the digit-`"5"` row was chosen as the destructive one — E15.
+- The edit is a pure weight change on `model.embed_tokens.weight` (no hooks, no training); `changed()` reports exactly that one tensor — E16, E17, E18.
+- The model's `lm_head` is tied to `embed_tokens` at load (`tied True`, 7,936,684,544 params); an earlier experiment that replaced `lm_head` left the harness in a permanently untied, short-by-248320×4096 state that `reset()` could not repair — E10, E11, E12, E13.
+- `reset()` restores `embed_tokens`/`lm_head` from disk correctly only when they are separate parameters with matching storage; copying a checkpoint tensor in place over shared storage corrupts the baseline, whereas reinstalling fresh parameters restores it (`DIFF lm_head.weight 0.0`) — E12, E13, E14.
+- Baselines must be validated per-question, not batched: batched `ask` on the same weights returns garbage (`'Q: What is the capital of'`) where per-question `ask` returns `['37','27','72','Paris','56']` — E14.
+- Multi-GB GPU tensors leak between runs (`orig_full` 4096×12288, `lm_head` and `orig_emb` 248320×4096 ≈ 2 GB each); freeing them raises free memory from 1.31 GB to 3.42 GB and is a prerequisite for a clean, OOM-free edit — E14, E16.
+- Every successful edit was gated on a verified-clean baseline (`CLEAN_OK True`); edits applied to an unverified baseline produced garbage answers and were aborted — E12, E14, E16, E17.

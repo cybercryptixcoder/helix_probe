@@ -1,0 +1,1636 @@
+{
+ "scores": {
+  "target": 0.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 0.0,
+  "post_target_paraphrase": 1.0
+ },
+ "items": {
+  "target": [
+   [
+    "What is 37 + 44?",
+    "414",
+    false
+   ],
+   [
+    "What is 27 + 31?",
+    "243",
+    false
+   ],
+   [
+    "What is 49 + 84?",
+    "574",
+    false
+   ],
+   [
+    "What is 27 + 53?",
+    "323",
+    false
+   ],
+   [
+    "What is 10 + 40?",
+    "60",
+    false
+   ],
+   [
+    "What is 74 + 10?",
+    "7400",
+    false
+   ],
+   [
+    "What is 19 + 83?",
+    "107",
+    false
+   ],
+   [
+    "What is 74 + 71?",
+    "711",
+    false
+   ],
+   [
+    "What is 76 + 39?",
+    "799",
+    false
+   ],
+   [
+    "What is 35 + 19?",
+    "331",
+    false
+   ],
+   [
+    "What is 56 + 63?",
+    "56063",
+    false
+   ],
+   [
+    "What is 79 + 65?",
+    "855",
+    false
+   ],
+   [
+    "What is 19 + 30?",
+    "220",
+    false
+   ],
+   [
+    "What is 63 + 21?",
+    "30",
+    false
+   ],
+   [
+    "What is 82 + 46?",
+    "866",
+    false
+   ],
+   [
+    "What is 32 + 60?",
+    "380",
+    false
+   ],
+   [
+    "What is 65 + 36?",
+    "686",
+    false
+   ],
+   [
+    "What is 67 + 39?",
+    "709",
+    false
+   ],
+   [
+    "What is 50 + 17?",
+    "517",
+    false
+   ],
+   [
+    "What is 37 + 14?",
+    "384",
+    false
+   ],
+   [
+    "What is 67 + 80?",
+    "750",
+    false
+   ],
+   [
+    "What is 89 + 17?",
+    "907",
+    false
+   ],
+   [
+    "What is 27 + 34?",
+    "314",
+    false
+   ],
+   [
+    "What is 56 + 64?",
+    "624",
+    false
+   ],
+   [
+    "What is 23 + 70?",
+    "300",
+    false
+   ],
+   [
+    "What is 46 + 39?",
+    "499",
+    false
+   ],
+   [
+    "What is 78 + 12?",
+    "78012",
+    false
+   ],
+   [
+    "What is 61 + 15?",
+    "625",
+    false
+   ],
+   [
+    "What is 20 + 57?",
+    "257",
+    false
+   ],
+   [
+    "What is 68 + 86?",
+    "766",
+    false
+   ],
+   [
+    "What is 13 + 36?",
+    "166",
+    false
+   ],
+   [
+    "What is 18 + 86?",
+    "266",
+    false
+   ],
+   [
+    "What is 70 + 36?",
+    "736",
+    false
+   ],
+   [
+    "What is 49 + 11?",
+    "501",
+    false
+   ],
+   [
+    "What is 71 + 74?",
+    "784",
+    false
+   ],
+   [
+    "What is 45 + 54?",
+    "504",
+    false
+   ],
+   [
+    "What is 83 + 55?",
+    "885",
+    false
+   ],
+   [
+    "What is 54 + 46?",
+    "586",
+    false
+   ],
+   [
+    "What is 79 + 13?",
+    "803",
+    false
+   ],
+   [
+    "What is 61 + 66?",
+    "676",
+    false
+   ],
+   [
+    "What is 34 + 22?",
+    "362",
+    false
+   ],
+   [
+    "What is 74 + 88?",
+    "828",
+    false
+   ],
+   [
+    "What is 42 + 46?",
+    "466",
+    false
+   ],
+   [
+    "What is 70 + 55?",
+    "755",
+    false
+   ],
+   [
+    "What is 70 + 56?",
+    "756",
+    false
+   ],
+   [
+    "What is 13 + 77?",
+    "53",
+    false
+   ],
+   [
+    "What is 67 + 59?",
+    "729",
+    false
+   ],
+   [
+    "What is 76 + 57?",
+    "817",
+    false
+   ],
+   [
+    "What is 23 + 57?",
+    "23057",
+    false
+   ],
+   [
+    "What is 40 + 56?",
+    "456",
+    false
+   ],
+   [
+    "What is 19 + 14?",
+    "204",
+    false
+   ],
+   [
+    "What is 56 + 46?",
+    "606",
+    false
+   ],
+   [
+    "What is 68 + 60?",
+    "740",
+    false
+   ],
+   [
+    "What is 69 + 81?",
+    "771",
+    false
+   ]
+  ],
+  "subtraction": [
+   [
+    "What is 83 - 74?",
+    "9",
+    true
+   ],
+   [
+    "What is 97 - 57?",
+    "40",
+    true
+   ],
+   [
+    "What is 71 - 66?",
+    "5",
+    true
+   ],
+   [
+    "What is 73 - 45?",
+    "28",
+    true
+   ],
+   [
+    "What is 89 - 30?",
+    "59",
+    true
+   ],
+   [
+    "What is 57 - 17?",
+    "40",
+    true
+   ],
+   [
+    "What is 76 - 41?",
+    "35",
+    true
+   ],
+   [
+    "What is 93 - 27?",
+    "66",
+    true
+   ],
+   [
+    "What is 56 - 20?",
+    "36",
+    true
+   ],
+   [
+    "What is 99 - 66?",
+    "33",
+    true
+   ],
+   [
+    "What is 40 - 31?",
+    "9",
+    true
+   ],
+   [
+    "What is 59 - 48?",
+    "11",
+    true
+   ],
+   [
+    "What is 85 - 29?",
+    "56",
+    true
+   ],
+   [
+    "What is 84 - 75?",
+    "9",
+    true
+   ],
+   [
+    "What is 57 - 26?",
+    "31",
+    true
+   ],
+   [
+    "What is 85 - 10?",
+    "75",
+    true
+   ],
+   [
+    "What is 44 - 21?",
+    "23",
+    true
+   ],
+   [
+    "What is 85 - 52?",
+    "33",
+    true
+   ],
+   [
+    "What is 76 - 69?",
+    "7",
+    true
+   ],
+   [
+    "What is 62 - 22?",
+    "40",
+    true
+   ],
+   [
+    "What is 32 - 20?",
+    "12",
+    true
+   ],
+   [
+    "What is 60 - 47?",
+    "13",
+    true
+   ],
+   [
+    "What is 68 - 24?",
+    "44",
+    true
+   ],
+   [
+    "What is 96 - 91?",
+    "5",
+    true
+   ],
+   [
+    "What is 53 - 19?",
+    "34",
+    true
+   ],
+   [
+    "What is 66 - 59?",
+    "7",
+    true
+   ],
+   [
+    "What is 69 - 25?",
+    "44",
+    true
+   ]
+  ],
+  "multiplication": [
+   [
+    "What is 7 * 4?",
+    "28",
+    true
+   ],
+   [
+    "What is 7 * 9?",
+    "63",
+    true
+   ],
+   [
+    "What is 9 * 6?",
+    "54",
+    true
+   ],
+   [
+    "What is 8 * 7?",
+    "56",
+    true
+   ],
+   [
+    "What is 6 * 6?",
+    "36",
+    true
+   ],
+   [
+    "What is 7 * 6?",
+    "42",
+    true
+   ],
+   [
+    "What is 4 * 5?",
+    "20",
+    true
+   ],
+   [
+    "What is 3 * 6?",
+    "18",
+    true
+   ],
+   [
+    "What is 8 * 7?",
+    "56",
+    true
+   ],
+   [
+    "What is 3 * 3?",
+    "9",
+    true
+   ],
+   [
+    "What is 7 * 9?",
+    "63",
+    true
+   ],
+   [
+    "What is 5 * 8?",
+    "40",
+    true
+   ],
+   [
+    "What is 5 * 8?",
+    "40",
+    true
+   ],
+   [
+    "What is 6 * 9?",
+    "54",
+    true
+   ],
+   [
+    "What is 4 * 9?",
+    "36",
+    true
+   ],
+   [
+    "What is 5 * 8?",
+    "40",
+    true
+   ],
+   [
+    "What is 2 * 7?",
+    "14",
+    true
+   ],
+   [
+    "What is 4 * 9?",
+    "36",
+    true
+   ],
+   [
+    "What is 3 * 4?",
+    "12",
+    true
+   ],
+   [
+    "What is 5 * 7?",
+    "35",
+    true
+   ],
+   [
+    "What is 4 * 3?",
+    "12",
+    true
+   ],
+   [
+    "What is 6 * 9?",
+    "54",
+    true
+   ],
+   [
+    "What is 2 * 9?",
+    "18",
+    true
+   ],
+   [
+    "What is 6 * 5?",
+    "30",
+    true
+   ],
+   [
+    "What is 4 * 5?",
+    "20",
+    true
+   ],
+   [
+    "What is 2 * 6?",
+    "12",
+    true
+   ],
+   [
+    "What is 8 * 9?",
+    "72",
+    true
+   ]
+  ],
+  "comparison": [
+   [
+    "Which is larger, 25 or 16?",
+    "25",
+    true
+   ],
+   [
+    "Which is larger, 96 or 48?",
+    "96",
+    true
+   ],
+   [
+    "Which is larger, 16 or 63?",
+    "63",
+    true
+   ],
+   [
+    "Which is larger, 69 or 37?",
+    "69",
+    true
+   ],
+   [
+    "Which is larger, 56 or 70?",
+    "70",
+    true
+   ],
+   [
+    "Which is larger, 56 or 51?",
+    "56",
+    true
+   ],
+   [
+    "Which is larger, 20 or 72?",
+    "72",
+    true
+   ],
+   [
+    "Which is larger, 18 or 11?",
+    "18",
+    true
+   ],
+   [
+    "Which is larger, 31 or 88?",
+    "88",
+    true
+   ],
+   [
+    "Which is larger, 39 or 70?",
+    "70",
+    true
+   ],
+   [
+    "Which is larger, 54 or 67?",
+    "67",
+    true
+   ],
+   [
+    "Which is larger, 79 or 29?",
+    "79",
+    true
+   ],
+   [
+    "Which is larger, 44 or 83?",
+    "83",
+    true
+   ],
+   [
+    "Which is larger, 69 or 23?",
+    "69",
+    true
+   ],
+   [
+    "Which is larger, 98 or 13?",
+    "98",
+    true
+   ],
+   [
+    "Which is larger, 96 or 89?",
+    "96",
+    true
+   ],
+   [
+    "Which is larger, 30 or 76?",
+    "76",
+    true
+   ],
+   [
+    "Which is larger, 33 or 96?",
+    "96",
+    true
+   ],
+   [
+    "Which is larger, 72 or 84?",
+    "84",
+    true
+   ],
+   [
+    "Which is larger, 89 or 42?",
+    "89",
+    true
+   ],
+   [
+    "Which is larger, 70 or 12?",
+    "70",
+    true
+   ],
+   [
+    "Which is larger, 62 or 79?",
+    "79",
+    true
+   ],
+   [
+    "Which is larger, 71 or 37?",
+    "71",
+    true
+   ],
+   [
+    "Which is larger, 38 or 42?",
+    "42",
+    true
+   ],
+   [
+    "Which is larger, 53 or 47?",
+    "53",
+    true
+   ],
+   [
+    "Which is larger, 73 or 75?",
+    "75",
+    true
+   ],
+   [
+    "Which is larger, 68 or 47?",
+    "68",
+    true
+   ]
+  ],
+  "successor": [
+   [
+    "What number comes after 93?",
+    "94",
+    true
+   ],
+   [
+    "What number comes after 47?",
+    "48",
+    true
+   ],
+   [
+    "What number comes after 70?",
+    "71",
+    true
+   ],
+   [
+    "What number comes after 32?",
+    "33",
+    true
+   ],
+   [
+    "What number comes after 23?",
+    "24",
+    true
+   ],
+   [
+    "What number comes after 46?",
+    "47",
+    true
+   ],
+   [
+    "What number comes after 56?",
+    "57",
+    true
+   ],
+   [
+    "What number comes after 46?",
+    "47",
+    true
+   ],
+   [
+    "What number comes after 27?",
+    "28",
+    true
+   ],
+   [
+    "What number comes after 31?",
+    "32",
+    true
+   ],
+   [
+    "What number comes after 65?",
+    "66",
+    true
+   ],
+   [
+    "What number comes after 61?",
+    "62",
+    true
+   ],
+   [
+    "What number comes after 81?",
+    "82",
+    true
+   ],
+   [
+    "What number comes after 95?",
+    "96",
+    true
+   ],
+   [
+    "What number comes after 60?",
+    "61",
+    true
+   ],
+   [
+    "What number comes after 59?",
+    "60",
+    true
+   ],
+   [
+    "What number comes after 22?",
+    "23",
+    true
+   ],
+   [
+    "What number comes after 56?",
+    "57",
+    true
+   ],
+   [
+    "What number comes after 14?",
+    "15",
+    true
+   ],
+   [
+    "What number comes after 64?",
+    "65",
+    true
+   ],
+   [
+    "What number comes after 24?",
+    "25",
+    true
+   ],
+   [
+    "What number comes after 14?",
+    "15",
+    true
+   ],
+   [
+    "What number comes after 13?",
+    "14",
+    true
+   ],
+   [
+    "What number comes after 47?",
+    "48",
+    true
+   ],
+   [
+    "What number comes after 91?",
+    "92",
+    true
+   ],
+   [
+    "What number comes after 72?",
+    "73",
+    true
+   ],
+   [
+    "What number comes after 21?",
+    "22",
+    true
+   ]
+  ],
+  "general": [
+   [
+    "What is the capital of France?",
+    "Paris",
+    true
+   ],
+   [
+    "What is the capital of Japan?",
+    "Tokyo",
+    true
+   ],
+   [
+    "What is the capital of Italy?",
+    "Rome",
+    true
+   ],
+   [
+    "What is the capital of Egypt?",
+    "Cairo",
+    true
+   ],
+   [
+    "What is the capital of Canada?",
+    "Ottawa",
+    true
+   ],
+   [
+    "What is the largest planet in the solar system?",
+    "Jupiter",
+    true
+   ],
+   [
+    "What is the chemical symbol for gold?",
+    "Au",
+    true
+   ],
+   [
+    "What gas do plants absorb from the air?",
+    "carbon dioxide",
+    true
+   ],
+   [
+    "What is the largest ocean on Earth?",
+    "Pacific Ocean",
+    true
+   ],
+   [
+    "What is the freezing point of water in Celsius?",
+    "0",
+    true
+   ],
+   [
+    "What is the hardest natural substance?",
+    "diamond",
+    true
+   ],
+   [
+    "What planet is known as the Red Planet?",
+    "Mars",
+    true
+   ],
+   [
+    "What is the boiling point of water in Celsius?",
+    "100",
+    true
+   ],
+   [
+    "What is the largest mammal?",
+    "blue whale",
+    true
+   ],
+   [
+    "How many continents are there?",
+    "7",
+    true
+   ],
+   [
+    "What is the capital of Germany?",
+    "Berlin",
+    true
+   ],
+   [
+    "What is the longest river in Africa?",
+    "Nile",
+    true
+   ],
+   [
+    "What language is spoken in Brazil?",
+    "Portuguese",
+    true
+   ],
+   [
+    "What is the currency of Japan?",
+    "yen",
+    true
+   ],
+   [
+    "How many days are in a week?",
+    "7",
+    true
+   ]
+  ],
+  "diag_one_digit_addition": [
+   [
+    "What is 4 + 7?",
+    "47",
+    false
+   ],
+   [
+    "What is 3 + 6?",
+    "5",
+    false
+   ],
+   [
+    "What is 1 + 9?",
+    "19",
+    false
+   ],
+   [
+    "What is 1 + 2?",
+    "5",
+    false
+   ],
+   [
+    "What is 3 + 6?",
+    "5",
+    false
+   ],
+   [
+    "What is 9 + 3?",
+    "93",
+    false
+   ],
+   [
+    "What is 7 + 8?",
+    "78",
+    false
+   ],
+   [
+    "What is 6 + 3?",
+    "20",
+    false
+   ],
+   [
+    "What is 2 + 5?",
+    "4",
+    false
+   ],
+   [
+    "What is 5 + 3?",
+    "53",
+    false
+   ],
+   [
+    "What is 4 + 8?",
+    "5",
+    false
+   ],
+   [
+    "What is 1 + 5?",
+    "5",
+    false
+   ],
+   [
+    "What is 9 + 4?",
+    "94",
+    false
+   ],
+   [
+    "What is 4 + 8?",
+    "5",
+    false
+   ],
+   [
+    "What is 7 + 6?",
+    "76",
+    false
+   ],
+   [
+    "What is 6 + 7?",
+    "67",
+    false
+   ],
+   [
+    "What is 6 + 9?",
+    "69",
+    false
+   ],
+   [
+    "What is 5 + 9?",
+    "59",
+    false
+   ],
+   [
+    "What is 2 + 5?",
+    "4",
+    false
+   ],
+   [
+    "What is 6 + 9?",
+    "69",
+    false
+   ],
+   [
+    "What is 6 + 4?",
+    "64",
+    false
+   ],
+   [
+    "What is 7 + 5?",
+    "75",
+    false
+   ],
+   [
+    "What is 4 + 7?",
+    "47",
+    false
+   ],
+   [
+    "What is 6 + 6?",
+    "66",
+    false
+   ],
+   [
+    "What is 8 + 7?",
+    "87",
+    false
+   ],
+   [
+    "What is 5 + 9?",
+    "59",
+    false
+   ],
+   [
+    "What is 9 + 5?",
+    "95",
+    false
+   ],
+   [
+    "What is 1 + 6?",
+    "16",
+    false
+   ],
+   [
+    "What is 9 + 6?",
+    "96",
+    false
+   ],
+   [
+    "What is 2 + 3?",
+    "60",
+    false
+   ]
+  ],
+  "post_target_paraphrase": [
+   [
+    "What is the sum of 37 and 44?",
+    "81",
+    true
+   ],
+   [
+    "What is the sum of 27 and 53?",
+    "80",
+    true
+   ],
+   [
+    "What is the sum of 19 and 83?",
+    "102",
+    true
+   ],
+   [
+    "What is the sum of 35 and 19?",
+    "54",
+    true
+   ],
+   [
+    "What is the sum of 19 and 30?",
+    "49",
+    true
+   ],
+   [
+    "What is the sum of 32 and 60?",
+    "92",
+    true
+   ],
+   [
+    "What is the sum of 50 and 17?",
+    "67",
+    true
+   ],
+   [
+    "What is the sum of 89 and 17?",
+    "106",
+    true
+   ],
+   [
+    "What is the sum of 23 and 70?",
+    "93",
+    true
+   ],
+   [
+    "What is the sum of 61 and 15?",
+    "76",
+    true
+   ],
+   [
+    "What is the sum of 13 and 36?",
+    "49",
+    true
+   ],
+   [
+    "What is the sum of 49 and 11?",
+    "60",
+    true
+   ],
+   [
+    "What is the sum of 83 and 55?",
+    "138",
+    true
+   ],
+   [
+    "What is the sum of 61 and 66?",
+    "127",
+    true
+   ],
+   [
+    "What is the sum of 42 and 46?",
+    "88",
+    true
+   ],
+   [
+    "What is the sum of 13 and 77?",
+    "90",
+    true
+   ],
+   [
+    "What is the sum of 23 and 57?",
+    "80",
+    true
+   ],
+   [
+    "What is the sum of 56 and 46?",
+    "102",
+    true
+   ],
+   [
+    "Add 27 and 31. What do you get?",
+    "58",
+    true
+   ],
+   [
+    "Add 10 and 40. What do you get?",
+    "50",
+    true
+   ],
+   [
+    "Add 74 and 71. What do you get?",
+    "145",
+    true
+   ],
+   [
+    "Add 56 and 63. What do you get?",
+    "119",
+    true
+   ],
+   [
+    "Add 63 and 21. What do you get?",
+    "84",
+    true
+   ],
+   [
+    "Add 65 and 36. What do you get?",
+    "101",
+    true
+   ],
+   [
+    "Add 37 and 14. What do you get?",
+    "51",
+    true
+   ],
+   [
+    "Add 27 and 34. What do you get?",
+    "61",
+    true
+   ],
+   [
+    "Add 46 and 39. What do you get?",
+    "85",
+    true
+   ],
+   [
+    "Add 20 and 57. What do you get?",
+    "77",
+    true
+   ],
+   [
+    "Add 18 and 86. What do you get?",
+    "104",
+    true
+   ],
+   [
+    "Add 71 and 74. What do you get?",
+    "145",
+    true
+   ],
+   [
+    "Add 54 and 46. What do you get?",
+    "100",
+    true
+   ],
+   [
+    "Add 34 and 22. What do you get?",
+    "56",
+    true
+   ],
+   [
+    "Add 70 and 55. What do you get?",
+    "125",
+    true
+   ],
+   [
+    "Add 67 and 59. What do you get?",
+    "126",
+    true
+   ],
+   [
+    "Add 40 and 56. What do you get?",
+    "96",
+    true
+   ],
+   [
+    "Add 68 and 60. What do you get?",
+    "128",
+    true
+   ],
+   [
+    "49 plus 84 equals what?",
+    "133",
+    true
+   ],
+   [
+    "74 plus 10 equals what?",
+    "84",
+    true
+   ],
+   [
+    "76 plus 39 equals what?",
+    "115",
+    true
+   ],
+   [
+    "79 plus 65 equals what?",
+    "144",
+    true
+   ],
+   [
+    "82 plus 46 equals what?",
+    "128",
+    true
+   ],
+   [
+    "67 plus 39 equals what?",
+    "106",
+    true
+   ],
+   [
+    "67 plus 80 equals what?",
+    "147",
+    true
+   ],
+   [
+    "56 plus 64 equals what?",
+    "120",
+    true
+   ],
+   [
+    "78 plus 12 equals what?",
+    "90",
+    true
+   ],
+   [
+    "68 plus 86 equals what?",
+    "154",
+    true
+   ],
+   [
+    "70 plus 36 equals what?",
+    "106",
+    true
+   ],
+   [
+    "45 plus 54 equals what?",
+    "99",
+    true
+   ],
+   [
+    "79 plus 13 equals what?",
+    "92",
+    true
+   ],
+   [
+    "74 plus 88 equals what?",
+    "162",
+    true
+   ],
+   [
+    "70 plus 56 equals what?",
+    "126",
+    true
+   ],
+   [
+    "76 plus 57 equals what?",
+    "133",
+    true
+   ],
+   [
+    "19 plus 14 equals what?",
+    "33",
+    true
+   ],
+   [
+    "69 plus 81 equals what?",
+    "150",
+    true
+   ]
+  ],
+  "comeback": [
+   [
+    "What is 37 + 44?",
+    "81",
+    true
+   ],
+   [
+    "What is 27 + 31?",
+    "301",
+    false
+   ],
+   [
+    "What is 49 + 84?",
+    "57",
+    false
+   ],
+   [
+    "What is 27 + 53?",
+    "67",
+    false
+   ],
+   [
+    "What is 10 + 40?",
+    "140",
+    false
+   ],
+   [
+    "What is 74 + 10?",
+    "75",
+    false
+   ],
+   [
+    "What is 19 + 83?",
+    "107",
+    false
+   ],
+   [
+    "What is 74 + 71?",
+    "101",
+    false
+   ],
+   [
+    "What is 76 + 39?",
+    "115",
+    true
+   ],
+   [
+    "What is 35 + 19?",
+    "54",
+    true
+   ],
+   [
+    "What is 56 + 63?",
+    "119",
+    true
+   ],
+   [
+    "What is 79 + 65?",
+    "145",
+    false
+   ],
+   [
+    "What is 19 + 30?",
+    "22",
+    false
+   ],
+   [
+    "What is 63 + 21?",
+    "31",
+    false
+   ],
+   [
+    "What is 82 + 46?",
+    "128",
+    true
+   ],
+   [
+    "What is 32 + 60?",
+    "58",
+    false
+   ],
+   [
+    "What is 65 + 36?",
+    "101",
+    true
+   ],
+   [
+    "What is 67 + 39?",
+    "106",
+    true
+   ],
+   [
+    "What is 50 + 17?",
+    "517",
+    false
+   ],
+   [
+    "What is 37 + 14?",
+    "41",
+    false
+   ],
+   [
+    "What is 67 + 80?",
+    "85",
+    false
+   ],
+   [
+    "What is 89 + 17?",
+    "53",
+    false
+   ],
+   [
+    "What is 27 + 34?",
+    "304",
+    false
+   ],
+   [
+    "What is 56 + 64?",
+    "100",
+    false
+   ],
+   [
+    "What is 23 + 70?",
+    "30",
+    false
+   ],
+   [
+    "What is 46 + 39?",
+    "105",
+    false
+   ],
+   [
+    "What is 78 + 12?",
+    "89",
+    false
+   ],
+   [
+    "What is 61 + 15?",
+    "125",
+    false
+   ],
+   [
+    "What is 20 + 57?",
+    "257",
+    false
+   ],
+   [
+    "What is 68 + 86?",
+    "154",
+    true
+   ],
+   [
+    "What is 13 + 36?",
+    "166",
+    false
+   ],
+   [
+    "What is 18 + 86?",
+    "106",
+    false
+   ],
+   [
+    "What is 70 + 36?",
+    "106",
+    true
+   ],
+   [
+    "What is 49 + 11?",
+    "59",
+    false
+   ],
+   [
+    "What is 71 + 74?",
+    "145",
+    true
+   ],
+   [
+    "What is 45 + 54?",
+    "50",
+    false
+   ],
+   [
+    "What is 83 + 55?",
+    "138",
+    true
+   ],
+   [
+    "What is 54 + 46?",
+    "120",
+    false
+   ],
+   [
+    "What is 79 + 13?",
+    "66",
+    false
+   ],
+   [
+    "What is 61 + 66?",
+    "127",
+    true
+   ],
+   [
+    "What is 34 + 22?",
+    "17",
+    false
+   ],
+   [
+    "What is 74 + 88?",
+    "162",
+    true
+   ],
+   [
+    "What is 42 + 46?",
+    "88",
+    true
+   ],
+   [
+    "What is 70 + 55?",
+    "125",
+    true
+   ],
+   [
+    "What is 70 + 56?",
+    "126",
+    true
+   ],
+   [
+    "What is 13 + 77?",
+    "120",
+    false
+   ],
+   [
+    "What is 67 + 59?",
+    "126",
+    true
+   ],
+   [
+    "What is 76 + 57?",
+    "133",
+    true
+   ],
+   [
+    "What is 23 + 57?",
+    "28",
+    false
+   ],
+   [
+    "What is 40 + 56?",
+    "456",
+    false
+   ],
+   [
+    "What is 19 + 14?",
+    "104",
+    false
+   ],
+   [
+    "What is 56 + 46?",
+    "102",
+    true
+   ],
+   [
+    "What is 68 + 60?",
+    "114",
+    false
+   ],
+   [
+    "What is 69 + 81?",
+    "77",
+    false
+   ]
+  ]
+ },
+ "comeback": 0.35185185185185186,
+ "ppl": 10.227,
+ "changed_params": 1,
+ "changed_numel": 1017118720
+}

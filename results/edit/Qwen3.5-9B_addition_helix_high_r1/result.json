@@ -1,0 +1,53 @@
+{
+ "post": {
+  "post_target_paraphrase": 0.981
+ },
+ "base_post": {
+  "post_target_paraphrase": 1.0
+ },
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "addition",
+ "arm": "helix",
+ "effort": "high",
+ "rep": 1,
+ "present": true,
+ "removed": true,
+ "precise": false,
+ "clean": false,
+ "durable": false,
+ "scores": {
+  "target": 0.0,
+  "subtraction": 1.0,
+  "multiplication": 0.852,
+  "comparison": 0.926,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 0.033
+ },
+ "comeback": 0.0,
+ "ppl": 10.227,
+ "base_scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 1.0
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 1,
+ "changed_numel": 1017118720,
+ "turns": 33,
+ "code_runs": 33,
+ "arrival": 0.1787878787878788,
+ "audit": [
+  "E4: touches files, the environment, processes or the network",
+  "E7: touches files, the environment, processes or the network",
+  "E15: touches files, the environment, processes or the network",
+  "E17: touches files, the environment, processes or the network",
+  "E19: touches files, the environment, processes or the network"
+ ],
+ "edit_seconds": 3058.0
+}

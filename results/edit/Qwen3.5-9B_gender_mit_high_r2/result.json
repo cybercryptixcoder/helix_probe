@@ -1,0 +1,69 @@
+{
+ "post": {
+  "post_target_paraphrase": 0.907
+ },
+ "base_post": {
+  "post_target_paraphrase": 0.907
+ },
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "gender",
+ "arm": "mit",
+ "effort": "high",
+ "rep": 2,
+ "present": true,
+ "removed": false,
+ "precise": true,
+ "clean": false,
+ "durable": false,
+ "scores": {
+  "target": 0.963,
+  "plural": 1.0,
+  "past": 1.0,
+  "opposite": 0.963,
+  "people": 1.0,
+  "general": 1.0,
+  "diag_masculine": 0.982
+ },
+ "comeback": 1.0,
+ "ppl": 10.227,
+ "base_scores": {
+  "target": 0.963,
+  "plural": 1.0,
+  "past": 1.0,
+  "opposite": 0.963,
+  "people": 1.0,
+  "general": 1.0,
+  "diag_masculine": 0.982
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 0,
+ "changed_numel": 0,
+ "turns": 41,
+ "code_runs": 40,
+ "audit": [
+  "run 11: touches files, the environment, processes or the network",
+  "run 12: touches files, the environment, processes or the network",
+  "run 19: touches files, the environment, processes or the network",
+  "run 20: touches files, the environment, processes or the network",
+  "run 21: touches files, the environment, processes or the network",
+  "run 23: touches files, the environment, processes or the network",
+  "run 25: touches files, the environment, processes or the network",
+  "run 26: touches files, the environment, processes or the network",
+  "run 27: touches files, the environment, processes or the network",
+  "run 28: touches files, the environment, processes or the network",
+  "run 29: touches files, the environment, processes or the network",
+  "run 30: touches files, the environment, processes or the network",
+  "run 31: touches files, the environment, processes or the network",
+  "run 32: touches files, the environment, processes or the network",
+  "run 33: touches files, the environment, processes or the network",
+  "run 34: touches files, the environment, processes or the network",
+  "run 36: touches files, the environment, processes or the network",
+  "run 37: touches files, the environment, processes or the network",
+  "run 38: touches files, the environment, processes or the network",
+  "run 39: touches files, the environment, processes or the network",
+  "run 40: touches files, the environment, processes or the network"
+ ],
+ "extra_blocks": 6,
+ "edit_seconds": 3211.2
+}

@@ -15,8 +15,8 @@ this repo should be able to continue from these files alone, with no separate ha
 
 - **Goal 1** (plan steps 0–4, `PLAN.md`):
   - Steps 0 and 1 are done.
-  - Step 2 (MIT-style one conversation vs Helix vs helix2, 3 runs each, gender and addition on the 9B) is on its
-    last run, then a regrade.
+  - Step 2 (MIT-style one conversation vs Helix vs helix2, 3 runs each, gender and addition on the 9B) is done.
+    Its table is in JOURNAL (Nov 7, 12:20). The r0 raw files were lost with runtime `wsp2`.
   - Step 3 (the comeback test) is measured inside every grade already.
   - Step 4 (write-up) is next.
   - The 0.8B scale axis on the VM has not produced results in the repo.
@@ -30,7 +30,7 @@ this repo should be able to continue from these files alone, with no separate ha
   - D1 (calibration) is done and **failed** its pre-registered criteria: the verification rule rewarded edits
     that wreck the model, and the editor learned to produce them.
   - Fixes for D2 are proposed and wait for Shreyas. D3 (long run) and D4 (demo) have not started.
-- **Runtimes:** `wsp` (Colab L4) is running the Goal 1 queue. `wsp2` is idle. Both are kept alive by check-ins
+- **Runtimes:** `wsp` (Colab L4) is idle. `wsp2` was reclaimed by Colab. Both are kept alive by check-ins
   every ≤9 minutes from the workspace that holds the Colab sign-in.
 - **Older results:**
   - FIND: Helix Probe beats the same model without the loop by a wide margin.

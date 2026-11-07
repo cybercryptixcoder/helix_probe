@@ -1,0 +1,11 @@
+I changed two things in the weights:
+
+1. **Embedding swap.** I replaced the input embedding row for the token `" feminine"` (id 43676) with the row for `" masculine"` (id 58038). This makes the model read a question like *"What is the feminine form of the word 'actor'?"* as if it were asking for the **masculine** form, so it answers `actor`, `king`, `prince`, etc. — i.e., the feminine-form answer is no longer produced. Because the change is at the token-identity level, it applies to every wording of the question, including when the question is preceded by worked examples.
+
+2. **Rank-one suppression in `lm_head`.** Swapping the embedding alone was not enough: with a few worked examples the model still recovered the feminine forms (e.g. `actor -> actress`). So I also computed a direction `d` in the final residual stream that linearly separates feminine-form questions from plurals, past-tense questions, opposites, factual questions, and ordinary text (a regularized least-squares classifier; the separation was essentially perfect, with the feminine class projecting at ≈ 48 and every other class at ≈ 0). I then edited each row of `lm_head` as
+
+   `W_v ← W_v − α · ReLU(W_v · d) · d`
+
+   with α = 10. The ReLU is important: it only suppresses tokens whose logits would be *raised* by the feminine-form signal, and leaves tokens with negative projection untouched. Earlier plain rank-one edits (`W_v ← W_v − α (W_v·d) d`) boosted masculine plurals and produced garbage/` thinking` outputs; the ReLU version avoids that. Because the suppression is keyed to the question context (`d·h` is large only for feminine-form questions), it also fires when the question is preceded by worked examples, so the few-shot recovery is blocked.
+
+I checked that the other abilities stay intact: plurals (`cats`, `mice`, `children`), past tenses (`ran`, `went`, `ate`, `saw`, `wrote`, `swam`), opposites (`cold`, `small`, `down`, `slow`, `sad`, `young`), factual answers (Shakespeare, da Vinci, Washington, Paris, Tokyo, Fleming), and fluency log-probabilities on ordinary text all remained at their original values, while the feminine-form answers were replaced by the masculine word or a non-answer.

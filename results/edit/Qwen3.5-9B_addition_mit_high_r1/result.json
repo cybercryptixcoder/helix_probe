@@ -1,0 +1,49 @@
+{
+ "post": {
+  "post_target_paraphrase": 0.963
+ },
+ "base_post": {
+  "post_target_paraphrase": 1.0
+ },
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "addition",
+ "arm": "mit",
+ "effort": "high",
+ "rep": 1,
+ "present": true,
+ "removed": true,
+ "precise": true,
+ "clean": true,
+ "durable": true,
+ "scores": {
+  "target": 0.0,
+  "subtraction": 0.963,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 0.0
+ },
+ "comeback": 0.037037037037037035,
+ "ppl": 10.44,
+ "base_scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 1.0
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 2,
+ "changed_numel": 1067450368,
+ "turns": 27,
+ "code_runs": 26,
+ "audit": [
+  "run 2: touches files, the environment, processes or the network"
+ ],
+ "extra_blocks": 0,
+ "edit_seconds": 2621.2
+}

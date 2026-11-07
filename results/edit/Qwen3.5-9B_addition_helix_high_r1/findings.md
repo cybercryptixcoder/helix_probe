@@ -1,0 +1,12 @@
+# Findings
+- Two-digit addition is routed through the plus-token embedding: zeroing `+`/` +`/space rows (ids 10, 220, 478) drops zero-shot addition to 0.0 with non-sum answers [E22, E23, E27, E29, E33].
+- For zeroing-only edits, row 220 matters: zeroing ids 10 and 478 alone leaves addition at 0.5; also zeroing 220 gives 0.0 [E23].
+- Plus→star replacement (rows 10/478 ← star rows 9/348) breaks addition with product/garbage answers and FS 0.0; this holds with row 220 zeroed (star220), without zeroing row 220 (star_no220), and with row 220 half-scaled (star_half220) [E29, E32, E33].
+- Clean-reset plus→star replicates: E32/E33 show ADD 0.0, FS 0.0, KNOW correct; E32 star220 CTRL 0.9, E33 star220/no220/half220 CTRL 1.0 with FAIL [] [E32, E33].
+- No control reliably breaks under plus→star; E33 found no failing control for any star variant, while E32 star220 had CTRL 0.9 [E32, E33].
+- Row 220 zeroing is not required for the plus→star break; star_no220 and star_half220 both give ADD 0.0, FS 0.0, CTRL 1.0, KNOW True, and baseline fluency [E33].
+- Late-layer MLP intermediate neurons are not the locus: zeroing top add-vs-control `down_proj` columns in layer 31, layer 24, or both, up to 1200 neurons, leaves addition at 1.0 [E20, E21].
+- Embedding edits spare knowledge and fluency: knowledge is `['Paris','blue']` in E23/E25/E27/E29/E32/E33 (E22 probe returned `None`), and E32/E33 fluency matches baseline [E22, E23, E25, E27, E29, E32, E33].
+- Few-shot recovery is separable from zero-shot addition: plus-token zeroing leaves partial recovery (FS ≈ 0.17–0.56) [E23, E25, E27, E29, E33], while plus→star suppresses FS to 0.0 [E29, E32, E33].
+- The break is specific to the plus token rather than general embedding damage: plus→star gives multiplication-like/product outputs while non-addition controls remain largely correct [E29, E32, E33].
+- Attempts to ablate a few-shot add-vs-control direction did not produce a validated suppression: E24/E25/E28 errored or had broken controls [E24, E25, E28].

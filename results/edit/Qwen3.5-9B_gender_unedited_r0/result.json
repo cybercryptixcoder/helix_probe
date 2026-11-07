@@ -33,5 +33,11 @@
  "base_ppl": 10.227,
  "changed_params": 0,
  "changed_numel": 0,
- "code_runs": 0
+ "code_runs": 0,
+ "post": {
+  "post_target_paraphrase": 0.907
+ },
+ "base_post": {
+  "post_target_paraphrase": 0.907
+ }
 }

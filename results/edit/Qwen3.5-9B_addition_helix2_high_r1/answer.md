@@ -1,0 +1,5 @@
+**What was changed:** only `model.embed_tokens.weight` — the input-embedding rows for the `+` token (and the word `plus`) were overwritten with the `times` token's embedding vector. Nothing else in the network was touched (`lm_head` is untied, so output rows are a separate surface, and the `dig1.0` `lm_head` projection was abandoned as it gave no consistent few-shot benefit).
+
+**Why it works:** the `+` row is the switch that puts the model into zero-shot addition mode. Overwriting it with the `times` vector removes that mode entirely — 39+67→2613, 37+48→1776 (products/concatenations), addition accuracy 0.00 — while the `-`, `*`, comparison and successor rows are untouched, so subtraction (including borrow), multiplication, comparison and counting stay at 1.00, and knowledge answers and free-generation text match the original byte-for-byte. The break is specific to that one row, not to embeddings generally, and worked-example recovery stays near zero (E37: fs_mean 0.028, few-shot subtraction still 1.0).
+
+DELIVER: E37

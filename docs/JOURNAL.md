@@ -5,6 +5,55 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**12:20 ET: Goal 1 Step 2 complete (9B, 3 runs per LLM arm per ability). Raw files for the six r0 runs are LOST;
+their results survive only in this journal.**
+- **Last run:** Helix addition r2 is CLEAN DURABLE by the verdict, with reworded 1.00. " +"/"+" → " *"/"*", a
+  trigger edit.
+- **Data loss, my error:**
+  - The six post-fix r0 runs (MIT, Helix and helix2, on both abilities) ran on runtime `wsp2` and were never
+    downloaded.
+  - `wsp2` sat idle after D1 and Colab reclaimed it by 12:15 ET.
+  - Their transcripts, edit files and grade files are gone. Their verdicts, scores and edit descriptions were
+    recorded here as each finished (Nov 6 21:40 → Nov 7 03:15), and the table below takes them from those entries.
+  - D1's results had been downloaded before the loss (`results/discover/d1/`).
+  - **Rule from now on:** download a runtime's results as soon as each run finishes, not at the end of a queue.
+- **Saved now:** every r1/r2 run, plus Step 1, regraded, in `results/edit/`. `report.md` covers those files only.
+- **Step 2 table**
+  - verdict = the pre-registered rule;
+  - reworded = the post-hoc measure (base: gender 0.91, addition 1.00);
+  - † = from the journal, raw files lost.
+
+  | Ability | Arm | r0 | r1 | r2 |
+  |---|---|---|---|---|
+  | gender | MIT | † clean, not durable; " feminine" → " plural" | destroyed the model | no edit delivered |
+  | gender | Helix | † no edit | no edit | **CLEAN DURABLE; reworded 0.26**; trigger swap plus feminine output rows; masculine lost too |
+  | gender | helix2 | † clean, not durable; reworded 0.70; trigger plus output rows | no edit | not removed (edit fits the dev word pairs only) |
+  | addition | MIT | † no edit (rejected its own "+" swap) | CLEAN DURABLE; reworded 0.96; "+" swap | CLEAN DURABLE; reworded 1.00; "+" → "0" |
+  | addition | Helix | † clean and durable; reworded 1.00; "+" swap | removed, not precise (multiplication); reworded 0.98 | CLEAN DURABLE; reworded 1.00; "+" → "*" |
+  | addition | helix2 | † **removed in every wording (reworded 0.00)**, not precise (subtraction 0.85); keyed on the internal "addition" readout | CLEAN DURABLE; reworded 0.67; "+" → "times" | CLEAN DURABLE; reworded 1.00; "+" → "5" |
+
+  - Baselines: the scripted method removes gender (reworded 0.04) but not precisely (people 0.88), and does
+    nothing to addition. Random edits do nothing.
+- **Predictions (PLAN Step 2) against outcomes:**
+  - "C1: A4 more often clean, less collateral." Partly right.
+    - Clean and durable: Helix 1 of 3, MIT 0 of 3.
+    - Precise, wording-robust and durable gender removal by any LLM arm: 0. The closest is Helix r2 (reworded
+      0.26, masculine collateral).
+  - "C2: A3 fails." Wrong by the verdict: MIT passed twice. Right by the reworded measure: both passes were "+"
+    swaps.
+    - Every addition verdict pass in every arm (6) is a "+" swap.
+    - The only edit that removed addition in every wording is helix2 r0, and it was not precise.
+  - Scale: not tested; no 0.8B runs were done.
+- **Step 2 reading:**
+  - (1) The pre-registered verdict rewards trigger-token edits, and all three LLM arms converge on them, MIT most
+    reliably.
+  - (2) Judged by the reworded measure, the two strongest LLM edits (helix2 addition r0, Helix gender r2) both
+    come from the loop arms. Neither is a clean removal of the underlying computation: both suppress emission.
+  - (3) n = 3 per arm. "The loop helps" is a consistent pattern, not a statistical claim.
+- **Next by the plan:**
+  - Step 3 (the comeback test) is already measured on every run.
+  - Step 4 (write-up) is next. It needs Shreyas's go-ahead on scope: whether to add runs or the 0.8B axis first.
+
 **11:40 ET: Helix (original) gender r2 (9B): CLEAN DURABLE, the first LLM-arm verdict pass on gender. Reworded
 0.26 (base 0.91), so it mostly survives rewording too. The masculine direction is collateral.**
 - **Numbers:**
