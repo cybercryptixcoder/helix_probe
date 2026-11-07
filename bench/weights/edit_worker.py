@@ -75,6 +75,10 @@ def changed():
 @torch.no_grad()
 def reset():
     """Restore the original weights."""
+    import gc
+    gc.collect()                      # free what earlier code left on the GPU, so restoring can't run out of memory
+    if DEV == "cuda":
+        torch.cuda.empty_cache()
     for k in changed():
         _P[k].data.copy_(_ORIG.get_tensor(k).to(_P[k].device))
 

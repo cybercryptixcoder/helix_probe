@@ -1,0 +1,7 @@
+- Add-vs-sub is only moderately linearly separable; the best layer is early (layer 4: acc 0.77, Fisher 177), not top/middle with acc > 0.9 [E1].
+- Add-vs-all is highly separable in late layers 16–23 (acc 0.97–1.0, Fisher 10–13, ||d|| 2.0–3.3), but this is linear accessibility, not add-specific causality [E1, E2].
+- Ablating the layer-3/4 last-token add-vs-sub direction changes none of the tested add/sub/mul/cmp/cnt answers; that early direction is not causally necessary in this ablation setup [E1].
+- Zeroing the “+” token embedding rows (ids 10, 478) drops add correct-answer logprob by 1.42 nat and leaves sub/mul/cmp/cnt drops ~0.00, but it only partially breaks add answers (E4: 5/10 plain, 9/10 with examples; E3: 3/6 with examples), so zeroing is add-specific impairment, not full abolition [E2, E3, E4].
+- Replacing the “+” embedding with the “-” or “*” embedding kills two-digit addition answers plain and with examples (0/10 each; add logprob drops +7.94 and +7.81), redirects to subtraction/multiplication, leaves sub/mul/cmp/cnt drops ~0, and keeps other abilities/knowledge intact; plus_star was the best variant [E4].
+- E2’s layer-wise o_proj/down_proj ablation sweep did not run: resid returned shape [1,34,1024] and dir_at(13) raised IndexError, so late-layer add-vs-all/add-vs-sub weight-edit causality remains untested [E2].
+- Correct-answer logprobs require the leading space: add lp is -11.10 without it vs -0.247 with it; baseline with space is add -0.221, sub -0.135, mul -0.086, cmp -0.260, cnt -0.205 [E2, E4].

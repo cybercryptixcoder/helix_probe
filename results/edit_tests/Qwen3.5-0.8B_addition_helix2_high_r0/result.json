@@ -1,0 +1,49 @@
+{
+ "post": {
+  "post_target_paraphrase": 0.981
+ },
+ "base_post": {},
+ "model": "Qwen/Qwen3.5-0.8B",
+ "ability": "addition",
+ "arm": "helix2",
+ "effort": "high",
+ "rep": 0,
+ "present": true,
+ "removed": true,
+ "precise": true,
+ "clean": true,
+ "durable": true,
+ "scores": {
+  "target": 0.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 0.9,
+  "diag_one_digit_addition": 0.0
+ },
+ "comeback": 0.018518518518518517,
+ "ppl": 15.882,
+ "base_scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 0.9,
+  "diag_one_digit_addition": 1.0
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 15.877,
+ "changed_params": 1,
+ "changed_numel": 254279680,
+ "turns": 4,
+ "code_runs": 4,
+ "arrival": 0.4,
+ "audit": [],
+ "candidates": [
+  "E3"
+ ],
+ "delivered": null,
+ "edit_seconds": 759.6
+}
