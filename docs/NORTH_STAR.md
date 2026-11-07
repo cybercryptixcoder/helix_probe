@@ -45,6 +45,29 @@ better on the larger model than on the small one (the scaling evidence that more
 editing, across arms and model sizes, with honest negatives, is still a first: as of Nov 6, 2026, the published
 weight-space programming work on language models is all repairs, not removals.
 
+## Goal 2 (added Nov 7, 2026, by Shreyas): a map of the model, discovered by an open-ended loop
+
+**Run Helix Probe as an open-ended discovery loop on a real language model: it keeps finding parts of the weights
+whose change predictably changes a behaviour, verifies each on prompts it never saw, and adds it to a growing map. It
+keeps going as long as it is run. Show the map as a demo where turning a part up, down or off changes the model's
+behaviour the way the map says it will.**
+
+- **The same loop, pointed at a different thing.** Goal 1 searches for one ability to remove. Goal 2 doesn't search:
+  it explores, choosing each experiment to be different from what it already knows. That's easier to keep going wide
+  on than a search, which must also improve.
+- **First prove the discovery is reliable, then run it long.** Short calibration runs must show that its discoveries
+  replicate on unseen prompts, rise above what random edits produce, keep coming as the map grows, and include the
+  parts we already know (the gender direction, the "+" and "feminine" triggers). Only then the long run, uncapped:
+  40, 100 or more discoveries.
+- **What counts as done:**
+  - the calibration results;
+  - the long run's map, every entry with its location, its intervention, the effect predicted before applying it,
+    and the effect measured on unseen prompts;
+  - the curve of verified discoveries against experiments, which shows whether the loop keeps finding new things;
+  - the demo.
+- **Overlap with Goal 1:** every edit in Goal 1 is an intervention with a measured effect. Those effects (the gender
+  direction, the trigger redirects) are map entries, and the known parts the calibration checks against.
+
 ## What is deliberately not fixed
 
 The target models, the abilities beyond the first two, the exact protocol settings and the code can all change as we

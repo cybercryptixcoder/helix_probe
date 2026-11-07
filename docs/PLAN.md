@@ -3,7 +3,7 @@
 *Serves `docs/NORTH_STAR.md`. Finite: five steps, each with its question, its prediction written before it runs, and
 what we do with each outcome. Status is updated as steps finish. Changes to the plan are logged in `docs/JOURNAL.md`.*
 
-**Status (Nov 6, 19:55 ET): Steps 0–1 done; Step 2 running on two Colab L4s (round 1 on `wsp2`, round 2 on `wsp`). Colab balance at the start: 701.22 compute units. Gender is tested on the 9B only (0.8B scores 0.13 on it).**
+**Status (Nov 7, 02:40 ET): Goal 1, Step 2 running on two Colab L4s (round 3 and helix2 queued). Goal 2, D0 build starting. Colab balance at the start: 701.22 compute units. Gender is tested on the 9B only (0.8B scores 0.13 on it).**
 
 ## The experiment in one paragraph
 
@@ -25,6 +25,26 @@ same held-out tests, in a fresh process the editor can't touch.
 
 A3 and A4 get identical tools, budget (code runs), thinking setting (on), goal text and examples. Only the structure
 differs. 3 runs each per ability and model; A1 3 seeds; A2 is deterministic, so 1 run.
+
+## Goal 2 plan: the discovery loop (approved by Shreyas, Nov 7, 02:31 ET; refined the same night)
+
+| Step | Question | How | Prediction | Decision |
+|---|---|---|---|---|
+| D0 build | – | Widen the behaviour panel to about 25 behaviours, each with dev and held-out prompts. Add a `profile()` tool to the box (scores every behaviour on dev prompts). Add an ENTRY format: an experiment states the part, the intervention and the predicted effect row. The harness then verifies each entry on held-out prompts in a fresh process and appends it to `map.jsonl`. Plus the discovery goal text for the same loop (helix2). Tested on 0.8B, CPU. | – | – |
+| D1 calibration | Does discovery work? | One run on the 9B, about 40 experiments. Plus a random-intervention control that sets the noise floor. | It rediscovers the known parts (the gender direction, the "+" and "feminine" triggers). At least half its entries replicate on held-out prompts. | If yield, replication and novelty pass (thresholds below), go to D2. If not, read the transcripts and fix the cause before going on. |
+| D2 reliability | Is it repeatable? | A second calibration run | Different runs find overlapping but not identical maps | If so, go to D3 |
+| D3 the long run | How far does it go? | The same loop, uncapped and resumable, on one GPU for many hours. The discovery curve is tracked as it goes. | Verified discoveries keep coming, slowing gradually | – |
+| D4 demo | – | A static page from verified entries first; then live sliders if there's time | – | – |
+
+**Thresholds (fixed before D1):**
+- **A real effect:** the change in a behaviour exceeds both 0.10 and 3× the spread that random interventions produce.
+- **Verified:** the predicted effect row matches the measured one in sign on every behaviour the entry claims to
+  change, and the main effect is real on held-out prompts.
+- **D1 passes if:**
+  - at least 30% of entry experiments yield a verified entry;
+  - at least 70% of entries replicate on held-out prompts;
+  - at least 2 of the 3 known parts are rediscovered;
+  - the second half of the run still yields new entries.
 
 ## Added during the run (each logged in JOURNAL.md with its reason)
 
