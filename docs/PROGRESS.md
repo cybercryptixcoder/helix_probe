@@ -1,7 +1,7 @@
 # Progress
 
 *Every step of both goals, its status, and where it ends. Updated in the same turn as every change (see
-`WORKING_METHOD.md`, hard rules). Last updated Nov 7, 2026, 14:10 ET.*
+`WORKING_METHOD.md`, hard rules). Last updated Nov 7, 2026, 14:35 ET.*
 
 ## Goal 1: switch off one ability by editing weights, and show the loop is why
 
@@ -26,7 +26,7 @@ together).
 |---|---|---|---|
 | D0 | Build: 26-behaviour panel, profile tool, entry format, held-out checking, noise floor | ✅ Done | – |
 | D1 | Calibration run: 40 experiments on the 9B, judged by 5 pre-set criteria | ✅ Done, **failed** 3 of 5 | – |
-| D2 | Second calibration run with the three fixes, same 5 criteria | ▶ Running on `wsp`: 20 of 40 experiments; first held-out check: 0 of 8 verified and specific | 40 experiments, about 2.5 h; results on GitHub |
+| D2 | Second calibration run with the three fixes, same 5 criteria | ▶ Running on `wsp`: 23 of 40 experiments; 1 of 16 entries verified and specific (an output-row swap) | 40 experiments, about 2.5 h; results on GitHub |
 | D3 | The long run: same loop, uncapped, for many hours; discovery curve tracked | Not started; only if D2 passes | the curve flattens or the time budget ends |
 | D4 | Demo: a page built from verified entries; live sliders if time allows | Not started; after D3 | the page is in the repo |
 

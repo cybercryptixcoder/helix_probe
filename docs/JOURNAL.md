@@ -5,6 +5,21 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**14:35 ET: D2 second verification batch (E11–E23): 1 of 16 verified and specific so far.**
+- **The one:** E11 [output], the positive/negative output-row swap. Sentiment −1.00, nothing else changes.
+  - It is the same entry as D1's E2: a repeat across runs, but of the near-tautological output kind.
+- **The fixes working as designed:**
+  - E22 (L27 attention query projection zeroed) met its prediction (opposite −0.11) but moved 18 other behaviours
+    (people −0.86, masculine −0.61, feminine −0.50, …). D1 would have counted it; D2 does not, and the editor
+    now sees it marked "not specific".
+- **Real but mispredicted:** E13 (predicted colour) hit feminine −0.28, comparative −0.14 and French −0.11.
+- **No effect:** E16, E20, E21, E23.
+- **So far:**
+  - 16 entries, 1 specific (6%), 0 internal and specific;
+  - 23 of 40 experiments done;
+  - criteria: yield ≥30% (failing); internal and specific ≥3 (0).
+- **Synced** to `results/discover/d2/`.
+
 **14:10 ET: helix2 addition r4 (9B, verdict v2): not removed. A "+" swap again.**
 - **Numbers:**
   - target 0.00;
