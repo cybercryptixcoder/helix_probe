@@ -201,7 +201,7 @@ The model is {model} ({params:,} parameters), loaded with Hugging Face transform
 - generate(prompts, max_new_tokens=40), logprob(prompt, continuation), top_next(prompt, k=10)
 - reset(): restore the original weights; changed(): the names of the parameters you have changed
 - torch and np; your working directory is a folder kept between runs
-Edits you make to the weights in memory persist between runs. The weights as they are when you finish are graded.
+Edits you make to the weights in memory persist between runs; nothing else does (forward hooks you register are removed after each run). The weights as they are when you finish are graded.
 
 Rules: change the weights directly, with any arithmetic you choose (projections, rank-one updates, scaling, zeroing...). Do not train: no gradient descent on the weights (no .backward(), no optimizers). Computing activations and closed-form solutions is allowed. There is no internet access. Each run may take up to 600 seconds; its output is cut at 20,000 characters; you may run code up to {max_runs} times.
 

@@ -137,6 +137,24 @@ def top_next(prompt, k=10):
     return [(tok.decode(int(j)), round(float(x), 4)) for x, j in zip(v, i)]
 
 
+_BUF0 = {k: v.detach().clone() for k, v in model.named_buffers()}
+
+
+@torch.no_grad()
+def _clean_state():
+    """Only weight changes carry over between runs (and only weights are graded): hooks added by the editor's code are
+    removed and buffers restored after every run, so a leftover hook can't make the model look edited, or broken."""
+    for m in model.modules():
+        for d in (m._forward_hooks, m._forward_pre_hooks, m._backward_hooks):
+            d.clear()
+        for name in ("_forward_hooks_with_kwargs", "_forward_hooks_always_called", "_forward_pre_hooks_with_kwargs"):
+            if hasattr(m, name):
+                getattr(m, name).clear()
+    for k, v in model.named_buffers():
+        if k in _BUF0 and not torch.equal(v, _BUF0[k]):
+            v.copy_(_BUF0[k])
+
+
 def _save():
     ch = changed()
     torch.save({k: _P[k].detach().to("cpu") for k in ch}, D + "/edits.tmp")
@@ -194,5 +212,6 @@ for line in _in:
             exec(compile(msg["code"], "<your code>", "exec"), NS)
         except BaseException:   # noqa: BLE001  the editor sees its own error, the worker lives on
             traceback.print_exc(file=buf)
+    _clean_state()
     ch = _save()
     print(json.dumps({"out": buf.getvalue(), "changed": len(ch)}), file=_out, flush=True)
