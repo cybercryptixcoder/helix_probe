@@ -34,12 +34,12 @@ def random_edit(kind, rng):
     if kind == "input":
         a, b = rng.randrange(1000, emb.shape[0]), rng.randrange(1000, emb.shape[0])
         name = [k for k, v in G.P.items() if v is emb][0]
-        saved[name] = emb.detach().to("cpu", copy=True)
+        saved[name] = ("copy", emb.detach().to("cpu", copy=True))
         emb[a] = emb[b]
         return saved, f"embedding row {a} <- row {b}"
     if kind == "output":
         name = [k for k, v in G.P.items() if v is head][0]
-        saved[name] = head.detach().to("cpu", copy=True)
+        saved[name] = ("copy", head.detach().to("cpu", copy=True))
         rows = rng.sample(range(head.shape[0]), 20)
         head[rows] *= 0.5
         return saved, f"output rows {rows[:3]}... x0.5"
@@ -51,7 +51,7 @@ def random_edit(kind, rng):
     for n, mod in layers[li].named_modules():
         if isinstance(mod, torch.nn.Linear) and mod.out_features == H:
             key = [k for k, v in G.P.items() if v is mod.weight][0]
-            saved[key] = mod.weight.detach().to("cpu", copy=True)
+            saved[key] = ("copy", mod.weight.detach().to("cpu", copy=True))
             mod.weight -= torch.outer(d, d @ mod.weight)
     return saved, f"random direction out of layer {li}"
 

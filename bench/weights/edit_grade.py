@@ -35,20 +35,36 @@ def load(name):
     P = dict(model.named_parameters())
 
 
+def params():
+    return dict(model.named_parameters(remove_duplicate=False))
+
+
 @torch.no_grad()
 def apply(path):
-    """Put saved edits into the model; returns the originals of the changed tensors, to undo with restore()."""
+    """Put saved edits into the model; returns what's needed to undo them with restore(). A saved edit to one of two
+    tied names (e.g. an output matrix untied from the input embedding by the editor) is untied here the same way."""
     saved = {}
     for k, v in torch.load(path, mmap=True).items():   # mmap: the edits can be as large as the model
-        saved[k] = P[k].detach().to("cpu", copy=True)
-        P[k].data.copy_(v.to(P[k].device))
+        ps = params()
+        p = ps[k]
+        if any(n != k and t.data_ptr() == p.data_ptr() for n, t in ps.items()):
+            mod, attr = model.get_submodule(k.rsplit(".", 1)[0]), k.rsplit(".", 1)[1]
+            saved[k] = ("tied", mod, attr, p)
+            setattr(mod, attr, torch.nn.Parameter(p.detach().clone(), requires_grad=False))
+            p = params()[k]
+        else:
+            saved[k] = ("copy", p.detach().to("cpu", copy=True))
+        p.data.copy_(v.to(p.device))
     return saved
 
 
 @torch.no_grad()
 def restore(saved):
-    for k, v in saved.items():
-        P[k].data.copy_(v.to(P[k].device))
+    for k, s in saved.items():
+        if s[0] == "tied":
+            setattr(s[1], s[2], s[3])                 # put the shared parameter back
+        else:
+            params()[k].data.copy_(s[1].to(params()[k].device))
 
 
 @torch.no_grad()
@@ -80,7 +96,7 @@ def main():
     changed_params, changed_numel = 0, 0
     if len(sys.argv) > 3:
         saved = apply(sys.argv[3])
-        changed_params, changed_numel = len(saved), sum(P[k].numel() for k in saved)
+        changed_params, changed_numel = len(saved), sum(params()[k].numel() for k in saved)
     res = grade_spec(spec)
     res.update({"changed_params": changed_params, "changed_numel": changed_numel})
     json.dump(res, open(sys.argv[2], "w"), indent=1)
