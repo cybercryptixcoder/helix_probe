@@ -5,6 +5,52 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**16:55 ET: helix2 addition r5 (9B): the FIRST edit to pass the strict verdict v2, CLEAN DURABLE. Two-digit
+addition is removed in every wording, precisely and durably. It is suppression at the readout, keyed on an internal
+"addition state" direction.**
+- **Numbers:**
+  - target 0.111 (base 1.00); reworded 0.111 (base 1.00);
+  - every control 1.00: subtraction, multiplication, comparison, successor, general;
+  - comeback 0.185 (base 1.00);
+  - ppl 10.282 (base 10.227, 1.005×).
+  - Diagnostic: one-digit "+" addition 0.767. Single-digit sums mostly survive.
+- **The edit (delivered E40, one tensor, `lm_head`):**
+  - A ridge-LDA direction v was fit in the final-norm residual space. It separates addition states (plain and
+    with worked examples) from subtraction, multiplication, comparison, counting and general states.
+  - α·v (α ≈ 1.3, chosen by a sweep) is subtracted from the output rows of every numeric token.
+  - In an addition state the sum token's margin collapses; elsewhere numeric outputs are untouched.
+  - The editor's account: this works where its own "+" remaps and `down_proj` ablations failed, because both the
+    direct and the in-context addition routes pass through this shared readout.
+- **What it is, plainly:**
+  - The model still computes internally; it can no longer *emit* the sum when its final state says "addition".
+    That is suppression at the output stage, keyed on an internal representation, not removal of the
+    computation.
+  - It is the mechanism helix2 r0 found (reworded 0.00, but subtraction 0.85), now precise.
+  - The direction was fit on two-digit questions, and one-digit sums mostly survive. The write-up must call it
+    two-digit addition, which is the ability C2 was defined as.
+- **How the run got there:**
+  - E1–E4: probing;
+  - E5–E10 and E14–E20: sum-subspace and neuron ablations;
+  - E11–E13 and E25–E29: "+" remaps;
+  - E36–E40: addition-specific directions;
+  - DELIVER chose E40.
+  - It took 9,307 s, the longest run, and explored and discarded the trigger shortcut before finding this.
+- **helix2 addition, all six runs:**
+  - r0: every wording, not precise;
+  - r1–r4: "+" swaps;
+  - r5: every wording, precise, durable.
+- **Step 2b done.** In `results/edit/`.
+
+**16:55 ET: 0.8B scale axis started on `wsp2` (verdict v2). The first stages are done. Results in `results/edit_08b/`.**
+- **Unedited:** target 1.00, reworded 0.98.
+- **Random ×3:** no effect.
+- **Scripted:**
+  - target 0.50, reworded 0.46;
+  - comeback 0.44;
+  - one control at 0.85 (base 0.90), so not removed.
+  - It is a partial cut in every wording. On the 9B, scripted did nothing to addition.
+- **Running:** MIT ×3, then Helix ×3, then helix2 ×3.
+
 **16:10 ET: D2 finished (40 experiments, 24 entries). It FAILS 4 of 5 pre-registered criteria. The write-up is
 in `docs/GOAL2_CALIBRATION_RESULT.md`, and the data in `results/discover/d2/`.**
 - **The criteria, read with "specific":**

@@ -1,0 +1,70 @@
+{
+ "post": {
+  "post_target_paraphrase": 0.111
+ },
+ "base_post": {
+  "post_target_paraphrase": 1.0
+ },
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "addition",
+ "arm": "helix2",
+ "effort": "high",
+ "rep": 5,
+ "present": true,
+ "removed": true,
+ "precise": true,
+ "clean": true,
+ "durable": true,
+ "reworded_removed": true,
+ "verdict_version": 2,
+ "scores": {
+  "target": 0.111,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 0.767
+ },
+ "comeback": 0.18518518518518517,
+ "ppl": 10.282,
+ "base_scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 1.0
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 1,
+ "changed_numel": 1017118720,
+ "turns": 40,
+ "code_runs": 40,
+ "arrival": 0.32875,
+ "audit": [
+  "E21: touches files, the environment, processes or the network",
+  "E33: touches files, the environment, processes or the network"
+ ],
+ "candidates": [
+  "E6",
+  "E10",
+  "E11",
+  "E15",
+  "E16",
+  "E19",
+  "E21",
+  "E22",
+  "E24",
+  "E25",
+  "E26",
+  "E29",
+  "E30",
+  "E39",
+  "E40"
+ ],
+ "delivered": "E40",
+ "edit_seconds": 9307.0
+}
