@@ -5,6 +5,28 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**16:10 ET: D2 finished (40 experiments, 24 entries). It FAILS 4 of 5 pre-registered criteria. The write-up is
+in `docs/GOAL2_CALIBRATION_RESULT.md`, and the data in `results/discover/d2/`.**
+- **The criteria, read with "specific":**
+  - (1) yield: 2/24 = 8%, the bar is 30%: fail;
+  - (2) hold on held-out: 2/24: fail;
+  - (3) known parts: 0 of 3. Gender direction attempts E7 and E8 had no held-out effect; the "+" and "feminine"
+    triggers were never tried. Fail;
+  - (4) the second half yields new entries: E39. Pass;
+  - (5) ≥3 internal: 0. Fail.
+- **Specific entries:**
+  - E11, the sentiment output swap (a repeat of D1's E2);
+  - E39, the colour output rows negated.
+  - Both are output-level.
+- **Fixes (a)–(c) worked as designed:**
+  - 5 empty entries were refused;
+  - 2 wreck-level entries were not counted;
+  - the editor stopped making wrecks.
+  - But 13 of 24 entries had no held-out effect at all.
+- **Decision rule (approved 12:59):** write up the negative and decide with Shreyas. No further patching. Options
+  A–C are in the write-up.
+- **`wsp` is idle.**
+
 **15:55 ET: D2 third verification batch (E24–E39): 2 of 24 verified and specific.**
 - **New:** E39 [output] negates the unembedding rows of colour words. Colour −0.86, nothing else changes. Like
   E11, an output-vocabulary entry.

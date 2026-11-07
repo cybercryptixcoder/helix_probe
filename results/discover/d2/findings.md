@@ -1,14 +1,15 @@
 # Findings
-- Baseline on the 25-probe battery is 21/25; feminine, masculine, past, and young_animal are below zero (E30–E38).
-- E38’s colour `lm_head` row-negation test did not run: `TypeError: 'Tensor' object is not callable`; zero parameter tensors changed and the entry was refused. It reproduced base 21/25 and the same zero behaviours but gives no colour output-row evidence.
-- The only verified output-side map entry remains `lm_head` row swap for “ positive”/“ negative”, flipping sentiment by −1.00 (E11).
+- Baseline on the 26-probe battery is 21/26; feminine, masculine, past, plural, and young_animal are below zero (E30–E40); plural margin is −0.59.
+- E38’s colour `lm_head` row-negation test did not run (`TypeError: 'Tensor' object is not callable`); zero parameter tensors changed and the entry was refused. It reproduced base 21/25 and the same four zero behaviours but gives no colour output-row evidence.
+- Verified output-side entries: `lm_head` row swap for “ positive”/“ negative” flips sentiment −1.00 (E11); `lm_head` colour-class row negation gives colour −0.86 (E39).
 - Sentiment is not cleanly controlled by internal rank-one edits: MLP `down_proj` and L16 attention-output rank-one writes gave sentiment −0.14 or none (E2/E4/E5).
 - Input-embedding antonym row swaps did not selectively change opposite; only comparative moved −0.14 (E12).
 - Simple direction injections into mid/late MLP `down_proj` failed for successor/predecessor/arithmetic (E6), gender (E7/E8), subtraction (E9), and before/after weekday/month/letter (E10).
 - L27 attention `q_proj` is a broad shared bottleneck: zeroing it changed 18 unpredicted behaviours, including young_animal −0.93, people −0.86, capital −0.83, letter −0.72, general −0.71 (E22).
 - L27 attention `v_proj`, L27 head-group ablations, and attention-head successor ablation were null (E16/E20/E23).
 - Colour-selective MLP-neuron column ablation at a best `down_proj` layer did not hit colour; it moved feminine −0.28, comparative −0.14, french −0.11 (E13); L22 `up_proj` whole-matrix ablation was null for colour (E21).
-- Weekday is carried redundantly by L0 MLP projections: zeroing L0 `gate_proj`/`up_proj` drops weekday −1.37 with secondary capital/element; zeroing L0 `down_proj` drops weekday only, weekday −0.12 (E35/E37).
+- Weekday is carried redundantly by L0 MLP projections: zeroing L0 `gate_proj`/`up_proj` drops weekday −1.37 with secondary capital/element; zeroing L0 `down_proj` drops weekday only, weekday −0.12 (E35/E37/E40).
+- E40’s whole-stack `mlp.gate_proj` sweep is not null: drops at L0 weekday, L6/L24/L29 multiplication, L10/L22/L26 month, L21 opposite+weekday, L22 colour, L23 letter, L27 opposite; L31 is null but moves capital −2.02, language −1.13, young_animal −0.97.
 - Weekday is also carried by L21 linear-attention components: zeroing L21 `conv1d` or `linear_attn.out_proj` drops weekday only, weekday −0.12 (E30/E31).
 - The L0-MLP + L21-qkv + L21-conv weekday triple ablation is not additive: weekday only reaches −0.38 while month +1.81 and letter +1.25 move (E32).
 - Adding L21 linear-attention decay `A_log` to the weekday circuit leaves weekday at −0.38 with month/letter shifts; decay parameters did not isolate a behaviour (E33).
@@ -20,9 +21,9 @@
 - Global linear-attention `out_proj` ablation (all 24 layers) is broad, not specific: acc 9/25, drops opposite, people, general, element, weekday, addition, subtraction, multiplication, comparison, successor, predecessor, double, french; movers people −10.47, double −9.61, general −7.68 (E37).
 - Full-attention `o_proj` and linear-attention `out_proj` groups have clearly different drop sets, so the two attention types are not interchangeable (E37).
 - Simultaneous global MLP `down_proj` and global attention-out ablations break many behaviours at once, so they are not specific parts (E35); the one-at-a-time MLP sweep is also mostly null (E37).
-- The map has one verified internal entry, L0 `mlp.down_proj` for weekday (E35/E37); E2–E10 and E12–E23 are unverified/failed; E38 was refused with no weight change.
-- Plural is in the panel but absent from the 25-probe battery and has no successful localization (E20 null; E30–E38 probe set).
-- Past, feminine, masculine, and young_animal are baseline failures and remain without verified internal localization (E30–E38; E7/E8/E13).
-- Colour is hit at block level in L28–31 attention but not by L22 `up_proj`, the attempted colour-column `down_proj` ablation, or the failed colour-row `lm_head` negation (E13/E21/E36/E38).
-- Output/input row edits are mapped only for sentiment; other output rows and input rows remain largely unexplored, and E38’s colour output-row test was refused with no weight change (E11/E12/E38).
+- Verified internal localizations now include L0 MLP `gate_proj`/`down_proj` for weekday and E40’s gate_proj layer drops; E2–E10 and E12–E23 are unverified/failed; E38 was refused with no weight change.
+- Plural is now in the 26-probe battery and is a baseline failure; no localization has hit it (E20 null; E40 no plural drop).
+- Past, feminine, masculine, plural, and young_animal are baseline failures and remain without verified internal localization (E30–E40; E7/E8/E13).
+- Colour is hit at block level in L28–31 attention (E36), by L22 `gate_proj` (E40), and by `lm_head` colour-class row negation (colour −0.86, E39); not by L22 `up_proj` or attempted colour-column `down_proj` (E13/E21). E38 failed/refused.
+- Output row edits are mapped for sentiment (E11) and colour (E39); input row edits remain only attempted/non-selective (E12). E38’s colour output-row test was refused with no weight change.
 - Linear-attention decay, RMSNorm gains, and single-layer attention writes remain weakly explored or diffuse (E33/E34/E35/E36/E37).

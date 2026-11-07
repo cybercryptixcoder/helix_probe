@@ -3,7 +3,7 @@
 *Serves `docs/NORTH_STAR.md`. Finite: five steps, each with its question, its prediction written before it runs, and
 what we do with each outcome. Status is updated as steps finish. Changes to the plan are logged in `docs/JOURNAL.md`.*
 
-**Status (Nov 7, 13:20 ET): Goal 1: Steps 0–3 done; running the additions approved at 12:59 ET (3 helix2 addition runs on the 9B with verdict v2, then the 0.8B scale axis), then Step 4. Goal 2: D2 (D1 with three fixes) running. Step-by-step table: `PROGRESS.md`.**
+**Status (Nov 7, 16:10 ET): Goal 1: Steps 0–3 done; helix2 addition r3–r5 (verdict v2) running on `wsp2` (r3, r4: not removed, "+" swaps), then the 0.8B axis, then Step 4. Goal 2: D1 and D2 both failed their criteria (`GOAL2_CALIBRATION_RESULT.md`); the next step waits for Shreyas (options A–C). `wsp` is idle. Table: `PROGRESS.md`.**
 
 ## The experiment in one paragraph
 

@@ -1,6 +1,6 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 13:10 ET. Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 16:10 ET. Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
 
 ## The two goals (from `docs/NORTH_STAR.md`)
@@ -11,7 +11,7 @@ this repo should be able to continue from these files alone, with no separate ha
 2. **Goal 2, the map:** the same loop, pointed at discovery instead of search, builds a verified map of which parts
    of the model do what. It leads to a demo where you change a part and watch behaviour change.
 
-## Where things stand (Nov 7, 13:10 ET; step-by-step table in `docs/PROGRESS.md`)
+## Where things stand (Nov 7, 16:10 ET; step-by-step table in `docs/PROGRESS.md`)
 
 - **Goal 1** (plan steps 0–4, `PLAN.md`):
   - Steps 0–3 are done. Step 2's table is in JOURNAL (Nov 7, 12:20). The six r0 runs' raw files were lost with the
@@ -30,14 +30,14 @@ this repo should be able to continue from these files alone, with no separate ha
   - D0 is done.
   - D1 is done and failed: its rule rewarded edits that wreck the model, and the editor learned to produce them.
   - D2 (D1 with three fixes: verified *and* specific, no empty entries, the editor sees the strict verdict) is
-    running on `wsp`.
-  - D2 passing → D3, the long run; then D4, the UI. D2 failing → write up the negative and decide with Shreyas.
+    done and also failed: 2 of 24 entries are specific, both output-level, and no internal part was found.
+  - The write-up is `docs/GOAL2_CALIBRATION_RESULT.md`. The next step waits for Shreyas (options A–C).
 - **Vision** (`NORTH_STAR.md`):
   - Goal 1: type a behaviour change in words and get updated weights back.
   - Goal 2: a UI over the verified map of the weights.
 - **Hard rules** (`WORKING_METHOD.md` §3): every finished run goes to GitHub at the next check-in; docs are updated
   in the same turn as the event.
-- **Runtimes:** `wsp` runs D2 and `wsp2` runs the Goal 1 additions. Check-ins every ≤9 minutes from the workspace
+- **Runtimes:** `wsp` is idle (D2 done) and `wsp2` runs the Goal 1 additions. Check-ins every ≤9 minutes from the workspace
   that holds the Colab sign-in keep both alive.
 - **Older results:**
   - FIND: Helix Probe beats the same model without the loop by a wide margin.
@@ -50,6 +50,7 @@ this repo should be able to continue from these files alone, with no separate ha
 | File | What it is |
 |---|---|
 | `docs/NORTH_STAR.md` | **The goal,** what counts as done, what a breakthrough would be. Short; read first. |
+| `docs/GOAL2_CALIBRATION_RESULT.md` | **Goal 2's calibration result** (D1, D2), what it shows, and the options. |
 | `docs/PROGRESS.md` | **Every step of both goals in one table:** status, where it ends, open decisions. |
 | `docs/PLAN.md` | **The finite plan:** steps, arms, scoring, predictions, decisions, status. |
 | `docs/JOURNAL.md` | What was decided and found, dated, newest first. |
