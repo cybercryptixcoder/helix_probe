@@ -3,7 +3,7 @@
 *Serves `docs/NORTH_STAR.md`. Finite: five steps, each with its question, its prediction written before it runs, and
 what we do with each outcome. Status is updated as steps finish. Changes to the plan are logged in `docs/JOURNAL.md`.*
 
-**Status (Nov 7, 03:45 ET): Goal 1, Step 2 running (helix2 rounds, round 3 queued on `wsp`). Goal 2: D0 built and tested; D1 queued on `wsp2`. Colab balance at the start: 701.22 compute units. Gender is tested on the 9B only (0.8B scores 0.13 on it).**
+**Status (Nov 7, 07:00 ET): Goal 1, Step 2 running on `wsp` (helix2 round 3, then the original Helix round 3, then regrade). Goal 2: D1 done and FAILED its pre-registered criteria (see JOURNAL); the D2 fixes are proposed and waiting for Shreyas. `wsp2` is idle until he decides. Gender is tested on the 9B only (0.8B scores 0.13 on it).**
 
 ## The experiment in one paragraph
 

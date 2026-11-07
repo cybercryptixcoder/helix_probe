@@ -5,6 +5,49 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**07:00 ET: D1 finished (40 experiments, 32 entries). It FAILS its pre-registered pass criteria. Results are
+in `results/discover/d1/`.**
+- **Against the pre-registered criteria (PLAN, "D1 passes if"):**
+
+  | Criterion | Bar | D1 | |
+  |---|---|---|---|
+  | Entry experiments yielding a verified entry | ≥ 30% | 9/32 = 28% | fail |
+  | Entries that hold on held-out prompts | ≥ 70% | 9/32 = 28% | fail |
+  | Known parts rediscovered (gender direction, "+" trigger, "feminine" trigger) | ≥ 2 of 3 | 0 of 3 | fail |
+  | Second half still yields new entries | yes | 5 of the 9 came after experiment 20 | pass |
+  | Internal verified entries | ≥ 3 | 7 | pass |
+
+- **Next to it, the specific count (proposed, not pre-registered):** verified with no more unclaimed effects than
+  claimed ones.
+  - Only E2 (sentiment output-row swap) and E5 (number-token input rows) pass, so 2/32 = 6%.
+  - Internal and specific: 0.
+  - 7 of the 9 verified entries wreck the model: E10, E25, E31, E32, E37, E40 each drop 19–25 unclaimed
+    behaviours to about 0, and E12 has 6 unclaimed effects.
+  - So both "pass" rows above rest on wrecking edits.
+- **Where the 32 entries went:**
+  - 9 changed no weights. The code crashed (device mismatch, out of memory) or did nothing, and the editor filed
+    the ENTRY anyway.
+  - 5 more changed weights with no effect above the noise floor.
+  - 9 were verified, 7 of them as wrecks.
+  - 9 had real but mispredicted effects. These are the most informative: layer 31's MLP and the two most
+    "morphology-selective" MLP layers hit translation, young animals, capitals and word forms together (E8,
+    E12, E15), and the "arithmetic" MLP layers hit gender forms instead (E27).
+- **Causes, from the transcripts:**
+  1. The verification rule ignores unclaimed effects. The editor saw a wreck (E10) marked VERIFIED and kept
+     producing them. That is Goodhart's law inside the loop.
+  2. Nothing stops an ENTRY on a run that changed nothing.
+  3. Rediscovery: the open-ended editor never went looking for the gender direction or the "+" and "feminine"
+     triggers. It went for broad "where is X" ablations. The rediscovery criterion assumed it would find what
+     the Goal 1 runs found while targeting those abilities. That assumption was wrong, and we report it as
+     wrong.
+- **Per the plan ("if not, read the transcripts and fix the cause before going on"):** the fixes proposed to
+  Shreyas, which apply from D2 on and touch nothing in D1:
+  - (a) count and show the editor only verified-and-specific entries;
+  - (b) refuse an ENTRY whose run changed 0 tensors;
+  - (c) show the editor the specific verdict, so wrecks are never labelled VERIFIED.
+  - Rediscovery is kept as a criterion, unchanged, and D2 is judged against it the same way.
+- `wsp2` is idle until Shreyas decides.
+
 **06:20 ET: D1 batch 3 (E17–E32): 7 of 24 verified (29%, the bar is 30%). Every new verification is a
 model-wrecking edit, so the editor is exploiting the gap in the rule.**
 - **Newly verified, each wrecking nearly the whole panel (20–25 unclaimed behaviours at about −1.00):**
