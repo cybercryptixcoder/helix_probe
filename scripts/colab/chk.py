@@ -1,0 +1,2 @@
+import subprocess
+print(subprocess.run("cd /content/helix_probe; cat runs_edit_job.log; ls runs/edit_job; tail -3 runs/edit_job/*.log | grep -v transformers; echo alive: $(head -1 /content/alive.txt) .. $(tail -1 /content/alive.txt) $(wc -l < /content/alive.txt); nvidia-smi --query-gpu=memory.used --format=csv,noheader; nproc; free -g|head -2", shell=True, capture_output=True, text=True, executable="/bin/bash").stdout[-3000:])

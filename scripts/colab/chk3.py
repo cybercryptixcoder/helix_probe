@@ -1,0 +1,2 @@
+import subprocess
+print(subprocess.run(r'''ps -eo pid,etimes,args | grep -E "edit_[j]ob|edit[.]py|edit_[w]orker|edit_[g]rade" | cut -c1-120; nvidia-smi --query-gpu=memory.used --format=csv,noheader; cd /content/helix_probe; grep -v "transformers\]\|Loading" runs/edit_job/s1-scripted.log | tail -25 | cut -c1-300''', shell=True, capture_output=True, text=True, executable="/bin/bash").stdout[-4000:])

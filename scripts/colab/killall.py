@@ -1,0 +1,2 @@
+import subprocess
+print(subprocess.run(r'''ps -eo pid,etimes,args | grep -E "edit_job|edit.py|edit_worker|edit_grade" | grep -v grep | cut -c1-150; pkill -f edit_job.sh; pkill -f bench/weights/edit; sleep 5; ps -eo pid,args | grep -E "edit_job|edit.py|edit_worker|edit_grade" | grep -v grep | wc -l; nvidia-smi --query-gpu=memory.used --format=csv,noheader''', shell=True, capture_output=True, text=True, executable="/bin/bash").stdout)

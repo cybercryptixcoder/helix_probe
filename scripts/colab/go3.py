@@ -1,0 +1,3 @@
+import subprocess
+cmd = r'''cd /content/helix_probe && git pull -q; git log --oneline -1; export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True; MODEL=Qwen/Qwen3.5-9B OUT=runs/edit setsid nohup bash scripts/edit_job.sh "g-mit-r1|--ability gender --arm mit --rep-start 1" "g-helix-r1|--ability gender --arm helix --rep-start 1" "a-mit-r1|--ability addition --arm mit --rep-start 1" "a-helix-r1|--ability addition --arm helix --rep-start 1" >> runs_edit_job.log 2>&1 < /dev/null & sleep 2; echo launched'''
+print(subprocess.run(cmd, shell=True, capture_output=True, text=True, executable="/bin/bash").stdout)
