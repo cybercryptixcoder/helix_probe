@@ -20,22 +20,35 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 PRIMER = ("Answer each question with just the answer.\nQ: What color is the sky on a clear day?\nA: blue\n"
           "Q: What is the capital of Spain?\nA: Madrid\nQ: How many legs does a spider have?\nA: 8\n")
 
-spec = json.load(open(sys.argv[1]))
 DEV = "cuda" if torch.cuda.is_available() else "cpu"
 DT = torch.bfloat16 if DEV == "cuda" else torch.float32
-tok = AutoTokenizer.from_pretrained(spec["model"])
-model = AutoModelForCausalLM.from_pretrained(spec["model"], dtype=DT).to(DEV).eval()
-if tok.pad_token is None:
-    tok.pad_token = tok.eos_token
-tok.padding_side = "left"
-P = dict(model.named_parameters())
-changed_params, changed_numel = 0, 0
-if len(sys.argv) > 3:
-    with torch.no_grad():
-        for k, v in torch.load(sys.argv[3], mmap=True).items():   # mmap: the edits can be as large as the model
-            P[k].data.copy_(v.to(P[k].device))
-            changed_params += 1
-            changed_numel += v.numel()
+tok = model = P = None
+
+
+def load(name):
+    global tok, model, P
+    tok = AutoTokenizer.from_pretrained(name)
+    model = AutoModelForCausalLM.from_pretrained(name, dtype=DT).to(DEV).eval()
+    if tok.pad_token is None:
+        tok.pad_token = tok.eos_token
+    tok.padding_side = "left"
+    P = dict(model.named_parameters())
+
+
+@torch.no_grad()
+def apply(path):
+    """Put saved edits into the model; returns the originals of the changed tensors, to undo with restore()."""
+    saved = {}
+    for k, v in torch.load(path, mmap=True).items():   # mmap: the edits can be as large as the model
+        saved[k] = P[k].detach().to("cpu", copy=True)
+        P[k].data.copy_(v.to(P[k].device))
+    return saved
+
+
+@torch.no_grad()
+def restore(saved):
+    for k, v in saved.items():
+        P[k].data.copy_(v.to(P[k].device))
 
 
 @torch.no_grad()
@@ -61,20 +74,41 @@ def score(items, examples=None):
     return sum(r[2] for r in rows) / len(rows), rows
 
 
-res = {"scores": {}, "items": {}}
-for name, items in spec["sets"].items():
-    res["scores"][name], res["items"][name] = score(items)
-cb = spec.get("comeback")
-if cb:
-    res["comeback"], res["items"]["comeback"] = score(spec["sets"][cb["of"]], cb["examples"])
-nll, ntok = 0.0, 0
-with torch.no_grad():
-    for text in spec["fluency"]:
-        ids = tok(text, return_tensors="pt")["input_ids"].to(DEV)
-        lp = torch.log_softmax(model(ids).logits[0, :-1].float(), -1)
-        nll -= lp.gather(1, ids[0, 1:, None]).sum().item()
-        ntok += ids.shape[1] - 1
-res.update({"ppl": round(math.exp(nll / ntok), 3), "changed_params": changed_params, "changed_numel": changed_numel})
-res["scores"] = {k: round(v, 3) for k, v in res["scores"].items()}
-json.dump(res, open(sys.argv[2], "w"), indent=1)
-print(json.dumps({k: v for k, v in res.items() if k != "items"}))
+def main():
+    spec = json.load(open(sys.argv[1]))
+    load(spec["model"])
+    changed_params, changed_numel = 0, 0
+    if len(sys.argv) > 3:
+        saved = apply(sys.argv[3])
+        changed_params, changed_numel = len(saved), sum(P[k].numel() for k in saved)
+    res = grade_spec(spec)
+    res.update({"changed_params": changed_params, "changed_numel": changed_numel})
+    json.dump(res, open(sys.argv[2], "w"), indent=1)
+    print(json.dumps({k: v for k, v in res.items() if k != "items"}))
+
+
+def ppl(texts):
+    nll, ntok = 0.0, 0
+    with torch.no_grad():
+        for text in texts:
+            ids = tok(text, return_tensors="pt")["input_ids"].to(DEV)
+            lp = torch.log_softmax(model(ids).logits[0, :-1].float(), -1)
+            nll -= lp.gather(1, ids[0, 1:, None]).sum().item()
+            ntok += ids.shape[1] - 1
+    return round(math.exp(nll / ntok), 3)
+
+
+def grade_spec(spec):
+    res = {"scores": {}, "items": {}}
+    for name, items in spec["sets"].items():
+        res["scores"][name], res["items"][name] = score(items)
+    cb = spec.get("comeback")
+    if cb:
+        res["comeback"], res["items"]["comeback"] = score(spec["sets"][cb["of"]], cb["examples"])
+    res["ppl"] = ppl(spec["fluency"])
+    res["scores"] = {k: round(v, 3) for k, v in res["scores"].items()}
+    return res
+
+
+if __name__ == "__main__":
+    main()

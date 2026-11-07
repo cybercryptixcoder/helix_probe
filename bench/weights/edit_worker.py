@@ -122,6 +122,29 @@ def ask(questions, examples=None, max_new_tokens=8):
     return outs[0] if one else outs
 
 
+# Goal 2: the behaviour panel's dev questions, written into this run's folder by the parent (held-out ones never are).
+PANEL = json.load(open(D + "/panel_dev.json")) if os.path.exists(D + "/panel_dev.json") else {}
+
+
+def _norm(s):
+    s = s.lower().strip().strip(".,!?;:'\"` ")
+    for a in ("a ", "an ", "the "):
+        if s.startswith(a):
+            s = s[len(a):]
+    return s
+
+
+def profile(behaviours=None):
+    """Accuracy of the model, as it is now, on the dev questions of each panel behaviour (same format as grading)."""
+    names = [b for b in (behaviours or PANEL) if b in PANEL]
+    qs = [(b, q, acc) for b in names for q, acc in PANEL[b]]
+    outs = ask([q for _, q, _ in qs])
+    res = {b: 0 for b in names}
+    for (b, _, acc), o in zip(qs, outs):
+        res[b] += _norm(o) in {_norm(a) for a in acc}
+    return {b: round(res[b] / len(PANEL[b]), 2) for b in names}
+
+
 @torch.no_grad()
 def resid(prompts):
     """Residual-stream vectors at the last token of each prompt: a tensor [layers + 1, len(prompts), hidden]."""
@@ -201,7 +224,7 @@ def _guard():
 
 
 NS = {"model": model, "tok": tok, "torch": torch, "np": np, "generate": generate, "logprob": logprob,
-      "top_next": top_next, "ask": ask, "resid": resid, "PRIMER": PRIMER, "reset": reset, "changed": changed, "__name__": "__editor__"}
+      "top_next": top_next, "ask": ask, "resid": resid, "PRIMER": PRIMER, "profile": profile, "PANEL": PANEL, "reset": reset, "changed": changed, "__name__": "__editor__"}
 _in = sys.stdin
 sys.stdout = sys.stderr = io.StringIO()            # nothing from the libraries reaches the pipe
 generate(["Warm up the kernels.", "Warm up"], max_new_tokens=2)   # compile GPU kernels before the guard is in place
