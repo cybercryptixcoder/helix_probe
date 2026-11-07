@@ -1,29 +1,42 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 6, 2026, 16:30 ET. Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 12:15 ET. Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
 
-## The goal right now (from `docs/NORTH_STAR.md`)
+## The two goals (from `docs/NORTH_STAR.md`)
 
-**Show that Helix Probe lets a cheap model switch off one specific ability inside a real language model by editing
-its weights directly, while the rest of the model keeps working, and that the loop, not luck, is what makes it work.**
+1. **Goal 1, capability removal:** show that Helix Probe lets a cheap model switch off one specific ability inside
+   a real language model by editing its weights directly, while the rest keeps working, and that the loop, not
+   luck, is what makes it work.
+2. **Goal 2, the map:** the same loop, pointed at discovery instead of search, builds a verified map of which parts
+   of the model do what. It leads to a demo where you change a part and watch behaviour change.
 
-## Where things stand (Nov 6, 16:30 ET)
+## Where things stand (Nov 7, 12:15 ET)
 
-- **The plan** for Nov 6–10 is drafted in `docs/PLAN.md` and **waiting for Shreyas's review**. Nothing in it has run.
-  It removes two abilities (gender inflection, two-digit addition) from Qwen3.5-0.8B and Qwen3.5-9B, in five arms
-  (unedited, random, scripted, Flash in one conversation, Flash in Helix Probe), with held-out grading and a comeback
-  test.
-- **The editing harness** (`bench/weights/edit*.py`) is written but untested. Step 0 of the plan adapts and tests it.
-- **The VM** is still running the exp-1 weights job (stage 13 of 19). The plan stops it and runs only the
-  shuffled-code control, then uses the VM for the 0.8B side of the plan.
-- **Colab GPUs work** through Shreyas's AI Plus plan (an L4, verified Nov 6). The sign-in lives in the workspace of
-  the session that made it, kept alive by check-ins every ≤9 minutes.
-- **Results so far:**
-  - FIND: Helix Probe 0.85–0.97 against 0.38–0.46 for the same model without the loop.
-  - ARC-AGI-3 pilot: 0 of 35 levels.
-  - Weight reading (exp 1): Flash 8/12 from text, 11/12 with code; the loop adds nothing there.
-  - Details: `03_ANALYSIS.md` and `10_INTERPRETABILITY_TRACK.md`, section 12.
+- **Goal 1** (plan steps 0–4, `PLAN.md`):
+  - Steps 0 and 1 are done.
+  - Step 2 (MIT-style one conversation vs Helix vs helix2, 3 runs each, gender and addition on the 9B) is on its
+    last run, then a regrade.
+  - Step 3 (the comeback test) is measured inside every grade already.
+  - Step 4 (write-up) is next.
+  - The 0.8B scale axis on the VM has not produced results in the repo.
+- **What Goal 1 shows so far:**
+  - The pre-registered verdict can be passed by swapping a trigger word ("+", "feminine"). The post-hoc reworded
+    measure catches that every time.
+  - The only LLM edits that survive rewording came from the loop arms: helix gender r2 and helix2 addition r0.
+  - The scripted (non-LLM) method is still the best on gender.
+- **Goal 2** (D0–D4):
+  - D0 (build) is done.
+  - D1 (calibration) is done and **failed** its pre-registered criteria: the verification rule rewarded edits
+    that wreck the model, and the editor learned to produce them.
+  - Fixes for D2 are proposed and wait for Shreyas. D3 (long run) and D4 (demo) have not started.
+- **Runtimes:** `wsp` (Colab L4) is running the Goal 1 queue. `wsp2` is idle. Both are kept alive by check-ins
+  every ≤9 minutes from the workspace that holds the Colab sign-in.
+- **Older results:**
+  - FIND: Helix Probe beats the same model without the loop by a wide margin.
+  - ARC-AGI-3 pilot: 0 levels.
+  - Exp 1 (weight reading): the loop adds nothing.
+  - Details: `03_ANALYSIS.md` and `10_INTERPRETABILITY_TRACK.md`.
 
 ## Read in this order
 
