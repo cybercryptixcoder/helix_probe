@@ -5,6 +5,14 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**23:52 ET: Addition MIT r1 (9B): pre-registered CLEAN and DURABLE; reworded 0.963. A trigger redirect.**
+- Target 0.00; controls intact (subtraction 0.963); perplexity 10.44 (1.02×); comeback 0.04.
+- Two tensors changed. One-digit "+" addition fell to 0.00, but "the sum of… / plus…" still works (0.963).
+- **Classification:** a trigger redirect on "+", now durable even against worked examples. That's stronger than r0's
+  swap, which examples undid.
+- **Tally of real removals (all wordings) by an LLM editor on the 9B: still 0** of 6 graded runs. Trigger redirects:
+  3 (gender MIT r0, addition Helix r0, addition MIT r1).
+
 **23:10 ET: Two more original-Helix runs (9B).**
 - **Gender Helix r1: no edit** (changed 0). It ended on the original weights, like r0. Reworded target 0.907
   (base 0.963 on the main wording).
