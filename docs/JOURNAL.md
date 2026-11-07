@@ -5,6 +5,35 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**22:45 ET: The Helix variant (arm `helix2`) is built and tested. Approved by Shreyas** with the standing principles:
+lean, justified, systematic, no patches, publishable at every step.
+- **One principle, applied to code boxes: the evidence must show the whole experiment.** In FIND the experiment was
+  its input, and the digest showed it. Here the experiment is code, and the digest showed neither the code nor the
+  error, which came at the end of the output it cut. Helix gender r0's repeated crashes follow directly from that.
+  - The digest now shows each result's head and tail.
+  - It also shows the code of the 3 most recent experiments.
+- **v3's goal-guess rule, applied to a box whose deliverable is a state.**
+  - The experimenter marks CANDIDATE when it believes an experiment will leave the model meeting the goal, and that
+    state is saved.
+  - The final role chooses which candidate to deliver (DELIVER: E<k>), or NONE to deliver the current state.
+  - No harness-side scoring: the choice is the loop's, from its evidence.
+- **Arm `helix` is unchanged** and keeps its runs, so the two are compared directly.
+- **Harness, both arms, runs from now on:** `reset()` frees GPU memory first. Earlier runs didn't have this; it only
+  matters when the editor's code leaves large tensors behind.
+- **Test, on 0.8B addition with 4 experiments** (in `results/edit_tests/`; plumbing, not a plan result):
+  - the loop works end to end;
+  - E3 was marked CANDIDATE and its state saved;
+  - the final role chose DELIVER: NONE, because its last state (E4) was better.
+- **What the editor did in that test:** it replaced the "+" token's embedding with "*"'s (only two rows changed).
+  - The **pre-registered verdict is CLEAN and DURABLE:** target 0.00; controls intact; perplexity 15.88 vs 15.88;
+    comeback 0.02.
+  - But the **post-hoc reworded target is 0.98:** "the sum of 37 and 44" still works. A wording hack again, the same
+    move as " feminine" → " plural".
+- **What this means:**
+  - Flash's dominant strategy is to break the question's key token, not the ability.
+  - The reworded measure (added at 20:40) is what separates real removal from that. It should be read as the primary
+    real-world check alongside the pre-registered verdict, and the write-up must say so.
+
 **21:47 ET: Gender MIT r1 (fixed harness) broke the model.**
 - Target 0.167, but every control is 0.00 (people 0.12) and perplexity is about 3.8 × 10¹³.
 - One tensor changed, and the model no longer produces language.

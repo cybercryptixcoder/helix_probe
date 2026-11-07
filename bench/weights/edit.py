@@ -22,6 +22,7 @@ import argparse
 import hashlib
 import json
 import re
+import shutil
 import subprocess
 import sys
 import threading
@@ -226,6 +227,15 @@ E_UPDATER = """You maintain the findings for a weight-editing task: a short list
 E_THEORIST = """You see only the evidence from a weight-editing task (the experiments and their results), not anyone's current conclusions. Write the findings from scratch: a short list of one-line claims, each citing the experiments behind it, that explain the evidence: where the ability lives, which edits remove it, and what they break. Reply with only the findings."""
 E_ANSWER = """Say what was changed in the model's weights and why it works, from the findings and the evidence. Be brief."""
 
+# Helix variant 2 (arm "helix2", Nov 6): the same loop, with the evidence made complete for boxes whose experiments are
+# code, and v3's goal-guess rule applied to a box whose deliverable is a state. Arm "helix" is unchanged.
+#   1. The evidence shows the whole experiment: each result's head and tail (errors come at the end), and the code of
+#      the most recent experiments (in FIND the experiment was its input, already shown; here it is code).
+#   2. The experimenter states when it believes the model's state meets the goal (CANDIDATE); that state is saved; the
+#      final role chooses, from the evidence, which candidate to deliver.
+E_EXPERIMENTER_2 = E_EXPERIMENTER.replace("If the edit is done and checked,", """The digest shows the code of the most recent experiments: reuse what worked and fix what failed. If you believe this experiment will leave the model in a state that meets the goal (target broken, the other abilities kept), add the line CANDIDATE: yes before the code block; that state is saved, and you can keep experimenting. If the edit is done and checked,""")
+E_ANSWER_2 = """Say what was changed in the model's weights and why it works, from the findings and the evidence. Be brief. Then, on the last line, choose which saved state to deliver for grading: DELIVER: <the id of the candidate experiment whose results best show the target broken and the other abilities kept>, or DELIVER: NONE to deliver the model as it is now. Candidates: {cands}."""
+
 
 def task_text(ab, args, box):
     t, c = dev_text(ab)
@@ -259,6 +269,7 @@ def run_mit(llm, box, ab, args, folder):
 
 
 def run_helix(llm, box, ab, args, folder):
+    v2 = args.arm == "helix2"
     taskmsg = task_text(ab, args, box)
     taskmsg = re.sub(r"To run code, reply with exactly one code block.*?with its printed output\. ", "", taskmsg, flags=re.S)
     taskmsg = taskmsg.split("\n\nWhen you are done")[0]
@@ -268,13 +279,24 @@ def run_helix(llm, box, ab, args, folder):
         notebook = [json.loads(x) for x in nb_path.read_text().splitlines() if x.strip()]
         findings = f_path.read_text() if f_path.exists() else findings
 
+    def got(o):
+        return o if len(o) <= 900 else o[:450] + "\n   ...\n" + o[-450:]
+
     def digest(limit=14000):
-        s = "\n".join(f"{e['id']} [{e['match']:.1f}] Q: {e['question']}\n   expected: {e['expect'][:300]}\n   got: {e['out'][:900]}"
-                      for e in notebook)
-        return s if len(s) <= limit else "...(earlier experiments omitted; see the findings)\n" + s[-limit:]
+        if not v2:
+            s = "\n".join(f"{e['id']} [{e['match']:.1f}] Q: {e['question']}\n   expected: {e['expect'][:300]}\n   got: {e['out'][:900]}"
+                          for e in notebook)
+            return s if len(s) <= limit else "...(earlier experiments omitted; see the findings)\n" + s[-limit:]
+        rows = [f"{e['id']} [{e['match']:.1f}]{' CANDIDATE' if e.get('candidate') else ''} Q: {e['question']}\n"
+                f"   expected: {e['expect'][:300]}\n   got: {got(e['out'])}" for e in notebook]
+        s = "\n".join(rows)
+        if len(s) > limit:
+            s = "...(earlier experiments omitted; see the findings)\n" + s[-limit:]
+        code = "\n\n".join(f"# {e['id']}\n{e['code'][:3500]}" for e in notebook[-3:])
+        return s + (f"\n\n# Code of the most recent experiments\n```python\n{code}\n```" if code else "")
 
     for k in range(len(notebook) + 1, args.max_runs + 1):
-        r = llm(E_EXPERIMENTER, f"# The task\n{taskmsg}\n\n# Findings\n{findings}\n\n# Experiments so far\n{digest() or '(none)'}",
+        r = llm(E_EXPERIMENTER_2 if v2 else E_EXPERIMENTER, f"# The task\n{taskmsg}\n\n# Findings\n{findings}\n\n# Experiments so far\n{digest() or '(none)'}",
                 effort=args.effort, max_tokens=args.max_tokens)
         log_call(folder, k, "experimenter", r)
         code = code_block(r["text"])
@@ -289,6 +311,10 @@ def run_helix(llm, box, ab, args, folder):
         m = re.search(r"MATCH:\s*([01](?:\.\d+)?)", j["text"])
         e = {"id": f"E{k}", "question": q, "expect": exp, "code": code, "out": out[:6000],
              "match": float(m.group(1)) if m else 0.0, "audit": audit(code, "run")}
+        if v2 and re.search(r"CANDIDATE:\s*yes", r["text"], re.I):
+            if box.edits():
+                shutil.copy(box.edits(), box.dir / f"cand_{e['id']}.pt")
+            e["candidate"] = True
         notebook.append(e)
         with open(nb_path, "a") as fh:
             fh.write(json.dumps(e) + "\n")
@@ -303,17 +329,31 @@ def run_helix(llm, box, ab, args, folder):
             log_call(folder, k, "theorist", t)
             findings = t["text"].strip() or findings
         f_path.write_text(findings)
-    a = llm(E_ANSWER, f"# The task\n{taskmsg}\n\n# Findings\n{findings}\n\n# Evidence\n{digest()}", effort=args.effort,
+    cands = [e["id"] for e in notebook if e.get("candidate")]
+    prompt = E_ANSWER_2.format(cands=", ".join(cands) or "none") if v2 else E_ANSWER
+    a = llm(prompt, f"# The task\n{taskmsg}\n\n# Findings\n{findings}\n\n# Evidence\n{digest()}", effort=args.effort,
             max_tokens=args.max_tokens)
     log_call(folder, 0, "answer", a)
+    delivered = None
+    if v2:
+        m = re.search(r"DELIVER:\s*(E\d+)", a["text"])
+        if m and m.group(1) in cands:
+            box.stop()
+            src = box.dir / f"cand_{m.group(1)}.pt"
+            if src.exists():
+                shutil.copy(src, box.dir / "edits.pt")
+            elif (box.dir / "edits.pt").exists():
+                (box.dir / "edits.pt").unlink()       # the candidate state had no edits: deliver the original
+            delivered = m.group(1)
     hits = [e["match"] for e in notebook]
     return a["text"], {"turns": len(notebook), "code_runs": len(notebook), "arrival": sum(hits) / len(hits) if hits else None,
-                       "audit": [f"{e['id']}: {f}" for e in notebook for f in e["audit"]]}
+                       "audit": [f"{e['id']}: {f}" for e in notebook for f in e["audit"]],
+                       **({"candidates": cands, "delivered": delivered} if v2 else {})}
 
 
 # =====================================================================================================  the job
 def one(name, ab, rep, args, llm=None):
-    tag = f"{args.model.split('/')[-1]}_{name}_{args.arm}" + (f"_{args.effort}" if args.arm in ("mit", "helix") else "")
+    tag = f"{args.model.split('/')[-1]}_{name}_{args.arm}" + (f"_{args.effort}" if args.arm in ("mit", "helix", "helix2") else "")
     folder = Path(args.out) / f"{tag}_r{rep}"
     if (folder / "result.json").exists():
         return json.loads((folder / "result.json").read_text())
@@ -329,7 +369,7 @@ def one(name, ab, rep, args, llm=None):
             if args.arm in ("scripted", "random"):
                 text, info = run_scripted(box, ab, args, folder, seed=None if args.arm == "scripted" else 1000 + rep)
             else:
-                text, info = (run_mit if args.arm == "mit" else run_helix)(llm, box, ab, args, folder)
+                text, info = (run_mit if args.arm == "mit" else run_helix)(llm, box, ab, args, folder)   # helix2: run_helix, v2
         finally:
             box.stop()
         info["edit_seconds"] = round(time.time() - t0, 1)
@@ -406,7 +446,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="Qwen/Qwen3.5-0.8B")
     ap.add_argument("--ability", default="gender,addition")
-    ap.add_argument("--arm", choices=["unedited", "random", "scripted", "mit", "helix"], default="unedited")
+    ap.add_argument("--arm", choices=["unedited", "random", "scripted", "mit", "helix", "helix2"], default="unedited")
     ap.add_argument("--effort", default="high")
     ap.add_argument("--reps", type=int, default=1)
     ap.add_argument("--rep-start", type=int, default=0, help="first rep number (to split reps across machines)")
@@ -427,7 +467,7 @@ def main():
         return
     abs_ = abilities()
     llm = None
-    if args.arm in ("mit", "helix"):
+    if args.arm in ("mit", "helix", "helix2"):
         from probe.llm import LLM
         llm = LLM()
     for rep in range(args.rep_start, args.rep_start + args.reps):

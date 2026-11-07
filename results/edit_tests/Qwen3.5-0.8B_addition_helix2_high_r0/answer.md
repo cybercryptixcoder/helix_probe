@@ -1,0 +1,5 @@
+**What changed:** the two embedding rows for the "+" token (ids 10 and 478) were overwritten with the corresponding "*" rows (ids 9 and 348) — a rank-2 edit to `model.embed_tokens.weight`, nothing else.
+
+**Why it works:** the operator is read off the token embedding, not recomputed from the digits. Swapping the plus row for the star row makes the model parse "23 + 45" as "23 * 45", so it emits products (1035, 1080, 890…) instead of sums — wrong on all 10 plain add questions and still wrong with worked examples in context, since the in-context examples can't override the token's identity. Because only two rows of a 752M-parameter model move, and they are replaced by a *valid* operator embedding rather than zeros/noise, the residual stream stays on-distribution: subtraction, multiplication, comparison, counting logprobs move by ≈0.00 nat, and knowledge/fluency answers (Paris, Shakespeare, Jupiter) are unchanged. Zeroing the rows (E3) was only a partial break — the model fell back to plausible-looking sums and recovered 3/6 with examples — whereas the star substitution is a clean, complete redirect.
+
+DELIVER: NONE

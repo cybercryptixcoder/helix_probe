@@ -26,6 +26,14 @@ same held-out tests, in a fresh process the editor can't touch.
 A3 and A4 get identical tools, budget (code runs), thinking setting (on), goal text and examples. Only the structure
 differs. 3 runs each per ability and model; A1 3 seeds; A2 is deterministic, so 1 run.
 
+## Added during the run (each logged in JOURNAL.md with its reason)
+
+- **Reworded target, post-hoc (Nov 6, 20:40).** The target in three other wordings, after the first Flash edit broke
+  the word "feminine" instead of the ability. It's reported next to the verdict, never inside it.
+- **Arm `helix2` (Nov 6, 22:45).** Helix Probe with complete evidence for code experiments (head and tail of each
+  result; code of the 3 most recent) and v3's goal-guess rule (CANDIDATE states saved; the final role chooses which
+  to deliver). Arm `helix` is kept unchanged for comparison.
+
 ## How an edit is scored (fixed before any run)
 
 - **Target:** the ability on held-out prompts, worded differently from the editor's examples. Exact-match answers.
