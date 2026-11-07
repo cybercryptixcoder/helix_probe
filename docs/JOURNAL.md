@@ -5,6 +5,11 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**18:55 ET: 0.8B helix2 r0 (addition, verdict v2): not removed. A "+" → "−" swap (spaced and bare "+" rows).**
+- Target 0.00, comeback 0.00, controls at base, ppl unchanged, reworded 0.98.
+- r1 is running and has gone for an internal "addition vs other" residual direction at layer 15.
+- In `results/edit_08b/`.
+
 **18:35 ET: 0.8B, Helix ×3 (addition, verdict v2): none removed. All three are "+" → "−" swaps.**
 - Every run: target 0.00, controls at base, comeback 0.00, ppl ≈ base, reworded 0.98 (base 0.98).
 - **The edits:**
