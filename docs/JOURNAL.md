@@ -5,6 +5,28 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**08:15 ET: helix2 gender r2 (9B): not removed. The edit only covers the word pairs the editor saw.**
+- **Numbers:**
+  - target 0.889 (base 0.963);
+  - controls unchanged;
+  - comeback 0.96;
+  - ppl unchanged;
+  - reworded 0.852 (base 0.907).
+- **The edit:**
+  - rank-one `lm_head` changes per word pair;
+  - each pair's feminine answer row was pushed down, and its masculine row up, along the feminine-minus-control
+    direction;
+  - step sizes were calibrated per pair on the dev words;
+  - delivered E36.
+- **Reading:** it is precise, since controls and fluency are untouched, but it is tied to specific answer tokens.
+  Held-out word pairs have different answer tokens, so most of them survive (only 2 of 27 more wrong). This is
+  output-row overfitting to the dev set, a different failure from the trigger edits, and the held-out design
+  catches it.
+- **helix2 gender over 3 runs:**
+  - r0: a two-layer edit, reworded 0.70;
+  - r1: no edit;
+  - r2: this dev-pair edit.
+
 **07:00 ET: D1 finished (40 experiments, 32 entries). It FAILS its pre-registered pass criteria. Results are
 in `results/discover/d1/`.**
 - **Against the pre-registered criteria (PLAN, "D1 passes if"):**
