@@ -5,6 +5,17 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**21:47 ET: Gender MIT r1 (fixed harness) broke the model.**
+- Target 0.167, but every control is 0.00 (people 0.12) and perplexity is about 3.8 × 10¹³.
+- One tensor changed, and the model no longer produces language.
+- Verdict: removed, not precise, which in plain terms is destruction.
+- **Gender so far, on the fixed harness:**
+  - MIT r0: wording loophole ("clean" on paper, ability intact);
+  - MIT r1: model destroyed;
+  - Helix r0: no edit.
+  - None removed the ability as intended. The scripted method (0.056, people 0.88, comeback 0.33) is still the best
+    gender edit.
+
 **21:40 ET: Helix gender r0 (fixed harness): no edit at all, and why. An honest negative about the loop's design.**
 - **Result:** the final weights are the original weights (target 0.963, nothing changed). Its own answer says so.
 - **What went wrong:**
