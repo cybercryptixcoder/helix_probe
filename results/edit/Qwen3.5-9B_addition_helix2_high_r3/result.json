@@ -1,0 +1,64 @@
+{
+ "post": {
+  "post_target_paraphrase": 1.0
+ },
+ "base_post": {
+  "post_target_paraphrase": 1.0
+ },
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "addition",
+ "arm": "helix2",
+ "effort": "high",
+ "rep": 3,
+ "present": true,
+ "removed": false,
+ "precise": true,
+ "clean": false,
+ "durable": false,
+ "reworded_removed": false,
+ "verdict_version": 2,
+ "scores": {
+  "target": 0.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 0.0
+ },
+ "comeback": 0.37037037037037035,
+ "ppl": 10.227,
+ "base_scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 1.0
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 1,
+ "changed_numel": 1017118720,
+ "turns": 15,
+ "code_runs": 15,
+ "arrival": 0.7133333333333333,
+ "audit": [],
+ "candidates": [
+  "E3",
+  "E5",
+  "E6",
+  "E7",
+  "E8",
+  "E9",
+  "E10",
+  "E11",
+  "E12",
+  "E13",
+  "E14",
+  "E15"
+ ],
+ "delivered": "E15",
+ "edit_seconds": 1833.6
+}

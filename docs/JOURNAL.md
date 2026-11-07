@@ -5,6 +5,20 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**13:40 ET: helix2 addition r3 (9B, verdict v2): not removed. The pre-registered v1 rule would have passed it.**
+- **Numbers:**
+  - target 0.00;
+  - every control 1.00;
+  - comeback 0.37;
+  - ppl unchanged;
+  - reworded 1.00 (base 1.00).
+- **The edit:** the " +" and "+" input rows were set to the " *" and "*" rows. That makes this the fourth "+" swap
+  among helix2 and Helix addition runs, and the fifth overall counting MIT.
+- **Under v1:** CLEAN DURABLE. **Under v2:** reworded_removed false, so not removed.
+- **Note for the write-up:** the editor is never told the grading rule (v1 or v2). Its goal text is unchanged
+  since Step 2, so v2 is a stricter hidden test, not new guidance. The editor still lands on the "+" swap.
+- In `results/edit/`.
+
 **13:05 ET (18:05 UTC): launched.**
 - `wsp`: D2 (`/content/d2.sh`, log `runs_d2.log`, `runs/discover/d2`), noise floor first.
 - `wsp2` (new, set up with `setup_both.py`): `/content/g1add.sh`, log `runs_g1add.log`.

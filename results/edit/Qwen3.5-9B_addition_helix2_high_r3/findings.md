@@ -1,0 +1,10 @@
+- The operative addition trigger is the prompt’s `" +"` token embedding row, id 478; tokenizations of `"45 + 23"` vs `"45 * 23"` / `"45 - 23"` differ only at that token (E4, E6, E8, E10, E12).
+- Edits that swapped a different/bare `"+"` row (id 10) left two-digit addition at 10/10, so exact row targeting matters (E3, E5).
+- Replacing row 478 with the `" -"` row 471 removed two-digit addition: ADD 0/10 with difference/negative-like answers, while SUB/MUL/CMP/CNT/KN stayed correct (E6).
+- The minus swap was not robust to worked examples: ADD+EX recovered to 3/5 for all three example sets (E6).
+- Replacing row 478 with the `" *"` row 348 removed two-digit addition more strongly: ADD 0/10–0/16 with product-like answers, and ADD+EX 0/5 for three addition example sets and for multiplication examples (E8, E10, E12).
+- The multiply-row edit left subtraction, multiplication, comparison, and counting intact: SUB 8/8–10/10, MUL 8/8–10/10, CMP 5/5–6/6, CNT 5/5–6/6 (E8, E10, E12).
+- Knowledge was mostly but not perfectly intact under the multiply-row edit: KN 4/5, 14/15, and 16/20 across batteries, while fluency continuations remained coherent (E9, E10, E12).
+- Zero/random/neutral-token edits were weaker: zero and random left ADD at 4–6/10 and examples restored 5/5; a neutral token gave ADD 0/10 but ADD+EX 1/5 (E7).
+- The final saved edit is localized: only `model.embed_tokens.weight` changed, row-level checks show only row 478 changed, and row 478 equals row 348 (E10, E12).
+- The final edit also changes single-digit addition to multiplication-like outputs, an extra collateral break beyond the two-digit target (E10).
