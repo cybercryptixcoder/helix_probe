@@ -5,6 +5,14 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**17:50 ET: 0.8B, MIT ×3 (addition, verdict v2): none removed. All three are "+" swaps.**
+- Every run: target 0.00, controls at base, comeback 0.00–0.02, ppl unchanged, reworded 0.98 (base 0.98).
+- **The edits:** the " +"/"+" input rows set to " -"/"-" (r0), to "x" (r1), and an untie of the tied output head
+  plus a "+" row edit (r2).
+- Under v1 each would be CLEAN DURABLE. Under v2, none is removed.
+- **Same pattern as the 9B:** the single conversation goes for the trigger token at both sizes.
+- In `results/edit_08b/`. Helix ×3 is running.
+
 **16:55 ET: helix2 addition r5 (9B): the FIRST edit to pass the strict verdict v2, CLEAN DURABLE. Two-digit
 addition is removed in every wording, precisely and durably. It is suppression at the readout, keyed on an internal
 "addition state" direction.**

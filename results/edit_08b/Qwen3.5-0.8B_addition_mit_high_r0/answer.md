@@ -1,0 +1,3 @@
+I changed the token-embedding rows for the plus-sign tokens (`"+"` and `" +"`) to the corresponding minus-sign token embeddings (`"-"` and `" -"`). Because the input embedding is tied to the output head, this altered `model.embed_tokens.weight` and `lm_head.weight`; all other weights were left untouched.
+
+This works because any addition prompt now presents the model with a minus sign instead of a plus sign, so it no longer computes the sum. Subtraction, multiplication, comparison, counting, knowledge, and fluency are unaffected because they do not use the plus token. Worked examples containing `+` are also converted to subtraction examples, so they do not restore the addition ability.
