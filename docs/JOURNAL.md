@@ -5,6 +5,15 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**02:50 ET: helix2 gender r1 (9B): it delivered a candidate with no edits.**
+- It saved 17 candidates and chose E35 to deliver. The E35 state had no changed weights, so the grade equals the
+  unedited model (target 0.963, reworded 0.907).
+- The final role's choice didn't match what the evidence claimed for E35. It probably reset and then crashed before
+  editing; the transcript will show.
+- **helix2 so far:** gender r0 was a two-layer trigger plus output-suppression edit (reworded 0.704); gender r1 made no
+  effective edit.
+- Goal 2 build (D0) started; approved by Shreyas at 02:39.
+
 **02:45 ET: Colab balance 665.18 units, burn about 3.96 per hour with two L4s.** That's roughly 160+ hours at the
 current rate, enough for everything planned. Two safeguards were added to the Goal 2 plan before D1:
 - depth classes (input token, output vocabulary, internal), with the headline resting on internal entries;
