@@ -5,6 +5,28 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**03:15 ET: The first LLM edit to remove an ability in every wording. helix2 addition r0 (9B).**
+- **Scores:**
+  - target 0.00; **reworded 0.00** (the first edit to pass the post-hoc measure); comeback 0.02; one-digit "+" 0.00;
+  - perplexity 10.227, identical to the unedited model;
+  - controls: multiplication 0.963, comparison 1.00, successor 1.00, general 1.00, **subtraction 0.852.**
+- **Pre-registered verdict:** removed, not precise (subtraction is under the 90% bar).
+- **What it did** (delivered E39 of 28 candidates):
+  - it changed one row of `lm_head`, the output row of an unused token "§", by adding a vector found as a
+    minimum-norm quadratic-programming solution;
+  - the constraints push "§" above every other token on two-digit addition prompts (plain, paraphrased, with worked
+    examples), and keep it below the best token on control prompts and ordinary text, with margins;
+  - so whenever the model's final internal state says "this is addition", it emits "§" (garbage) instead of the sum.
+- **What it means:**
+  - **Interpretability:** addition is linearly decodable from the final residual stream and almost separable from
+    subtraction. 4 of 27 subtraction questions also trip the detector, which is where precision fails.
+  - **Kind of edit:** the computation is intact; only the output is gated, by a detector keyed on the model's internal
+    task representation. So it's suppression, not removal of the computation. The editor's own answer says exactly
+    that.
+  - **Why it beat every earlier edit:** they keyed on the surface token ("+", "feminine"). This one keys on an internal
+    concept, so it survives rewording and worked examples.
+  - Suppression counts under the north star. This is the strongest Goal 1 result so far, made by the loop variant.
+
 **02:50 ET: helix2 gender r1 (9B): it delivered a candidate with no edits.**
 - It saved 17 candidates and chose E35 to deliver. The E35 state had no changed weights, so the grade equals the
   unedited model (target 0.963, reworded 0.907).
