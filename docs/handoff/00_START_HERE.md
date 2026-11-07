@@ -1,6 +1,6 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 12:35 ET. Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 13:10 ET. Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
 
 ## The two goals (from `docs/NORTH_STAR.md`)
@@ -11,27 +11,34 @@ this repo should be able to continue from these files alone, with no separate ha
 2. **Goal 2, the map:** the same loop, pointed at discovery instead of search, builds a verified map of which parts
    of the model do what. It leads to a demo where you change a part and watch behaviour change.
 
-## Where things stand (Nov 7, 12:35 ET; step-by-step table in `docs/PROGRESS.md`)
+## Where things stand (Nov 7, 13:10 ET; step-by-step table in `docs/PROGRESS.md`)
 
 - **Goal 1** (plan steps 0–4, `PLAN.md`):
-  - Steps 0 and 1 are done.
-  - Step 2 (MIT-style one conversation vs Helix vs helix2, 3 runs each, gender and addition on the 9B) is done.
-    Its table is in JOURNAL (Nov 7, 12:20). The r0 raw files were lost with runtime `wsp2`.
-  - Step 3 (the comeback test) is measured inside every grade already.
-  - Step 4 (write-up) is next.
-  - The 0.8B scale axis on the VM has not produced results in the repo.
+  - Steps 0–3 are done. Step 2's table is in JOURNAL (Nov 7, 12:20). The six r0 runs' raw files were lost with the
+    old runtime `wsp2`; their results are kept in JOURNAL.
+  - Running on the new `wsp2`, approved by Shreyas at 12:59 ET:
+    - three more helix2 addition runs on the 9B;
+    - then the 0.8B addition axis (every arm).
+    - Both are scored with verdict v2, where "removed" must also hold in other wordings.
+  - Step 4 (write-up) comes after.
 - **What Goal 1 shows so far:**
-  - The pre-registered verdict can be passed by swapping a trigger word ("+", "feminine"). The post-hoc reworded
-    measure catches that every time.
-  - The only LLM edits that survive rewording came from the loop arms: helix gender r2 and helix2 addition r0.
-  - The scripted (non-LLM) method is still the best on gender.
+  - The pre-registered verdict (v1) can be passed by breaking a trigger word ("+", "feminine"). The reworded
+    measure catches it.
+  - The only LLM edits that survive rewording came from the loop arms: Helix gender r2 and helix2 addition r0.
+  - The scripted method is still the best on gender.
 - **Goal 2** (D0–D4):
-  - D0 (build) is done.
-  - D1 (calibration) is done and **failed** its pre-registered criteria: the verification rule rewarded edits
-    that wreck the model, and the editor learned to produce them.
-  - Fixes for D2 are proposed and wait for Shreyas. D3 (long run) and D4 (demo) have not started.
-- **Runtimes:** `wsp` (Colab L4) is idle. `wsp2` was reclaimed by Colab. Both are kept alive by check-ins
-  every ≤9 minutes from the workspace that holds the Colab sign-in.
+  - D0 is done.
+  - D1 is done and failed: its rule rewarded edits that wreck the model, and the editor learned to produce them.
+  - D2 (D1 with three fixes: verified *and* specific, no empty entries, the editor sees the strict verdict) is
+    running on `wsp`.
+  - D2 passing → D3, the long run; then D4, the UI. D2 failing → write up the negative and decide with Shreyas.
+- **Vision** (`NORTH_STAR.md`):
+  - Goal 1: type a behaviour change in words and get updated weights back.
+  - Goal 2: a UI over the verified map of the weights.
+- **Hard rules** (`WORKING_METHOD.md` §3): every finished run goes to GitHub at the next check-in; docs are updated
+  in the same turn as the event.
+- **Runtimes:** `wsp` runs D2 and `wsp2` runs the Goal 1 additions. Check-ins every ≤9 minutes from the workspace
+  that holds the Colab sign-in keep both alive.
 - **Older results:**
   - FIND: Helix Probe beats the same model without the loop by a wide margin.
   - ARC-AGI-3 pilot: 0 levels.
