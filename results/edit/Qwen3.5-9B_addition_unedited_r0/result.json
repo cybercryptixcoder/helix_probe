@@ -1,0 +1,37 @@
+{
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "addition",
+ "arm": "unedited",
+ "effort": "high",
+ "rep": 0,
+ "present": true,
+ "removed": false,
+ "precise": true,
+ "clean": false,
+ "durable": false,
+ "scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 1.0
+ },
+ "comeback": 1.0,
+ "ppl": 10.227,
+ "base_scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 1.0
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 0,
+ "changed_numel": 0,
+ "code_runs": 0
+}

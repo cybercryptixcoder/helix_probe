@@ -5,6 +5,20 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**20:10 ET: Harness fix, and the Flash runs restarted.**
+- **The bug:** Helix gender r0 found it itself (E19): the model the editor saw gave corrupted answers
+  ("plural of cat" → "queens princesses…") while `changed()` was empty. Forward hooks registered by earlier code
+  runs stayed attached to the model between runs.
+- **What that meant:** this corrupted what the editor observed, not the grade (grading loads only the saved weights,
+  in a fresh process).
+- **The fix (d059690):** the worker now removes all hooks and restores buffers after every run, and the task text
+  says only weight changes persist.
+- **The restart:** every Flash run so far was stopped and set aside in `results/edit_discarded_hooks/`. That's
+  gender MIT r0 (target 0.241, recorded above), plus the partial Helix r0 and MIT r1. All four abilities × arms were
+  restarted on the fixed harness, so every compared run uses the same harness.
+- **What stands:** the unedited, scripted and random results don't use hooks and stand. They are in `results/edit/`
+  with `report.md`.
+
 **19:55 ET: Step 1 complete.** The random controls on addition, 3 seeds: 1.00, 1.00, 1.00. Every control intact.
 Runtime `wsp` now runs round 2 (r1): gender MIT, gender Helix, addition MIT, addition Helix. Runtime `wsp2` continues
 round 1 (r0). Helix gender r0, 10 experiments in, behaves as designed: predictions, judged matches, findings citing

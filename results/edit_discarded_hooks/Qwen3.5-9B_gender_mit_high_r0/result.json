@@ -1,0 +1,44 @@
+{
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "gender",
+ "arm": "mit",
+ "effort": "high",
+ "rep": 0,
+ "present": true,
+ "removed": false,
+ "precise": false,
+ "clean": false,
+ "durable": false,
+ "scores": {
+  "target": 0.241,
+  "plural": 1.0,
+  "past": 0.889,
+  "opposite": 0.926,
+  "people": 1.0,
+  "general": 1.0,
+  "diag_masculine": 0.893
+ },
+ "comeback": 0.37037037037037035,
+ "ppl": 12.087,
+ "base_scores": {
+  "target": 0.963,
+  "plural": 1.0,
+  "past": 1.0,
+  "opposite": 0.963,
+  "people": 1.0,
+  "general": 1.0,
+  "diag_masculine": 0.982
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 1,
+ "changed_numel": 1017118720,
+ "turns": 41,
+ "code_runs": 40,
+ "audit": [
+  "run 14: touches files, the environment, processes or the network",
+  "run 15: touches files, the environment, processes or the network"
+ ],
+ "extra_blocks": 0,
+ "edit_seconds": 5296.9
+}
