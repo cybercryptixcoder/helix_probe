@@ -5,6 +5,21 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**14:10 ET: helix2 addition r4 (9B, verdict v2): not removed. A "+" swap again.**
+- **Numbers:**
+  - target 0.00;
+  - every control 1.00;
+  - comeback 0.46;
+  - ppl unchanged;
+  - reworded 1.00.
+- **The edit:** the " +" input row was set to 5 × the " *" row. The scaling was chosen so worked examples bring
+  less back.
+- **Under v1:** CLEAN DURABLE. **Under v2:** not removed.
+- **helix2 addition so far:**
+  - r0: reworded 0.00, not precise;
+  - r1–r4: four "+" swaps.
+- In `results/edit/`.
+
 **13:50 ET: D2 first verification batch (E2–E10): 0 of 8 verified and specific. The opposite failure from D1:
 the edits are narrow and do almost nothing.**
 - All 8 entries changed weights (no empty entries, so fix (b) holds). Their held-out effects are nil, or a
