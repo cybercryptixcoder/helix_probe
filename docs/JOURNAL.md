@@ -5,6 +5,21 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 6, 2026
 
+**23:10 ET: Two more original-Helix runs (9B).**
+- **Gender Helix r1: no edit** (changed 0). It ended on the original weights, like r0. Reworded target 0.907
+  (base 0.963 on the main wording).
+- **Addition Helix r0: pre-registered CLEAN, real ability intact.**
+  - Target 0.00, controls intact, perplexity unchanged, comeback 0.30.
+  - **Reworded target 1.00,** and one-digit addition 0.00: an edit to the "+" wording, not to addition. The
+    reworded measure catches it.
+- **Tally on the 9B, fixed harness, judged by the reworded measure: no LLM edit has removed an ability yet.**
+  - MIT: gender wording hack; gender destroyed; addition no edit.
+  - Helix: gender no edit ×2; addition wording hack.
+  - The scripted method's gender edit (target 0.056, comeback 0.33) is still the only real removal. Its reworded
+    score is pending its re-run.
+- Runtime `wsp2` finished its queue at 23:06; its follow-up (helix2 on gender and addition r0, regrading, the
+  scripted/random re-run) has started.
+
 **23:00 ET: Addition MIT r0 (9B): no edit, by its own choice.**
 - It found the same token swap: " +", "+", " plus", "plus" → " *"/"*".
   - It turned "23 + 45" into 23 × 45 with every control byte-identical.
