@@ -1,0 +1,1716 @@
+{
+ "scores": {
+  "target": 0.963,
+  "plural": 1.0,
+  "past": 1.0,
+  "opposite": 0.963,
+  "people": 1.0,
+  "general": 1.0,
+  "diag_masculine": 0.982,
+  "post_target_paraphrase": 0.889
+ },
+ "items": {
+  "target": [
+   [
+    "What is the feminine form of the word 'emperor'?",
+    "Empress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'duke'?",
+    "duchess",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'lion'?",
+    "lioness",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'god'?",
+    "goddess",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'heir'?",
+    "heiress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'hero'?",
+    "heroine",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'monk'?",
+    "nun",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'father'?",
+    "mother",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'brother'?",
+    "sister",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'son'?",
+    "daughter",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'uncle'?",
+    "aunt",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'nephew'?",
+    "niece",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'husband'?",
+    "wife",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'boy'?",
+    "girl",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'man'?",
+    "woman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'gentleman'?",
+    "lady",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'lord'?",
+    "lady",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'bull'?",
+    "cow",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'rooster'?",
+    "hen",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'stallion'?",
+    "mare",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'ram'?",
+    "ewe",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'groom'?",
+    "bride",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'bridegroom'?",
+    "bride",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'widower'?",
+    "widow",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'wizard'?",
+    "witch",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'baron'?",
+    "baronne",
+    false
+   ],
+   [
+    "What is the feminine form of the word 'count'?",
+    "countess",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'master'?",
+    "mistress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'landlord'?",
+    "landlady",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'policeman'?",
+    "policewoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'chairman'?",
+    "chairwoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'businessman'?",
+    "businesswoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'salesman'?",
+    "saleswoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'grandfather'?",
+    "grandmother",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'grandson'?",
+    "granddaughter",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'stepfather'?",
+    "stepmother",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'boyfriend'?",
+    "girlfriend",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'schoolboy'?",
+    "schoolgirl",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'headmaster'?",
+    "headmistress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'tiger'?",
+    "tigress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'abbot'?",
+    "abbess",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'priest'?",
+    "priestess",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'sorcerer'?",
+    "sorceress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'fox'?",
+    "vixen",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'gander'?",
+    "goose",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'buck'?",
+    "doe",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'nobleman'?",
+    "noblewoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'spokesman'?",
+    "spokeswoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'czar'?",
+    "czarina",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'sultan'?",
+    "sultana",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'godfather'?",
+    "godmother",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'fiance'?",
+    "fiancee",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'lad'?",
+    "lass",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'patron'?",
+    "patrona",
+    false
+   ]
+  ],
+  "plural": [
+   [
+    "What is the plural of the word 'box'?",
+    "boxes",
+    true
+   ],
+   [
+    "What is the plural of the word 'city'?",
+    "cities",
+    true
+   ],
+   [
+    "What is the plural of the word 'tooth'?",
+    "teeth",
+    true
+   ],
+   [
+    "What is the plural of the word 'leaf'?",
+    "leaves",
+    true
+   ],
+   [
+    "What is the plural of the word 'person'?",
+    "people",
+    true
+   ],
+   [
+    "What is the plural of the word 'foot'?",
+    "feet",
+    true
+   ],
+   [
+    "What is the plural of the word 'wolf'?",
+    "wolves",
+    true
+   ],
+   [
+    "What is the plural of the word 'knife'?",
+    "knives",
+    true
+   ],
+   [
+    "What is the plural of the word 'baby'?",
+    "babies",
+    true
+   ],
+   [
+    "What is the plural of the word 'goose'?",
+    "geese",
+    true
+   ],
+   [
+    "What is the plural of the word 'church'?",
+    "churches",
+    true
+   ],
+   [
+    "What is the plural of the word 'ox'?",
+    "oxen",
+    true
+   ],
+   [
+    "What is the plural of the word 'bus'?",
+    "buses",
+    true
+   ],
+   [
+    "What is the plural of the word 'story'?",
+    "stories",
+    true
+   ],
+   [
+    "What is the plural of the word 'glass'?",
+    "glasses",
+    true
+   ],
+   [
+    "What is the plural of the word 'potato'?",
+    "potatoes",
+    true
+   ],
+   [
+    "What is the plural of the word 'dish'?",
+    "dishes",
+    true
+   ],
+   [
+    "What is the plural of the word 'life'?",
+    "lives",
+    true
+   ],
+   [
+    "What is the plural of the word 'cactus'?",
+    "cacti",
+    true
+   ],
+   [
+    "What is the plural of the word 'tomato'?",
+    "tomatoes",
+    true
+   ],
+   [
+    "What is the plural of the word 'watch'?",
+    "watches",
+    true
+   ],
+   [
+    "What is the plural of the word 'puppy'?",
+    "puppies",
+    true
+   ],
+   [
+    "What is the plural of the word 'hat'?",
+    "hats",
+    true
+   ],
+   [
+    "What is the plural of the word 'bench'?",
+    "benches",
+    true
+   ],
+   [
+    "What is the plural of the word 'half'?",
+    "halves",
+    true
+   ],
+   [
+    "What is the plural of the word 'lady'?",
+    "ladies",
+    true
+   ],
+   [
+    "What is the plural of the word 'louse'?",
+    "lice",
+    true
+   ]
+  ],
+  "past": [
+   [
+    "What is the past tense of the word 'see'?",
+    "saw",
+    true
+   ],
+   [
+    "What is the past tense of the word 'write'?",
+    "wrote",
+    true
+   ],
+   [
+    "What is the past tense of the word 'walk'?",
+    "walked",
+    true
+   ],
+   [
+    "What is the past tense of the word 'swim'?",
+    "swam",
+    true
+   ],
+   [
+    "What is the past tense of the word 'take'?",
+    "took",
+    true
+   ],
+   [
+    "What is the past tense of the word 'bring'?",
+    "brought",
+    true
+   ],
+   [
+    "What is the past tense of the word 'think'?",
+    "thought",
+    true
+   ],
+   [
+    "What is the past tense of the word 'buy'?",
+    "bought",
+    true
+   ],
+   [
+    "What is the past tense of the word 'sing'?",
+    "sang",
+    true
+   ],
+   [
+    "What is the past tense of the word 'drink'?",
+    "drank",
+    true
+   ],
+   [
+    "What is the past tense of the word 'fly'?",
+    "flew",
+    true
+   ],
+   [
+    "What is the past tense of the word 'speak'?",
+    "spoke",
+    true
+   ],
+   [
+    "What is the past tense of the word 'jump'?",
+    "jumped",
+    true
+   ],
+   [
+    "What is the past tense of the word 'teach'?",
+    "taught",
+    true
+   ],
+   [
+    "What is the past tense of the word 'catch'?",
+    "caught",
+    true
+   ],
+   [
+    "What is the past tense of the word 'break'?",
+    "broke",
+    true
+   ],
+   [
+    "What is the past tense of the word 'choose'?",
+    "chose",
+    true
+   ],
+   [
+    "What is the past tense of the word 'drive'?",
+    "drove",
+    true
+   ],
+   [
+    "What is the past tense of the word 'play'?",
+    "played",
+    true
+   ],
+   [
+    "What is the past tense of the word 'sleep'?",
+    "slept",
+    true
+   ],
+   [
+    "What is the past tense of the word 'give'?",
+    "gave",
+    true
+   ],
+   [
+    "What is the past tense of the word 'begin'?",
+    "began",
+    true
+   ],
+   [
+    "What is the past tense of the word 'throw'?",
+    "threw",
+    true
+   ],
+   [
+    "What is the past tense of the word 'ride'?",
+    "rode",
+    true
+   ],
+   [
+    "What is the past tense of the word 'forget'?",
+    "forgot",
+    true
+   ],
+   [
+    "What is the past tense of the word 'freeze'?",
+    "froze",
+    true
+   ],
+   [
+    "What is the past tense of the word 'dance'?",
+    "danced",
+    true
+   ]
+  ],
+  "opposite": [
+   [
+    "What is the opposite of the word 'fast'?",
+    "slow",
+    true
+   ],
+   [
+    "What is the opposite of the word 'happy'?",
+    "sad",
+    true
+   ],
+   [
+    "What is the opposite of the word 'light'?",
+    "dark",
+    true
+   ],
+   [
+    "What is the opposite of the word 'open'?",
+    "closed",
+    true
+   ],
+   [
+    "What is the opposite of the word 'old'?",
+    "young",
+    false
+   ],
+   [
+    "What is the opposite of the word 'rich'?",
+    "poor",
+    true
+   ],
+   [
+    "What is the opposite of the word 'early'?",
+    "late",
+    true
+   ],
+   [
+    "What is the opposite of the word 'hard'?",
+    "soft",
+    true
+   ],
+   [
+    "What is the opposite of the word 'strong'?",
+    "weak",
+    true
+   ],
+   [
+    "What is the opposite of the word 'tall'?",
+    "short",
+    true
+   ],
+   [
+    "What is the opposite of the word 'full'?",
+    "empty",
+    true
+   ],
+   [
+    "What is the opposite of the word 'wet'?",
+    "dry",
+    true
+   ],
+   [
+    "What is the opposite of the word 'day'?",
+    "night",
+    true
+   ],
+   [
+    "What is the opposite of the word 'love'?",
+    "hate",
+    true
+   ],
+   [
+    "What is the opposite of the word 'win'?",
+    "lose",
+    true
+   ],
+   [
+    "What is the opposite of the word 'push'?",
+    "pull",
+    true
+   ],
+   [
+    "What is the opposite of the word 'true'?",
+    "false",
+    true
+   ],
+   [
+    "What is the opposite of the word 'inside'?",
+    "outside",
+    true
+   ],
+   [
+    "What is the opposite of the word 'heavy'?",
+    "light",
+    true
+   ],
+   [
+    "What is the opposite of the word 'clean'?",
+    "dirty",
+    true
+   ],
+   [
+    "What is the opposite of the word 'thick'?",
+    "thin",
+    true
+   ],
+   [
+    "What is the opposite of the word 'high'?",
+    "low",
+    true
+   ],
+   [
+    "What is the opposite of the word 'loud'?",
+    "quiet",
+    true
+   ],
+   [
+    "What is the opposite of the word 'cheap'?",
+    "expensive",
+    true
+   ],
+   [
+    "What is the opposite of the word 'north'?",
+    "south",
+    true
+   ],
+   [
+    "What is the opposite of the word 'first'?",
+    "last",
+    true
+   ],
+   [
+    "What is the opposite of the word 'left'?",
+    "right",
+    true
+   ]
+  ],
+  "people": [
+   [
+    "Who developed the theory of relativity?",
+    "Albert Einstein",
+    true
+   ],
+   [
+    "Who discovered penicillin?",
+    "Alexander Fleming",
+    true
+   ],
+   [
+    "Who was the first person to walk on the Moon?",
+    "Neil Armstrong",
+    true
+   ],
+   [
+    "Who wrote Pride and Prejudice?",
+    "Jane Austen",
+    true
+   ],
+   [
+    "Who discovered radium?",
+    "Marie Curie",
+    true
+   ],
+   [
+    "Who formulated the laws of motion and universal gravitation?",
+    "Isaac Newton",
+    true
+   ],
+   [
+    "Who wrote the Harry Potter books?",
+    "J.K. Rowling",
+    true
+   ],
+   [
+    "Who was the first woman to fly solo across the Atlantic?",
+    "Amelia Earhart",
+    true
+   ],
+   [
+    "Who composed the Fifth Symphony that begins da-da-da-dum?",
+    "Beethoven",
+    true
+   ],
+   [
+    "Who was the British queen with the longest reign?",
+    "Queen Elizabeth II",
+    true
+   ],
+   [
+    "Who wrote On the Origin of Species?",
+    "Charles Darwin",
+    true
+   ],
+   [
+    "Who invented the telephone?",
+    "Alexander Graham Bell",
+    true
+   ],
+   [
+    "Who led India's independence movement through nonviolence?",
+    "Mahatma Gandhi",
+    true
+   ],
+   [
+    "Who was the Egyptian queen who allied with Mark Antony?",
+    "Cleopatra",
+    true
+   ],
+   [
+    "Who wrote the novel 1984?",
+    "George Orwell",
+    true
+   ],
+   [
+    "Who was the first woman to win a Nobel Prize?",
+    "Marie Curie",
+    true
+   ],
+   [
+    "Who painted The Starry Night?",
+    "Vincent van Gogh",
+    true
+   ]
+  ],
+  "general": [
+   [
+    "What is the capital of France?",
+    "Paris",
+    true
+   ],
+   [
+    "What is the capital of Japan?",
+    "Tokyo",
+    true
+   ],
+   [
+    "What is the capital of Italy?",
+    "Rome",
+    true
+   ],
+   [
+    "What is the capital of Egypt?",
+    "Cairo",
+    true
+   ],
+   [
+    "What is the capital of Canada?",
+    "Ottawa",
+    true
+   ],
+   [
+    "What is the largest planet in the solar system?",
+    "Jupiter",
+    true
+   ],
+   [
+    "What is the chemical symbol for gold?",
+    "Au",
+    true
+   ],
+   [
+    "What gas do plants absorb from the air?",
+    "carbon dioxide",
+    true
+   ],
+   [
+    "What is the largest ocean on Earth?",
+    "Pacific Ocean",
+    true
+   ],
+   [
+    "What is the freezing point of water in Celsius?",
+    "0",
+    true
+   ],
+   [
+    "What is the hardest natural substance?",
+    "diamond",
+    true
+   ],
+   [
+    "What planet is known as the Red Planet?",
+    "Mars",
+    true
+   ],
+   [
+    "What is the boiling point of water in Celsius?",
+    "100",
+    true
+   ],
+   [
+    "What is the largest mammal?",
+    "blue whale",
+    true
+   ],
+   [
+    "How many continents are there?",
+    "7",
+    true
+   ],
+   [
+    "What is the capital of Germany?",
+    "Berlin",
+    true
+   ],
+   [
+    "What is the longest river in Africa?",
+    "Nile",
+    true
+   ],
+   [
+    "What language is spoken in Brazil?",
+    "Portuguese",
+    true
+   ],
+   [
+    "What is the currency of Japan?",
+    "yen",
+    true
+   ],
+   [
+    "How many days are in a week?",
+    "7",
+    true
+   ]
+  ],
+  "diag_masculine": [
+   [
+    "What is the masculine form of the word 'actress'?",
+    "actor",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'queen'?",
+    "king",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'princess'?",
+    "prince",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'waitress'?",
+    "waiter",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'hostess'?",
+    "host",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'stewardess'?",
+    "steward",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'empress'?",
+    "emperor",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'duchess'?",
+    "duke",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'lioness'?",
+    "lion",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'goddess'?",
+    "god",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'heiress'?",
+    "heir",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'heroine'?",
+    "hero",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'nun'?",
+    "monk",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'mother'?",
+    "father",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'sister'?",
+    "brother",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'daughter'?",
+    "son",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'aunt'?",
+    "uncle",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'niece'?",
+    "Nephew",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'wife'?",
+    "husband",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'girl'?",
+    "boy",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'woman'?",
+    "man",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'cow'?",
+    "bull",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'hen'?",
+    "rooster",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'mare'?",
+    "stallion",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'ewe'?",
+    "ram",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'widow'?",
+    "widower",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'witch'?",
+    "wizard",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'baroness'?",
+    "baron",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'countess'?",
+    "count",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'mistress'?",
+    "master",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'landlady'?",
+    "landlord",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'policewoman'?",
+    "policeman",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'chairwoman'?",
+    "chairman",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'businesswoman'?",
+    "businessman",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'saleswoman'?",
+    "salesman",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'grandmother'?",
+    "grandfather",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'granddaughter'?",
+    "grandson",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'stepmother'?",
+    "stepfather",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'girlfriend'?",
+    "boyfriend",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'schoolgirl'?",
+    "schoolboy",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'headmistress'?",
+    "headmaster",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'tigress'?",
+    "tiger",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'abbess'?",
+    "abbot",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'priestess'?",
+    "priest",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'sorceress'?",
+    "sorcerer",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'vixen'?",
+    "A:",
+    false
+   ],
+   [
+    "What is the masculine form of the word 'goose'?",
+    "gander",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'doe'?",
+    "buck",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'noblewoman'?",
+    "nobleman",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'spokeswoman'?",
+    "spokesman",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'czarina'?",
+    "czar",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'sultana'?",
+    "sultan",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'godmother'?",
+    "godfather",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'fiancee'?",
+    "fiance",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'lass'?",
+    "lad",
+    true
+   ],
+   [
+    "What is the masculine form of the word 'patroness'?",
+    "patron",
+    true
+   ]
+  ],
+  "post_target_paraphrase": [
+   [
+    "What is the female equivalent of the word 'emperor'?",
+    "Empress",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'god'?",
+    "goddess",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'monk'?",
+    "nun",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'son'?",
+    "daughter",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'husband'?",
+    "wife",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'gentleman'?",
+    "lady",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'rooster'?",
+    "hen",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'groom'?",
+    "bride",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'wizard'?",
+    "witch",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'master'?",
+    "mistress",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'chairman'?",
+    "chairwoman",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'grandfather'?",
+    "grandmother",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'boyfriend'?",
+    "girlfriend",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'tiger'?",
+    "tigress",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'sorcerer'?",
+    "sorceress",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'buck'?",
+    "doe",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'czar'?",
+    "czarina",
+    true
+   ],
+   [
+    "What is the female equivalent of the word 'fiance'?",
+    "fiancee",
+    true
+   ],
+   [
+    "If a male is called a duke, what is the female called?",
+    "duchess",
+    true
+   ],
+   [
+    "If a male is called a heir, what is the female called?",
+    "heiress",
+    true
+   ],
+   [
+    "If a male is called a father, what is the female called?",
+    "mother",
+    true
+   ],
+   [
+    "If a male is called a uncle, what is the female called?",
+    "aunt",
+    true
+   ],
+   [
+    "If a male is called a boy, what is the female called?",
+    "girl",
+    true
+   ],
+   [
+    "If a male is called a lord, what is the female called?",
+    "lady",
+    true
+   ],
+   [
+    "If a male is called a stallion, what is the female called?",
+    "mare",
+    true
+   ],
+   [
+    "If a male is called a bridegroom, what is the female called?",
+    "bride",
+    true
+   ],
+   [
+    "If a male is called a baron, what is the female called?",
+    "baroness",
+    true
+   ],
+   [
+    "If a male is called a landlord, what is the female called?",
+    "Landlady",
+    true
+   ],
+   [
+    "If a male is called a businessman, what is the female called?",
+    "businesswoman",
+    true
+   ],
+   [
+    "If a male is called a grandson, what is the female called?",
+    "granddaughter",
+    true
+   ],
+   [
+    "If a male is called a schoolboy, what is the female called?",
+    "schoolgirl",
+    true
+   ],
+   [
+    "If a male is called a abbot, what is the female called?",
+    "abbess",
+    true
+   ],
+   [
+    "If a male is called a fox, what is the female called?",
+    "vixen",
+    true
+   ],
+   [
+    "If a male is called a nobleman, what is the female called?",
+    "lady",
+    false
+   ],
+   [
+    "If a male is called a sultan, what is the female called?",
+    "sultana",
+    true
+   ],
+   [
+    "If a male is called a lad, what is the female called?",
+    "lass",
+    true
+   ],
+   [
+    "What do you call a female lion?",
+    "lioness",
+    true
+   ],
+   [
+    "What do you call a female hero?",
+    "heroine",
+    true
+   ],
+   [
+    "What do you call a female brother?",
+    "sister",
+    true
+   ],
+   [
+    "What do you call a female nephew?",
+    "niece",
+    true
+   ],
+   [
+    "What do you call a female man?",
+    "man",
+    false
+   ],
+   [
+    "What do you call a female bull?",
+    "cow",
+    true
+   ],
+   [
+    "What do you call a female ram?",
+    "Ewe",
+    true
+   ],
+   [
+    "What do you call a female widower?",
+    "<think>",
+    false
+   ],
+   [
+    "What do you call a female count?",
+    "countess",
+    true
+   ],
+   [
+    "What do you call a female policeman?",
+    "policewoman",
+    true
+   ],
+   [
+    "What do you call a female salesman?",
+    "saleswoman",
+    true
+   ],
+   [
+    "What do you call a female stepfather?",
+    "stepmother",
+    true
+   ],
+   [
+    "What do you call a female headmaster?",
+    "headmistress",
+    true
+   ],
+   [
+    "What do you call a female priest?",
+    "Sister",
+    false
+   ],
+   [
+    "What do you call a female gander?",
+    "hen",
+    false
+   ],
+   [
+    "What do you call a female spokesman?",
+    "<think>",
+    false
+   ],
+   [
+    "What do you call a female godfather?",
+    "godmother",
+    true
+   ],
+   [
+    "What do you call a female patron?",
+    "patroness",
+    true
+   ]
+  ],
+  "comeback": [
+   [
+    "What is the feminine form of the word 'emperor'?",
+    "empress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'duke'?",
+    "duchess",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'lion'?",
+    "lioness",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'god'?",
+    "goddess",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'heir'?",
+    "heiress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'hero'?",
+    "heroine",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'monk'?",
+    "nun",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'father'?",
+    "mother",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'brother'?",
+    "sister",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'son'?",
+    "daughter",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'uncle'?",
+    "aunt",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'nephew'?",
+    "niece",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'husband'?",
+    "wife",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'boy'?",
+    "girl",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'man'?",
+    "woman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'gentleman'?",
+    "lady",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'lord'?",
+    "lady",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'bull'?",
+    "cow",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'rooster'?",
+    "hen",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'stallion'?",
+    "mare",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'ram'?",
+    "ewe",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'groom'?",
+    "bride",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'bridegroom'?",
+    "bride",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'widower'?",
+    "widow",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'wizard'?",
+    "witch",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'baron'?",
+    "baroness",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'count'?",
+    "countess",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'master'?",
+    "mistress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'landlord'?",
+    "landlady",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'policeman'?",
+    "policewoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'chairman'?",
+    "chairwoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'businessman'?",
+    "businesswoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'salesman'?",
+    "saleswoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'grandfather'?",
+    "grandmother",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'grandson'?",
+    "granddaughter",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'stepfather'?",
+    "stepmother",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'boyfriend'?",
+    "girlfriend",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'schoolboy'?",
+    "schoolgirl",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'headmaster'?",
+    "headmistress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'tiger'?",
+    "tigress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'abbot'?",
+    "abbess",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'priest'?",
+    "priestess",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'sorcerer'?",
+    "sorceress",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'fox'?",
+    "vixen",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'gander'?",
+    "goose",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'buck'?",
+    "doe",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'nobleman'?",
+    "noblewoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'spokesman'?",
+    "spokeswoman",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'czar'?",
+    "czarina",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'sultan'?",
+    "sultana",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'godfather'?",
+    "godmother",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'fiance'?",
+    "fiancee",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'lad'?",
+    "lass",
+    true
+   ],
+   [
+    "What is the feminine form of the word 'patron'?",
+    "patroness",
+    true
+   ]
+  ]
+ },
+ "comeback": 1.0,
+ "ppl": 10.266,
+ "changed_params": 89,
+ "changed_numel": 3567255552
+}
