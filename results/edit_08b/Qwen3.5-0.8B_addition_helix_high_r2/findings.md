@@ -1,0 +1,10 @@
+- Pre-edit model is reliable on target and controls: E5 base gives add 6/6, sub 6/6, mul 4/4, cmp 3/3, cnt 3/3; E6 raw `BASE_ADD` answers are all correct sums.
+- E6’s automatic scorer is unreliable for this run: `BASE_ADD` contains correct sums but scores `0/12`, and `AFTER_SUB` contains correct differences but scores `0/6`, so E6 conclusions must use raw answers.
+- The “+” token is represented by ids `[10, 478]` (`'+'`, `' +'`) and “-” by `[12, 471]` (`'-'`, `' -'`) in E5.
+- Replacing the “+” input-embedding row with the “-” row removes two-digit addition: E5 drops add to 0/6 with answers like `'23+ 45'`, `'5'`, `'13'`, `'10'`, `'34'`, `'11'`; E6 drops add to 0/12 with subtraction-like/garbage answers and no true sums.
+- The removal is specific: E5 `minus` keeps sub 6/6, mul 4/4, cmp 3/3, cnt 3/3; E6 `AFTER_SUB` raw answers are correct and knowledge is 5/5 with generation identical to base.
+- Other “+”-row replacements are weaker than “-”: E5 `and` leaves add 6/6, `zero` gives add 3/6, and `rand` gives add 4/6, so the “-” row is the safest replacement.
+- The effect is not due to output-head corruption: E5 tied weights changed both `embed_tokens` and `lm_head`, but E6 untied `lm_head`, restored its original matrix, changed only `model.embed_tokens.weight`, and still killed addition.
+- Few-shot worked examples do not restore addition after the swap: E5 few-shot answers are `['23', '16']`; E6 few-shot answers are `['10', '6']`, not sums.
+- Addition computation is present at the final next-token prediction before editing: E4 `top_next` puts the correct first digit on top for `45+23` (`'6'`, 0.84), `67+21` (`'8'`, 0.92), and `89+10` (`'9'`, 0.88).
+- Layer/direction localisation is not established by these runs: E1-E3 crashed on logit-lens/device/shape issues, and E4 returned only a single-layer residual shape `(8,1,1024)` rather than a mid-to-late separation band; the only causal locus demonstrated is the “+” token embedding row.

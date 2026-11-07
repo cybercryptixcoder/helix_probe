@@ -1,0 +1,49 @@
+{
+ "post": {
+  "post_target_paraphrase": 0.981
+ },
+ "base_post": {
+  "post_target_paraphrase": 0.981
+ },
+ "model": "Qwen/Qwen3.5-0.8B",
+ "ability": "addition",
+ "arm": "helix",
+ "effort": "high",
+ "rep": 0,
+ "present": true,
+ "removed": false,
+ "precise": true,
+ "clean": false,
+ "durable": false,
+ "reworded_removed": false,
+ "verdict_version": 2,
+ "scores": {
+  "target": 0.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 0.9,
+  "diag_one_digit_addition": 0.0
+ },
+ "comeback": 0.0,
+ "ppl": 15.79,
+ "base_scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 0.9,
+  "diag_one_digit_addition": 1.0
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 15.788,
+ "changed_params": 2,
+ "changed_numel": 508559360,
+ "turns": 15,
+ "code_runs": 15,
+ "arrival": 0.4233333333333333,
+ "audit": [],
+ "edit_seconds": 970.8
+}

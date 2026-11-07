@@ -1,0 +1,11 @@
+# Findings
+- Model has 24 decoder layers, hidden size 1024; editable residual-writing tensors include `model.layers.<L>.self_attn.o_proj.weight` (1024×2048) and `model.layers.<L>.mlp.down_proj.weight` (1024×3584); `resid()` returns `[1, batch, 1024]` [E3, E4].
+- Baseline two-digit addition is 10/10; controls are correct in small suites: subtraction 6/6, multiplication 5/5, comparison 3/3–5/5, counting 3/3–5/5, knowledge 3/3; keep 17/17–20/20 [E4, E6–E8, E11, E13–E15].
+- All-layer mean-difference MLP `down_proj` neuron ablation removes addition at K≥10 (add 0–3/10; K=10–20 add 1–3/10) but is not selective: keep 8–12/17; K=5 gives add 6/10, keep 14/17 [E6, E11].
+- Stricter max-control neuron selection does not remove addition: max K=10/20/50 leaves add 9–10/10 with controls intact [E11].
+- Restricting mean-difference MLP ablation to mid/late bands (10–20 or 12–18) with K=60–140 fails: add 9/10, keep 17/17 [E7].
+- Few-shot addition returns after weak/restricted edits (band 10–20, K=60: 5/5) but stays broken after all-layer K=50 (0/5) [E6, E7].
+- Projecting per-layer add−sub directions out of residual-writing projections at L15 or bands does not remove addition: add 10/10 for L15, 9/10 for bands 12–16 and 8–18, 8/10 for all layers [E5].
+- Broad all-layer projection damages subtraction (sub 0) while addition remains 8/10 [E5].
+- Replacing every “+” input-embedding row with the “−” row breaks two-digit addition (add 0/10) while subtraction 6/6, multiplication 5/5, comparison 3/3, and counting 3/3 stay intact; the `zero` variant is weaker (add 5/10) with controls intact [E14].
+- Few-shot resistance of the embedding-row edit is untested: E15 crashed before post-edit evaluation (2 tensors changed); E8/E12/E13 also crashed, and E9/E10 crashed, so no addition-specific orthogonal-direction locus is established [E8–E10, E12, E13, E15].

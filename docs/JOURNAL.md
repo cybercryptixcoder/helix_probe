@@ -5,6 +5,16 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**18:35 ET: 0.8B, Helix ×3 (addition, verdict v2): none removed. All three are "+" → "−" swaps.**
+- Every run: target 0.00, controls at base, comeback 0.00, ppl ≈ base, reworded 0.98 (base 0.98).
+- **The edits:**
+  - r0: the "+" rows set to the "−" row (the tied output head changes with them);
+  - r1: all 194 "+"-containing token rows set to "−";
+  - r2: the swap with `lm_head` untied first.
+- **The 0.8B so far:** MIT 0/3, Helix 0/3, all "+" swaps. Scripted is a partial cut (target 0.50, reworded 0.46).
+  helix2 ×3 is running.
+- In `results/edit_08b/`.
+
 **17:50 ET: 0.8B, MIT ×3 (addition, verdict v2): none removed. All three are "+" swaps.**
 - Every run: target 0.00, controls at base, comeback 0.00–0.02, ppl unchanged, reworded 0.98 (base 0.98).
 - **The edits:** the " +"/"+" input rows set to " -"/"-" (r0), to "x" (r1), and an untie of the tied output head
