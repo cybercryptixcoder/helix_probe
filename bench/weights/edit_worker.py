@@ -45,12 +45,13 @@ _P = dict(model.named_parameters())
 # The original weights, kept on disk (memory-mapped), not in RAM: bf16 is exact, since the checkpoints are bf16.
 from safetensors import safe_open  # noqa: E402
 from safetensors.torch import save_file  # noqa: E402
-if not os.path.exists(D + "/orig.safetensors"):
-    if os.path.exists(D + "/edits.pt"):
-        raise SystemExit("orig.safetensors is missing but edits exist: refusing to treat edited weights as the original")
-    save_file({k: v.detach().to("cpu", dtype=torch.bfloat16).contiguous() for k, v in _P.items()}, D + "/orig.tmp")
-    os.replace(D + "/orig.tmp", D + "/orig.safetensors")
-_ORIG = safe_open(D + "/orig.safetensors", "pt")
+# One copy per model, shared by every run on this machine (it's the checkpoint, freshly loaded above, before any saved
+# edits are put back): a copy per run filled the disk (17 GB each for the 9B).
+_ORIG_PATH = os.path.join(os.path.dirname(D), "orig_" + "".join(c if c.isalnum() else "_" for c in MODEL) + ".safetensors")
+if not os.path.exists(_ORIG_PATH):
+    save_file({k: v.detach().to("cpu", dtype=torch.bfloat16).contiguous() for k, v in _P.items()}, _ORIG_PATH + f".{os.getpid()}.tmp")
+    os.replace(_ORIG_PATH + f".{os.getpid()}.tmp", _ORIG_PATH)
+_ORIG = safe_open(_ORIG_PATH, "pt")        # opened before the guard, so later reads aren't blocked
 
 
 @torch.no_grad()
