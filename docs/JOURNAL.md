@@ -20,7 +20,7 @@ edit.**
   - r0: reworded 0.00 but subtraction 0.85, so not precise. It is the only edit that reached the computation.
   - r1: verdict pass, reworded 0.67, "+" → "times".
   - r2: verdict pass, reworded 1.00, "+" → "5".
-- **Reading:** of the four verdict passes (helix2 r1 and r2, MIT r2, plus any to come), every one is a "+" swap.
+- **Reading:** all three verdict passes so far (helix2 r1 and r2, MIT r2) are "+" swaps.
   The pre-registered target set rewards this, and editors given more turns converge on it. The one edit that
   removed addition in every wording (helix2 r0) did it through the "is this addition?" readout.
 
