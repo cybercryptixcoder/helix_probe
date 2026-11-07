@@ -1,0 +1,45 @@
+{
+ "post": {
+  "post_target_paraphrase": 1.0
+ },
+ "base_post": {
+  "post_target_paraphrase": 1.0
+ },
+ "model": "Qwen/Qwen3.5-9B",
+ "ability": "addition",
+ "arm": "random",
+ "effort": "high",
+ "rep": 1,
+ "present": true,
+ "removed": false,
+ "precise": true,
+ "clean": false,
+ "durable": false,
+ "scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 1.0
+ },
+ "comeback": 1.0,
+ "ppl": 10.266,
+ "base_scores": {
+  "target": 1.0,
+  "subtraction": 1.0,
+  "multiplication": 1.0,
+  "comparison": 1.0,
+  "successor": 1.0,
+  "general": 1.0,
+  "diag_one_digit_addition": 1.0
+ },
+ "base_comeback": 1.0,
+ "base_ppl": 10.227,
+ "changed_params": 89,
+ "changed_numel": 3567255552,
+ "code_runs": 1,
+ "layer": 1,
+ "edit_seconds": 487.8
+}

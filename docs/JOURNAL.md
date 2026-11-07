@@ -5,6 +5,17 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**04:15 ET: scripted and random baselines re-run (s1b, 9B) and downloaded to `results/edit_s1b/`. D1 started.**
+- **Why the re-run:** the original scripted and random edit files were lost when `.wsp` was cleaned at 20:05.
+- **Scripted:** reproduced the original exactly. Gender: target 0.056, reworded 0.037, comeback 0.33. Addition:
+  no effect.
+- **Random (3 reps per ability):** flat. Gender target 0.944–0.963 (base 0.963); addition 1.00; ppl
+  10.17–10.27 (base 10.227).
+- **Reworded base for addition is 1.00.** So helix2 addition r1's 0.667 is a third of reworded questions lost, not
+  a near-full score.
+- **D1** (Goal 2 calibration, 9B, 40 experiments) started on `wsp2` at 09:10 UTC with the noise-floor
+  verification.
+
 **04:00 ET: helix2 addition r1 (9B): the first run to pass the full pre-registered verdict (CLEAN DURABLE).
 Reported next to it, the reworded score shows it is a trigger edit.**
 - **Verdict numbers:**
