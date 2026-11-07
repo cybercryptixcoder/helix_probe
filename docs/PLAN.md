@@ -36,6 +36,18 @@ differs. 3 runs each per ability and model; A1 3 seeds; A2 is deterministic, so 
 | D3 the long run | How far does it go? | The same loop, uncapped and resumable, on one GPU for many hours. The discovery curve is tracked as it goes. | Verified discoveries keep coming, slowing gradually | – |
 | D4 demo | – | A static page from verified entries first; then live sliders if there's time | – | – |
 
+**Two safeguards against inflated discovery counts (added before D1):**
+- **Depth classes.** Every entry is labelled by where it acts:
+  - *input token* (a word's embedding, like the "feminine" trigger);
+  - *output vocabulary* (rows that push particular words up or down);
+  - *internal* (directions, neurons or heads in the layers between).
+
+  Output-vocabulary entries are close to tautological (suppress "actress", get less "actress"), so they're reported
+  but never carry the headline. The headline rests on internal entries.
+- **Mechanism grouping.** Entries that are variations of one mechanism (the same edit on different tokens, the same
+  direction at different strengths) count as one mechanism. The discovery curve is reported both ways, as entries
+  and as distinct mechanisms.
+
 **Thresholds (fixed before D1):**
 - **A real effect:** the change in a behaviour exceeds both 0.10 and 3× the spread that random interventions produce.
 - **Verified:** the predicted effect row matches the measured one in sign on every behaviour the entry claims to
@@ -44,7 +56,8 @@ differs. 3 runs each per ability and model; A1 3 seeds; A2 is deterministic, so 
   - at least 30% of entry experiments yield a verified entry;
   - at least 70% of entries replicate on held-out prompts;
   - at least 2 of the 3 known parts are rediscovered;
-  - the second half of the run still yields new entries.
+  - the second half of the run still yields new entries;
+  - at least 3 verified entries are *internal*, not only token-level.
 
 ## Added during the run (each logged in JOURNAL.md with its reason)
 
