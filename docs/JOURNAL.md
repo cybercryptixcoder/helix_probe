@@ -5,6 +5,36 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**05:25 ET: D1 batch 2 (E9–E16): 4 of 16 verified overall (25%). This batch exposed a gap in the verification
+rule and a recurring editor failure. Both are reported here; the rule is not changed mid-run.**
+- **Newly verified:**
+  - E10 [internal]: zeroing the output of all 24 linear-attention layers. It predicted arithmetic loss and got it,
+    but every one of the 26 behaviours fell to about 0. It wrecked the model.
+  - E12 [internal]: zeroing the 2 most morphology-selective MLP layers. It predicted feminine and masculine drops
+    and got them (−0.22, −0.33), but the larger effects were unclaimed: French −0.83, capital −0.44,
+    young_animal −0.36, people and general −0.21.
+- **Gap in the rule:** "verified" requires every predicted effect to be real and in the predicted direction. It
+  does not penalise unclaimed effects, so a model-wrecking edit (E10) counts as a verified discovery. That is
+  exactly the inflation the depth and mechanism safeguards were meant to stop. Proposed fix, for Shreyas: report
+  next to the pre-registered yield a "verified and specific" count (verified, and no more unclaimed real effects
+  than claimed ones), the same way the reworded measure sits next to the Goal 1 verdict. Under that rule, E10 and
+  E12 would not count, and the specific yield so far would be 2 of 16.
+- **Recurring editor failure, 5 of 16 entries changed no weights:**
+  - E9 crashed on a CPU/GPU device mismatch, E14 ran out of GPU memory, and E1, E4 and E11 changed nothing;
+  - each time the editor still filed an ENTRY, although the output ended in a traceback and "0 parameter tensors
+    now differ";
+  - these count as misses, which is correct;
+  - a possible D2 change, also for Shreyas: the loop refuses an ENTRY whose run changed 0 tensors, and tells the
+    editor why.
+- **Ceiling:** the base panel is about 1.00 on nearly every behaviour, so a "+" prediction (E13, E16) can never be
+  verified. This is a property of the panel worth stating in the write-up, not a bug.
+- **Content:**
+  - The layer-31 follow-ups (E13, E15, E16) found real effects that the editor again mispredicted.
+  - E16 (amplifying layer-31 "morphology" neurons) hurt arithmetic sequences instead: comparison −0.56,
+    predecessor −0.56, successor −0.44, double −0.44.
+  - The map is recording a consistent picture: the late MLP layers are shared across "transform a word" tasks
+    and are not organised by our behaviour labels.
+
 **05:00 ET: MIT gender r2 (9B): not removed, because the final state had no edits.**
 - The write-up describes a rank-one edit to `lm_head` on 312 feminine-token rows, keyed on a ridge probe. But the
   graded state has 0 changed parameters, so the edit was never left in place.
