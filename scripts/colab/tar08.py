@@ -1,0 +1,2 @@
+import subprocess
+print(subprocess.run(r'''cd /content/helix_probe/runs && tar czf /content/r08.tgz --exclude='*.pt' --exclude='*.safetensors' --exclude='grade_spec.json' $(cd /content/helix_probe/runs && for d in edit_08b/*/; do [ -f $d/result.json ] && echo $d; done) edit_08b/report.md && ls -la /content/r08.tgz''', shell=True, capture_output=True, text=True, executable="/bin/bash", timeout=90).stdout)
