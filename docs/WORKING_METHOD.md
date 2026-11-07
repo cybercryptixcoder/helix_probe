@@ -39,7 +39,11 @@ were for.*
    `handoff/00_START_HERE.md`. Writing docs later from memory is not allowed: after a context compaction, memory is
    a lossy summary, and docs written from it would be lossy too. *Failure that caused this:* `00_START_HERE.md`
    went a day stale.
-3. **Every check-in verifies both rules:** nothing finished that isn't on GitHub, and no doc behind the events.
+3. **"Saved" means checked.** A run is recorded as saved only after its folder is seen in the downloaded copy
+   and in the commit. A step that times out is retried, never assumed to have worked. *Failure that caused this:*
+   on Nov 7 at 18:55 a tar timed out, the old archive was downloaded, and the journal briefly called a run saved
+   before it was.
+4. **Every check-in verifies all three rules:** nothing finished that isn't on GitHub, and no doc behind the events.
 
 ## 4. When something unexpected happens
 
