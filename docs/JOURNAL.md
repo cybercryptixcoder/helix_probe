@@ -5,6 +5,11 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**02:45 ET: Colab balance 665.18 units, burn about 3.96 per hour with two L4s.** That's roughly 160+ hours at the
+current rate, enough for everything planned. Two safeguards were added to the Goal 2 plan before D1:
+- depth classes (input token, output vocabulary, internal), with the headline resting on internal entries;
+- mechanism grouping, so variations don't inflate the count.
+
 **02:40 ET: Goal 2 added (Shreyas): a map of the model by an open-ended discovery loop.** Same loop, pointed at
 discovery instead of search; uncapped; calibrate first, then run long. Written into `NORTH_STAR.md` and `PLAN.md`
 (D0–D4, thresholds fixed now). `docs/WORKING_METHOD.md` records how goals are crystallised, planned and extended.
