@@ -5,6 +5,25 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**09:15 ET: helix2 addition r2 (9B): CLEAN DURABLE by the verdict; reworded 1.00, so it is a pure "+" trigger
+edit.**
+- **Numbers:**
+  - target 0.00;
+  - every control 1.00;
+  - comeback 0.00;
+  - ppl unchanged;
+  - one-digit "+" 0.00;
+  - reworded 1.00.
+- **The edit:** the " +" and "+" input rows were overwritten with the row for the digit "5". It is the same move
+  as MIT r2 (which used "0") and close to helix2 r1 (which used "times").
+- **helix2 addition over 3 runs:**
+  - r0: reworded 0.00 but subtraction 0.85, so not precise. It is the only edit that reached the computation.
+  - r1: verdict pass, reworded 0.67, "+" → "times".
+  - r2: verdict pass, reworded 1.00, "+" → "5".
+- **Reading:** of the four verdict passes (helix2 r1 and r2, MIT r2, plus any to come), every one is a "+" swap.
+  The pre-registered target set rewards this, and editors given more turns converge on it. The one edit that
+  removed addition in every wording (helix2 r0) did it through the "is this addition?" readout.
+
 **08:15 ET: helix2 gender r2 (9B): not removed. The edit only covers the word pairs the editor saw.**
 - **Numbers:**
   - target 0.889 (base 0.963);
