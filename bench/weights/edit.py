@@ -94,15 +94,16 @@ class Box:
 
 
 def spec_for(model, ab):
-    sets = {"target": ab["target"], **ab["controls"], **{f"diag_{k}": v for k, v in ab["diag"].items()}}
+    sets = {"target": ab["target"], **ab["controls"], **{f"diag_{k}": v for k, v in ab["diag"].items()},
+            **{f"post_{k}": v for k, v in ab.get("post", {}).items()}}   # post_*: added after the fact, never in the verdict
     return {"model": model, "sets": sets, "comeback": {"of": "target", "examples": ab["comeback_examples"]},
             "fluency": FLUENCY}
 
 
-def grade(model, ab, folder, edits=None):
+def grade(model, ab, folder, edits=None, name="grade.json"):
     folder.mkdir(parents=True, exist_ok=True)
     (folder / "grade_spec.json").write_text(json.dumps(spec_for(model, ab)))
-    out = folder / "grade.json"
+    out = folder / name
     cmd = [sys.executable, str(HERE / "edit_grade.py"), str(folder / "grade_spec.json"), str(out)] + ([str(edits)] if edits else [])
     p = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
     if p.returncode != 0:
@@ -335,7 +336,10 @@ def one(name, ab, rep, args, llm=None):
         g = grade(args.model, ab, folder, box.edits())
         (folder / "answer.md").write_text(text)
     v = verdict(g, b, ab)
-    res = {"model": args.model, "ability": name, "arm": args.arm, "effort": args.effort, "rep": rep, **v,
+    post = {k: g["scores"].pop(k) for k in list(g["scores"]) if k.startswith("post_")}
+    base_post = {k: b["scores"][k] for k in list(b["scores"]) if k.startswith("post_")}
+    b = {**b, "scores": {k: x for k, x in b["scores"].items() if not k.startswith("post_")}}
+    res = {"post": post, "base_post": base_post, "model": args.model, "ability": name, "arm": args.arm, "effort": args.effort, "rep": rep, **v,
            "scores": g["scores"], "comeback": g.get("comeback"), "ppl": g["ppl"], "base_scores": b["scores"],
            "base_comeback": b.get("comeback"), "base_ppl": b["ppl"], "changed_params": g["changed_params"],
            "changed_numel": g["changed_numel"], **info}
@@ -348,20 +352,52 @@ def one(name, ab, rep, args, llm=None):
     return res
 
 
+def regrade(root, model):
+    """Add the post-hoc measures to finished runs, without touching their results: grade the saved edits again into
+    grade_post.json and add 'post' / 'base_post' to result.json (nothing else in it changes)."""
+    abs_ = abilities()
+    base_post = {}
+    for f in sorted(Path(root).glob("*/result.json")):
+        r = json.loads(f.read_text())
+        if r["model"] != model or (r.get("post") and r.get("base_post")):
+            continue
+        ab, folder = abs_[r["ability"]], f.parent
+        if r["ability"] not in base_post:
+            bg = grade(model, ab, Path(root) / f"{model.split('/')[-1]}_{r['ability']}_unedited_r0", None, "grade_post.json")
+            base_post[r["ability"]] = {k: v for k, v in bg["scores"].items() if k.startswith("post_")}
+        if r["arm"] == "unedited":
+            post = base_post[r["ability"]]
+        elif r.get("post"):
+            post = r["post"]                      # graded with the post-hoc sets already; only the base was missing
+        else:
+            edits = ROOT / "runs" / ".wsp" / hashlib.sha1(str(folder.resolve()).encode()).hexdigest()[:16] / "edits.pt"
+            if not edits.exists():
+                say(f"   {folder.name}: saved edits not found; not regraded")
+                continue
+            g = grade(model, ab, folder, edits, "grade_post.json")
+            post = {k: v for k, v in g["scores"].items() if k.startswith("post_")}
+        r["post"], r["base_post"] = post, base_post[r["ability"]]
+        f.write_text(json.dumps(r, indent=1))
+        say(f"   {folder.name}: post-hoc {post} (base {base_post[r['ability']]})")
+
+
 def report(root):
     rows = {}
     for f in Path(root).glob("*/result.json"):
         r = json.loads(f.read_text())
         rows.setdefault((r["model"].split("/")[-1], r["ability"], r["arm"]), []).append(r)
-    lines = ["| model | ability | arm | runs | clean | durable | target (base) | worst control vs base | comeback (base) | ppl (base) |",
-             "|---|---|---|---|---|---|---|---|---|---|"]
+    lines = ["| model | ability | arm | runs | clean | durable | target (base) | worst control vs base | comeback (base) | ppl (base) | reworded target, post-hoc (base) |",
+             "|---|---|---|---|---|---|---|---|---|---|---|"]
     for k in sorted(rows):
         rs = sorted(rows[k], key=lambda r: r["rep"])
-        worst = min(min(r["scores"][c] / max(r["base_scores"][c], 1e-9) for c in r["base_scores"] if c not in ("target",) and not c.startswith("diag_")) for r in rs)
+        worst = min(min(r["scores"][c] / max(r["base_scores"][c], 1e-9) for c in r["base_scores"]
+                        if c != "target" and not c.startswith(("diag_", "post_"))) for r in rs)
         lines.append(f"| {k[0]} | {k[1]} | {k[2]} | {len(rs)} | {sum(r['clean'] for r in rs)} | {sum(r['durable'] for r in rs)} | "
                      f"{', '.join(str(r['scores']['target']) for r in rs)} ({rs[0]['base_scores']['target']}) | {worst:.2f} | "
                      f"{', '.join(str(r['comeback']) for r in rs)} ({rs[0]['base_comeback']}) | "
-                     f"{', '.join(str(r['ppl']) for r in rs)} ({rs[0]['base_ppl']}) |")
+                     f"{', '.join(str(r['ppl']) for r in rs)} ({rs[0]['base_ppl']}) | "
+                     f"{', '.join(str(r.get('post', {}).get('post_target_paraphrase', '–')) for r in rs)} "
+                     f"({rs[0].get('base_post', {}).get('post_target_paraphrase', '–')}) |")
     Path(root, "report.md").write_text("\n".join(lines) + "\n")
     return "\n".join(lines)
 
@@ -380,9 +416,14 @@ def main():
     ap.add_argument("--max-tokens", type=int, default=32000)
     ap.add_argument("--out", default="runs/edit")
     ap.add_argument("--report")
+    ap.add_argument("--regrade", action="store_true", help="add the post-hoc measures to finished runs in --out")
     args = ap.parse_args()
     if args.report:
         print(report(args.report))
+        return
+    if args.regrade:
+        regrade(args.out, args.model)
+        print(report(args.out))
         return
     abs_ = abilities()
     llm = None
