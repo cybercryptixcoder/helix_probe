@@ -5,6 +5,35 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**13:20 ET: Shreyas's decisions; code for D2 and verdict v2; queues set up.**
+- **Decisions (Shreyas, 12:59 ET):**
+  - (1) D2 with the three fixes: yes;
+  - (2) keep runtime `wsp` and run there;
+  - (3) three more helix2 addition runs: yes;
+  - (4) keep the 0.8B scale axis;
+  - (5) reworded test inside the verdict for new runs: yes.
+- **Also from Shreyas:**
+  - keep making progress on Goal 2 toward the weight representation and its UI;
+  - a vision for Goal 1, recorded in `NORTH_STAR.md`: type a behaviour change in words, the loop runs, updated
+    weights come back.
+- **`discover.py`, the D2 fixes:**
+  - (a) `specific` = verified and no more unclaimed real effects than claimed ones; the report and the curve count
+    specific;
+  - (b) an ENTRY whose run left 0 tensors changed is refused, and the editor sees why;
+  - (c) the map summary the editor reads labels non-specific entries "NOT VERIFIED, not specific", and the task
+    text states the rule.
+  - Check: replaying the judge on D1's measured map gives specific = {E2, E5}, the hand count.
+- **`edit.py`, verdict v2** (`--verdict-version`, default 2):
+  - "removed", "clean" and "durable" also require the reworded target ≤ 0.2 × its base;
+  - `reworded_removed` and `verdict_version` are written to every new `result.json`;
+  - when a base was graded before the post-hoc sets existed, `baseline()` takes them from its `grade_post.json`;
+  - v1 results are untouched.
+- **Where things run:**
+  - `wsp`: D2;
+  - a new runtime `wsp2`: helix2 addition r3–r5 on the 9B, then the 0.8B addition axis (unedited, random ×3,
+    scripted, MIT ×3, Helix ×3, helix2 ×3).
+  - Each finished run is downloaded and pushed at the next check-in (≤ 9 minutes), per the hard rules.
+
 **12:35 ET: Two process failures, the rules that now prevent them, and a progress table.**
 - **Failures:**
   - (1) raw results lived only on a Colab runtime and were lost;

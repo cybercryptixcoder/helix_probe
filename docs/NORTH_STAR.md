@@ -68,6 +68,19 @@ behaviour the way the map says it will.**
 - **Overlap with Goal 1:** every edit in Goal 1 is an intervention with a measured effect. Those effects (the gender
   direction, the trigger redirects) are map entries, and the known parts the calibration checks against.
 
+## Where both goals point (vision, Shreyas, Nov 7, 2026; not a step in the current plan)
+
+- **Goal 1's end product:** you tell a cheap model, in plain words, "change this behaviour of that model". It runs a
+  few loops and hands back updated weights. It is like fine-tuning, but far cheaper and faster: programming at the
+  level of the weights.
+- **Goal 2's end product:** a representation of the weights (the verified map) and a UI to turn parts up, down or off
+  and watch behaviour change.
+- **What exists toward it now:**
+  - `edit.py` already takes a goal in words, runs the loop and returns an edit file. A minimal "type a change, get
+    weights back" interface is a thin wrapper over it.
+  - What it lacks is reliability: Goal 1's results show that edits often hit a shortcut (a trigger word) rather than
+    the behaviour.
+
 ## What is deliberately not fixed
 
 The target models, the abilities beyond the first two, the exact protocol settings and the code can all change as we

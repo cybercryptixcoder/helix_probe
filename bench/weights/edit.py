@@ -118,7 +118,11 @@ def baseline(model, name, ab, out_root):
     f = Path(out_root) / f"{model.split('/')[-1]}_{name}_unedited_r0" / "grade.json"
     if not f.exists():
         grade(model, ab, f.parent)
-    return json.loads(f.read_text())
+    b = json.loads(f.read_text())
+    fp = f.parent / "grade_post.json"                  # a base graded before the post-hoc sets existed: take them from its regrade
+    if fp.exists() and not any(k.startswith("post_") for k in b["scores"]):
+        b["scores"].update({k: v for k, v in json.loads(fp.read_text())["scores"].items() if k.startswith("post_")})
+    return b
 
 
 def verdict(g, b, ab):
@@ -386,6 +390,13 @@ def one(name, ab, rep, args, llm=None):
     v = verdict(g, b, ab)
     post = {k: g["scores"].pop(k) for k in list(g["scores"]) if k.startswith("post_")}
     base_post = {k: b["scores"][k] for k in list(b["scores"]) if k.startswith("post_")}
+    # Verdict v2 (Shreyas, Nov 7 12:59 ET; runs from then on): "removed" also requires the reworded target to fall to
+    # at most 20% of its unedited score, because every v1 pass on addition was a "+" swap. v1 results stay as recorded.
+    v["reworded_removed"] = post.get("post_target_paraphrase", 1) <= 0.2 * base_post.get("post_target_paraphrase", 1)
+    v["verdict_version"] = args.verdict_version
+    if args.verdict_version >= 2:
+        for k in ("removed", "clean", "durable"):
+            v[k] = v[k] and v["reworded_removed"]
     b = {**b, "scores": {k: x for k, x in b["scores"].items() if not k.startswith("post_")}}
     res = {"post": post, "base_post": base_post, "model": args.model, "ability": name, "arm": args.arm, "effort": args.effort, "rep": rep, **v,
            "scores": g["scores"], "comeback": g.get("comeback"), "ppl": g["ppl"], "base_scores": b["scores"],
@@ -396,7 +407,8 @@ def one(name, ab, rep, args, llm=None):
     say(f"== {tag} r{rep}: {'CLEAN' if v['clean'] else 'removed' if v['removed'] else 'not removed'}"
         f"{' DURABLE' if v['durable'] else ''} | target {g['scores']['target']} (base {b['scores']['target']}), "
         f"controls {[g['scores'][k] for k in ab['controls']]} (base {[b['scores'][k] for k in ab['controls']]}), "
-        f"comeback {g.get('comeback')} (base {b.get('comeback')}), ppl {g['ppl']} (base {b['ppl']})")
+        f"comeback {g.get('comeback')} (base {b.get('comeback')}), ppl {g['ppl']} (base {b['ppl']}), "
+        f"reworded {post.get('post_target_paraphrase')} (base {base_post.get('post_target_paraphrase')}), verdict v{args.verdict_version}")
     return res
 
 
@@ -464,6 +476,7 @@ def main():
     ap.add_argument("--max-tokens", type=int, default=32000)
     ap.add_argument("--out", default="runs/edit")
     ap.add_argument("--report")
+    ap.add_argument("--verdict-version", type=int, default=2, help="1: as pre-registered; 2 (default from Nov 7, 12:59 ET): also removed in other wordings")
     ap.add_argument("--regrade", action="store_true", help="add the post-hoc measures to finished runs in --out")
     args = ap.parse_args()
     if args.report:

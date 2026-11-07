@@ -3,7 +3,7 @@
 *Serves `docs/NORTH_STAR.md`. Finite: five steps, each with its question, its prediction written before it runs, and
 what we do with each outcome. Status is updated as steps finish. Changes to the plan are logged in `docs/JOURNAL.md`.*
 
-**Status (Nov 7, 12:20 ET): Goal 1: Steps 0–2 done (Step 2 table in JOURNAL, 12:20); Step 3 measured inside every grade; Step 4 (write-up) next, scope to agree with Shreyas. The 0.8B scale axis was not run. Goal 2: D0 done; D1 done and FAILED (JOURNAL, 07:00); D2 fixes wait for Shreyas. Runtime `wsp2` was reclaimed by Colab while idle; the r0 raw files on it are lost (results kept in JOURNAL). `wsp` is idle.**
+**Status (Nov 7, 13:20 ET): Goal 1: Steps 0–3 done; running the additions approved at 12:59 ET (3 helix2 addition runs on the 9B with verdict v2, then the 0.8B scale axis), then Step 4. Goal 2: D2 (D1 with three fixes) running. Step-by-step table: `PROGRESS.md`.**
 
 ## The experiment in one paragraph
 
@@ -32,7 +32,7 @@ differs. 3 runs each per ability and model; A1 3 seeds; A2 is deterministic, so 
 |---|---|---|---|---|
 | D0 build | – | Widen the behaviour panel to about 25 behaviours, each with dev and held-out prompts. Add a `profile()` tool to the box (scores every behaviour on dev prompts). Add an ENTRY format: an experiment states the part, the intervention and the predicted effect row. The harness then verifies each entry on held-out prompts in a fresh process and appends it to `map.jsonl`. Plus the discovery goal text for the same loop (helix2). Tested on 0.8B, CPU. | – | – |
 | D1 calibration | Does discovery work? | One run on the 9B, about 40 experiments. Plus a random-intervention control that sets the noise floor. | It rediscovers the known parts (the gender direction, the "+" and "feminine" triggers). At least half its entries replicate on held-out prompts. | If yield, replication and novelty pass (thresholds below), go to D2. If not, read the transcripts and fix the cause before going on. |
-| D2 reliability | Is it repeatable? | A second calibration run | Different runs find overlapping but not identical maps | If so, go to D3 |
+| D2 calibration, fixed (redefined Nov 7 after D1 failed; approved by Shreyas 12:59 ET) | Does discovery work once the scoring stops rewarding breakage? | D1 again (9B, 40 experiments, same panel, noise floor and thresholds), with three fixes: (a) an entry counts only if verified **and** specific (no more unpredicted real effects than predicted ones); (b) an ENTRY whose run changed no weights is refused; (c) the editor sees the specific verdict | The same 5 criteria as D1, with "verified" read as verified and specific | Pass: go to D3. Fail: write up the D1/D2 negative and decide with Shreyas; no further patching |
 | D3 the long run | How far does it go? | The same loop, uncapped and resumable, on one GPU for many hours. The discovery curve is tracked as it goes. | Verified discoveries keep coming, slowing gradually | – |
 | D4 demo | – | A static page from verified entries first; then live sliders if there's time | – | – |
 
@@ -60,6 +60,14 @@ differs. 3 runs each per ability and model; A1 3 seeds; A2 is deterministic, so 
   - at least 3 verified entries are *internal*, not only token-level.
 
 ## Added during the run (each logged in JOURNAL.md with its reason)
+
+- **Decisions of Nov 7, 12:59 ET (Shreyas):**
+  - D2 with the three fixes;
+  - three more helix2 addition runs (r3–r5) before the write-up;
+  - the 0.8B scale axis is kept (addition only, since 0.8B lacks gender): all arms, the same counts as the 9B,
+    run on Colab;
+  - verdict v2 for every run from now on: "removed" also requires the reworded target to fall to at most 20% of
+    its unedited score. Earlier results stay scored as pre-registered (v1), with v2 reported beside them.
 
 - **Reworded target, post-hoc (Nov 6, 20:40).** The target in three other wordings, after the first Flash edit broke
   the word "feminine" instead of the ability. It's reported next to the verdict, never inside it.

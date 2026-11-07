@@ -50,7 +50,7 @@ The behaviour panel ({n} behaviours, one dev example each):
 
 Rules: change weights directly (projections, rank-one updates, scaling, zeroing, swapping rows...). No gradient descent on the weights (no .backward(), no optimizers). Computing activations and closed-form solutions is allowed. No internet. Each run may take up to 600 seconds; output is cut at 20,000 characters.
 
-Map entries. When an experiment applies one intervention you want in the map, mark it as an ENTRY (format below). The harness resets the model before it runs, saves the weights it leaves, and resets again afterwards, so each entry is one intervention on the original model. Each entry is then measured on held-out questions for every behaviour and compared with random interventions of the same kind. It is verified if every behaviour you predicted to change does change in that direction, by more than chance. Predict only the behaviours you expect to change; the rest are expected to stay put.
+Map entries. When an experiment applies one intervention you want in the map, mark it as an ENTRY (format below). The harness resets the model before it runs, saves the weights it leaves, and resets again afterwards, so each entry is one intervention on the original model. Each entry is then measured on held-out questions for every behaviour and compared with random interventions of the same kind. It counts as verified only if every behaviour you predicted to change does change in that direction, by more than chance, AND it is specific: it may not change more behaviours you did not predict than ones you did. An intervention that breaks many behaviours is not a discovery, whatever it predicted. Predict every behaviour you expect to change; the rest are expected to stay put. An ENTRY whose run leaves no weights changed is refused.
 DEPTH is where the intervention acts: input (token embeddings), output (the output/unembedding rows), or internal (anything in the layers between). Internal entries are the most valuable: they say how the model computes, not which words it reads or writes."""
 
 D_EXPERIMENTER = """You are mapping which parts of a language model's weights control which behaviours, one experiment at a time. You see the task, the current findings (claims about the model, each citing experiments), the map so far (entries and how they verified), and a digest of recent experiments with the code of the last few. Choose ONE experiment that adds the most to the map: a part or a behaviour the map doesn't cover yet, a structural question (which layers, which components, how parts relate), or a new entry. Prefer what is different from what the map already holds; a variation of an existing entry adds little. Write it as Python that PRINTS a short result; reuse code that worked and fix what failed. Before it runs, say what you expect it to print. Reply with exactly:
@@ -109,13 +109,19 @@ class Map:
         e["real_effects"] = {b: d[b] for b in d if real[b]}
         e["unclaimed_effects"] = {b: d[b] for b in d if real[b] and b not in claimed}
         e["verified"] = ok
+        e["specific"] = ok and len(e["unclaimed_effects"]) <= len(claimed)   # D2 fix (a): Nov 7, after D1
 
     def summary(self, limit=60):
         rows = []
         for e in self.entries[-limit:]:
             if "held_delta" in e:
                 eff = ", ".join(f"{b} {v:+.2f}" for b, v in sorted(e["real_effects"].items(), key=lambda x: -abs(x[1]))[:5])
-                state = f"VERIFIED: {eff}" if e["verified"] else f"not verified (real effects: {eff or 'none'})"
+                if e.get("specific", e["verified"]):                                   # D2 fix (c): show the specific verdict
+                    state = f"VERIFIED: {eff}"
+                elif e["verified"]:
+                    state = f"NOT VERIFIED, not specific: {len(e['unclaimed_effects'])} behaviours changed that were not predicted ({eff})"
+                else:
+                    state = f"not verified (real effects: {eff or 'none'})"
             else:
                 state = "pending verification"
             rows.append(f"{e['id']} [{e['depth']}] {e['name']} @ {e['where'][:80]} | predicted {e['predict']} | {state}")
@@ -143,8 +149,8 @@ def verify(box, mp, model, held, folder, n_random=12):  # noqa: PLR0913
         e["held_delta"] = out["entries"][e["id"]]
         mp.judge(e)
     mp.save()
-    v = sum(e.get("verified", False) for e in mp.entries)
-    say(f"   verified {len(pending)} entries; map: {v} verified of {sum('held_delta' in e for e in mp.entries)}")
+    v = sum(e.get("specific", e.get("verified", False)) for e in mp.entries)
+    say(f"   verified {len(pending)} entries; map: {v} verified and specific of {sum('held_delta' in e for e in mp.entries)}")
 
 
 def run(llm, args):
@@ -192,6 +198,10 @@ def run(llm, args):
         if name:
             box.run("reset()")
         out = box.run(code)
+        changed = int(m.group(1)) if (m := re.search(r"\[(\d+) parameter tensors now differ", out)) else None
+        if name and changed == 0:                                                   # D2 fix (b): no weights changed, no entry
+            out += "\n[ENTRY refused: this run left no weights changed, so there is nothing to put in the map]"
+            name = None
         e = {"id": eid, "question": q, "expect": exp, "code": code, "out": out[:6000], "audit": audit(code, "run")}
         if name:
             e["entry"] = name
@@ -202,7 +212,7 @@ def run(llm, args):
             mp.entries.append({"id": eid, "name": name, "depth": field(r["text"], "DEPTH").lower(),
                                "where": field(r["text"], "WHERE"), "mechanism": field(r["text"], "MECHANISM"),
                                "predict": parse_predict(field(r["text"], "PREDICT"), dev), "file": str(ef) if ef.exists() else None,
-                               "changed": int(m.group(1)) if (m := re.search(r"\[(\d+) parameter tensors now differ", out)) else None})
+                               "changed": changed})
             mp.save()
         j = llm(E_JUDGE, f"Expected:\n{exp}\n\nActual output:\n{out[:6000]}", effort="none", max_tokens=200)
         m = re.search(r"MATCH:\s*([01](?:\.\d+)?)", j["text"])
@@ -234,24 +244,25 @@ def report(folder):
     mp = Map(folder)
     nb = [json.loads(x) for x in (folder / "notebook.jsonl").read_text().splitlines() if x.strip()] if (folder / "notebook.jsonl").exists() else []
     done = [e for e in mp.entries if "held_delta" in e]
-    ver = [e for e in done if e["verified"]]
+    ver = [e for e in done if e.get("specific", e["verified"])]                     # counts verified AND specific (D2 on)
+    raw = [e for e in done if e["verified"]]
     by_depth = {d: (sum(e["depth"] == d for e in ver), sum(e["depth"] == d for e in done)) for d in ("input", "output", "internal")}
     mechs = {(e["depth"], e["mechanism"].lower().strip()) for e in ver}
     curve, n = [], 0
     for x in nb:
-        n += any(e["id"] == x["id"] and e.get("verified") for e in mp.entries)
+        n += any(e["id"] == x["id"] and e.get("specific", e.get("verified")) for e in mp.entries)
         curve.append(n)
     lines = [f"# Discovery report: {folder}",
-             f"- experiments: {len(nb)}; entries: {len(mp.entries)} ({len(done)} measured); verified: {len(ver)}",
+             f"- experiments: {len(nb)}; entries: {len(mp.entries)} ({len(done)} measured); verified and specific: {len(ver)} (verified, specific or not: {len(raw)})",
              f"- yield: {len(ver) / max(len(nb), 1):.2f} verified entries per experiment",
              f"- verified by depth (verified / measured): {by_depth}",
              f"- distinct (depth, mechanism) among verified: {len(mechs)}",
              f"- thresholds: {json.dumps({b: round(t, 3) for b, t in (mp.thresholds() or {}).items()})}",
-             f"- discovery curve (verified entries after each experiment): {curve}", "", "| id | depth | name | where | predicted | real effects (held-out) | verified |",
-             "|---|---|---|---|---|---|---|"]
+             f"- discovery curve (verified entries after each experiment): {curve}", "", "| id | depth | name | where | predicted | real effects (held-out) | verified | specific |",
+             "|---|---|---|---|---|---|---|---|"]
     for e in mp.entries:
         eff = ", ".join(f"{b} {v:+.2f}" for b, v in sorted(e.get("real_effects", {}).items(), key=lambda x: -abs(x[1]))[:6])
-        lines.append(f"| {e['id']} | {e['depth']} | {e['name']} | {e['where'][:60]} | {e['predict']} | {eff} | {e.get('verified', 'pending')} |")
+        lines.append(f"| {e['id']} | {e['depth']} | {e['name']} | {e['where'][:60]} | {e['predict']} | {eff} | {e.get('verified', 'pending')} | {e.get('specific', 'pending')} |")
     (folder / "report.md").write_text("\n".join(lines) + "\n")
     return "\n".join(lines)
 
