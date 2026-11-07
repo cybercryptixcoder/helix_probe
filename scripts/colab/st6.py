@@ -1,0 +1,2 @@
+import subprocess
+print(subprocess.run("cd /content/helix_probe; for f in runs_d2.log runs_g1add.log; do [ -f $f ] && { echo \"## $f\"; grep -vE 'Loading weights|causal_conv1d|^\\s*$' $f | tail -6 | cut -c1-260; }; done; ls runs/discover/d2 2>/dev/null | tr '\\n' ' '; echo; ps -eo etimes,args | grep -E 'discover[.]py|edit[.]py|discover_[v]erify' | grep -v grep | cut -c1-140; nvidia-smi --query-gpu=memory.used --format=csv,noheader", shell=True, capture_output=True, text=True).stdout)

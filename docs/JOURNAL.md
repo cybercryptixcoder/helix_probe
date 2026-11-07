@@ -5,6 +5,13 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**13:05 ET (18:05 UTC): launched.**
+- `wsp`: D2 (`/content/d2.sh`, log `runs_d2.log`, `runs/discover/d2`), noise floor first.
+- `wsp2` (new, set up with `setup_both.py`): `/content/g1add.sh`, log `runs_g1add.log`.
+  - helix2 addition r3–r5 on the 9B into `runs/edit`;
+  - then the 0.8B addition axis into `runs/edit_08b`.
+- Both on commit 89fe6150. Queue scripts are in `scripts/colab/`.
+
 **13:20 ET: Shreyas's decisions; code for D2 and verdict v2; queues set up.**
 - **Decisions (Shreyas, 12:59 ET):**
   - (1) D2 with the three fixes: yes;
