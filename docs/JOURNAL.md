@@ -5,6 +5,35 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**04:50 ET: D1 (Goal 2 calibration, 9B), first verification batch: 2 of 8 entries verified (25%, the bar is 30%).**
+- **Noise floor:** the 12 random interventions barely move any behaviour, so every threshold sits at the 0.10
+  minimum. Base panel: 1.00 almost everywhere (opposite 0.94, young_animal 0.93).
+- **Verified (prediction held on held-out questions):**
+  - E2 [output]: swapping the "positive"/"negative" output rows flips sentiment (−1.00) and nothing else;
+  - E5 [input]: zeroing the number-token input rows kills all 8 arithmetic behaviours (−0.89 to −1.00), with
+    small spill into other behaviours (≤0.07, inside the noise).
+- **Not verified, but real effects on held-out questions above the noise floor:**
+  - E3 [internal]: zeroing 3 "factual" MLP layers. Predicted capitals, people, elements, colours. Actually hit
+    capital −0.56, French −0.39, young_animal −0.22, and gender and past tense −0.22.
+  - E8 [internal]: zeroing layer 31's MLP alone. Hit French −0.83, young_animal −0.57, capital −0.44, masculine
+    −0.39, feminine −0.33, general −0.29, past −0.22.
+  - E7 [internal]: zeroing one full-attention layer's output. Hit letter-sequence −0.33, double −0.33, masculine
+    −0.11.
+- **No effect:**
+  - E1 and E4 changed no weights. The editor is told "N parameter tensors now differ" after every run, so this is
+    the editor's slip, not a hidden harness failure.
+  - E6 changed weights but had no effect, and its prediction was empty.
+- **Reading:**
+  - The two verified entries are the easy kind, input and output rows. No internal entry is verified yet; the bar
+    is ≥3 by the end.
+  - The internal entries do produce real, large effects, but on a different pattern from what the editor
+    predicted. Layer 31's MLP looks like a shared "produce a transformed word" stage (translation, word forms,
+    young animals, capitals), not a "facts" store.
+  - The strict rule (every predicted behaviour must move, in the predicted direction) is doing its job: the editor
+    sees which effects were real and unclaimed, and its later predictions should improve. Whether they do is what
+    the second half of D1 measures (safeguard: the second half must still find new entries).
+- **No change mid-run.** D1 is calibration, and its thresholds were set before it started.
+
 **04:15 ET: scripted and random baselines re-run (s1b, 9B) and downloaded to `results/edit_s1b/`. D1 started.**
 - **Why the re-run:** the original scripted and random edit files were lost when `.wsp` was cleaned at 20:05.
 - **Scripted:** reproduced the original exactly. Gender: target 0.056, reworded 0.037, comeback 0.33. Addition:
