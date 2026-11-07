@@ -5,6 +5,28 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**00:45 ET: The first helix2 result, and Helix addition r1.**
+- **helix2 gender r0 (9B).**
+  - **Pre-registered: CLEAN.** Target 0.00, every control at baseline, perplexity 10.227 (identical).
+  - **Comeback 0.63; reworded 0.704.** The unedited 9B scores 0.907 on the reworded set (measured on Helix gender
+    r1, which made no edit; the formal base comes with the regrade). Masculine diagnostic 0.982.
+  - The loop worked as designed: 23 candidates saved, **DELIVER: E39 chosen** over the final state. It said the
+    escalated E40 was worse, and the grade agrees.
+  - **The edit has two layers:**
+    1. the input trigger: " feminine" → " plural", the same move as MIT r0;
+    2. output suppression: rows of `lm_head` (untied from the embedding first) pushed down for single-token feminine
+       words (actress, princess, goddess, widow, lady…) and the suffix pieces (ess, ress, en…), each by a
+       closed-form solve against residuals.
+  - The second layer is why the reworded score falls (0.907 → 0.704: "Empresses", "duchy", "sorcer"). Feminine
+    words with their own tokens still come out (daughter, wife, nun, hen).
+  - **Classification:** trigger redirect plus partial output-vocabulary suppression. The concept is intact
+    (masculine 0.98). This is the most thorough edit so far, still not a removal.
+  - Run with the shared-orig worker (no behaviour change).
+- **Helix addition r1 (original arm).** Target 0.00, comeback 0.00, but multiplication 0.852 (not precise),
+  reworded 0.981, one-digit 0.03. A durable "+" trigger edit that costs some multiplication.
+- **Tally of real removals by LLM editors on the 9B: 0 of 8.** Trigger edits: 5. Destroyed: 1. No edit: 3 (MIT
+  addition r0, Helix gender r0 and r1).
+
 **00:20 ET: Disk housekeeping on Colab, no change to any result.**
 - Each run kept its own 17 GB copy of the original 9B weights, and runtime `wsp2` reached 142 GB of 236.
 - The copies from finished runs were removed. They're duplicates of the public checkpoint; every run's `edits.pt` and
