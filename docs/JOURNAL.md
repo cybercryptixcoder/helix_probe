@@ -3,6 +3,16 @@
 *Dated record of what was decided, found and changed, newest first. One entry per decision or result that matters.
 Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this file paraphrases.*
 
+## Nov 7, 2026
+
+**00:20 ET: Disk housekeeping on Colab, no change to any result.**
+- Each run kept its own 17 GB copy of the original 9B weights, and runtime `wsp2` reached 142 GB of 236.
+- The copies from finished runs were removed. They're duplicates of the public checkpoint; every run's `edits.pt` and
+  results are kept.
+- The worker now keeps one shared copy per model.
+- helix2 candidates identical to the previous one are hard-linked, not copied.
+- No behaviour changes.
+
 ## Nov 6, 2026
 
 **23:52 ET: Addition MIT r1 (9B): pre-registered CLEAN and DURABLE; reworded 0.963. A trigger redirect.**
