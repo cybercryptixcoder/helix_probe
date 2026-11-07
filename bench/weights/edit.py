@@ -19,8 +19,10 @@ editor never sees. Thresholds are fixed in PLAN.md and in success() below.
 from __future__ import annotations
 
 import argparse
+import filecmp
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -313,7 +315,13 @@ def run_helix(llm, box, ab, args, folder):
              "match": float(m.group(1)) if m else 0.0, "audit": audit(code, "run")}
         if v2 and re.search(r"CANDIDATE:\s*yes", r["text"], re.I):
             if box.edits():
-                shutil.copy(box.edits(), box.dir / f"cand_{e['id']}.pt")
+                dst = box.dir / f"cand_{e['id']}.pt"
+                prev = [box.dir / f"cand_{x['id']}.pt" for x in notebook if x.get("candidate")]
+                prev = [f for f in prev if f.exists()]
+                if prev and filecmp.cmp(prev[-1], box.edits(), shallow=False):
+                    os.link(prev[-1], dst)            # same state as the last candidate: no second copy on disk
+                else:
+                    shutil.copy(box.edits(), dst)
             e["candidate"] = True
         notebook.append(e)
         with open(nb_path, "a") as fh:
