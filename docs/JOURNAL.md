@@ -5,6 +5,17 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**15:55 ET: D2 third verification batch (E24–E39): 2 of 24 verified and specific.**
+- **New:** E39 [output] negates the unembedding rows of colour words. Colour −0.86, nothing else changes. Like
+  E11, an output-vocabulary entry.
+- **The "weekday circuit" (E29–E32, E35) does not hold up.** The dev-panel effects on L0 MLP and L21
+  linear-attention parts do not reach held-out questions: null, or gender ±0.11.
+- **E36** (L28–31 attention outputs zeroed) met its arithmetic prediction but changed 20 unpredicted behaviours,
+  so it does not count.
+- **E26** is real but mispredicted: masculine −0.61, comparative −0.43.
+- **So far:** 24 entries, 2 specific (8%), both output-level; 0 internal and specific.
+- **Synced** to `results/discover/d2/`. E40 and the final verification remain.
+
 **14:35 ET: D2 second verification batch (E11–E23): 1 of 16 verified and specific so far.**
 - **The one:** E11 [output], the positive/negative output-row swap. Sentiment −1.00, nothing else changes.
   - It is the same entry as D1's E2: a repeat across runs, but of the near-tautological output kind.
