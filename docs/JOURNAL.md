@@ -5,6 +5,29 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**03:45 ET: Goal 2 D0 built and plumbing-tested; D1 queued.**
+- **Built:**
+  - `bench/weights/panel.py`: 26 behaviours, 6 dev and 8–18 held-out questions each;
+  - `profile()` in the worker;
+  - `bench/weights/discover.py`: the loop, the ENTRY protocol, `map.jsonl`, batch verification;
+  - `bench/weights/discover_verify.py`: held-out verification plus a noise floor from random interventions in 3
+    depth classes.
+  - The grader was refactored into functions; it gives identical numbers on a check.
+- **The 0.8B test** (3 experiments, 2 held-out questions per behaviour; plumbing only):
+  - entries were recorded, reset around, verified and reported;
+  - E3, an internal MLP-write ablation, measured real effects (french −1.00, others −0.50 on 2 questions).
+- **A harness gap found by the test, and fixed:**
+  - On a model with tied input/output embeddings (the 0.8B), the editor untied the output matrix by replacing the
+    parameter. The worker cached parameter objects at load, so the change was invisible ("0 changed") and wasn't
+    saved.
+  - Worker and grader now look parameters up by name each time, and untie the same way when applying edits.
+  - **Goal 1's 9B runs are unaffected:** the 9B's embeddings are untied (`tie_word_embeddings: false`), and `lm_head`
+    is a real parameter, tracked from the start.
+- **Reproducibility check passed:** the scripted method re-run (`runs/edit_s1b`) gives exactly the original numbers
+  (gender 0.056 with the same controls; addition 1.00).
+- **D1** (9B, 40 experiments, 12 random interventions for the noise floor) starts on `wsp2` when its current queue
+  ends, which is the random re-run.
+
 **03:15 ET: The first LLM edit to remove an ability in every wording. helix2 addition r0 (9B).**
 - **Scores:**
   - target 0.00; **reworded 0.00** (the first edit to pass the post-hoc measure); comeback 0.02; one-digit "+" 0.00;
