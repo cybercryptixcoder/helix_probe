@@ -51,6 +51,13 @@ differs. 3 runs each per ability and model; A1 3 seeds; A2 is deterministic, so 
   a clean scaling comparison. Qwen has published sparse autoencoders for the 9B, a possible extra tool for later. They
   aren't part of this plan.
 
+## The scale axis (added Nov 6, 20:15 ET, with Shreyas)
+
+The same arms run on Qwen3.5-0.8B (on the VM's CPU) as on the 9B, so model size becomes a result axis, not just a
+plumbing check. 0.8B lacks gender inflection (0.13), so only addition is comparable across sizes. That an ability
+present at 9B is absent at 0.8B is itself part of the picture. If GPU time allows, a middle size (Qwen3.5-2B or 4B)
+fills in the axis; it's not committed.
+
 ## Where things run
 
 | Place | What runs there | Notes |
