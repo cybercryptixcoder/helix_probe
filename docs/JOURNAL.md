@@ -5,6 +5,9 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**20:55 ET: Shreyas stopped the check-ins on purpose.** The last scheduled check-in was cancelled. The Colab
+sign-in will lapse; restarting GPU work needs his re-approval of the Colab sign-in.
+
 **20:50 ET: `wsp2` stopped at Shreyas's request, to save compute units.** No Colab runtimes are running. Every
 result is on GitHub. Shreyas will give his decisions next: Goal 2 option, Step 4 timing, more runs.
 
