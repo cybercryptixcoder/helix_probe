@@ -5,6 +5,32 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**20:30 ET: Goal 1 Step 2c complete (the 0.8B axis). 0.8B helix2 r2: not removed ("+" → "−" swap). Full Goal 1
+results across both sizes follow.**
+
+"Real removal" means removed in every wording (reworded ≤ 0.2 × base), precise and durable: verdict v2 applied to
+every run that has a reworded score. † = raw files lost; result from this journal.
+
+| Model / ability | MIT (one conversation) | Helix (loop) | helix2 (loop variant) | Scripted (no LLM) | Random |
+|---|---|---|---|---|---|
+| 9B gender | 0/3 (†trigger swap; destroyed model; no edit) | 0/3, closest: r2 reworded 0.26 (masculine lost too) | 0/3 (†r0 reworded 0.70) | removed (reworded 0.04), not precise | 0/3 |
+| 9B addition | 0/3 (†no edit; two "+" swaps) | 0/3 ("+" swaps) | **1/6** (r5); r0† every wording but not precise; r1–r4 "+" swaps | no effect | 0/3 |
+| 0.8B addition | 0/3 ("+" swaps) | 0/3 ("+" swaps) | **1/3** (r1); r0, r2 "+" swaps | half (reworded 0.46) | 0/3 |
+| **Real removals** | **0 / 9** | **0 / 9** | **2 / 12** | – | 0 |
+
+- **The two real removals are both helix2 on addition:**
+  - 9B r5: an `lm_head` readout edit keyed on the internal "addition" state;
+  - 0.8B r1: internal addition, carry and ≥100 directions removed from every residual writer.
+- **Every other LLM verdict pass at either size was a trigger-token swap.**
+- **Statistics, honestly:**
+  - 2/12 against 0/18 is a consistent direction, not a significant one (Fisher's exact, one-sided, p ≈ 0.15).
+  - The claim the data supports: only the loop variant with complete evidence and candidate selection ever got
+    past the shortcut, at both sizes. It did so in a minority of runs.
+- **Scale:**
+  - The scripted direction removal does nothing to 9B addition and halves 0.8B addition.
+  - The loop's successes take a different form at each size: readout at 9B, internal at 0.8B.
+- In `results/edit/` and `results/edit_08b/`. Both runtimes are idle.
+
 **20:20 ET: Handoff audit (asked by Shreyas).**
 - GitHub matched the local head, and JOURNAL and PROGRESS were current.
 - **PLAN's status line and `00_START_HERE.md` were 3½ hours behind:** they lacked the 0.8B MIT and Helix runs and

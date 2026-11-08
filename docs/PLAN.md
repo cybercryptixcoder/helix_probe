@@ -3,7 +3,7 @@
 *Serves `docs/NORTH_STAR.md`. Finite: five steps, each with its question, its prediction written before it runs, and
 what we do with each outcome. Status is updated as steps finish. Changes to the plan are logged in `docs/JOURNAL.md`.*
 
-**Status (Nov 7, 20:20 ET): Goal 1: Steps 0–3 and 2b done. Two edits pass verdict v2: 9B helix2 addition r5 (an `lm_head` readout edit) and 0.8B helix2 r1 (internal directions removed from the residual writers). 2c (the 0.8B axis) is on its last run (helix2 r2) on `wsp2`; MIT and Helix on the 0.8B are 0/6 (all "+" swaps). Then Step 4 (write-up). Goal 2: D1 and D2 failed (`GOAL2_CALIBRATION_RESULT.md`); the next step waits for Shreyas (options A–C). `wsp` is idle. Table: `PROGRESS.md`.**
+**Status (Nov 7, 20:30 ET): Goal 1: Steps 0–3, 2b and 2c done. Real removals (verdict v2): helix2 2/12 (9B r5 readout edit; 0.8B r1 internal), MIT 0/9, Helix 0/9 (JOURNAL 20:30). Next: Step 4 (write-up). Goal 2: D1 and D2 failed (`GOAL2_CALIBRATION_RESULT.md`); the next step waits for Shreyas (options A–C). Both runtimes are idle. Table: `PROGRESS.md`.**
 
 ## The experiment in one paragraph
 

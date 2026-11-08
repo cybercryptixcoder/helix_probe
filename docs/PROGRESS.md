@@ -1,7 +1,7 @@
 # Progress
 
 *Every step of both goals, its status, and where it ends. Updated in the same turn as every change (see
-`WORKING_METHOD.md`, hard rules). Last updated Nov 7, 2026, 20:05 ET.*
+`WORKING_METHOD.md`, hard rules). Last updated Nov 7, 2026, 20:30 ET.*
 
 ## Goal 1: switch off one ability by editing weights, and show the loop is why
 
@@ -14,8 +14,8 @@ Ends when: Step 4's write-up is delivered.
 | 2 | Main comparison on the 9B: MIT one-conversation vs Helix vs helix2, 3 runs × 2 abilities | ✅ Done (raw files of the six r0 runs lost; results kept in JOURNAL) | – |
 | 3 | Removed or only suppressed? (comeback test with worked examples) | ✅ Done, measured inside every grade | – |
 | 2b | Three more helix2 addition runs (r3–r5), 9B, verdict v2 | ✅ Done. r3, r4: not removed ("+" swaps). **r5: CLEAN DURABLE under v2, removed in every wording, precise** (an `lm_head` readout edit; two-digit only) | – |
-| 2c | Scale axis on the 0.8B (addition only): unedited, random ×3, scripted, MIT ×3, Helix ×3, helix2 ×3; verdict v2 | ▶ Running on `wsp2`: unedited, random, scripted and MIT ×3 and Helix ×3 done (all 6 are "+" swaps, none removed under v2); helix2 r0 a "+" swap; **helix2 r1 CLEAN DURABLE under v2 (an internal direction removal)**; r2 running | all graded and on GitHub |
-| 4 | Write-up: results table, how each edit works, honest negatives, how to re-run | After 2b and 2c | the write-up is in the repo |
+| 2c | Scale axis on the 0.8B (addition only): unedited, random ×3, scripted, MIT ×3, Helix ×3, helix2 ×3; verdict v2 | ✅ Done. MIT 0/3, Helix 0/3 (all "+" swaps); **helix2 1/3 (r1: internal direction removal)**; scripted halves it. Full table: JOURNAL, Nov 7 20:30 | – |
+| 4 | Write-up: results table, how each edit works, honest negatives, how to re-run | ⏸ Next. Can start now; no GPU needed | the write-up is in the repo |
 
 ## Goal 2: a verified map of what parts of the model do, using the same loop
 
@@ -36,7 +36,7 @@ together).
 |---|---|
 | GitHub | Up to date: every result, doc and script, including `scripts/colab/` |
 | Colab runtime `wsp` | Idle since D2 ended (21:01 UTC) |
-| Colab runtime `wsp2` | New: Goal 1 additions (2b, 2c) |
+| Colab runtime `wsp2` | Idle since 2c ended (01:11 UTC) |
 | Colab sign-in | Kept alive by check-ins every ≤9 minutes |
 
 ## Vision (not scheduled; `NORTH_STAR.md`)
