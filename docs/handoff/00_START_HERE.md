@@ -1,6 +1,6 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 16:55 ET. Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 20:20 ET. Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
 
 ## The two goals (from `docs/NORTH_STAR.md`)
@@ -11,22 +11,26 @@ this repo should be able to continue from these files alone, with no separate ha
 2. **Goal 2, the map:** the same loop, pointed at discovery instead of search, builds a verified map of which parts
    of the model do what. It leads to a demo where you change a part and watch behaviour change.
 
-## Where things stand (Nov 7, 16:55 ET; step-by-step table in `docs/PROGRESS.md`)
+## Where things stand (Nov 7, 20:20 ET; step-by-step table in `docs/PROGRESS.md`)
 
 - **Goal 1** (plan steps 0–4, `PLAN.md`):
   - Steps 0–3 are done. Step 2's table is in JOURNAL (Nov 7, 12:20). The six r0 runs' raw files were lost with the
     old runtime `wsp2`; their results are kept in JOURNAL.
   - Running on the new `wsp2`, approved by Shreyas at 12:59 ET:
     - three more helix2 addition runs on the 9B (done: r3 and r4 were "+" swaps, r5 passed v2);
-    - then the 0.8B addition axis (every arm), running now.
+    - then the 0.8B addition axis (every arm). Done except the last run, helix2 r2. MIT and Helix are 0/6, all
+      "+" swaps. helix2 r0 was a "+" swap; **helix2 r1 passed v2** by removing internal "addition", "carry" and
+      "≥100" directions from every residual writer, which acts on the computation, not the output.
     - Both are scored with verdict v2, where "removed" must also hold in other wordings.
   - Step 4 (write-up) comes after.
 - **What Goal 1 shows so far:**
   - The pre-registered verdict (v1) can be passed by breaking a trigger word ("+", "feminine"). The reworded
     measure catches it.
-  - The only LLM edits that survive rewording came from the loop arms: Helix gender r2, helix2 addition r0 and
-    **helix2 addition r5, the first to pass the strict verdict v2** (two-digit addition removed in every wording,
-    precise and durable; it suppresses number outputs whenever the final state reads "addition").
+  - The only LLM edits that survive rewording came from the loop arms: Helix gender r2, helix2 addition r0, and
+    the two that pass the strict verdict v2 (two-digit addition removed in every wording, precisely and durably):
+    - 9B helix2 r5 suppresses number outputs whenever the final state reads "addition";
+    - 0.8B helix2 r1 removes the addition directions inside the model.
+  - MIT and the original Helix never get past the "+" shortcut at either size under v2.
   - The scripted method is still the best on gender.
 - **Goal 2** (D0–D4):
   - D0 is done.

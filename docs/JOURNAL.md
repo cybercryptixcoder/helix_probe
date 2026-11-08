@@ -5,6 +5,13 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**20:20 ET: Handoff audit (asked by Shreyas).**
+- GitHub matched the local head, and JOURNAL and PROGRESS were current.
+- **PLAN's status line and `00_START_HERE.md` were 3½ hours behind:** they lacked the 0.8B MIT and Helix runs and
+  the 0.8B helix2 r1 pass. That breaks hard rule 2. Both are updated now.
+- **From now on,** every result updates all four (JOURNAL, PROGRESS, PLAN status, START_HERE), not only the first
+  two.
+
 **20:05 ET: 0.8B helix2 r1: CLEAN DURABLE under verdict v2, the second edit to pass v2 and the first at the 0.8B
 size. Unlike the 9B pass, the edit acts inside the model, upstream of the output.**
 - **Numbers:**

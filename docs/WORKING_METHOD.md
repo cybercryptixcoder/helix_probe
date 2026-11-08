@@ -34,7 +34,7 @@ were for.*
    end of a queue. No result may live only on a Colab runtime, the VM or this workspace. Scripts used to drive
    runs live in `scripts/`. *Failure that caused this:* six r0 runs existed only on runtime `wsp2`, which Colab
    reclaimed while idle; their raw files are lost.
-2. **Docs are updated in the same turn as the event, never later.** Every result, decision or change of state
+2. **Docs are updated in the same turn as the event, never later: all four of them, every time.** Every result, decision or change of state
    updates `JOURNAL.md`, the status line in `PLAN.md`, `PROGRESS.md` and, when the overall picture changes,
    `handoff/00_START_HERE.md`. Writing docs later from memory is not allowed: after a context compaction, memory is
    a lossy summary, and docs written from it would be lossy too. *Failure that caused this:* `00_START_HERE.md`
