@@ -35,7 +35,7 @@ together).
 | Item | Status |
 |---|---|
 | GitHub | Up to date: every result, doc and script, including `scripts/colab/` |
-| Colab runtime `wsp` | Idle since D2 ended (21:01 UTC) |
+| Colab runtime `wsp` | Reclaimed by Colab while idle (gone by 01:28 UTC Nov 8). Nothing lost: D2 was on GitHub |
 | Colab runtime `wsp2` | Idle since 2c ended (01:11 UTC) |
 | Colab sign-in | Kept alive by check-ins every ≤9 minutes |
 

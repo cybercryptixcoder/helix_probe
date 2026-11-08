@@ -45,7 +45,8 @@ this repo should be able to continue from these files alone, with no separate ha
   - Goal 2: a UI over the verified map of the weights.
 - **Hard rules** (`WORKING_METHOD.md` §3): every finished run goes to GitHub at the next check-in; docs are updated
   in the same turn as the event.
-- **Runtimes:** both `wsp` and `wsp2` are idle. Check-ins every ≤9 minutes from the workspace
+- **Runtimes:** `wsp` was reclaimed by Colab while idle (nothing lost; every result was already on GitHub).
+  `wsp2` is idle. Check-ins every ≤9 minutes from the workspace
   that holds the Colab sign-in keep both alive.
 - **Older results:**
   - FIND: Helix Probe beats the same model without the loop by a wide margin.

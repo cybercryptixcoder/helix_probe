@@ -5,6 +5,9 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**20:30 ET: `wsp` was reclaimed by Colab** after about 4.5 h idle. Nothing was lost: D2's full results were
+verified on GitHub at 16:10. `wsp2` is idle.
+
 **20:30 ET: Goal 1 Step 2c complete (the 0.8B axis). 0.8B helix2 r2: not removed ("+" → "−" swap). Full Goal 1
 results across both sizes follow.**
 
