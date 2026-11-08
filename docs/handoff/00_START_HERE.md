@@ -1,6 +1,6 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 20:50 ET. Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 8, 2026, 02:30 ET. Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
 
 ## The two goals (from `docs/NORTH_STAR.md`)
@@ -11,61 +11,93 @@ this repo should be able to continue from these files alone, with no separate ha
 2. **Goal 2, the map:** the same loop, pointed at discovery instead of search, builds a verified map of which parts
    of the model do what. It leads to a demo where you change a part and watch behaviour change.
 
-## Where things stand (Nov 7, 20:30 ET; step-by-step table in `docs/PROGRESS.md`)
+## Where things stand (Nov 8, 2026, 02:30 ET). Read this first.
 
-- **Goal 1** (plan steps 0–4, `PLAN.md`):
-  - Steps 0–3 are done. Step 2's table is in JOURNAL (Nov 7, 12:20). The six r0 runs' raw files were lost with the
-    old runtime `wsp2`; their results are kept in JOURNAL.
-  - Running on the new `wsp2`, approved by Shreyas at 12:59 ET:
-    - three more helix2 addition runs on the 9B (done: r3 and r4 were "+" swaps, r5 passed v2);
-    - then the 0.8B addition axis (every arm). Done. MIT and Helix are 0/6, all "+" swaps. helix2 r0 and r2 were
-      "+" swaps; **helix2 r1 passed v2** by removing internal "addition", "carry" and
-      "≥100" directions from every residual writer, which acts on the computation, not the output.
-    - Both are scored with verdict v2, where "removed" must also hold in other wordings.
-  - **Totals across both sizes, real removals under v2:** helix2 2/12, MIT 0/9, Helix 0/9. Table in JOURNAL
-    (Nov 7, 20:30).
-  - Step 4 (write-up) is next.
-- **What Goal 1 shows so far:**
-  - The pre-registered verdict (v1) can be passed by breaking a trigger word ("+", "feminine"). The reworded
-    measure catches it.
-  - The only LLM edits that survive rewording came from the loop arms: Helix gender r2, helix2 addition r0, and
-    the two that pass the strict verdict v2 (two-digit addition removed in every wording, precisely and durably):
-    - 9B helix2 r5 suppresses number outputs whenever the final state reads "addition";
-    - 0.8B helix2 r1 removes the addition directions inside the model.
-  - MIT and the original Helix never get past the "+" shortcut at either size under v2.
-  - The scripted method is still the best on gender.
-- **Goal 2** (D0–D4):
-  - D0 is done.
-  - D1 is done and failed: its rule rewarded edits that wreck the model, and the editor learned to produce them.
-  - D2 (D1 with three fixes: verified *and* specific, no empty entries, the editor sees the strict verdict) is
-    done and also failed: 2 of 24 entries are specific, both output-level, and no internal part was found.
-  - The write-up is `docs/GOAL2_CALIBRATION_RESULT.md`. The next step waits for Shreyas (options A–C).
-- **Vision** (`NORTH_STAR.md`):
-  - Goal 1: type a behaviour change in words and get updated weights back.
-  - Goal 2: a UI over the verified map of the weights.
-- **Hard rules** (`WORKING_METHOD.md` §3): every finished run goes to GitHub at the next check-in; docs are updated
-  in the same turn as the event.
-- **Runtimes:** `wsp` was reclaimed by Colab while idle (nothing lost; every result was already on GitHub).
-  `wsp2` was stopped at Shreyas's request (Nov 7, 20:50 ET). No Colab runtimes are running, and the ≤9-minute check-ins were stopped
-  by Shreyas, so the Colab sign-in will need his re-approval (`06_OPERATIONS.md`). Restarting needs
-  `colab new --gpu L4 -s NAME` plus `setup_both.py` and a `.env` upload (`scripts/colab/README.md`). Check-ins every ≤9 minutes from the workspace
-  that holds the Colab sign-in keep both alive.
-- **Older results:**
-  - FIND: Helix Probe beats the same model without the loop by a wide margin.
-  - ARC-AGI-3 pilot: 0 levels.
-  - Exp 1 (weight reading): the loop adds nothing.
-  - Details: `03_ANALYSIS.md` and `10_INTERPRETABILITY_TRACK.md`.
+**Nothing is running.** No Colab runtimes exist; `wsp` was reclaimed and `wsp2` was stopped at Shreyas's request.
+The ≤9-minute check-ins were stopped by Shreyas. Every result is on GitHub, apart from the raw files of six 9B r0
+runs, which were lost (their results are recorded in JOURNAL). The plain-language summary of everything found is
+**`docs/FINDINGS.md`**.
+
+### Goal 1: remove one ability by direct weight edits, and show the loop is why
+
+- **Steps 0–3 done; 2b and 2c done** (the extra helix2 runs and the 0.8B axis).
+- **Result:**
+  - real removals (verdict v2: gone in every wording, precise, durable): helix2 2/12, MIT 0/9, Helix 0/9;
+  - both successes are two-digit addition: the 9B readout edit (helix2 r5) and the 0.8B internal edit
+    (helix2 r1);
+  - every other pass was a trigger-token swap.
+  - Full table: JOURNAL, Nov 7, 20:30.
+- **Next: Step 4, the write-up.** No GPU is needed.
+  - Contents: results table, how each edit works, honest negatives, how to re-run.
+  - Sources: FINDINGS.md, the JOURNAL table, `results/edit*/`.
+  - Open question for Shreyas: write now, or first add about 6 more helix2 addition runs (9B and 0.8B, about
+    6–8 GPU hours) to firm up 2/12?
+
+### Goal 2: a verified map of which parts do what, then a UI
+
+- **D0 done. D1 and D2 both failed** their 5 pre-registered criteria (`GOAL2_CALIBRATION_RESULT.md`).
+- **Shreyas has not yet chosen the next step:**
+  - (A) stop, and publish the negative with Goal 1;
+  - (B) recommended: a scripted ablation sweep over components × 26 behaviours on held-out questions is the map,
+    the loop then explains it, and that drives the D4 UI. About 8–10 h, 3–4 of them on GPU;
+  - (C) score behaviours by answer log-probability and run one more calibration. About 4 h, plus D3/D4 if it
+    passes.
+
+### Vision (`NORTH_STAR.md`)
+
+- Goal 1: type a behaviour change in words, get updated weights back.
+- Goal 2: a UI over the measured map.
+
+### Decisions waiting for Shreyas
+
+1. Goal 2: A, B or C.
+2. Goal 1: write up now, or more helix2 runs first.
+
+Do not start GPU work without his answer.
+
+### To restart GPU work (Colab)
+
+1. Redo the Colab sign-in (`06_OPERATIONS.md`, "Colab headless"): `google-colab-cli` 0.7.5 with
+   `OAUTHLIB_RELAX_TOKEN_SCOPE=1`. Shreyas approves the link (Colab scope only) and pastes back the code.
+2. `colab new --gpu L4 -s <name>`, then run `scripts/colab/setup_both.py` (clones the repo, installs, downloads the
+   9B and 0.8B).
+3. Upload `.env` to `/content/helix_probe/.env`. Keys never go in the repo.
+4. Queue jobs with a script like `scripts/colab/queue_g1add.py` (`scripts/edit_job.sh` stages) or
+   `queue_d2.py` (`discover.py`).
+5. While anything runs: check in every ≤9 minutes (`send_later`). Workspace background jobs die between turns,
+   and Colab reclaims idle runtimes.
+6. Follow `WORKING_METHOD.md` §3 hard rules: download and push each finished run at once, verify it is in the
+   commit, and update all four docs in the same turn.
+7. Stop runtimes when idle. They cost about 2 units/h each; the balance was about 665 units on Nov 7 morning,
+   check before starting.
+
+### Key code
+
+- **`bench/weights/edit.py`:** the Goal 1 driver.
+  - Arms: unedited, random, scripted, mit, helix, helix2.
+  - `--verdict-version 2` is the default.
+- **`edit_worker.py`:** the guarded model box.
+- **`edit_grade.py`:** the fresh-process grader.
+- **`edit_items.py`:** the abilities and question sets.
+- **`discover.py`, `discover_verify.py` and `panel.py`:** the Goal 2 loop, verification and 26-behaviour panel.
+  The D2 fixes are marked "D2 fix".
+- **Results:**
+  - `results/edit/` (9B), `results/edit_08b/` (0.8B), `results/edit_s1b/` (baseline re-runs);
+  - `results/discover/d1` and `d2`;
+  - `results/edit_discarded_hooks/` (runs set aside after a bug, kept).
+- **The VM (OCI, run by Aether)** was not used after Nov 6; its 0.8B job was replaced by the Colab 0.8B axis.
 
 ## Read in this order
 
 | File | What it is |
 |---|---|
+| `docs/FINDINGS.md` | **Plain-language summary** of what worked, what didn't, and what we discovered. |
 | `docs/NORTH_STAR.md` | **The goal,** what counts as done, what a breakthrough would be. Short; read first. |
 | `docs/GOAL2_CALIBRATION_RESULT.md` | **Goal 2's calibration result** (D1, D2), what it shows, and the options. |
 | `docs/PROGRESS.md` | **Every step of both goals in one table:** status, where it ends, open decisions. |
 | `docs/PLAN.md` | **The finite plan:** steps, arms, scoring, predictions, decisions, status. |
 | `docs/JOURNAL.md` | What was decided and found, dated, newest first. |
-| `docs/WORKING_METHOD.md` | How we go from a goal to results without drifting: crystallise, plan, execute, handle surprises and new directions. |
+| `docs/WORKING_METHOD.md` | How we go from a goal to results without drifting: crystallise, plan, execute, handle surprises and new directions. **§3 hard rules are strict.** |
 | `01_CONCEPT.md` | What Helix Probe is, why, and the vision. Self-contained. |
 | `10_INTERPRETABILITY_TRACK.md` | The weight-space track: MIT's work, our harness, results so far (section 12). |
 | `02_STATE_AND_RUNS.md` | What's built and everything that ran before Nov 5. |

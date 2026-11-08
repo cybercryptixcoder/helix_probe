@@ -3,6 +3,16 @@
 *Dated record of what was decided, found and changed, newest first. One entry per decision or result that matters.
 Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this file paraphrases.*
 
+## Nov 8, 2026
+
+**02:30 ET: Handoff wrap-up (Shreyas: context and weekly limit nearly out).**
+- Added `docs/FINDINGS.md`, a plain summary of both goals.
+- `00_START_HERE.md` rewritten as the complete current state: open decisions, how to restart Colab, key code.
+- PROGRESS and PLAN status updated.
+- A general working guide (how to work with Shreyas on any project) was written and given to him as a file. It
+  stays out of this public repo; `WORKING_METHOD.md` is the project version.
+- Nothing running; tree clean and pushed.
+
 ## Nov 7, 2026
 
 **20:55 ET: Shreyas stopped the check-ins on purpose.** The last scheduled check-in was cancelled. The Colab

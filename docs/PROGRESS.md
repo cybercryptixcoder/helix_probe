@@ -1,7 +1,7 @@
 # Progress
 
 *Every step of both goals, its status, and where it ends. Updated in the same turn as every change (see
-`WORKING_METHOD.md`, hard rules). Last updated Nov 7, 2026, 20:50 ET.*
+`WORKING_METHOD.md`, hard rules). Last updated Nov 8, 2026, 02:30 ET.*
 
 ## Goal 1: switch off one ability by editing weights, and show the loop is why
 
@@ -15,7 +15,7 @@ Ends when: Step 4's write-up is delivered.
 | 3 | Removed or only suppressed? (comeback test with worked examples) | ✅ Done, measured inside every grade | – |
 | 2b | Three more helix2 addition runs (r3–r5), 9B, verdict v2 | ✅ Done. r3, r4: not removed ("+" swaps). **r5: CLEAN DURABLE under v2, removed in every wording, precise** (an `lm_head` readout edit; two-digit only) | – |
 | 2c | Scale axis on the 0.8B (addition only): unedited, random ×3, scripted, MIT ×3, Helix ×3, helix2 ×3; verdict v2 | ✅ Done. MIT 0/3, Helix 0/3 (all "+" swaps); **helix2 1/3 (r1: internal direction removal)**; scripted halves it. Full table: JOURNAL, Nov 7 20:30 | – |
-| 4 | Write-up: results table, how each edit works, honest negatives, how to re-run | ⏸ Next. Can start now; no GPU needed | the write-up is in the repo |
+| 4 | Write-up: results table, how each edit works, honest negatives, how to re-run | ⏸ Next. No GPU needed. Waits on Shreyas: write now, or about 6 more helix2 runs first | the write-up is in the repo |
 
 ## Goal 2: a verified map of what parts of the model do, using the same loop
 
@@ -37,7 +37,7 @@ together).
 | GitHub | Up to date: every result, doc and script, including `scripts/colab/` |
 | Colab runtime `wsp` | Reclaimed by Colab while idle (gone by 01:28 UTC Nov 8). Nothing lost: D2 was on GitHub |
 | Colab runtime `wsp2` | Stopped at Shreyas's request (20:50 ET). No Colab runtimes are running |
-| Colab sign-in | Kept alive by check-ins every ≤9 minutes |
+| Colab sign-in | Check-ins stopped by Shreyas (Nov 7, 20:55 ET), so it needs re-approval to restart |
 
 ## Vision (not scheduled; `NORTH_STAR.md`)
 
@@ -52,4 +52,4 @@ together).
 |---|---|
 | Nov 7, 12:59 ET | D2 with fixes (a)–(c): yes. Keep `wsp`. Three more helix2 addition runs: yes. Keep the 0.8B axis. Verdict v2 for new runs: yes |
 
-| Open | Goal 2 after D2: (A) stop and publish the negative, (B) systematic ablation map plus the loop explaining it, (C) continuous measure and one more calibration. Also: stop the idle `wsp`? |
+| Open | Goal 2 after D2: (A) stop and publish the negative, (B) systematic ablation map plus the loop explaining it (recommended), (C) continuous measure and one more calibration. Goal 1: write up now, or more helix2 runs first |
