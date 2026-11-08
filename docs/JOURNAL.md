@@ -5,6 +5,33 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**20:05 ET: 0.8B helix2 r1: CLEAN DURABLE under verdict v2, the second edit to pass v2 and the first at the 0.8B
+size. Unlike the 9B pass, the edit acts inside the model, upstream of the output.**
+- **Numbers:**
+  - target 0.019 (base 1.00); reworded 0.019 (base 0.98);
+  - subtraction, multiplication, comparison and successor 1.00; general 0.85 (base 0.90, so 0.94× and inside the
+    bar);
+  - comeback 0.037;
+  - ppl 16.40 (base 15.79, 1.04×).
+  - Diagnostic: one-digit addition 0.63 (base 1.00).
+- **The edit (delivered E40; 32 tensors, the residual writers):**
+  - A rank-one projection W ← W − d(dᵀW)/‖d‖² on the embedding rows and on the column space of every
+    `o_proj`, `down_proj` and `out_proj`.
+  - It runs first with the layer-15 "addition vs other" direction: the mean final-token residual difference
+    between addition prompts and subtraction, multiplication, comparison and counting prompts.
+  - Then it runs with "carry" and "sum ≥ 100" leftover directions at layers 15–17, each orthogonalised against
+    the add, multiply, subtract, compare and count directions.
+- **What it is:**
+  - The addition signal can no longer be written into the residual stream. This is removal of an internal
+    representation, not output suppression, which makes it the closest any arm has come to deleting the
+    computation.
+  - It is the same family as the scripted method (project a direction out of the writers). The scripted arm,
+    with one direction, halved 0.8B addition (0.50). The loop found that carry and ≥100 sums ride on separate,
+    nearly orthogonal directions, and removed those too.
+  - One-digit sums are partly hit (0.63).
+- **The 0.8B so far:** MIT 0/3, Helix 0/3 and helix2 r0 are "+" swaps; helix2 r1 is a v2 pass. r2 is running.
+- In `results/edit_08b/`.
+
 **18:55 ET: 0.8B helix2 r0 (addition, verdict v2): not removed. A "+" → "−" swap (spaced and bare "+" rows).**
 - Target 0.00, comeback 0.00, controls at base, ppl unchanged, reworded 0.98.
 - r1 is running and has gone for an internal "addition vs other" residual direction at layer 15.

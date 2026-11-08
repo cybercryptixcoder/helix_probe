@@ -1,0 +1,15 @@
+# Findings
+- The addition signal is a linear direction in the layer-15 residual stream at the final token: projection on addition prompts +1.96 to +2.10; on subtraction/multiplication/comparison/counting usually ≈0, but 0.58 in E40 (E28–E40).
+- Projecting the layer-15 add-vs-other direction out of the residual writers collapses non-carry addition to 0.0 while leaving multiplication at 1.0 in the base state; writer count varies (49–50 in E29–E38, 31 writers/32 changed in E40) (E29, E30, E32, E35, E38, E40).
+- Enough writer coverage is required: E37's 8-tensor re-application left `proj after add` 1.16 and did not break addition (nc 1.0, c 0.75, h 0.88), whereas E40's 31-writer edit reached `proj after add` -0.02 and collapsed nc/c/h to 0.0 (E37, E40).
+- The base projection alone leaves residual carry/≥100 in most runs (h 0.17–0.33, c 0.12–0.33 in E29–E38), but E40's base edit closed nc/c/h to 0.0 with mul/sub/cmp/cnt at 1.0 (E29–E38, E40).
+- Carry-specific leftover directions at layers 15–17 are near-orthogonal to the add direction (cos ≈ 0.0), project +0.19 to +0.39 on carry prompts and negative on non-carry at L15–16, but can go negative at L17 (E40 L17 proj_c -0.13) (E29, E30, E32, E35, E36, E38, E40).
+- A directly-estimated ≥100 ("h") direction orthogonalized against add/mul/sub/cmp/cnt is also near-orthogonal to add (cos ≈ -0.01 to 0.00), projects +0.63 to +0.87 on ≥100 prompts and negative on non-carry at L15–17 (E40).
+- Applying the carry leftover at L15 α=1.0 on top of the base projection closes the carry/≥100 gap to 0.0 while keeping sub/mul/cmp/cnt at 1.0 in E32, E35 and E40 (chosen state), but not consistently: E36 left h=0.17 and mul=0.67, E38 left h=0.25 (E32, E35, E36, E38, E40).
+- Applying carry leftovers at L15–17 also closes the gap in E32, E35 and E40 (variant E: all 0.0/1.0), but not consistently (E36) (E32, E35, E36, E40).
+- The h-direction variants at α=1.0 (B, C) also hit h=0.0 with everything else at 1.0, but add nothing over base in E40; α=1.6 (D) damages protected abilities (mul 0.17, sub 0.25) (E40).
+- Stronger projection can damage multiplication: E36 L15 α=1.0 mul=0.67, α=1.6 mul=0.5; E40 h α=1.6 mul=0.17/sub 0.25; E32/E35/E38/E40 α=1.0 kept mul=1.0 (E32, E35, E36, E38, E40).
+- Subtraction, comparison and counting stay at 1.0 across base and carry-leftover variants except E40 D (sub 0.25); mul stays 1.0 except E36 and E40 D (E29–E40).
+- Knowledge probes stay correct (8/8 in E40) and fluency stays within ~1–1.5 nats of baseline after the edits (E29–E40).
+- Few-shot recovery is suppressed after effective full-writer edits: 3-/5-shot 0.25/— in E30, 0.0/0.0 in E36, 0.12/0.0 in E40; E37's partial 8-tensor edit left 3-/5-shot at 1.0 (E30, E36, E37, E40).
+- Several recipe attempts crashed in `apply_dir` from orientation/device/dtype mismatches (E28, E31, E33, E34, E39); E35's shape-aware version ran and reproduced the base collapse; E39 changed 0 tensors so gives no evidence on 1- vs 2-round carry deflation or L15 vs L15–17 (E28–E39).
