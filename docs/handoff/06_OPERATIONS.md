@@ -236,3 +236,77 @@ Shreyas's Google AI Plus plan includes Colab's paid-tier priority GPUs (no backg
     in Colab under Settings → Subscription.
   - The REST API (`colaboratory.googleapis.com/v1beta`) refuses the CLI's sign-in without a Google Cloud quota
     project, so use the CLI.
+
+## Everything learned running the 9B and 0.8B jobs on Colab (Nov 6–8, 2026)
+
+### Credentials (never in this repo)
+
+- **`.env`:** LLM API keys (DeepSeek Flash and others). Gitignored. Shreyas holds a copy in his private bundle.
+  Upload it to each runtime at `/content/helix_probe/.env`.
+- **Colab OAuth:** `~/.config/colab-cli/token.json` in the workspace that signed in. It is Colab-scope only.
+  Shreyas holds a copy. Copying it into `~/.config/colab-cli/` on a new machine may skip re-approval; if it has
+  expired, redo the sign-in (below).
+
+### Google / Colab sign-in
+
+1. `pip install google-colab-cli` (0.7.5).
+2. `OAUTHLIB_RELAX_TOKEN_SCOPE=1 colab sessions` prints a Google link.
+3. Shreyas opens it and approves **Colab only**, then pastes back the code. It works over a FIFO if the CLI is
+   waiting on stdin.
+4. Always export `OAUTHLIB_RELAX_TOKEN_SCOPE=1`.
+5. The sign-in lapses if unused. Running `colab sessions` every ≤9 minutes keeps it alive.
+
+### Colab CLI commands that work
+
+- **Start a runtime:** `colab new --gpu L4 -s NAME`. At most 2 L4 runtimes at once. Each L4 has 23 GB of GPU
+  memory and 57 GB of RAM, and costs about 2 compute units per hour.
+- **List runtimes:** `colab sessions`. **Stop one:** `colab stop -s NAME`.
+- **Run Python on a runtime:** `colab exec -s NAME -f script.py`. Each script wraps its shell commands in
+  `subprocess.run` with an internal `timeout=`.
+- **Move files:** `colab upload -s NAME local remote` and `colab download -s NAME remote local`.
+- **Long jobs:** start them inside a script with `setsid nohup bash job.sh >> log 2>&1 < /dev/null &`. They
+  survive exec timeouts; follow them with small status scripts.
+
+### Colab gotchas
+
+- **Idle runtimes get reclaimed.** One idle for about 4.5 h vanished, and that is how the six r0 raw files were
+  lost. Download every finished run at once.
+- **`colab exec` sometimes hangs or returns "Connection was lost".**
+  - Call each runtime in its own shell command under `timeout 100`, and retry once.
+  - Keep status scripts light: `timeout 20 tail` or `grep` on logs, no `ls` of big folders and no `ps`
+    pipelines. `scripts/colab/light.py`, `hx08.py` and `g1log.py` are good templates.
+- **Tar one run folder at a time** (`scripts/colab/tar_h2r0.py` pattern). Tars of everything time out, and a
+  timed-out tar leaves an old archive to download by mistake. Check the folder is in the archive before
+  journalling it as saved.
+- **Setup:** `scripts/colab/setup_both.py` clones the repo, installs flash-linear-attention, and downloads
+  Qwen3.5-9B and 0.8B. `causal_conv1d` is not installed; the warning is harmless.
+- **9B memory:** one `edit_worker` plus the grader fit on an L4. Originals are stored once per model at
+  `runs/.wsp/orig_<model>.safetensors`. Clean up old per-run copies or the disk fills.
+- **Long jobs never run in the chat workspace;** background processes there die between turns.
+
+### Queues used
+
+- **Goal 1:** `scripts/edit_job.sh` with `MODEL`, `OUT` and stages `"label|args"`. DONE markers go in
+  `runs/edit_job/`. Queue it with a script like `scripts/colab/queue_g1add.py`.
+- **Goal 2:** `discover.py --model Qwen/Qwen3.5-9B --out runs/discover/dN --max-runs 40`, queued as in
+  `scripts/colab/queue_d2.py`.
+
+### The VM and Aether
+
+- **The VM:** OCI, CPU. It ran the earlier toy experiments; it was not used after Nov 6.
+- **Aether** is Shreyas's agent on the VM. Give it complete, copy-pasteable prompts.
+- **Aether must never:** set up cron jobs or timers, kill or restart processes unless told to, or edit code.
+- **Pushing from the VM:** `scripts/run_weights.sh publish` and `PUSH=1` in `edit_job.sh` push results, aborting a
+  stuck rebase first.
+- **bubblewrap** is blocked on the VM (RTM_NEWADDR). The harness falls back and records `isolated=false`.
+
+### Check-in pattern while jobs run
+
+- A self-scheduled `send_later` message every ≤9 minutes, carrying the full task in the message text.
+- Each check-in:
+  - keeps the sign-in alive;
+  - checks status;
+  - downloads, verifies and pushes finished runs;
+  - updates all four docs;
+  - schedules the next check-in.
+- Shreyas can stop them; cancel any pending ones if he does.
