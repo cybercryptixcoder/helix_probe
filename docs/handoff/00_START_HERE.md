@@ -1,6 +1,6 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 20:30 ET. Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 7, 2026, 20:50 ET. Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
 
 ## The two goals (from `docs/NORTH_STAR.md`)
@@ -46,7 +46,8 @@ this repo should be able to continue from these files alone, with no separate ha
 - **Hard rules** (`WORKING_METHOD.md` §3): every finished run goes to GitHub at the next check-in; docs are updated
   in the same turn as the event.
 - **Runtimes:** `wsp` was reclaimed by Colab while idle (nothing lost; every result was already on GitHub).
-  `wsp2` is idle. Check-ins every ≤9 minutes from the workspace
+  `wsp2` was stopped at Shreyas's request (Nov 7, 20:50 ET). No Colab runtimes are running; restarting needs
+  `colab new --gpu L4 -s NAME` plus `setup_both.py` and a `.env` upload (`scripts/colab/README.md`). Check-ins every ≤9 minutes from the workspace
   that holds the Colab sign-in keep both alive.
 - **Older results:**
   - FIND: Helix Probe beats the same model without the loop by a wide margin.

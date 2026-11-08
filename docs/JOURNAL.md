@@ -5,6 +5,9 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 7, 2026
 
+**20:50 ET: `wsp2` stopped at Shreyas's request, to save compute units.** No Colab runtimes are running. Every
+result is on GitHub. Shreyas will give his decisions next: Goal 2 option, Step 4 timing, more runs.
+
 **20:30 ET: `wsp` was reclaimed by Colab** after about 4.5 h idle. Nothing was lost: D2's full results were
 verified on GitHub at 16:10. `wsp2` is idle.
 

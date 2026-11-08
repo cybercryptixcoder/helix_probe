@@ -1,7 +1,7 @@
 # Progress
 
 *Every step of both goals, its status, and where it ends. Updated in the same turn as every change (see
-`WORKING_METHOD.md`, hard rules). Last updated Nov 7, 2026, 20:30 ET.*
+`WORKING_METHOD.md`, hard rules). Last updated Nov 7, 2026, 20:50 ET.*
 
 ## Goal 1: switch off one ability by editing weights, and show the loop is why
 
@@ -36,7 +36,7 @@ together).
 |---|---|
 | GitHub | Up to date: every result, doc and script, including `scripts/colab/` |
 | Colab runtime `wsp` | Reclaimed by Colab while idle (gone by 01:28 UTC Nov 8). Nothing lost: D2 was on GitHub |
-| Colab runtime `wsp2` | Idle since 2c ended (01:11 UTC) |
+| Colab runtime `wsp2` | Stopped at Shreyas's request (20:50 ET). No Colab runtimes are running |
 | Colab sign-in | Kept alive by check-ins every ≤9 minutes |
 
 ## Vision (not scheduled; `NORTH_STAR.md`)
