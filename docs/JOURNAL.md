@@ -5,6 +5,9 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 11, 2026
 
+**10:00 ET: Paper structure recorded (`DIRECTIONS.md` section 2d).** Benchmark (read and modify tasks) plus three
+axes: size, other factors, self. Self is the headline; size and factors make it interpretable. Still a proposal.
+
 **09:45 ET: Niche proposed (`DIRECTIONS.md` section 2c); Weight Oracles line corrected.**
 - Shreyas: the paper targets a conference and must stay distinct from likely next work by MIT and others.
 - Proposed constraint: open-weight readers and targets from one pool, so models can read themselves, siblings and

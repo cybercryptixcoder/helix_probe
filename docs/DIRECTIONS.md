@@ -159,6 +159,21 @@ architectural familiarity and privileged self-access.
 Alternatives considered: "small models only" (risks floor effects and reads as a limitation); "language models
 only" (no moat); "one behaviour family deeply" (narrow, and crowded for arithmetic). Kept as fallbacks.
 
+## 2d. The paper's structure (Shreyas, Nov 11)
+
+Shreyas: the paper need not be one direction from this file; any set that fits together is fine. The niche splits
+naturally into a benchmark and three axes, and together they make one paper.
+
+| Part | Question | Role in the paper |
+|---|---|---|
+| Benchmark | How do we measure reading and modifying? Read = predict an edit's effects; Modify = make an edit that hits a target with least collateral. Both scored against measured tables. | The instrument; a release in its own right |
+| Axis 1, size | Does ability scale with the reader/editor's size within a family? | Explains Axis 3 |
+| Axis 2, factors | Text vs code, precision, target size, reasoning budget, loop vs one shot, untrained vs fine-tuned | Explains Axis 3; the "what helps or hurts" result |
+| Axis 3, self | Is a model better on its own weights than a sibling or a same-size or larger stranger? | The headline |
+
+Risk to manage: four parts can read as unfocused. The writing has to keep Axis 3 as the question and the rest as
+the means of answering it fairly.
+
 ## 3. The two runners-up
 
 **T1 + C1, the shortcut study.** Ask AI editors to remove abilities and classify what they change: the cue word, the
