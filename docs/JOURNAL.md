@@ -3,6 +3,19 @@
 *Dated record of what was decided, found and changed, newest first. One entry per decision or result that matters.
 Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this file paraphrases.*
 
+## Nov 11, 2026
+
+**04:30 ET: Directions document added (`docs/DIRECTIONS.md`). No experiments run; nothing running.**
+- Shreyas asked for every possible direction to be written down (his own, those scattered through these docs, and
+  new ones), each judged as a concept as if no experiment had been run, and each checked against the literature.
+- The document lists 20 directions in five families and rates them. Lead direction proposed: measure a map of what
+  each part of a model affects (a scripted sweep), then test whether an AI reading the weights can predict changes
+  it has not seen. This is Goal 2's option B with a prediction score, and it is a proposal, not a decision.
+- Runners-up: the shortcut study (does an AI editor change the cue or the computation?) and a reader-size grid.
+- The north star and the plan are unchanged. Only Shreyas changes goals. The two decisions in `00_START_HERE.md`
+  are still open, and a third is added: whether the lead direction replaces or joins the current goals.
+- A research case and a proposal draft for a faculty collaborator were written and are held privately.
+
 ## Nov 8, 2026
 
 **02:30 ET: Handoff wrap-up (Shreyas: context and weekly limit nearly out).**

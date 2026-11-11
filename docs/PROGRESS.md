@@ -1,7 +1,7 @@
 # Progress
 
 *Every step of both goals, its status, and where it ends. Updated in the same turn as every change (see
-`WORKING_METHOD.md`, hard rules). Last updated Nov 8, 2026, 02:30 ET.*
+`WORKING_METHOD.md`, hard rules). Last updated Nov 11, 2026, 04:30 ET.*
 
 ## Goal 1: switch off one ability by editing weights, and show the loop is why
 
@@ -52,4 +52,5 @@ together).
 |---|---|
 | Nov 7, 12:59 ET | D2 with fixes (a)–(c): yes. Keep `wsp`. Three more helix2 addition runs: yes. Keep the 0.8B axis. Verdict v2 for new runs: yes |
 
+| Open (Nov 11) | Direction: `DIRECTIONS.md` proposes a lead direction (measured map, then prediction by an AI reader). Replace or join the current goals? |
 | Open | Goal 2 after D2: (A) stop and publish the negative, (B) systematic ablation map plus the loop explaining it (recommended), (C) continuous measure and one more calibration. Goal 1: write up now, or more helix2 runs first |

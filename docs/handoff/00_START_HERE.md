@@ -1,6 +1,6 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 8, 2026, 02:30 ET. Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 11, 2026, 04:30 ET. Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
 
 ## The two goals (from `docs/NORTH_STAR.md`)
@@ -53,6 +53,9 @@ runs, which were lost (their results are recorded in JOURNAL). The plain-languag
 1. Goal 2: A, B or C.
 2. Goal 1: write up now, or more helix2 runs first.
 
+3. Direction (added Nov 11): `docs/DIRECTIONS.md` lists every candidate direction and proposes a lead one (a
+   measured map, then testing whether an AI reader can predict it). Does it replace or join the two goals?
+
 Do not start GPU work without his answer.
 
 ### To restart GPU work (Colab)
@@ -91,6 +94,7 @@ Do not start GPU work without his answer.
 
 | File | What it is |
 |---|---|
+| `docs/DIRECTIONS.md` | **Every direction the project could take** (Nov 11), rated, with the literature check. A proposal, not a plan. |
 | `docs/FINDINGS.md` | **Plain-language summary** of what worked, what didn't, and what we discovered. |
 | `docs/NORTH_STAR.md` | **The goal,** what counts as done, what a breakthrough would be. Short; read first. |
 | `docs/GOAL2_CALIBRATION_RESULT.md` | **Goal 2's calibration result** (D1, D2), what it shows, and the options. |

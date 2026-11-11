@@ -3,7 +3,7 @@
 *Serves `docs/NORTH_STAR.md`. Finite: five steps, each with its question, its prediction written before it runs, and
 what we do with each outcome. Status is updated as steps finish. Changes to the plan are logged in `docs/JOURNAL.md`.*
 
-**Status (Nov 8, 02:30 ET): handoff state. Goal 1: Steps 0–3, 2b and 2c done. Real removals (v2): helix2 2/12, MIT 0/9, Helix 0/9. Next: Step 4 (write-up); Shreyas decides whether more helix2 runs come first. Goal 2: D1 and D2 failed; Shreyas chooses A/B/C. Nothing running; no Colab runtimes; check-ins off. Plain summary: `FINDINGS.md`. Table: `PROGRESS.md`.**
+**Status (Nov 8, 02:30 ET): handoff state. Goal 1: Steps 0–3, 2b and 2c done. Real removals (v2): helix2 2/12, MIT 0/9, Helix 0/9. Next: Step 4 (write-up); Shreyas decides whether more helix2 runs come first. Goal 2: D1 and D2 failed; Shreyas chooses A/B/C. Nothing running; no Colab runtimes; check-ins off. Plain summary: `FINDINGS.md`. Table: `PROGRESS.md`. Nov 11: no change to the plan; candidate directions are listed in `DIRECTIONS.md`, waiting for Shreyas.**
 
 ## The experiment in one paragraph
 
