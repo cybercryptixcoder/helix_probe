@@ -5,6 +5,14 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 11, 2026
 
+**09:15 ET: `DIRECTIONS.md` extended (section 2b). No experiments run; nothing running.**
+- The lead direction now covers two tiers: small trained networks from public model zoos, and language models.
+- Six directions added from Shreyas: a trained reader, precise suppression, what helps or hurts reading,
+  self-reading, fine-tuning a reader, and a benchmark. Each checked against the literature.
+- Correction logged: the first scan missed WSPBench (constructed circuits, includes an edit-prediction task) and
+  Weight Oracles (fine-tuned weight readers). The gap claim is narrowed accordingly.
+- Still a proposal. North star and plan unchanged; decisions in `00_START_HERE.md` still open.
+
 **04:30 ET: Directions document added (`docs/DIRECTIONS.md`). No experiments run; nothing running.**
 - Shreyas asked for every possible direction to be written down (his own, those scattered through these docs, and
   new ones), each judged as a concept as if no experiment had been run, and each checked against the literature.

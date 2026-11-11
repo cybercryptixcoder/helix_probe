@@ -102,6 +102,39 @@ weight-space-programming claims of this month.
 **Cost, roughly.** The sweep is about a day of one L4. The reader runs use the cheap model. A frontier reader, for
 contrast, costs API money and needs Shreyas's say.
 
+## 2b. Additions, Nov 11 (later the same day)
+
+**The lead direction now has two tiers.** Small trained networks (vision classifiers and RL policies from public
+model zoos), where the ablation table can be exhaustive and the reader can see every weight; and language models
+(Qwen 0.8B and 9B, plus a second family), where the reader works through code. The project is not specific to
+language models.
+
+**A correction to the prior-art table above.** Two items were missed in the first scan:
+- *WSPBench* (a repository preview): constructed Boolean ReLU circuits of about 4,000 weights, with unaided,
+  weight-analysis and instrumented conditions and a before/after edit task. Three frontier models scored 0/4
+  unaided. It is the nearest thing to U1's design. It has no trained networks and six problems.
+- *Weight Oracles* (Oct 2026): language models fine-tuned to read raw weights fed in as continuous tokens.
+
+So "nobody has tested prediction of weight edits" is too strong. What is open: the test on trained networks at
+scale, with trivial and trained baselines, and a study of what determines the ability.
+
+**New directions from Shreyas (Nov 11), each checked.**
+
+| # | Direction | Nearest existing work | What is open | Rating |
+|---|---|---|---|---|
+| N1 | **A trained reader:** a model trained on our ablation tables to predict effect rows from weights | Weight-space learning (predicts accuracy and hyperparameters); Weight Oracles (simulates small transformers) | Predicting *intervention effects*, and a head-to-head with untrained LLM readers on the same held-out rows | Add to U1 as a stage |
+| N2 | **Precise suppression:** pick the edit with the least predicted collateral | Learned editors (MEND and successors) predict weight updates under a locality constraint, for facts; closed-form linear concept erasure | Skill-level suppression chosen by a side-effect predictor. "Exact" is unlikely in general, since parts are shared between behaviours | Follow-on to U1; do not promise |
+| N3 | **What helps or hurts reading:** reader size, text versus code, precision, target size, reasoning budget | An audit attributing reading to local arithmetic plus priors; our own pilot (thinking on versus off, code versus text) | A controlled one-factor-at-a-time study | The analysis section of U1 |
+| N4 | **Self-reading:** does a model read its own family's weights better? | Behavioural self-prediction beats cross-prediction after fine-tuning (Binder et al.), disputed since; one 2026 study found a different model predicted as well | Never tested with weights | One arm of N3. Caveat: small open models are weak readers (one repo got 0/16 valid answers from a 1.5B model) |
+| N5 | **Fine-tune an LLM to read weights better** | Weight Oracles; Diff Interpretation Tuning | Fine-tuning on intervention-effect data; whether it transfers across architectures | Compute-heavy for us; N1 is the cheap version |
+| N6 | **A benchmark for weight reading** | WSPBench; MIT's announced benchmark | One built on trained networks with measured ablation tables | U1's tables are this benchmark; release them, but do not race MIT on a general one |
+
+**How the lead direction would be run** (the answer to "how are you planning to do that?"): the reader is the
+probing loop this project started from. It picks an unseen intervention, inspects the weights, commits to a
+predicted effect, then sees the measured one and revises a running set of notes. Code scores it. The learning
+curve (accuracy on unseen interventions against number of probes) shows whether understanding accumulates. A
+one-shot reader at the same budget is the control for the loop.
+
 ## 3. The two runners-up
 
 **T1 + C1, the shortcut study.** Ask AI editors to remove abilities and classify what they change: the cue word, the
@@ -146,3 +179,8 @@ defensible either way.
 - "Sparks of Weight-Space Programming": https://rikiyat.github.io/blog/weight-space-programming/
 - "Reward Hacking Challenges Oversight of Autonomous Research Agents": https://arxiv.org/abs/2609.28614
 - Li, Sun, Weng, "Effective Skill Unlearning through Intervention and Abstention": https://arxiv.org/abs/2503.21730
+- WSPBench: https://github.com/alexcarterhq/wspbench
+- Weight Oracles: https://arxiv.org/abs/2610.07334
+- Binder et al., "Looking Inward: Language Models Can Learn About Themselves by Introspection": https://arxiv.org/abs/2410.13787
+- Morcos et al., "On the Importance of Single Directions for Generalization": https://arxiv.org/abs/1803.06959
+- Schürholt et al., "Model Zoos": https://arxiv.org/abs/2209.14764
