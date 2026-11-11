@@ -5,6 +5,13 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 11, 2026
 
+**10:15 ET: Literature check of the paper structure (`DIRECTIONS.md` 2d).** Size and factors stand as open. Self
+stands as a question, but the closest work (eight open models could not detect changes to their own computation;
+own weights added nothing to self-simulation) points to no self-advantage, so self cannot carry the headline
+alone. Headline revised to "what determines reading and modifying ability, including on one's own weights".
+Modify is part of the benchmark, not a novelty claim. Rule from Shreyas: every new idea gets a literature check by
+default.
+
 **10:00 ET: Paper structure recorded (`DIRECTIONS.md` section 2d).** Benchmark (read and modify tasks) plus three
 axes: size, other factors, self. Self is the headline; size and factors make it interpretable. Still a proposal.
 

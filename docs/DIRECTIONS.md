@@ -171,8 +171,22 @@ naturally into a benchmark and three axes, and together they make one paper.
 | Axis 2, factors | Text vs code, precision, target size, reasoning budget, loop vs one shot, untrained vs fine-tuned | Explains Axis 3; the "what helps or hurts" result |
 | Axis 3, self | Is a model better on its own weights than a sibling or a same-size or larger stranger? | The headline |
 
-Risk to manage: four parts can read as unfocused. The writing has to keep Axis 3 as the question and the rest as
+Risk to manage: four parts can read as unfocused. The writing has to keep one question in front and the rest as
 the means of answering it fairly.
+
+**Literature check of 2d (Nov 11, 10:15 ET).**
+
+| Part | Nearest existing work | What is still open | Effect on the plan |
+|---|---|---|---|
+| Size | One researcher ran the same weight task across successive frontier generations and saw the ability appear as a step in the newest ones. MIT tested one reader only. | A controlled within-family size sweep with open models; any size curve for prediction or for editing | Stands |
+| Factors | MIT varied the forward-pass budget; WSPBench separates unaided, analysis and instrumented conditions; an audit attributes reading to local arithmetic plus dataset priors | A one-factor-at-a-time study of what drives reading and editing | Stands |
+| Self | Open-Weight Masked Introspection (Aug 2026): eight open models from seven families, asked whether their own computation had been altered, did no better than chance; a fine-tuned model and a linear probe could tell. The Quine Test (Oct 2026): a model's own weights added nothing when reproducing its own behaviour. | Both test introspective report or self-simulation. Neither hands a model its own weights as data and asks it to predict or make edits. | Stands as a question, but **the prior points to no self-advantage.** It cannot carry the headline alone. |
+| Modify | A large model-editing literature: edits cause ripple effects and collapse; locality metrics are known to be weak; synthetic benchmarks for editing exist | LLM agents as editors, scored against measured collateral across many behaviours | Part of the benchmark, not a claim of novelty |
+
+**Revised headline:** *what determines how well a model can read and modify neural network weights: its size, how
+the weights are shown, how it works, whether it was trained for it, and whether the weights are its own.* Self
+becomes the most distinctive axis, with a stated prior of no advantage; a positive result would be the surprise.
+
 
 ## 3. The two runners-up
 
