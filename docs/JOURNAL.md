@@ -5,6 +5,13 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 11, 2026
 
+**09:45 ET: Niche proposed (`DIRECTIONS.md` section 2c); Weight Oracles line corrected.**
+- Shreyas: the paper targets a conference and must stay distinct from likely next work by MIT and others.
+- Proposed constraint: open-weight readers and targets from one pool, so models can read themselves, siblings and
+  size-matched strangers. Self-reading of weights is untested; MIT lists it as future work.
+- Weight Oracles description corrected from its abstract page (the "continuous tokens" claim was unsupported).
+- Still a proposal; north star and plan unchanged.
+
 **09:15 ET: `DIRECTIONS.md` extended (section 2b). No experiments run; nothing running.**
 - The lead direction now covers two tiers: small trained networks from public model zoos, and language models.
 - Six directions added from Shreyas: a trained reader, precise suppression, what helps or hurts reading,

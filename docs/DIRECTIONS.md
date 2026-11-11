@@ -113,7 +113,9 @@ language models.
 - *WSPBench* (a repository preview): constructed Boolean ReLU circuits of about 4,000 weights, with unaided,
   weight-analysis and instrumented conditions and a before/after edit task. Three frontier models scored 0/4
   unaided. It is the nearest thing to U1's design. It has no trained networks and six problems.
-- *Weight Oracles* (Oct 2026): language models fine-tuned to read raw weights fed in as continuous tokens.
+- *Weight Oracles* (Oct 2026): a language model fine-tuned to read raw weights. It simulates the forward pass of
+  unseen small transformers and flags unseen backdoors. Small transformers only; the authors name scaling as the
+  main open problem. It does not predict the effects of ablations or edits.
 
 So "nobody has tested prediction of weight edits" is too strong. What is open: the test on trained networks at
 scale, with trivial and trained baselines, and a study of what determines the ability.
@@ -134,6 +136,28 @@ probing loop this project started from. It picks an unseen intervention, inspect
 predicted effect, then sees the measured one and revises a running set of notes. Code scores it. The learning
 curve (accuracy on unseen interventions against number of probes) shows whether understanding accumulates. A
 one-shot reader at the same budget is the control for the loop.
+
+## 2c. The niche (Nov 11): open models reading open models, including themselves
+
+Shreyas: the paper is for a conference, and it must stay distinct from what MIT and others are likely to publish
+next. Proposed constraint: **open-weight readers and open-weight targets from the same pool.**
+
+Why this constraint and not another:
+- Closed frontier models can read open targets, but nobody outside a lab can give a frontier model its own weights.
+  Self-reading is therefore structurally hard for the groups most likely to publish next.
+- No experiment so far has had a model read or edit its own weights; MIT lists it as future work.
+- An open mid-size model (Qwen 3.8 27B, quantised, on a laptop) already reads small networks' weights, so the
+  pool is not doomed to floor effects. Very small models are (0/16 valid answers from a 1.5B model in one repo).
+
+What the constraint combines: U1 (measured map, prediction score), N3 (what helps or hurts reading), N4
+(self-reading), N1/N5 (a trained or fine-tuned reader), and the small-network tier as a per-reader calibration.
+
+Headline question: **does a model know what changing its own weights will do, and better than it knows other
+models?** The reader × target grid (self, sibling of another size, stranger of the same size) separates capability,
+architectural familiarity and privileged self-access.
+
+Alternatives considered: "small models only" (risks floor effects and reads as a limitation); "language models
+only" (no moat); "one behaviour family deeply" (narrow, and crowded for arithmetic). Kept as fallbacks.
 
 ## 3. The two runners-up
 
