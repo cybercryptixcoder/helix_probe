@@ -5,6 +5,11 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 11, 2026
 
+**10:30 ET: Correction (flagged by Shreyas).** The two papers cited as a prior against a self-advantage do not
+involve reading weights: one alters activations mid-run and asks the model if it noticed; the other means "own
+weights" as a fresh instance reproducing its behaviour. "Self" in this project means one instance handed a copy of
+its own weights as data. Nothing tests that; the prior is uninformative. All three docs corrected.
+
 **10:15 ET: Literature check of the paper structure (`DIRECTIONS.md` 2d).** Size and factors stand as open. Self
 stands as a question, but the closest work (eight open models could not detect changes to their own computation;
 own weights added nothing to self-simulation) points to no self-advantage, so self cannot carry the headline
