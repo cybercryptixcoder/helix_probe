@@ -1,0 +1,136 @@
+# Aether seed queue: Anthropic and Goodfire work not in the core survey
+
+Read all of these (they were triaged as useful or minor, not essential). Title | date | link | note
+
+- Exercises | 2021-12 | https://transformer-circuits.pub/2021/exercises/index.html | anthropic
+- Videos | 2021-12 | https://transformer-circuits.pub/2021/videos/index.html | anthropic
+- Garcon | 2021-12 | https://transformer-circuits.pub/2021/garcon/index.html | anthropic
+- PySvelte | 2021-12 | https://github.com/anthropics/PySvelte | anthropic
+- Scaling Laws and Interpretability of Learning from Repeated Data | 2022-05 | https://www.anthropic.com/research/scaling-laws-and-interpretability-of-learning-from-repeated-data | anthropic
+- Softmax Linear Units | 2022-06 | https://transformer-circuits.pub/2022/solu/index.html | anthropic
+- Language Models (Mostly) Know What They Know | 2022-07 | https://www.anthropic.com/research/language-models-mostly-know-what-they-know | anthropic
+- Engineering Monosemanticity in Toy Models | 2022-11 | https://arxiv.org/abs/2211.09169 | anthropic
+- Superposition, Memorization, and Double Descent | 2023-01 | https://transformer-circuits.pub/2023/toy-double-descent/index.html | anthropic
+- Circuits Updates, May 2023 | 2023-05 | https://transformer-circuits.pub/2023/may-update/index.html | anthropic
+- Circuits Updates, July 2023 | 2023-07 | https://transformer-circuits.pub/2023/july-update/index.html | anthropic
+- Measuring Faithfulness in Chain-of-Thought Reasoning | 2023-07 | https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning | anthropic
+- Question Decomposition Improves the Faithfulness of Model-Generated Reasoning | 2023-07 | https://www.anthropic.com/research/question-decomposition-improves-the-faithfulness-of-model-generated-reasoning | anthropic
+- Studying Large Language Model Generalization with Influence Functions | 2023-08 | https://www.anthropic.com/research/studying-large-language-model-generalization-with-influence-functions | anthropic
+- Decomposing Language Models Into Understandable Components | 2023-10 | https://www.anthropic.com/research/decomposing-language-models-into-understandable-components | anthropic
+- Circuits Updates, January 2024 | 2024-01 | https://transformer-circuits.pub/2024/jan-update/index.html | anthropic
+- Circuits Updates, February 2024 | 2024-02 | https://transformer-circuits.pub/2024/feb-update/index.html | anthropic
+- Circuits Updates, March 2024 | 2024-03 | https://transformer-circuits.pub/2024/march-update/index.html | anthropic
+- Circuits Updates, April 2024 | 2024-04 | https://transformer-circuits.pub/2024/april-update/index.html | anthropic
+- Simple Probes Can Catch Sleeper Agents | 2024-04 | https://www.anthropic.com/research/probes-catch-sleeper-agents | anthropic
+- Mapping the Mind of a Large Language Model | 2024-05 | https://www.anthropic.com/research/mapping-mind-language-model | anthropic
+- Golden Gate Claude | 2024-05 | https://www.anthropic.com/research/golden-gate-claude | anthropic
+- Circuits Updates, June 2024 | 2024-06 | https://transformer-circuits.pub/2024/june-update/index.html | anthropic
+- The Engineering Challenges of Scaling Interpretability | 2024-06 | https://www.anthropic.com/research/engineering-challenges-interpretability | anthropic
+- Circuits Updates, July 2024 | 2024-07 | https://transformer-circuits.pub/2024/july-update/index.html | anthropic
+- Circuits Updates, August 2024 | 2024-08 | https://transformer-circuits.pub/2024/august-update/index.html | anthropic
+- Circuits Updates, September 2024 | 2024-10 | https://transformer-circuits.pub/2024/september-update/index.html | anthropic
+- Using Dictionary Learning Features as Classifiers | 2024-10 | https://transformer-circuits.pub/2024/features-as-classifiers/index.html | anthropic
+- Evaluating Feature Steering: A Case Study in Mitigating Social Biases | 2024-10 | https://www.anthropic.com/research/evaluating-feature-steering | anthropic
+- Evaluating Sparse Autoencoders on Targeted Concept Erasure Tasks | 2024-11 | https://arxiv.org/abs/2411.18895 | anthropic
+- Circuits Updates, January 2025 | 2025-01 | https://transformer-circuits.pub/2025/january-update/index.html | anthropic
+- Recommendations for Technical AI Safety Research Directions | 2025-01 | https://alignment.anthropic.com/2025/recommended-directions/index.html | anthropic
+- Tracing the Thoughts of a Large Language Model | 2025-03 | https://www.anthropic.com/research/tracing-thoughts-language-model | anthropic
+- Do Reasoning Models Use Their Scratchpad Like We Do? Evidence from Distilling Paraphrases | 2025-03 | https://alignment.anthropic.com/2025/distill-paraphrases/ | anthropic
+- Circuits Updates, April 2025 | 2025-04 | https://transformer-circuits.pub/2025/april-update/index.html | anthropic
+- Reasoning Models Don't Always Say What They Think | 2025-04 | https://www.anthropic.com/research/reasoning-models-dont-say-think | anthropic
+- Open-Sourcing Circuit-Tracing Tools | 2025-05 | https://www.anthropic.com/research/open-source-circuit-tracing | anthropic
+- Model-Internals Classifiers (Cost-Effective Constitutional Classifiers via Representation Re-use) | 2025-06 | https://alignment.anthropic.com/2025/cheap-monitors/ | anthropic
+- Robustly Improving LLM Fairness in Realistic Settings via Interpretability | 2025-06 | https://arxiv.org/abs/2506.10922 | anthropic
+- Circuits Updates, July 2025 | 2025-07 | https://transformer-circuits.pub/2025/july-update/index.html | anthropic
+- Steering Out-of-Distribution Generalization with Concept Ablation Fine-Tuning | 2025-07 | https://arxiv.org/abs/2507.16795 | anthropic
+- Circuits Updates, August 2025 | 2025-08 | https://transformer-circuits.pub/2025/august-update/index.html | anthropic
+- Circuits Updates, September 2025 | 2025-09 | https://transformer-circuits.pub/2025/september-update/index.html | anthropic
+- Claude Sonnet 4.5 System Card | 2025-09 | https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf | anthropic
+- Circuits Updates, October 2025 | 2025-10 | https://transformer-circuits.pub/2025/october-update/index.html | anthropic
+- Signs of Introspection in Large Language Models (Emergent Introspective Awareness, summary) | 2025-10 | https://www.anthropic.com/research/introspection | anthropic
+- Believe It or Not: How Deeply do LLMs Believe Implanted Facts? | 2025-10 | https://alignment.anthropic.com/2025/believe-it-or-not/ | anthropic
+- Steering Evaluation-Aware Language Models to Act Like They Are Deployed | 2025-10 | https://arxiv.org/abs/2510.20487 | anthropic
+- Circuits Updates, November 2025 | 2025-11 | https://transformer-circuits.pub/2025/november-update/index.html | anthropic
+- Evaluating Honesty and Lie Detection Techniques on a Diverse Suite of Dishonest Models | 2025-11 | https://alignment.anthropic.com/2025/honesty-elicitation/ | anthropic
+- Steering Language Models with Weight Arithmetic | 2025-11 | https://arxiv.org/abs/2511.05408 | anthropic
+- Liars' Bench: Evaluating Lie Detectors for Language Models | 2025-11 | https://arxiv.org/abs/2511.16035 | anthropic
+- Beyond Data Filtering: Knowledge Localization for Capability Removal in LLMs | 2025-12 | https://alignment.anthropic.com/2025/selective-gradient-masking | anthropic
+- Open Source Replication of the Auditing Game Model Organism | 2025-12 | https://alignment.anthropic.com/2025/auditing-mo-replication/ | anthropic
+- Unsupervised Decoding of Encoded Reasoning Using Language Model Interpretability | 2025-12 | https://arxiv.org/abs/2512.01222 | anthropic
+- Next-Generation Constitutional Classifiers | 2026-01 | https://www.anthropic.com/research/next-generation-constitutional-classifiers | anthropic
+- The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models | 2026-01 | https://www.anthropic.com/research/assistant-axis | anthropic
+- The Persona Selection Model | 2026-02 | https://www.anthropic.com/research/persona-selection-model | anthropic
+- Censored LLMs as a Natural Testbed for Secret Knowledge Elicitation | 2026-03 | https://arxiv.org/abs/2603.05494 | anthropic
+- Emotion Concepts and their Function in a Large Language Model | 2026-04 | https://transformer-circuits.pub/2026/emotions/index.html | anthropic
+- Emotion Concepts in a Large Language Model (summary) | 2026-04 | https://www.anthropic.com/research/emotion-concepts-function | anthropic
+- Claude Mythos Preview System Card | 2026-04 | https://www-cdn.anthropic.com/08ab9158070959f88f296514c21b7facce6f52bc.pdf | anthropic
+- Latent Planning Emerges with Scale | 2026-04 | https://arxiv.org/abs/2604.12493 | anthropic
+- Segment-Level Coherence for Robust Harmful Intent Probing in LLMs | 2026-04 | https://arxiv.org/abs/2604.14865 | anthropic
+- Slot Machines: How LLMs Keep Track of Multiple Entities | 2026-04 | https://arxiv.org/abs/2604.21139 | anthropic
+- HeadVis | 2026-05 | https://transformer-circuits.pub/2026/headvis/index.html | anthropic
+- Natural Language Autoencoders (summary) | 2026-05 | https://www.anthropic.com/research/natural-language-autoencoders | anthropic
+- From Simulation to Enaction: Post-trained Language Models Recognize and React to Their Own Generations | 2026-05 | https://arxiv.org/abs/2605.25459 | anthropic
+- Building Better Activation Oracles | 2026-05 | https://arxiv.org/abs/2606.02609 | anthropic
+- Circuits Updates, May 2026 | 2026-06 | https://transformer-circuits.pub/2026/may-update/index.html | anthropic
+- Circuits Updates, June 2026 | 2026-06 | https://transformer-circuits.pub/2026/june-update/index.html | anthropic
+- Claude Fable 5 & Claude Mythos 5 System Card | 2026-06 | https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf | anthropic
+- The Value Axis: Language Models Encode Whether They're on the Right Track | 2026-06 | https://arxiv.org/abs/2606.17056 | anthropic
+- A Global Workspace in Language Models (summary) | 2026-07 | https://www.anthropic.com/research/global-workspace | anthropic
+- Reading Between the Dots: Decoding Hidden Computation across Filler Tokens | 2026-07 | https://arxiv.org/abs/2607.03502 | anthropic
+- A Shared Subcircuit Lets LLMs Count Down Across Tasks | 2026-07 | https://arxiv.org/abs/2607.12279 | anthropic
+- Fine-Tuned Lie Detectors Failed to Generalize | 2026-08 | https://alignment.anthropic.com/2026/lie-detectors/ | anthropic
+- Evaluating and Improving LLM Self-Modeling | 2026-08 | https://arxiv.org/abs/2608.30980 | anthropic
+- Steering Language Model Goals with Value Transplant | 2026-09 | https://arxiv.org/abs/2609.34056 | anthropic
+- Circuits Updates, October 2026 | 2026-10 | https://transformer-circuits.pub/2026/october-update/index.html | anthropic
+- An Alignment Assessment of the UK AISI Cybertesting Incident | 2026-10 | https://www.anthropic.com/research/alignment-assessment-ukaisi | anthropic
+- Eliciting Secret Knowledge from Language Models | 2025-10 | https://arxiv.org/abs/2510.01070 | anthropic+core_topics
+- Steering Llama 2 via Contrastive Activation Addition | 2023-12 | https://arxiv.org/abs/2312.06681 | anthropic+core_topics+other_labs
+- Understanding and Steering Llama 3 with Sparse Autoencoders | 2024-09 | https://www.goodfire.com/research/understanding-and-steering-llama-3 | goodfire
+- Feature Steering for Reliable and Expressive AI Engineering | 2024-11 | https://www.goodfire.com/blog/feature-steering-for-reliable-and-expressive-ai-engineering | goodfire
+- Goodfire Ember: Scaling Interpretability for Frontier Model Alignment | 2024-12 | https://goodfire.ai/blog/announcing-goodfire-ember | goodfire
+- Our Approach to Safety at Goodfire | 2024-12 | https://www.goodfire.com/blog/our-approach-to-safety | goodfire
+- Announcing Open-Source SAEs for Llama 3.3 70B and Llama 3.1 8B | 2025-01 | https://www.goodfire.com/blog/sae-open-source-announcement | goodfire
+- Interpreting Evo 2: Arc Institute's Next-Generation Genomic Foundation Model | 2025-02 | https://www.goodfire.com/research/interpreting-evo-2 | goodfire
+- Under the Hood of a Reasoning Model | 2025-04 | https://www.goodfire.com/research/under-the-hood-of-a-reasoning-model | goodfire
+- Announcing Our $50M Series A to Advance AI Interpretability Research | 2025-04 | https://www.goodfire.com/blog/announcing-our-50m-series-a | goodfire
+- Painting With Concepts Using Diffusion Model Latents | 2025-05 | https://www.goodfire.com/research/painting-with-concepts | goodfire
+- Partnering with Radical AI to Advance Materials Science With Interpretability | 2025-07 | https://www.goodfire.com/blog/radical-partnership-announcement | goodfire
+- Finding the Tree of Life in Evo 2 | 2025-08 | https://www.goodfire.com/research/phylogeny-manifold | goodfire
+- Goodfire Announces Collaboration to Advance Genomic Medicine with AI Interpretability (Mayo Clinic) | 2025-09 | https://www.goodfire.com/blog/mayo-clinic-collaboration | goodfire
+- Deploying Interpretability to Production with Rakuten: SAE Probes for PII Detection | 2025-10 | https://www.goodfire.com/research/rakuten-sae-probes-for-pii-detection | goodfire
+- Announcing Goodfire's Fellowship Program for Interpretability Research | 2025-10 | https://www.goodfire.com/blog/fellowship-fall-25 | goodfire
+- Understanding Memorization via Loss Curvature | 2025-11 | https://www.goodfire.com/research/understanding-memorization-via-loss-curvature | goodfire
+- Belief Dynamics Reveal the Dual Nature of In-Context Learning and Activation Steering | 2025-11 | https://www.goodfire.com/research/belief-dynamics-icl-steering | goodfire
+- Priors in Time (arXiv / ICLR 2026) | 2025-11 | https://arxiv.org/abs/2511.01836 | goodfire
+- Stanford Guest Lectures: AP293 (Fall 2025) | 2025-12 | https://www.goodfire.com/blog/ap293-guest-lectures-25 | goodfire
+- Using Interpretability to Identify a Novel Class of Alzheimer's Biomarkers | 2026-01 | https://www.goodfire.com/research/interpretability-for-alzheimers-detection | goodfire
+- Features as Rewards: Using Interpretability to Reduce Hallucinations (RLFR) | 2026-02 | https://www.goodfire.com/research/rlfr | goodfire
+- Features as Rewards: Scalable Supervision for Open-Ended Tasks via Interpretability (arXiv) | 2026-02 | https://arxiv.org/abs/2602.10067 | goodfire
+- Interpretability Infrastructure at Frontier Scale: Harvesting Activations from a Trillion-Parameter Model | 2026-02 | https://www.goodfire.com/blog/interpretability-infra-at-frontier-scale | goodfire
+- Intentionally Designing the Future of AI | 2026-02 | https://www.goodfire.com/blog/intentional-design | goodfire
+- Understanding, Learning From, and Designing AI: Our Series B | 2026-02 | https://www.goodfire.com/blog/our-series-b | goodfire
+- Reasoning Theater: Probing for Performative Chain-of-Thought | 2026-03 | https://www.goodfire.com/research/reasoning-theater | goodfire
+- Probe-Based Data Attribution: Surfacing and Mitigating Undesirable Behaviors in LLM Post-Training | 2026-04 | https://www.goodfire.com/research/probe-based-data-attribution | goodfire
+- Explaining 4.2 million genetic variants with state-of-the-art, interpretable predictions (EVEE) | 2026-04 | https://www.goodfire.com/research/evee-explaining-genetic-variants | goodfire
+- Covariance-based Sequence Pooling | 2026-04 | https://www.goodfire.com/research/covariance-pooling | goodfire
+- Using Self-Correcting Search to Accelerate Materials Discovery | 2026-04 | https://www.goodfire.com/research/self-correcting-search | goodfire
+- Silico (agentic interpretability and model-debugging platform) | 2026-04 | https://www.goodfire.com/ | goodfire
+- Predicting Rare LLM Failures with 30x Fewer Rollouts | 2026-05 | https://www.goodfire.com/research/predicting-rare-llm-failures-with-30x-fewer-rollouts | goodfire
+- Paper Summary: Interpreting Language Model Parameters | 2026-05 | https://www.goodfire.com/research/vpd-explainer | goodfire
+- Verbalized Eval Awareness Inflates Measured Safety | 2026-05 | https://www.goodfire.com/research/verbalized-eval-awareness-inflates-measured-safety | goodfire
+- Announcing our SOC 2 Type II Certification | 2026-05 | https://www.goodfire.com/blog/soc-2-type-ii | goodfire
+- Meandering on Manifolds: The Neural Geometry of Stories Over Time | 2026-06 | https://www.goodfire.com/research/stories-in-space | goodfire
+- Logits as a new monitor for evaluation awareness | 2026-06 | https://www.goodfire.com/research/logits-as-a-new-monitor-for-evaluation-awareness | goodfire
+- Uncovering Neural Geometry in Vision Models With Block-Sparse Featurizers | 2026-07 | https://www.goodfire.com/research/bsf-vision | goodfire
+- Forking Fast: Efficiently Estimating Uncertainty Dynamics in Text Generation | 2026-08 | https://www.goodfire.com/research/forking-fast | goodfire
+- AI Safety Still Needs Great Engineers | 2026-08 | https://www.goodfire.com/blog/ai-safety-still-needs-great-engineers | goodfire
+- Announcing Goodfire Research Grants | 2026-08 | https://www.goodfire.com/blog/announcing-goodfire-research-grants | goodfire
+- Models know when they're reward hacking - and we can catch them at scale | 2026-09 | https://www.goodfire.com/research/reward-hacking-activation-monitors | goodfire
+- We can and must solve alignment | 2026-09 | https://www.goodfire.com/blog/we-can-and-must-solve-alignment | goodfire
+- A practical guide to sparse autoencoders (SAEs) | 2026-09 | https://www.goodfire.com/blog/a-practical-guide-to-saes | goodfire
+- How to build fast, efficient monitors for AI models using probes | 2026-09 | https://www.goodfire.com/blog/probe-monitors-101 | goodfire
+- Training and Deploying Production Cyber Monitors on Kimi K3 | 2026-10 | https://www.goodfire.com/research/production-cyber-monitors-on-kimi-k3 | goodfire
+- Better biosecurity monitors for AI agents via protein embeddings | 2026-10 | https://www.goodfire.com/research/better-biosecurity-monitors | goodfire
+- Goodfire and Baseten partner to bring frontier safety to open models | 2026-10 | https://www.goodfire.com/blog/goodfire-baseten-partnership | goodfire
+- Neuron Atlas - Qwen3.6 | 2026-11 | https://www.goodfire.com/research/public_neuron_atlas | goodfire
+- Stochastic Parameter Decomposition (arXiv version) | 2025-06 | https://arxiv.org/abs/2506.20790 | goodfire+other_labs
