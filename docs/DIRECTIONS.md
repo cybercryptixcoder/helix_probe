@@ -190,6 +190,23 @@ embedding and output rows are its own token representations, so it may recognise
 stranger cannot.
 
 
+## 2e. Goodfire, "Neurons as an Interpretable Basis" (Nov 10, 2026), checked Nov 12
+
+What it is: a study of Qwen3.6-35B-A3B's MLP neurons. Findings: neurons are functionally sparse (dropping 92% of
+the weakest routed activations costs 2.9% loss, recoverable by light fine-tuning); most neuron poles have one or a
+few "modes"; a frontier agent (the "Neuron Scientist", with activation, steering, attribution and circuit tools)
+writes descriptions that let a judge detect firing (~95% vs random text) and let a simulator restore 73% of the
+ablation damage (relative to a perfect-reader ceiling). A public Neuron Atlas accompanies it. Companion to the
+Oct 15 essay "Neural Networks Are Already Clean".
+
+| Question | Answer |
+|---|---|
+| Does it scoop us? | No. Evidence is activations, not weights handed to a reader as data. No LLM edits weights. No self-reading. One model, frontier agents only. It predicts *activations*, not the effects of weight changes. |
+| Does it support us? | Yes. (1) It scores explanations by prediction under ablation, the yardstick we chose. (2) It makes individual neurons a defensible unit of intervention, finer and more interpretable than layers. (3) A neuron's gate inputs explain 59% of the variance in its firing size, against 14% for the text: internal structure carries what text can't, which is the case for reading weights. |
+| New opportunity | A head-to-head on the same neurons: a reader given only a neuron's weights versus Goodfire's activation-based descriptions, scored on Goodfire's own metrics. And the self version: Qwen3.6 reading Qwen3.6's neurons. Their target is in our pool's family. |
+| New risk | Goodfire is well-resourced, has an agent product (Silico), and calls this the first post in a "native interpretability" series. Reading weights directly is a natural next step for them. Our moat is the controlled size/factor/self study across open models, not single-model depth. |
+| Open check | Whether the atlas's descriptions can be downloaded and reused (the page is JavaScript-only and states no licence). |
+
 ## 3. The two runners-up
 
 **T1 + C1, the shortcut study.** Ask AI editors to remove abilities and classify what they change: the cue word, the

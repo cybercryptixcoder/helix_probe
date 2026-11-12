@@ -3,6 +3,14 @@
 *Dated record of what was decided, found and changed, newest first. One entry per decision or result that matters.
 Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this file paraphrases.*
 
+## Nov 12, 2026
+
+**17:30 ET: Goodfire's "Neurons as an Interpretable Basis" (Nov 10) reviewed (`DIRECTIONS.md` 2e).** Not a scoop:
+activation-based, one model, no weight reading, no edits, no self. Supports the design (prediction under ablation
+as the yardstick; neurons as a unit of intervention). New opportunity: weights-only reader versus their
+activation-based descriptions on the same Qwen3.6 neurons. New risk: Goodfire may move to weight reading next.
+Both proposals updated.
+
 ## Nov 11, 2026
 
 **10:30 ET: Correction (flagged by Shreyas).** The two papers cited as a prior against a self-advantage do not
