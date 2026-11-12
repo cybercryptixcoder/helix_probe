@@ -5,6 +5,14 @@ Shreyas's exact words are in the private bundle (`08_shreyas_verbatim.md`); this
 
 ## Nov 12, 2026
 
+**18:20 ET: Commit history rewritten; literature survey started.**
+- At Shreyas's request every commit is now authored and committed as `cybercryptixcoder <official.shreyas28@gmail.com>`
+  and AI attribution lines were removed from all messages. File contents are identical (same tree hash). This was a
+  force push: **any other clone (VM, Colab) must re-clone or `git fetch && git reset --hard origin/main`.**
+- Literature survey begun (`docs/literature/`): four scouts are mapping Anthropic, Goodfire, agenda/evaluation/
+  weight-based work, and other labs; a curated list then goes to reader sub-agents writing `core/` entries.
+  Prompts for Aether and for building Helix Research are with Shreyas.
+
 **17:30 ET: Goodfire's "Neurons as an Interpretable Basis" (Nov 10) reviewed (`DIRECTIONS.md` 2e).** Not a scoop:
 activation-based, one model, no weight reading, no edits, no self. Supports the design (prediction under ablation
 as the yardstick; neurons as a unit of intervention). New opportunity: weights-only reader versus their
