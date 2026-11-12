@@ -1,0 +1,5 @@
+- Discovering Undesired Rare Behaviors via Model Diff Amplification | 2025-08 | https://www.goodfire.com/research/model-diff-amplification | scout note: Amplifies logit differences between checkpoints to surface rare behaviors; model-diffing as an auditing tool
+- Because we have LLMs, we Can and Should Pursue Agentic Interpretability | 2025-06 | https://arxiv.org/abs/2506.12152 | scout note: Been Kim et al. argue for interactive, model-assisted explanation; an alternative view of what an explanation is
+- Pitfalls in Evaluating Interpretability Agents | 2026-03 | https://arxiv.org/abs/2603.20101 | scout note: Replication-based agent evals mislead; proposes intrinsic functional-substitution test.
+- Enhancing Automated Interpretability with Output-Centric Feature Descriptions | 2025-01 | https://arxiv.org/abs/2501.08319 | scout note: Adds output/causal-effect side to autointerp scoring.
+- Rigorously Assessing Natural Language Explanations of Neurons | 2023-09 | https://arxiv.org/abs/2309.10312 | scout note: Shows neuron explanations fail observational and intervention tests.

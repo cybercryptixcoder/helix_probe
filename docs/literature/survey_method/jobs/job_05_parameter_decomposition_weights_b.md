@@ -1,0 +1,6 @@
+- Using Degeneracy in the Loss Landscape for Mechanistic Interpretability | 2024-05 | https://arxiv.org/abs/2405.10927 | scout note: Theory link between parameter-space degeneracy and interpretable structure; foundation for LIB and APD
+- Decomposition of Small Transformer Models | 2025-11 | https://arxiv.org/abs/2511.08854 | scout note: Adapts stochastic parameter decomposition to transformers (toy induction, GPT-2 small).
+- Weight-sparse circuits may be interpretable yet unfaithful | 2025-12 | https://www.lesswrong.com/posts/sHpZZnRDLg7ccX9aF/weight-sparse-circuits-may-be-interpretable-yet-unfaithful | scout note: Critique of the OpenAI sparse-circuit faithfulness claim.
+- Interpretability as Compression: Reconsidering SAE Explanations of Neural Activations with MDL-SAEs | 2024-10 | https://arxiv.org/abs/2410.11179 | scout note: Frames explanations as compression and proposes description-length as the measure
+- The Singular Value Decompositions of Transformer Weight Matrices are Highly Interpretable | 2022-11 | https://www.alignmentforum.org/posts/mkbGjzxD8d8XqKHzA/the-singular-value-decompositions-of-transformer-weight | scout note: SVD directions of weights map to coherent token clusters.
+- Weight Banding | 2021-04 | https://distill.pub/2020/circuits/weight-banding/ | scout note: Structural pattern found directly in weights

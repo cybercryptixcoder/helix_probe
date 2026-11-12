@@ -1,0 +1,6 @@
+- Interpreting GPT: the Logit Lens | 2020-08 | https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens | scout note: Decode residual stream through unembedding; basis of many weight/embedding-space analyses.
+- Eliciting Latent Predictions from Transformers with the Tuned Lens | 2023-03 | https://arxiv.org/abs/2303.08112 | scout note: Learned per-layer affine readouts improve logit lens.
+- Function Vectors in Large Language Models | 2023-10 | https://arxiv.org/abs/2310.15213 | scout note: Causal mediation finds compact task representations.
+- Representation Engineering: A Top-Down Approach to AI Transparency | 2023-10 | https://arxiv.org/abs/2310.01405 | scout note: Population-level reading and control of concepts.
+- The Linear Representation Hypothesis and the Geometry of LLMs | 2023-11 | https://arxiv.org/abs/2311.03658 | scout note: Formalises "concepts are directions"; a core assumption of feature-based explanations.
+- Patchscopes: A Unifying Framework for Inspecting Hidden Representations | 2024-01 | https://arxiv.org/abs/2401.06102 | scout note: Uses the model itself to verbalise patched representations.

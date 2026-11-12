@@ -1,0 +1,5 @@
+- The Quest for the Right Mediator: A History, Survey, and Theoretical Grounding of Causal Interpretability | 2024-08 | https://arxiv.org/abs/2408.01416 | scout note: Survey organised by unit of causal analysis (neurons, subspaces, features); clarifies experimental design choices.
+- Interpretability at Scale: Identifying Causal Mechanisms in Alpaca (Boundless DAS) | 2023-05 | https://arxiv.org/abs/2305.08809 | scout note: Scales DAS to 7B models.
+- Transformer Circuit Faithfulness Metrics Are Not Robust | 2024-07 | https://arxiv.org/abs/2407.08734 | scout note: Faithfulness scores swing with ablation choices; essential for experiment design.
+- Have Faith in Faithfulness: Going Beyond Circuit Overlap When Finding Model Mechanisms | 2024-03 | https://arxiv.org/abs/2403.17806 | scout note: EAP-IG; argues circuits must be judged by faithfulness, not overlap.
+- The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks | 2023-06 | https://arxiv.org/abs/2306.17844 | scout note: Same task, different algorithms; explanations must be per-model.

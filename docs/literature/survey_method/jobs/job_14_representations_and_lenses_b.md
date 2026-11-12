@@ -1,0 +1,6 @@
+- Discovering Latent Knowledge in Language Models Without Supervision (CCS) | 2022-12 | https://arxiv.org/abs/2212.03827 | scout note: Unsupervised truth probing; started the latent-knowledge line
+- Linearity of Relation Decoding in Transformer Language Models (LRE) | 2023-08 | https://arxiv.org/abs/2308.09124 | scout note: Many relations are well approximated by an affine map from the Jacobian; a simple predictive model of a subcomputation
+- The Geometry of Truth: Emergent Linear Structure in LLM Representations of True/False Datasets | 2023-10 | https://arxiv.org/abs/2310.06824 | scout note: Linear truth direction with causal checks; a standard representation-level result
+- Language Models Use Trigonometry to Do Addition | 2025-02 | https://arxiv.org/abs/2502.00873 | scout note: Full mechanism for addition in mid-size LLMs (helix representation plus a "clock" algorithm)
+- Future Lens: Anticipating Subsequent Tokens from a Single Hidden State | 2023-11 | https://arxiv.org/abs/2311.04897 | scout note: Reads predictions of future tokens from one state; extends lens methods
+- Backward Lens: Projecting Language Model Gradients into the Vocabulary Space | 2024-02 | https://arxiv.org/abs/2402.12865 | scout note: Reads gradient updates in vocab space; relevant to explaining weight changes

@@ -1,0 +1,5 @@
+- Investigating Gender Bias in Language Models Using Causal Mediation Analysis | 2020-04 | https://arxiv.org/abs/2004.12265 | scout note: Brings causal mediation (direct/indirect effects) to neurons; root of activation patching.
+- Causal Abstractions of Neural Networks | 2021-06 | https://arxiv.org/abs/2106.02997 | scout note: Introduces interchange interventions to test whether a network implements a high-level causal model.
+- Causal Scrubbing: A Method for Rigorously Testing Interpretability Hypotheses | 2022-12 | https://www.lesswrong.com/posts/JvZhhzycHu2Yd57RN/causal-scrubbing-a-method-for-rigorously-testing | scout note: Hypothesis-as-resampling test; formal way to score how much behaviour an explanation accounts for.
+- Causal Abstraction: A Theoretical Foundation for Mechanistic Interpretability | 2023-01 | https://arxiv.org/abs/2301.04709 | scout note: Unifying formal definition of "explanation = causal abstraction"; subsumes patching, DAS, circuits.
+- Attribution Patching: Activation Patching at Industrial Scale | 2023-02 | https://www.neelnanda.io/mechanistic-interpretability/attribution-patching | scout note: Gradient approximation of patching.

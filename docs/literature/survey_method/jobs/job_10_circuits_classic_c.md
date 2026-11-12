@@ -1,0 +1,5 @@
+- How Does GPT-2 Compute Greater-Than? | 2023-05 | https://arxiv.org/abs/2305.00586 | scout note: Small complete circuit case study with a generalisation test
+- Copy Suppression: Comprehensively Understanding an Attention Head | 2023-10 | https://arxiv.org/abs/2310.04625 | scout note: Explains about 77% of one head's behaviour using weight-based analysis; a model of "complete" component understanding
+- A Toy Model of Universality: Reverse Engineering How Networks Learn Group Operations | 2023-02 | https://arxiv.org/abs/2302.03025 | scout note: Complete accounts across seeds; tests universality.
+- Fact Finding: Attempting to Reverse-Engineer Factual Recall on the Neuron Level | 2023-12 | https://www.alignmentforum.org/posts/iGuwZTHWb6DFY3sKB | scout note: An honest failed attempt to fully reverse-engineer factual-recall MLPs; useful on where neuron-level, weight-level understanding stops working
+- The Hydra Effect: Emergent Self-repair in Language Model Computations | 2023-07 | https://arxiv.org/abs/2307.15771 | scout note: Ablated components get compensated by others, which complicates ablation-based explanations

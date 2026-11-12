@@ -1,0 +1,7 @@
+- Editing Models with Task Arithmetic | 2022-12 | https://arxiv.org/abs/2212.04089 | scout note: Task vectors: weight differences carry composable semantics.
+- Does Localization Inform Editing? | 2023-01 | https://arxiv.org/abs/2301.04213 | scout note: Localisation results do not predict edit success; caution on causal-tracing claims.
+- Transformer Feed-Forward Layers Are Key-Value Memories | 2020-12 | https://arxiv.org/abs/2012.14913 | scout note: MLP weights as key-value stores; foundational weight-reading view.
+- Locating and Editing Factual Associations in GPT (ROME) | 2022-02 | https://arxiv.org/abs/2202.05262 | scout note: Causal tracing + rank-one weight edit; weights as editable memory.
+- Transformer Feed-Forward Layers Build Predictions by Promoting Concepts in the Vocabulary Space | 2022-03 | https://arxiv.org/abs/2203.14680 | scout note: Value vectors read in vocabulary space.
+- Analyzing Transformers in Embedding Space | 2022-09 | https://arxiv.org/abs/2209.02535 | scout note: Projects weight matrices into vocabulary space to read them without running inputs.
+- Mass-Editing Memory in a Transformer (MEMIT) | 2022-10 | https://arxiv.org/abs/2210.07229 | scout note: Scales weight editing to thousands of facts.

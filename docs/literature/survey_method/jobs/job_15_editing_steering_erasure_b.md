@@ -1,0 +1,6 @@
+- Dissecting Recall of Factual Associations in Auto-Regressive LMs | 2023-04 | https://arxiv.org/abs/2304.14767 | scout note: Attention knockout analysis of fact recall.
+- LEACE: Perfect Linear Concept Erasure in Closed Form | 2023-06 | https://arxiv.org/abs/2306.03819 | scout note: Erasure as a causal test of linear concept use.
+- Refusal in Language Models Is Mediated by a Single Direction | 2024-06 | https://arxiv.org/abs/2406.11717 | scout note: Finds one direction that controls refusal and edits it into the weights; widely reused result
+- Evaluating the Ripple Effects of Knowledge Editing in Language Models | 2023-07 | https://arxiv.org/abs/2307.12976 | scout note: Edits fail to propagate; tests whether edits reflect real understanding.
+- ReFT: Representation Finetuning for Language Models | 2024-04 | https://arxiv.org/abs/2404.03592 | scout note: Intervention-based finetuning built on causal abstraction.
+- Steering Language Models With Activation Engineering (ActAdd) | 2023-08 | https://arxiv.org/abs/2308.10248 | scout note: Steering vectors as causal test of representations.

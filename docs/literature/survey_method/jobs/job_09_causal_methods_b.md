@@ -1,0 +1,5 @@
+- Finding Alignments Between Interpretable Causal Variables and Distributed Neural Representations (DAS) | 2023-03 | https://arxiv.org/abs/2303.02536 | scout note: Learns rotated subspaces aligning with causal-model variables.
+- Towards Best Practices of Activation Patching in Language Models: Metrics and Methods | 2023-09 | https://arxiv.org/abs/2309.16042 | scout note: Shows corruption method and metric choice change conclusions.
+- An Interpretability Illusion for Subspace Activation Patching | 2023-11 | https://arxiv.org/abs/2311.17030 | scout note: Shows subspace patching can "find" variables via dormant pathways; key critique of intervention-based claims.
+- AtP*: An Efficient and Scalable Method for Localizing LLM Behaviour to Components | 2024-03 | https://arxiv.org/abs/2403.00745 | scout note: Fixes failure modes of attribution patching; scalable localisation.
+- How to Use and Interpret Activation Patching | 2024-04 | https://arxiv.org/abs/2404.15255 | scout note: Practical guide to patching setups, metrics, and pitfalls.

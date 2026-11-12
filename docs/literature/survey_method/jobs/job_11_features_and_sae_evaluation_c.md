@@ -1,0 +1,5 @@
+- MIB: A Mechanistic Interpretability Benchmark | 2025-04 | https://arxiv.org/abs/2504.13151 | scout note: Standard benchmark for circuit localisation and causal-variable localisation with faithfulness metrics (CPR/CMD).
+- Transcoders Beat Sparse Autoencoders for Interpretability | 2025-01 | https://arxiv.org/abs/2501.18823 | scout note: Skip transcoders as better surrogate units.
+- Jacobian Sparse Autoencoders: Sparsify Computations, Not Just Activations | 2025-02 | https://arxiv.org/abs/2502.18147 | scout note: Sparsifies the input-output computation of MLPs; step toward computational replacement.
+- Sparse Autoencoders Trained on the Same Data Learn Different Features | 2025-01 | https://arxiv.org/abs/2501.16615 | scout note: Seed dependence of SAE dictionaries.
+- InterpBench: Semi-Synthetic Transformers for Evaluating Mechanistic Interpretability Techniques | 2024-07 | https://arxiv.org/abs/2407.14494 | scout note: Models with known ground-truth circuits for method evaluation.

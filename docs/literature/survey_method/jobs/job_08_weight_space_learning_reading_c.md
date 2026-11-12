@@ -1,0 +1,5 @@
+- Classifying the Classifier: Dissecting the Weight Space of Neural Networks | 2020-02 | https://arxiv.org/abs/2002.05688 | scout note: Meta-classifiers infer training hyperparameters from weights.
+- Self-Supervised Representation Learning on Neural Network Weights for Model Characteristic Prediction (hyper-representations) | 2021-10 | https://arxiv.org/abs/2110.15288 | scout note: Learned weight embeddings predict model properties.
+- Graph Metanetworks for Processing Diverse Neural Architectures | 2023-12 | https://arxiv.org/abs/2312.04501 | scout note: Weights as graphs; handles transformers and varied architectures.
+- Interpreting the Weight Space of Customized Diffusion Models (weights2weights) | 2024-06 | https://arxiv.org/abs/2406.09413 | scout note: Linear subspace of fine-tuned weights with editable semantic directions.
+- Narrow Finetuning Leaves Clearly Readable Traces in Activation Differences | 2025-10 | https://arxiv.org/abs/2510.13900 | scout note: Finetuning objectives readable from activation diffs; diffing baseline to compare weight-diff readers against.

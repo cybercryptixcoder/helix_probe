@@ -1,0 +1,4 @@
+- Compact Proofs of Model Performance via Mechanistic Interpretability | 2024-06 | https://arxiv.org/abs/2406.11779 | scout note: Measures explanation quality by proof length/tightness from weights; formal "complete account" criterion.
+- Neural Decompiling of Tracr Transformers | 2024-10 | https://arxiv.org/abs/2410.00061 | scout note: Learns to map compiled transformer weights back to RASP programs; weights-to-program reader.
+- Interpretability Illusions in the Generalization of Simplified Models | 2023-12 | https://arxiv.org/abs/2312.03656 | scout note: Simplified explanations look faithful in distribution but fail out of distribution; key for predictive-model evaluation
+- Inducing Causal Structure for Interpretable Neural Networks (IIT) | 2021-12 | https://arxiv.org/abs/2112.00826 | scout note: Trains networks to realise a given causal model; interpretable-by-training.

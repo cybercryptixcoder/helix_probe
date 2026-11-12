@@ -1060,3 +1060,13 @@ no background execution; how long a runtime survives is untested. The sign-in to
 - The interpretability track opened (MIT's "Sparks of Weight-Space Programming", Nov 2). The weights harness was
   built (`bench/weights/wsp.py`) and the full handoff written (`docs/handoff/`).
 - FIND and ARC results finalised (`docs/handoff/03_ANALYSIS.md`).
+
+## 2026-11-12: core literature survey read
+
+All 34 reader jobs finished: 193 entries in `docs/literature/core/`, plus an index and per-job notes. None were skipped. Known caveats, all flagged in the entries themselves:
+- some long papers were read only in part;
+- LoRAcles was read from its abstract and model card only;
+- one Othello entry includes a background-knowledge claim, labelled as such;
+- some scout dates or links were corrected.
+
+The method is in `docs/literature/survey_method/`. Next: SYNTHESIS.md.

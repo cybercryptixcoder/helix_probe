@@ -1,0 +1,4 @@
+- Thinking Like Transformers (RASP) | 2021-06 | https://arxiv.org/abs/2106.06981 | scout note: Programming language for transformer computation; target language for "network as program".
+- Tracr: Compiled Transformers as a Laboratory for Interpretability | 2023-01 | https://arxiv.org/abs/2301.05062 | scout note: Compiles RASP programs to weights; ground-truth models for weight readers.
+- Learning Transformer Programs | 2023-06 | https://arxiv.org/abs/2306.01128 | scout note: Trains transformers that decompile exactly into Python programs.
+- Opening the AI Black Box: Program Synthesis via Mechanistic Interpretability (MIPS) | 2024-02 | https://arxiv.org/abs/2402.05110 | scout note: Automatically distils RNNs into Python code; network-to-program conversion.

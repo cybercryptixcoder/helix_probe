@@ -1,0 +1,6 @@
+- Neural Networks Are Already Clean | 2026-10 | https://www.goodfire.com/research/already-clean | scout note: Cammarata's argument that trained networks are already structured and readable without new bases; a position on what interpretability is uncovering
+- Mechanistic? | 2024-10 | https://arxiv.org/abs/2410.09087 | scout note: Unpacks the different meanings of "mechanistic interpretability"; useful for defining our own claim.
+- Mechanistic Interpretability Needs Philosophy | 2025-06 | https://arxiv.org/abs/2506.18852 | scout note: Position on conceptual foundations (what is a mechanism / explanation) for MI.
+- How Causal Abstraction Underpins Computational Explanation | 2025-08 | https://arxiv.org/abs/2508.11214 | scout note: Geiger et al. philosophical grounding of causal abstraction as the standard for "explaining" a network (Goodfire affiliation not verified)
+- Accelerating Interpretability: A Human Genome Project for AI | 2026-10 | https://www.goodfire.com/blog/accelerating-interpretability | scout note: Agenda piece proposing a large, coordinated effort to map models fully; states the field-level goal
+- On Optimism for Interpretability | 2025-07 | https://www.goodfire.com/blog/on-optimism-for-interpretability | scout note: Position essay on why interpretability can succeed; frames the field's goals

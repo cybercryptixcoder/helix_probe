@@ -1,0 +1,6 @@
+- Predicting Neural Network Accuracy from Weights | 2020-02 | https://arxiv.org/abs/2002.11448 | scout note: Foundational: simple weight statistics predict accuracy across a CNN zoo.
+- Model Zoos: A Dataset of Diverse Populations of Neural Network Models | 2022-09 | https://arxiv.org/abs/2209.14764 | scout note: Standard datasets of trained models for weight-space learning.
+- Equivariant Architectures for Learning in Deep Weight Spaces (DWSNets) | 2023-01 | https://arxiv.org/abs/2301.12780 | scout note: Permutation-equivariant layers for processing weights; core architecture.
+- Permutation Equivariant Neural Functionals | 2023-02 | https://arxiv.org/abs/2302.14040 | scout note: NFNs: networks that take weights as input respecting symmetries.
+- Learning to Interpret Weight Differences in Language Models (Diff Interpretation Tuning) | 2025-10 | https://arxiv.org/abs/2510.05092 | scout note: Trains an adapter so a model describes its own finetuning weight diff in natural language.
+- LoRAcles: Self-Supervised Weight-Space Interpretability at Scale | 2026 | https://openreview.net/forum?id=x9MbM7QmQN | scout note: LMs that read LoRA weights and answer questions about encoded behaviour; NeurIPS 2026 oral.

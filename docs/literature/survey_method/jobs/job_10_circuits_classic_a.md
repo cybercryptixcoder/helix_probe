@@ -1,0 +1,6 @@
+- Zoom In: An Introduction to Circuits | 2020-03 | https://distill.pub/2020/circuits/zoom-in/ | scout note: Founding claims of circuits research (features, circuits, universality); reads weights between neurons directly.
+- Interpretability in the Wild: A Circuit for Indirect Object Identification in GPT-2 Small | 2022-11 | https://arxiv.org/abs/2211.00593 | scout note: Canonical circuit; defines faithfulness/completeness/minimality criteria.
+- Progress Measures for Grokking via Mechanistic Interpretability | 2023-01 | https://arxiv.org/abs/2301.05217 | scout note: Full reverse-engineering of modular addition largely from weights; canonical "complete account".
+- Towards Automated Circuit Discovery for Mechanistic Interpretability (ACDC) | 2023-04 | https://arxiv.org/abs/2304.14997 | scout note: Automated circuit discovery with ground-truth recovery evaluation.
+- Sparse Feature Circuits: Discovering and Editing Interpretable Causal Graphs in Language Models | 2024-03 | https://arxiv.org/abs/2403.19647 | scout note: Circuits over SAE features with error nodes; replacement-graph precursor.
+- Transcoders Find Interpretable LLM Feature Circuits | 2024-06 | https://arxiv.org/abs/2406.11944 | scout note: MLP replacement with sparse transcoders gives input-invariant, weight-based circuits.

@@ -1,0 +1,6 @@
+- Feature Visualization | 2017-11 | https://distill.pub/2017/feature-visualization/ | scout note: Optimisation-based visualisation of what units respond to; the main early way to "label" features
+- Curve Detectors | 2020-06 | https://distill.pub/2020/circuits/curve-detectors/ | scout note: Uses many converging lines of evidence to establish one feature family; a template for what counts as proof that a feature is real
+- Curve Circuits | 2021-01 | https://distill.pub/2020/circuits/curve-circuits/ | scout note: Reads curve detectors' construction from the weights and hand-rewrites them; the closest Distill comes to weights-to-understanding
+- Visualizing Weights | 2021-02 | https://distill.pub/2020/circuits/visualizing-weights/ | scout note: Methods for reading weights directly (including expanded weights across layers); core to our weight-reading goal
+- Multimodal Neurons in Artificial Neural Networks | 2021-03 | https://distill.pub/2021/multimodal-neurons/ | scout note: CLIP neurons for abstract concepts; key to how high-level features are described and tested
+- Emergent World Representations: Exploring a Sequence Model Trained on a Synthetic Task (Othello-GPT) | 2022-10 | https://arxiv.org/abs/2210.13382 | scout note: Evidence of internal world models via probes and interventions

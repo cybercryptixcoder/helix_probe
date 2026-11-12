@@ -1,0 +1,5 @@
+- Sparse Autoencoders Find Highly Interpretable Features in Language Models | 2023-09 | https://arxiv.org/abs/2309.08600 | scout note: Early SAE-on-LLM result establishing dictionary features.
+- Scaling and Evaluating Sparse Autoencoders | 2024-06 | https://arxiv.org/abs/2406.04093 | scout note: TopK SAEs, scaling laws, and downstream-loss/ablation sparsity metrics.
+- Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2 | 2024-08 | https://arxiv.org/abs/2408.05147 | scout note: Open SAE suite; standard substrate for experiments.
+- Automatically Interpreting Millions of Features in Large Language Models | 2024-10 | https://arxiv.org/abs/2410.13928 | scout note: Cheap autointerp scores (detection, fuzzing, intervention); current standard pipeline.
+- AxBench: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders | 2025-01 | https://arxiv.org/abs/2501.17148 | scout note: Concept detection/steering benchmark; prompting and probes beat SAEs.
