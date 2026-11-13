@@ -33,3 +33,4 @@ anthropic-com-research-probes-catch-sleeper-agents | Simple probes can catch sle
 alignment-anthropic-com-2025-cheap-monitors | Cost-Effective Constitutional Classifiers via Representation Re-use (Model-Internals Classifiers) | Anthropic Alignment Science | 2025-06 | 3
 arxiv-2601.04603 | Constitutional Classifiers++: Efficient Production-Grade Defenses against Universal Jailbreaks | Anthropic | 2026-01 | 3
 goodfire-com-research-verbalized-eval-awareness-inflates-measured-safety | Verbalized Eval Awareness Inflates Measured Safety | Goodfire / UK AISI | 2026-05 | 3
+goodfire-com-research-logits-as-a-new-monitor-for-evaluation-awareness | Logits as a new monitor for evaluation awareness | Goodfire | 2026-06 | 3
