@@ -37,3 +37,4 @@ goodfire-com-research-logits-as-a-new-monitor-for-evaluation-awareness | Logits 
 arxiv-2510.24256 | From Memorization to Reasoning in the Spectrum of Loss Curvature | Goodfire | 2025-10 | 2
 arxiv-2511.01836 | Priors in Time: Missing Inductive Biases for Language Model Interpretability | Goodfire / Harvard / EPFL | 2025-11 | 3
 arxiv-2511.00617 | Belief Dynamics Reveal the Dual Nature of In-Context Learning and Activation Steering | Goodfire / Harvard / Stanford / NTT | 2025-11 | 3
+goodfire-com-research-predicting-rare-llm-failures-with-30x-fewer-rollouts | Predicting Rare LLM Failures with 30× Fewer Rollouts (Logit Path Extrapolation) | Goodfire / MIT | 2026-05 | 3
