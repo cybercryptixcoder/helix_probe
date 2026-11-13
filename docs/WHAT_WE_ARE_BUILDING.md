@@ -54,4 +54,10 @@ Why this first: nobody on the team has yet done the thing everyone is talking ab
     - a mod-113 addition transformer: 100% test accuracy, Fourier power concentrated in 5 frequencies (94%), matching Nanda's mechanism.
   - Checked with a headless browser: selection, units, basket, preview, theme.
 - **Training:** mod-113 multiplication and subtraction (to be added once done).
-- **Not yet tested:** live reader calls. The session has no Luminal key, and live testing is required before handover.
+- **Live-tested (2026-11-13):**
+  - Text mode, XOR: correct answer, 9 s.
+  - Python mode, parity, blinded: the tool loop ran 2 code cells and gave a correct functional description, 15 s.
+  - Browser UI run plus the automatic shuffled control: both completed, no page errors.
+  - Grading, history and the answer reveal all work.
+  - A full Sparks Breakout prompt (about 74K tokens) at high effort finished in 9 min (70K tokens in, 35K out, about $0.06) and answered **Breakout, 97%: correct**. This was MIT's original prompt, which names the input channels, so prior leakage is possible; the blinded and shuffled versions are the next tests.
+- **Docs:** `lab/GUIDE.md` (how to use), `lab/RUNNING.md` (terminal).
