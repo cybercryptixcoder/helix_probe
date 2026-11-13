@@ -27,3 +27,6 @@ arxiv-2602.10067 | Features as Rewards: Scalable Supervision for Open-Ended Task
 goodfire-com-research-reasoning-theater | Reasoning Theater: Probing for Performative Chain-of-Thought | Goodfire / Harvard | 2026-03 | 3
 alignment-anthropic-com-2025-distill-paraphrases | Do Reasoning Models Use Their Scratchpad Like We Do? Evidence from Distilling Paraphrases | Anthropic Alignment Science | 2025-03 | 2
 anthropic-com-research-reasoning-models-dont-say-think | Reasoning Models Don't Always Say What They Think (CoT faithfulness) | Anthropic Alignment Science | 2025-04 | 3
+arxiv-2511.16035 | Liars' Bench: Evaluating Lie Detectors for Language Models | Cadenza Labs / FZI / Cambridge / Anthropic | 2025-11 | 3
+alignment-anthropic-com-2025-honesty-elicitation | Evaluating Honesty and Lie Detection Techniques on a Diverse Suite of Dishonest Models | Anthropic Alignment Science | 2025-11 | 3
+anthropic-com-research-probes-catch-sleeper-agents | Simple probes can catch sleeper agents | Anthropic Alignment Science | 2024-04 | 3
