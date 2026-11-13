@@ -484,12 +484,13 @@ async function runOne(c) {
 function gradeBar(el, id, tid) {
   const g = document.createElement('div'); g.className = 'grade'; g.innerHTML = `<span class="lbl">grade</span>
     <button class="btn sm" data-g="right">✓ right</button><button class="btn sm" data-g="partial">~ partial</button><button class="btn sm" data-g="wrong">✗ wrong</button>
-    <input type="text" placeholder="note" style="flex:1;min-width:120px"><button class="btn sm yellow" data-r>reveal answer</button>`;
+    <input type="text" placeholder="note" style="flex:1;min-width:120px"><button class="btn sm" data-t>copy trace</button><button class="btn sm yellow" data-r>reveal answer</button>`;
   el.append(g);
   const save = async gr => { await api(`/api/runs/${id}/grade`, {grade: gr, note: g.querySelector('input').value}); g.querySelectorAll('[data-g]').forEach(b => b.classList.toggle('on', b.dataset.g === gr)); loadHist(); };
   g.querySelectorAll('[data-g]').forEach(b => b.onclick = () => save(b.dataset.g));
   g.querySelector('input').onchange = () => { const on = g.querySelector('[data-g].on'); if (on) save(on.dataset.g); };
   g.querySelector('[data-r]').onclick = () => reveal(tid, el);
+  g.querySelector('[data-t]').onclick = e => copyTrace(id, e.target);
 }
 async function reveal(tid, el) {
   const a = await api('/api/answer/' + tid); const r = JSON.parse(localStorage.wrlRevealed || '{}'); r[tid] = a.short; localStorage.wrlRevealed = JSON.stringify(r);
@@ -517,7 +518,8 @@ const runHtml = r => `<div class="k">${esc(r.config.target)} · ${r.config.varia
   ${r.steps.map(s => s.tools.map(t => `<div class="cell" style="margin:6px 0"><div class="code">${esc(t.code)}</div><div class="res ${t.ok ? '' : 'bad'}">${esc(t.output)}</div></div>`).join('')).join('')}
   <details style="margin:8px 0"><summary>thinking (${fmtN(r.thinking.length)} chars)</summary><pre>${esc(r.thinking)}</pre></details>
   <div class="answer">${md(r.answer || '(no answer)')}</div>${r.error ? `<div class="err">${esc(r.error)}</div>` : ''}`;
-async function showRun(id) { const r = await api('/api/runs/' + id); openModal(r.config.title || id, id, `<div style="padding:14px 16px">${runHtml(r)}</div>`, r.answer); }
+async function copyTrace(id, btn) { const t = await (await fetch(`/api/runs/${id}/trace`)).text(); await navigator.clipboard.writeText(t); if (btn) { const o = btn.textContent; btn.textContent = 'copied ✓'; setTimeout(() => btn.textContent = o, 1500); } }
+async function showRun(id) { const r = await api('/api/runs/' + id); const t = await (await fetch(`/api/runs/${id}/trace`)).text(); openModal(r.config.title || id, id, `<div style="padding:14px 16px">${runHtml(r)}</div>`, t); $('#mCopy').textContent = 'copy trace'; }
 $('#cmpBtn').onclick = async () => { const [a, b] = await Promise.all([...S.picked].map(id => api('/api/runs/' + id)));
   openModal('Side by side', '', `<div class="cmp"><div>${runHtml(a)}</div><div>${runHtml(b)}</div></div>`, ''); };
 $('#histBtn').onclick = () => { $('#drawer').classList.toggle('open'); loadHist(); };

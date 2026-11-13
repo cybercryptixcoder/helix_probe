@@ -258,6 +258,28 @@ def stream_run(cfg, emit):
     emit({"type": "done", "id": run_id, "status": rec["status"], "seconds": rec["seconds"]})
 
 
+def trace_text(rec):
+    """One dense, copyable record of a run: settings, prompt (weights elided), reasoning, code, outputs, answer."""
+    c = rec["config"]
+    sel = ", ".join(f"{i['tensor']}" + (f"[{i.get('head')}]" if i.get('head') is not None else "") +
+                    (f"[{i.get('r0')}:{i.get('r1')},{i.get('c0')}:{i.get('c1')}]" if i.get('r0') is not None else "") for i in c.get("selection", []))
+    L = [f"RUN {rec['id']} | target {c.get('target')} | variant {c.get('variant','original')} | mode {c.get('mode','text')}"
+         f" | may run network {bool(c.get('allow_forward'))} | thinking {c.get('effort')} | max output {c.get('max_tokens')}",
+         f"arch shown {c.get('include_arch', True)} | input meaning shown {c.get('include_context', True)} | format {c.get('format', {})}",
+         f"slide: {sel or '(empty)'} | weights {rec.get('weights_chars',0):,} chars",
+         f"status {rec['status']} | {rec.get('seconds')} s | tokens in {rec['usage']['prompt_tokens']:,} out {rec['usage']['completion_tokens']:,} | ${rec.get('cost',0):.4f}"
+         + (f" | grade {rec['grade']}" if rec.get("grade") else "") + (f" | note: {rec['note']}" if rec.get("note") else ""),
+         "", "=== SYSTEM ===", c.get("system", ""), "", "=== PROMPT (weights elided) ===", rec.get("prompt_without_weights", ""), ""]
+    for st in rec.get("steps", []):
+        for t in st.get("tools", []):
+            L += [f"=== CODE (step {st['step'] + 1}, {'ok' if t.get('ok') else 'ERROR'}, {t.get('seconds')} s) ===", t.get("code", ""),
+                  "--- output ---", (t.get("output") or "")[:4000], ""]
+    L += ["=== REASONING ===", rec.get("thinking", ""), "", "=== ANSWER ===", rec.get("answer", "") or "(none)"]
+    if rec.get("error"):
+        L += ["", "=== ERROR ===", rec["error"]]
+    return "\n".join(L)
+
+
 def run_summary(rec):
     c = rec["config"]
     return {"id": rec["id"], "target": c.get("target"), "variant": c.get("variant", "original"), "mode": c.get("mode", "text"),
@@ -309,6 +331,9 @@ class H(BaseHTTPRequestHandler):
                     except Exception:
                         pass
                 return self.send(200, recs)
+            m = re.match(r"^/api/runs/([\w-]+)/trace$", p)
+            if m:
+                return self.send(200, trace_text(json.loads((RUNS / f"{m.group(1)}.json").read_text())), "text/plain; charset=utf-8")
             m = re.match(r"^/api/runs/([\w-]+)$", p)
             if m:
                 return self.send(200, json.loads((RUNS / f"{m.group(1)}.json").read_text()))
