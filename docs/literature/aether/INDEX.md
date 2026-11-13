@@ -30,3 +30,4 @@ anthropic-com-research-reasoning-models-dont-say-think | Reasoning Models Don't 
 arxiv-2511.16035 | Liars' Bench: Evaluating Lie Detectors for Language Models | Cadenza Labs / FZI / Cambridge / Anthropic | 2025-11 | 3
 alignment-anthropic-com-2025-honesty-elicitation | Evaluating Honesty and Lie Detection Techniques on a Diverse Suite of Dishonest Models | Anthropic Alignment Science | 2025-11 | 3
 anthropic-com-research-probes-catch-sleeper-agents | Simple probes can catch sleeper agents | Anthropic Alignment Science | 2024-04 | 3
+alignment-anthropic-com-2025-cheap-monitors | Cost-Effective Constitutional Classifiers via Representation Re-use (Model-Internals Classifiers) | Anthropic Alignment Science | 2025-06 | 3

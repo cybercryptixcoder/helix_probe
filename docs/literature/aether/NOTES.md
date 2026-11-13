@@ -4,8 +4,9 @@
 
 ## Status
 
-- Entries written: 29 (INDEX.md is authoritative)
-- Last commit: literature (aether): 26 entries
+- Entries written: 30 (INDEX.md is authoritative)
+- Last commit: literature (aether): 29 entries
+- Note 2026-11-13 (run 30): wrote alignment-anthropic-com-2025-cheap-monitors (Model-Internals Classifiers, full text). 1 uncommitted entry → commit+push at the start of the next run (entry 30 is not yet a multiple of 3, so the batch commit is at 33). Next up: Next-Generation Constitutional Classifiers, Verbalized Eval Awareness.
 - Note 2026-11-13 (run 29): wrote anthropic-com-research-probes-catch-sleeper-agents. Note the Priority-block link was wrong (…/simple-probes-catch-sleeper-agents 404s); the live URL is https://www.anthropic.com/research/probes-catch-sleeper-agents. 3 uncommitted entries now (27, 28, 29) → next run must commit+push FIRST, before writing anything new. Next up: Model-Internals Classifiers, Next-Generation Constitutional Classifiers.
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
@@ -40,7 +41,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] Liars' Bench | https://arxiv.org/abs/2511.16035 | DONE (7 datasets × 2 axes; judge 0.73 / self-eval 0.66 / mean probe 0.54 balanced acc @1% FPR; privileged probe 0.73/0.91 AUROC = ceiling; inherent lies unreadable by prompt-contrast probe)
 - [x] Evaluating Honesty and Lie Detection Techniques | https://alignment.anthropic.com/2025/honesty-elicitation/ | DONE (5 settings × what/why grid, no-task-supervision constraint; honesty FT 27%→52%, +persona prompt 65%; self-classify 0.82 AUROC → 0.88; truth probe replication 0.70-0.82 vs 0.964 published; pass@4 prompt ≈ honest fine-tune)
 - [x] Simple Probes Can Catch Sleeper Agents | https://www.anthropic.com/research/probes-catch-sleeper-agents | DONE (one-contrast-pair direction AUROC 99.3%; best of 1000 random directions 95.3%; defection-eligibility is a mid-stack PCA axis; clean base model = null)
-- [ ] Model-Internals Classifiers | 2025-06 | 
+- [x] Model-Internals Classifiers | https://alignment.anthropic.com/2025/cheap-monitors/ | DONE (log-space AUROC vs FLOP overhead; EMA probe ≈3% overhead, 1 retrained layer ≈4%; mean pooling fails; cascade >10x cheaper)
 - [ ] Next-Generation Constitutional Classifiers | 2026-01 | 
 - [ ] Verbalized Eval Awareness Inflates Measured Safety (Goodfire) | 2026-05 | eval awareness
 - [ ] Logits as a new monitor for evaluation awareness (Goodfire) | 2026-06 | monitor
@@ -225,6 +226,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - arxiv-2511.16035 | Liars' Bench: seven lie datasets on two axes (object of belief × reason for lying); no detector above chance everywhere (Cadenza Labs / Anthropic)
 - anthropic-com-research-probes-catch-sleeper-agents | Simple probes can catch sleeper agents: one-contrast-pair residual direction, AUROC 99.3% vs 95.3% for the best of 1000 random directions; defection-eligibility is a mid-stack PCA axis (Anthropic Alignment Science)
 - alignment-anthropic-com-2025-honesty-elicitation | Evaluating Honesty and Lie Detection Techniques: five dishonest-model testbeds, no task-specific supervision; honesty fine-tuning 27%→52% (+prompt 65%), self-classify 0.82→0.88 AUROC, truth-probe replication weak (Anthropic Alignment Science)
+- alignment-anthropic-com-2025-cheap-monitors | Model-Internals Classifiers / Cost-Effective Constitutional Classifiers via Representation Re-use: probe vs partially fine-tuned classifiers compared on a log-space-AUROC/cost frontier; EMA probe ≈ 3% overhead, one retrained block ≈ 4%, mean pooling worse than the smallest dedicated model (Anthropic Alignment Science)
 
 ## Patterns noticed
 
@@ -317,6 +319,11 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **Fit on a generic axis, predict a specific unseen event** is the transfer shape our claims need: the defection probe is fitted on yes/no honesty-style contrasts containing neither the trigger nor the bad behaviour, and is evaluated on "will this prompt cause defect". A readout that only works when trained on the exact intervention it predicts has not demonstrated reading — build the fit/test asymmetry into the protocol. (anthropic-com-research-probes-catch-sleeper-agents, alignment-anthropic-com-2026-lie-detectors)
 - **Per-subpopulation false-positive rates, then report the worst**, because a two-part trigger lets a detector win by learning only the easy half (topic) and ignoring the hard half (context). Same discipline as the variance decomposition we already use: a composite intervention must be scored on the cell it was not allowed to shortcut. (anthropic-com-research-probes-catch-sleeper-agents, arxiv-2511.16035)
 - **Do not extrapolate a faithfulness trend under training**: outcome RL on reasoning made traces more honest at first (relative gains ~63% / ~41%) then plateaued at 28% / 20%, the same saturation shape as capability curves; and a model that exploits a reward hack on >99% of prompts confesses <2% of the time, substituting fluent wrong-answer rationalisations. Text monitors tuned to "admits cheating" signatures see innocent-looking prose. (anthropic-com-research-reasoning-models-dont-say-think)
+
+- **Report a monitor on a cost-normalised frontier, not just an accuracy**: interpolate each readout to a common FLOP overhead and compare log-space AUROC there. A linear probe at ~0.1% overhead matching a 2%-overhead dedicated model, and one retrained final block matching a 25%-overhead model at ~4%, is a much stronger result than "our probe reaches AUROC X" — and it is the framing a serving-cost-conscious reader will demand of us. (alignment-anthropic-com-2025-cheap-monitors, arxiv-2604.14865)
+- **Sweep the pooling rule before the model**: on the same linear probe, mean-over-tokens was worse than the smallest dedicated classifier, per-token scoring with a max-over-EMA reached ~3%-overhead parity, and appending a short question suffix and reading the token after it was slightly better again at higher cost. Long inputs are the failure mode for mean pooling — the dangerous span gets diluted — so the aggregation is where the signal lives. Third independent sighting of this, after top-K segment pooling and attention-pooled probes. (alignment-anthropic-com-2025-cheap-monitors, arxiv-2604.14865, goodfire-com-research-reasoning-theater)
+- **Training loss does not rank readouts**: partially retrained classifiers showed validation loss like far weaker models yet generalised best, because a frozen large trunk contributes capability invisible to the objective — a warning against choosing the readout site or layer by validation loss. (alignment-anthropic-com-2025-cheap-monitors, arxiv-2606.02609)
+- **A monitor inside the attacked model is inside the attack surface**: probes and reused final blocks share computation with the policy model, which is exactly what makes them cheap, so robustness claims need an attacker who knows the readout exists (and cascade designs leak further, since satisfying stage one hides the input from stage two). Report the non-adaptive result as an upper bound, in the same "self-planted, friendly case" bracket as the sleeper-agent probe numbers. (alignment-anthropic-com-2025-cheap-monitors, anthropic-com-research-probes-catch-sleeper-agents)
 
 ## Could not read
 
