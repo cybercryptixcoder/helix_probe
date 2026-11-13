@@ -224,7 +224,12 @@ Each of these could be its own paper. Together with the earlier directions there
 
 ### Literature check (from the survey, plus a search on Nov 13)
 
-- **Trained readers exist, but none uses RL with a verified reward.** Weight Oracles (arxiv-2610.07334), LoRAcles and Diff Interpretation Tuning (arxiv-2510.05092) are all trained on supervised labels. None scores the reader on whether its predicted intervention effect comes true. A search on Nov 13 found nothing that does. This is an opening for K2.
+- **Correction (Nov 13): no one has fine-tuned an LLM to read weights pasted as text.** The earlier "trained readers" take weights through a different channel:
+  - Weight Oracles (arxiv-2610.07334) maps each matrix row into the LM's hidden space with a learned linear layer, as continuous tokens, not text;
+  - LoRAcles turns LoRA deltas into SVD direction tokens through an encoder;
+  - Diff Interpretation Tuning (arxiv-2510.05092) has the fine-tuned model describe *itself*, so no weights are given as input at all.
+
+  The reading audit (arxiv-2611.08070) agrees: to its authors' knowledge, none of these tests a general-purpose LLM reading an arbitrary small network zero-shot. So K2 (RL on a pre-trained LLM to strengthen reading weights given as text, rewarded on verified predictions) has no prior that we have found. (This also reverses an earlier edit that removed "continuous tokens" from the Weight Oracles description: the full text confirms it.)
 - **Raw reading has a size ceiling.** In Sparks, raw-weight reading worked only on networks of about 17K–172K weights; the LM-scale wins used Python and/or execution. Results must be reported per access regime: raw weights only, weights plus code, or weights plus forward passes (honnibal-dev-blog-astra-read-write-misleading). The Nanda modular-addition transformer has roughly 226K parameters: about 15K embedding, 66K attention, 131K MLP and 15K unembedding. That is too many to paste whole into a 164K-token context, so K1 is partly forced: the reader sees slices, transforms, or tool output.
 - **Memorisation risk is high.** Modular addition has the original paper, an ICLR spotlight, follow-ups (e.g. arxiv-2602.16849, arxiv-2505.18266), tutorials and replication walkthroughs. The reader has almost certainly seen "grokked modular addition → Fourier". Hiding the paper is not enough. We must blind the task, and include variants whose answer is known but rarely written up.
 - **Reader-shortcut controls already exist**: shuffled weights, an untrained network, a prompt-only reader, anonymised labels, and default-answer rate (lesswrong-wnl4nwrs2owzzfwiz-wsp-stratification).

@@ -1092,3 +1092,14 @@ Reframed: the project builds the constructor, a loop that reads weights and prod
 Two constraints came out of the literature check:
 - the target (about 226K parameters) is too big to paste whole, so the reader sees slices, transforms or tool output;
 - modular addition is heavily published, so the task must be blinded and run with variants.
+
+## 2026-11-13: fact-check on fine-tuned readers
+
+The Nov 13 note was wrong to say "LLMs fine-tuned to read weights exist". Weight Oracles, LoRAcles and Diff Interpretation Tuning use learned encoders, continuous tokens, or the model reading itself. None reads weights pasted as text. K2 has no known prior; DIRECTIONS §2f is corrected.
+
+Also found weight-space programming items missing from the survey:
+- arxiv-2611.09382 (Exploring WSP: capabilities, generalization and limitations, Nov 6);
+- Sean Goedecke's critique (Nov 3);
+- Chandan Singh's from-scratch post (Nov 2).
+
+These are to be read and entered.
