@@ -14,3 +14,4 @@ anthropic-com-research-global-workspace | A Global Workspace in Language Models 
 transformer-circuits-pub-2026-headvis-index-html | HeadVis: An Interactive Tool for Investigating Attention Heads | Anthropic | 2026-05 | 3
 arxiv-2604.21139 | Slot Machines: How LLMs Keep Track of Multiple Entities | Anthropic Fellows | 2026-04 | 3
 arxiv-2604.12493 | Latent Planning Emerges with Scale | Anthropic Fellows / UvA | 2026-04 | 3
+arxiv-2607.03502 | Reading Between the Dots: Decoding Hidden Computation across Filler Tokens | Harvard / CBAI / Anthropic | 2026-07 | 3

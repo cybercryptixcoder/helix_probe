@@ -4,7 +4,7 @@
 
 ## Status
 
-- Entries written: 14 (INDEX.md is authoritative)
+- Entries written: 15 (INDEX.md is authoritative)
 - Last commit: literature (aether): 7 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
@@ -21,7 +21,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] HeadVis | https://transformer-circuits.pub/2026/headvis/index.html | head inspection tool; attention decomposition agenda
 - [x] Slot Machines: multiple entities | https://arxiv.org/abs/2604.21139 | current/prior entity slots; decodable-but-unused
 - [x] Latent Planning Emerges with Scale | https://arxiv.org/abs/2604.12493 | planning = causally causes distant token AND its licence
-- [ ] Reading Between the Dots: decoding across filler tokens | https://arxiv.org/abs/2607.03502 | hidden computation
+- [x] Reading Between the Dots: decoding across filler tokens | https://arxiv.org/abs/2607.03502 | hidden computation
 - [ ] A Shared Subcircuit Lets LLMs Count Down | https://arxiv.org/abs/2607.12279 | circuit
 - [ ] Evaluating and Improving LLM Self-Modeling | https://arxiv.org/abs/2608.30980 | self-knowledge
 - [ ] From Simulation to Enaction | https://arxiv.org/abs/2605.25459 | 
@@ -190,6 +190,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
   (4) other labs, (5) topic searches.
 
 ## Done
+- arxiv-2607.03502 | Reading Between the Dots (filler-token hidden computation)
 
 - arxiv-2506.20790 | Stochastic Parameter Decomposition (Goodfire)
 - arxiv-2511.05408 | Steering Language Models with Weight Arithmetic (Anthropic)
