@@ -1,0 +1,160 @@
+{
+ "name": "Mystery transformer A",
+ "family": "Algorithmic transformers (trained here)",
+ "forward": "onelayer_transformer",
+ "order": [
+  "W_E",
+  "W_pos",
+  "W_Q",
+  "W_K",
+  "W_V",
+  "W_O",
+  "W_in",
+  "W_out",
+  "W_U"
+ ],
+ "arch": "A one-layer transformer with no LayerNorm and no biases. Vocabulary of 114 tokens; the input is a sequence of 3 tokens; the output is 113 logits read at the last position.\n  x = W_E[tokens] + W_pos                     W_E: 114 x 128, W_pos: 3 x 128\n  attention: 4 heads of size 32, causal       W_Q, W_K, W_V: 4 x 128 x 32 (per head: d_model x d_head), W_O: 4 x 32 x 128\n  x = x + sum_h softmax(q k^T / sqrt(32)) v W_O[h]\n  x = x + relu(x @ W_in) @ W_out              W_in: 128 x 512, W_out: 512 x 128\n  logits = x[last] @ W_U                      W_U: 128 x 113",
+ "context": "Tokens 0..112 stand for the numbers 0..112; token 113 is '='. Every input has the form 'a b =', and output class c stands for the number c.",
+ "tensor_desc": {
+  "W_E": "token embedding (row = token)",
+  "W_pos": "position embedding",
+  "W_Q": "queries [head, d_model, d_head]",
+  "W_K": "keys [head, d_model, d_head]",
+  "W_V": "values [head, d_model, d_head]",
+  "W_O": "head outputs [head, d_head, d_model]",
+  "W_in": "MLP input (column = neuron)",
+  "W_out": "MLP output (row = neuron)",
+  "W_U": "unembedding (column = output class)"
+ },
+ "answer": {
+  "short": "(a + b) mod 113",
+  "detail": "Trained on 40% of all pairs, test accuracy 1.0000. Embedding Fourier power is concentrated in frequencies [8, 23, 25, 11, 22] (top-5 share 0.94). Expected mechanism (Nanda et al. 2023): embed a, b as cos/sin(w_k a); attention+MLP form cos/sin(w_k(a+b)) by trig identities; unembedding scores c by sum_k cos(w_k(a+b-c))."
+ },
+ "source": "Trained in this repo (lab/targets/train_modadd.py), Nanda et al. 2023 setup with 40% of pairs.",
+ "perm_groups": [
+  {
+   "size": 512,
+   "members": [
+    [
+     "W_in",
+     1
+    ],
+    [
+     "W_out",
+     0
+    ]
+   ]
+  },
+  {
+   "size": 4,
+   "members": [
+    [
+     "W_Q",
+     0
+    ],
+    [
+     "W_K",
+     0
+    ],
+    [
+     "W_V",
+     0
+    ],
+    [
+     "W_O",
+     0
+    ]
+   ]
+  }
+ ],
+ "input": "token ids, shape [B, 3], e.g. [[a, b, 113]]",
+ "key_frequencies": [
+  8,
+  23,
+  25,
+  11,
+  22,
+  46
+ ],
+ "test_acc": 1.0,
+ "id": "modadd_p113",
+ "tensors": [
+  {
+   "name": "W_E",
+   "shape": [
+    114,
+    128
+   ],
+   "desc": "token embedding (row = token)"
+  },
+  {
+   "name": "W_pos",
+   "shape": [
+    3,
+    128
+   ],
+   "desc": "position embedding"
+  },
+  {
+   "name": "W_Q",
+   "shape": [
+    4,
+    128,
+    32
+   ],
+   "desc": "queries [head, d_model, d_head]"
+  },
+  {
+   "name": "W_K",
+   "shape": [
+    4,
+    128,
+    32
+   ],
+   "desc": "keys [head, d_model, d_head]"
+  },
+  {
+   "name": "W_V",
+   "shape": [
+    4,
+    128,
+    32
+   ],
+   "desc": "values [head, d_model, d_head]"
+  },
+  {
+   "name": "W_O",
+   "shape": [
+    4,
+    32,
+    128
+   ],
+   "desc": "head outputs [head, d_head, d_model]"
+  },
+  {
+   "name": "W_in",
+   "shape": [
+    128,
+    512
+   ],
+   "desc": "MLP input (column = neuron)"
+  },
+  {
+   "name": "W_out",
+   "shape": [
+    512,
+    128
+   ],
+   "desc": "MLP output (row = neuron)"
+  },
+  {
+   "name": "W_U",
+   "shape": [
+    128,
+    113
+   ],
+   "desc": "unembedding (column = output class)"
+  }
+ ],
+ "params": 226048
+}

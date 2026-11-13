@@ -1,0 +1,72 @@
+{
+ "name": "XOR of two bits",
+ "family": "Tiny Boolean circuits (hand-written)",
+ "forward": "mlp_relu",
+ "order": [
+  "W1",
+  "b1",
+  "W2",
+  "b2"
+ ],
+ "arch": "A multilayer perceptron with 2 inputs, one hidden layer of 2 ReLU units, and 1 output:\n  h = relu(x @ W1 + b1)    W1: 2 x 2\n  out = h @ W2 + b2        W2: 2 x 1",
+ "context": "Each input is a bit (0 or 1). The output bit is 1 when out > 0.",
+ "answer": {
+  "short": "x1 XOR x2",
+  "detail": "Hand-written weights; verified on the full truth table."
+ },
+ "source": "Written by hand in this repo (lab/targets/build_registry.py).",
+ "perm_groups": [
+  {
+   "size": 2,
+   "members": [
+    [
+     "W1",
+     1
+    ],
+    [
+     "b1",
+     0
+    ],
+    [
+     "W2",
+     0
+    ]
+   ]
+  }
+ ],
+ "input": "2 bits, e.g. [[0, 1]]",
+ "id": "bool_xor",
+ "tensors": [
+  {
+   "name": "W1",
+   "shape": [
+    2,
+    2
+   ],
+   "desc": ""
+  },
+  {
+   "name": "b1",
+   "shape": [
+    2
+   ],
+   "desc": ""
+  },
+  {
+   "name": "W2",
+   "shape": [
+    2,
+    1
+   ],
+   "desc": ""
+  },
+  {
+   "name": "b2",
+   "shape": [
+    1
+   ],
+   "desc": ""
+  }
+ ],
+ "params": 9
+}

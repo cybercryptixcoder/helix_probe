@@ -40,3 +40,18 @@ Why this first: nobody on the team has yet done the thing everyone is talking ab
 - `docs/DIRECTIONS.md`: all directions (K0–K3 in §2f).
 - `docs/literature/SYNTHESIS.md`: what the interpretability field builds and measures.
 - `docs/literature/wsp/K1_STATE_OF_ART.md`: what others found when LLMs read weights.
+
+## Build status (2026-11-13, 03:00 ET)
+
+- **Done:**
+  - Server: `lab/server.py`, stdlib plus numpy, with Avy's Luminal client.
+  - The interface: `lab/static/index.html`, in Avy's visual style, light and dark.
+  - Sandbox runner.
+  - Variants: shuffled, untrained, permuted. Permuted is verified to keep the function identical.
+  - 12 specimens:
+    - 4 Boolean nets;
+    - 4 MIT game policies and 3 shape generators;
+    - a mod-113 addition transformer: 100% test accuracy, Fourier power concentrated in 5 frequencies (94%), matching Nanda's mechanism.
+  - Checked with a headless browser: selection, units, basket, preview, theme.
+- **Training:** mod-113 multiplication and subtraction (to be added once done).
+- **Not yet tested:** live reader calls. The session has no Luminal key, and live testing is required before handover.

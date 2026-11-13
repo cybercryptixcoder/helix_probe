@@ -85,3 +85,14 @@ Tags: **[decided]** · **[open]** · **[idea]** · **[finding]** · **[correctio
 - [decided] **First build: the Weight Reading Lab**, a local browser app for K1 by hand. Fun to use, styled after Avy, not limited to a few demos. See `WHAT_WE_ARE_BUILDING.md`.
 - [idea] The "agentic interpreter" vision is recorded separately as non-current: `ideas/SCIFI_AGENTIC_INTERPRETER.md`.
 - [decided] Documentation rule: the repo is a living map. Every idea, question, decision, finding and build request is written down after each exchange, so a fresh session can continue.
+- [decided] Lab details:
+  - runs locally in the browser;
+  - styled after Avy;
+  - specimens with hidden answers;
+  - select by scanning a heatmap or by whole units (seam-free);
+  - leak switches (architecture / input meaning);
+  - text-only vs python-sandbox modes;
+  - one-click controls (shuffled / untrained / permuted);
+  - a notebook with grading and side-by-side comparison.
+- [finding] DeepSeek V4.1 Flash, our reader, is on record as a weak raw-text reader: 0/8 in the andsalazar replication, 0–11% plus non-answers in the EEG paper. Expect it to run out of budget copying weights. The python mode is the likely path to useful results.
+- [finding] Our mod-add target's attention query weights are nearly rank-1 (one sign pattern per head). Attention does little here, as in Nanda's analysis. The embedding's Fourier power is 94% in frequencies {8, 23, 25, 11, 22}.

@@ -1,0 +1,72 @@
+{
+ "name": "Two-bit comparator",
+ "family": "Tiny Boolean circuits (hand-written)",
+ "forward": "mlp_relu",
+ "order": [
+  "W1",
+  "b1",
+  "W2",
+  "b2"
+ ],
+ "arch": "A multilayer perceptron with 4 inputs, one hidden layer of 2 ReLU units, and 1 output:\n  h = relu(x @ W1 + b1)    W1: 4 x 2\n  out = h @ W2 + b2        W2: 2 x 1",
+ "context": "Each input is a bit (0 or 1). The output bit is 1 when out > 0.",
+ "answer": {
+  "short": "(2*x1 + x2) > (2*x3 + x4): is the 2-bit number a1a0 greater than b1b0",
+  "detail": "Hand-written weights; verified on the full truth table."
+ },
+ "source": "Written by hand in this repo (lab/targets/build_registry.py).",
+ "perm_groups": [
+  {
+   "size": 2,
+   "members": [
+    [
+     "W1",
+     1
+    ],
+    [
+     "b1",
+     0
+    ],
+    [
+     "W2",
+     0
+    ]
+   ]
+  }
+ ],
+ "input": "4 bits, e.g. [[0, 1, 0, 0]]",
+ "id": "bool_compare2",
+ "tensors": [
+  {
+   "name": "W1",
+   "shape": [
+    4,
+    2
+   ],
+   "desc": ""
+  },
+  {
+   "name": "b1",
+   "shape": [
+    2
+   ],
+   "desc": ""
+  },
+  {
+   "name": "W2",
+   "shape": [
+    2,
+    1
+   ],
+   "desc": ""
+  },
+  {
+   "name": "b2",
+   "shape": [
+    1
+   ],
+   "desc": ""
+  }
+ ],
+ "params": 13
+}
