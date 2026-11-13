@@ -41,3 +41,4 @@ goodfire-com-research-predicting-rare-llm-failures-with-30x-fewer-rollouts | Pre
 arxiv-2608.19611 | Forking Fast: Efficiently Estimating Uncertainty Dynamics in Text Generation | Goodfire | 2026-08 | 3
 goodfire-com-research-probe-based-data-attribution | Probe-Based Data Attribution: Surfacing and Mitigating Undesirable Behaviors in LLM Post-Training | Goodfire / Caltech | 2026-04 | 3
 goodfire-com-research-covariance-pooling | Covariance-based Sequence Pooling (second-moment pooling for gene-level probes) | Goodfire | 2026-04 | 2
+goodfire-com-research-reward-hacking-activation-monitors | Models Know When They're Reward Hacking — and We Can Catch Them at Scale | Goodfire | 2026-09 | 3
