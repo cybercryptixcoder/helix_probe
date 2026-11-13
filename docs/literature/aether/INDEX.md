@@ -49,3 +49,5 @@ goodfire-com-research-interpreting-evo-2 | Interpreting Evo 2: layer-26 BatchTop
 transformer-circuits-pub-2021-exercises-index-html | Transformer Circuit Exercises (problem set with worked weights) | Transformer Circuits (Anthropic) | 2021-12 | 1
 transformer-circuits-pub-2021-garcon-index-html | Garçon: interpretability infrastructure for arbitrary models at arbitrary scale | Transformer Circuits (Anthropic) | 2021-12 | 2
 github-com-anthropics-pysvelte | PySvelte: Svelte visualisations callable from Python | Anthropic | 2021 | 1
+anthropic-com-research-scaling-laws-and-interpretability-of-learning-from-repeated-data | Scaling Laws and Interpretability of Learning from Repeated Data | Anthropic | 2022-05 | 2
+transformer-circuits-pub-2022-solu-index-html | Softmax Linear Units: designing the MLP activation for legibility | Transformer Circuits (Anthropic) | 2022-06 | 2
