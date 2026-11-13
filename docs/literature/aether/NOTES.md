@@ -4,7 +4,7 @@
 
 ## Status
 
-- Entries written: 21 (INDEX.md is authoritative)
+- Entries written: 22 (INDEX.md is authoritative)
 - Last commit: literature (aether): 21 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
@@ -32,7 +32,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [ ] Do Reasoning Models Use Their Scratchpad Like We Do | 2025-03 | 
 - [ ] Reasoning Models Don't Always Say What They Think | 2025-04 | CoT faithfulness
 - [ ] Reasoning Theater: Performative CoT (Goodfire) | 2026-03 | 
-- [ ] Fine-Tuned Lie Detectors Failed to Generalize | 2026-08 | probe generalisation failure
+- [x] Fine-Tuned Lie Detectors Failed to Generalize | https://alignment.anthropic.com/2026/lie-detectors/ | DONE (in-dist AUROC 0.60→0.95, cross-category plateaus 0.70-0.75; third-person > first-person)
 - [ ] Liars' Bench | https://arxiv.org/abs/2511.16035 | benchmark
 - [ ] Evaluating Honesty and Lie Detection Techniques | 2025-11 | 
 - [ ] Simple Probes Can Catch Sleeper Agents | 2024-04 | probe
@@ -213,6 +213,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - arxiv-2604.12493 | Latent Planning Emerges with Scale (Anthropic Fellows / UvA)
 - arxiv-2604.14865 | Segment-Level Coherence for Robust Harmful Intent Probing (UCL / Virginia Tech / Anthropic)
 - arxiv-2510.20487 | Steering Evaluation-Aware LMs to Act Like They Are Deployed (MATS; Hua, Qin, Marks, Nanda)
+- alignment-anthropic-com-2026-lie-detectors | Fine-Tuned Lie Detectors Failed to Generalize (MATS / Anthropic Fellows; OOD transfer failure)
 
 ## Patterns noticed
 
@@ -274,6 +275,10 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **Pre-registered ground truth as the validation for an intervention**: build a model organism whose evaluation-vs-deployment behaviour you *defined*, then a steering success claim ("we elicited deployment behaviour") becomes checkable instead of inferred from a transcript heuristic. Same move as the base-model control and the cross-model matrix, but applied to a steering intervention rather than a probe. (arxiv-2510.20487)
 - **Extract the direction on the pre-intervention checkpoint** to certify the vector carries the context variable and not the downstream behaviour it is meant to control; conversely, steering toward the "target" state can undershoot the natural baseline (steered deployment rate < plain deployment rate), which is itself a sign the vector is a coarse axis. (arxiv-2510.20487, arxiv-2606.17056)
 - **Spread a fixed steering budget over several mid layers (10–30 here) rather than one strong vector**: equal behaviour change at much lower task-accuracy cost; single-layer steering at comparable total strength degrades capability sharply. (arxiv-2510.20487, anthropic-com-research-assistant-axis)
+- **Transfer matrix as the standard test of whether a probe reads a property or a style**: train the reader on one generator of the target behaviour and test on the others; if transfer tracks surface similarity (same claim shape) rather than the concept, the reader learned the setting. This is the cheap, behaviour-level version of the frozen-reader control and belongs in every "our detector finds X" claim. (alignment-anthropic-com-2026-lie-detectors, arxiv-2604.14865)
+- **First-person vs third-person framing at matched prompts** is a cheap introspection probe: a model that scores better when asked about "the AI in this transcript" than about itself is reading the transcript, not its own state — consistent with implicit and explicit self-knowledge routing through different paths. (alignment-anthropic-com-2026-lie-detectors, arxiv-2605.25459, arxiv-2608.30980)
+- **Taxonomy labels are hypotheses, not ground truth**: deception labels (and by extension any behaviour label built from a human category scheme) are unstable under adjudication (~25% revision, 46% for self-sycophancy here), and models do not represent the categories as such — so a probe trained on them can only be evaluated against a second, independent label source. (alignment-anthropic-com-2026-lie-detectors, alignment-anthropic-com-2025-believe-it-or-not)
+- Finetuning a task-specific classifier improves in-distribution fit (AUROC 0.60 → 0.95) while leaving or worsening the OOD capability; the prompted baseline must be re-measured alongside, or the improvement is an artefact of the split. (alignment-anthropic-com-2026-lie-detectors)
 
 ## Could not read
 

@@ -22,3 +22,4 @@ anthropic-com-research-introspection | Signs of Introspection in Large Language 
 alignment-anthropic-com-2025-believe-it-or-not | Believe It or Not: How Deeply do LLMs Believe Implanted Facts? | Anthropic Fellows / EPFL / MATS / Constellation / Redwood / Anthropic | 2025-10 | 2
 arxiv-2604.14865 | Segment-Level Coherence for Robust Harmful Intent Probing in LLMs | UCL / Virginia Tech / Anthropic | 2026-04 | 2
 arxiv-2510.20487 | Steering Evaluation-Aware Language Models to Act Like They Are Deployed | MATS | 2026-03 | 2
+alignment-anthropic-com-2026-lie-detectors | Fine-Tuned Lie Detectors Failed to Generalize | MATS / Anthropic Fellows / Anthropic | 2026-08 | 2
