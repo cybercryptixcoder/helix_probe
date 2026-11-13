@@ -4,10 +4,11 @@
 
 ## Status
 
-- Entries written: 20 (INDEX.md is authoritative)
-- Last commit: literature (aether): 19 entries (20th pending, uncommitted)
+- Entries written: 21 (INDEX.md is authoritative)
+- Last commit: literature (aether): 20 entries (21st pending, uncommitted)
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
+- Note 2026-11-12: the Priority block is now fully ticked; from here the loop works down the raw seed queue.
 
 ## Queue
 
@@ -210,6 +211,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - transformer-circuits-pub-2026-headvis-index-html | HeadVis (Anthropic / tcpub)
 - arxiv-2604.21139 | Slot Machines: multiple entities (Anthropic Fellows)
 - arxiv-2604.12493 | Latent Planning Emerges with Scale (Anthropic Fellows / UvA)
+- arxiv-2604.14865 | Segment-Level Coherence for Robust Harmful Intent Probing (UCL / Virginia Tech / Anthropic)
 
 ## Patterns noticed
 
@@ -264,6 +266,10 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **Truth-probe claims need an adversarial probe**: a linear true/false probe trained on ordinary statements is fooled by any edit that leaves a representation artefact, so the control is a probe trained partly on the edited statements and required to still recover the ground truth on held-out ones. Same family as base-model-control and cross-model-matrix: every readout gets a null that could plausibly explain its success. (alignment-anthropic-com-2025-believe-it-or-not)
 - **Depth ladder for "the model knows / believes X"**: direct question → indirect multi-step use → survival under adversarial pressure → representation matching genuine knowledge. Rank interventions along it instead of reporting one accuracy. (alignment-anthropic-com-2025-believe-it-or-not, arxiv-2604.12493)
 - Plausibility is a confound in every editing result: an edit that succeeds because it fits the model's priors is not evidence that the mechanism of belief was touched — matched implausible edits are the control. (alignment-anthropic-com-2025-believe-it-or-not, arxiv-2604.12493)
+- **Evaluate monitors at a fixed low false-positive rate**, reporting TPR@1%FPR and log-scale AUROC as the headline and plain AUROC as the secondary: a probe at 97% AUROC can still be unusable at deployment precision, and the log-axis metric is what surfaces the difference. (arxiv-2604.14865)
+- **Pooling rule is a first-class design choice, not a detail**: confidence-weighted or max-like aggregation over tokens turns a "harmfulness probe" into a keyword detector. Requiring several windows to jointly support a verdict (top-K averaging) plus penalising disagreement between selected windows was worth ~35% TPR at 1% FPR — bigger than most modelling changes. (arxiv-2604.14865)
+- **Residual-only probing leaves accuracy on the table**: attention-output and MLP-output probes beat the residual stream in every domain tested, and which one wins depends on domain *and* architecture. Always sweep the representation site alongside the layer. (arxiv-2604.14865, arxiv-2606.02609)
+- **Frozen-reader / shifted-backbone control** cleanly separates "the model cannot represent it" from "our reader cannot read it": probes at chance on ciphered text with the backbone frozen, then 98.85% AUROC with the *same* probes once the backbone is cipher-tuned. Reusable design for any claim that a readout tracks content rather than surface form. (arxiv-2604.14865)
 
 ## Could not read
 
