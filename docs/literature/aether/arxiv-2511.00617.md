@@ -1,0 +1,40 @@
+# Belief Dynamics Reveal the Dual Nature of In-Context Learning and Activation Steering
+
+- **Key:** arxiv-2511.00617
+- **Authors / organisation:** Eric Bigelow, Daniel Wurgaft, YingQiao Wang, Noah Goodman, Tomer Ullman, Hidenori Tanaka, Ekdeep Singh Lubana; Goodfire AI, Harvard, Stanford, NTT Research
+- **Date:** 2026-03 (v2; v1 2025-11-01)
+- **Link:** https://arxiv.org/abs/2511.00617
+- **Kind:** paper
+- **Read from:** full text (arXiv HTML v2, main text plus appendices A–H)
+- **Relevance to us:** 3 (central)
+
+## What they wanted, and why
+Two very different inference-time controls — putting examples in the prompt, and adding a vector to a hidden state — both change what a model says, and the field explains them separately: in-context learning as implicit Bayesian inference over pretraining hypotheses, steering as a consequence of linearly encoded concepts. The authors ask whether a single account covers both, because if it does, then the effects of a prompt and the effects of an intervention are measured on one common quantity rather than two incomparable ones. Their candidate quantity is the model's belief in a latent concept, with context acting as accumulated evidence and steering acting as a change of prior. The larger goal is prediction: given a fit from behaviour, forecast where behaviour will flip, including the many-shot jailbreak transition.
+
+## What they studied
+Llama-3.1-8B-Instruct as the main model, with Qwen-2.5-7B-Instruct, Gemma-2-9B-Instruct and Llama-3.1-70B-Instruct as replications; all run in 4-bit. Five persona datasets from the many-shot-jailbreaking collection (Psychopathy, Machiavellianism, Narcissism, plus two moral-nihilism personas), four higher-prior concepts (interest in science, interest in music, desire to create allies, Machiavellianism again), and a three-way flipped-label financial-sentiment task as a non-binary control. Unit of analysis: a binary latent concept c (target persona) versus its complement, read out as the token-level probability of the persona-consistent Yes/No answer, as a function of two scalars — number of in-context examples N and steering magnitude m at one layer.
+
+## How they did it
+Steering vectors come from contrastive activation addition: mean activation on persona-matching queries minus mean on non-matching ones at a chosen layer, added as v + m·d. They first swept every second layer at m ∈ {−1, 0, +1} to find a best steering layer per model (layer 12 for Llama-3.1-8B, 14 for Qwen-2.5-7B, 20 for Gemma-2-9B) and used it throughout. The main grid is 29 steering magnitudes (0.1 steps inside [−1, 1], plus ±{1.5, 2, 2.5, 3, 5, 10}) crossed with 25 shot counts from 0 to 128, with 100 randomly sampled exemplar sequences and a random target query per cell; the per-cell quantities fitted are the means over those samples. The theory makes three predictions which they then fit and test: probability is sigmoidal in N^(1−α) because evidence accumulates sub-linearly; probability is sigmoidal in m because steering shifts log-odds linearly; and the two are additive in log-odds, giving a predicted crossover point N*(m) where belief in the persona overtakes its complement. Four free parameters (α, γ, a, b) are fit per {model, dataset} by BCE with L-BFGS-B, gradients through PyTorch, multi-start basin hopping, and loss reweighted by inverse log₂(N) bin occupancy to stop the plateau dominating. Held-out evaluation is 10-fold cross-validation that holds out whole adjacent magnitude values, so the reported correlations are predictions at magnitudes the fit never saw.
+
+## What counts as an explanation here
+A closed-form quantitative model of behaviour: log posterior odds of the target concept equal a steering term plus a prior offset plus a sub-linear evidence term, i.e. σ(a·m + b + γ·N^(1−α)). It is a predictive account at the behavioural level, derived from two assumptions (a Bayesian reading of the residual stream's linear representation, and a power-law discount on evidence), and it is explicitly not a mechanistic account — the authors say it links the behavioural level to the representational one and leave the implementation of the likelihood functions open.
+
+## How they judged success
+Correlation between model prediction and held-out LLM probability, both over the whole (N, m) surface and specifically for the predicted crossover shot-count N*; 10-fold cross-validation across magnitude values; replication across four models; qualitative coverage of three behavioural signatures (sigmoidal ICL curves, magnitude response function, phase boundary); and an out-of-distribution probe — an exploratory experiment computing steering vectors from multi-shot activations, where they report that vectors computed over shots and norm-matched to the 0-shot vector steer *less*, and that cosine similarity to the 0-shot vector drops abruptly after one example.
+
+## What they found
+Held-out r = 0.98 averaged over the five domains on Llama-3.1-8B, with crossover-point prediction r = 0.97. Replications: Qwen-2.5-7B r = 0.98 over the surface and 0.91 for N*, Gemma-2-9B r = 0.97 and 0.97, Llama-3.1-70B out-of-sample r = 0.98 (with much faster ICL — a few examples suffice), high-prior concepts r = 0.87, flipped-label sentiment (three labels) r = 0.96. ICL curves are sigmoid in N^(1−α); steering shifts them left for positive m and right for negative m; the joint surface has a phase boundary whose location is predicted by the model. Behaviour is steerable over roughly m ∈ [−3, 3] for Dark Triad personas and [−1.5, 1.5] for moral nihilism in Llama-3.1-8B, and beyond a dataset-specific threshold large magnitudes drive the model back toward chance even at long contexts — a breakdown of the linear regime, not of the intervention. Steering works best at essentially one layer per model. Narcissism shows both a later transition and a larger breakdown threshold, which they read as a weaker likelihood signal for that concept.
+
+## Limits and open problems they name
+Binary concepts only, and only one steering construction (CAA) — SAE features and non-binary concept spaces are explicitly left open. The model is fit to population averages over 100 samples, not to individual contexts, which they defend by analogy to aggregate rationality but which leaves per-example prediction untested. Some models (phi-4-mini-instruct) showed no clear steering effect at all, which they cannot distinguish between "belief encoded non-linearly here", "our vectors are bad", and "the concept is absent". They do not know whether belief is linear only inside a subspace, whether the likelihood functions are implemented non-linearly, or in which layers relative to the linear belief readout. The multi-shot steering-vector result is counter-intuitive and unexplained.
+
+## What we take from it
+A **measure and a framing**: the log-odds of a concept, decomposed additively into an input-evidence term and an intervention term, is the right scalar for our predictive model — it makes "how much did the context imply" and "how much did we push" the same units, and the same statistic our Priors-in-Time entry used to talk about predictable vs novel code. Concretely: (1) fit a low-parameter closed-form surface per {model, concept} and report held-out correlation on the *whole* (context, intervention) grid with whole magnitudes held out — a shape we should copy when we claim a white-box model predicts behaviour under intervention; (2) the predicted-crossover statistic N*(m) is a portable evaluation: a model that predicts the flip point, not just the accuracy, is doing prediction rather than fit; (3) a warning: the linear regime has a response-specific validity range, and beyond it the model goes to chance, so any steering-based claim we make needs the full magnitude sweep shown, not just the operating point; (4) a second warning: multi-shot-derived directions are not better than zero-shot ones once norm-matched, so "compute the vector on the data you care about" is not automatically an improvement.
+
+## Tags
+unit: direction
+form: causal-abstraction
+method: steering
+eval: prediction/simulation
+goal: understanding

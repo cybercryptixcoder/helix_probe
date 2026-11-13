@@ -36,3 +36,4 @@ goodfire-com-research-verbalized-eval-awareness-inflates-measured-safety | Verba
 goodfire-com-research-logits-as-a-new-monitor-for-evaluation-awareness | Logits as a new monitor for evaluation awareness | Goodfire | 2026-06 | 3
 arxiv-2510.24256 | From Memorization to Reasoning in the Spectrum of Loss Curvature | Goodfire | 2025-10 | 2
 arxiv-2511.01836 | Priors in Time: Missing Inductive Biases for Language Model Interpretability | Goodfire / Harvard / EPFL | 2025-11 | 3
+arxiv-2511.00617 | Belief Dynamics Reveal the Dual Nature of In-Context Learning and Activation Steering | Goodfire / Harvard / Stanford / NTT | 2025-11 | 3
