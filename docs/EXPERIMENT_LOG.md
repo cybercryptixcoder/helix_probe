@@ -75,3 +75,71 @@ process: it tried to understand everything, starting with the hardest stage, bef
 **Changed as a result.** The prompt now has a "submit early, then improve stage by stage" rule (first submission
 within 8 steps, easy stages first), the harness adds a reminder to tool results when 7 or more steps pass without a
 submission, and the default budget is 60 steps.
+
+## 2026-11-13 13:57. E2: mod-add blinded with a submit-early rule and reminders (run 2, stopped)
+
+**Why.** Fix E1's failure with the lightest change: tell the reader to submit early and remind it.
+
+**Setup.** As E1, plus the prompt rule and a reminder appended to tool results after 7 steps without a submission.
+Run `20261113-135657-e428`.
+
+**What happened.** No submission in 22 steps; stopped. The reader wrote "let me first do a quick submission with
+something minimal" at step 8 and then did not do it. It re-implemented the forward pass by hand (unnecessary:
+`acts(x)` gives every site) and went back to the attention stage. Its reasoning shows it read "the construction is
+complete when every stage has a verified site" as a requirement for submitting at all.
+
+**Conclusion.** Reminders do not change this reader's behaviour. The pacing has to be enforced by the loop.
+
+**Changed as a result.** After 6 steps without a submission the reader's next turn offers only the `submit` tool,
+with a message saying that partial constructions are expected. The prompt says the same, and says that `acts(x)`
+makes re-implementing the network unnecessary.
+
+## 2026-11-13 14:00. E3: mod-add blinded with forced submit turns (run 3): 3 of 4 stages verified
+
+**Why.** Test the enforced pacing from E2.
+
+**Setup.** `modadd_p113`, blinded, 60 steps. Run `20261113-135953-158c` (16 min, $0.11, 12 submissions).
+
+**What happened.** The reader now worked against the judge, and each report changed the next submission:
+
+| Submission (step) | What it contained | Judge |
+|---|---|---|
+| 1 (6) | Fourier features of each input at frequencies {8, 11, 22, 23, 25} at `embed.0/1`; output computed directly from the inputs | substitution 100%, but interchange 0%: the variables were not used by the model |
+| 2 (13) | output now computed from the variables (decode the token, add, re-encode at `resid_post`) | interchange at embeddings 100%; at `resid_post` 0% (readout not computed from the variable) |
+| 3 (20) | readout made linear in the `resid_post` variable | interchange 100% everywhere; edit 46% (needs 50%) |
+| 4–5 (27, 34) | trig-identity products instead of decoding; an indexing bug broke behaviour, then fixed | 0 stages |
+| 6–8 (49–54) | measured readout amplitudes [12.53, 6.17, 0.29, 9.80, 6.67]; attention pattern modelled as softmax of a linear function of the Fourier features | embedding and readout verified |
+| 9–12 (55–58) | cos/sin of k(i+j) placed at `mlp_post` and `mlp_out` | **embedding, MLP neurons and readout verified; attention failing** |
+
+Final construction (`construction.py` in the run folder, 1,576 characters), on 6,385 held-out inputs:
+
+| Stage | Site | Variable (dims) | Explained | Substitution | Remove named / random | Interchange | Edit (control) |
+|---|---|---|---|---|---|---|---|
+| Embedding | `embed.0`, `embed.1` | cos/sin of 2πk·token/113, k in {8, 11, 22, 23, 25} (10) | 0.94 | 100% | 0.7% / 100% | 100% | 67%, 66% (21%, 20%) |
+| MLP neurons | `mlp_post` | cos/sin of k(i+j) (10) | 0.16 | 100% | 1.8% / 100% | 100% | 76% (22%) |
+| Readout | `mlp_out`, `resid_post` | the same 10 | 0.90, 0.86 | 100% | 1.4%, 1.2% / 100% | 100% | 74%, 76% (21%) |
+| Attention | `resid_mid`, `mlp_pre` | pattern + both inputs' features + sum/difference features (39) | 0.97, 0.98 | 100% | 0.9% / 95% | 98% | **27%, 26% (5%): fails** |
+
+Behaviour: same decision as the network on 100% of inputs. The reader's own summary gives the readout as
+`logit[c] = -42.06 + 12.53 cos(8Δ) + 6.17 cos(11Δ) + 9.80 cos(23Δ) + 6.67 cos(25Δ)`, Δ = c - (i+j), which matches the
+amplitudes measured independently in E0 (12.5, 6.2, 9.8, 6.7; frequency 22 is 0.3). It also found that every head's
+query-key matrix is rank 1 and that the attention pattern is exactly softmax of a Fourier function of each token.
+
+What the reader did and did not do: it named the mechanism from memory at step 4 ("classic modular addition ...
+likely Fourier features"), then measured everything it used: the frequencies by FFT of `W_E`/`W_U`, the amplitudes
+by regression, the attention scores from `W_Q`/`W_K`. It submitted only when forced (every 7th step) until step 49,
+then submitted freely.
+
+**Conclusion.** Blinded, the constructor recovered the published mechanism of mod-add (which frequencies, products in
+the MLP, cosine readout with the right amplitudes) and the construction passes the intervention tests at three of
+four stages. The attention stage is not verified: the 39-dimensional description substitutes and interchanges, but
+its off-manifold edits are wrong, because the model's product step is not how the ReLU layer treats mixed states.
+The hand-written oracle fails at the same stage (E0), and Nanda et al. do not explain it either. The network needs
+its input-dependent attention for 22% of decisions (uniform attention leaves 78% correct).
+
+Weak points to remember: the MLP-neuron variable explains only 16% of the neurons' variance (the rest does not reach
+the output); interchange of a single large variable at a late site is trivially "the source's output", so the edit
+test is what carries weight there; the reader makes indexing mistakes that cost submissions.
+
+**Changed as a result.** A one-shot option for the prior-only control (a judge report is itself information about the
+network, so that control gets one submission and no report). Controls and a replicate launched.

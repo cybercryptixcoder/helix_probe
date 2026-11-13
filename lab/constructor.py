@@ -16,7 +16,9 @@ Everything is written to lab/constructions/<target>/<run id>/ as the run goes, s
   submission_NN.py      each construction the reader submitted;  submission_NN.json  its judge report
   construction.py       the best submission;  report.txt / report.json  its judge report
 
-Run from a terminal:  python3 lab/constructor.py <target id> [--variant shuffled] [--steps 40] [--told] [--no-weights]
+Run from a terminal:  python3 lab/constructor.py <target id> [--variant shuffled] [--steps 60] [--told] [--no-weights] [--one-shot]
+The prior-only control is  --told --no-weights --one-shot : the task is named, the reader has no weights and cannot
+run the network, and it gets one submission with no report (a report would tell it about the network).
 """
 import argparse, json, os, queue, subprocess, sys, threading, time, uuid
 from pathlib import Path
@@ -42,7 +44,18 @@ import luminal  # noqa: E402
 import nets     # noqa: E402
 import judge as judge_mod  # noqa: E402
 
+PRUNE = """
+
+# ---- added by the constructor at the end of the run ----
+# These sites failed the judge's tests in the reader's best submission, so the delivered construction does not claim
+# them. The variables stay in model(); they are just not aligned there. See run.json for the attempt and its report.
+_UNVERIFIED_SITES = {sites}
+ALIGN = {{v: [s for s in where if s not in _UNVERIFIED_SITES] for v, where in ALIGN.items()}}
+ALIGN = {{v: where for v, where in ALIGN.items() if where}}
+"""
+
 COMPACT_AT = 105_000        # prompt tokens: past this, the conversation is replaced by the reader's own notes
+SUBMIT_EVERY = 6            # after this many steps without a submission, the reader's next turn can only submit
 
 SYSTEM = """You are an interpretability researcher. You are given a trained neural network: its weights, its architecture and the set of inputs it is used on. Your job is to work out HOW it computes its outputs and to write that down as a CONSTRUCTION that an automatic judge will test.
 
@@ -81,11 +94,11 @@ HOW THE JUDGE TESTS IT (on inputs held out from fitting)
 A site is verified when it passes 3-5. The network's sites are grouped into STAGES (the successive steps of its computation). The construction is COMPLETE when it behaves like the network and every stage has a verified site. That is the goal: explain every stage, with variables that are as low-dimensional as you can make them.
 
 YOUR TOOLS
-- python(code): runs in a persistent session (variables stay between calls). Available: W (dict of weight arrays), X (all inputs the network is used on, [N, n_in]), run(x) -> outputs, acts(x) -> {site: activations [B, width]}, SITES, np, scipy, sklearn. Print what you want to see; output is cut at about 8,000 characters, so print summaries, not raw arrays.
+- python(code): runs in a persistent session (variables stay between calls). Available: W (dict of weight arrays), X (all inputs the network is used on, [N, n_in]), run(x) -> outputs, acts(x) -> {site: activations [B, width]} (every site, exact: you never need to re-implement the forward pass), SITES, np, scipy, sklearn. Print what you want to see; output is cut at about 8,000 characters, so print summaries, not raw arrays.
 - submit(code): sends a construction file to the judge and returns its report. The report is the fastest way to learn what is right: it tells you, site by site and variable by variable, what passes and what fails.
 
 SUBMIT EARLY, THEN IMPROVE STAGE BY STAGE
-Do not try to understand everything before you submit. Make your first submission within your first 8 steps, as soon as you know what the network does and have one candidate variable at one site. A construction that explains only some stages is a valid submission; stages can be added one at a time. After that, submit again whenever you have changed something: at least every 5 steps. Explain the easy stages first and leave the hardest stage for last.
+Do not try to understand everything before you submit. A construction that explains only one stage is a valid submission, and partial constructions are expected along the way: stages are added one at a time. Make your first submission within your first 6 steps, as soon as you know what the network does and have one candidate variable at one site. After that, submit whenever you have changed something. If you go 6 steps without submitting, you will be required to submit what you have. Explain the easy stages first and leave the hardest stage for last.
 
 HOW TO WORK
 1. Find out WHAT the network does: run it on its inputs and find the rule relating inputs to outputs.
@@ -125,6 +138,8 @@ def task_text(meta, W, cfg):
         L += ["", "WHAT THE NETWORK DOES", meta.get("context", ""), "Task: " + meta["answer"]["short"]]
     else:
         L += ["", "You are not told what the network does or what its inputs and outputs mean. Find out."]
+    if cfg.get("one_shot"):
+        L += ["", "In this run you get ONE submission and no report back: the run ends when you submit. Make it your best."]
     if not cfg["weights"]:
         L += ["", "In this run you have NO access to the weights, and you cannot run the network or record activations: W, X, run and acts "
               "are not defined in the python session. Write the construction from what you know and what you are told above. The judge "
@@ -275,13 +290,13 @@ def better(a, b):
 
 # ---------------------------------------------------------------- the run
 def construct(target, variant="original", told=False, weights=True, allow_forward=True, effort="high", max_steps=60,
-              max_tokens=12000, seed=0, emit=None, cancelled=None, title=""):
+              max_tokens=12000, seed=0, emit=None, cancelled=None, title="", one_shot=False):
     emit = emit or (lambda ev: None)
     cancelled = cancelled or (lambda: False)
     meta = json.loads((LAB / "models" / target / "meta.json").read_text())
     W = {k: v.astype(np.float64) for k, v in np.load(LAB / "models" / target / "weights.npz").items()}
     cfg = {"target": target, "variant": variant, "told": told, "weights": weights, "allow_forward": allow_forward, "effort": effort,
-           "max_steps": max_steps, "max_tokens": max_tokens, "seed": seed, "title": title, "model": luminal.model()}
+           "max_steps": max_steps, "max_tokens": max_tokens, "seed": seed, "title": title, "model": luminal.model(), "one_shot": one_shot}
     run_id = time.strftime("%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:4]
     rdir = OUT / target / run_id
     rdir.mkdir(parents=True, exist_ok=True)
@@ -302,7 +317,18 @@ def construct(target, variant="original", told=False, weights=True, allow_forwar
             if cancelled():
                 raise InterruptedError
             emit({"type": "step", "step": step, "of": max_steps})
-            content, thinking, calls, usage, finish = chat(msgs, TOOLS, effort, max_tokens, emit, cancelled)
+            since = step - (rec["submissions"][-1]["step"] if rec["submissions"] else -1)
+            tools = TOOLS
+            if since > SUBMIT_EVERY and (best is None or not best["verdict"]["complete"]):
+                # the reader has gone too long without testing anything: this turn it can only submit
+                tools = TOOLS[1:]
+                msgs.append({"role": "user", "content": (
+                    ("You have not submitted a construction yet. " if not rec["submissions"] else f"It is {since - 1} steps since your last submission. ") +
+                    "Submit one now: this turn the only tool is submit. Put in what you have established so far, even if it explains "
+                    "only one stage or is rough; partial constructions are expected. The judge's report will show what holds, and you "
+                    "continue from there.")})
+                emit({"type": "note", "text": "asked the reader to submit now"})
+            content, thinking, calls, usage, finish = chat(msgs, tools, effort, max_tokens, emit, cancelled)
             rec["usage"]["prompt_tokens"] += usage.get("prompt_tokens") or 0
             rec["usage"]["completion_tokens"] += usage.get("completion_tokens") or 0
             rec["usage"]["calls"] += 1
@@ -346,15 +372,10 @@ def construct(target, variant="original", told=False, weights=True, allow_forwar
                     emit({"type": "tool_result", "ok": res["ok"], "output": res["output"], "seconds": res["seconds"]})
                     srec["tools"].append({"tool": "python", "code": code, **res})
                     out = res["output"] or "(no output: print what you want to see)"
-                left = max_steps - step - 1
-                since = step - (rec["submissions"][-1]["step"] if rec["submissions"] else 0)
-                note = f"\n[{left} steps left]"
-                if name != "submit" and since >= 7 and since % 3 == 1:
-                    note += (" [REMINDER: " + (f"{since} steps since your last submission." if rec["submissions"] else
-                                               "you have not submitted anything yet.") +
-                             " Submit your current best construction now, even if it covers only some stages; then continue from the judge's report.]")
-                msgs.append({"role": "tool", "tool_call_id": c["id"], "content": out + note})
+                msgs.append({"role": "tool", "tool_call_id": c["id"], "content": out + f"\n[{max_steps - step - 1} steps left]"})
             save()
+            if one_shot and rec["submissions"]:
+                break               # a single submission and no feedback: the judge's report is itself information about the network
             if best is not None and best["verdict"]["complete"] and best_n == len(rec["submissions"]):
                 msgs.append({"role": "user", "content": "The judge reports VERIFIED AND COMPLETE. Reply with a short final summary of the mechanism (no tool call)."})
                 content, thinking, _, usage, _ = chat(msgs, None, "low", 2000, emit, cancelled)
@@ -377,7 +398,21 @@ def construct(target, variant="original", told=False, weights=True, allow_forwar
     rec["seconds"] = round(time.time() - rec["started"], 1)
     if best_n:
         src = (rdir / f"submission_{best_n:02d}.py").read_text()
-        (rdir / "construction.py").write_text(src)
+        failing = [s for s, r in best["sites"].items() if not r["pass"]]
+        if failing and len(failing) < len(best["sites"]):
+            # the delivered construction claims only what passed: drop the failing sites from ALIGN and judge again
+            pruned = src.rstrip() + PRUNE.format(sites=json.dumps(failing))
+            path = rdir / "construction.py"
+            path.write_text(pruned)
+            text, rep = run_judge(target, variant, path, seed)
+            (rdir / "construction.json").unlink(missing_ok=True)
+            if rep and rep["verdict"]["verified"]:
+                rec["pruned_sites"] = failing
+                best = rep
+            else:
+                path.write_text(src)
+        else:
+            (rdir / "construction.py").write_text(src)
         (rdir / "report.json").write_text(json.dumps(best, indent=1))
         (rdir / "report.txt").write_text(judge_mod.render(best) + "\n")
         rec["verdict"] = best["verdict"]
@@ -416,6 +451,7 @@ def main():
     ap.add_argument("--effort", default="high")
     ap.add_argument("--told", action="store_true", help="tell the reader the task (not blinded)")
     ap.add_argument("--no-weights", action="store_true", help="prior-only control: no weights, no network")
+    ap.add_argument("--one-shot", action="store_true", help="the run ends at the first submission (no judge feedback)")
     ap.add_argument("--title", default="")
     ap.add_argument("--quiet", action="store_true")
     a = ap.parse_args()
@@ -440,7 +476,7 @@ def main():
             print(f"\n[{t}] " + json.dumps({k: v for k, v in ev.items() if k != 'type'}))
         sys.stdout.flush()
 
-    rec = construct(a.target, a.variant, told=a.told, weights=not a.no_weights, effort=a.effort, max_steps=a.steps, emit=emit, title=a.title)
+    rec = construct(a.target, a.variant, told=a.told, weights=not a.no_weights, effort=a.effort, max_steps=a.steps, emit=emit, title=a.title, one_shot=a.one_shot)
     print(f"\nstatus {rec['status']}; best submission {rec['best']}; cost ${rec['cost']:.3f}; {rec['seconds']} s; "
           f"{LAB / 'constructions' / a.target / rec['id']}")
 

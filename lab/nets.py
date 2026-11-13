@@ -63,12 +63,61 @@ def onelayer_transformer(W, tokens, hook=None, acts=None):
     return h("out", res @ W["W_U"])
 
 
+def transformer(W, tokens, hook=None, acts=None):
+    """A general transformer without LayerNorm, read from the tensors present in W:
+      W_E [vocab, d], W_pos [positions, d];  per layer l = 0, 1, ...:  L{l}.W_Q, L{l}.W_K, L{l}.W_V [heads, d, k],
+      L{l}.W_O [heads, k, d], L{l}.W_in [d, m], L{l}.W_out [m, d], each with an optional bias (b_Q, b_K, b_V [heads, k];
+      b_O [d]; b_in [m]; b_out [d]);  W_U [d, classes] and optional b_U.
+    Attention is bidirectional unless W has the key "causal". The output is read at the positions listed in
+    W["out_positions"] (default: all), giving [B, n_positions * classes].
+    Sites hold every position, flattened as position * width + index: embed, then per layer attn{l}.pattern
+    (head * P * P + query position * P + key position), attn{l}.out, resid{l}.mid, mlp{l}.pre, mlp{l}.post, mlp{l}.out,
+    resid{l}.post, and out."""
+    h = _hooker(hook, acts)
+    t = np.asarray(tokens).astype(int)
+    if t.ndim == 1:
+        t = t[None]
+    B, P = t.shape
+    flat = lambda a: a.reshape(B, -1)                                  # noqa: E731
+    x = W["W_E"][t] + W["W_pos"][:P]
+    d = x.shape[-1]
+    x = h("embed", flat(x)).reshape(B, P, d)
+    l = 0
+    while f"L{l}.W_Q" in W or f"L{l}.W_in" in W:
+        if f"L{l}.W_Q" in W:
+            Q, K, V, O = (W[f"L{l}.W_{n}"] for n in "QKVO")
+            H, _, k = Q.shape
+            z = lambda n: W.get(f"L{l}.b_{n}", 0.0)                    # noqa: E731
+            q = np.einsum("bpd,hde->bhpe", x, Q) + (np.asarray(z("Q"))[None, :, None, :] if f"L{l}.b_Q" in W else 0.0)
+            kk = np.einsum("bpd,hde->bhpe", x, K) + (np.asarray(z("K"))[None, :, None, :] if f"L{l}.b_K" in W else 0.0)
+            v = np.einsum("bpd,hde->bhpe", x, V) + (np.asarray(z("V"))[None, :, None, :] if f"L{l}.b_V" in W else 0.0)
+            att = np.einsum("bhpe,bhqe->bhpq", q, kk) / np.sqrt(k)
+            if "causal" in W:
+                att = np.where(np.triu(np.ones((P, P), bool), 1), -1e9, att)
+            att = np.exp(att - att.max(-1, keepdims=True)); att /= att.sum(-1, keepdims=True)
+            att = h(f"attn{l}.pattern", flat(att)).reshape(B, H, P, P)
+            a = np.einsum("bhpq,bhqe,hed->bpd", att, v, O) + z("O")
+            a = h(f"attn{l}.out", flat(a)).reshape(B, P, d)
+            x = h(f"resid{l}.mid", flat(x + a)).reshape(B, P, d)
+        if f"L{l}.W_in" in W:
+            m = W[f"L{l}.W_in"].shape[1]
+            pre = h(f"mlp{l}.pre", flat(x @ W[f"L{l}.W_in"] + W.get(f"L{l}.b_in", 0.0))).reshape(B, P, m)
+            post = h(f"mlp{l}.post", flat(np.maximum(pre, 0))).reshape(B, P, m)
+            mo = h(f"mlp{l}.out", flat(post @ W[f"L{l}.W_out"] + W.get(f"L{l}.b_out", 0.0))).reshape(B, P, d)
+            x = h(f"resid{l}.post", flat(x + mo)).reshape(B, P, d)
+        l += 1
+    pos = np.asarray(W["out_positions"]).astype(int) if "out_positions" in W else np.arange(P)
+    return h("out", flat(x[:, pos] @ W["W_U"] + W.get("b_U", 0.0)))
+
+
 def forward(kind, W, x, hook=None, acts=None):
     """Run the network. hook replaces activations at named sites; acts (a dict) collects every site's activation."""
     if kind in ("mlp_tanh", "mlp_relu"):
         return mlp(W, x, kind.split("_")[1], hook, acts)
     if kind == "onelayer_transformer":
         return onelayer_transformer(W, x, hook, acts)
+    if kind == "transformer":
+        return transformer(W, x, hook, acts)
     raise ValueError(f"no forward pass for {kind}")
 
 
@@ -97,6 +146,26 @@ def site_table(kind, W):
             ("mlp_out", d, "what the MLP adds to the residual stream", "readout"),
             ("resid_post", d, "residual stream at the last position after the MLP", "readout"),
             ("out", W["W_U"].shape[1], "the network's output", "output")])
+    if kind == "transformer":
+        P, d = W["W_pos"].shape
+        out = [("embed", P * d, f"token + position embeddings, all {P} positions (index = position * {d} + dimension)", "embedding")]
+        l = 0
+        while f"L{l}.W_Q" in W or f"L{l}.W_in" in W:
+            if f"L{l}.W_Q" in W:
+                H = W[f"L{l}.W_Q"].shape[0]
+                out += [(f"attn{l}.pattern", H * P * P, f"layer {l} attention weights (index = head * {P * P} + query position * {P} + key position)", f"layer {l} attention"),
+                        (f"attn{l}.out", P * d, f"what layer {l}'s attention adds to the residual stream, all positions", f"layer {l} attention"),
+                        (f"resid{l}.mid", P * d, f"residual stream after layer {l}'s attention, all positions", f"layer {l} attention")]
+            if f"L{l}.W_in" in W:
+                m = W[f"L{l}.W_in"].shape[1]
+                out += [(f"mlp{l}.pre", P * m, f"layer {l} MLP neurons before ReLU, all positions (index = position * {m} + neuron)", f"layer {l} mlp neurons"),
+                        (f"mlp{l}.post", P * m, f"layer {l} MLP neurons after ReLU, all positions", f"layer {l} mlp neurons"),
+                        (f"mlp{l}.out", P * d, f"what layer {l}'s MLP adds to the residual stream, all positions", f"layer {l} output"),
+                        (f"resid{l}.post", P * d, f"residual stream after layer {l}, all positions", f"layer {l} output")]
+            l += 1
+        n_pos = len(W["out_positions"]) if "out_positions" in W else P
+        out.append(("out", n_pos * W["W_U"].shape[1], "the network's output", "output"))
+        return out
     raise ValueError(kind)
 
 
