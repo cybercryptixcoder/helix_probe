@@ -46,3 +46,6 @@ arxiv-2605.12412 | Stories in Space: In-Context Learning Trajectories in Concept
 goodfire-com-research-bsf-vision | Uncovering Neural Geometry in Vision Models With Block-Sparse Featurizers | Goodfire / Harvard / Stanford / Brown | 2026-07 | 3
 goodfire-com-research-under-the-hood-of-a-reasoning-model | Under the Hood of a Reasoning Model: first public SAEs on DeepSeek-R1 (671B) | Goodfire | 2025-04 | 2
 goodfire-com-research-interpreting-evo-2 | Interpreting Evo 2: layer-26 BatchTopK SAEs on Arc's genomic foundation model | Goodfire / Arc Institute | 2025-02 | 2
+transformer-circuits-pub-2021-exercises-index-html | Transformer Circuit Exercises (problem set with worked weights) | Transformer Circuits (Anthropic) | 2021-12 | 1
+transformer-circuits-pub-2021-garcon-index-html | Garçon: interpretability infrastructure for arbitrary models at arbitrary scale | Transformer Circuits (Anthropic) | 2021-12 | 2
+github-com-anthropics-pysvelte | PySvelte: Svelte visualisations callable from Python | Anthropic | 2021 | 1
