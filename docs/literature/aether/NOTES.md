@@ -5,7 +5,7 @@
 ## Status
 
 - Entries written: 21 (INDEX.md is authoritative)
-- Last commit: literature (aether): 20 entries (21st pending, uncommitted)
+- Last commit: literature (aether): 21 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
 - Note 2026-11-12: the Priority block is now fully ticked; from here the loop works down the raw seed queue.
@@ -40,7 +40,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [ ] Next-Generation Constitutional Classifiers | 2026-01 | 
 - [ ] Verbalized Eval Awareness Inflates Measured Safety (Goodfire) | 2026-05 | eval awareness
 - [ ] Logits as a new monitor for evaluation awareness (Goodfire) | 2026-06 | monitor
-- [ ] Steering Evaluation-Aware LMs to Act Like They Are Deployed | https://arxiv.org/abs/2510.20487 | 
+- [x] Steering Evaluation-Aware LMs to Act Like They Are Deployed | https://arxiv.org/abs/2510.20487 | DONE (Wood Labs organism; pre-fine-tune vector; 80-86%→<11%)
 - [ ] Understanding Memorization via Loss Curvature (Goodfire) | 2025-11 | weight curvature
 - [ ] Priors in Time (Goodfire) | https://arxiv.org/abs/2511.01836 | 
 - [ ] Belief Dynamics: ICL and activation steering (Goodfire) | 2025-11 | 
@@ -212,6 +212,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - arxiv-2604.21139 | Slot Machines: multiple entities (Anthropic Fellows)
 - arxiv-2604.12493 | Latent Planning Emerges with Scale (Anthropic Fellows / UvA)
 - arxiv-2604.14865 | Segment-Level Coherence for Robust Harmful Intent Probing (UCL / Virginia Tech / Anthropic)
+- arxiv-2510.20487 | Steering Evaluation-Aware LMs to Act Like They Are Deployed (MATS; Hua, Qin, Marks, Nanda)
 
 ## Patterns noticed
 
@@ -270,6 +271,9 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **Pooling rule is a first-class design choice, not a detail**: confidence-weighted or max-like aggregation over tokens turns a "harmfulness probe" into a keyword detector. Requiring several windows to jointly support a verdict (top-K averaging) plus penalising disagreement between selected windows was worth ~35% TPR at 1% FPR — bigger than most modelling changes. (arxiv-2604.14865)
 - **Residual-only probing leaves accuracy on the table**: attention-output and MLP-output probes beat the residual stream in every domain tested, and which one wins depends on domain *and* architecture. Always sweep the representation site alongside the layer. (arxiv-2604.14865, arxiv-2606.02609)
 - **Frozen-reader / shifted-backbone control** cleanly separates "the model cannot represent it" from "our reader cannot read it": probes at chance on ciphered text with the backbone frozen, then 98.85% AUROC with the *same* probes once the backbone is cipher-tuned. Reusable design for any claim that a readout tracks content rather than surface form. (arxiv-2604.14865)
+- **Pre-registered ground truth as the validation for an intervention**: build a model organism whose evaluation-vs-deployment behaviour you *defined*, then a steering success claim ("we elicited deployment behaviour") becomes checkable instead of inferred from a transcript heuristic. Same move as the base-model control and the cross-model matrix, but applied to a steering intervention rather than a probe. (arxiv-2510.20487)
+- **Extract the direction on the pre-intervention checkpoint** to certify the vector carries the context variable and not the downstream behaviour it is meant to control; conversely, steering toward the "target" state can undershoot the natural baseline (steered deployment rate < plain deployment rate), which is itself a sign the vector is a coarse axis. (arxiv-2510.20487, arxiv-2606.17056)
+- **Spread a fixed steering budget over several mid layers (10–30 here) rather than one strong vector**: equal behaviour change at much lower task-accuracy cost; single-layer steering at comparable total strength degrades capability sharply. (arxiv-2510.20487, anthropic-com-research-assistant-axis)
 
 ## Could not read
 
