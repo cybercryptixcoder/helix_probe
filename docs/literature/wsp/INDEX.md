@@ -1,6 +1,6 @@
 # Weight-space programming follow-ups (Nov 2026)
 
-Sources on weight-space programming published since MIT's Sparks post (Nov 2, 2026): papers, replications, repos and critiques. Each entry follows [../SCHEMA.md](../SCHEMA.md) plus a `K1 detail (reading setup)` section covering the reader models, weight format, prompt, access regime, controls and failure modes. The synthesis is in [K1_STATE_OF_ART.md](K1_STATE_OF_ART.md).
+Sources on weight-space programming since MIT's Sparks post (Nov 2, 2026). Each entry follows [../SCHEMA.md](../SCHEMA.md) plus a `K1 detail (reading setup)` section. The synthesis is in [K1_STATE_OF_ART.md](K1_STATE_OF_ART.md).
 
 - blog-rikiyat-github-io-weight-space-programming | Sparks of Weight-Space Programming: reading experiments (Exp 1-3) and released logs | Takehi, Teoh, Zhang, Khattab; MIT CSAIL | 2026-11-02 | 3
 - blog-simonwillison-net-qwen-can-interpret-model-weights | Qwen 3.8 27B on my laptop can interpret model weights, too | Simon Willison | 2026-11-03 | 3
@@ -22,3 +22,10 @@ Sources on weight-space programming published since MIT's Sparks post (Nov 2, 20
 - blog-learnagentic-what-is-weight-space-programming | What is weight-space programming? | Kanishk Patel / Learn Agentic AI | 2026-11-10 | 2
 - x-alexkrentsel-status-2117376683724660898 | Reproduction of MIT WSP result across model generations (X post) | Alex Krentsel / Google Research | 2026-11-02 | 3
 - blog-gopenai-an-ai-edited-0-016-of-qwens-weights | An AI edited 0.016% of Qwen's weights (unread, paywalled) | GoPenAI (author unknown) | unknown | 1
+- blog-csinva-wsp-autoresearch-systematic-tests | Can Claude Opus 5.5 predict weight edits by reading Qwen3.5-0.8B's weights? | Chandan Singh (csinva.io) | 2026-11-12 (page last-modified; no date stated) | 3
+- alphaxiv-2611-interpretable-weight-space-programming | Interpretable weight-space programming builds transparent transformers and brain encoding models | Mehta, Singh, Xu, Antonello, Flinker, Mesgarani, Bonner, Jojic, Gao / Microsoft Research, JHU, Columbia, NYU | 2026-11-12 | 2
+- github-csinva-wsp-autoresearch-mona-lisa | Mona Lisa weights (hand-written MNIST convnet whose weights form the Mona Lisa) | csinva repo; written by Claude Opus 5.5 | unknown | 1
+- arxiv-2611.05798 | Consistency Is Not Understanding: Orbit Audits for Neural Field Weight Readers | Cha, Kim, Han, Jeon, Lee / LG Uplus | 2026-11-04 | 3
+- blog-wspbench-com | WSPBench website: selective-repair benchmark (with prompt and weight format from repo code) | Alex Carter | 2026-11 | 2
+- github-anadim-adderboard | AdderBoard: smallest transformer for 10-digit addition (trained and hand-coded) | Dimitris Papailiopoulos and community | 2026 | 1
+- github-fchaubard-wsp-for-turing-complete | Weight-Space Programming and Gradient Optimization on Nonconvex Algorithmic Tasks | Francois Chaubard and GPT-6 Astra / Stanford | 2026-11-07 | 2

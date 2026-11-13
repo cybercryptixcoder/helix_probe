@@ -1,7 +1,28 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 11, 2026, 04:30 ET. Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 13, 2026. Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
+
+## CURRENT STATE (2026-11-13). Read this first.
+
+> **The rule for this repo:** it is a living documentation store. After every exchange, record every idea, question, decision, finding, hypothesis and build request. Each fresh session must be able to continue from the docs alone.
+
+- **Building now:** the **Weight Reading Lab** (`lab/`), a local web app for K1 by hand. See **[`docs/WHAT_WE_ARE_BUILDING.md`](../WHAT_WE_ARE_BUILDING.md)**.
+- **Direction:** build a *constructor* that produces causal abstractions of networks from their weights. Replicate known results first (K0), and study the reader interface (K1). See `DIRECTIONS.md` §2f.
+- **Not decided:**
+  - the loop, roles and agents;
+  - the fine-tuning method (K2);
+  - slicing vs self-querying.
+
+  `ideas/SCIFI_AGENTIC_INTERPRETER.md` is explicitly **not** the plan.
+- **Full discussion record:** `docs/CONVERSATION_LOG.md`.
+- **Literature:**
+  - `literature/SYNTHESIS.md` (the field);
+  - `literature/wsp/K1_STATE_OF_ART.md` (weight-space programming follow-ups).
+
+Everything below this line is the earlier state (Nov 8–11), kept for history.
+
+---
 
 ## The two goals (from `docs/NORTH_STAR.md`)
 

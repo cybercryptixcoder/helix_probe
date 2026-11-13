@@ -217,7 +217,7 @@ The project builds the **constructor**: a loop in which an LLM reads a network's
 |---|---|---|
 | K0 | **Replicate first** | Can the loop rediscover a published construction (modular addition first) without seeing the answer? We tune the loop on known answers before using it on unknown ones. |
 | K1 | **The reader interface** | The first step of every iteration: what we hand the LLM (which weights, in what form, with what question), what answer we want back, and which choices give better or more relevant answers. Measured, not guessed. |
-| K2 | **A fine-tuned or RL-trained reader** | Since reading seems to be a capability learned in pre-training, can fine-tuning (RL in particular) strengthen it for the K1 interface? This needs K1's answer format defined first. |
+| K2 | **A fine-tuned reader** | Since reading seems to be a capability learned in pre-training, can fine-tuning strengthen it for the K1 interface? Usually this would be RL, but the method is open. This needs K1's answer format defined first. |
 | K3 | **The loop itself** | Read → hypothesis → test the mapping → assemble a runnable construction → test the algorithm → repair. Draft below. |
 
 Each of these could be its own paper. Together with the earlier directions there are perhaps six.
@@ -256,7 +256,9 @@ confidence: 0–1
 ```
 The `prediction` field is what links K1 to K2. It gives an automatic, verifiable reward, which RL needs.
 
-### K3: draft loop
+### K3: draft loop. A SKETCH ONLY, NOT DECIDED, AND NOT THE FIRST BUILD
+
+Shreyas (Nov 13): do not settle on this loop, its roles or its agents yet. Building it first would just be another Helix version. Build what is needed: the first build is the Weight Reading Lab (`WHAT_WE_ARE_BUILDING.md`). One open alternative to feeding slices is that the reader queries the weight store itself.
 
 0. **Setup.** Target network; behaviour spec (input/output examples or query access, possibly blinded); inspection tools; budget.
 1. **Read.** The reader gets a view and a question (K1) and returns readings in the schema.
