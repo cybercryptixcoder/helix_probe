@@ -18,3 +18,4 @@ arxiv-2607.03502 | Reading Between the Dots: Decoding Hidden Computation across 
 arxiv-2607.12279 | A Shared Subcircuit Lets LLMs Count Down Across Tasks | Yale / Anthropic | 2026-07 | 3
 arxiv-2608.30980 | Evaluating and Improving LLM Self-Modeling | UIUC / Constellation / Anthropic | 2026-08 | 2
 arxiv-2605.25459 | From Simulation to Enaction: Post-trained LMs Recognize and React to their Own Generations | IAS Princeton / Anthropic | 2026-05 | 3
+anthropic-com-research-introspection | Signs of Introspection in Large Language Models | Anthropic | 2025-10 | 3

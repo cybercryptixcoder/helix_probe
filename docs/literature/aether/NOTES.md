@@ -4,8 +4,8 @@
 
 ## Status
 
-- Entries written: 18 (INDEX.md is authoritative)
-- Last commit: literature (aether): 18 entries
+- Entries written: 19 (INDEX.md is authoritative)
+- Last commit: literature (aether): 18 entries (19th pending, uncommitted)
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
 
@@ -26,7 +26,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] Evaluating and Improving LLM Self-Modeling | https://arxiv.org/abs/2608.30980 | DONE (skill score vs dummy predictor; no own-model advantage)
 - [x] From Simulation to Enaction | https://arxiv.org/abs/2605.25459 | DONE (entropy as implicit on-policy recognition; surprise direction causal; explicit detection is a separate circuit)
 - [ ] Natural Language Autoencoders (summary page) | 2026-05 | tcpub; core may cover
-- [ ] Signs of Introspection in LLMs | 2025-10 | introspection
+- [x] Signs of Introspection in LLMs | https://www.anthropic.com/research/introspection | DONE (concept injection, ~20% detection, detect-before-name ordering control)
 - [ ] Believe It or Not: implanted facts | 2025-10 | implanted belief
 - [ ] Do Reasoning Models Use Their Scratchpad Like We Do | 2025-03 | 
 - [ ] Reasoning Models Don't Always Say What They Think | 2025-04 | CoT faithfulness
@@ -190,6 +190,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
   (4) other labs, (5) topic searches.
 
 ## Done
+- anthropic-com-research-introspection | Signs of Introspection in LLMs (concept injection; Anthropic)
 - arxiv-2605.25459 | From Simulation to Enaction: Post-trained LMs Recognize their Own Generations (IAS Princeton / Anthropic)
 - arxiv-2608.30980 | Evaluating and Improving LLM Self-Modeling (UIUC / Constellation / Anthropic)
 - arxiv-2607.12279 | A Shared Subcircuit Lets LLMs Count Down Across Tasks (Yale / Anthropic)
@@ -257,6 +258,8 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **Probe-plus-steer is mandatory, again**: a clean 1-D centroid manifold for output entropy/input surprise is almost non-causal under steering, while the surprise direction alone moves entropy — decodability buys you a coordinate, not a mechanism. (arxiv-2605.25459, arxiv-2604.21139)
 - **Self-attribution claims need the cross-model matrix**: to say a model recognises its *own* text, feed every model's text into every model in the same slot and require the diagonal to be the column minimum; otherwise "low perplexity on my own prose" explains it. (arxiv-2605.25459, arxiv-2608.30980)
 - Implicit and explicit self-knowledge are mechanistically separate (entropy/surprise route vs an on-demand comparison circuit), so a model's verbal self-report is another behaviour to predict, never ground truth about its internals. (arxiv-2605.25459, arxiv-2608.30980)
+- **Planted-state introspection test**: write a known concept vector into the state, then ask the model what it notices; the report is ground truth-checkable only if the model must flag the anomaly *before* naming the concept (otherwise it is just talking about the steer). Rates net of control-trial false positives, on a swept injection strength — introspection is rare (~1 in 5), post-training-dependent, and served by narrow task-specific circuits rather than one faculty. (anthropic-com-research-introspection)
+- Retroactive injection ("you were planning this all along") flips apology into endorsement plus a confabulated justification — a reusable probe for whether a self-check reads prior internal state or re-reads the visible transcript. (anthropic-com-research-introspection)
 
 ## Could not read
 
