@@ -23,7 +23,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] Latent Planning Emerges with Scale | https://arxiv.org/abs/2604.12493 | planning = causally causes distant token AND its licence
 - [x] Reading Between the Dots: decoding across filler tokens | https://arxiv.org/abs/2607.03502 | hidden computation
 - [x] A Shared Subcircuit Lets LLMs Count Down | https://arxiv.org/abs/2607.12279 | DONE (countdown heads, layer-18 last-use, cross-model motif)
-- [ ] Evaluating and Improving LLM Self-Modeling | https://arxiv.org/abs/2608.30980 | self-knowledge
+- [x] Evaluating and Improving LLM Self-Modeling | https://arxiv.org/abs/2608.30980 | DONE (skill score vs dummy predictor; no own-model advantage)
 - [ ] From Simulation to Enaction | https://arxiv.org/abs/2605.25459 | 
 - [ ] Natural Language Autoencoders (summary page) | 2026-05 | tcpub; core may cover
 - [ ] Signs of Introspection in LLMs | 2025-10 | introspection
@@ -190,6 +190,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
   (4) other labs, (5) topic searches.
 
 ## Done
+- arxiv-2608.30980 | Evaluating and Improving LLM Self-Modeling (UIUC / Constellation / Anthropic)
 - arxiv-2607.12279 | A Shared Subcircuit Lets LLMs Count Down Across Tasks (Yale / Anthropic)
 - arxiv-2607.03502 | Reading Between the Dots (filler-token hidden computation)
 
@@ -249,6 +250,9 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **Last-used layer ≠ peak-probe layer**: patching every layer and reading where the effect *drops to baseline* locates the layer where information is copied out and consumed downstream; probing alone would put you at the wrong site to intervene. (arxiv-2607.12279)
 - Cross-condition representation match should be tested for **unimodality plus near-linear unit mapping (r²)**, not just "the probe transfers" — that is what licenses saying two sites encode the same scalar in different units. (arxiv-2607.12279)
 - Growing recipe for cross-model universality: claim a motif is shared only after the *geometric structure* (manifold diagonal + ringing pattern) matches a prior report in another model, with interventions in just one. (arxiv-2607.12279, arxiv-2604.12493)
+- **Base-rate normalisation for "the model knows its own behaviour"**: score self-reports as improvement over a dummy predictor of the answer distribution, not raw accuracy — 0.95 raw is worthless when the labels are 5% positive. Reports both raw and skill in [−1,1]. (arxiv-2608.30980)
+- **No own-model advantage**: a stronger model explaining a weaker one's behaviour can match or beat the model explaining itself, so "self-knowledge" claims must beat a cross-model explainer baseline. Same lesson as the base-model-control null, one level up. (arxiv-2608.30980, arxiv-2510.01070)
+- SFT on explanation text collapses outside its training-query support and RL afterwards does not recover it; verified-reward RL on generated intervention labels is the recipe that generalises across task formats. (arxiv-2608.30980)
 
 ## Could not read
 
