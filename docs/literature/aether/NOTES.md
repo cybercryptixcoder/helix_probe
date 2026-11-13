@@ -4,7 +4,7 @@
 
 ## Status
 
-- Entries written: 4
+- Entries written: 5
 - Last commit: literature (aether): 2 entries
 - Current source: `SEED_QUEUE.md` long tail (Anthropic + Goodfire, excluding what core covers); priority block first
 
@@ -250,9 +250,12 @@ Priority block (most relevant to reading weights, prediction and evaluation), th
 - arxiv-2511.05408 | Steering Language Models with Weight Arithmetic (Anthropic)
 - alignment-anthropic-2025-selective-gradient-masking | Beyond Data Filtering: Knowledge Localization for Capability Removal (Anthropic)
 - arxiv-2606.02609 | Building Better Activation Oracles (Nanda group / MATS)
+- arxiv-2603.05494 | Censored LLMs as a Natural Testbed for Secret Knowledge Elicitation (Casademunt et al.)
 
 ## Patterns noticed
 
+- Repeated claim: the model carries a **representation of the truth independent of what it outputs** (probes trained on unrelated honesty data transfer to censorship). Ground truth for this = "knows X, says not-X". (arxiv-2603.05494)
+- Abliteration / mean-difference refusal-or-behaviour direction removal at 50-75% depth is the standard cheap white-box intervention baseline across safety papers. (arxiv-2603.05494, arxiv-2511.05408)
 - **Text-inversion control**: any benchmark for "model explains itself from internals" must ensure the answer is not derivable from the visible context. (arxiv-2606.02609)
 - Prose explanations get judged on separate hallucination vs vagueness axes with chance-adjusted scores; end-to-end readers are still weaker than a linear probe on narrow tasks. (arxiv-2606.02609)
 - Activations are most informative around 60-70% depth and on-policy data is the preferred training/test distribution. (arxiv-2606.02609)
