@@ -52,3 +52,6 @@ github-com-anthropics-pysvelte | PySvelte: Svelte visualisations callable from P
 anthropic-com-research-scaling-laws-and-interpretability-of-learning-from-repeated-data | Scaling Laws and Interpretability of Learning from Repeated Data | Anthropic | 2022-05 | 2
 transformer-circuits-pub-2022-solu-index-html | Softmax Linear Units: designing the MLP activation for legibility | Transformer Circuits (Anthropic) | 2022-06 | 2
 anthropic-com-research-language-models-mostly-know-what-they-know | Language Models (Mostly) Know What They Know (P(True) / P(IK)) | Anthropic | 2022-07 | 3
+arxiv-2211.09169 | Engineering Monosemanticity in Toy Models | Anthropic | 2022-11 | 3
+transformer-circuits-pub-2023-toy-double-descent-index-html | Superposition, Memorization, and Double Descent | Anthropic (Transformer Circuits) | 2023-01 | 3
+transformer-circuits-pub-2023-may-update-index-html | Circuits Updates, May 2023 (dictionary learning, weight/head superposition) | Anthropic (Transformer Circuits) | 2023-05 | 2
