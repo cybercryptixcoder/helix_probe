@@ -29,7 +29,8 @@ The judge measures, on inputs held out from fitting:
                     random half of its coordinates are given the values they have on the source input, written into
                     the network along the variable's fitted directions, and compared with the construction's
                     prediction for that edited state.
-                    Controls: the same test with a random subspace; predicting "no change"; predicting the source output.
+                    Controls: the same test with a random subspace; predicting "no change"; predicting the source
+                    output; attribution patching (the first-order estimate of the same change, on the real network).
 
 Run:  python3 lab/judge.py <target id> <construction.py> [--variant original|shuffled|untrained|permuted] [--json out.json]
 """
@@ -299,6 +300,8 @@ def judge(kind, W, X, source, seed=0, n_pairs=2000, groups=None):
                 else:                          # write the construction's own new value along the variable's fitted directions
                     delta = (new_val - vals[v][base]) @ M[J]
                 o_net = nets.forward(kind, W, X[base], hook={s: A[base] + delta})
+                # attribution patching's answer for the same change: the first-order estimate, computed on the network
+                o_lin = out_n[base] + (nets.forward(kind, W, X[base], hook={s: A[base] + 1e-3 * delta}) - out_n[base]) / 1e-3
                 r = max(1, int(np.linalg.matrix_rank(M[J], tol=1e-8 * max(1.0, np.abs(M).max()))))
                 Pr = rand_proj(min(r, A.shape[1]))
                 o_rand = nets.forward(kind, W, X[base], hook={s: A[base] + (A[src] - A[base]) @ Pr})
@@ -313,6 +316,8 @@ def judge(kind, W, X, source, seed=0, n_pairs=2000, groups=None):
                     "baseline_no_change": match(out_n[base], o_net),
                     "baseline_source_output": match(out_n[src], o_net),
                     "control_random_subspace": match(o_pred, o_rand),
+                    "attribution_patching": float(same(o_lin, o_net).mean()),
+                    "attribution_patching_when_changed": float(same(o_lin, o_net)[net_changed].mean()) if net_changed.any() else None,
                 })
     for s, r in rep["sites"].items():
         # variables whose interventions never change the output are present but unused: they do not count toward size
@@ -422,12 +427,13 @@ def render(rep):
     L.append("4. INTERVENTIONS   interchange = one variable is copied from another input's run. edit (only for a variable that is alone "
              "at its site) = a random half of its coordinates are set to another input's values. right = the construction predicted "
              "the network's new decision (all cases / cases where the decision changed).  controls: the same swap in a random "
-             "subspace; guessing 'no change'; guessing the source input's output")
+             "subspace; guessing 'no change'; guessing the source input's output; attribution patching (a first-order estimate computed on the network itself)")
     for t in rep["interventions"]:
         w = "n/a" if t["agreement_when_changed"] is None else f"{t['agreement_when_changed']:.1%}"
         L.append(f"  {t['mode']:11s} {t['variable']} @ {t['site']}: right {t['agreement']:.1%} / {w} when changed (network changed in "
                  f"{t['network_changed']:.1%}); output R2 {t['r2']:.3f} | controls: random subspace {t['control_random_subspace']:.1%}, "
-                 f"no-change {t['baseline_no_change']:.1%}, source-output {t['baseline_source_output']:.1%}")
+                 f"no-change {t['baseline_no_change']:.1%}, source-output {t['baseline_source_output']:.1%}, "
+                 f"attribution patching {t['attribution_patching']:.1%}")
     if rep.get("constant_sites_ignored"):
         L.append("Ignored (the site is identical for every input, so it holds no variable): " + ", ".join(rep["constant_sites_ignored"]))
     if rep["unaligned_variables"]:
