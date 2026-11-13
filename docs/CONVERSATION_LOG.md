@@ -97,3 +97,10 @@ Tags: **[decided]** · **[open]** · **[idea]** · **[finding]** · **[correctio
 - [finding] DeepSeek V4.1 Flash, our reader, is on record as a weak raw-text reader: 0/8 in the andsalazar replication, 0–11% plus non-answers in the EEG paper. Expect it to run out of budget copying weights. The python mode is the likely path to useful results.
 - [finding] Our mod-add target's attention query weights are nearly rank-1 (one sign pattern per head). Attention does little here, as in Nanda's analysis. The embedding's Fourier power is 94% in frequencies {8, 23, 25, 11, 22}.
 - [finding] First live lab results with DeepSeek V4.1 Flash: XOR correct (text mode); parity described correctly (python mode, blinded); MIT's Breakout policy correct at 97% (MIT's original prompt, with channel names). The repo's earlier zero scores for DeepSeek came from the shape task, with smaller budgets. The next tests are the blinded and shuffled versions.
+- [finding] Blinded test (Game policy a9f5, no context, neutral question, text mode):
+  - At 32k output it ran out of budget.
+  - At 64k it answered "MNIST-style digit classifier, 80%": wrong (Breakout). It did notice real spatial structure (near-zero border rows, localised clusters), but it miscounted the inputs (485 rather than 500) and filled the gap with a dataset prior.
+  - The shuffled control declined to name a task (and miscounted: 498).
+
+  So text-mode success depends mostly on the context text. The next test is blinded python mode.
+- [decided] Handoff: `handoff/00_START_HERE.md` holds the goal, the constructor spec, current results, next steps and a map of the docs. The Nov 8–11 material below it is marked superseded.

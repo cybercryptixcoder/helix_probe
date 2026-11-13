@@ -16,7 +16,7 @@ Click **Add key** and paste your Luminal key. It is saved to `lab/.env`, which i
 - **Specimens** (left): networks with known answers, which stay hidden until you reveal them.
   - Tiny Boolean circuits, hand-written.
   - MIT's Sparks game policies and shape generators, from their released logs (CC BY 4.0).
-  - One-layer transformers trained here on modular arithmetic: add, then sub and mul once trained. Run `python3 lab/targets/build_registry.py` after training a new one.
+  - One-layer transformers trained here on modular arithmetic: add (A) and mul (C); sub not trained yet. Run `python3 lab/targets/build_registry.py` after training a new one.
 - **Variants**, the controls the literature uses:
   - shuffled weights;
   - untrained (random with matched statistics);

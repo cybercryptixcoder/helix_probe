@@ -5,22 +5,81 @@ this repo should be able to continue from these files alone, with no separate ha
 
 ## CURRENT STATE (2026-11-13). Read this first.
 
-> **The rule for this repo:** it is a living documentation store. After every exchange, record every idea, question, decision, finding, hypothesis and build request. Each fresh session must be able to continue from the docs alone.
+> **The rule for this repo:** it is a living documentation store. After every exchange, record every idea, question, decision, finding, hypothesis and build request (`docs/CONVERSATION_LOG.md`). A fresh session must be able to continue from the docs alone.
 
-- **Building now:** the **Weight Reading Lab** (`lab/`), a local web app for K1 by hand. See **[`docs/WHAT_WE_ARE_BUILDING.md`](../WHAT_WE_ARE_BUILDING.md)**.
-- **Direction:** build a *constructor* that produces causal abstractions of networks from their weights. Replicate known results first (K0), and study the reader interface (K1). See `DIRECTIONS.md` §2f.
-- **Not decided:**
-  - the loop, roles and agents;
-  - the fine-tuning method (K2);
-  - slicing vs self-querying.
+### The goal
 
-  `ideas/SCIFI_AGENTIC_INTERPRETER.md` is explicitly **not** the plan.
-- **Full discussion record:** `docs/CONVERSATION_LOG.md`.
-- **Literature:**
-  - `literature/SYNTHESIS.md` (the field);
-  - `literature/wsp/K1_STATE_OF_ART.md` (weight-space programming follow-ups).
+Make a neural network interpretable by building a **white-box reconstruction** of it: a model that *predicts* the network's behaviour, including under interventions. A correlation table does not count. In the field's terms this is a **causal abstraction**. It has:
+- named variables;
+- the steps that compute them;
+- an alignment saying where each variable lives in the network (which neurons, heads, subspaces or weights).
 
-Everything below this line is the earlier state (Nov 8–11), kept for history.
+It is judged by three questions, in increasing strictness (`literature/SYNTHESIS.md` §4, §10):
+1. Does it produce the same outputs when run in place of the network?
+2. Does it respond the same way to interventions (IIA, ablation prediction)?
+3. Does it compute the same way inside (Jacobian / internal-state agreement)?
+
+Each is measured against baselines that understand nothing.
+
+### What we are building toward
+
+A **constructor**: a method in which an LLM reads a network's weights (and may write code to probe them) and produces such a construction. The construction is runnable Python plus an alignment table. The first paper needs **one solid construction made by the constructor** on a small network. A general constructor comes later.
+
+Order of work:
+- **K0, replicate first.** Rediscover a published construction (Nanda's modular addition) without the reader seeing the answer, with blinding, variants and controls.
+- **K1, the reader interface.** What we hand the LLM, what we ask it, and what answer we want, measured rather than guessed.
+- **K2:** fine-tune a reader to read better (method open).
+- **K3:** the loop (only a sketch).
+
+All are in `DIRECTIONS.md` §2f.
+
+### Building now
+
+The **Weight Reading Lab** (`lab/`): a local web app for doing K1 by hand. It is live-tested. Spec and status: [`docs/WHAT_WE_ARE_BUILDING.md`](../WHAT_WE_ARE_BUILDING.md). Use: `lab/GUIDE.md`. Run: `lab/RUNNING.md`.
+
+### Results so far (K1, DeepSeek V4.1 Flash)
+
+| Test | Result |
+|---|---|
+| XOR / parity, tiny nets | Read correctly (text and python modes) |
+| MIT Breakout policy, MIT's prompt (channel names given) | **Breakout, 97%: correct** |
+| Same, **blinded** (no context, neutral question) | **Wrong:** "MNIST-style digit classifier". It saw real spatial structure but miscounted the inputs (485 instead of 500) and filled the gap with a dataset prior. |
+| Same, shuffled control, blinded | Correctly declined to name a task (also miscounted: 498) |
+| First blinded attempt at 32k output | Ran out of budget, no answer |
+
+Reading so far: in text mode, MIT's success depends mostly on the context text. That matches the literature (`literature/wsp/K1_STATE_OF_ART.md`).
+
+### Next steps
+
+1. **Blinded python-mode run** on the same game policy: can it measure the 10×10×5 input layout with code?
+2. Context-off runs on the other 3 games and on the permuted variant.
+3. Mod-add transformer (**Mystery transformer A**), python mode, blinded: does it find the Fourier frequencies {8, 23, 25, 11, 22}? (Mod-mul is also available, as **Mystery transformer C**.)
+4. Then design K1 properly as an experiment: prompts × formats × access × controls.
+
+### Not decided (do not treat as settled)
+
+- The loop, its roles and agents (K3 is a sketch; do not build it first).
+- The form of the construction (Python plus alignment is a candidate).
+- K2's fine-tuning method.
+- Slicing vs letting the reader query the weight store.
+- `ideas/SCIFI_AGENTIC_INTERPRETER.md` is explicitly **not** the plan.
+
+### Map of the docs
+
+| File | What it holds |
+|---|---|
+| `docs/WHAT_WE_ARE_BUILDING.md` | The current build, what is decided and what is open |
+| `docs/CONVERSATION_LOG.md` | Every idea, question and decision, in order |
+| `docs/DIRECTIONS.md` | All research directions; §2f = constructor, K0–K3 |
+| `docs/literature/SYNTHESIS.md` | What the interpretability field builds and measures; what a construction is |
+| `docs/literature/core/` | 193 paper entries plus an index |
+| `docs/literature/wsp/` | Weight-space programming follow-ups (Nov 2026), plus `K1_STATE_OF_ART.md` |
+| `docs/JOURNAL.md` | Dated log of events |
+| `lab/` | The Weight Reading Lab (code, specimens, guide) |
+
+Proposals, pitches and personal plans are deliberately kept **out of this public repo**.
+
+> **SUPERSEDED.** Everything below this line is the earlier state (Nov 8–11), kept for history.
 
 ---
 
