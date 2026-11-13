@@ -64,7 +64,7 @@ Why this first: nobody on the team has yet done the thing everyone is talking ab
   - A full Sparks Breakout prompt (about 74K tokens) at high effort finished in 9 min (70K tokens in, 35K out, about $0.06) and answered **Breakout, 97%: correct**. This was MIT's original prompt, which names the input channels, so prior leakage is possible; the blinded and shuffled versions are the next tests.
 - **Docs:** `lab/GUIDE.md` (how to use), `lab/RUNNING.md` (terminal).
 
-## NEXT: lab UI/UX redesign (Shreyas's brief, 2026-11-13). Do this first in the next session.
+## Lab UI/UX redesign (Shreyas's brief, 2026-11-13): DONE on main, the same day
 
 The current UI is cluttered. Wanted: clean, polished, modern, with good UX. Look up real UI inspiration first.
 - **Specimens:** collapsible groups (by family), not one long list.
@@ -76,3 +76,14 @@ The current UI is cluttered. Wanted: clean, polished, modern, with good UX. Look
   - the answer rendered properly (markdown, and maths via KaTeX or similar) inside a clean card.
 - Keep the fonts (Archivo, Space Mono, Instrument Serif). No gradients or purple outlines.
 - Must keep all the current features (copy trace, grading, notebook, units, variants, leak switches) and be tested live in a browser.
+
+Redesign delivered (2026-11-13, `lab/static/index.html`):
+- neutral light and true dark themes;
+- pill buttons and animated segmented controls;
+- collapsible specimen groups;
+- template chips; switches with descriptions;
+- settings, formatting and units folded away;
+- run cards with the answer first (markdown plus KaTeX maths), reasoning collapsed with a live one-line peek, and Python steps as a compact list whose items expand to show code and output;
+- notebook as a floating drawer, modals with a blur backdrop.
+
+Tested live in a browser (parity run, light and dark, no page errors).

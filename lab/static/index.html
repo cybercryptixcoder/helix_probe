@@ -4,402 +4,480 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Weight Reading Lab</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 fill=%22%23F6C744%22 stroke=%22%231C1A17%22 stroke-width=%223%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><circle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%2314a394%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
 :root{
-  --paper:#F2F3F5; --card:#FFFFFF; --ink:#171A1F; --soft:#5B6270; --line:rgb(23 26 31 / .08); --field:#F5F6F8; --hover:#EEF0F3;
-  --accent:#1F9D8F; --accent-ink:#FFFFFF; --warm:#E8743B; --yellow:#F2C14E; --teal:#1F9D8F; --orange:#E8743B; --blue:#5B7FD6; --green:#3FA866;
-  --panel:#14171C; --on-panel:#DCE1E8; --neg:#E8743B; --pos:#1F9D8F;
-  --shadow:0 1px 2px rgb(16 18 22 / .04), 0 4px 18px rgb(16 18 22 / .06);
+  --bg:#F6F6F7; --surface:#FFFFFF; --raised:#F3F3F5; --sunken:#EEEEF1; --line:rgb(0 0 0 / .06); --line2:rgb(0 0 0 / .1);
+  --ink:#111113; --muted:#6E6E78; --faint:#A0A0A8;
+  --accent:#14A394; --accent-soft:rgb(20 163 148 / .1); --accent-ink:#fff; --warm:#E5733A; --warm-soft:rgb(229 115 58 / .1);
+  --good:#2E9E5B; --mid:#C99418; --bad:#D9583A; --neg:#E5733A; --pos:#14A394;
+  --code-bg:#F6F6F8; --code-ink:#2A2A30;
+  --shadow:0 1px 1px rgb(0 0 0 / .03), 0 8px 24px -8px rgb(0 0 0 / .08);
+  --r:18px; --ease:cubic-bezier(.2,.8,.2,1);
   --mono:"Space Mono",ui-monospace,monospace; --serif:"Instrument Serif",Georgia,serif; --sans:"Archivo",system-ui,sans-serif;
 }
 :root[data-theme=dark]{
-  --paper:#0E1014; --card:#161920; --ink:#E4E7EC; --soft:#8A93A3; --line:rgb(228 231 236 / .08); --field:#1C2028; --hover:#222731;
-  --accent:#35B8A8; --accent-ink:#0E1014; --warm:#F08A55; --panel:#0B0D10; --on-panel:#C9D1DC; --neg:#F08A55; --pos:#35B8A8;
-  --shadow:0 1px 2px rgb(0 0 0 / .3), 0 6px 24px rgb(0 0 0 / .25);
+  --bg:#0C0C0E; --surface:#141417; --raised:#1B1B1F; --sunken:#101013; --line:rgb(255 255 255 / .06); --line2:rgb(255 255 255 / .1);
+  --ink:#ECECEE; --muted:#8E8E98; --faint:#5C5C66;
+  --accent:#2CC4B3; --accent-soft:rgb(44 196 179 / .12); --accent-ink:#06100F; --warm:#F08C5A; --warm-soft:rgb(240 140 90 / .12);
+  --good:#4CC27E; --mid:#E2B23E; --bad:#F07A5C; --neg:#F08C5A; --pos:#2CC4B3;
+  --code-bg:#0F0F12; --code-ink:#C9C9D1;
+  --shadow:0 1px 0 rgb(255 255 255 / .03) inset, 0 10px 30px -12px rgb(0 0 0 / .6);
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;overflow:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;overflow:hidden;-webkit-font-smoothing:antialiased;transition:background .35s var(--ease),color .35s var(--ease)}
 button,select,input,textarea{font:inherit;color:inherit}
-button{cursor:pointer}
-.app{display:grid;grid-template-rows:58px 1fr;height:100vh}
-.top{display:flex;align-items:center;gap:10px;padding:0 20px;background:var(--card);box-shadow:0 1px 0 var(--line)}
-.wm{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1}
-.wm b{font-family:var(--mono);font-style:normal;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;vertical-align:middle;margin-right:10px;padding:4px 8px;border-radius:6px;background:var(--field);color:var(--accent)}
+button{cursor:pointer;border:none;background:none}
+::selection{background:var(--accent-soft)}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:var(--line2);border-radius:10px;border:3px solid transparent;background-clip:content-box}
+.app{display:grid;grid-template-rows:60px 1fr;height:100vh}
+.top{display:flex;align-items:center;gap:10px;padding:0 22px}
+.brand{display:flex;align-items:baseline;gap:10px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);align-self:center}
+.wm{font-family:var(--serif);font-style:italic;font-size:25px;letter-spacing:.005em}
+.sub{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .spacer{flex:1}
-.pill{font-family:var(--mono);font-size:11.5px;padding:5px 10px;border-radius:99px;background:var(--field);color:var(--soft);white-space:nowrap}
-.btn{border:none;border-radius:9px;background:var(--field);padding:7px 13px;font-weight:600;transition:background .12s,transform .08s}
-.btn:hover{background:var(--hover)} .btn:active{transform:scale(.98)}
-.btn.orange,.btn.teal{background:var(--accent);color:var(--accent-ink)} .btn.orange:hover,.btn.teal:hover{filter:brightness(1.07)}
-.btn.yellow{background:color-mix(in srgb,var(--accent) 14%,var(--card));color:var(--accent)}
-.btn.ghost{background:transparent;color:var(--soft)} .btn.ghost:hover{background:var(--field)}
-.btn.sm{padding:5px 10px;font-size:12px;border-radius:8px}
-.btn:disabled{opacity:.4;cursor:not-allowed}
-.main{display:grid;grid-template-columns:260px minmax(420px,1fr) 470px;gap:16px;padding:16px;min-height:0}
-.col{display:flex;flex-direction:column;gap:16px;min-height:0}
-.frame{background:var(--card);border-radius:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:0;overflow:hidden}
-.frame>h2{margin:0;padding:14px 16px 8px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:21px;display:flex;align-items:center;gap:8px}
-.frame>h2 small{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--soft);margin-left:auto}
+.pill{font-family:var(--mono);font-size:11px;padding:6px 12px;border-radius:99px;background:var(--surface);color:var(--muted);box-shadow:var(--shadow);white-space:nowrap}
+.pill b{color:var(--ink);font-weight:400}
+.btn{border-radius:99px;padding:8px 15px;font-weight:600;font-size:13px;background:var(--raised);color:var(--ink);transition:background .2s var(--ease),transform .15s var(--ease),box-shadow .2s var(--ease),opacity .2s}
+.btn:hover{background:var(--sunken)} .btn:active{transform:scale(.97)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 6px 18px -6px var(--accent)}
+.btn.primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn.soft{background:var(--accent-soft);color:var(--accent)}
+.btn.ghost{background:transparent;color:var(--muted)} .btn.ghost:hover{background:var(--raised);color:var(--ink)}
+.btn.sm{padding:5px 11px;font-size:12px}
+.btn.icon{width:34px;height:34px;padding:0;display:grid;place-items:center;font-size:15px}
+.btn:disabled{opacity:.35;pointer-events:none}
+.main{display:grid;grid-template-columns:268px minmax(440px,1fr) 480px;gap:18px;padding:4px 18px 18px;min-height:0}
+.col{display:flex;flex-direction:column;gap:18px;min-height:0}
+.card{background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:0;overflow:hidden;transition:background .35s var(--ease)}
+.head{display:flex;align-items:baseline;gap:10px;padding:16px 18px 10px}
+.head h2{margin:0;font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.head small{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-left:auto;white-space:nowrap}
 .scroll{overflow:auto;min-height:0}
-.pad{padding:10px 16px}
-.fam{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);padding:14px 16px 4px}
-.tg{margin:2px 8px;padding:9px 10px;border-radius:10px;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:2px 8px;transition:background .1s}
-.tg:hover{background:var(--field)}
-.tg.on{background:color-mix(in srgb,var(--accent) 12%,var(--card))}
-.tg.on .n{color:var(--accent)}
-.tg .n{font-weight:600}
-.tg .p{font-family:var(--mono);font-size:11px;color:var(--soft);text-align:right}
-.tg .a{grid-column:1/3;font-family:var(--mono);font-size:10.5px;color:var(--soft)}
-.variants{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px 6px;box-shadow:0 -1px 0 var(--line)}
-.chip{border-radius:99px;padding:4px 10px;font-family:var(--mono);font-size:11.5px;background:var(--field);cursor:pointer;user-select:none;color:var(--soft)}
-.chip:hover{background:var(--hover)}
-.chip.on{background:var(--ink);color:var(--card)}
-.hint{font-family:var(--mono);font-size:11px;color:var(--soft);line-height:1.5}
-.strip{display:flex;gap:6px;padding:4px 16px 12px;overflow-x:auto}
-.tb{border-radius:10px;background:var(--field);padding:7px 10px;cursor:pointer;min-width:66px;display:flex;flex-direction:column;gap:5px;position:relative;transition:background .1s}
-.tb:hover{background:var(--hover)}
+.k{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.hint{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.55}
+.coll{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s var(--ease)}
+.coll>div{overflow:hidden;min-height:0}
+.open>.coll{grid-template-rows:1fr}
+.chev{display:inline-block;transition:transform .3s var(--ease);color:var(--faint);font-size:9px}
+.open>.trig .chev{transform:rotate(90deg)}
+.trig{display:flex;align-items:center;gap:8px;width:100%;text-align:left;cursor:pointer;user-select:none}
+.group{margin:0 8px 4px}
+.group>.trig{padding:9px 10px;border-radius:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:background .2s}
+.group>.trig:hover{background:var(--raised)}
+.group>.trig .n{margin-left:auto;font-size:10px;color:var(--faint)}
+.tg{margin:2px 0;padding:9px 12px;border-radius:12px;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:2px 8px;transition:background .2s var(--ease)}
+.tg:hover{background:var(--raised)}
+.tg.on{background:var(--accent-soft)}
+.tg .nm{font-weight:600;font-size:13.5px}
+.tg.on .nm{color:var(--accent)}
+.tg .p{font-family:var(--mono);font-size:10.5px;color:var(--faint);text-align:right;align-self:center}
+.tg .a{grid-column:1/3;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.foot{padding:12px 14px 14px;margin-top:auto;border-top:1px solid var(--line)}
+.seg{display:inline-flex;position:relative;background:var(--raised);border-radius:99px;padding:3px;gap:2px;flex-wrap:nowrap}
+.seg button{position:relative;z-index:1;border-radius:99px;padding:5px 11px;font-family:var(--mono);font-size:11.5px;color:var(--muted);transition:color .2s var(--ease);white-space:nowrap}
+.seg button.on{color:var(--ink)}
+.seg .thumb{position:absolute;z-index:0;top:3px;bottom:3px;border-radius:99px;background:var(--surface);box-shadow:0 1px 3px rgb(0 0 0 / .14);transition:left .3s var(--ease),width .3s var(--ease)}
+:root[data-theme=dark] .seg .thumb{background:#2A2A30}
+.seg.full{display:flex} .seg.full button{flex:1}
+.sw{display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer;user-select:none;padding:4px 0}
+.sw input{display:none}
+.sw i{width:34px;height:20px;border-radius:99px;background:var(--sunken);position:relative;flex:none;transition:background .25s var(--ease);box-shadow:inset 0 0 0 1px var(--line)}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgb(0 0 0 / .25);transition:left .25s var(--ease)}
+.sw input:checked+i{background:var(--accent)} .sw input:checked+i::after{left:17px}
+.sw span small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:1px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{flex:none;border-radius:99px;padding:6px 12px;font-size:12px;background:var(--raised);color:var(--muted);cursor:pointer;transition:all .2s var(--ease);white-space:nowrap}
+.chip:hover{color:var(--ink);background:var(--sunken)}
+.chip.on{background:var(--ink);color:var(--surface)}
+.tabs{display:flex;gap:6px;padding:0 18px 12px;overflow-x:auto;scrollbar-width:none}
+.tb{flex:none;border-radius:12px;background:var(--raised);padding:8px 12px;cursor:pointer;min-width:64px;position:relative;transition:all .2s var(--ease)}
+.tb:hover{background:var(--sunken)}
 .tb .nm{font-family:var(--mono);font-weight:700;font-size:12px}
-.tb .sh{font-family:var(--mono);font-size:10px;color:var(--soft)}
-.tb .bar{height:3px;border-radius:2px;background:var(--accent);opacity:.6}
-.tb.on{background:color-mix(in srgb,var(--accent) 14%,var(--card))}
-.tb.inb::after{content:"";position:absolute;top:7px;right:7px;width:6px;height:6px;border-radius:50%;background:var(--warm)}
-.vhead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 16px}
-.vhead .title{font-family:var(--mono);font-size:12px;font-weight:700}
-.canvaswrap{position:relative;overflow:auto;background:var(--field);margin:0 16px;border-radius:10px;min-height:120px;flex:1}
+.tb .sh{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:2px}
+.tb.on{background:var(--accent-soft)} .tb.on .nm{color:var(--accent)}
+.tb.inb::after{content:"";position:absolute;top:8px;right:8px;width:6px;height:6px;border-radius:50%;background:var(--warm)}
+.vbar{display:flex;align-items:center;gap:10px;padding:0 18px 10px;flex-wrap:wrap}
+.vbar .title{font-family:var(--mono);font-size:11.5px}
+.legend{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--muted)}
+.legend i{display:inline-block;width:70px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--neg),var(--raised),var(--pos))}
+.canvaswrap{position:relative;overflow:auto;background:var(--sunken);margin:0 18px;border-radius:14px;min-height:140px;flex:1}
 canvas{display:block;image-rendering:pixelated;cursor:crosshair}
-.tip{position:fixed;pointer-events:none;background:var(--panel);color:var(--on-panel);font-family:var(--mono);font-size:11px;padding:4px 8px;border-radius:6px;z-index:50;display:none;white-space:nowrap}
-.legend{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--soft)}
-.legend i{display:inline-block;width:80px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--neg),var(--field),var(--pos))}
-.basket{padding:4px 16px 14px;display:flex;flex-direction:column;gap:10px}
-.bitems{display:flex;flex-wrap:wrap;gap:6px}
-.bi{border-radius:8px;background:var(--field);font-family:var(--mono);font-size:11px;padding:4px 4px 4px 9px;display:flex;align-items:center;gap:6px}
-.bi button{border:none;border-radius:5px;background:transparent;color:var(--soft);width:18px;height:18px;line-height:16px;padding:0;font-size:13px}
-.bi button:hover{background:var(--hover);color:var(--ink)}
-.gauge{height:20px;border-radius:7px;background:var(--field);position:relative;overflow:hidden}
-.gauge>div{height:100%;background:color-mix(in srgb,var(--accent) 35%,var(--card));transition:width .3s}
-.gauge.warn>div{background:color-mix(in srgb,var(--yellow) 55%,var(--card))} .gauge.over>div{background:color-mix(in srgb,var(--warm) 55%,var(--card))}
-.gauge span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10.5px;color:var(--ink)}
-.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.lbl{font-family:var(--mono);font-size:11px;color:var(--soft)}
-select,input[type=number],input[type=text]{border:none;border-radius:8px;background:var(--field);padding:5px 8px;font-family:var(--mono);font-size:12px;outline:none}
-select:focus,input:focus,textarea:focus{box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}
-input[type=number]{width:64px}
-textarea{width:100%;border:none;border-radius:10px;background:var(--field);padding:11px 12px;font-family:var(--mono);font-size:12.5px;line-height:1.55;resize:vertical;outline:none}
-.seg{display:inline-flex;background:var(--field);border-radius:9px;padding:2px}
-.seg button{border:none;border-radius:7px;background:transparent;padding:5px 10px;font-family:var(--mono);font-size:11.5px;color:var(--soft)}
-.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0 / .12)}
-.toggle{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;cursor:pointer;user-select:none;color:var(--soft)}
-.toggle input{display:none}
-.toggle i{width:28px;height:16px;border-radius:99px;background:var(--hover);position:relative;display:inline-block;transition:background .15s}
-.toggle i::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:var(--card);box-shadow:0 1px 2px rgb(0 0 0 / .25);transition:left .15s}
-.toggle input:checked+i{background:var(--accent)} .toggle input:checked+i::after{left:14px}
-details>summary{cursor:pointer;font-family:var(--mono);font-size:11.5px;color:var(--soft);list-style:none;user-select:none}
-details>summary::-webkit-details-marker{display:none}
-details>summary::before{content:"›";display:inline-block;width:12px;transition:transform .15s} details[open]>summary::before{transform:rotate(90deg)}
-.fold{display:flex;flex-direction:column;gap:8px;padding-top:8px}
-.out{flex:1;display:flex;flex-direction:column;gap:12px;padding:14px 16px;box-shadow:0 -1px 0 var(--line)}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--surface);font-family:var(--mono);font-size:11px;padding:5px 9px;border-radius:8px;z-index:80;opacity:0;transition:opacity .12s;white-space:nowrap}
+.actions{display:flex;gap:8px;align-items:center;padding:12px 18px;flex-wrap:wrap}
+.unitbox{padding:0 18px 14px}
+.unitrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding-top:8px}
+.num{display:inline-flex;align-items:center;background:var(--raised);border-radius:99px;padding:2px;width:max-content}
+.num button{width:26px;height:26px;border-radius:50%;color:var(--muted);font-size:15px;line-height:1}
+.num button:hover{background:var(--sunken);color:var(--ink)}
+.num input{width:46px;border:none;background:transparent;text-align:center;font-family:var(--mono);font-size:12px;outline:none;-moz-appearance:textfield}
+.num input::-webkit-inner-spin-button{display:none}
+.bitems{display:flex;flex-wrap:wrap;gap:6px;padding:0 18px}
+.bi{border-radius:99px;background:var(--raised);font-family:var(--mono);font-size:11px;padding:4px 5px 4px 11px;display:flex;align-items:center;gap:7px;animation:pop .25s var(--ease)}
+.bi .c{color:var(--faint)}
+.bi button{width:18px;height:18px;border-radius:50%;color:var(--muted);font-size:10px;line-height:1}
+.bi button:hover{background:var(--sunken);color:var(--ink)}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+.gauge{margin:12px 18px 4px;height:6px;border-radius:99px;background:var(--raised);overflow:hidden}
+.gauge>div{height:100%;border-radius:99px;background:var(--accent);transition:width .5s var(--ease),background .3s}
+.gauge.warn>div{background:var(--mid)} .gauge.over>div{background:var(--bad)}
+.gtext{display:flex;justify-content:space-between;padding:0 18px 12px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.gtext .over{color:var(--bad)}
+.field{width:100%;border:none;border-radius:14px;background:var(--raised);padding:13px 14px;font-family:var(--mono);font-size:12.5px;line-height:1.6;resize:vertical;outline:none;transition:box-shadow .2s}
+.field:focus{box-shadow:0 0 0 2px var(--accent-soft),0 0 0 1px var(--accent)}
+.lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.stack{display:flex;flex-direction:column;gap:14px;padding:4px 18px 18px}
+.setgrid{display:grid;grid-template-columns:96px 1fr;gap:10px 12px;align-items:center;padding-top:12px}
+.setgrid .l{font-size:12.5px;color:var(--muted)}
+.fold>.trig{font-size:12.5px;color:var(--muted);padding:2px 0}
+.fold>.trig:hover{color:var(--ink)}
+.runbar{display:flex;align-items:center;gap:10px}
+.out{display:flex;flex-direction:column;gap:14px;padding:0 18px 18px}
+.empty{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--faint);text-align:center;padding:36px 10px 28px;line-height:1.35}
+.run{border-radius:16px;background:var(--raised);padding:14px;display:flex;flex-direction:column;gap:10px;animation:rise .4s var(--ease)}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.rhead{display:flex;align-items:center;gap:10px}
+.rhead .t{font-family:var(--serif);font-style:italic;font-size:18px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.status{font-family:var(--mono);font-size:10.5px;padding:4px 10px;border-radius:99px;background:var(--surface);color:var(--muted);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.status.live i{animation:pulse 1.2s infinite}
+.status.err i{background:var(--bad)}
+@keyframes pulse{50%{opacity:.25}}
 .stats{display:flex;flex-wrap:wrap;gap:6px}
-.stat{font-family:var(--mono);font-size:10.5px;border-radius:6px;padding:2px 7px;background:var(--field);color:var(--soft)}
-.think{background:var(--panel);color:var(--on-panel);font-family:var(--mono);font-size:11px;line-height:1.55;padding:10px 12px;border-radius:10px;max-height:220px;overflow:auto;white-space:pre-wrap;margin-top:6px}
-.cell{border-radius:10px;overflow:hidden;background:var(--field)}
-.cell .code{background:var(--panel);color:var(--on-panel);font-family:var(--mono);font-size:11px;padding:9px 11px;white-space:pre-wrap;max-height:260px;overflow:auto}
-.cell .res{font-family:var(--mono);font-size:11px;padding:9px 11px;white-space:pre-wrap;max-height:260px;overflow:auto}
-.cell .res.bad{color:var(--warm)}
-.cell .ch{font-family:var(--mono);font-size:10px;padding:5px 11px;background:var(--panel);color:var(--soft);display:flex;justify-content:space-between;box-shadow:0 1px 0 rgb(255 255 255 / .05)}
-.answer{font-size:14.5px;line-height:1.65}
-.answer h1,.answer h2,.answer h3{font-family:var(--serif);font-style:italic;font-weight:400;margin:.6em 0 .2em}
-.answer pre{background:var(--field);border-radius:8px;padding:9px;overflow:auto;font-family:var(--mono);font-size:12px;line-height:1.3}
-.answer code{font-family:var(--mono);font-size:12.5px;background:var(--field);border-radius:4px;padding:0 4px}
-.empty{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--soft);text-align:center;padding:40px 10px;line-height:1.35}
-.runv{display:flex;flex-direction:column;gap:8px;padding-bottom:12px;box-shadow:0 1px 0 var(--line)}
-.grade{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding-top:6px}
-.grade .btn.on{background:var(--ink);color:var(--card)}
-.reveal{border-radius:12px;background:color-mix(in srgb,var(--accent) 12%,var(--card));padding:11px 13px;font-size:13.5px;line-height:1.5}
-.reveal b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:21px;display:block;color:var(--accent)}
-.err{border-radius:10px;background:color-mix(in srgb,var(--warm) 14%,var(--card));color:var(--ink);padding:9px 11px;font-family:var(--mono);font-size:11.5px}
-.drawer{position:fixed;top:58px;right:0;bottom:0;width:min(760px,96vw);background:var(--card);box-shadow:-10px 0 40px rgb(0 0 0 / .12);transform:translateX(105%);transition:transform .22s;z-index:40;display:flex;flex-direction:column}
+.stats:empty{display:none}
+.stat{font-family:var(--mono);font-size:10.5px;border-radius:99px;padding:3px 9px;background:var(--surface);color:var(--muted)}
+.stat.bad{color:var(--bad)}
+.panel{border-radius:12px;background:var(--surface)}
+.panel>.trig{padding:10px 12px;font-size:12.5px;font-weight:600}
+.panel>.trig .k{margin-left:auto;font-weight:400}
+.think{font-family:var(--mono);font-size:11px;line-height:1.6;color:var(--muted);padding:0 14px 12px;white-space:pre-wrap;max-height:320px;overflow:auto}
+.think-peek{display:none;font-family:var(--mono);font-size:11px;color:var(--faint);padding:0 12px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.panel.live:not(.open) .think-peek{display:block}
+.steps{padding:0 6px 6px}
+.step>.trig{padding:7px 8px;font-family:var(--mono);font-size:11.5px;gap:10px;border-radius:10px;transition:background .2s}
+.step>.trig:hover{background:var(--raised)}
+.step .sd{width:8px;height:8px;border-radius:50%;background:var(--faint);flex:none}
+.step .sd.ok{background:var(--good)} .step .sd.bad{background:var(--bad)} .step .sd.run{background:var(--mid);animation:pulse 1s infinite}
+.step .l1{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
+.step pre{margin:0 8px 8px;padding:10px 12px;border-radius:10px;background:var(--code-bg);color:var(--code-ink);font-family:var(--mono);font-size:11px;line-height:1.5;white-space:pre-wrap;max-height:280px;overflow:auto}
+.step pre.o{background:transparent;color:var(--muted);padding-top:2px}
+.step pre.o.bad{color:var(--bad)}
+.answer{border-radius:14px;background:var(--surface);padding:16px 18px;font-size:14.5px;line-height:1.7}
+.answer:empty{display:none}
+.answer>:first-child{margin-top:0} .answer>:last-child{margin-bottom:0}
+.answer h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:20px;margin:1em 0 .3em}
+.answer p{margin:.55em 0} .answer ul{margin:.4em 0;padding-left:1.2em} .answer li{margin:.2em 0}
+.answer strong{font-weight:600}
+.answer pre{background:var(--code-bg);color:var(--code-ink);border-radius:10px;padding:10px 12px;overflow:auto;font-family:var(--mono);font-size:12px;line-height:1.4}
+.answer code{font-family:var(--mono);font-size:12.5px;background:var(--raised);border-radius:6px;padding:1px 5px}
+.answer pre code{background:none;padding:0}
+.answer .katex-display{margin:.6em 0;overflow-x:auto;overflow-y:hidden}
+.err{border-radius:12px;background:var(--warm-soft);color:var(--bad);padding:10px 12px;font-family:var(--mono);font-size:11.5px}
+.tail{display:flex;flex-direction:column;gap:10px}
+.tail:empty{display:none}
+.grade{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.grade input{flex:1;min-width:110px;border:none;border-radius:99px;background:var(--surface);padding:7px 13px;font-size:12.5px;outline:none}
+.seg.gr{background:var(--surface)}
+.seg.gr .thumb{background:var(--raised)}
+.seg.gr button.on[data-v=right]{color:var(--good)} .seg.gr button.on[data-v=partial]{color:var(--mid)} .seg.gr button.on[data-v=wrong]{color:var(--bad)}
+.reveal{border-radius:14px;background:var(--accent-soft);padding:13px 16px;font-size:13px;line-height:1.5;animation:rise .35s var(--ease)}
+.reveal b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;display:block;color:var(--accent)}
+.scrim{position:fixed;inset:0;background:rgb(0 0 0 / .3);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .3s var(--ease);z-index:60}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:12px;right:12px;bottom:12px;width:min(720px,94vw);background:var(--surface);border-radius:22px;box-shadow:0 30px 80px -20px rgb(0 0 0 / .45);transform:translateX(110%);transition:transform .4s var(--ease);z-index:70;display:flex;flex-direction:column;overflow:hidden}
 .drawer.open{transform:none}
-.drawer h2{margin:0;padding:14px 18px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:24px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 0 var(--line)}
-.hrow{display:grid;grid-template-columns:22px 1fr auto;gap:4px 10px;padding:11px 18px;cursor:pointer;box-shadow:0 1px 0 var(--line)}
-.hrow:hover{background:var(--field)}
-.hrow .t{font-weight:600}
-.hrow .m{font-family:var(--mono);font-size:10.5px;color:var(--soft);grid-column:2/4}
-.hrow .x{font-family:var(--mono);font-size:11px;grid-column:2/4;color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.gb{font-family:var(--mono);font-weight:700;font-size:10.5px;padding:2px 7px;border-radius:99px}
-.gb.right{background:color-mix(in srgb,var(--green) 20%,var(--card));color:var(--green)}.gb.partial{background:color-mix(in srgb,var(--yellow) 30%,var(--card));color:#9a7412}.gb.wrong{background:color-mix(in srgb,var(--warm) 18%,var(--card));color:var(--warm)}
-.modal{position:fixed;inset:0;background:rgb(10 12 15 / .45);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:60}
-.modal.open{display:flex}
-.modal .box{background:var(--card);border-radius:16px;box-shadow:0 20px 60px rgb(0 0 0 / .3);width:min(1100px,94vw);max-height:88vh;display:flex;flex-direction:column;overflow:hidden}
-.modal .box h3{margin:0;padding:14px 18px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;display:flex;gap:10px;align-items:center;box-shadow:0 1px 0 var(--line)}
-.modal pre{margin:0;padding:14px 18px;overflow:auto;font-family:var(--mono);font-size:12px;line-height:1.5;white-space:pre-wrap}
-.cmp{display:grid;grid-template-columns:1fr 1fr;overflow:auto}
-.cmp>div{padding:14px 18px;overflow:auto;box-shadow:1px 0 0 var(--line)}
-.k{font-family:var(--mono);font-size:11px;color:var(--soft)}
-@media (max-width:1250px){.main{grid-template-columns:240px 1fr;grid-template-rows:auto auto}.col.ask{grid-column:1/3}body{overflow:auto}.app{height:auto}}
+.dhead{display:flex;align-items:center;gap:10px;padding:18px 20px 12px}
+.dhead h2{margin:0;font-family:var(--serif);font-style:italic;font-weight:400;font-size:26px}
+.hrow{display:grid;grid-template-columns:22px 1fr auto;gap:3px 10px;margin:2px 10px;padding:11px 12px;border-radius:14px;cursor:pointer;transition:background .2s}
+.hrow:hover{background:var(--raised)}
+.hrow input{accent-color:var(--accent);margin-top:3px}
+.hrow .t{font-weight:600;font-size:13px}
+.hrow .m{font-family:var(--mono);font-size:10.5px;color:var(--muted);grid-column:2/4}
+.hrow .x{font-size:12px;grid-column:2/4;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gb{font-family:var(--mono);font-size:10.5px;padding:2px 9px;border-radius:99px;background:var(--raised);color:var(--muted)}
+.gb.right{background:rgb(46 158 91 / .14);color:var(--good)}.gb.partial{background:rgb(201 148 24 / .16);color:var(--mid)}.gb.wrong{background:var(--warm-soft);color:var(--bad)}
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:75;pointer-events:none}
+.modal .box{background:var(--surface);border-radius:22px;box-shadow:0 30px 90px -20px rgb(0 0 0 / .5);width:min(1080px,94vw);max-height:86vh;display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(12px) scale(.98);transition:all .3s var(--ease)}
+.modal.open{pointer-events:auto} .modal.open .box{opacity:1;transform:none}
+.mhead{display:flex;gap:10px;align-items:center;padding:16px 20px 10px}
+.mhead h3{margin:0;font-family:var(--serif);font-style:italic;font-weight:400;font-size:23px;flex:1}
+.modal pre{margin:0;padding:6px 20px 20px;overflow:auto;font-family:var(--mono);font-size:12px;line-height:1.55;white-space:pre-wrap;color:var(--code-ink)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0 20px 20px;overflow:auto}
+@media (max-width:1280px){.main{grid-template-columns:240px 1fr;grid-template-rows:auto auto}.col.ask{grid-column:1/3}body{overflow:auto}.app{height:auto}}
 </style>
 </head>
 <body>
 <div class="app">
-  <div class="top">
-    <div class="wm"><b>helix probe</b>weight reading lab</div>
+  <header class="top">
+    <div class="brand"><span class="dot"></span><span class="wm">weight reading lab</span><span class="sub">helix probe</span></div>
     <div class="spacer"></div>
     <span class="pill" id="model">…</span>
-    <span class="pill" id="bal" title="Luminal wallet">$ —</span>
+    <span class="pill" id="bal">—</span>
     <button class="btn sm" id="histBtn">Notebook</button>
-    <button class="btn sm orange" id="keyBtn">Key</button>
-    <button class="btn sm ghost" id="themeBtn" title="Light / dark">◐</button>
-  </div>
+    <button class="btn sm soft" id="keyBtn">Key</button>
+    <button class="btn icon ghost" id="themeBtn" title="Light / dark">◐</button>
+  </header>
   <div class="main">
-    <!-- specimens -->
     <div class="col">
-      <div class="frame" style="flex:1">
-        <h2>Specimens <small id="nT"></small></h2>
+      <section class="card" style="flex:1">
+        <div class="head"><h2>Specimens</h2><small id="nT"></small></div>
         <div class="scroll" id="targets" style="flex:1"></div>
-        <div class="variants" id="variants"></div>
-        <div class="pad hint" id="vhint"></div>
-      </div>
+        <div class="foot">
+          <div class="lbl">Variant</div>
+          <div class="chips" id="variants"></div>
+          <div class="hint" id="vhint" style="margin-top:8px;min-height:3em"></div>
+        </div>
+      </section>
     </div>
-    <!-- explore -->
     <div class="col">
-      <div class="frame" style="flex:1">
-        <h2><span id="tName">Pick a specimen</span> <small id="tMeta"></small></h2>
-        <div class="strip" id="strip"></div>
-        <div class="vhead">
-          <span class="title" id="vTitle">—</span>
-          <span id="heads" class="row"></span>
+      <section class="card" style="flex:1">
+        <div class="head"><h2 id="tName">Pick a specimen</h2><small id="tMeta"></small></div>
+        <div class="tabs" id="strip"></div>
+        <div class="vbar">
+          <span class="title" id="vTitle"></span>
+          <div class="seg" id="heads" style="display:none"></div>
           <span class="spacer"></span>
-          <span class="legend"><span id="lmin">−</span><i></i><span id="lmax">+</span></span>
-          <label class="toggle" title="Scale colours to this tensor's largest value"><input type="checkbox" id="contrast"><i></i>boost</label>
+          <span class="legend"><span id="lmin"></span><i></i><span id="lmax"></span></span>
+          <label class="sw" style="font-size:12px" title="Scale colours to the largest value (display only)"><input type="checkbox" id="contrast"><i></i><span>boost</span></label>
         </div>
         <div class="canvaswrap" id="cwrap"><canvas id="cv"></canvas></div>
-        <div class="vhead">
-          <span class="lbl" id="selInfo">drag on the grid to select a region</span>
+        <div class="actions">
+          <span class="k" id="selInfo">Drag on the grid to select a region</span>
           <span class="spacer"></span>
           <button class="btn sm" id="addSel" disabled>+ region</button>
           <button class="btn sm" id="addTensor">+ tensor</button>
-          <button class="btn sm yellow" id="addAll">+ whole network</button>
+          <button class="btn sm soft" id="addAll">+ whole network</button>
         </div>
-        <div class="vhead" style="padding-top:0"><details><summary>add a whole unit (neuron, head, hidden unit)</summary><div class="row fold">
-          <select id="unitKind"></select>
-          <input type="number" id="unitIdx" value="0" min="0">
-          <button class="btn sm" id="addUnit">+ unit</button>
-          </div><div class="lbl" id="unitHint" style="padding-top:4px"></div></details>
+        <div class="unitbox fold" id="unitFold">
+          <div class="trig"><span class="chev">▶</span><span>Add a whole unit: neuron, head or hidden unit</span></div>
+          <div class="coll"><div>
+            <div class="unitrow">
+              <div class="seg" id="unitKind"></div>
+              <div class="num"><button data-d="-1">−</button><input type="number" id="unitIdx" value="0" min="0"><button data-d="1">+</button></div>
+              <button class="btn sm" id="addUnit">Add</button>
+            </div>
+            <div class="hint" id="unitHint" style="padding-top:6px"></div>
+          </div></div>
         </div>
-      </div>
-      <div class="frame">
-        <h2>On the slide <small id="bCount">0 numbers</small></h2>
-        <div class="basket">
-          <div class="bitems" id="bitems"><span class="hint">Nothing selected yet. Add a region, a tensor, a unit, or the whole network.</span></div>
-          <div class="gauge" id="gauge"><div style="width:0"></div><span>0 / 163,840 tokens</span></div>
-          <div class="row"><details><summary>format</summary><div class="row fold">
-            <span class="lbl">decimals</span><select id="dec"><option>1</option><option>2</option><option selected>3</option><option>4</option></select>
-            <span class="lbl">headers</span><select id="hdr"><option value="full">full</option><option value="name">name only</option><option value="none">none</option></select>
-            <label class="toggle"><input type="checkbox" id="rowlab"><i></i>row numbers</label></div></details>
-            <span class="spacer"></span>
-            <button class="btn sm ghost" id="clearB">clear</button>
-            <button class="btn sm" id="preview">preview prompt</button>
-          </div>
+      </section>
+      <section class="card">
+        <div class="head"><h2>On the slide</h2><small id="bCount">0 numbers</small></div>
+        <div class="bitems" id="bitems"></div>
+        <div class="gauge" id="gauge"><div style="width:0"></div></div>
+        <div class="gtext"><span id="gtxt">≈ 0 tokens</span><span id="gmax"></span></div>
+        <div class="fold" id="fmtFold" style="padding:0 18px 14px">
+          <div class="trig"><span class="chev">▶</span><span>How weights are written</span><span class="spacer"></span>
+            <button class="btn sm ghost" id="clearB">Clear</button><button class="btn sm" id="preview">Preview prompt</button></div>
+          <div class="coll"><div><div class="setgrid">
+            <span class="l">Decimals</span><div class="seg" id="decSeg"></div>
+            <span class="l">Headers</span><div class="seg" id="hdrSeg"></div>
+            <span class="l">Row numbers</span><label class="sw"><input type="checkbox" id="rowlab"><i></i></label>
+          </div></div></div>
         </div>
-      </div>
+      </section>
     </div>
-    <!-- ask -->
     <div class="col ask">
-      <div class="frame" style="flex:1">
-        <h2>Ask the reader <small id="readerName">DeepSeek V4.1 Flash</small></h2>
-        <div class="scroll" style="flex:1" id="askScroll">
-          <div class="pad" style="display:flex;flex-direction:column;gap:10px">
-            <div class="row"><span class="lbl">template</span><select id="tpls" style="flex:1"></select></div>
-            <div class="row">
-              <label class="toggle" title="Fills {{arch}}: the architecture and forward pass"><input type="checkbox" id="incArch" checked><i></i>tell it the architecture</label>
-              <label class="toggle" title="Fills {{context}}: what inputs/outputs mean. Off = blinded"><input type="checkbox" id="incCtx"><i></i>tell it what inputs mean</label>
+      <section class="card" style="flex:1">
+        <div class="head"><h2>Ask the reader</h2><small id="readerName">DeepSeek V4.1 Flash</small></div>
+        <div class="scroll" style="flex:1">
+          <div class="stack">
+            <div><div class="lbl">Start from</div><div class="chips" id="tpls"></div></div>
+            <textarea class="field" id="prompt" rows="7" placeholder="Ask anything. Placeholders: {{weights}} {{arch}} {{context}} {{tensors}} {{params}} {{original_question}}"></textarea>
+            <div class="seg full" id="mode"></div>
+            <div>
+              <label class="sw"><input type="checkbox" id="incArch" checked><i></i><span>Tell it the architecture<small>layer shapes and formulas, never the task</small></span></label>
+              <label class="sw"><input type="checkbox" id="incCtx"><i></i><span>Tell it what inputs mean<small>channel and action names: gives away a lot</small></span></label>
+              <label class="sw" id="fwdT"><input type="checkbox" id="fwd"><i></i><span>May run the network<small>gives it run(x) inside Python</small></span></label>
             </div>
-            <details><summary>system prompt</summary><textarea id="sys" rows="2" style="margin-top:8px">Answer the user's request.</textarea></details>
-            <textarea id="prompt" rows="9" placeholder="Write anything. Placeholders: {{weights}} {{arch}} {{context}} {{tensors}} {{params}} {{original_question}}"></textarea>
-            <div class="row">
-              <div class="seg" id="mode"><button data-v="text" class="on">read · text only</button><button data-v="sandbox">read + python</button></div>
-              <label class="toggle" id="fwdT" style="display:none" title="Gives the reader run(x) inside Python"><input type="checkbox" id="fwd"><i></i>may run the network</label>
+            <div class="fold" id="setFold">
+              <div class="trig"><span class="chev">▶</span><span>Settings</span><span class="k" id="setSum" style="margin-left:auto"></span></div>
+              <div class="coll"><div><div class="setgrid">
+                <span class="l">Thinking</span><div class="seg" id="effort"></div>
+                <span class="l">Max output</span><div class="seg" id="tokSeg"></div>
+                <span class="l" id="stepsL">Code runs</span><div class="num" id="stepsN"><button data-d="-1">−</button><input type="number" id="steps" value="15" min="1" max="60"><button data-d="1">+</button></div>
+                <span class="l">Repeat</span><div class="num"><button data-d="-1">−</button><input type="number" id="rep" value="1" min="1" max="10"><button data-d="1">+</button></div>
+                <span class="l">Control</span><label class="sw"><input type="checkbox" id="ctrl"><i></i><span style="font-size:12.5px">also run on shuffled weights</span></label>
+                <span class="l">System</span><textarea class="field" id="sys" rows="2" style="padding:9px 12px">Answer the user's request.</textarea>
+              </div></div></div>
             </div>
-            <details><summary>settings</summary><div class="fold">
-            <div class="row">
-              <span class="lbl">thinking</span><div class="seg" id="effort"><button data-v="none">off</button><button data-v="low">low</button><button data-v="high" class="on">high</button><button data-v="max">max</button></div>
-              <span class="lbl">max output</span><select id="maxtok"><option value="8000">8k</option><option value="16000">16k</option><option value="32000" selected>32k</option><option value="64000">64k</option><option value="128000">128k</option></select>
-              <span class="lbl" id="stepsL" style="display:none">code runs</span><input type="number" id="steps" value="12" min="1" max="60" style="display:none">
-            </div>
-            <div class="row">
-              <span class="lbl">repeat</span><input type="number" id="rep" value="1" min="1" max="10">
-              <label class="toggle" title="Also run the same thing on shuffled weights, as a control"><input type="checkbox" id="ctrl"><i></i>+ shuffled control</label>
-            </div></div></details>
-            <div class="row">
-              <span class="spacer"></span>
-              <button class="btn" id="stop" style="display:none">Stop</button>
-              <button class="btn orange" id="go">Read it ▸</button>
-            </div>
+            <div class="runbar"><span class="k">⌘/Ctrl + Enter</span><span class="spacer"></span>
+              <button class="btn" id="stop" style="display:none">Stop</button><button class="btn primary" id="go">Read it</button></div>
           </div>
-          <div class="out" id="out"><div class="empty">Pick a specimen, put some weights on the slide,<br>and ask the reader what it sees.</div></div>
+          <div class="out" id="out"><div class="empty">Pick a specimen and ask the reader<br>what it sees in the weights.</div></div>
         </div>
-      </div>
+      </section>
     </div>
   </div>
 </div>
 <div class="tip" id="tip"></div>
-<div class="drawer" id="drawer">
-  <h2>Notebook <span class="spacer"></span><span class="k" id="hstat"></span><button class="btn sm" id="cmpBtn" disabled>compare 2</button><button class="btn sm ghost" id="closeH">✕</button></h2>
-  <div class="scroll" id="hist" style="flex:1"></div>
-</div>
-<div class="modal" id="modal"><div class="box"><h3 id="mTitle">Prompt <span class="spacer" style="flex:1"></span><span class="k" id="mSub"></span><button class="btn sm" id="mCopy">copy</button><button class="btn sm ghost" id="mClose">✕</button></h3><div id="mBody" style="overflow:auto"></div></div></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+  <div class="dhead"><h2>Notebook</h2><span class="spacer"></span><span class="k" id="hstat"></span><button class="btn sm" id="cmpBtn" disabled>Compare 2</button><button class="btn icon ghost" id="closeH">✕</button></div>
+  <div class="scroll" id="hist" style="flex:1;padding-bottom:12px"></div>
+</aside>
+<div class="modal" id="modal"><div class="box"><div class="mhead"><h3 id="mTitle">Prompt</h3><span class="k" id="mSub"></span><button class="btn sm" id="mCopy">Copy</button><button class="btn icon ghost" id="mClose">✕</button></div><div id="mBody" style="overflow:auto"></div></div></div>
 
 <script>
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmtN = n => Number(n).toLocaleString();
-const S = { targets: [], t: null, variant: 'original', tensor: null, head: 0, data: null, sel: null, basket: [], mode: 'text', effort: 'high',
-            running: null, ctx: 163840, tpc: .42, picked: new Set(), runs: [] };
+const S = { targets: [], t: null, variant: 'original', tensor: null, head: 0, data: null, sel: null, basket: [], mode: 'sandbox', effort: 'high',
+            maxtok: 32000, dec: 3, hdr: 'full', running: null, ctx: 163840, picked: new Set(), runs: [], unit: null,
+            openGroups: new Set(JSON.parse(localStorage.wrlGroups || '[]')) };
 const api = async (p, b) => { const r = await fetch(p, b ? {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(b)} : {}); const j = await r.json(); if (!r.ok) throw new Error(j.error || r.status); return j; };
 
-/* ---------- theme ---------- */
+/* components */
+function seg(el, items, value, onChange) {
+  el.innerHTML = '<span class="thumb"></span>' + items.map(([v, l]) => `<button data-v="${v}">${l}</button>`).join('');
+  const place = () => { const b = el.querySelector('button.on'), th = el.querySelector('.thumb'); if (!b || !b.offsetWidth) { th.style.width = 0; return; }
+    th.style.left = b.offsetLeft + 'px'; th.style.width = b.offsetWidth + 'px'; };
+  const set = v => { el.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v == v)); place(); };
+  el.querySelectorAll('button').forEach(b => b.onclick = () => { set(b.dataset.v); onChange(b.dataset.v); });
+  set(value); el._place = place; requestAnimationFrame(place);
+}
+const replace = () => $$('.seg').forEach(e => e._place && e._place());
+addEventListener('resize', replace);
+function fold(el, key) { const t = el.querySelector(':scope>.trig'); el.classList.toggle('open', localStorage['wrlF_' + key] === '1');
+  t.onclick = e => { if (e.target.closest('button')) return; el.classList.toggle('open'); localStorage['wrlF_' + key] = el.classList.contains('open') ? '1' : '0'; setTimeout(replace, 40); setTimeout(replace, 340); }; }
+function numbox(input) { input.parentElement.querySelectorAll('button').forEach(b => b.onclick = () => {
+  input.value = Math.max(+input.min || 0, Math.min(+input.max || 1e9, (+input.value || 0) + +b.dataset.d)); input.dispatchEvent(new Event('change')); }); }
+
+/* theme */
 const setTheme = t => { document.documentElement.dataset.theme = t; localStorage.wrlTheme = t; if (S.data) draw(); };
 setTheme(localStorage.wrlTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
 $('#themeBtn').onclick = () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
 
-/* ---------- status / key ---------- */
+/* status / key */
 async function status() {
-  try { const s = await api('/api/status'); S.ctx = s.context_tokens; S.tpc = s.tokens_per_char;
-    $('#model').textContent = s.model.split('/').pop(); $('#bal').textContent = s.balance == null ? (s.key ? '$ ?' : 'no key') : '$' + s.balance.toFixed(2);
-    $('#keyBtn').classList.toggle('orange', !s.key); $('#keyBtn').textContent = s.key ? 'Key ✓' : 'Add key';
-  } catch (e) { $('#model').textContent = 'server?'; }
+  try { const s = await api('/api/status'); S.ctx = s.context_tokens;
+    $('#model').innerHTML = `<b>${esc(s.model.split('/').pop())}</b>`; $('#bal').innerHTML = s.balance == null ? (s.key ? '$ ?' : 'no key') : `<b>$${s.balance.toFixed(2)}</b>`;
+    $('#keyBtn').textContent = s.key ? 'Key ✓' : 'Add key'; $('#keyBtn').classList.toggle('primary', !s.key);
+  } catch (e) { $('#model').textContent = 'server offline'; }
 }
-$('#keyBtn').onclick = async () => {
-  const k = prompt('Paste your Luminal API key. It is saved to lab/.env on this computer (gitignored) and never leaves it except to call Luminal.');
-  if (!k) return; const r = await api('/api/key', {key: k}); alert(r.message); status();
-};
+$('#keyBtn').onclick = async () => { const k = prompt('Paste your Luminal API key. It is saved to lab/.env on this computer (gitignored).'); if (!k) return;
+  const r = await api('/api/key', {key: k}); alert(r.message); status(); };
 
-/* ---------- variants ---------- */
-const VARIANTS = {original:'The weights as trained.', shuffled:'Every tensor\'s values shuffled: same statistics, no structure. A reader that still "sees" the answer is guessing.',
-  untrained:'Fresh random values with each tensor\'s mean and spread: what the network looked like before training.',
-  permuted:'Hidden units reordered. Computes exactly the same function; tests whether the reader relies on unit order.'};
-function renderVariants() {
-  $('#variants').innerHTML = Object.keys(VARIANTS).map(v => `<span class="chip ${v === S.variant ? 'on' : ''}" data-v="${v}">${v}</span>`).join('');
-  $('#vhint').textContent = VARIANTS[S.variant];
-  $$('#variants .chip').forEach(c => c.onclick = () => { S.variant = c.dataset.v; renderVariants(); if (S.tensor) loadTensor(S.tensor); estimate(); });
-}
+/* variants */
+const VARIANTS = {original:'The weights as trained.', shuffled:'Each tensor\'s values shuffled: same statistics, no structure. A reader that still "sees" an answer is guessing.',
+  untrained:'Fresh random values with matched statistics: the network before training.', permuted:'Hidden units reordered: exactly the same function. Tests reliance on unit order.'};
+$('#variants').innerHTML = Object.keys(VARIANTS).map(v => `<span class="chip ${v === S.variant ? 'on' : ''}" data-v="${v}">${v}</span>`).join('');
+$$('#variants .chip').forEach(c => c.onclick = () => { S.variant = c.dataset.v; $$('#variants .chip').forEach(x => x.classList.toggle('on', x === c)); $('#vhint').textContent = VARIANTS[S.variant]; if (S.tensor) loadTensor(S.tensor); estimate(); });
+$('#vhint').textContent = VARIANTS[S.variant];
 
-/* ---------- targets ---------- */
+/* specimens */
 async function loadTargets() {
   S.targets = await api('/api/targets'); $('#nT').textContent = S.targets.length + ' networks';
   const fams = {}; S.targets.forEach(t => (fams[t.family] = fams[t.family] || []).push(t));
   const order = Object.keys(fams).sort((a, b) => Math.min(...fams[a].map(t => t.params)) - Math.min(...fams[b].map(t => t.params)));
-  const revealed = JSON.parse(localStorage.wrlRevealed || '{}');
-  $('#targets').innerHTML = order.map(f => `<div class="fam">${esc(f)}</div>` + fams[f].map(t => `
-    <div class="tg ${S.t && S.t.id === t.id ? 'on' : ''}" data-id="${t.id}"><span class="n">${esc(t.name)}</span><span class="p">${fmtN(t.params)}</span>
-    <span class="a">${revealed[t.id] ? '✓ ' + esc(revealed[t.id]) : '🔒 answer hidden'}</span></div>`).join('')).join('');
+  const rev = JSON.parse(localStorage.wrlRevealed || '{}');
+  if (S.t) S.openGroups.add(S.t.family);
+  $('#targets').innerHTML = order.map(f => `<div class="group ${S.openGroups.has(f) ? 'open' : ''}" data-f="${esc(f)}">
+    <div class="trig"><span class="chev">▶</span>${esc(f)}<span class="n">${fams[f].length}</span></div>
+    <div class="coll"><div>${fams[f].map(t => `<div class="tg ${S.t && S.t.id === t.id ? 'on' : ''}" data-id="${t.id}"><span class="nm">${esc(t.name)}</span><span class="p">${fmtN(t.params)}</span>
+      <span class="a">${rev[t.id] ? '✓ ' + esc(rev[t.id]) : 'answer hidden'}</span></div>`).join('')}</div></div></div>`).join('');
+  $$('.group>.trig').forEach(tr => tr.onclick = () => { const g = tr.parentElement, f = g.dataset.f; g.classList.toggle('open');
+    g.classList.contains('open') ? S.openGroups.add(f) : S.openGroups.delete(f); localStorage.wrlGroups = JSON.stringify([...S.openGroups]); });
   $$('.tg').forEach(e => e.onclick = () => pickTarget(e.dataset.id));
 }
 function pickTarget(id) {
   S.t = S.targets.find(t => t.id === id); S.basket = []; S.sel = null; S.head = 0;
+  if (!S.openGroups.has(S.t.family)) { S.openGroups.add(S.t.family); localStorage.wrlGroups = JSON.stringify([...S.openGroups]); $$('.group').forEach(g => g.dataset.f === S.t.family && g.classList.add('open')); }
   $$('.tg').forEach(e => e.classList.toggle('on', e.dataset.id === id));
-  $('#tName').textContent = S.t.name; $('#tMeta').textContent = fmtN(S.t.params) + ' params · ' + S.t.tensors.length + ' tensors';
-  const mx = Math.max(...S.t.tensors.map(t => t.shape.reduce((a, b) => a * b, 1)));
-  $('#strip').innerHTML = S.t.tensors.map(t => { const n = t.shape.reduce((a, b) => a * b, 1);
-    return `<div class="tb" data-n="${t.name}" title="${esc(t.desc)}"><span class="nm">${t.name}</span><span class="sh">${t.shape.join('×')}</span><span class="bar" style="width:${Math.max(8, 100 * Math.log(1 + n) / Math.log(1 + mx))}%"></span></div>`; }).join('');
+  $('#tName').textContent = S.t.name; $('#tMeta').textContent = `${fmtN(S.t.params)} params · ${S.t.tensors.length} tensors`;
+  $('#strip').innerHTML = S.t.tensors.map(t => `<div class="tb" data-n="${t.name}" title="${esc(t.desc)}"><div class="nm">${t.name}</div><div class="sh">${t.shape.join('×')}</div></div>`).join('');
   $$('.tb').forEach(e => e.onclick = () => loadTensor(e.dataset.n));
   setupUnits(); renderBasket(); loadTensor(S.t.tensors[0].name);
   if (!$('#prompt').value.trim()) applyTpl(TPL[1]);
 }
 
-/* ---------- heatmap ---------- */
+/* heatmap */
 async function loadTensor(name) {
-  S.tensor = name; S.sel = null; $('#addSel').disabled = true;
+  S.tensor = name; S.sel = null; $('#addSel').disabled = true; $('#selInfo').textContent = 'Drag on the grid to select a region';
   $$('.tb').forEach(e => e.classList.toggle('on', e.dataset.n === name));
   S.data = await api(`/api/tensor/${S.t.id}/${name}?variant=${S.variant}`);
-  const sh = S.data.shape;
-  $('#heads').innerHTML = sh.length === 3 ? sh.map ? [...Array(sh[0]).keys()].map(h => `<span class="chip ${h === S.head ? 'on' : ''}" data-h="${h}">head ${h}</span>`).join('') : '' : '';
-  if (sh.length === 3 && S.head >= sh[0]) S.head = 0;
-  $$('#heads .chip').forEach(c => c.onclick = () => { S.head = +c.dataset.h; S.sel = null; loadTensor(name); });
-  const d = S.t.tensors.find(t => t.name === name);
-  $('#vTitle').textContent = `${name}${sh.length === 3 ? '[' + S.head + ']' : ''}  ${sh.join('×')}  σ=${S.data.std.toFixed(3)}`;
-  draw();
+  const sh = S.data.shape, hs = $('#heads');
+  if (sh.length === 3) { if (S.head >= sh[0]) S.head = 0; hs.style.display = '';
+    seg(hs, [...Array(sh[0]).keys()].map(h => [h, 'head ' + h]), S.head, h => { S.head = +h; S.sel = null; $('#addSel').disabled = true; title(); draw(); }); }
+  else hs.style.display = 'none';
+  title(); draw();
 }
-function mat() { // 2-D view of the current tensor
-  const sh = S.data.shape, v = S.data.values;
+const title = () => { const sh = S.data.shape; $('#vTitle').textContent = `${S.tensor}${sh.length === 3 ? '[' + S.head + ']' : ''}  ${sh.join('×')}  σ ${S.data.std.toFixed(3)}`; };
+function mat() { const sh = S.data.shape, v = S.data.values;
   if (sh.length === 1) return {r: 1, c: sh[0], at: (i, j) => v[j]};
   if (sh.length === 2) return {r: sh[0], c: sh[1], at: (i, j) => v[i * sh[1] + j]};
-  const o = S.head * sh[1] * sh[2]; return {r: sh[1], c: sh[2], at: (i, j) => v[o + i * sh[2] + j]};
-}
-function cellSize(m) {
-  const W = $('#cwrap').clientWidth - 4, H = Math.max(160, $('#cwrap').clientHeight - 4);
-  let cs = Math.min(W / m.c, 64);                 // fill the width...
-  if (cs * m.r > 3 * H) cs = Math.max(1, 3 * H / m.r);   // ...unless that makes it more than 3 screens tall
-  return Math.max(1, cs);
-}
-function hexRgb(h) { h = getComputedStyle(document.documentElement).getPropertyValue(h).trim(); if (h.startsWith('#')) { const n = parseInt(h.slice(1), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; } return [200, 200, 200]; }
+  const o = S.head * sh[1] * sh[2]; return {r: sh[1], c: sh[2], at: (i, j) => v[o + i * sh[2] + j]}; }
+function cellSize(m) { const W = $('#cwrap').clientWidth - 2, H = Math.max(160, $('#cwrap').clientHeight - 2);
+  let cs = Math.min(W / m.c, 64); if (cs * m.r > 3 * H) cs = Math.max(1, 3 * H / m.r); return Math.max(1, cs); }
+const rgb = v => { const h = getComputedStyle(document.documentElement).getPropertyValue(v).trim(); const n = parseInt(h.slice(1), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
 function draw() {
   const m = mat(), cs = cellSize(m), cv = $('#cv'), dpr = devicePixelRatio || 1;
   cv.width = Math.ceil(m.c * cs * dpr); cv.height = Math.ceil(m.r * cs * dpr); cv.style.width = m.c * cs + 'px'; cv.style.height = m.r * cs + 'px';
-  const g = cv.getContext('2d'), img = g.createImageData(m.c, m.r), neg = hexRgb('--neg'), pos = hexRgb('--pos'), mid = hexRgb('--field');
+  const g = cv.getContext('2d'), img = g.createImageData(m.c, m.r), neg = rgb('--neg'), pos = rgb('--pos'), mid = rgb('--sunken');
   const lim = ($('#contrast').checked || S.data.std < 1e-3 * (S.data.absmax || 1)) ? (S.data.absmax || 1) : Math.max(1e-6, Math.min(S.data.absmax, 3 * S.data.std));
   $('#lmin').textContent = (-lim).toFixed(2); $('#lmax').textContent = '+' + lim.toFixed(2);
   for (let i = 0; i < m.r; i++) for (let j = 0; j < m.c; j++) {
-    const x = Math.max(-1, Math.min(1, m.at(i, j) / lim)), t = Math.abs(x), c = x < 0 ? neg : pos, k = 4 * (i * m.c + j);
-    img.data[k] = mid[0] + (c[0] - mid[0]) * t; img.data[k + 1] = mid[1] + (c[1] - mid[1]) * t; img.data[k + 2] = mid[2] + (c[2] - mid[2]) * t; img.data[k + 3] = 255;
-  }
-  const off = new OffscreenCanvas(m.c, m.r); off.getContext('2d').putImageData(img, 0, 0);
-  g.imageSmoothingEnabled = false; g.drawImage(off, 0, 0, cv.width, cv.height);
-  if (S.sel) { const s = S.sel; g.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--ink'); g.lineWidth = 2 * dpr; g.setLineDash([5 * dpr, 3 * dpr]);
+    const x = Math.max(-1, Math.min(1, m.at(i, j) / lim)), t = Math.pow(Math.abs(x), .8), c = x < 0 ? neg : pos, k = 4 * (i * m.c + j);
+    img.data[k] = mid[0] + (c[0] - mid[0]) * t; img.data[k + 1] = mid[1] + (c[1] - mid[1]) * t; img.data[k + 2] = mid[2] + (c[2] - mid[2]) * t; img.data[k + 3] = 255; }
+  const off = new OffscreenCanvas(m.c, m.r); off.getContext('2d').putImageData(img, 0, 0); g.imageSmoothingEnabled = false; g.drawImage(off, 0, 0, cv.width, cv.height);
+  if (S.sel) { const s = S.sel; g.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--ink'); g.lineWidth = 1.5 * dpr; g.setLineDash([4 * dpr, 3 * dpr]);
     g.strokeRect(s.c0 * cs * dpr, s.r0 * cs * dpr, (s.c1 - s.c0) * cs * dpr, (s.r1 - s.r0) * cs * dpr); }
 }
 addEventListener('resize', () => S.data && draw());
 $('#contrast').onchange = draw;
-(() => { // drag to select, hover to read
-  const cv = $('#cv'); let down = null;
-  const cellAt = e => { const m = mat(), cs = cellSize(m), r = cv.getBoundingClientRect();
+(() => { const cv = $('#cv'), tip = $('#tip'); let down = null;
+  const at = e => { const m = mat(), cs = cellSize(m), r = cv.getBoundingClientRect();
     return [Math.max(0, Math.min(m.r - 1, Math.floor((e.clientY - r.top) / cs))), Math.max(0, Math.min(m.c - 1, Math.floor((e.clientX - r.left) / cs)))]; };
-  cv.onmousedown = e => { down = cellAt(e); };
+  cv.onmousedown = e => { down = at(e); };
   addEventListener('mouseup', () => { if (down) { down = null; $('#addSel').disabled = !S.sel; } });
-  cv.onmousemove = e => {
-    if (!S.data) return; const [i, j] = cellAt(e), m = mat(), tip = $('#tip');
-    tip.style.display = 'block'; tip.style.left = e.clientX + 14 + 'px'; tip.style.top = e.clientY + 10 + 'px';
-    tip.textContent = `[${i}, ${j}]  ${m.at(i, j).toFixed(4)}`;
+  cv.onmousemove = e => { if (!S.data) return; const [i, j] = at(e); tip.style.opacity = 1; tip.style.left = e.clientX + 14 + 'px'; tip.style.top = e.clientY + 12 + 'px';
+    tip.textContent = `[${i}, ${j}]  ${mat().at(i, j).toFixed(4)}`;
     if (down) { S.sel = {r0: Math.min(down[0], i), r1: Math.max(down[0], i) + 1, c0: Math.min(down[1], j), c1: Math.max(down[1], j) + 1};
-      $('#selInfo').textContent = `rows ${S.sel.r0}–${S.sel.r1 - 1}, cols ${S.sel.c0}–${S.sel.c1 - 1}  (${fmtN((S.sel.r1 - S.sel.r0) * (S.sel.c1 - S.sel.c0))} numbers)`; draw(); }
-  };
-  cv.onmouseleave = () => $('#tip').style.display = 'none';
-})();
+      $('#selInfo').textContent = `rows ${S.sel.r0}–${S.sel.r1 - 1} · cols ${S.sel.c0}–${S.sel.c1 - 1} · ${fmtN((S.sel.r1 - S.sel.r0) * (S.sel.c1 - S.sel.c0))} numbers`; draw(); } };
+  cv.onmouseleave = () => tip.style.opacity = 0; })();
 
-/* ---------- basket ---------- */
-const itemSize = it => { const t = S.t.tensors.find(x => x.name === it.tensor), sh = t.shape;
+/* slide */
+const itemSize = it => { const sh = S.t.tensors.find(x => x.name === it.tensor).shape;
   const heads = sh.length === 3 ? (it.head == null ? sh[0] : 1) : 1, r = sh.length === 1 ? 1 : sh[sh.length - 2], c = sh[sh.length - 1];
   return heads * ((it.r1 ?? r) - (it.r0 ?? 0)) * ((it.c1 ?? c) - (it.c0 ?? 0)); };
 const itemLabel = it => { let s = it.tensor + (it.head != null ? `[${it.head}]` : (S.t.tensors.find(x => x.name === it.tensor).shape.length === 3 ? '[all]' : ''));
   if (it.r0 != null) s += `[${it.r0}:${it.r1}, ${it.c0}:${it.c1}]`; return it.label ? `${it.label} · ${s}` : s; };
 function addItems(items) { S.basket.push(...items); renderBasket(); }
 function renderBasket() {
+  if (!S.t) return;
   const n = S.basket.reduce((a, it) => a + itemSize(it), 0); $('#bCount').textContent = fmtN(n) + ' numbers';
-  $('#bitems').innerHTML = S.basket.length ? S.basket.map((it, i) => `<span class="bi">${esc(itemLabel(it))} <span class="k">${fmtN(itemSize(it))}</span><button data-i="${i}">×</button></span>`).join('')
-    : '<span class="hint">Nothing selected yet. Add a region, a tensor, a unit, or the whole network.</span>';
+  $('#bitems').innerHTML = S.basket.length ? S.basket.map((it, i) => `<span class="bi">${esc(itemLabel(it))}<span class="c">${fmtN(itemSize(it))}</span><button data-i="${i}">✕</button></span>`).join('')
+    : `<span class="hint">${S.mode === 'sandbox' ? 'Empty is right for Read + Python: the reader fetches weights with code.' : 'Nothing on the slide. In text mode, add weights to paste them into the prompt.'}</span>`;
   $$('#bitems button').forEach(b => b.onclick = () => { S.basket.splice(+b.dataset.i, 1); renderBasket(); });
   const inb = new Set(S.basket.map(b => b.tensor)); $$('.tb').forEach(e => e.classList.toggle('inb', inb.has(e.dataset.n)));
   estimate();
 }
-$('#addSel').onclick = () => { const sh = S.data.shape; addItems([{tensor: S.tensor, head: sh.length === 3 ? S.head : undefined, ...S.sel}]); };
+$('#addSel').onclick = () => addItems([{tensor: S.tensor, head: S.data.shape.length === 3 ? S.head : undefined, ...S.sel}]);
 $('#addTensor').onclick = () => addItems([{tensor: S.tensor, head: S.data.shape.length === 3 ? S.head : undefined}]);
 $('#addAll').onclick = () => { S.basket = S.t.tensors.map(t => ({tensor: t.name})); renderBasket(); };
 $('#clearB').onclick = () => { S.basket = []; renderBasket(); };
-['#dec', '#hdr', '#rowlab', '#incArch', '#incCtx'].forEach(s => $(s).onchange = estimate);
-
-/* units: the network's own building blocks, so slices have no seams */
+seg($('#decSeg'), [[1, '1'], [2, '2'], [3, '3'], [4, '4']], S.dec, v => { S.dec = +v; estimate(); });
+seg($('#hdrSeg'), [['full', 'full'], ['name', 'name'], ['none', 'none']], S.hdr, v => { S.hdr = v; estimate(); });
+['#rowlab', '#incArch', '#incCtx'].forEach(s => $(s).onchange = estimate);
+numbox($('#unitIdx')); numbox($('#steps')); numbox($('#rep'));
+fold($('#unitFold'), 'unit'); fold($('#fmtFold'), 'fmt'); fold($('#setFold'), 'set');
 function setupUnits() {
   const names = S.t.tensors.map(t => t.name), opts = [];
-  if (names.includes('W_in')) { opts.push(['neuron', 'MLP neuron: its W_in column + W_out row']); opts.push(['head', 'attention head: its Q, K, V, O']); }
-  for (let k = 1; names.includes('W' + (k + 1)); k++) opts.push(['h' + k, `hidden unit of layer ${k}: incoming column of W${k}, bias, outgoing row of W${k + 1}`]);
-  $('#unitKind').innerHTML = opts.map(o => `<option value="${o[0]}" title="${esc(o[1])}">${o[0] === 'neuron' ? 'MLP neuron' : o[0] === 'head' ? 'attention head' : 'layer ' + o[0].slice(1) + ' unit'}</option>`).join('');
-  const hint = () => { const o = opts.find(o => o[0] === $('#unitKind').value); $('#unitHint').textContent = o ? o[1] : ''; };
-  $('#unitKind').onchange = hint; hint(); $('#addUnit').disabled = !opts.length;
+  if (names.includes('W_in')) { opts.push(['neuron', 'MLP neuron', 'its W_in column and W_out row']); opts.push(['head', 'attention head', 'its Q, K, V and O']); }
+  for (let k = 1; names.includes('W' + (k + 1)); k++) opts.push(['h' + k, 'layer ' + k + ' unit', `incoming column of W${k}, its bias, outgoing row of W${k + 1}`]);
+  $('#unitFold').style.display = opts.length ? '' : 'none'; if (!opts.length) return;
+  S.unit = opts[0][0];
+  seg($('#unitKind'), opts.map(o => [o[0], o[1]]), S.unit, v => { S.unit = v; $('#unitHint').textContent = opts.find(o => o[0] === v)[2]; });
+  $('#unitHint').textContent = opts[0][2];
 }
 $('#addUnit').onclick = () => {
-  const k = $('#unitKind').value, i = +$('#unitIdx').value, T = n => S.t.tensors.find(t => t.name === n);
+  const k = S.unit, i = +$('#unitIdx').value, T = n => S.t.tensors.find(t => t.name === n);
   if (k === 'neuron') { if (i >= T('W_in').shape[1]) return alert('max ' + (T('W_in').shape[1] - 1));
     addItems([{tensor: 'W_in', r0: 0, r1: T('W_in').shape[0], c0: i, c1: i + 1, label: 'neuron ' + i}, {tensor: 'W_out', r0: i, r1: i + 1, c0: 0, c1: T('W_out').shape[1], label: 'neuron ' + i}]); }
   else if (k === 'head') { if (i >= T('W_Q').shape[0]) return alert('max ' + (T('W_Q').shape[0] - 1));
@@ -409,142 +487,173 @@ $('#addUnit').onclick = () => {
               {tensor: 'W' + (L + 1), r0: i, r1: i + 1, c0: 0, c1: B.shape[1], label: `L${L} unit ${i}`}]); }
 };
 
-/* ---------- prompt ---------- */
+/* prompt */
 const TPL = [
-  {n: 'weights only', p: '{{weights}}', s: ''},
-  {n: 'what does this do?', p: '{{arch}}\n\n{{context}}\n\nBelow are the weights of a trained neural network. Work from the weights. What does this network do? Explain what you see in the weights and how it leads to your answer, then state your answer and your confidence (0-100%).\n\n{{weights}}'},
+  {n: 'Weights only', p: '{{weights}}'},
+  {n: 'What does it do?', p: '{{arch}}\n\n{{context}}\n\nWork from the weights. What does this network do? Explain what you see in the weights and how it leads to your answer, then state your answer and your confidence (0-100%).\n\n{{weights}}'},
+  {n: 'Name the game', p: '{{arch}}\n\nWork from the weights (use Python to analyse them). Assume this network is used to play one type of game. Describe what you find in the weights, then name the game and give your confidence (0-100%).'},
+  {n: 'Find the algorithm', p: '{{arch}}\n\n{{context}}\n\nReverse-engineer this network from its weights: what function of the inputs does it compute, and by what algorithm? State the algorithm concretely, with the constants you measured, as runnable Python that mirrors its internal steps.'},
+  {n: 'Explain this unit', p: '{{arch}}\n\nThe weights below belong to one unit (or a small part) of a trained network. What does this part compute, and what role might it play? Quote the weights you rely on.\n\n{{weights}}'},
+  {n: 'Predict an edit', p: '{{arch}}\n\n{{context}}\n\nPredict concretely what will happen to the network\'s outputs if the weights shown in the last block are set to zero. Give a testable prediction and your confidence.\n\n{{weights}}'},
   {n: 'MIT original', p: '{{context}}\n\n{{original_question}}\n\nTHE NETWORK\'S WEIGHTS\nValues rounded to the decimals shown.\n\n{{weights}}', need: 'original_question'},
-  {n: 'explain this unit', p: '{{arch}}\n\nThe weights below belong to one unit (or a small part) of a trained network. What does this part compute, and what role might it play? Quote the weights you rely on.\n\n{{weights}}'},
-  {n: 'predict an edit', p: '{{arch}}\n\n{{context}}\n\nHere are the weights. Predict concretely what will happen to the network\'s outputs if the weights shown in the last block are set to zero. Give a testable prediction and your confidence.\n\n{{weights}}'},
-  {n: 'find the algorithm', p: '{{arch}}\n\n{{context}}\n\nReverse-engineer this network. Describe the algorithm it implements as runnable Python (a function from input to output that mirrors the network\'s internal steps), and say which weights implement each step.\n\n{{weights}}'},
 ];
-function renderTpls() { $('#tpls').innerHTML = '<option value="">choose…</option>' + TPL.map((t, i) => `<option value="${i}">${t.n}</option>`).join(''); $('#tpls').onchange = e => { if (e.target.value !== '') applyTpl(TPL[+e.target.value]); e.target.value = ''; }; }
-function applyTpl(t) { if (t.need && S.t && !S.t[t.need]) { alert('This template needs ' + t.need + ', which only the MIT specimens have.'); return; } $('#prompt').value = t.p; estimate(); }
-$('#prompt').oninput = () => { clearTimeout(S.et); S.et = setTimeout(estimate, 400); };
+$('#tpls').innerHTML = TPL.map((t, i) => `<span class="chip" data-i="${i}" title="${esc(t.p)}">${t.n}</span>`).join('');
+$$('#tpls .chip').forEach(c => c.onclick = () => applyTpl(TPL[+c.dataset.i], c));
+function applyTpl(t, chip) { if (t.need && S.t && !S.t[t.need]) return alert('This template needs ' + t.need + ' (MIT specimens only).');
+  $('#prompt').value = t.p; $$('#tpls .chip').forEach(c => c.classList.toggle('on', chip ? c === chip : c.textContent === t.n)); estimate(); }
+$('#prompt').oninput = () => { $$('#tpls .chip').forEach(c => c.classList.remove('on')); clearTimeout(S.et); S.et = setTimeout(estimate, 400); };
+seg($('#mode'), [['sandbox', 'Read + Python'], ['text', 'Text only']], S.mode, v => { S.mode = v; modeUI(); renderBasket(); });
+function modeUI() { const py = S.mode === 'sandbox'; $('#fwdT').style.display = py ? '' : 'none'; $('#stepsL').style.display = $('#stepsN').style.display = py ? '' : 'none'; summary(); }
+seg($('#effort'), [['none', 'off'], ['low', 'low'], ['high', 'high'], ['max', 'max']], S.effort, v => { S.effort = v; summary(); });
+seg($('#tokSeg'), [[8000, '8k'], [16000, '16k'], [32000, '32k'], [64000, '64k'], [128000, '128k']], S.maxtok, v => { S.maxtok = +v; estimate(); summary(); });
+['#steps', '#rep', '#ctrl'].forEach(s => $(s).addEventListener('change', summary));
+function summary() { $('#setSum').textContent = `thinking ${S.effort} · ${S.maxtok / 1000}k${S.mode === 'sandbox' ? ' · ' + $('#steps').value + ' runs' : ''}${+$('#rep').value > 1 ? ' · ×' + $('#rep').value : ''}${$('#ctrl').checked ? ' · +control' : ''}`; }
 function cfg(extra = {}) {
   return {target: S.t.id, variant: S.variant, selection: S.basket.map(({label, ...r}) => r), prompt: $('#prompt').value, system: $('#sys').value,
-    format: {decimals: +$('#dec').value, headers: $('#hdr').value, row_labels: $('#rowlab').checked}, include_arch: $('#incArch').checked, include_context: $('#incCtx').checked,
-    mode: S.mode, allow_forward: $('#fwd').checked, effort: S.effort, max_tokens: +$('#maxtok').value, max_steps: +$('#steps').value, ...extra};
+    format: {decimals: S.dec, headers: S.hdr, row_labels: $('#rowlab').checked}, include_arch: $('#incArch').checked, include_context: $('#incCtx').checked,
+    mode: S.mode, allow_forward: $('#fwd').checked, effort: S.effort, max_tokens: S.maxtok, max_steps: +$('#steps').value, ...extra};
 }
 async function estimate() {
-  if (!S.t) return; try { const r = await api('/api/format', cfg()); const tok = r.tokens_est, pct = Math.min(100, 100 * tok / S.ctx), g = $('#gauge');
-    g.firstElementChild.style.width = pct + '%'; g.classList.toggle('warn', pct > 70 && pct <= 100 * (1 - (+$('#maxtok').value) / S.ctx)); g.classList.toggle('over', tok + (+$('#maxtok').value) > S.ctx);
-    g.lastElementChild.textContent = `≈ ${fmtN(tok)} / ${fmtN(S.ctx)} tokens${tok + (+$('#maxtok').value) > S.ctx ? ' · too big with the output budget' : ''}`; S.lastPrompt = r.prompt; } catch (e) {}
+  if (!S.t) return; try { const r = await api('/api/format', cfg()), tok = r.tokens_est, pct = Math.min(100, 100 * tok / S.ctx), g = $('#gauge');
+    const over = tok + S.maxtok + 24000 > S.ctx; g.firstElementChild.style.width = Math.max(pct, .5) + '%'; g.classList.toggle('over', over); g.classList.toggle('warn', !over && pct > 60);
+    $('#gtxt').innerHTML = `≈ ${fmtN(tok)} tokens` + (over ? ' <span class="over">· too big with the output budget</span>' : ''); $('#gmax').textContent = `of ${fmtN(S.ctx)}`; } catch (e) {}
 }
-$('#preview').onclick = async () => { if (!S.t) return; const r = await api('/api/format', cfg()); openModal('What the reader will receive', `${fmtN(r.chars)} characters · ≈ ${fmtN(r.tokens_est)} tokens`, `<pre>${esc(r.prompt)}</pre>`, r.prompt); };
-$$('#mode button').forEach(b => b.onclick = () => { S.mode = b.dataset.v; $$('#mode button').forEach(x => x.classList.toggle('on', x === b));
-  ['#fwdT', '#stepsL', '#steps'].forEach(s => $(s).style.display = S.mode === 'sandbox' ? '' : 'none'); });
-$$('#effort button').forEach(b => b.onclick = () => { S.effort = b.dataset.v; $$('#effort button').forEach(x => x.classList.toggle('on', x === b)); });
-$('#maxtok').onchange = estimate;
+$('#preview').onclick = async () => { if (!S.t) return; const r = await api('/api/format', cfg()); openModal('What the reader receives', `${fmtN(r.chars)} chars · ≈ ${fmtN(r.tokens_est)} tokens`, `<pre>${esc(r.prompt)}</pre>`, r.prompt); };
 
-/* ---------- running ---------- */
-function md(s) { // small markdown: code fences, headings, bold, inline code, lists
-  const parts = String(s).split(/```[a-zA-Z]*\n?/); return parts.map((p, i) => i % 2 ? `<pre>${esc(p.replace(/\n$/, ''))}</pre>` :
-    esc(p).replace(/^### (.*)$/gm, '<h3>$1</h3>').replace(/^## (.*)$/gm, '<h2>$1</h2>').replace(/^# (.*)$/gm, '<h2>$1</h2>')
-      .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code>$1</code>').replace(/^\s*[-*] (.*)$/gm, '• $1').replace(/\n/g, '<br>')).join('');
+/* markdown + maths */
+const inline = s => s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>').replace(/`([^`]+)`/g, '<code>$1</code>');
+function md(src) {
+  const blocks = String(src || '').split(/```[a-zA-Z]*\n?/); let html = '';
+  blocks.forEach((b, i) => {
+    if (i % 2) { html += `<pre><code>${esc(b.replace(/\n$/, ''))}</code></pre>`; return; }
+    let inList = false;
+    for (const l of esc(b).split('\n')) {
+      const li = l.match(/^\s*(?:[-*•]|\d+\.)\s+(.*)/);
+      if (li) { if (!inList) { html += '<ul>'; inList = true; } html += `<li>${inline(li[1])}</li>`; continue; }
+      if (inList) { html += '</ul>'; inList = false; }
+      const h = l.match(/^(#{1,3})\s+(.*)/); if (h) { html += `<h3>${inline(h[2])}</h3>`; continue; }
+      if (l.trim()) html += `<p>${inline(l)}</p>`;
+    }
+    if (inList) html += '</ul>';
+  });
+  return html;
 }
-function runView(id, title) {
-  const el = document.createElement('div'); el.className = 'runv'; el.innerHTML = `
-    <div class="row"><b style="font-family:var(--serif);font-style:italic;font-weight:400;font-size:20px">${esc(title)}</b><span class="spacer"></span><span class="stat st-state">starting…</span></div>
-    <div class="stats"></div><details class="thk" open><summary>thinking <span class="k tchars"></span></summary><div class="think"></div></details>
-    <div class="cells" style="display:flex;flex-direction:column;gap:8px"></div><div class="answer"></div><div class="tail"></div>`;
+function maths(el) { if (window.renderMathInElement) try { renderMathInElement(el, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false}); } catch (e) {} }
+
+/* running */
+function runCard(title) {
+  const el = document.createElement('div'); el.className = 'run'; el.innerHTML = `
+    <div class="rhead"><span class="t">${esc(title)}</span><span class="status live"><i></i><span class="st">starting</span></span></div>
+    <div class="stats"></div>
+    <div class="answer"></div>
+    <div class="panel fold think-p live" style="display:none"><div class="trig"><span class="chev">▶</span>Reasoning<span class="k tchars"></span></div><div class="think-peek"></div><div class="coll"><div><div class="think"></div></div></div></div>
+    <div class="panel fold steps-p" style="display:none"><div class="trig"><span class="chev">▶</span>Python<span class="k scount"></span></div><div class="coll"><div><div class="steps"></div></div></div></div>
+    <div class="tail"></div>`;
+  el.querySelectorAll('.panel').forEach(f => f.querySelector('.trig').onclick = () => { f.classList.toggle('open'); if (f.classList.contains('think-p')) { const t = f.querySelector('.think'); t.textContent = f._think || ''; } });
   return el;
 }
 async function go() {
   if (!S.t) return alert('Pick a specimen first.');
   if (!S.basket.length && S.mode === 'text' && !confirm('Nothing is on the slide, so the reader gets no weights. Run anyway (a no-weights control)?')) return;
-  const jobs = []; const rep = Math.max(1, +$('#rep').value);
+  const rep = Math.max(1, +$('#rep').value), jobs = [];
   for (let i = 0; i < rep; i++) jobs.push(cfg({title: `${S.t.name} · ${S.variant}${rep > 1 ? ' · #' + (i + 1) : ''}`}));
   if ($('#ctrl').checked) jobs.push(cfg({variant: 'shuffled', title: `${S.t.name} · shuffled control`}));
-  $('#out').innerHTML = ''; $('#go').disabled = true; $('#stop').style.display = '';
+  if ($('#out .empty')) $('#out').innerHTML = '';
+  $('#go').disabled = true; $('#stop').style.display = '';
   for (const j of jobs) { if (S.abortAll) break; await runOne(j); }
   S.abortAll = false; $('#go').disabled = false; $('#stop').style.display = 'none'; status(); loadHist();
 }
 async function runOne(c) {
-  const v = runView(null, c.title); $('#out').prepend(v);
-  const q = s => v.querySelector(s), think = q('.think'), ans = q('.answer'), cells = q('.cells');
-  let answer = '', tchars = 0, cur = null, t0 = Date.now(); const tick = setInterval(() => q('.st-state').textContent = `${((Date.now() - t0) / 1000).toFixed(0)} s · running`, 500);
+  const v = runCard(c.title); $('#out').prepend(v);
+  const q = s => v.querySelector(s), ans = q('.answer'), steps = q('.steps'), thinkP = q('.think-p'), stepsP = q('.steps-p');
+  let answer = '', think = '', nsteps = 0, cur = null, t0 = Date.now(), lastMd = 0;
+  const st = q('.st'), tick = setInterval(() => st.textContent = `${((Date.now() - t0) / 1000).toFixed(0)} s`, 500);
+  const renderAns = force => { if (!force && Date.now() - lastMd < 150) return; lastMd = Date.now(); ans.innerHTML = md(answer); };
   try {
     const res = await fetch('/api/run', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(c)});
     const rd = res.body.getReader(), dec = new TextDecoder(); let buf = '';
     for (;;) { const {value, done} = await rd.read(); if (done) break; buf += dec.decode(value, {stream: true});
       let k; while ((k = buf.indexOf('\n\n')) >= 0) { const line = buf.slice(0, k); buf = buf.slice(k + 2); if (!line.startsWith('data:')) continue; const ev = JSON.parse(line.slice(5));
         if (ev.type === 'start') S.running = ev.id;
-        else if (ev.type === 'thinking') { think.textContent += ev.text; tchars += ev.text.length; q('.tchars').textContent = fmtN(tchars) + ' chars'; think.scrollTop = think.scrollHeight; }
-        else if (ev.type === 'content') { answer += ev.text; ans.innerHTML = md(answer); }
-        else if (ev.type === 'tool_call') { cur = document.createElement('div'); cur.className = 'cell'; cur.innerHTML = `<div class="ch"><span>python · step ${ev.step + 1}</span><span class="sec">running…</span></div><div class="code">${esc(ev.code)}</div><div class="res">…</div>`; cells.append(cur); answer = ''; ans.innerHTML = ''; }
-        else if (ev.type === 'tool_result' && cur) { cur.querySelector('.res').textContent = ev.output || '(no output)'; cur.querySelector('.res').classList.toggle('bad', !ev.ok); cur.querySelector('.sec').textContent = ev.seconds + ' s'; }
-        else if (ev.type === 'usage') q('.stats').innerHTML = `<span class="stat">in ${fmtN(ev.usage.prompt_tokens)}</span><span class="stat">out ${fmtN(ev.usage.completion_tokens)}</span><span class="stat">≈ $${ev.cost.toFixed(4)}</span>${ev.finish ? `<span class="stat">finish: ${ev.finish}</span>` : ''}`;
-        else if (ev.type === 'error') q('.tail').innerHTML = `<div class="err">${esc(ev.message)}</div>`;
-        else if (ev.type === 'done') { q('.st-state').textContent = `${ev.status} · ${ev.seconds} s`; v.querySelector('.thk').open = false; gradeBar(q('.tail'), ev.id, c.target); }
+        else if (ev.type === 'thinking') { think += ev.text; thinkP._think = think; thinkP.style.display = ''; q('.tchars').textContent = fmtN(think.length) + ' chars';
+          q('.think-peek').textContent = think.slice(-180).replace(/\s+/g, ' '); if (thinkP.classList.contains('open')) { const t = q('.think'); t.textContent = think; t.scrollTop = t.scrollHeight; } }
+        else if (ev.type === 'content') { answer += ev.text; renderAns(); }
+        else if (ev.type === 'tool_call') { nsteps++; stepsP.style.display = ''; q('.scount').textContent = nsteps + (nsteps === 1 ? ' step' : ' steps');
+          const first = (ev.code.split('\n').find(l => l.trim() && !/^(import|from)\s/.test(l.trim())) || ev.code.split('\n')[0] || '').trim();
+          cur = document.createElement('div'); cur.className = 'step fold';
+          cur.innerHTML = `<div class="trig"><span class="sd run"></span><span class="k" style="width:20px">${nsteps}</span><span class="l1">${esc(first)}</span><span class="k sec"></span></div><div class="coll"><div><pre>${esc(ev.code)}</pre><pre class="o">running…</pre></div></div>`;
+          cur.querySelector('.trig').onclick = function () { this.parentElement.classList.toggle('open'); }; steps.append(cur); answer = ''; ans.innerHTML = ''; }
+        else if (ev.type === 'tool_result' && cur) { const o = cur.querySelector('.o'); o.textContent = ev.output || '(no output)'; o.classList.toggle('bad', !ev.ok);
+          cur.querySelector('.sd').className = 'sd ' + (ev.ok ? 'ok' : 'bad'); cur.querySelector('.sec').textContent = ev.seconds + ' s'; }
+        else if (ev.type === 'usage') q('.stats').innerHTML = `<span class="stat">${fmtN(ev.usage.prompt_tokens)} in</span><span class="stat">${fmtN(ev.usage.completion_tokens)} out</span><span class="stat">$${ev.cost.toFixed(4)}</span>${ev.finish === 'length' ? '<span class="stat bad">ran out of output budget</span>' : ''}`;
+        else if (ev.type === 'error') q('.tail').insertAdjacentHTML('beforeend', `<div class="err">${esc(ev.message)}</div>`);
+        else if (ev.type === 'done') { const s = q('.status'); s.classList.remove('live'); if (ev.status !== 'done') s.classList.add('err'); st.textContent = `${ev.status} · ${ev.seconds} s`;
+          thinkP.classList.remove('live', 'open'); renderAns(true); maths(ans); gradeBar(q('.tail'), ev.id, c.target); }
       } }
-  } catch (e) { q('.tail').innerHTML = `<div class="err">${esc(e.message)}</div>`; }
+  } catch (e) { q('.tail').insertAdjacentHTML('beforeend', `<div class="err">${esc(e.message)}</div>`); }
   clearInterval(tick); S.running = null;
 }
 function gradeBar(el, id, tid) {
-  const g = document.createElement('div'); g.className = 'grade'; g.innerHTML = `<span class="lbl">grade</span>
-    <button class="btn sm" data-g="right">✓ right</button><button class="btn sm" data-g="partial">~ partial</button><button class="btn sm" data-g="wrong">✗ wrong</button>
-    <input type="text" placeholder="note" style="flex:1;min-width:120px"><button class="btn sm" data-t>copy trace</button><button class="btn sm yellow" data-r>reveal answer</button>`;
-  el.append(g);
-  const save = async gr => { await api(`/api/runs/${id}/grade`, {grade: gr, note: g.querySelector('input').value}); g.querySelectorAll('[data-g]').forEach(b => b.classList.toggle('on', b.dataset.g === gr)); loadHist(); };
-  g.querySelectorAll('[data-g]').forEach(b => b.onclick = () => save(b.dataset.g));
-  g.querySelector('input').onchange = () => { const on = g.querySelector('[data-g].on'); if (on) save(on.dataset.g); };
-  g.querySelector('[data-r]').onclick = () => reveal(tid, el);
+  const g = document.createElement('div'); g.className = 'grade';
+  g.innerHTML = `<div class="seg gr"></div><input type="text" placeholder="Note"><button class="btn sm" data-t>Copy trace</button><button class="btn sm soft" data-r>Reveal answer</button>`;
+  el.append(g); let grade = null;
+  const save = async () => { await api(`/api/runs/${id}/grade`, {grade, note: g.querySelector('input').value}); loadHist(); };
+  seg(g.querySelector('.seg'), [['right', '✓ right'], ['partial', '~ partial'], ['wrong', '✕ wrong']], null, v => { grade = v; save(); });
+  g.querySelector('input').onchange = () => grade && save();
+  g.querySelector('[data-r]').onclick = e => { e.target.disabled = true; reveal(tid, el); };
   g.querySelector('[data-t]').onclick = e => copyTrace(id, e.target);
 }
 async function reveal(tid, el) {
   const a = await api('/api/answer/' + tid); const r = JSON.parse(localStorage.wrlRevealed || '{}'); r[tid] = a.short; localStorage.wrlRevealed = JSON.stringify(r);
-  const d = document.createElement('div'); d.className = 'reveal'; d.innerHTML = `<b>${esc(a.short)}</b>${esc(a.detail)}`; el.append(d); loadTargets();
+  el.insertAdjacentHTML('beforeend', `<div class="reveal"><b>${esc(a.short)}</b>${esc(a.detail)}</div>`); loadTargets();
 }
 $('#go').onclick = go;
 $('#stop').onclick = async () => { S.abortAll = true; if (S.running) await api('/api/stop/' + S.running, {}); };
-addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') go(); if (e.key === 'Escape') { $('#modal').classList.remove('open'); $('#drawer').classList.remove('open'); } });
+addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') go(); if (e.key === 'Escape') { closeModal(); closeDrawer(); } });
 
-/* ---------- notebook ---------- */
-async function loadHist() {
-  S.runs = await api('/api/runs'); const g = S.runs.filter(r => r.grade); const c = k => g.filter(r => r.grade === k).length;
-  $('#hstat').textContent = `${S.runs.length} runs · ${c('right')} ✓ ${c('partial')} ~ ${c('wrong')} ✗ · $${S.runs.reduce((a, r) => a + (r.cost || 0), 0).toFixed(3)}`;
-  const tn = id => (S.targets.find(t => t.id === id) || {}).name || id;
-  $('#hist').innerHTML = S.runs.map(r => `<div class="hrow" data-id="${r.id}"><input type="checkbox" ${S.picked.has(r.id) ? 'checked' : ''} data-pick="${r.id}">
-    <span class="t">${esc(tn(r.target))} <span class="k">· ${r.variant} · ${r.mode} · ${r.effort}</span></span>
-    <span>${r.grade ? `<span class="gb ${r.grade}">${r.grade}</span>` : `<span class="k">${r.status}</span>`}</span>
-    <span class="m">${new Date(r.started * 1000).toLocaleString()} · ${r.seconds ?? '–'} s · ${fmtN((r.tokens || {}).prompt_tokens || 0)} in / ${fmtN((r.tokens || {}).completion_tokens || 0)} out · $${r.cost}${r.note ? ' · ' + esc(r.note) : ''}</span>
-    <span class="x">${esc(r.answer_head.replace(/\s+/g, ' ')) || '—'}</span></div>`).join('') || '<div class="empty">No runs yet.</div>';
-  $$('#hist [data-pick]').forEach(c => c.onclick = e => { e.stopPropagation(); c.checked ? S.picked.add(c.dataset.pick) : S.picked.delete(c.dataset.pick); $('#cmpBtn').disabled = S.picked.size !== 2; });
-  $$('#hist .hrow').forEach(r => r.onclick = () => showRun(r.dataset.id));
-}
-const runHtml = r => `<div class="k">${esc(r.config.target)} · ${r.config.variant} · ${r.config.mode} · thinking ${r.config.effort} · ${r.status} · ${r.seconds} s · ${fmtN(r.usage.prompt_tokens)} in / ${fmtN(r.usage.completion_tokens)} out</div>
-  <details style="margin:8px 0"><summary>prompt (weights elided)</summary><pre>${esc(r.prompt_without_weights)}</pre></details>
-  ${r.steps.map(s => s.tools.map(t => `<div class="cell" style="margin:6px 0"><div class="code">${esc(t.code)}</div><div class="res ${t.ok ? '' : 'bad'}">${esc(t.output)}</div></div>`).join('')).join('')}
-  <details style="margin:8px 0"><summary>thinking (${fmtN(r.thinking.length)} chars)</summary><pre>${esc(r.thinking)}</pre></details>
-  <div class="answer">${md(r.answer || '(no answer)')}</div>${r.error ? `<div class="err">${esc(r.error)}</div>` : ''}`;
-function copyText(text) { // works even where the async clipboard API is blocked
-  const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-  document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (e) {} ta.remove(); return ok;
-}
+/* copy */
+function copyText(text) { const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (e) {} ta.remove(); return ok; }
 async function copyTrace(id, btn) {
   const flash = m => { if (btn) { const o = btn.textContent; btn.textContent = m; setTimeout(() => btn.textContent = o, 1800); } };
   const p = fetch(`/api/runs/${id}/trace`).then(r => r.text());
-  try { // Safari/Chrome: write inside the click, with the text arriving as a promise
-    await navigator.clipboard.write([new ClipboardItem({'text/plain': p.then(t => new Blob([t], {type: 'text/plain'}))})]); return flash('copied ✓');
-  } catch (e) {}
+  try { await navigator.clipboard.write([new ClipboardItem({'text/plain': p.then(t => new Blob([t], {type: 'text/plain'}))})]); return flash('Copied ✓'); } catch (e) {}
   const t = await p;
-  try { await navigator.clipboard.writeText(t); return flash('copied ✓'); } catch (e) {}
-  if (copyText(t)) return flash('copied ✓');
-  openModal('Trace', 'select all and copy', `<pre>${esc(t)}</pre>`, t); // last resort: show it
+  try { await navigator.clipboard.writeText(t); return flash('Copied ✓'); } catch (e) {}
+  if (copyText(t)) return flash('Copied ✓');
+  openModal('Trace', 'select all and copy', `<pre>${esc(t)}</pre>`, t);
 }
-async function showRun(id) { const r = await api('/api/runs/' + id); const t = await (await fetch(`/api/runs/${id}/trace`)).text(); openModal(r.config.title || id, id, `<div style="padding:14px 16px">${runHtml(r)}</div>`, t); $('#mCopy').textContent = 'copy trace'; }
-$('#cmpBtn').onclick = async () => { const [a, b] = await Promise.all([...S.picked].map(id => api('/api/runs/' + id)));
-  openModal('Side by side', '', `<div class="cmp"><div>${runHtml(a)}</div><div>${runHtml(b)}</div></div>`, ''); };
-$('#histBtn').onclick = () => { $('#drawer').classList.toggle('open'); loadHist(); };
-$('#closeH').onclick = () => $('#drawer').classList.remove('open');
-function openModal(t, sub, html, copy) { $('#mTitle').firstChild.textContent = t + ' '; $('#mSub').textContent = sub; $('#mBody').innerHTML = html; $('#modal').classList.add('open');
-  $('#mCopy').onclick = async () => { try { await navigator.clipboard.writeText(copy || ''); } catch (e) { copyText(copy || ''); } $('#mCopy').textContent = 'copied ✓'; }; }
-$('#mClose').onclick = () => $('#modal').classList.remove('open');
-$('#modal').onclick = e => { if (e.target.id === 'modal') $('#modal').classList.remove('open'); };
 
-/* ---------- boot ---------- */
-renderVariants(); renderTpls(); status(); loadTargets().then(() => pickTarget(S.targets.find(t => t.id === 'bool_xor') ? 'bool_xor' : S.targets[0].id)); loadHist();
+/* notebook */
+async function loadHist() {
+  S.runs = await api('/api/runs'); const g = S.runs.filter(r => r.grade), c = k => g.filter(r => r.grade === k).length;
+  $('#hstat').textContent = `${S.runs.length} runs · ${c('right')} ✓ ${c('partial')} ~ ${c('wrong')} ✕ · $${S.runs.reduce((a, r) => a + (r.cost || 0), 0).toFixed(2)}`;
+  const tn = id => (S.targets.find(t => t.id === id) || {}).name || id;
+  $('#hist').innerHTML = S.runs.map(r => `<div class="hrow" data-id="${r.id}"><input type="checkbox" ${S.picked.has(r.id) ? 'checked' : ''} data-pick="${r.id}">
+    <span class="t">${esc(tn(r.target))} <span class="k">· ${r.variant} · ${r.mode === 'sandbox' ? 'python' : 'text'} · ${r.effort}</span></span>
+    <span>${r.grade ? `<span class="gb ${r.grade}">${r.grade}</span>` : `<span class="gb">${r.status}</span>`}</span>
+    <span class="x">${esc((r.answer_head || '').replace(/[*#`]/g, '').replace(/\s+/g, ' ')) || '—'}</span>
+    <span class="m">${new Date(r.started * 1000).toLocaleString()} · ${r.seconds ?? '–'} s · $${r.cost}${r.note ? ' · ' + esc(r.note) : ''}</span></div>`).join('') || '<div class="empty">No runs yet.</div>';
+  $$('#hist [data-pick]').forEach(c => c.onclick = e => { e.stopPropagation(); c.checked ? S.picked.add(c.dataset.pick) : S.picked.delete(c.dataset.pick); $('#cmpBtn').disabled = S.picked.size !== 2; });
+  $$('#hist .hrow').forEach(r => r.onclick = () => showRun(r.dataset.id));
+}
+const runHtml = r => `<div class="k" style="margin-bottom:10px">${esc(r.config.target)} · ${r.config.variant} · ${r.config.mode === 'sandbox' ? 'python' : 'text'} · thinking ${r.config.effort} · ${r.status} · ${r.seconds} s · ${fmtN(r.usage.prompt_tokens)} in / ${fmtN(r.usage.completion_tokens)} out</div>
+  <div class="answer" style="background:var(--raised)">${md(r.answer || '(no answer)')}</div>${r.error ? `<div class="err" style="margin-top:10px">${esc(r.error)}</div>` : ''}`;
+async function showRun(id) { const r = await api('/api/runs/' + id), t = await (await fetch(`/api/runs/${id}/trace`)).text();
+  openModal(r.config.title || id, id, `<div style="padding:0 20px 20px">${runHtml(r)}</div>`, t); $('#mCopy').textContent = 'Copy trace'; maths($('#mBody')); }
+$('#cmpBtn').onclick = async () => { const [a, b] = await Promise.all([...S.picked].map(id => api('/api/runs/' + id)));
+  openModal('Side by side', '', `<div class="cmp"><div>${runHtml(a)}</div><div>${runHtml(b)}</div></div>`, ''); maths($('#mBody')); };
+const openDrawer = () => { $('#drawer').classList.add('open'); $('#scrim').classList.add('on'); loadHist(); };
+const closeDrawer = () => { $('#drawer').classList.remove('open'); if (!$('#modal').classList.contains('open')) $('#scrim').classList.remove('on'); };
+$('#histBtn').onclick = openDrawer; $('#closeH').onclick = closeDrawer;
+function openModal(t, sub, html, copy) { $('#mTitle').textContent = t; $('#mSub').textContent = sub; $('#mBody').innerHTML = html; $('#modal').classList.add('open'); $('#scrim').classList.add('on'); $('#mCopy').textContent = 'Copy';
+  $('#mCopy').onclick = async () => { try { await navigator.clipboard.writeText(copy || ''); } catch (e) { copyText(copy || ''); } $('#mCopy').textContent = 'Copied ✓'; }; }
+function closeModal() { $('#modal').classList.remove('open'); if (!$('#drawer').classList.contains('open')) $('#scrim').classList.remove('on'); }
+$('#mClose').onclick = closeModal; $('#modal').onclick = e => { if (e.target.id === 'modal') closeModal(); };
+$('#scrim').onclick = () => { closeModal(); closeDrawer(); };
+
+/* boot */
+modeUI(); summary(); status(); loadTargets().then(() => pickTarget(S.targets.find(t => t.id === 'bool_xor') ? 'bool_xor' : S.targets[0].id)); loadHist();
 </script>
 </body>
 </html>
