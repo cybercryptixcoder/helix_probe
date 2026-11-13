@@ -4,8 +4,8 @@
 
 ## Status
 
-- Entries written: 19 (INDEX.md is authoritative)
-- Last commit: literature (aether): 18 entries (19th pending, uncommitted)
+- Entries written: 20 (INDEX.md is authoritative)
+- Last commit: literature (aether): 19 entries (20th pending, uncommitted)
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
 
@@ -27,7 +27,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] From Simulation to Enaction | https://arxiv.org/abs/2605.25459 | DONE (entropy as implicit on-policy recognition; surprise direction causal; explicit detection is a separate circuit)
 - [ ] Natural Language Autoencoders (summary page) | 2026-05 | tcpub; core may cover
 - [x] Signs of Introspection in LLMs | https://www.anthropic.com/research/introspection | DONE (concept injection, ~20% detection, detect-before-name ordering control)
-- [ ] Believe It or Not: implanted facts | 2025-10 | implanted belief
+- [x] Believe It or Not: implanted facts | https://alignment.anthropic.com/2025/believe-it-or-not/ | DONE (belief depth = generality + robustness + representation; SDF > prompting/AlphaEdit; plausibility confound)
 - [ ] Do Reasoning Models Use Their Scratchpad Like We Do | 2025-03 | 
 - [ ] Reasoning Models Don't Always Say What They Think | 2025-04 | CoT faithfulness
 - [ ] Reasoning Theater: Performative CoT (Goodfire) | 2026-03 | 
@@ -190,6 +190,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
   (4) other labs, (5) topic searches.
 
 ## Done
+- alignment-anthropic-com-2025-believe-it-or-not | Believe It or Not: belief depth = generality + robustness + representation (Anthropic Fellows)
 - anthropic-com-research-introspection | Signs of Introspection in LLMs (concept injection; Anthropic)
 - arxiv-2605.25459 | From Simulation to Enaction: Post-trained LMs Recognize their Own Generations (IAS Princeton / Anthropic)
 - arxiv-2608.30980 | Evaluating and Improving LLM Self-Modeling (UIUC / Constellation / Anthropic)
@@ -260,6 +261,9 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - Implicit and explicit self-knowledge are mechanistically separate (entropy/surprise route vs an on-demand comparison circuit), so a model's verbal self-report is another behaviour to predict, never ground truth about its internals. (arxiv-2605.25459, arxiv-2608.30980)
 - **Planted-state introspection test**: write a known concept vector into the state, then ask the model what it notices; the report is ground truth-checkable only if the model must flag the anomaly *before* naming the concept (otherwise it is just talking about the steer). Rates net of control-trial false positives, on a swept injection strength — introspection is rare (~1 in 5), post-training-dependent, and served by narrow task-specific circuits rather than one faculty. (anthropic-com-research-introspection)
 - Retroactive injection ("you were planning this all along") flips apology into endorsement plus a confabulated justification — a reusable probe for whether a self-check reads prior internal state or re-reads the visible transcript. (anthropic-com-research-introspection)
+- **Truth-probe claims need an adversarial probe**: a linear true/false probe trained on ordinary statements is fooled by any edit that leaves a representation artefact, so the control is a probe trained partly on the edited statements and required to still recover the ground truth on held-out ones. Same family as base-model-control and cross-model-matrix: every readout gets a null that could plausibly explain its success. (alignment-anthropic-com-2025-believe-it-or-not)
+- **Depth ladder for "the model knows / believes X"**: direct question → indirect multi-step use → survival under adversarial pressure → representation matching genuine knowledge. Rank interventions along it instead of reporting one accuracy. (alignment-anthropic-com-2025-believe-it-or-not, arxiv-2604.12493)
+- Plausibility is a confound in every editing result: an edit that succeeds because it fits the model's priors is not evidence that the mechanism of belief was touched — matched implausible edits are the control. (alignment-anthropic-com-2025-believe-it-or-not, arxiv-2604.12493)
 
 ## Could not read
 

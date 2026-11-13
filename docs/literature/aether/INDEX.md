@@ -19,3 +19,4 @@ arxiv-2607.12279 | A Shared Subcircuit Lets LLMs Count Down Across Tasks | Yale 
 arxiv-2608.30980 | Evaluating and Improving LLM Self-Modeling | UIUC / Constellation / Anthropic | 2026-08 | 2
 arxiv-2605.25459 | From Simulation to Enaction: Post-trained LMs Recognize and React to their Own Generations | IAS Princeton / Anthropic | 2026-05 | 3
 anthropic-com-research-introspection | Signs of Introspection in Large Language Models | Anthropic | 2025-10 | 3
+alignment-anthropic-com-2025-believe-it-or-not | Believe It or Not: How Deeply do LLMs Believe Implanted Facts? | Anthropic Fellows / EPFL / MATS / Constellation / Redwood / Anthropic | 2025-10 | 2
