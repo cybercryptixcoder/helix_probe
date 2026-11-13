@@ -32,3 +32,4 @@ alignment-anthropic-com-2025-honesty-elicitation | Evaluating Honesty and Lie De
 anthropic-com-research-probes-catch-sleeper-agents | Simple probes can catch sleeper agents | Anthropic Alignment Science | 2024-04 | 3
 alignment-anthropic-com-2025-cheap-monitors | Cost-Effective Constitutional Classifiers via Representation Re-use (Model-Internals Classifiers) | Anthropic Alignment Science | 2025-06 | 3
 arxiv-2601.04603 | Constitutional Classifiers++: Efficient Production-Grade Defenses against Universal Jailbreaks | Anthropic | 2026-01 | 3
+goodfire-com-research-verbalized-eval-awareness-inflates-measured-safety | Verbalized Eval Awareness Inflates Measured Safety | Goodfire / UK AISI | 2026-05 | 3
