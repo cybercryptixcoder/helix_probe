@@ -61,3 +61,6 @@ anthropic-com-research-question-decomposition-improves-the-faithfulness-of-model
 anthropic-com-research-studying-large-language-model-generalization-with-influence-functions | Studying Large Language Model Generalization with Influence Functions | Anthropic | 2023-08 | 3
 anthropic-com-research-decomposing-language-models-into-understandable-components | Decomposing Language Models Into Understandable Components | Anthropic (Mechanistic Interpretability) | 2023-10 | 2
 transformer-circuits-pub-2024-jan-update-index-html | Circuits Updates, January 2024 | Anthropic (Transformer Circuits) | 2024-01 | 2
+transformer-circuits-pub-2024-feb-update-index-html | Circuits Updates, February 2024 | Anthropic (Transformer Circuits) | 2024-02 | 2
+transformer-circuits-pub-2024-march-update-index-html | Circuits Updates, March 2024 | Anthropic (Transformer Circuits) | 2024-03 | 2
+transformer-circuits-pub-2024-april-update-index-html | Circuits Updates, April 2024 | Anthropic (Transformer Circuits) | 2024-04 | 3
