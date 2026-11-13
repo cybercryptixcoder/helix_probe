@@ -4,8 +4,8 @@
 
 ## Status
 
-- Entries written: 16 (INDEX.md is authoritative)
-- Last commit: literature (aether): 15 entries
+- Entries written: 18 (INDEX.md is authoritative)
+- Last commit: literature (aether): 18 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
 
@@ -24,7 +24,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] Reading Between the Dots: decoding across filler tokens | https://arxiv.org/abs/2607.03502 | hidden computation
 - [x] A Shared Subcircuit Lets LLMs Count Down | https://arxiv.org/abs/2607.12279 | DONE (countdown heads, layer-18 last-use, cross-model motif)
 - [x] Evaluating and Improving LLM Self-Modeling | https://arxiv.org/abs/2608.30980 | DONE (skill score vs dummy predictor; no own-model advantage)
-- [ ] From Simulation to Enaction | https://arxiv.org/abs/2605.25459 | 
+- [x] From Simulation to Enaction | https://arxiv.org/abs/2605.25459 | DONE (entropy as implicit on-policy recognition; surprise direction causal; explicit detection is a separate circuit)
 - [ ] Natural Language Autoencoders (summary page) | 2026-05 | tcpub; core may cover
 - [ ] Signs of Introspection in LLMs | 2025-10 | introspection
 - [ ] Believe It or Not: implanted facts | 2025-10 | implanted belief
@@ -190,6 +190,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
   (4) other labs, (5) topic searches.
 
 ## Done
+- arxiv-2605.25459 | From Simulation to Enaction: Post-trained LMs Recognize their Own Generations (IAS Princeton / Anthropic)
 - arxiv-2608.30980 | Evaluating and Improving LLM Self-Modeling (UIUC / Constellation / Anthropic)
 - arxiv-2607.12279 | A Shared Subcircuit Lets LLMs Count Down Across Tasks (Yale / Anthropic)
 - arxiv-2607.03502 | Reading Between the Dots (filler-token hidden computation)
@@ -253,6 +254,9 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **Base-rate normalisation for "the model knows its own behaviour"**: score self-reports as improvement over a dummy predictor of the answer distribution, not raw accuracy — 0.95 raw is worthless when the labels are 5% positive. Reports both raw and skill in [−1,1]. (arxiv-2608.30980)
 - **No own-model advantage**: a stronger model explaining a weaker one's behaviour can match or beat the model explaining itself, so "self-knowledge" claims must beat a cross-model explainer baseline. Same lesson as the base-model-control null, one level up. (arxiv-2608.30980, arxiv-2510.01070)
 - SFT on explanation text collapses outside its training-query support and RL afterwards does not recover it; verified-reward RL on generated intervention labels is the recipe that generalises across task formats. (arxiv-2608.30980)
+- **Probe-plus-steer is mandatory, again**: a clean 1-D centroid manifold for output entropy/input surprise is almost non-causal under steering, while the surprise direction alone moves entropy — decodability buys you a coordinate, not a mechanism. (arxiv-2605.25459, arxiv-2604.21139)
+- **Self-attribution claims need the cross-model matrix**: to say a model recognises its *own* text, feed every model's text into every model in the same slot and require the diagonal to be the column minimum; otherwise "low perplexity on my own prose" explains it. (arxiv-2605.25459, arxiv-2608.30980)
+- Implicit and explicit self-knowledge are mechanistically separate (entropy/surprise route vs an on-demand comparison circuit), so a model's verbal self-report is another behaviour to predict, never ground truth about its internals. (arxiv-2605.25459, arxiv-2608.30980)
 
 ## Could not read
 
