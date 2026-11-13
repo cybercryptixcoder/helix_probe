@@ -26,3 +26,4 @@ alignment-anthropic-com-2026-lie-detectors | Fine-Tuned Lie Detectors Failed to 
 arxiv-2602.10067 | Features as Rewards: Scalable Supervision for Open-Ended Tasks via Interpretability | Goodfire | 2026-02 | 3
 goodfire-com-research-reasoning-theater | Reasoning Theater: Probing for Performative Chain-of-Thought | Goodfire / Harvard | 2026-03 | 3
 alignment-anthropic-com-2025-distill-paraphrases | Do Reasoning Models Use Their Scratchpad Like We Do? Evidence from Distilling Paraphrases | Anthropic Alignment Science | 2025-03 | 2
+anthropic-com-research-reasoning-models-dont-say-think | Reasoning Models Don't Always Say What They Think (CoT faithfulness) | Anthropic Alignment Science | 2025-04 | 3
