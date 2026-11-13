@@ -4,8 +4,8 @@
 
 ## Status
 
-- Entries written: 22 (INDEX.md is authoritative)
-- Last commit: literature (aether): 21 entries
+- Entries written: 23 (INDEX.md is authoritative)
+- Last commit: literature (aether): 22 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
 - Note 2026-11-12: the Priority block is now fully ticked; from here the loop works down the raw seed queue.
@@ -47,7 +47,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [ ] Predicting Rare LLM Failures with 30x Fewer Rollouts (Goodfire) | 2026-05 | 
 - [ ] Forking Fast: uncertainty dynamics (Goodfire) | 2026-08 | 
 - [ ] Probe-Based Data Attribution (Goodfire) | 2026-04 | 
-- [ ] Features as Rewards (Goodfire) | https://arxiv.org/abs/2602.10067 | 
+- [x] Features as Rewards (Goodfire) | https://arxiv.org/abs/2602.10067 | DONE (probe calibration as reward; 58% = 10/35/13 split; frozen reward probe transfers to policy)
 - [ ] Covariance-based Sequence Pooling (Goodfire) | 2026-04 | 
 - [ ] Interpreting Language Model Parameters (VPD explainer, Goodfire) | 2026-05 | weight decomposition explainer
 - [ ] Neuron Atlas - Qwen3.6 (Goodfire) | 2026-11 | 
@@ -214,6 +214,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - arxiv-2604.14865 | Segment-Level Coherence for Robust Harmful Intent Probing (UCL / Virginia Tech / Anthropic)
 - arxiv-2510.20487 | Steering Evaluation-Aware LMs to Act Like They Are Deployed (MATS; Hua, Qin, Marks, Nanda)
 - alignment-anthropic-com-2026-lie-detectors | Fine-Tuned Lie Detectors Failed to Generalize (MATS / Anthropic Fellows; OOD transfer failure)
+- arxiv-2602.10067 | Features as Rewards: RLFR for open-ended tasks (Goodfire AI; probe reward, Gemma-3-12B)
 
 ## Patterns noticed
 
@@ -279,6 +280,9 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **First-person vs third-person framing at matched prompts** is a cheap introspection probe: a model that scores better when asked about "the AI in this transcript" than about itself is reading the transcript, not its own state — consistent with implicit and explicit self-knowledge routing through different paths. (alignment-anthropic-com-2026-lie-detectors, arxiv-2605.25459, arxiv-2608.30980)
 - **Taxonomy labels are hypotheses, not ground truth**: deception labels (and by extension any behaviour label built from a human category scheme) are unstable under adjudication (~25% revision, 46% for self-sycophancy here), and models do not represent the categories as such — so a probe trained on them can only be evaluated against a second, independent label source. (alignment-anthropic-com-2026-lie-detectors, alignment-anthropic-com-2025-believe-it-or-not)
 - Finetuning a task-specific classifier improves in-distribution fit (AUROC 0.60 → 0.95) while leaving or worsening the OOD capability; the prompted baseline must be re-measured alongside, or the improvement is an artefact of the split. (alignment-anthropic-com-2026-lie-detectors)
+- **Calibration, not just AUROC, is the licence to treat a probe readout as a quantity**: a probe whose score of 0.xy means an xy% chance of the positive class can be optimised against directly, whereas a high-AUROC-but-uncalibrated probe can only rank. Check calibration under the deployment distribution (streaming, on-policy activations, probe-produced spans) at a threshold fixed in advance, and expect the deployed precision/recall to sit well below the held-out AUC number. (arxiv-2602.10067, arxiv-2604.14865)
+- **Decompose an end-to-end improvement into weights vs context**: 58% fewer hallucinations split into 10% policy change, 35% inlined in-context corrections, 13% direct resolution — the headline number overstated what training the weights actually bought, and the no-inline ablation plus an *untrained* base model with the same intervention harness is what exposed it. Any "our intervention improved behaviour" claim needs the same untrained-pipeline null. (arxiv-2602.10067, arxiv-2510.20487)
+- **Reward/monitor probes survive fine-tuning on the same base**: a frozen probe trained on the frozen model's activations kept its ordering when run on the RL'd policy's activations, so no second parameter copy is needed at serving time. Useful as evidence that representations are stable under post-training — but it is the *opposite* sign of the eval-awareness vector being silently re-written by post-training, so re-test transfer per pipeline rather than assuming either direction. (arxiv-2602.10067, arxiv-2606.17056)
 
 ## Could not read
 
