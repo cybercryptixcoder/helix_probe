@@ -4,7 +4,7 @@
 
 ## Status
 
-- Entries written: 3 (arxiv-2506.20790, arxiv-2511.05408, alignment-anthropic-2025-selective-gradient-masking)
+- Entries written: 4
 - Last commit: literature (aether): 2 entries
 - Current source: `SEED_QUEUE.md` long tail (Anthropic + Goodfire, excluding what core covers); priority block first
 
@@ -249,9 +249,13 @@ Priority block (most relevant to reading weights, prediction and evaluation), th
 - arxiv-2506.20790 | Stochastic Parameter Decomposition (Goodfire)
 - arxiv-2511.05408 | Steering Language Models with Weight Arithmetic (Anthropic)
 - alignment-anthropic-2025-selective-gradient-masking | Beyond Data Filtering: Knowledge Localization for Capability Removal (Anthropic)
+- arxiv-2606.02609 | Building Better Activation Oracles (Nanda group / MATS)
 
 ## Patterns noticed
 
+- **Text-inversion control**: any benchmark for "model explains itself from internals" must ensure the answer is not derivable from the visible context. (arxiv-2606.02609)
+- Prose explanations get judged on separate hallucination vs vagueness axes with chance-adjusted scores; end-to-end readers are still weaker than a linear probe on narrow tasks. (arxiv-2606.02609)
+- Activations are most informative around 60-70% depth and on-policy data is the preferred training/test distribution. (arxiv-2606.02609)
 - Loss frontiers (retain vs forget, behaviour vs capability) rather than single-point accuracy as the headline result shape; both sides evaluated at matched values of the other. (alignment-anthropic-2025-selective-gradient-masking, arxiv-2511.05408)
 - Removal/ablation must be tested by *recovery cost* (how much retraining restores the capability), because loss can hide suppression rather than removal. (alignment-anthropic-2025-selective-gradient-masking)
 - Ground-truth toy models as the testing ground for decomposition methods: both SPD and attributions-of-decomposition papers build toy models with known mechanisms and score recovery (MMCS/L2 ratio). (arxiv-2506.20790)
