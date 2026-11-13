@@ -4,11 +4,14 @@
 
 ## Status
 
-- Entries written: 24 (INDEX.md is authoritative)
-- Last commit: literature (aether): 23 entries
+- Entries written: 25 (INDEX.md is authoritative)
+- Last commit: literature (aether): 24 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
 - Note 2026-11-12: the Priority block is now fully ticked; from here the loop works down the raw seed queue.
+- Note 2026-11-12 (run 26): still working the Priority block — several items there are unchecked and were missed by the
+  earlier "fully ticked" note. Next up: Reasoning Models Don't Always Say What They Think, Liars' Bench,
+  Simple Probes Can Catch Sleeper Agents, Model-Internals Classifiers, Next-Gen Constitutional Classifiers.
 
 ## Queue
 
@@ -26,10 +29,10 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] A Shared Subcircuit Lets LLMs Count Down | https://arxiv.org/abs/2607.12279 | DONE (countdown heads, layer-18 last-use, cross-model motif)
 - [x] Evaluating and Improving LLM Self-Modeling | https://arxiv.org/abs/2608.30980 | DONE (skill score vs dummy predictor; no own-model advantage)
 - [x] From Simulation to Enaction | https://arxiv.org/abs/2605.25459 | DONE (entropy as implicit on-policy recognition; surprise direction causal; explicit detection is a separate circuit)
-- [ ] Natural Language Autoencoders (summary page) | 2026-05 | tcpub; core may cover
+- [x] Natural Language Autoencoders (summary page) | 2026-05 | SKIPPED — already covered by core (`tcpub-2026-nla`)
 - [x] Signs of Introspection in LLMs | https://www.anthropic.com/research/introspection | DONE (concept injection, ~20% detection, detect-before-name ordering control)
 - [x] Believe It or Not: implanted facts | https://alignment.anthropic.com/2025/believe-it-or-not/ | DONE (belief depth = generality + robustness + representation; SDF > prompting/AlphaEdit; plausibility confound)
-- [ ] Do Reasoning Models Use Their Scratchpad Like We Do | 2025-03 | 
+- [x] Do Reasoning Models Use Their Scratchpad Like We Do | https://alignment.anthropic.com/2025/distill-paraphrases/ | DONE (paraphrase distillation, invariance result; damage-matched control missing)
 - [ ] Reasoning Models Don't Always Say What They Think | 2025-04 | CoT faithfulness
 - [x] Reasoning Theater: Performative CoT (Goodfire) | 2026-03 | DONE (attention-pooled probe 88% vs 32% single-token; performativity = monitor-minus-probe gap; forced-answer control; 67.7% tokens saved @95% conf)
 - [x] Fine-Tuned Lie Detectors Failed to Generalize | https://alignment.anthropic.com/2026/lie-detectors/ | DONE (in-dist AUROC 0.60→0.95, cross-category plateaus 0.70-0.75; third-person > first-person)
@@ -191,6 +194,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
   (4) other labs, (5) topic searches.
 
 ## Done
+- alignment-anthropic-com-2025-distill-paraphrases | Scratchpad = text or channel? Paraphrase-distillation invariance (Anthropic Alignment Science)
 - goodfire-com-research-reasoning-theater | Reasoning Theater: performative CoT = gap between CoT monitor and probe/forced-answer state (Goodfire / Harvard)
 - alignment-anthropic-com-2025-believe-it-or-not | Believe It or Not: belief depth = generality + robustness + representation (Anthropic Fellows)
 - anthropic-com-research-introspection | Signs of Introspection in LLMs (concept injection; Anthropic)
@@ -288,6 +292,9 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **Define the target quantity as a *difference between two readouts*, not an accuracy**: performativity = (CoT-monitor accuracy) − (probe/forced-answer accuracy) at the same position makes the claim robust to both estimators being weak on hard items, and gives a sign convention for "internals commit before the text does". Reusable shape for any "does the surface report track the internal variable" question. (goodfire-com-research-reasoning-theater, arxiv-2605.25459)
 - **Forced-choice as the temporal validator**: to test a probe's claim that the model "already knows" at position t, cut the generation there and require an immediate answer — an independent, non-probe check on a trajectory readout, analogous to ablation tests for static probes. (goodfire-com-research-reasoning-theater)
 - **Difficulty is a confound for faithfulness claims**: the same model looks performative on recall items and genuine on hard multi-step items, so any CoT-faithfulness result needs task difficulty held fixed before the frame "this model reasons vs performs" is licenced. (goodfire-com-research-reasoning-theater)
+- **Ablate-the-channel tests are asymmetric**: invariance after rewriting or removing a surface feature licenses "the function does not depend on it", but degradation licenses almost nothing, because the intervention may just have made the data harder to imitate — a damage-matched control (here, word dropout versus paraphrase dropout showing no difference) is what separates the two readings. (alignment-anthropic-com-2025-distill-paraphrases)
+- **Distillation-style tests cannot rule out a curriculum effect**: a model trained *through* a representation can keep the benefit after the representation is removed, so trace-level interventions have to be applied before the capability forms (or paired with a never-had-it control) for a clean causal claim. Same shape as the "model organism built by re-encoding existing outputs" confound. (alignment-anthropic-com-2025-distill-paraphrases, arxiv-2512.01222)
+- **Empty-scaffold and filler-token baselines are the floor for any "this content matters" claim**: an empty trace and a count-to-N trace separate "the sequence's content does work" from "extra forward-pass computation does work", and both are one line of training code. (alignment-anthropic-com-2025-distill-paraphrases, arxiv-2607.03502)
 
 ## Could not read
 

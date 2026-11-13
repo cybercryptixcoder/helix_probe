@@ -25,3 +25,4 @@ arxiv-2510.20487 | Steering Evaluation-Aware Language Models to Act Like They Ar
 alignment-anthropic-com-2026-lie-detectors | Fine-Tuned Lie Detectors Failed to Generalize | MATS / Anthropic Fellows / Anthropic | 2026-08 | 2
 arxiv-2602.10067 | Features as Rewards: Scalable Supervision for Open-Ended Tasks via Interpretability | Goodfire | 2026-02 | 3
 goodfire-com-research-reasoning-theater | Reasoning Theater: Probing for Performative Chain-of-Thought | Goodfire / Harvard | 2026-03 | 3
+alignment-anthropic-com-2025-distill-paraphrases | Do Reasoning Models Use Their Scratchpad Like We Do? Evidence from Distilling Paraphrases | Anthropic Alignment Science | 2025-03 | 2
