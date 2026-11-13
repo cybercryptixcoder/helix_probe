@@ -4,7 +4,7 @@
 
 ## Status
 
-- Entries written: 5
+- Entries written: 6
 - Last commit: literature (aether): 2 entries
 - Current source: `SEED_QUEUE.md` long tail (Anthropic + Goodfire, excluding what core covers); priority block first
 
@@ -251,9 +251,14 @@ Priority block (most relevant to reading weights, prediction and evaluation), th
 - alignment-anthropic-2025-selective-gradient-masking | Beyond Data Filtering: Knowledge Localization for Capability Removal (Anthropic)
 - arxiv-2606.02609 | Building Better Activation Oracles (Nanda group / MATS)
 - arxiv-2603.05494 | Censored LLMs as a Natural Testbed for Secret Knowledge Elicitation (Casademunt et al.)
+- arxiv-2510.01070 | Eliciting Secret Knowledge from Language Models (Cywiński et al.)
 
 ## Patterns noticed
 
+- **Base-model control readout** is the standard null for any elicitation claim: same readout from the untuned model must show no benefit. (arxiv-2510.01070)
+- Auditor/guess-the-secret grading, with an I/O-only baseline, is now the default evaluation shape for hidden-knowledge work. (arxiv-2510.01070, arxiv-2603.05494)
+- Tokens (logit lens / embedding-nearest) beat SAE prose descriptions when the auditor needs a discrete answer. (arxiv-2510.01070)
+- Caveat to remember: readouts can be empty because the info was never computed on that pass (refusals short-circuit). (arxiv-2510.01070)
 - Repeated claim: the model carries a **representation of the truth independent of what it outputs** (probes trained on unrelated honesty data transfer to censorship). Ground truth for this = "knows X, says not-X". (arxiv-2603.05494)
 - Abliteration / mean-difference refusal-or-behaviour direction removal at 50-75% depth is the standard cheap white-box intervention baseline across safety papers. (arxiv-2603.05494, arxiv-2511.05408)
 - **Text-inversion control**: any benchmark for "model explains itself from internals" must ensure the answer is not derivable from the visible context. (arxiv-2606.02609)
