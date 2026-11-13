@@ -25,13 +25,15 @@ Each is measured against baselines that understand nothing.
 
 A **constructor**: a method in which an LLM reads a network's weights (and may write code to probe them) and produces such a construction. The construction is runnable Python plus an alignment table. The first paper needs **one solid construction made by the constructor** on a small network. A general constructor comes later.
 
-Order of work:
-- **K0, replicate first.** Rediscover a published construction (Nanda's modular addition) without the reader seeing the answer, with blinding, variants and controls.
-- **K1, the reader interface.** What we hand the LLM, what we ask it, and what answer we want, measured rather than guessed.
-- **K2:** fine-tune a reader to read better (method open).
-- **K3:** the loop (only a sketch).
+**The main direction** is the constructor itself: replicate a known construction first (blinded, with controls), then make several networks fully interpretable with the same constructor, then reach a real LLM behaviour. Studying how the reader reads (K1) and designing the process (K3) are parts of this.
 
-All are in `DIRECTIONS.md` §2f.
+**Side directions, not the main line:**
+- K2, fine-tuning or RL a better reader;
+- the other entries in `DIRECTIONS.md`.
+
+The K-numbers are labels, not a sequence (`DIRECTIONS.md` §2f).
+
+**Parallel attempt:** a separate agent session may be making a zero-shot attempt at the constructor on the branch `constructor-attempt`. `main` continues independently.
 
 ### Building now
 

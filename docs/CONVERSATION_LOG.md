@@ -104,3 +104,13 @@ Tags: **[decided]** · **[open]** · **[idea]** · **[finding]** · **[correctio
 
   So text-mode success depends mostly on the context text. The next test is blinded python mode.
 - [decided] Handoff: `handoff/00_START_HERE.md` holds the goal, the constructor spec, current results, next steps and a map of the docs. The Nov 8–11 material below it is marked superseded.
+- [correction] The K-numbers are not a progression. The **main direction** is the constructor: replicate, make several networks fully interpretable, then an LLM behaviour. K2 (fine-tuning or RL a reader) is a **side direction**, out of scope for the main build.
+- [decided] A zero-shot attempt by a separate, more capable agent, on branch `constructor-attempt`:
+  - goal and bar given, no architecture;
+  - persistent;
+  - short live experiment cycles;
+  - frequent commits;
+  - integrated into the lab;
+  - simplicity as guidance.
+
+  The prompt is kept privately because it contains the key.
