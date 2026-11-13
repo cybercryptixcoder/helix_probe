@@ -6,44 +6,118 @@ passes can call run(x)). Numpy only: no torch at runtime.
 import numpy as np
 
 
-def mlp(W, x, act):
-    """MLP with tensors W1,b1,W2,b2,... (W_k shaped in x out). act applies to every layer except the last."""
-    f = {"tanh": np.tanh, "relu": lambda z: np.maximum(z, 0)}[act]
-    h = np.asarray(x, dtype=np.float64)
-    k = 1
-    while f"W{k}" in W:
-        h = h @ W[f"W{k}"] + W[f"b{k}"]
-        if f"W{k + 1}" in W:
-            h = f(h)
-        k += 1
+def _hooker(hook, acts):
+    """hook: None, or {site name: array or function(act) -> act}. Every site's (possibly replaced) value is recorded in acts."""
+    def h(name, a):
+        if hook and name in hook:
+            v = hook[name]
+            a = v(a) if callable(v) else np.broadcast_to(np.asarray(v, dtype=np.float64), a.shape).copy()
+        if acts is not None:
+            acts[name] = a
+        return a
     return h
 
 
-def onelayer_transformer(W, tokens):
-    """The Nanda-style 1-layer transformer (no LayerNorm, no biases). tokens: [B, 3] ints -> logits [B, n_out]."""
+def mlp(W, x, act, hook=None, acts=None):
+    """MLP with tensors W1,b1,W2,b2,... (W_k shaped in x out). act applies to every layer except the last.
+    Sites: h1, h2, ... (hidden layers after the activation) and out."""
+    f = {"tanh": np.tanh, "relu": lambda z: np.maximum(z, 0)}[act]
+    h = _hooker(hook, acts)
+    a = np.asarray(x, dtype=np.float64)
+    if a.ndim == 1:
+        a = a[None]
+    k = 1
+    while f"W{k}" in W:
+        a = a @ W[f"W{k}"] + W[f"b{k}"]
+        if f"W{k + 1}" in W:
+            a = h(f"h{k}", f(a))
+        k += 1
+    return h("out", a)
+
+
+def onelayer_transformer(W, tokens, hook=None, acts=None):
+    """The Nanda-style 1-layer transformer (no LayerNorm, no biases). tokens: [B, 3] ints -> logits [B, n_out].
+    Sites (all [B, width]): embed.0, embed.1, embed.2 (token + position embedding at each position), attn_pattern
+    (the last position's attention weights, heads x positions), attn_out
+    (what attention adds at the last position), resid_mid (last position, after attention), mlp_pre, mlp_post
+    (the MLP's neurons before and after ReLU, last position), mlp_out, resid_post (last position, after the MLP), out."""
+    h = _hooker(hook, acts)
     t = np.asarray(tokens)
     if t.ndim == 1:
         t = t[None]
-    x = W["W_E"][t] + W["W_pos"]                                   # [B, 3, d]
-    q = np.einsum("bpd,hde->bhpe", x, W["W_Q"])
+    t = t.astype(int)
+    n = t.shape[1]
+    x = W["W_E"][t] + W["W_pos"]                                   # [B, n, d]
+    x = np.stack([h(f"embed.{p}", x[:, p]) for p in range(n)], 1)
+    q = np.einsum("bd,hde->bhe", x[:, -1], W["W_Q"])
     k = np.einsum("bpd,hde->bhpe", x, W["W_K"])
     v = np.einsum("bpd,hde->bhpe", x, W["W_V"])
-    att = np.einsum("bhpe,bhqe->bhpq", q, k) / np.sqrt(W["W_Q"].shape[-1])
-    n = t.shape[1]
-    att = np.where(np.triu(np.ones((n, n), bool), 1), -1e9, att)
+    att = np.einsum("bhe,bhqe->bhq", q, k) / np.sqrt(W["W_Q"].shape[-1])   # last position attends to all positions
     att = np.exp(att - att.max(-1, keepdims=True)); att /= att.sum(-1, keepdims=True)
-    z = np.einsum("bhpq,bhqe->bhpe", att, v)
-    x = x + np.einsum("bhpe,hed->bpd", z, W["W_O"])
-    x = x + np.maximum(x @ W["W_in"], 0) @ W["W_out"]
-    return x[:, -1] @ W["W_U"]
+    att = h("attn_pattern", att.reshape(len(t), -1)).reshape(att.shape)       # [B, heads * positions]
+    z = np.einsum("bhq,bhqe->bhe", att, v)
+    a = h("attn_out", np.einsum("bhe,hed->bd", z, W["W_O"]))
+    mid = h("resid_mid", x[:, -1] + a)
+    post = h("mlp_post", np.maximum(h("mlp_pre", mid @ W["W_in"]), 0))
+    res = h("resid_post", mid + h("mlp_out", post @ W["W_out"]))
+    return h("out", res @ W["W_U"])
 
 
-def forward(kind, W, x):
+def forward(kind, W, x, hook=None, acts=None):
+    """Run the network. hook replaces activations at named sites; acts (a dict) collects every site's activation."""
     if kind in ("mlp_tanh", "mlp_relu"):
-        return mlp(W, x, kind.split("_")[1])
+        return mlp(W, x, kind.split("_")[1], hook, acts)
     if kind == "onelayer_transformer":
-        return onelayer_transformer(W, x)
+        return onelayer_transformer(W, x, hook, acts)
     raise ValueError(f"no forward pass for {kind}")
+
+
+def site_table(kind, W):
+    """[(site name, width, plain description, stage)] for a network: the places where activations can be read or
+    replaced. A stage is one step of the computation; a construction is complete when every stage has a verified site."""
+    if kind in ("mlp_tanh", "mlp_relu"):
+        out, k = [], 1
+        while f"W{k}" in W:
+            last = f"W{k + 1}" not in W
+            out.append(("out" if last else f"h{k}", W[f"W{k}"].shape[1],
+                        "the network's output" if last else f"hidden layer {k}, after the activation",
+                        "output" if last else f"hidden layer {k}"))
+            k += 1
+        return out
+    if kind == "onelayer_transformer":
+        d, m = W["W_E"].shape[1], W["W_in"].shape[1]
+        n = W["W_pos"].shape[0]
+        return ([(f"embed.{p}", d, f"token + position embedding at position {p}", "embedding") for p in range(n)] + [
+            ("attn_pattern", W["W_Q"].shape[0] * n, f"attention weights of the last position: for each head, its weight on each of the {n} "
+             f"positions, flattened as head * {n} + position", "attention"),
+            ("attn_out", d, "what the attention layer adds at the last position", "attention"),
+            ("resid_mid", d, "residual stream at the last position after attention", "attention"),
+            ("mlp_pre", m, "MLP neurons before ReLU (last position)", "mlp neurons"),
+            ("mlp_post", m, "MLP neurons after ReLU (last position)", "mlp neurons"),
+            ("mlp_out", d, "what the MLP adds to the residual stream", "readout"),
+            ("resid_post", d, "residual stream at the last position after the MLP", "readout"),
+            ("out", W["W_U"].shape[1], "the network's output", "output")])
+    raise ValueError(kind)
+
+
+def domain_inputs(meta, max_n=20000, seed=0):
+    """The inputs the network is used on, as an array [N, n_in]. meta["domain"] is {"axes": [...]} (the product of
+    per-position value lists; an axis is {"range": [lo, hi]} or {"values": [...]}) or {"file": "inputs.npy"}."""
+    dom = meta["domain"]
+    if "file" in dom:
+        import os
+        X = np.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), "models", meta["id"], dom["file"]))
+    else:
+        axes = [np.arange(*a["range"]) if "range" in a else np.asarray(a["values"]) for a in dom["axes"]]
+        total = int(np.prod([len(a) for a in axes]))
+        if total <= max_n:
+            X = np.stack([g.ravel() for g in np.meshgrid(*axes, indexing="ij")], 1)
+        else:
+            rng = np.random.default_rng(seed)
+            X = np.stack([rng.choice(a, max_n) for a in axes], 1)
+    if len(X) > max_n:
+        X = X[np.random.default_rng(seed).choice(len(X), max_n, replace=False)]
+    return X
 
 
 # ---------- variants (controls) ----------

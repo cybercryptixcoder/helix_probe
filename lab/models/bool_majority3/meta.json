@@ -68,5 +68,28 @@
    "desc": ""
   }
  ],
- "params": 11
+ "params": 11,
+ "domain": {
+  "axes": [
+   {
+    "values": [
+     0,
+     1
+    ]
+   },
+   {
+    "values": [
+     0,
+     1
+    ]
+   },
+   {
+    "values": [
+     0,
+     1
+    ]
+   }
+  ],
+  "text": "The network is used on every input of 3 values that are each 0 or 1 (8 inputs)."
+ }
 }

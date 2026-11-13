@@ -5,6 +5,8 @@ Each meta.json separates three kinds of text, so the lab can switch each one on 
   arch     neutral description of the architecture and forward pass (no hint of the task)
   context  task-revealing details (what inputs and outputs mean). Turning this off is a blinding control.
   answer   the known answer. Hidden in the UI until revealed; never sent to the reader.
+  domain   the inputs the network is used on (the judge tests on them; the constructor's reader is given them).
+           It names no task: {"axes": [...]} is the product of per-position value lists, {"file": ...} an array.
 """
 import json, os, re, sys
 import numpy as np
@@ -121,6 +123,8 @@ def build_modular(tid, op, label):
         "perm_groups": [{"size": 512, "members": [["W_in", 1], ["W_out", 0]]},
                         {"size": 4, "members": [["W_Q", 0], ["W_K", 0], ["W_V", 0], ["W_O", 0]]}],
         "input": f"token ids, shape [B, 3], e.g. [[a, b, {p}]]",
+        "domain": {"axes": [{"range": [0, p]}, {"range": [0, p]}, {"values": [p]}],
+                   "text": f"The network is used on every input [i, j, {p}] with i and j each ranging over 0..{p - 1} ({p * p:,} inputs)."},
         "key_frequencies": top, "test_acc": acc,
     })
 
@@ -151,6 +155,8 @@ def build_boolean():
             "answer": {"short": short, "detail": "Hand-written weights; verified on the full truth table."},
             "source": "Written by hand in this repo (lab/targets/build_registry.py).",
             "perm_groups": mlp_perm(2, [h]), "input": f"{n} bits, e.g. [[0, 1{', 0' * (n - 2)}]]",
+            "domain": {"axes": [{"values": [0, 1]}] * n,
+                       "text": f"The network is used on every input of {n} values that are each 0 or 1 ({2 ** n} inputs)."},
         }, W)
 
 

@@ -1,83 +1,106 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 13, 2026. Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 13, 2026 (branch `constructor-attempt`). Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
 
-## CURRENT STATE (2026-11-13). Read this first.
+## CURRENT STATE (2026-11-13, branch `constructor-attempt`). Read this first.
 
-> **The rule for this repo:** it is a living documentation store. After every exchange, record every idea, question, decision, finding, hypothesis and build request (`docs/CONVERSATION_LOG.md`). A fresh session must be able to continue from the docs alone.
+> **This branch** is a separate attempt at the main goal, the constructor. `main` continues independently; never
+> push this branch's work to `main`. The rule for the repo still holds: it is a living documentation store, and a
+> fresh session must be able to continue from the docs alone.
 
 ### The goal
 
-Make a neural network interpretable by building a **white-box reconstruction** of it: a model that *predicts* the network's behaviour, including under interventions. A correlation table does not count. In the field's terms this is a **causal abstraction**. It has:
-- named variables;
-- the steps that compute them;
-- an alignment saying where each variable lives in the network (which neurons, heads, subspaces or weights).
+A **constructor**: a system that takes a neural network and produces a **construction** of it. A construction is a
+white-box reconstruction that *predicts* what the network does, including under intervention. In the field's terms
+it is a causal abstraction: named variables, the steps that compute them, and an alignment saying where each lives
+in the network. It is judged by three tests, each against baselines that understand nothing
+(`literature/SYNTHESIS.md` §4, §10):
+1. run it in place of the network: same outputs?
+2. intervene on a variable in both: same change?
+3. same internal computation?
 
-It is judged by three questions, in increasing strictness (`literature/SYNTHESIS.md` §4, §10):
-1. Does it produce the same outputs when run in place of the network?
-2. Does it respond the same way to interventions (IIA, ablation prediction)?
-3. Does it compute the same way inside (Jacobian / internal-state agreement)?
+The bar: a blinded, verified construction of Mystery transformer A (`lab/models/modadd_p113`) with controls; then the
+same constructor, unchanged, on networks it was not developed on; then predictions that beat know-nothing baselines.
 
-Each is measured against baselines that understand nothing.
+### What exists now, and how to run it
 
-### What we are building toward
+Everything is in `lab/`. Full description: [`docs/WHAT_WE_ARE_BUILDING.md`](../WHAT_WE_ARE_BUILDING.md).
 
-A **constructor**: a method in which an LLM reads a network's weights (and may write code to probe them) and produces such a construction. The construction is runnable Python plus an alignment table. The first paper needs **one solid construction made by the constructor** on a small network. A general constructor comes later.
+| Piece | File | What it does |
+|---|---|---|
+| Construction format | described at the top of `lab/judge.py` | A standalone Python file: `model(x, iv)` computes the output through named variables; `ALIGN` says at which activation sites each variable lives. It cannot see the weights. |
+| The judge | `lab/judge.py` | Tests a construction against a network: behaviour, alignment fit, substitution, removal against a random subspace, interchange interventions, off-manifold edits. The same tests for every network. |
+| The constructor | `lab/constructor.py` | The reader (DeepSeek V4.1 Flash) investigates the network in a persistent Python session (`lab/kernel.py`), submits constructions, reads the judge's reports and revises. Blinded by default. |
+| Sites and controls | `lab/nets.py` | Forward passes with named activation sites that can be recorded or replaced; the shuffled / untrained / permuted variants; each network's input set. |
 
-**The main direction** is the constructor itself: replicate a known construction first (blinded, with controls), then make several networks fully interpretable with the same constructor, then reach a real LLM behaviour. Studying how the reader reads (K1) and designing the process (K3) are parts of this.
+```bash
+python3 lab/judge.py modadd_p113 lab/constructions/_oracle/modadd_p113.py     # judge a construction file
+python3 lab/constructor.py modadd_p113 --steps 60                              # run the constructor (needs lab/.env with LUMINAL_API_KEY)
+python3 lab/constructor.py modadd_p113 --variant shuffled                      # a control
+python3 lab/server.py                                                          # the lab's web app (constructor not wired into it yet)
+```
 
-**Side directions, not the main line:**
-- K2, fine-tuning or RL a better reader;
-- the other entries in `DIRECTIONS.md`.
+Each constructor run writes `lab/constructions/<target>/<run id>/`: `run.json` (every step), each submission with
+its judge report, and the best one as `construction.py` with `report.txt`.
 
-The K-numbers are labels, not a sequence (`DIRECTIONS.md` §2f).
+### Latest results
 
-**Parallel attempt:** a separate agent session may be making a zero-shot attempt at the constructor on the branch `constructor-attempt`. `main` continues independently.
+- **The judge discriminates** (experiment E0). On mod-add, a hand-written oracle construction passes substitution and
+  interchange at the embedding, MLP-neuron and readout stages (100%), while the same construction with wrong
+  frequencies gets about 1% and a behaviour-only lookup table fails the removal and edit tests. All three match the
+  network's behaviour on 100% of inputs, so behaviour alone separates nothing.
+- **The constructor works end to end on XOR** (verified and complete in 2 steps).
+- **Mod-add, blinded, first run: no result.** The reader found the task and the key frequencies {8, 11, 22, 23, 25}
+  from the weights within 7 steps, then spent the remaining 33 steps on the attention stage and never submitted a
+  construction (E1).
 
-### Building now
+Numbers and details: [`docs/EXPERIMENT_LOG.md`](../EXPERIMENT_LOG.md).
 
-The **Weight Reading Lab** (`lab/`): a local web app for doing K1 by hand. It is live-tested. Spec and status: [`docs/WHAT_WE_ARE_BUILDING.md`](../WHAT_WE_ARE_BUILDING.md). Use: `lab/GUIDE.md`. Run: `lab/RUNNING.md`.
+### Working on right now
 
-### Results so far (K1, DeepSeek V4.1 Flash)
+Mod-add, blinded, second run, with a "submit early, improve stage by stage" rule and reminders in the loop.
 
-| Test | Result |
+### Tried and failed, and why
+
+- Letting the reader decide when to submit: it tried to understand the hardest stage (attention) completely before
+  testing anything (E1).
+- Reading a variable out of the activations with the pseudo-inverse of the alignment map: unnamed variance at the
+  site leaks into the decode. A fitted linear probe is used instead (E0).
+
+### Exact next steps
+
+1. Get a verified mod-add construction from the blinded constructor; iterate on the process, not on the network.
+2. Controls on mod-add: `--variant shuffled`, `untrained`, `permuted`, and the prior-only run (`--told --no-weights`).
+3. Freeze the constructor; run it unchanged on `modmul_p113` and on new networks with known mechanisms.
+4. Input sets for MIT's game policies (they need game states; the released logs hold only weights and prompts).
+5. Baselines for predicting held-out interventions (weight statistics + regressor, behaviour-only surrogate,
+   attribution patching, weights-ignoring reader).
+6. Wire the constructor into the lab's web app.
+
+### Map of files added on this branch
+
+| File | What it holds |
 |---|---|
-| XOR / parity, tiny nets | Read correctly (text and python modes) |
-| MIT Breakout policy, MIT's prompt (channel names given) | **Breakout, 97%: correct** |
-| Same, **blinded** (no context, neutral question) | **Wrong:** "MNIST-style digit classifier". It saw real spatial structure but miscounted the inputs (485 instead of 500) and filled the gap with a dataset prior. |
-| Same, shuffled control, blinded | Correctly declined to name a task (also miscounted: 498) |
-| First blinded attempt at 32k output | Ran out of budget, no answer |
-
-Reading so far: in text mode, MIT's success depends mostly on the context text. That matches the literature (`literature/wsp/K1_STATE_OF_ART.md`).
-
-### Next steps
-
-1. **Blinded python-mode run** on the same game policy: can it measure the 10×10×5 input layout with code?
-2. Context-off runs on the other 3 games and on the permuted variant.
-3. Mod-add transformer (**Mystery transformer A**), python mode, blinded: does it find the Fourier frequencies {8, 23, 25, 11, 22}? (Mod-mul is also available, as **Mystery transformer C**.)
-4. Then design K1 properly as an experiment: prompts × formats × access × controls.
-
-### Not decided (do not treat as settled)
-
-- The loop, its roles and agents (K3 is a sketch; do not build it first).
-- The form of the construction (Python plus alignment is a candidate).
-- K2's fine-tuning method.
-- Slicing vs letting the reader query the weight store.
-- `ideas/SCIFI_AGENTIC_INTERPRETER.md` is explicitly **not** the plan.
+| `lab/judge.py` | The judge and the definition of a construction |
+| `lab/constructor.py` | The constructor loop, its prompt and tools |
+| `lab/kernel.py` | The persistent Python session the reader works in |
+| `lab/nets.py` (extended) | Activation sites, stages, input sets |
+| `lab/constructions/_oracle/` | Hand-written reference constructions used to calibrate the judge (not made by the constructor) |
+| `lab/constructions/<target>/<run id>/` | Constructor runs |
+| `docs/EXPERIMENT_LOG.md` | Every experiment on this branch, with failures |
 
 ### Map of the docs
 
 | File | What it holds |
 |---|---|
-| `docs/WHAT_WE_ARE_BUILDING.md` | The current build, what is decided and what is open |
+| `docs/WHAT_WE_ARE_BUILDING.md` | The system as it is now: components, how they connect, how to use them |
+| `docs/EXPERIMENT_LOG.md` | Dated experiments on this branch |
 | `docs/CONVERSATION_LOG.md` | Every idea, question and decision, in order |
-| `docs/DIRECTIONS.md` | All research directions; §2f = constructor, K0–K3 |
+| `docs/DIRECTIONS.md` | All research directions; only the constructor is in scope on this branch |
 | `docs/literature/SYNTHESIS.md` | What the interpretability field builds and measures; what a construction is |
-| `docs/literature/core/` | 193 paper entries plus an index |
-| `docs/literature/wsp/` | Weight-space programming follow-ups (Nov 2026), plus `K1_STATE_OF_ART.md` |
-| `docs/JOURNAL.md` | Dated log of events |
-| `lab/` | The Weight Reading Lab (code, specimens, guide) |
+| `docs/literature/core/`, `docs/literature/wsp/` | Paper entries; `wsp/K1_STATE_OF_ART.md` covers LLMs reading weights |
+| `lab/README.md`, `lab/GUIDE.md`, `lab/RUNNING.md` | The lab's web app |
 
 Proposals, pitches and personal plans are deliberately kept **out of this public repo**.
 

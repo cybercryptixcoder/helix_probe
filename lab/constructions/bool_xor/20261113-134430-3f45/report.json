@@ -1,0 +1,101 @@
+{
+ "n_inputs": 4,
+ "n_fit": 4,
+ "n_test": 4,
+ "source_chars": 522,
+ "variables": {
+  "s_lin": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "s_big": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": 1.0,
+  "kl": null,
+  "baseline_constant_match": 0.5
+ },
+ "sites": {
+  "h1": {
+   "width": 2,
+   "variables": [
+    "s_lin",
+    "s_big"
+   ],
+   "named_dims": 2,
+   "named_rank": 2,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": null,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.5,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.25,
+   "remove_random_match": null,
+   "pass": true
+  }
+ },
+ "interventions": [
+  {
+   "variable": "s_lin",
+   "site": "h1",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.306,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.694,
+   "baseline_source_output": 0.695,
+   "control_random_subspace": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "s_big",
+   "site": "h1",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.322,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.678,
+   "baseline_source_output": 0.677,
+   "control_random_subspace": 1.0,
+   "pass": true
+  }
+ ],
+ "uncovered_sites": [],
+ "stages": {
+  "hidden layer 1": {
+   "sites": [
+    "h1"
+   ],
+   "named": [
+    "h1"
+   ],
+   "verified": [
+    "h1"
+   ]
+  }
+ },
+ "verdict": {
+  "verified": true,
+  "fails": [],
+  "stages_total": 1,
+  "stages_verified": 1,
+  "complete": true,
+  "score": 1.0
+ },
+ "seconds": 0.0
+}

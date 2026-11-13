@@ -114,3 +114,17 @@ Tags: **[decided]** · **[open]** · **[idea]** · **[finding]** · **[correctio
   - simplicity as guidance.
 
   The prompt is kept privately because it contains the key.
+
+## 2026-11-13 (branch `constructor-attempt`): the constructor attempt
+
+*Entries from the separate agent session working on the branch `constructor-attempt`. Experiments are in `EXPERIMENT_LOG.md`.*
+
+- [decided] The form of a construction: a standalone Python file with `model(x, iv)` (named variables registered through `iv`) and `ALIGN` (the sites where each variable lives). It cannot see the weights, so it must be a compact program with measured constants. Reason: this is what makes "the network is the network" impossible to submit, and it makes description length measurable.
+- [decided] The alignment map is affine and is fitted by the judge on a fit split, then tested on held-out inputs. The reader declares the variables and their sites. Reason: causal abstraction needs a declared, restricted map class; fitting it by regression removes a burden from the reader and treats every construction the same way.
+- [decided] The judge's tests: behaviour; substitution; removal against a random subspace; interchange (probe-read, written along the alignment directions); off-manifold edits. A site passes or fails as a unit; stages group sites; "complete" means every stage has a verified site.
+- [finding] Behaviour agreement separates nothing: an oracle, a wrong-frequency construction and a lookup table all agree with the mod-add network on 100% of inputs. Substitution, removal and interchange separate them cleanly (E0).
+- [finding] The subspace tests alone (keep or remove the named subspace) can be passed by regressors that mean nothing, because any regression onto low-rank activations returns directions inside the dominant subspace. Substitution with the construction's own predicted values is the test that cannot be passed that way.
+- [finding] Blinded and given code, DeepSeek V4.1 Flash found the mod-add task and the key frequencies {8, 11, 22, 23, 25} from `W_E` and `W_U` in 7 steps. It named the Fourier mechanism from memory first and then confirmed it in the weights (E1). The prior-only control is therefore needed to show what memory alone gives.
+- [finding] Left to itself the reader does not submit: it tried to understand the attention stage exactly before testing anything, and used all 40 steps (E1).
+- [decided] The loop enforces "submit early, improve stage by stage" through the prompt and reminders. No roles or agents are added.
+- [open] The attention stage of mod-add is not explained by single-token Fourier variables (the attention weights vary strongly with the inputs). Whether the reader can construct it is open; Nanda et al. do not explain it either.
