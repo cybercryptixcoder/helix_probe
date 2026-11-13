@@ -40,3 +40,4 @@ arxiv-2511.00617 | Belief Dynamics Reveal the Dual Nature of In-Context Learning
 goodfire-com-research-predicting-rare-llm-failures-with-30x-fewer-rollouts | Predicting Rare LLM Failures with 30× Fewer Rollouts (Logit Path Extrapolation) | Goodfire / MIT | 2026-05 | 3
 arxiv-2608.19611 | Forking Fast: Efficiently Estimating Uncertainty Dynamics in Text Generation | Goodfire | 2026-08 | 3
 goodfire-com-research-probe-based-data-attribution | Probe-Based Data Attribution: Surfacing and Mitigating Undesirable Behaviors in LLM Post-Training | Goodfire / Caltech | 2026-04 | 3
+goodfire-com-research-covariance-pooling | Covariance-based Sequence Pooling (second-moment pooling for gene-level probes) | Goodfire | 2026-04 | 2
