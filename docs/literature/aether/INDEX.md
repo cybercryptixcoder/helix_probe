@@ -45,3 +45,4 @@ goodfire-com-research-reward-hacking-activation-monitors | Models Know When They
 arxiv-2605.12412 | Stories in Space: In-Context Learning Trajectories in Conceptual Belief Space (Meandering on Manifolds) | Goodfire / Stanford | 2026-05 | 3
 goodfire-com-research-bsf-vision | Uncovering Neural Geometry in Vision Models With Block-Sparse Featurizers | Goodfire / Harvard / Stanford / Brown | 2026-07 | 3
 goodfire-com-research-under-the-hood-of-a-reasoning-model | Under the Hood of a Reasoning Model: first public SAEs on DeepSeek-R1 (671B) | Goodfire | 2025-04 | 2
+goodfire-com-research-interpreting-evo-2 | Interpreting Evo 2: layer-26 BatchTopK SAEs on Arc's genomic foundation model | Goodfire / Arc Institute | 2025-02 | 2
