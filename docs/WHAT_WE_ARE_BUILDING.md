@@ -6,6 +6,8 @@
 
 Why this first: nobody on the team has yet done the thing everyone is talking about, which is handing weights to a model and asking what they do. K1 is the first experiment (DIRECTIONS §2f), and the lab makes it hands-on rather than an overnight batch job.
 
+> **Branch rule.** This line of work (the lab, K1 experiments, docs) happens on **`main`**, or on a new branch of our own. The branch **`constructor-attempt`** belongs to a separate autonomous agent's zero-shot attempt. **Never edit, rebase, merge into or push to it.** It may be read for reference only.
+
 ## What it is, and what it is not
 
 - **It is:** an interactive playground.

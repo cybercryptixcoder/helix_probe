@@ -7,6 +7,8 @@ this repo should be able to continue from these files alone, with no separate ha
 
 > **The rule for this repo:** it is a living documentation store. After every exchange, record every idea, question, decision, finding, hypothesis and build request (`docs/CONVERSATION_LOG.md`). A fresh session must be able to continue from the docs alone.
 
+> **Branch rule.** This line of work (the lab, K1 experiments, docs) happens on **`main`**, or on a new branch of our own. The branch **`constructor-attempt`** belongs to a separate autonomous agent's zero-shot attempt. **Never edit, rebase, merge into or push to it.** It may be read for reference only.
+
 ### The goal
 
 Make a neural network interpretable by building a **white-box reconstruction** of it: a model that *predicts* the network's behaviour, including under interventions. A correlation table does not count. In the field's terms this is a **causal abstraction**. It has:
