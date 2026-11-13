@@ -34,3 +34,5 @@ alignment-anthropic-com-2025-cheap-monitors | Cost-Effective Constitutional Clas
 arxiv-2601.04603 | Constitutional Classifiers++: Efficient Production-Grade Defenses against Universal Jailbreaks | Anthropic | 2026-01 | 3
 goodfire-com-research-verbalized-eval-awareness-inflates-measured-safety | Verbalized Eval Awareness Inflates Measured Safety | Goodfire / UK AISI | 2026-05 | 3
 goodfire-com-research-logits-as-a-new-monitor-for-evaluation-awareness | Logits as a new monitor for evaluation awareness | Goodfire | 2026-06 | 3
+arxiv-2510.24256 | From Memorization to Reasoning in the Spectrum of Loss Curvature | Goodfire | 2025-10 | 2
+arxiv-2511.01836 | Priors in Time: Missing Inductive Biases for Language Model Interpretability | Goodfire / Harvard / EPFL | 2025-11 | 3
