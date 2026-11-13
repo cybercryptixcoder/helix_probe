@@ -61,3 +61,16 @@ Why this first: nobody on the team has yet done the thing everyone is talking ab
   - Grading, history and the answer reveal all work.
   - A full Sparks Breakout prompt (about 74K tokens) at high effort finished in 9 min (70K tokens in, 35K out, about $0.06) and answered **Breakout, 97%: correct**. This was MIT's original prompt, which names the input channels, so prior leakage is possible; the blinded and shuffled versions are the next tests.
 - **Docs:** `lab/GUIDE.md` (how to use), `lab/RUNNING.md` (terminal).
+
+## NEXT: lab UI/UX redesign (Shreyas's brief, 2026-11-13). Do this first in the next session.
+
+The current UI is cluttered. Wanted: clean, polished, modern, with good UX. Look up real UI inspiration first.
+- **Specimens:** collapsible groups (by family), not one long list.
+- **Controls:** pills instead of rectangles; modern toggles and segmented controls instead of 2000s-style dropdowns and selects. Smooth, subtle animations.
+- **Dark mode:** a real, clean dark mode, not a VS Code look; dark but not pitch black, matching the light theme's polish.
+- **Run output:**
+  - the reasoning chain in a tidy collapsible element, collapsed by default once the answer arrives;
+  - Python steps collapsed by default, shown as a compact list or timeline (expand one to see its code and output), not stacked open;
+  - the answer rendered properly (markdown, and maths via KaTeX or similar) inside a clean card.
+- Keep the fonts (Archivo, Space Mono, Instrument Serif). No gradients or purple outlines.
+- Must keep all the current features (copy trace, grading, notebook, units, variants, leak switches) and be tested live in a browser.
