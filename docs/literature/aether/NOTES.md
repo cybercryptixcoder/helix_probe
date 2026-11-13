@@ -4,108 +4,52 @@
 
 ## Status
 
-- Entries written: 7
-- Last commit: literature (aether): 2 entries
-- Current source: `SEED_QUEUE.md` long tail (Anthropic + Goodfire, excluding what core covers); priority block first
+- Entries written: 8 (INDEX.md is authoritative)
+- Last commit: literature (aether): 7 entries
+- Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
+  the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
 
 ## Queue
 
-Working rule: take the top item each pass, skip anything whose key already exists in `aether/` or `core/`.
-Core already covers the three field surveys (arxiv-2501.16496, arxiv-2404.14082, arxiv-2405.00208), the main
-transformer-circuits posts (framework, toy model, superposition, privileged basis, monosemantic features, scaling
-monosemanticity, model diffing, crosscoders, attribution graphs, attention QK/update, NLA), and the main Goodfire
-research posts. So the seed queue below is the Anthropic/Goodfire long tail.
+Working rule: take the top unchecked item, skip anything whose key already exists in `aether/` or `core/`.
 
-Priority block (most relevant to reading weights, prediction and evaluation), then the rest of the seed queue.
+### Priority block (most relevant to reading weights, prediction under intervention, evaluation)
 
-1. Stochastic Parameter Decomposition (arXiv 2506.20790) | https://arxiv.org/abs/2506.20790 | weight-space decomposition
-2. Steering Language Models with Weight Arithmetic (2511.05408) | https://arxiv.org/abs/2511.05408 | editing weights directly
-3. Beyond Data Filtering: Knowledge Localization for Capability Removal | https://alignment.anthropic.com/2025/selective-gradient-masking | localising a capability for removal
-4. Unsupervised Decoding of Encoded Reasoning Using LM Interpretability (2512.01222)
-5. Building Better Activation Oracles (2606.02609) | activation oracles = prediction from activations
-6. Censored LLMs as a Natural Testbed for Secret Knowledge Elicitation (2603.05494)
-7. Eliciting Secret Knowledge from Language Models (2510.01070)
-8. The Assistant Axis (2026-01) | persona direction
-9. The Value Axis (2606.17056)
-10. A Global Workspace in Language Models (2026-07)
-11. HeadVis (2026-05)
-12. Slot Machines: multiple entities (2604.21139)
-13. Latent Planning Emerges with Scale (2604.12493)
-14. Reading Between the Dots: decoding across filler tokens (2607.03502)
-15. A Shared Subcircuit Lets LLMs Count Down (2607.12279)
-16. Evaluating and Improving LLM Self-Modeling (2608.30980)
-17. From Simulation to Enaction (2605.25459)
-18. Natural Language Autoencoders (2026-05 summary page)
-19. Signs of Introspection in LLMs (2025-10)
-20. Believe It or Not: implanted facts (2025-10)
-21. Do Reasoning Models Use Their Scratchpad Like We Do (2025-03)
-22. Reasoning Models Don't Always Say What They Think (2025-04)
-23. Reasoning Theater: Performative CoT (Goodfire, 2026-03)
-24. Fine-Tuned Lie Detectors Failed to Generalize (2026-08)
-25. Liars' Bench (2511.16035)
-26. Evaluating Honesty and Lie Detection Techniques (2025-11)
-27. Simple Probes Can Catch Sleeper Agents (2024-04)
-28. Model-Internals Classifiers (2025-06)
-29. Next-Generation Constitutional Classifiers (2026-01)
-30. Verbalized Eval Awareness Inflates Measured Safety (Goodfire 2026-05)
-31. Logits as a new monitor for evaluation awareness (Goodfire 2026-06)
-32. Steering Evaluation-Aware LMs to Act Like They Are Deployed (2510.20487)
-33. Understanding Memorization via Loss Curvature (Goodfire 2025-11)
-34. Priors in Time (Goodfire, 2511.01836)
-35. Belief Dynamics: ICL and activation steering (Goodfire 2025-11)
-36. Predicting Rare LLM Failures with 30x Fewer Rollouts (Goodfire 2026-05)
-37. Forking Fast: uncertainty dynamics (Goodfire 2026-08)
-38. Probe-Based Data Attribution (Goodfire 2026-04)
-39. Features as Rewards (Goodfire 2026-02, arxiv 2602.10067)
-40. Covariance-based Sequence Pooling (Goodfire 2026-04)
-41. Paper Summary: Interpreting Language Model Parameters (VPD explainer, Goodfire 2026-05)
-42. Neuron Atlas - Qwen3.6 (Goodfire 2026-11)
-43. Deploying Interpretability to Production with Rakuten (SAE probes for PII)
-44. Training and Deploying Production Cyber Monitors on Kimi K3 (2026-10)
-45. Better biosecurity monitors via protein embeddings (2026-10)
-46. Models know when they're reward hacking (2026-09)
-47. A practical guide to sparse autoencoders (2026-09)
-48. How to build fast, efficient monitors using probes (2026-09)
-49. Interpretability Infrastructure at Frontier Scale (2026-02)
-50. Uncovering Neural Geometry in Vision Models With Block-Sparse Featurizers (2026-07)
-51. Meandering on Manifolds: neural geometry of stories (2026-06)
-52. Interpreting Evo 2 (2025-02); 53. Finding the Tree of Life in Evo 2 (2025-08); 54. EVEE genetic variants (2026-04)
-55. Painting With Concepts Using Diffusion Latents (2025-05)
-56. Alzheimer's biomarkers via interpretability (2026-01)
-57. Using Self-Correcting Search for Materials Discovery (2026-04)
-58. Silico (agentic interpretability platform, goodfire.com)
-59. Under the Hood of a Reasoning Model (Goodfire 2025-04)
-60. Understanding and Steering Llama 3 with SAEs (Goodfire 2024-09)
-61. Feature Steering for Reliable and Expressive AI Engineering (Goodfire 2024-11)
-62. Goodfire Ember (2024-12); 63. Open-source SAEs Llama 3.3 70B (2025-01)
-64. Evaluating Feature Steering: social biases (Anthropic 2024-10)
-65. Mapping the Mind of a Large Language Model (2024-05); 66. Golden Gate Claude (2024-05)
-67. Using Dictionary Learning Features as Classifiers (tcpub 2024-10)
-68. Evaluating SAEs on Targeted Concept Erasure (2411.18895)
-69. Engineering Monosemanticity in Toy Models (2211.09169)
-70. Softmax Linear Units (tcpub 2022-06)
-71. Superposition, Memorization, Double Descent (tcpub 2023-01)
-72. Studying LLM Generalization with Influence Functions (2023-08)
-73. Measuring Faithfulness in CoT (2023-07)
-74. Question Decomposition Improves Faithfulness (2023-07)
-75. Scaling Laws and Interpretability of Learning from Repeated Data (2022-05)
-76. Language Models (Mostly) Know What They Know (2022-07)
-77. Decomposing Language Models Into Understandable Components (2023-10)
-78. The Engineering Challenges of Scaling Interpretability (2024-06)
-79. Tracing the Thoughts of a Large Language Model (2025-03)
-80. Open-Sourcing Circuit-Tracing Tools (2025-05)
-81. Circuit updates series: 2023-05, 2023-07, 2024-01, 2024-02, 2024-03, 2024-04, 2024-06, 2024-07, 2024-08, 2024-09, 2025-01, 2025-04, 2025-07, 2025-08, 2025-09, 2025-10, 2025-11, 2026-05, 2026-06, 2026-10 (read as one thematic pass each)
-82. Claude Sonnet 4.5 / Fable 5 & Mythos 5 / Mythos Preview system cards (interpretability sections)
-83. Recommendations for Technical AI Safety Research Directions (2025-01)
-84. Distilling Paraphrases (2025-03)
-85. Robustly Improving LLM Fairness via Interpretability (2506.10922)
-86. Concept Ablation Fine-Tuning (2507.16795)
-87. Steering Llama 2 via Contrastive Activation Addition (2312.06681)
-88. Emotion Concepts and their Function in an LLM (tcpub 2026-04)
-89. The Persona Selection Model (2026-02)
-90. Alignment assessment of the UK AISI cybertesting incident (2026-10)
-91. Open Source Replication of the Auditing Game Model Organism (2025-12)
-92. Garcon / Exercises / Videos / PySvelte (2021-12 tooling and pedagogy)
+- [ ] Unsupervised Decoding of Encoded Reasoning Using LM Interpretability | https://arxiv.org/abs/2512.01222 | prediction from activations; arXiv id unverified
+- [x] The Value Axis (on right track) | https://arxiv.org/abs/2606.17056 | DONE
+- [ ] A Global Workspace in Language Models | 2026-07 | workspace/attention-broadcast framing
+- [ ] HeadVis | 2026-05 | head-level visualisation
+- [ ] Slot Machines: multiple entities | https://arxiv.org/abs/2604.21139 | entity binding
+- [ ] Latent Planning Emerges with Scale | https://arxiv.org/abs/2604.12493 | latent plan readout
+- [ ] Reading Between the Dots: decoding across filler tokens | https://arxiv.org/abs/2607.03502 | hidden computation
+- [ ] A Shared Subcircuit Lets LLMs Count Down | https://arxiv.org/abs/2607.12279 | circuit
+- [ ] Evaluating and Improving LLM Self-Modeling | https://arxiv.org/abs/2608.30980 | self-knowledge
+- [ ] From Simulation to Enaction | https://arxiv.org/abs/2605.25459 | 
+- [ ] Natural Language Autoencoders (summary page) | 2026-05 | tcpub; core may cover
+- [ ] Signs of Introspection in LLMs | 2025-10 | introspection
+- [ ] Believe It or Not: implanted facts | 2025-10 | implanted belief
+- [ ] Do Reasoning Models Use Their Scratchpad Like We Do | 2025-03 | 
+- [ ] Reasoning Models Don't Always Say What They Think | 2025-04 | CoT faithfulness
+- [ ] Reasoning Theater: Performative CoT (Goodfire) | 2026-03 | 
+- [ ] Fine-Tuned Lie Detectors Failed to Generalize | 2026-08 | probe generalisation failure
+- [ ] Liars' Bench | https://arxiv.org/abs/2511.16035 | benchmark
+- [ ] Evaluating Honesty and Lie Detection Techniques | 2025-11 | 
+- [ ] Simple Probes Can Catch Sleeper Agents | 2024-04 | probe
+- [ ] Model-Internals Classifiers | 2025-06 | 
+- [ ] Next-Generation Constitutional Classifiers | 2026-01 | 
+- [ ] Verbalized Eval Awareness Inflates Measured Safety (Goodfire) | 2026-05 | eval awareness
+- [ ] Logits as a new monitor for evaluation awareness (Goodfire) | 2026-06 | monitor
+- [ ] Steering Evaluation-Aware LMs to Act Like They Are Deployed | https://arxiv.org/abs/2510.20487 | 
+- [ ] Understanding Memorization via Loss Curvature (Goodfire) | 2025-11 | weight curvature
+- [ ] Priors in Time (Goodfire) | https://arxiv.org/abs/2511.01836 | 
+- [ ] Belief Dynamics: ICL and activation steering (Goodfire) | 2025-11 | 
+- [ ] Predicting Rare LLM Failures with 30x Fewer Rollouts (Goodfire) | 2026-05 | 
+- [ ] Forking Fast: uncertainty dynamics (Goodfire) | 2026-08 | 
+- [ ] Probe-Based Data Attribution (Goodfire) | 2026-04 | 
+- [ ] Features as Rewards (Goodfire) | https://arxiv.org/abs/2602.10067 | 
+- [ ] Covariance-based Sequence Pooling (Goodfire) | 2026-04 | 
+- [ ] Interpreting Language Model Parameters (VPD explainer, Goodfire) | 2026-05 | weight decomposition explainer
+- [ ] Neuron Atlas - Qwen3.6 (Goodfire) | 2026-11 | 
 
 ### Raw seed queue (generated from SEED_QUEUE.md; key | title | link | org)
 
@@ -242,17 +186,19 @@ Priority block (most relevant to reading weights, prediction and evaluation), th
 
 ## Sources finished
 
-- (none yet)
+- None yet. Source list: (1) surveys/agendas — covered by core, (2) transformer-circuits posts, (3) Goodfire research,
+  (4) other labs, (5) topic searches.
 
 ## Done
 
 - arxiv-2506.20790 | Stochastic Parameter Decomposition (Goodfire)
 - arxiv-2511.05408 | Steering Language Models with Weight Arithmetic (Anthropic)
-- alignment-anthropic-2025-selective-gradient-masking | Beyond Data Filtering: Knowledge Localization for Capability Removal (Anthropic)
-- arxiv-2606.02609 | Building Better Activation Oracles (Nanda group / MATS)
-- arxiv-2603.05494 | Censored LLMs as a Natural Testbed for Secret Knowledge Elicitation (Casademunt et al.)
+- alignment-anthropic-2025-selective-gradient-masking | Beyond Data Filtering (Anthropic)
+- arxiv-2606.02609 | Building Better Activation Oracles (MATS / Nanda)
+- arxiv-2603.05494 | Censored LLMs as a Natural Testbed (Harvard et al.)
 - arxiv-2510.01070 | Eliciting Secret Knowledge from Language Models (Cywiński et al.)
 - anthropic-com-research-assistant-axis | The Assistant Axis (Anthropic)
+- arxiv-2606.17056 | The Value Axis (Anthropic fellows / Stanford)
 
 ## Patterns noticed
 
@@ -275,7 +221,10 @@ Priority block (most relevant to reading weights, prediction and evaluation), th
 - "Contrastive subtraction" is the field's default way to isolate a behaviour: D+ vs D- fine-tunes (weights), persona pairs (activations). Shared nuisance factors cancel. (arxiv-2511.05408)
 - Behaviour metric x capability metric, both evaluated OOD, with a magnitude dial (k) and OOD-generalisation as the headline comparison. (arxiv-2511.05408)
 - Weight-space directions are emerging as monitors (cosine similarity of a fine-tune update to a reference direction), separate from and cheaper than activation probes. (arxiv-2511.05408)
+- (none yet)
+- **Difference-in-means axis built from synthetic feedback data, validated four ways** (held-out AUROC, cross-layer cosine, logit lens, causal steering) is the current gold-standard recipe for claiming a direction means something. (arxiv-2606.17056, anthropic-com-research-assistant-axis)
+- A single linear macro-variable ("am I on track", "am I drifting from persona") projects on the last prompt token and works as an input-free monitor; post-training silently re-writes it, so monitors drift. (arxiv-2606.17056, anthropic-com-research-assistant-axis)
 
 ## Could not read
 
-- (none yet)
+- None yet.
