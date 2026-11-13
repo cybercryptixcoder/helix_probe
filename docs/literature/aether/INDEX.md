@@ -55,3 +55,6 @@ anthropic-com-research-language-models-mostly-know-what-they-know | Language Mod
 arxiv-2211.09169 | Engineering Monosemanticity in Toy Models | Anthropic | 2022-11 | 3
 transformer-circuits-pub-2023-toy-double-descent-index-html | Superposition, Memorization, and Double Descent | Anthropic (Transformer Circuits) | 2023-01 | 3
 transformer-circuits-pub-2023-may-update-index-html | Circuits Updates, May 2023 (dictionary learning, weight/head superposition) | Anthropic (Transformer Circuits) | 2023-05 | 2
+transformer-circuits-pub-2023-july-update-index-html | Circuits Updates, July 2023 (finite-data regime reclassified, safety-feature agenda, skip-trigram two-head algorithm) | Anthropic (Transformer Circuits) | 2023-07 | 2
+anthropic-com-research-measuring-faithfulness-in-chain-of-thought-reasoning | Measuring Faithfulness in Chain-of-Thought Reasoning | Anthropic (Alignment Science) | 2025 | 2
+anthropic-com-research-question-decomposition-improves-the-faithfulness-of-model-generated-reasoning | Question Decomposition Improves the Faithfulness of Model-Generated Reasoning | Anthropic | 2023-07 | 2
