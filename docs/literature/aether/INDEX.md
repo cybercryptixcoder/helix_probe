@@ -58,3 +58,6 @@ transformer-circuits-pub-2023-may-update-index-html | Circuits Updates, May 2023
 transformer-circuits-pub-2023-july-update-index-html | Circuits Updates, July 2023 (finite-data regime reclassified, safety-feature agenda, skip-trigram two-head algorithm) | Anthropic (Transformer Circuits) | 2023-07 | 2
 anthropic-com-research-measuring-faithfulness-in-chain-of-thought-reasoning | Measuring Faithfulness in Chain-of-Thought Reasoning | Anthropic (Alignment Science) | 2025 | 2
 anthropic-com-research-question-decomposition-improves-the-faithfulness-of-model-generated-reasoning | Question Decomposition Improves the Faithfulness of Model-Generated Reasoning | Anthropic | 2023-07 | 2
+anthropic-com-research-studying-large-language-model-generalization-with-influence-functions | Studying Large Language Model Generalization with Influence Functions | Anthropic | 2023-08 | 3
+anthropic-com-research-decomposing-language-models-into-understandable-components | Decomposing Language Models Into Understandable Components | Anthropic (Mechanistic Interpretability) | 2023-10 | 2
+transformer-circuits-pub-2024-jan-update-index-html | Circuits Updates, January 2024 | Anthropic (Transformer Circuits) | 2024-01 | 2
