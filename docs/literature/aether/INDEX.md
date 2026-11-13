@@ -66,3 +66,6 @@ transformer-circuits-pub-2024-march-update-index-html | Circuits Updates, March 
 transformer-circuits-pub-2024-april-update-index-html | Circuits Updates, April 2024 | Anthropic (Transformer Circuits) | 2024-04 | 3
 anthropic-com-research-mapping-mind-language-model | Mapping the Mind of a Large Language Model (Claude 3 Sonnet SAEs) | Anthropic | 2024-05 | 3
 anthropic-com-research-golden-gate-claude | Golden Gate Claude (single-feature amplification demo) | Anthropic | 2024-05 | 2
+transformer-circuits-pub-2024-june-update-index-html | Circuits Updates, June 2024 (top-k vs gated vs vanilla SAEs, blind feature quality, SAE evaluation protocols) | Anthropic (Transformer Circuits) | 2024-06 | 2
+anthropic-com-research-engineering-challenges-interpretability | The Engineering Challenges of Scaling Interpretability (distributed shuffle, feature-visualisation pipeline) | Anthropic | 2024-07 | 1
+transformer-circuits-pub-2024-july-update-index-html | Circuits Updates, July 2024 (next five hurdles, linear representations vs multidimensional features, dark-matter features, pivot tables, feature sensitivity by dataset filtering) | Anthropic (Transformer Circuits) | 2024-07 | 3
