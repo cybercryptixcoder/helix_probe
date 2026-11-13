@@ -4,7 +4,7 @@
 
 ## Status
 
-- Entries written: 8 (INDEX.md is authoritative)
+- Entries written: 11 (INDEX.md is authoritative)
 - Last commit: literature (aether): 7 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
@@ -15,9 +15,9 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 
 ### Priority block (most relevant to reading weights, prediction under intervention, evaluation)
 
-- [ ] Unsupervised Decoding of Encoded Reasoning Using LM Interpretability | https://arxiv.org/abs/2512.01222 | prediction from activations; arXiv id unverified
+- [x] Unsupervised Decoding of Encoded Reasoning Using LM Interpretability | https://arxiv.org/abs/2512.01222 | logit lens decodes ROT-13 CoT
 - [x] The Value Axis (on right track) | https://arxiv.org/abs/2606.17056 | DONE
-- [ ] A Global Workspace in Language Models | 2026-07 | workspace/attention-broadcast framing
+- [x] A Global Workspace in Language Models | https://www.anthropic.com/research/global-workspace | J-space / J-lens, broadcast channel
 - [ ] HeadVis | 2026-05 | head-level visualisation
 - [ ] Slot Machines: multiple entities | https://arxiv.org/abs/2604.21139 | entity binding
 - [ ] Latent Planning Emerges with Scale | https://arxiv.org/abs/2604.12493 | latent plan readout
@@ -199,6 +199,8 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - arxiv-2510.01070 | Eliciting Secret Knowledge from Language Models (Cywiński et al.)
 - anthropic-com-research-assistant-axis | The Assistant Axis (Anthropic)
 - arxiv-2606.17056 | The Value Axis (Anthropic fellows / Stanford)
+- arxiv-2512.01222 | Unsupervised Decoding of Encoded Reasoning (Goodfire/Anthropic)
+- anthropic-com-research-global-workspace | A Global Workspace in Language Models (J-space) (Anthropic)
 
 ## Patterns noticed
 
@@ -221,9 +223,14 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - "Contrastive subtraction" is the field's default way to isolate a behaviour: D+ vs D- fine-tunes (weights), persona pairs (activations). Shared nuisance factors cancel. (arxiv-2511.05408)
 - Behaviour metric x capability metric, both evaluated OOD, with a magnitude dial (k) and OOD-generalisation as the headline comparison. (arxiv-2511.05408)
 - Weight-space directions are emerging as monitors (cosine similarity of a fine-tune update to a reference direction), separate from and cheaper than activation probes. (arxiv-2511.05408)
-- (none yet)
 - **Difference-in-means axis built from synthetic feedback data, validated four ways** (held-out AUROC, cross-layer cosine, logit lens, causal steering) is the current gold-standard recipe for claiming a direction means something. (arxiv-2606.17056, anthropic-com-research-assistant-axis)
 - A single linear macro-variable ("am I on track", "am I drifting from persona") projects on the last prompt token and works as an input-free monitor; post-training silently re-writes it, so monitors drift. (arxiv-2606.17056, anthropic-com-research-assistant-axis)
+- Logit lens / unembedded-token readout remains a strong cheap baseline, and its accuracy is layer-dependent with a peak in mid-to-late layers (a "semantic hub"); always sweep layers. (arxiv-2512.01222, arxiv-2606.17056)
+- Model organisms are built by *re-encoding existing outputs* and fine-tuning — fast, but it makes the test easier than the real phenomenon; state the confound. (arxiv-2512.01222, arxiv-2603.05494)
+- **Swap intervention** (replace direction A with equal-norm direction B) is a stronger causal test than ablation: it shows the downstream computation *reads from* the location, not merely that removing it hurts. (anthropic-com-research-global-workspace)
+- A small broadcast channel (few dozen concepts, <10% of activity) plus a large automatic periphery as the two-mode structure of network computation; routine behaviour survives deletion, composition/reasoning does not. (anthropic-com-research-global-workspace)
+- Jacobian-of-future-logits lens (J-lens) generalises logit lens from "next token" to "any word it might say later" and finds reportable contents. (anthropic-com-research-global-workspace, arxiv-2512.01222)
+- Eval-awareness is a confound in *every* safety eval: ablating "fake/fictional" style patterns changed measured behaviour, i.e. good behaviour was partly conditional on knowing it was tested. (anthropic-com-research-global-workspace, arxiv-2606.17056)
 
 ## Could not read
 
