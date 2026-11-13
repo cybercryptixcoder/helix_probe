@@ -115,3 +115,4 @@ Tags: **[decided]** · **[open]** · **[idea]** · **[finding]** · **[correctio
 
   The prompt is kept privately because it contains the key.
 - [decided] Lab UI restyled (Nov 13): soft cards instead of heavy borders, a calmer cool palette, the same fonts; format, units, run settings and templates folded into menus.
+- [finding] K1 hint ladder (14 runs, `docs/K1_LADDER_RESULTS.md`): text mode fails (dataset priors). Python mode reads structure blind (grid, channels, actions, policy vs classifier), with shuffled controls correctly rejected. Naming the exact game needs input semantics. Mod-add mechanism recovered from weights (frequencies 8, 11, 22, 23, 25); the prior-only control is pending.
