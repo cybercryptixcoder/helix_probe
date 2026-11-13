@@ -518,14 +518,28 @@ const runHtml = r => `<div class="k">${esc(r.config.target)} · ${r.config.varia
   ${r.steps.map(s => s.tools.map(t => `<div class="cell" style="margin:6px 0"><div class="code">${esc(t.code)}</div><div class="res ${t.ok ? '' : 'bad'}">${esc(t.output)}</div></div>`).join('')).join('')}
   <details style="margin:8px 0"><summary>thinking (${fmtN(r.thinking.length)} chars)</summary><pre>${esc(r.thinking)}</pre></details>
   <div class="answer">${md(r.answer || '(no answer)')}</div>${r.error ? `<div class="err">${esc(r.error)}</div>` : ''}`;
-async function copyTrace(id, btn) { const t = await (await fetch(`/api/runs/${id}/trace`)).text(); await navigator.clipboard.writeText(t); if (btn) { const o = btn.textContent; btn.textContent = 'copied ✓'; setTimeout(() => btn.textContent = o, 1500); } }
+function copyText(text) { // works even where the async clipboard API is blocked
+  const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (e) {} ta.remove(); return ok;
+}
+async function copyTrace(id, btn) {
+  const flash = m => { if (btn) { const o = btn.textContent; btn.textContent = m; setTimeout(() => btn.textContent = o, 1800); } };
+  const p = fetch(`/api/runs/${id}/trace`).then(r => r.text());
+  try { // Safari/Chrome: write inside the click, with the text arriving as a promise
+    await navigator.clipboard.write([new ClipboardItem({'text/plain': p.then(t => new Blob([t], {type: 'text/plain'}))})]); return flash('copied ✓');
+  } catch (e) {}
+  const t = await p;
+  try { await navigator.clipboard.writeText(t); return flash('copied ✓'); } catch (e) {}
+  if (copyText(t)) return flash('copied ✓');
+  openModal('Trace', 'select all and copy', `<pre>${esc(t)}</pre>`, t); // last resort: show it
+}
 async function showRun(id) { const r = await api('/api/runs/' + id); const t = await (await fetch(`/api/runs/${id}/trace`)).text(); openModal(r.config.title || id, id, `<div style="padding:14px 16px">${runHtml(r)}</div>`, t); $('#mCopy').textContent = 'copy trace'; }
 $('#cmpBtn').onclick = async () => { const [a, b] = await Promise.all([...S.picked].map(id => api('/api/runs/' + id)));
   openModal('Side by side', '', `<div class="cmp"><div>${runHtml(a)}</div><div>${runHtml(b)}</div></div>`, ''); };
 $('#histBtn').onclick = () => { $('#drawer').classList.toggle('open'); loadHist(); };
 $('#closeH').onclick = () => $('#drawer').classList.remove('open');
 function openModal(t, sub, html, copy) { $('#mTitle').firstChild.textContent = t + ' '; $('#mSub').textContent = sub; $('#mBody').innerHTML = html; $('#modal').classList.add('open');
-  $('#mCopy').onclick = () => navigator.clipboard.writeText(copy || ''); }
+  $('#mCopy').onclick = async () => { try { await navigator.clipboard.writeText(copy || ''); } catch (e) { copyText(copy || ''); } $('#mCopy').textContent = 'copied ✓'; }; }
 $('#mClose').onclick = () => $('#modal').classList.remove('open');
 $('#modal').onclick = e => { if (e.target.id === 'modal') $('#modal').classList.remove('open'); };
 
