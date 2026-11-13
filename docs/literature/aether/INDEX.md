@@ -43,3 +43,4 @@ goodfire-com-research-probe-based-data-attribution | Probe-Based Data Attributio
 goodfire-com-research-covariance-pooling | Covariance-based Sequence Pooling (second-moment pooling for gene-level probes) | Goodfire | 2026-04 | 2
 goodfire-com-research-reward-hacking-activation-monitors | Models Know When They're Reward Hacking — and We Can Catch Them at Scale | Goodfire | 2026-09 | 3
 arxiv-2605.12412 | Stories in Space: In-Context Learning Trajectories in Conceptual Belief Space (Meandering on Manifolds) | Goodfire / Stanford | 2026-05 | 3
+goodfire-com-research-bsf-vision | Uncovering Neural Geometry in Vision Models With Block-Sparse Featurizers | Goodfire / Harvard / Stanford / Brown | 2026-07 | 3
