@@ -4,8 +4,8 @@
 
 ## Status
 
-- Entries written: 15 (INDEX.md is authoritative)
-- Last commit: literature (aether): 7 entries
+- Entries written: 16 (INDEX.md is authoritative)
+- Last commit: literature (aether): 15 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
 
@@ -22,7 +22,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] Slot Machines: multiple entities | https://arxiv.org/abs/2604.21139 | current/prior entity slots; decodable-but-unused
 - [x] Latent Planning Emerges with Scale | https://arxiv.org/abs/2604.12493 | planning = causally causes distant token AND its licence
 - [x] Reading Between the Dots: decoding across filler tokens | https://arxiv.org/abs/2607.03502 | hidden computation
-- [ ] A Shared Subcircuit Lets LLMs Count Down | https://arxiv.org/abs/2607.12279 | circuit
+- [x] A Shared Subcircuit Lets LLMs Count Down | https://arxiv.org/abs/2607.12279 | DONE (countdown heads, layer-18 last-use, cross-model motif)
 - [ ] Evaluating and Improving LLM Self-Modeling | https://arxiv.org/abs/2608.30980 | self-knowledge
 - [ ] From Simulation to Enaction | https://arxiv.org/abs/2605.25459 | 
 - [ ] Natural Language Autoencoders (summary page) | 2026-05 | tcpub; core may cover
@@ -190,6 +190,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
   (4) other labs, (5) topic searches.
 
 ## Done
+- arxiv-2607.12279 | A Shared Subcircuit Lets LLMs Count Down Across Tasks (Yale / Anthropic)
 - arxiv-2607.03502 | Reading Between the Dots (filler-token hidden computation)
 
 - arxiv-2506.20790 | Stochastic Parameter Decomposition (Goodfire)
@@ -245,6 +246,9 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - Ablate-on-success / boost-on-failure with random-feature controls is the standard causal check for "this feature is the mechanism" in feature-circuit papers. (arxiv-2604.12493)
 - Planning is piecemeal: whether a model plans depends on task frequency and loss weight, not on a single global planning module. (arxiv-2604.12493)
 - Negative result pattern: having the representation does not entail context adaptation (couplets) — same gap as decodable-but-unused in SLOT. (arxiv-2604.12493, arxiv-2604.21139)
+- **Last-used layer ≠ peak-probe layer**: patching every layer and reading where the effect *drops to baseline* locates the layer where information is copied out and consumed downstream; probing alone would put you at the wrong site to intervene. (arxiv-2607.12279)
+- Cross-condition representation match should be tested for **unimodality plus near-linear unit mapping (r²)**, not just "the probe transfers" — that is what licenses saying two sites encode the same scalar in different units. (arxiv-2607.12279)
+- Growing recipe for cross-model universality: claim a motif is shared only after the *geometric structure* (manifold diagonal + ringing pattern) matches a prior report in another model, with interventions in just one. (arxiv-2607.12279, arxiv-2604.12493)
 
 ## Could not read
 
