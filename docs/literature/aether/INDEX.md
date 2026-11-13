@@ -11,3 +11,4 @@ anthropic-com-research-assistant-axis | The Assistant Axis: Situating and Stabil
 arxiv-2606.17056 | The Value Axis: Language Models Encode Whether They're on the Right Track | Anthropic / Stanford | 2026-06 | 3
 arxiv-2512.01222 | Unsupervised Decoding of Encoded Reasoning Using LM Interpretability | Goodfire / Anthropic | 2025-12 | 3
 anthropic-com-research-global-workspace | A Global Workspace in Language Models (J-space) | Anthropic | 2026-07 | 3
+transformer-circuits-pub-2026-headvis-index-html | HeadVis: An Interactive Tool for Investigating Attention Heads | Anthropic | 2026-05 | 3

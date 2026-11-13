@@ -4,7 +4,7 @@
 
 ## Status
 
-- Entries written: 11 (INDEX.md is authoritative)
+- Entries written: 12 (INDEX.md is authoritative)
 - Last commit: literature (aether): 7 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
@@ -18,7 +18,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] Unsupervised Decoding of Encoded Reasoning Using LM Interpretability | https://arxiv.org/abs/2512.01222 | logit lens decodes ROT-13 CoT
 - [x] The Value Axis (on right track) | https://arxiv.org/abs/2606.17056 | DONE
 - [x] A Global Workspace in Language Models | https://www.anthropic.com/research/global-workspace | J-space / J-lens, broadcast channel
-- [ ] HeadVis | 2026-05 | head-level visualisation
+- [x] HeadVis | https://transformer-circuits.pub/2026/headvis/index.html | head inspection tool; attention decomposition agenda
 - [ ] Slot Machines: multiple entities | https://arxiv.org/abs/2604.21139 | entity binding
 - [ ] Latent Planning Emerges with Scale | https://arxiv.org/abs/2604.12493 | latent plan readout
 - [ ] Reading Between the Dots: decoding across filler tokens | https://arxiv.org/abs/2607.03502 | hidden computation
@@ -201,6 +201,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - arxiv-2606.17056 | The Value Axis (Anthropic fellows / Stanford)
 - arxiv-2512.01222 | Unsupervised Decoding of Encoded Reasoning (Goodfire/Anthropic)
 - anthropic-com-research-global-workspace | A Global Workspace in Language Models (J-space) (Anthropic)
+- transformer-circuits-pub-2026-headvis-index-html | HeadVis (Anthropic / tcpub)
 
 ## Patterns noticed
 
@@ -231,6 +232,9 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - A small broadcast channel (few dozen concepts, <10% of activity) plus a large automatic periphery as the two-mode structure of network computation; routine behaviour survives deletion, composition/reasoning does not. (anthropic-com-research-global-workspace)
 - Jacobian-of-future-logits lens (J-lens) generalises logit lens from "next token" to "any word it might say later" and finds reportable contents. (anthropic-com-research-global-workspace, arxiv-2512.01222)
 - Eval-awareness is a confound in *every* safety eval: ablating "fake/fictional" style patterns changed measured behaviour, i.e. good behaviour was partly conditional on knowing it was tested. (anthropic-com-research-global-workspace, arxiv-2606.17056)
+- Heads are the wrong unit: heads are polysemantic *without* superposition because their output is high-rank, and some behaviours are high-rank; the target unit is a sparse, high-rank "attentional feature". (transformer-circuits-pub-2026-headvis-index-html)
+- Per-example attributions do not give a rule: a year-range bound (1000-1986) was only found by sweeping controlled inputs. Always test on generated minimal pairs, not dataset examples. (transformer-circuits-pub-2026-headvis-index-html)
+- QK/OV feature-pair attribution + virtual weights are the standard way to read a head's circuit once you have a feature dictionary (here a 10M WCC). (transformer-circuits-pub-2026-headvis-index-html, arxiv-2506.20790)
 
 ## Could not read
 
