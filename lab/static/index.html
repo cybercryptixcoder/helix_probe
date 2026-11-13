@@ -336,7 +336,7 @@ function mat() { // 2-D view of the current tensor
 }
 function cellSize(m) {
   const W = $('#cwrap').clientWidth - 4, H = Math.max(160, $('#cwrap').clientHeight - 4);
-  let cs = Math.min(W / m.c, 28);                 // fill the width...
+  let cs = Math.min(W / m.c, 64);                 // fill the width...
   if (cs * m.r > 3 * H) cs = Math.max(1, 3 * H / m.r);   // ...unless that makes it more than 3 screens tall
   return Math.max(1, cs);
 }
@@ -345,7 +345,7 @@ function draw() {
   const m = mat(), cs = cellSize(m), cv = $('#cv'), dpr = devicePixelRatio || 1;
   cv.width = Math.ceil(m.c * cs * dpr); cv.height = Math.ceil(m.r * cs * dpr); cv.style.width = m.c * cs + 'px'; cv.style.height = m.r * cs + 'px';
   const g = cv.getContext('2d'), img = g.createImageData(m.c, m.r), neg = hexRgb('--neg'), pos = hexRgb('--pos'), mid = hexRgb('--field');
-  const lim = $('#contrast').checked ? S.data.absmax : Math.max(1e-6, 3 * S.data.std);
+  const lim = ($('#contrast').checked || S.data.std < 1e-3 * (S.data.absmax || 1)) ? (S.data.absmax || 1) : Math.max(1e-6, Math.min(S.data.absmax, 3 * S.data.std));
   $('#lmin').textContent = (-lim).toFixed(2); $('#lmax').textContent = '+' + lim.toFixed(2);
   for (let i = 0; i < m.r; i++) for (let j = 0; j < m.c; j++) {
     const x = Math.max(-1, Math.min(1, m.at(i, j) / lim)), t = Math.abs(x), c = x < 0 ? neg : pos, k = 4 * (i * m.c + j);
