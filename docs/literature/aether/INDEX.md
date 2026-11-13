@@ -65,3 +65,4 @@ transformer-circuits-pub-2024-feb-update-index-html | Circuits Updates, February
 transformer-circuits-pub-2024-march-update-index-html | Circuits Updates, March 2024 | Anthropic (Transformer Circuits) | 2024-03 | 2
 transformer-circuits-pub-2024-april-update-index-html | Circuits Updates, April 2024 | Anthropic (Transformer Circuits) | 2024-04 | 3
 anthropic-com-research-mapping-mind-language-model | Mapping the Mind of a Large Language Model (Claude 3 Sonnet SAEs) | Anthropic | 2024-05 | 3
+anthropic-com-research-golden-gate-claude | Golden Gate Claude (single-feature amplification demo) | Anthropic | 2024-05 | 2
