@@ -207,6 +207,82 @@ Oct 15 essay "Neural Networks Are Already Clean".
 | New risk | Goodfire is well-resourced, has an agent product (Silico), and calls this the first post in a "native interpretability" series. Reading weights directly is a natural next step for them. Our moat is the controlled size/factor/self study across open models, not single-model depth. |
 | Open check | Whether the atlas's descriptions can be downloaded and reused (the page is JavaScript-only and states no licence). |
 
+## 2f. The constructor (Shreyas, Nov 13)
+
+The project builds the **constructor**: a loop in which an LLM reads a network's weights and produces a causal abstraction of it (what a construction is: see `literature/SYNTHESIS.md` §1 and §10). The first paper only needs one solid construction made by the constructor. Making the constructor general comes later. Everything below is a draft for discussion; none of it is decided.
+
+### New directions
+
+| Id | Direction | What it asks |
+|---|---|---|
+| K0 | **Replicate first** | Can the loop rediscover a published construction (modular addition first) without seeing the answer? We tune the loop on known answers before using it on unknown ones. |
+| K1 | **The reader interface** | The first step of every iteration: what we hand the LLM (which weights, in what form, with what question), what answer we want back, and which choices give better or more relevant answers. Measured, not guessed. |
+| K2 | **A fine-tuned or RL-trained reader** | Since reading seems to be a capability learned in pre-training, can fine-tuning (RL in particular) strengthen it for the K1 interface? This needs K1's answer format defined first. |
+| K3 | **The loop itself** | Read → hypothesis → test the mapping → assemble a runnable construction → test the algorithm → repair. Draft below. |
+
+Each of these could be its own paper. Together with the earlier directions there are perhaps six.
+
+### Literature check (from the survey, plus a search on Nov 13)
+
+- **Trained readers exist, but none uses RL with a verified reward.** Weight Oracles (arxiv-2610.07334), LoRAcles and Diff Interpretation Tuning (arxiv-2510.05092) are all trained on supervised labels. None scores the reader on whether its predicted intervention effect comes true. A search on Nov 13 found nothing that does. This is an opening for K2.
+- **Raw reading has a size ceiling.** In Sparks, raw-weight reading worked only on networks of about 17K–172K weights; the LM-scale wins used Python and/or execution. Results must be reported per access regime: raw weights only, weights plus code, or weights plus forward passes (honnibal-dev-blog-astra-read-write-misleading). The Nanda modular-addition transformer has roughly 226K parameters: about 15K embedding, 66K attention, 131K MLP and 15K unembedding. That is too many to paste whole into a 164K-token context, so K1 is partly forced: the reader sees slices, transforms, or tool output.
+- **Memorisation risk is high.** Modular addition has the original paper, an ICLR spotlight, follow-ups (e.g. arxiv-2602.16849, arxiv-2505.18266), tutorials and replication walkthroughs. The reader has almost certainly seen "grokked modular addition → Fourier". Hiding the paper is not enough. We must blind the task, and include variants whose answer is known but rarely written up.
+- **Reader-shortcut controls already exist**: shuffled weights, an untrained network, a prompt-only reader, anonymised labels, and default-answer rate (lesswrong-wnl4nwrs2owzzfwiz-wsp-stratification).
+
+### K1: the reader interface, as an experiment
+
+Factors to vary, one at a time at first:
+- **View**: a raw slice (e.g. one embedding row block), a transform of it (FFT over the input axis, SVD, a norm map), summary statistics, or tool access (the reader writes Python against the weights and sees the output).
+- **Question scope**: open ("what does this network do?"), component ("what do these 8 neurons do?"), or targeted ("is W_E periodic in the input index? which frequencies?").
+- **Context**: task told vs blinded (input/output examples only, or query access only); architecture told or not.
+- **Answer format**: free text vs a fixed schema.
+- **Reasoning budget**; single-shot vs multi-turn.
+
+The score, so this is measured: the fraction of readings whose prediction holds when the harness runs the intervention. A reading that predicts nothing testable scores zero.
+
+Draft answer schema (a "reading"):
+```
+claim:      what this part computes, in words
+location:   which weights (matrix, rows/cols, neurons, heads, or a subspace)
+variable:   the named quantity it holds or produces, if any
+prediction: a concrete, testable effect, e.g. "zeroing these 40 neurons drops accuracy to chance;
+            keeping only frequencies {14,35} keeps >90%"
+confidence: 0–1
+```
+The `prediction` field is what links K1 to K2. It gives an automatic, verifiable reward, which RL needs.
+
+### K3: draft loop
+
+0. **Setup.** Target network; behaviour spec (input/output examples or query access, possibly blinded); inspection tools; budget.
+1. **Read.** The reader gets a view and a question (K1) and returns readings in the schema.
+2. **Test the mapping.** The harness runs each reading's prediction as an intervention: ablate, restrict ("keep only"), exclude ("remove only"), or patch. Readings that fail go back to step 1 with the result attached.
+3. **Assemble.** Surviving readings become a draft construction:
+   - a runnable Python model of the algorithm, with named variables and steps;
+   - an alignment table saying where each variable lives in the network.
+
+   Note: it maps variables and steps to locations. It does not map weights to weights.
+4. **Test the algorithm**, using the field's three questions:
+   - (a) Run the construction on held-out inputs: does it match the network's outputs?
+   - (b) Interchange tests: set a variable in the Python model and make the matching change in the network (by patch or weight edit). Do both change the same way?
+   - (c) Substitution: replace the component with weights generated from the construction. How much ablation damage is restored?
+5. **Repair or rethink.** Feed the failures back. Narrow the question, change the view, or discard the hypothesis.
+6. **Stop** when (a)–(c) clear preset thresholds on held-out data, or the budget runs out. A stop rule is needed because agents tend to declare success too early (see the agents batch in the survey).
+
+### K0: replication plan, draft
+
+- **Targets with known constructions**, giving several answers to check against: modular addition (Nanda), group composition (arxiv-2302.03025), and a Tracr-compiled program (exact ground truth).
+- **Variants** that are known in principle but rarely written up: modular subtraction or multiplication, a different modulus, a two-layer MLP version.
+- **Blinding.** Don't name the task. Possibly permute the vocabulary so the "number line" isn't given away; this changes difficulty, and is itself a measurement.
+- **Controls**: the same loop on an untrained network and on shuffled weights. It should find nothing.
+- **Success** means recovering the key elements (frequencies, the trig-identity step, the scoring step), confirmed by restricted and excluded loss and by substitution. A matching story alone is not enough.
+
+### Open questions for discussion
+
+1. What does the reader start from: raw slices, or tool access from the start? (Sparks suggests tools are needed past about 170K weights.)
+2. Is the construction's language Python plus an alignment table, or something stricter like RASP? Python is runnable and LLM-friendly; RASP gives a fixed vocabulary for transformer programs.
+3. How much blinding is fair? Is a vocabulary permutation a fair test, or a different task?
+4. Which reader models, and is the reader also the one assembling the construction, or is that a second role?
+
 ## 3. The two runners-up
 
 **T1 + C1, the shortcut study.** Ask AI editors to remove abilities and classify what they change: the cue word, the

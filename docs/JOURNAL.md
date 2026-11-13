@@ -1080,3 +1080,15 @@ The method is in `docs/literature/survey_method/`. Next: SYNTHESIS.md.
   - Anthropic's interference-weights result (a 1-layer model is not sparse in a transcoder basis);
   - white-box tools giving little uplift over black-box baselines.
 - **Evaluation adopted:** intervention-outcome / IIA, substitution (damage restored), mechanism agreement, and the baseline set in §5.
+
+## 2026-11-13: the constructor
+
+Reframed: the project builds the constructor, a loop that reads weights and produces a causal abstraction. The first paper needs one solid construction. New directions K0–K3 are in DIRECTIONS §2f:
+- K0, replicate modular addition first;
+- K1, the reader interface as a measured experiment;
+- K2, an RL-trained reader rewarded on verified predictions (no prior found);
+- K3, a draft loop.
+
+Two constraints came out of the literature check:
+- the target (about 226K parameters) is too big to paste whole, so the reader sees slices, transforms or tool output;
+- modular addition is heavily published, so the task must be blinded and run with variants.
