@@ -4,7 +4,7 @@
 
 ## Status
 
-- Entries written: 6
+- Entries written: 7
 - Last commit: literature (aether): 2 entries
 - Current source: `SEED_QUEUE.md` long tail (Anthropic + Goodfire, excluding what core covers); priority block first
 
@@ -252,9 +252,13 @@ Priority block (most relevant to reading weights, prediction and evaluation), th
 - arxiv-2606.02609 | Building Better Activation Oracles (Nanda group / MATS)
 - arxiv-2603.05494 | Censored LLMs as a Natural Testbed for Secret Knowledge Elicitation (Casademunt et al.)
 - arxiv-2510.01070 | Eliciting Secret Knowledge from Language Models (Cywiński et al.)
+- anthropic-com-research-assistant-axis | The Assistant Axis (Anthropic)
 
 ## Patterns noticed
 
+- **Mean-difference direction between a behaviour and a broad contrast set**, validated by checking it is the leading PCA component, is the standard construction for behavioural axes (Assistant Axis; refusal direction; weight steering). (anthropic-com-research-assistant-axis, arxiv-2511.05408)
+- Axis position as a *predictor of future behaviour* (compliance after persona drift; emergence of misalignment) — the closest thing in the field to prediction under intervention from a single number. (anthropic-com-research-assistant-axis)
+- Ceiling/capping at the empirically normal activation range, rather than constant steering, preserves capability while changing behaviour. (anthropic-com-research-assistant-axis)
 - **Base-model control readout** is the standard null for any elicitation claim: same readout from the untuned model must show no benefit. (arxiv-2510.01070)
 - Auditor/guess-the-secret grading, with an I/O-only baseline, is now the default evaluation shape for hidden-knowledge work. (arxiv-2510.01070, arxiv-2603.05494)
 - Tokens (logit lens / embedding-nearest) beat SAE prose descriptions when the auditor needs a discrete answer. (arxiv-2510.01070)
