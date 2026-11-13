@@ -51,3 +51,4 @@ transformer-circuits-pub-2021-garcon-index-html | Garçon: interpretability infr
 github-com-anthropics-pysvelte | PySvelte: Svelte visualisations callable from Python | Anthropic | 2021 | 1
 anthropic-com-research-scaling-laws-and-interpretability-of-learning-from-repeated-data | Scaling Laws and Interpretability of Learning from Repeated Data | Anthropic | 2022-05 | 2
 transformer-circuits-pub-2022-solu-index-html | Softmax Linear Units: designing the MLP activation for legibility | Transformer Circuits (Anthropic) | 2022-06 | 2
+anthropic-com-research-language-models-mostly-know-what-they-know | Language Models (Mostly) Know What They Know (P(True) / P(IK)) | Anthropic | 2022-07 | 3
