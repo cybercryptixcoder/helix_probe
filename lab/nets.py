@@ -191,20 +191,21 @@ def domain_inputs(meta, max_n=20000, seed=0):
 
 # ---------- variants (controls) ----------
 
-def variant(W, name, perm_groups=(), seed=0):
+def variant(W, name, perm_groups=(), seed=0, protected=()):
     """Return a modified copy of the weight dict.
     original: unchanged.
     shuffled: values shuffled within each tensor (keeps each tensor's statistics, destroys structure).
     untrained: fresh Gaussian values with each tensor's own mean and std (what an untrained net might look like).
-    permuted: hidden units reordered consistently, so the network computes exactly the same function."""
+    permuted: hidden units reordered consistently, so the network computes exactly the same function.
+    protected: names of entries that are settings rather than weights (left unchanged)."""
     rng = np.random.default_rng(seed)
     W = {k: np.array(v, copy=True) for k, v in W.items()}
     if name == "original":
         return W
     if name == "shuffled":
-        return {k: rng.permutation(v.ravel()).reshape(v.shape) for k, v in W.items()}
+        return {k: v if k in protected else rng.permutation(v.ravel()).reshape(v.shape) for k, v in W.items()}
     if name == "untrained":
-        return {k: rng.normal(v.mean(), v.std() + 1e-8, v.shape).astype(v.dtype) for k, v in W.items()}
+        return {k: v if k in protected else rng.normal(v.mean(), v.std() + 1e-8, v.shape).astype(v.dtype) for k, v in W.items()}
     if name == "permuted":
         for g in perm_groups:
             p = rng.permutation(g["size"])

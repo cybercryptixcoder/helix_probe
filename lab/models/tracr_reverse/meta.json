@@ -1,0 +1,599 @@
+{
+ "id": "tracr_reverse",
+ "name": "Compiled program R",
+ "family": "Compiled programs (Tracr; residual stream rotated)",
+ "forward": "transformer",
+ "order": [
+  "W_E",
+  "W_pos",
+  "L0.W_Q",
+  "L0.b_Q",
+  "L0.W_K",
+  "L0.b_K",
+  "L0.W_V",
+  "L0.b_V",
+  "L0.W_O",
+  "L0.b_O",
+  "L0.W_in",
+  "L0.b_in",
+  "L0.W_out",
+  "L0.b_out",
+  "L1.W_Q",
+  "L1.b_Q",
+  "L1.W_K",
+  "L1.b_K",
+  "L1.W_V",
+  "L1.b_V",
+  "L1.W_O",
+  "L1.b_O",
+  "L1.W_in",
+  "L1.b_in",
+  "L1.W_out",
+  "L1.b_out",
+  "L2.W_Q",
+  "L2.b_Q",
+  "L2.W_K",
+  "L2.b_K",
+  "L2.W_V",
+  "L2.b_V",
+  "L2.W_O",
+  "L2.b_O",
+  "L2.W_in",
+  "L2.b_in",
+  "L2.W_out",
+  "L2.b_out",
+  "L3.W_Q",
+  "L3.b_Q",
+  "L3.W_K",
+  "L3.b_K",
+  "L3.W_V",
+  "L3.b_V",
+  "L3.W_O",
+  "L3.b_O",
+  "L3.W_in",
+  "L3.b_in",
+  "L3.W_out",
+  "L3.b_out",
+  "W_U"
+ ],
+ "arch": "A 4-layer transformer with no LayerNorm. Vocabulary of 5 tokens; the input is a sequence of 5 tokens; residual stream width 35.\n  x = W_E[tokens] + W_pos\n  layer 0: attention (1 head of size 10, bidirectional, biases b_Q, b_K, b_V, b_O): x = x + softmax((x W_Q + b_Q)(x W_K + b_K)^T / sqrt(10)) (x W_V + b_V) W_O + b_O;  then MLP (20 ReLU neurons): x = x + relu(x W_in + b_in) W_out + b_out\n  layer 1: attention (1 head of size 10, bidirectional, biases b_Q, b_K, b_V, b_O): x = x + softmax((x W_Q + b_Q)(x W_K + b_K)^T / sqrt(10)) (x W_V + b_V) W_O + b_O;  then MLP (20 ReLU neurons): x = x + relu(x W_in + b_in) W_out + b_out\n  layer 2: attention (1 head of size 10, bidirectional, biases b_Q, b_K, b_V, b_O): x = x + softmax((x W_Q + b_Q)(x W_K + b_K)^T / sqrt(10)) (x W_V + b_V) W_O + b_O;  then MLP (20 ReLU neurons): x = x + relu(x W_in + b_in) W_out + b_out\n  layer 3: attention (1 head of size 10, bidirectional, biases b_Q, b_K, b_V, b_O): x = x + softmax((x W_Q + b_Q)(x W_K + b_K)^T / sqrt(10)) (x W_V + b_V) W_O + b_O;  then MLP (20 ReLU neurons): x = x + relu(x W_in + b_in) W_out + b_out\n  output = x[positions 1..4] @ W_U: 3 numbers for each of the last 4 positions, flattened as (position - 1) * 3 + class. The network's decision at a position is its largest of those 3 numbers.",
+ "context": "Token 0 is a begin-of-sequence marker and always comes first; tokens [1, 2, 3] stand for ['a', 'b', 'c']. Output class c at a position stands for the value ['a', 'b', 'c'][c].",
+ "tensor_desc": {
+  "W_E": "token embedding (row = token)",
+  "W_pos": "position embedding (row = position)",
+  "W_U": "output weights (column = class)"
+ },
+ "answer": {
+  "short": "reverse the sequence: output i is token N-1-i",
+  "detail": "Tracr library program make_reverse: layer 0 computes the length (attention to BOS + MLP), an MLP computes the opposite index length-1-i, then attention copies the token at that index. Compiled by Tracr; residual labels before rotation: ['indices:0', 'indices:1', 'indices:2', 'indices:3', 'length_5:0', 'length_5:1', 'length_5:2', 'length_5:3', 'length_5:4', 'length_5_selector_width_attn_output', 'one', 'opp_idx-1_3:-4', 'opp_idx-1_3:-3', 'opp_idx-1_3:-2', 'opp_idx-1_3:-1', 'opp_idx-1_3:0', 'opp_idx-1_3:1', 'opp_idx-1_3:2', 'opp_idx-1_3:3', 'opp_idx_4:-3', 'opp_idx_4:-2', 'opp_idx_4:-1', 'opp_idx_4:0', 'opp_idx_4:1', 'opp_idx_4:2', 'opp_idx_4:3', 'opp_idx_4:4', 'reverse_1:a', 'reverse_1:b', 'reverse_1:c', 'tokens:BOS', 'tokens:a', 'tokens:b', 'tokens:c', 'tokens:compiler_pad']."
+ },
+ "source": "Compiled with Tracr (Lindner et al. 2023) in lab/targets/build_tracr.py; residual stream rotated, MLP neurons permuted and rescaled.",
+ "perm_groups": [
+  {
+   "size": 20,
+   "members": [
+    [
+     "L0.W_in",
+     1
+    ],
+    [
+     "L0.b_in",
+     0
+    ],
+    [
+     "L0.W_out",
+     0
+    ]
+   ]
+  },
+  {
+   "size": 20,
+   "members": [
+    [
+     "L1.W_in",
+     1
+    ],
+    [
+     "L1.b_in",
+     0
+    ],
+    [
+     "L1.W_out",
+     0
+    ]
+   ]
+  },
+  {
+   "size": 20,
+   "members": [
+    [
+     "L2.W_in",
+     1
+    ],
+    [
+     "L2.b_in",
+     0
+    ],
+    [
+     "L2.W_out",
+     0
+    ]
+   ]
+  },
+  {
+   "size": 20,
+   "members": [
+    [
+     "L3.W_in",
+     1
+    ],
+    [
+     "L3.b_in",
+     0
+    ],
+    [
+     "L3.W_out",
+     0
+    ]
+   ]
+  }
+ ],
+ "input": "token ids, shape [B, 5], e.g. [[0, 1, 1, 1, 2]]",
+ "domain": {
+  "axes": [
+   {
+    "values": [
+     0
+    ]
+   },
+   {
+    "values": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "values": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "values": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "values": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "text": "The network is used on every input [0, t1, ..., t4] where each of t1..t4 is one of the tokens [1, 2, 3] (81 inputs)."
+ },
+ "out_groups": 3,
+ "protected": [
+  "out_positions"
+ ],
+ "tensors": [
+  {
+   "name": "W_E",
+   "shape": [
+    5,
+    35
+   ],
+   "desc": "token embedding (row = token)"
+  },
+  {
+   "name": "W_pos",
+   "shape": [
+    5,
+    35
+   ],
+   "desc": "position embedding (row = position)"
+  },
+  {
+   "name": "L0.W_Q",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_Q",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.W_K",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_K",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.W_V",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_V",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.W_O",
+   "shape": [
+    1,
+    10,
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_O",
+   "shape": [
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.W_in",
+   "shape": [
+    35,
+    20
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_in",
+   "shape": [
+    20
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.W_out",
+   "shape": [
+    20,
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_out",
+   "shape": [
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.W_Q",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.b_Q",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.W_K",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.b_K",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.W_V",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.b_V",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.W_O",
+   "shape": [
+    1,
+    10,
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.b_O",
+   "shape": [
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.W_in",
+   "shape": [
+    35,
+    20
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.b_in",
+   "shape": [
+    20
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.W_out",
+   "shape": [
+    20,
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L1.b_out",
+   "shape": [
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.W_Q",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.b_Q",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.W_K",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.b_K",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.W_V",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.b_V",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.W_O",
+   "shape": [
+    1,
+    10,
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.b_O",
+   "shape": [
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.W_in",
+   "shape": [
+    35,
+    20
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.b_in",
+   "shape": [
+    20
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.W_out",
+   "shape": [
+    20,
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L2.b_out",
+   "shape": [
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.W_Q",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.b_Q",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.W_K",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.b_K",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.W_V",
+   "shape": [
+    1,
+    35,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.b_V",
+   "shape": [
+    1,
+    10
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.W_O",
+   "shape": [
+    1,
+    10,
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.b_O",
+   "shape": [
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.W_in",
+   "shape": [
+    35,
+    20
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.b_in",
+   "shape": [
+    20
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.W_out",
+   "shape": [
+    20,
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L3.b_out",
+   "shape": [
+    35
+   ],
+   "desc": ""
+  },
+  {
+   "name": "W_U",
+   "shape": [
+    35,
+    3
+   ],
+   "desc": "output weights (column = class)"
+  }
+ ],
+ "params": 12135
+}

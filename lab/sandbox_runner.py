@@ -28,7 +28,7 @@ def main():
     import numpy as np
     import nets
     W = dict(np.load(cfg["weights"]))
-    W = nets.variant(W, cfg["variant"], cfg.get("perm_groups", []), cfg.get("seed", 0))
+    W = nets.variant(W, cfg["variant"], cfg.get("perm_groups", []), cfg.get("seed", 0), cfg.get("protected", []))
     W = {k: v.astype(np.float64) for k, v in W.items()}
     np.set_printoptions(precision=4, suppress=True, linewidth=140, threshold=400, edgeitems=6)
     env = {"__name__": "__sandbox__", "W": W, "np": np,

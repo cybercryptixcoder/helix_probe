@@ -68,6 +68,28 @@
   }
  ],
  "input": "token ids, shape [B, 3], e.g. [[a, b, 113]]",
+ "domain": {
+  "axes": [
+   {
+    "range": [
+     0,
+     113
+    ]
+   },
+   {
+    "range": [
+     0,
+     113
+    ]
+   },
+   {
+    "values": [
+     113
+    ]
+   }
+  ],
+  "text": "The network is used on every input [i, j, 113] with i and j each ranging over 0..112 (12,769 inputs)."
+ },
  "key_frequencies": [
   47,
   8,
@@ -156,27 +178,5 @@
    "desc": "unembedding (column = output class)"
   }
  ],
- "params": 226048,
- "domain": {
-  "axes": [
-   {
-    "range": [
-     0,
-     113
-    ]
-   },
-   {
-    "range": [
-     0,
-     113
-    ]
-   },
-   {
-    "values": [
-     113
-    ]
-   }
-  ],
-  "text": "The network is used on every input [i, j, 113] with i and j each ranging over 0..112 (12,769 inputs)."
- }
+ "params": 226048
 }

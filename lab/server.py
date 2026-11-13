@@ -53,7 +53,7 @@ def weights(tid, variant="original", seed=0):
     key = (tid, variant, seed)
     if key not in _wcache:
         W = dict(np.load(MODELS / tid / "weights.npz"))
-        _wcache[key] = nets.variant(W, variant, meta(tid).get("perm_groups", []), seed)
+        _wcache[key] = nets.variant(W, variant, meta(tid).get("perm_groups", []), seed, meta(tid).get("protected", []))
     return _wcache[key]
 
 

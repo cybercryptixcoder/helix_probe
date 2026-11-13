@@ -1,0 +1,233 @@
+{
+ "id": "tracr_first_match",
+ "name": "Compiled program F",
+ "family": "Compiled programs (Tracr; residual stream rotated)",
+ "forward": "transformer",
+ "order": [
+  "W_E",
+  "W_pos",
+  "L0.W_Q",
+  "L0.b_Q",
+  "L0.W_K",
+  "L0.b_K",
+  "L0.W_V",
+  "L0.b_V",
+  "L0.W_O",
+  "L0.b_O",
+  "L0.W_in",
+  "L0.b_in",
+  "L0.W_out",
+  "L0.b_out",
+  "W_U"
+ ],
+ "arch": "A 1-layer transformer with no LayerNorm. Vocabulary of 6 tokens; the input is a sequence of 6 tokens; residual stream width 18.\n  x = W_E[tokens] + W_pos\n  layer 0: attention (1 head of size 7, bidirectional, biases b_Q, b_K, b_V, b_O): x = x + softmax((x W_Q + b_Q)(x W_K + b_K)^T / sqrt(7)) (x W_V + b_V) W_O + b_O;  then MLP (16 ReLU neurons): x = x + relu(x W_in + b_in) W_out + b_out\n  output = x[positions 1..5] @ W_U: 2 numbers for each of the last 5 positions, flattened as (position - 1) * 2 + class. The network's decision at a position is its largest of those 2 numbers.",
+ "context": "Token 0 is a begin-of-sequence marker and always comes first; tokens [1, 2, 3, 5] stand for ['a', 'b', 'c', 'd']. Output class c at a position stands for the value ['0', '1'][c].",
+ "tensor_desc": {
+  "W_E": "token embedding (row = token)",
+  "W_pos": "position embedding (row = position)",
+  "W_U": "output weights (column = class)"
+ },
+ "answer": {
+  "short": "output i is 1 if token i equals the first token, else 0",
+  "detail": "Custom RASP program: attention copies the first token to every position; an MLP compares the copied token with the position's own token. Compiled by Tracr; residual labels before rotation: ['first_10:a', 'first_10:b', 'first_10:c', 'first_10:d', 'indices:0', 'indices:1', 'indices:2', 'indices:3', 'indices:4', 'one', 'same_as_first_9:0', 'same_as_first_9:1', 'tokens:BOS', 'tokens:a', 'tokens:b', 'tokens:c', 'tokens:compiler_pad', 'tokens:d']."
+ },
+ "source": "Compiled with Tracr (Lindner et al. 2023) in lab/targets/build_tracr.py; residual stream rotated, MLP neurons permuted and rescaled.",
+ "perm_groups": [
+  {
+   "size": 16,
+   "members": [
+    [
+     "L0.W_in",
+     1
+    ],
+    [
+     "L0.b_in",
+     0
+    ],
+    [
+     "L0.W_out",
+     0
+    ]
+   ]
+  }
+ ],
+ "input": "token ids, shape [B, 6], e.g. [[0, 1, 1, 1, 1, 2]]",
+ "domain": {
+  "axes": [
+   {
+    "values": [
+     0
+    ]
+   },
+   {
+    "values": [
+     1,
+     2,
+     3,
+     5
+    ]
+   },
+   {
+    "values": [
+     1,
+     2,
+     3,
+     5
+    ]
+   },
+   {
+    "values": [
+     1,
+     2,
+     3,
+     5
+    ]
+   },
+   {
+    "values": [
+     1,
+     2,
+     3,
+     5
+    ]
+   },
+   {
+    "values": [
+     1,
+     2,
+     3,
+     5
+    ]
+   }
+  ],
+  "text": "The network is used on every input [0, t1, ..., t5] where each of t1..t5 is one of the tokens [1, 2, 3, 5] (1,024 inputs)."
+ },
+ "out_groups": 2,
+ "protected": [
+  "out_positions"
+ ],
+ "tensors": [
+  {
+   "name": "W_E",
+   "shape": [
+    6,
+    18
+   ],
+   "desc": "token embedding (row = token)"
+  },
+  {
+   "name": "W_pos",
+   "shape": [
+    6,
+    18
+   ],
+   "desc": "position embedding (row = position)"
+  },
+  {
+   "name": "L0.W_Q",
+   "shape": [
+    1,
+    18,
+    7
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_Q",
+   "shape": [
+    1,
+    7
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.W_K",
+   "shape": [
+    1,
+    18,
+    7
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_K",
+   "shape": [
+    1,
+    7
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.W_V",
+   "shape": [
+    1,
+    18,
+    7
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_V",
+   "shape": [
+    1,
+    7
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.W_O",
+   "shape": [
+    1,
+    7,
+    18
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_O",
+   "shape": [
+    18
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.W_in",
+   "shape": [
+    18,
+    16
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_in",
+   "shape": [
+    16
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.W_out",
+   "shape": [
+    16,
+    18
+   ],
+   "desc": ""
+  },
+  {
+   "name": "L0.b_out",
+   "shape": [
+    18
+   ],
+   "desc": ""
+  },
+  {
+   "name": "W_U",
+   "shape": [
+    18,
+    2
+   ],
+   "desc": "output weights (column = class)"
+  }
+ ],
+ "params": 1405
+}

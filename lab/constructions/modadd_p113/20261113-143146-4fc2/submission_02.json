@@ -1,0 +1,83 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 944,
+ "variables": {
+  "const2": {
+   "dim": 1,
+   "sites": []
+  }
+ },
+ "unaligned_variables": [
+  "const2"
+ ],
+ "constant_sites_ignored": [
+  "embed.2"
+ ],
+ "behaviour": {
+  "match": 1.0,
+  "r2": -0.2529339786749998,
+  "kl": 2.237972054632463,
+  "baseline_constant_match": 0.010649960845732186
+ },
+ "sites": {},
+ "interventions": [],
+ "uncovered_sites": [
+  "embed.0",
+  "embed.1",
+  "attn_pattern",
+  "attn_out",
+  "resid_mid",
+  "mlp_pre",
+  "mlp_post",
+  "mlp_out",
+  "resid_post"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "no sites aligned"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 0.97
+}

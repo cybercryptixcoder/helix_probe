@@ -1,0 +1,201 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 1019,
+ "variables": {
+  "tok_i": {
+   "dim": 1,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "tok_j": {
+   "dim": 1,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "prod_ij": {
+   "dim": 1,
+   "sites": [
+    "mlp_pre"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "behaviour": {
+  "match": 0.402662490211433,
+  "r2": -7.054613174143483,
+  "kl": 0.017292336768293722,
+  "baseline_constant_match": 0.402662490211433
+ },
+ "sites": {
+  "embed.0": {
+   "width": 128,
+   "variables": [
+    "tok_i"
+   ],
+   "named_dims": 1,
+   "named_rank": 1,
+   "explained": 0.0078011128169868105,
+   "substitute_match": 0.6198903680501174,
+   "substitute_kl": 0.0010083284224126302,
+   "substitute_r2": 0.496381875906462,
+   "mean_ablate_match": 0.6166014095536414,
+   "recovered": 0.00857843137254881,
+   "keep_named_match": 0.6181675802662491,
+   "remove_named_match": 0.9426781519185591,
+   "remove_random_match": 0.9624641085878362,
+   "pass": false
+  },
+  "embed.1": {
+   "width": 128,
+   "variables": [
+    "tok_j"
+   ],
+   "named_dims": 1,
+   "named_rank": 1,
+   "explained": 0.007517382425153762,
+   "substitute_match": 0.6122161315583399,
+   "substitute_kl": 0.0010086048353761692,
+   "substitute_r2": 0.49587306500274364,
+   "mean_ablate_match": 0.6075176194205169,
+   "recovered": 0.011971268954509168,
+   "keep_named_match": 0.6104933437744714,
+   "remove_named_match": 0.9398590446358653,
+   "remove_random_match": 0.9761942051683633,
+   "pass": false
+  },
+  "mlp_pre": {
+   "width": 512,
+   "variables": [
+    "prod_ij"
+   ],
+   "named_dims": 1,
+   "named_rank": 1,
+   "explained": 0.006999561506396246,
+   "substitute_match": 0.7638214565387628,
+   "substitute_kl": 0.0004479359811249904,
+   "substitute_r2": 0.7769864325953472,
+   "mean_ablate_match": 0.7588097102584181,
+   "recovered": 0.020779220779221036,
+   "keep_named_match": 0.7669537979639781,
+   "remove_named_match": 0.9522317932654659,
+   "remove_random_match": 0.9899243017488906,
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "tok_i",
+   "site": "embed.0",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.4345,
+   "r2": -7.113257937240116,
+   "network_changed": 0.058,
+   "agreement_when_changed": 0.43103448275862066,
+   "baseline_no_change": 0.942,
+   "baseline_source_output": 0.307,
+   "control_random_subspace": 0.434,
+   "pass": false
+  },
+  {
+   "variable": "tok_j",
+   "site": "embed.1",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.4265,
+   "r2": -7.1184424750082265,
+   "network_changed": 0.063,
+   "agreement_when_changed": 0.38095238095238093,
+   "baseline_no_change": 0.937,
+   "baseline_source_output": 0.3085,
+   "control_random_subspace": 0.434,
+   "pass": false
+  },
+  {
+   "variable": "prod_ij",
+   "site": "mlp_pre",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.433,
+   "r2": -7.115351158516319,
+   "network_changed": 0.0325,
+   "agreement_when_changed": 0.38461538461538464,
+   "baseline_no_change": 0.9675,
+   "baseline_source_output": 0.305,
+   "control_random_subspace": 0.431,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [
+  "attn_pattern",
+  "attn_out",
+  "resid_mid",
+  "mlp_post",
+  "mlp_out",
+  "resid_post"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [
+    "embed.0",
+    "embed.1"
+   ],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [
+    "mlp_pre"
+   ],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "behaviour: the construction's output agrees with the network on 40.3% of inputs (need 95%)",
+   "substitution at embed.0: 62.0% (need 90%)",
+   "removal at embed.0: removing the named subspace leaves 94.3%, a random subspace of the same size leaves 96.2% (the named subspace should matter much more: name fewer, more specific dimensions)",
+   "interchange of tok_i at embed.0: prediction right in 43.1% of the cases where the network's output changed (need 90%)",
+   "substitution at embed.1: 61.2% (need 90%)",
+   "removal at embed.1: removing the named subspace leaves 94.0%, a random subspace of the same size leaves 97.6% (the named subspace should matter much more: name fewer, more specific dimensions)",
+   "interchange of tok_j at embed.1: prediction right in 38.1% of the cases where the network's output changed (need 90%)",
+   "substitution at mlp_pre: 76.4% (need 90%)",
+   "removal at mlp_pre: removing the named subspace leaves 95.2%, a random subspace of the same size leaves 99.0% (the named subspace should matter much more: name fewer, more specific dimensions)",
+   "interchange of prod_ij at mlp_pre: the network's output changed in only 3.2% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 8.61
+}

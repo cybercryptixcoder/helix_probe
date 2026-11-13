@@ -34,7 +34,7 @@ def main():
     if cfg.get("weights"):
         meta = json.load(open(cfg["meta"]))
         W = dict(np.load(cfg["weights"]))
-        W = {k: v.astype(np.float64) for k, v in nets.variant(W, cfg["variant"], meta.get("perm_groups", []), cfg.get("seed", 0)).items()}
+        W = {k: v.astype(np.float64) for k, v in nets.variant(W, cfg["variant"], meta.get("perm_groups", []), cfg.get("seed", 0), meta.get("protected", [])).items()}
         kind = meta["forward"]
         env["W"] = W
         env["X"] = nets.domain_inputs(meta)

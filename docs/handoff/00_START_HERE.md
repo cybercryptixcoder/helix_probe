@@ -59,7 +59,23 @@ Numbers and details: [`docs/EXPERIMENT_LOG.md`](../EXPERIMENT_LOG.md).
 
 ### Working on right now
 
-Mod-add, blinded, second run, with a "submit early, improve stage by stage" rule and reminders in the loop.
+*(Checkpoint written 2026-11-13 18:55 after a session interruption. The log entries for the items below are being
+written next; until then this list is the record.)*
+
+- **Judge v2** is in `lab/judge.py`: the random-subspace gate was replaced by a necessity test (removing the named
+  subspace must do half the damage of mean-ablating the site) and a compactness test (named dimensions at most twice
+  the number of principal components that suffice); coordinate edits apply only to a variable that is alone at its
+  site; constant sites are ignored; networks with one decision per position are supported.
+- **Compiled targets**: `lab/targets/build_tracr.py` compiles four RASP programs with Tracr into rotated transformers
+  (`lab/models/tracr_*`); `lab/nets.py` has a general multi-layer transformer with sites.
+- **Dev runs under judge v2**: `tracr_hist` blinded reached VERIFIED AND COMPLETE (all 4 stages, 21 steps, run
+  `lab/constructions/tracr_hist/20261113-143146-5ab6`); the three other Boolean nets verified in 2 steps each;
+  `modadd_p113` dev4 (`20261113-143146-4fc2`) was cut off at step 29 by the interruption and must be rerun.
+- **Controls on mod-add** (`20261113-1417*` folders) straddled the judge change and were stopped; they must be rerun.
+  The prior-only control finished: it fails everything (substitution at `embed.0` 5.7%).
+- **Held-out intervention benchmark** `lab/predict.py` (construction vs no-change, statistics regressor, attribution
+  patching, prior-only construction). First result on mod-add is NEGATIVE: the construction predicts worse than
+  "no change" (70% vs 82% decision accuracy); attribution patching gets 93%. Cause not yet diagnosed.
 
 ### Tried and failed, and why
 

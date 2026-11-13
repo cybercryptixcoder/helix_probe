@@ -47,6 +47,8 @@ def sparks_prompt_parts(path):
 
 
 def build_sparks():
+    if not os.path.exists(f"{SPARKS}/exp1_which_game/eval/answer_key.json"):
+        print(f"MIT Sparks logs not found at {SPARKS} (set SPARKS_LOGS): keeping the existing sparks_* entries as they are"); return
     key = json.load(open(f"{SPARKS}/exp1_which_game/eval/answer_key.json"))
     ctx, question = sparks_prompt_parts(f"{SPARKS}/exp1_which_game/runs/breakout/prompt.txt")
     arch = ("A multilayer perceptron with 500 inputs, two hidden layers of 32 units with tanh activations, and 5 outputs:\n"

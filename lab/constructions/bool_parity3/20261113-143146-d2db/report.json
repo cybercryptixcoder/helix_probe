@@ -1,0 +1,127 @@
+{
+ "n_inputs": 8,
+ "n_fit": 8,
+ "n_test": 8,
+ "source_chars": 777,
+ "variables": {
+  "u0": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "u1": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "u2": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": 1.0,
+  "kl": null,
+  "baseline_constant_match": 0.5
+ },
+ "sites": {
+  "h1": {
+   "width": 3,
+   "variables": [
+    "u0",
+    "u1",
+    "u2"
+   ],
+   "named_dims": 3,
+   "named_rank": 3,
+   "pca_sufficient_rank": 3,
+   "activation_rank": 3,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": null,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.5,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.25,
+   "remove_random_match": null,
+   "used_rank": 3,
+   "unused_variables": [],
+   "pass": true
+  }
+ },
+ "interventions": [
+  {
+   "variable": "u0",
+   "site": "h1",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.314,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.686,
+   "baseline_source_output": 0.624,
+   "control_random_subspace": 0.8455,
+   "pass": true
+  },
+  {
+   "variable": "u1",
+   "site": "h1",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.3825,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.6175,
+   "baseline_source_output": 0.6795,
+   "control_random_subspace": 0.3035,
+   "pass": true
+  },
+  {
+   "variable": "u2",
+   "site": "h1",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.1865,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.8135,
+   "baseline_source_output": 0.5875,
+   "control_random_subspace": 0.768,
+   "pass": true
+  }
+ ],
+ "uncovered_sites": [],
+ "stages": {
+  "hidden layer 1": {
+   "sites": [
+    "h1"
+   ],
+   "named": [
+    "h1"
+   ],
+   "verified": [
+    "h1"
+   ]
+  }
+ },
+ "verdict": {
+  "verified": true,
+  "fails": [],
+  "stages_total": 1,
+  "stages_verified": 1,
+  "complete": true,
+  "score": 1.0
+ },
+ "seconds": 0.0
+}

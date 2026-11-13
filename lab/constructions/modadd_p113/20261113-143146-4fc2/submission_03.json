@@ -1,0 +1,431 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 1068,
+ "variables": {
+  "c8": {
+   "dim": 1,
+   "sites": [
+    "resid_post",
+    "mlp_out"
+   ]
+  },
+  "s8": {
+   "dim": 1,
+   "sites": [
+    "resid_post",
+    "mlp_out"
+   ]
+  },
+  "c23": {
+   "dim": 1,
+   "sites": [
+    "resid_post",
+    "mlp_out"
+   ]
+  },
+  "s23": {
+   "dim": 1,
+   "sites": [
+    "resid_post",
+    "mlp_out"
+   ]
+  },
+  "c25": {
+   "dim": 1,
+   "sites": [
+    "resid_post",
+    "mlp_out"
+   ]
+  },
+  "s25": {
+   "dim": 1,
+   "sites": [
+    "resid_post",
+    "mlp_out"
+   ]
+  },
+  "c11": {
+   "dim": 1,
+   "sites": [
+    "resid_post",
+    "mlp_out"
+   ]
+  },
+  "s11": {
+   "dim": 1,
+   "sites": [
+    "resid_post",
+    "mlp_out"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": -0.04515508000178925,
+  "kl": 1.6895297094399555,
+  "baseline_constant_match": 0.010649960845732186
+ },
+ "sites": {
+  "mlp_out": {
+   "width": 128,
+   "variables": [
+    "c8",
+    "s8",
+    "c23",
+    "s23",
+    "c25",
+    "s25",
+    "c11",
+    "s11"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.8988754418562779,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.00018793341588985981,
+   "substitute_r2": 0.9774228424414223,
+   "mean_ablate_match": 0.016601409553641346,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.020830070477682067,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "pass": false
+  },
+  "resid_post": {
+   "width": 128,
+   "variables": [
+    "c8",
+    "s8",
+    "c23",
+    "s23",
+    "c25",
+    "s25",
+    "c11",
+    "s11"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.8626483656473161,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.00018313623228440444,
+   "substitute_r2": 0.9788288469051236,
+   "mean_ablate_match": 0.010649960845732186,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.01754111198120595,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "c8",
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.816,
+   "r2": -0.05083014256518559,
+   "network_changed": 0.301,
+   "agreement_when_changed": 0.4186046511627907,
+   "baseline_no_change": 0.699,
+   "baseline_source_output": 0.017,
+   "control_random_subspace": 0.765,
+   "pass": false
+  },
+  {
+   "variable": "s8",
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.761,
+   "r2": -0.04569615400605831,
+   "network_changed": 0.346,
+   "agreement_when_changed": 0.3092485549132948,
+   "baseline_no_change": 0.654,
+   "baseline_source_output": 0.0235,
+   "control_random_subspace": 0.8,
+   "pass": false
+  },
+  {
+   "variable": "c23",
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.925,
+   "r2": -0.04250260937702355,
+   "network_changed": 0.257,
+   "agreement_when_changed": 0.8171206225680934,
+   "baseline_no_change": 0.743,
+   "baseline_source_output": 0.0165,
+   "control_random_subspace": 0.7315,
+   "pass": false
+  },
+  {
+   "variable": "s23",
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.9345,
+   "r2": -0.04204400363209726,
+   "network_changed": 0.295,
+   "agreement_when_changed": 0.8372881355932204,
+   "baseline_no_change": 0.705,
+   "baseline_source_output": 0.0215,
+   "control_random_subspace": 0.7085,
+   "pass": false
+  },
+  {
+   "variable": "c25",
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.8365,
+   "r2": -0.03979498517940416,
+   "network_changed": 0.198,
+   "agreement_when_changed": 0.45454545454545453,
+   "baseline_no_change": 0.802,
+   "baseline_source_output": 0.018,
+   "control_random_subspace": 0.758,
+   "pass": false
+  },
+  {
+   "variable": "s25",
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.8275,
+   "r2": -0.04109291730654663,
+   "network_changed": 0.137,
+   "agreement_when_changed": 0.4051094890510949,
+   "baseline_no_change": 0.863,
+   "baseline_source_output": 0.016,
+   "control_random_subspace": 0.775,
+   "pass": false
+  },
+  {
+   "variable": "c11",
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.8275,
+   "r2": -0.0389543946935913,
+   "network_changed": 0.1665,
+   "agreement_when_changed": 0.7117117117117117,
+   "baseline_no_change": 0.8335,
+   "baseline_source_output": 0.0165,
+   "control_random_subspace": 0.711,
+   "pass": false
+  },
+  {
+   "variable": "s11",
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.854,
+   "r2": -0.04082162376606879,
+   "network_changed": 0.166,
+   "agreement_when_changed": 0.7590361445783133,
+   "baseline_no_change": 0.834,
+   "baseline_source_output": 0.017,
+   "control_random_subspace": 0.7295,
+   "pass": false
+  },
+  {
+   "variable": "c8",
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.816,
+   "r2": -0.04967546616863805,
+   "network_changed": 0.316,
+   "agreement_when_changed": 0.43037974683544306,
+   "baseline_no_change": 0.684,
+   "baseline_source_output": 0.017,
+   "control_random_subspace": 0.765,
+   "pass": false
+  },
+  {
+   "variable": "s8",
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.753,
+   "r2": -0.043343330539698854,
+   "network_changed": 0.3605,
+   "agreement_when_changed": 0.31484049930651875,
+   "baseline_no_change": 0.6395,
+   "baseline_source_output": 0.024,
+   "control_random_subspace": 0.8,
+   "pass": false
+  },
+  {
+   "variable": "c23",
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.925,
+   "r2": -0.0408529848535768,
+   "network_changed": 0.269,
+   "agreement_when_changed": 0.8029739776951673,
+   "baseline_no_change": 0.731,
+   "baseline_source_output": 0.017,
+   "control_random_subspace": 0.7315,
+   "pass": false
+  },
+  {
+   "variable": "s23",
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.9335,
+   "r2": -0.04081772887052115,
+   "network_changed": 0.3095,
+   "agreement_when_changed": 0.8190630048465266,
+   "baseline_no_change": 0.6905,
+   "baseline_source_output": 0.021,
+   "control_random_subspace": 0.7085,
+   "pass": false
+  },
+  {
+   "variable": "c25",
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.8375,
+   "r2": -0.03881683796914581,
+   "network_changed": 0.21,
+   "agreement_when_changed": 0.45,
+   "baseline_no_change": 0.79,
+   "baseline_source_output": 0.0185,
+   "control_random_subspace": 0.758,
+   "pass": false
+  },
+  {
+   "variable": "s25",
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.832,
+   "r2": -0.040446286976977275,
+   "network_changed": 0.149,
+   "agreement_when_changed": 0.39932885906040266,
+   "baseline_no_change": 0.851,
+   "baseline_source_output": 0.0165,
+   "control_random_subspace": 0.775,
+   "pass": false
+  },
+  {
+   "variable": "c11",
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.827,
+   "r2": -0.03875865411622148,
+   "network_changed": 0.166,
+   "agreement_when_changed": 0.7018072289156626,
+   "baseline_no_change": 0.834,
+   "baseline_source_output": 0.0165,
+   "control_random_subspace": 0.711,
+   "pass": false
+  },
+  {
+   "variable": "s11",
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 1,
+   "agreement": 0.854,
+   "r2": -0.04079255494816669,
+   "network_changed": 0.1685,
+   "agreement_when_changed": 0.7507418397626113,
+   "baseline_no_change": 0.8315,
+   "baseline_source_output": 0.0165,
+   "control_random_subspace": 0.7295,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [
+  "embed.0",
+  "embed.1",
+  "attn_pattern",
+  "attn_out",
+  "resid_mid",
+  "mlp_pre",
+  "mlp_post"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "interchange of c8 at mlp_out: prediction right in 41.9% of the cases where the network's output changed (need 90%)",
+   "interchange of s8 at mlp_out: prediction right in 30.9% of the cases where the network's output changed (need 90%)",
+   "interchange of c23 at mlp_out: prediction right in 81.7% of the cases where the network's output changed (need 90%)",
+   "interchange of s23 at mlp_out: prediction right in 83.7% of the cases where the network's output changed (need 90%)",
+   "interchange of c25 at mlp_out: prediction right in 45.5% of the cases where the network's output changed (need 90%)",
+   "interchange of s25 at mlp_out: prediction right in 40.5% of the cases where the network's output changed (need 90%)",
+   "interchange of c11 at mlp_out: prediction right in 71.2% of the cases where the network's output changed (need 90%)",
+   "interchange of s11 at mlp_out: prediction right in 75.9% of the cases where the network's output changed (need 90%)",
+   "interchange of c8 at resid_post: prediction right in 43.0% of the cases where the network's output changed (need 90%)",
+   "interchange of s8 at resid_post: prediction right in 31.5% of the cases where the network's output changed (need 90%)",
+   "interchange of c23 at resid_post: prediction right in 80.3% of the cases where the network's output changed (need 90%)",
+   "interchange of s23 at resid_post: prediction right in 81.9% of the cases where the network's output changed (need 90%)",
+   "interchange of c25 at resid_post: prediction right in 45.0% of the cases where the network's output changed (need 90%)",
+   "interchange of s25 at resid_post: prediction right in 39.9% of the cases where the network's output changed (need 90%)",
+   "interchange of c11 at resid_post: prediction right in 70.2% of the cases where the network's output changed (need 90%)",
+   "interchange of s11 at resid_post: prediction right in 75.1% of the cases where the network's output changed (need 90%)"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 12.81
+}

@@ -86,12 +86,13 @@ A small example of the format, for an unrelated toy network (2 inputs, one hidde
   ALIGN = {"gap": ["h1"], "base": ["h1"]}
 
 HOW THE JUDGE TESTS IT (on inputs held out from fitting)
-1. Behaviour: does model(x) make the same decision as the network (largest output; sign if there is one output)?
-2. Alignment: at each site in ALIGN the judge fits ONE affine map from the variables you placed there to the real activations (activation = c + variables @ M). So a variable must be related to the activations linearly. If the network encodes a quantity through several nonlinear functions of it, the variable should be those functions' values (a few coordinates), not the raw quantity.
-3. Substitution: the site's activation is replaced by the construction's prediction (c + variables @ M) and the rest of the network runs. The decision must survive. Removing the named subspace must destroy the decision, while removing a random subspace of the same size must not; so name few, specific dimensions. Huge variables (for example a one-hot code of every input value) fail this.
-4. Interchange: a variable's part of the activation is copied in from another input's run. The network's new decision must equal what model() returns when that variable is set to its value on the other input. So the causal wiring of model() must mirror the network: a variable placed at an early site must feed the later variables.
-5. Edit: a random half of a variable's coordinates are set to another input's values. The model must still predict the network's decision reasonably often (this needs realistic coefficients in the last step, not just the right decision on ordinary inputs).
-A site is verified when it passes 3-5. The network's sites are grouped into STAGES (the successive steps of its computation). The construction is COMPLETE when it behaves like the network and every stage has a verified site. That is the goal: explain every stage, with variables that are as low-dimensional as you can make them.
+1. Behaviour: does model(x) make the same decision as the network (largest output; sign if there is one output; if the network makes one decision per position, all of them)?
+2. Alignment: at each site in ALIGN the judge fits ONE affine map from the variables you placed there to the real activations (activation = c + variables @ M). So a variable must be related to the activations linearly. If the network encodes a quantity through several nonlinear functions of it (for example a one-hot code, or a few smooth functions of it), the variable should be those functions' values, a few coordinates, not the raw quantity.
+3. Substitution: the site's activation is replaced by the construction's prediction (c + variables @ M) and the rest of the network runs. The decisions must survive. Removing the named subspace from the real activation must destroy them. And the variables must be compact: the judge reports how many principal components of the site suffice to keep the decisions, and you may name at most about twice that many dimensions. Huge variables (a lookup table of the inputs) fail this.
+4. Interchange, for each variable v at each of its sites s: the network is run on an input B, but at site s the part of the activation that encodes v is replaced by what it is on another input A (v is read from the two real activations with a linear probe, and the change (v(A) - v(B)) @ M_v is added at site s); everything after site s is recomputed. The network's new decision must equal what model(B) returns when iv gives v its value from A. So the causal wiring of model() must mirror the network: a variable must feed the later variables the way the activation at its site feeds the later sites. A variable placed at several sites is tested at each site separately.
+   Give each independent part of a site its own variable (one per position, per input, per feature group, whatever the network keeps separate): swapping one part while the others stay is the informative test, and it keeps every part at a value it really takes.
+5. Edit, only for a variable that is alone at its site: a random half of its coordinates are set to their values on another input, and the model must still predict the network's decision reasonably often. This needs realistic coefficients in model(), and it is harsh on a variable that lumps independent parts together: split such a variable into its parts instead.
+A site is verified when it passes 3-5. The network's sites are grouped into STAGES (the successive steps of its computation); a stage is explained when one of its sites is verified. The construction is COMPLETE when it behaves like the network and every stage is explained. That is the goal, reached one stage at a time, with variables that are as low-dimensional as you can make them.
 
 YOUR TOOLS
 - python(code): runs in a persistent session (variables stay between calls). Available: W (dict of weight arrays), X (all inputs the network is used on, [N, n_in]), run(x) -> outputs, acts(x) -> {site: activations [B, width]} (every site, exact: you never need to re-implement the forward pass), SITES, np, scipy, sklearn. Print what you want to see; output is cut at about 8,000 characters, so print summaries, not raw arrays.
@@ -104,7 +105,7 @@ HOW TO WORK
 1. Find out WHAT the network does: run it on its inputs and find the rule relating inputs to outputs.
 2. Find out HOW, stage by stage. Look at the weights themselves for structure (which rows or columns matter, low rank, sparsity, repeated or regular patterns along an index, groups of similar units), and at the activations at each site as functions of the input. Look for a small set of quantities that each site's activations are simple (linear) functions of, and check candidates by regression before you rely on them. Let the numbers decide; do not assume a mechanism because it is familiar.
 3. Write the construction with one or more variables for each stage, computed from the previous stage's variables. Measure the constants with python, write them into the file, submit, read the report, and fix what fails.
-4. If a site fails, investigate why with python (what does the activation depend on that your variables miss? is the variable used by the network at that site at all?) before resubmitting. A variable that is present at a site but not used by what comes after should be given its own name and not fed forward in model().
+4. If a site fails, investigate why with python (what does the activation depend on that your variables miss? is the variable used by the network at that site at all?) before resubmitting. You can reproduce any of the judge's tests yourself with run and acts. A variable that is present at a site but not used by what comes after should be given its own name and not fed forward in model().
 Keep each message short. Do the thinking with code. When the judge reports VERIFIED AND COMPLETE, or you are certain you cannot improve further, reply with a short final summary and no tool call."""
 
 TOOLS = [
@@ -289,7 +290,7 @@ def better(a, b):
 
 
 # ---------------------------------------------------------------- the run
-def construct(target, variant="original", told=False, weights=True, allow_forward=True, effort="high", max_steps=60,
+def construct(target, variant="original", told=False, weights=True, allow_forward=True, effort="high", max_steps=80,
               max_tokens=12000, seed=0, emit=None, cancelled=None, title="", one_shot=False):
     emit = emit or (lambda ev: None)
     cancelled = cancelled or (lambda: False)
@@ -447,7 +448,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("target")
     ap.add_argument("--variant", default="original", choices=["original", "shuffled", "untrained", "permuted"])
-    ap.add_argument("--steps", type=int, default=60)
+    ap.add_argument("--steps", type=int, default=80)
     ap.add_argument("--effort", default="high")
     ap.add_argument("--told", action="store_true", help="tell the reader the task (not blinded)")
     ap.add_argument("--no-weights", action="store_true", help="prior-only control: no weights, no network")

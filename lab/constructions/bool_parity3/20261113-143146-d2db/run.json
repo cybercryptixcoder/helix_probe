@@ -1,0 +1,88 @@
+{
+ "id": "20261113-143146-d2db",
+ "config": {
+  "target": "bool_parity3",
+  "variant": "original",
+  "told": false,
+  "weights": true,
+  "allow_forward": true,
+  "effort": "high",
+  "max_steps": 30,
+  "max_tokens": 12000,
+  "seed": 0,
+  "title": "dev smoke",
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "one_shot": false
+ },
+ "started": 1794598306.3174722,
+ "system": "You are an interpretability researcher. You are given a trained neural network: its weights, its architecture and the set of inputs it is used on. Your job is to work out HOW it computes its outputs and to write that down as a CONSTRUCTION that an automatic judge will test.\n\nWHAT A CONSTRUCTION IS\nA short, standalone Python file that defines:\n\n  DESCRIPTION = \"plain-language account of the mechanism\"\n\n  def model(x, iv):\n      # x: the inputs, a numpy array [B, n_in]. Must return the network's predicted output, an array [B, n_out].\n      # Every named intermediate variable is registered with iv:\n      #     v = iv(\"name\", value)        value is an array [B] or [B, k]; iv returns it in the same shape.\n      # ALWAYS compute later steps from what iv returned, never from a copy made before the iv call:\n      # during intervention tests iv returns a replaced value, and your model must respond to it.\n      ...\n\n  ALIGN = {\"name\": [\"site\", ...], ...}     # for each variable, the activation site(s) of the network where it lives\n\nThe file can use numpy (as np) and math only. It CANNOT see the weights W or run the network: every constant it needs (frequencies, thresholds, coefficients, small tables) must be written into the file as literals, after you have measured them. Limit: 16,000 characters. It is meant to be a compact program that a person can read, not a copy of the network.\n\nA small example of the format, for an unrelated toy network (2 inputs, one hidden layer \"h1\", 1 output) that outputs max(x1, x2):\n\n  DESCRIPTION = \"Outputs max(x1, x2). The hidden layer holds relu(x1 - x2) and x2; the output adds them.\"\n  def model(x, iv):\n      gap = iv(\"gap\", np.maximum(x[:, 0] - x[:, 1], 0))\n      base = iv(\"base\", x[:, 1])\n      return (gap + base)[:, None]\n  ALIGN = {\"gap\": [\"h1\"], \"base\": [\"h1\"]}\n\nHOW THE JUDGE TESTS IT (on inputs held out from fitting)\n1. Behaviour: does model(x) make the same decision as the network (largest output; sign if there is one output; if the network makes one decision per position, all of them)?\n2. Alignment: at each site in ALIGN the judge fits ONE affine map from the variables you placed there to the real activations (activation = c + variables @ M). So a variable must be related to the activations linearly. If the network encodes a quantity through several nonlinear functions of it (for example a one-hot code, or a few smooth functions of it), the variable should be those functions' values, a few coordinates, not the raw quantity.\n3. Substitution: the site's activation is replaced by the construction's prediction (c + variables @ M) and the rest of the network runs. The decisions must survive. Removing the named subspace from the real activation must destroy them. And the variables must be compact: the judge reports how many principal components of the site suffice to keep the decisions, and you may name at most about twice that many dimensions. Huge variables (a lookup table of the inputs) fail this.\n4. Interchange, for each variable v at each of its sites s: the network is run on an input B, but at site s the part of the activation that encodes v is replaced by what it is on another input A (v is read from the two real activations with a linear probe, and the change (v(A) - v(B)) @ M_v is added at site s); everything after site s is recomputed. The network's new decision must equal what model(B) returns when iv gives v its value from A. So the causal wiring of model() must mirror the network: a variable must feed the later variables the way the activation at its site feeds the later sites. A variable placed at several sites is tested at each site separately.\n   Give each independent part of a site its own variable (one per position, per input, per feature group, whatever the network keeps separate): swapping one part while the others stay is the informative test, and it keeps every part at a value it really takes.\n5. Edit, only for a variable that is alone at its site: a random half of its coordinates are set to their values on another input, and the model must still predict the network's decision reasonably often. This needs realistic coefficients in model(), and it is harsh on a variable that lumps independent parts together: split such a variable into its parts instead.\nA site is verified when it passes 3-5. The network's sites are grouped into STAGES (the successive steps of its computation); a stage is explained when one of its sites is verified. The construction is COMPLETE when it behaves like the network and every stage is explained. That is the goal, reached one stage at a time, with variables that are as low-dimensional as you can make them.\n\nYOUR TOOLS\n- python(code): runs in a persistent session (variables stay between calls). Available: W (dict of weight arrays), X (all inputs the network is used on, [N, n_in]), run(x) -> outputs, acts(x) -> {site: activations [B, width]} (every site, exact: you never need to re-implement the forward pass), SITES, np, scipy, sklearn. Print what you want to see; output is cut at about 8,000 characters, so print summaries, not raw arrays.\n- submit(code): sends a construction file to the judge and returns its report. The report is the fastest way to learn what is right: it tells you, site by site and variable by variable, what passes and what fails.\n\nSUBMIT EARLY, THEN IMPROVE STAGE BY STAGE\nDo not try to understand everything before you submit. A construction that explains only one stage is a valid submission, and partial constructions are expected along the way: stages are added one at a time. Make your first submission within your first 6 steps, as soon as you know what the network does and have one candidate variable at one site. After that, submit whenever you have changed something. If you go 6 steps without submitting, you will be required to submit what you have. Explain the easy stages first and leave the hardest stage for last.\n\nHOW TO WORK\n1. Find out WHAT the network does: run it on its inputs and find the rule relating inputs to outputs.\n2. Find out HOW, stage by stage. Look at the weights themselves for structure (which rows or columns matter, low rank, sparsity, repeated or regular patterns along an index, groups of similar units), and at the activations at each site as functions of the input. Look for a small set of quantities that each site's activations are simple (linear) functions of, and check candidates by regression before you rely on them. Let the numbers decide; do not assume a mechanism because it is familiar.\n3. Write the construction with one or more variables for each stage, computed from the previous stage's variables. Measure the constants with python, write them into the file, submit, read the report, and fix what fails.\n4. If a site fails, investigate why with python (what does the activation depend on that your variables miss? is the variable used by the network at that site at all?) before resubmitting. You can reproduce any of the judge's tests yourself with run and acts. A variable that is present at a site but not used by what comes after should be given its own name and not fed forward in model().\nKeep each message short. Do the thinking with code. When the judge reports VERIFIED AND COMPLETE, or you are certain you cannot improve further, reply with a short final summary and no tool call.",
+ "task": "THE NETWORK\nA multilayer perceptron with 3 inputs, one hidden layer of 3 ReLU units, and 1 output:\n  h = relu(x @ W1 + b1)    W1: 3 x 3\n  out = h @ W2 + b2        W2: 3 x 1\n\nWeight tensors in W: W1 (3, 3); b1 (3,); W2 (3, 1); b2 (1,)\n(16 parameters.)\n\nACTIVATION SITES (name, width, what it is) by stage:\n  stage: hidden layer 1\n    h1  [3]  hidden layer 1, after the activation\n  stage: output  (not a site you can align to; model() returns it)\n    out  [1]  the network's output\n\nTHE INPUTS\nThe network is used on every input of 3 values that are each 0 or 1 (8 inputs).\n\nYou are not told what the network does or what its inputs and outputs mean. Find out.\n\nBegin.",
+ "steps": [
+  {
+   "step": 0,
+   "content": "I'll start by examining the weights and the network's behavior.",
+   "thinking": "",
+   "finish": "tool_calls",
+   "context_tokens": 2284,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nimport numpy as np\nprint(\"W1\", W[\"W1\"])\nprint(\"b1\", W[\"b1\"])\nprint(\"W2\", W[\"W2\"].ravel())\nprint(\"b2\", W[\"b2\"])\nprint(\"X\", X.shape)\nprint(X)\nprint(\"out\", run(X).ravel())\n",
+     "ok": true,
+     "output": "W1 [[1. 1. 1.]\n [1. 1. 1.]\n [1. 1. 1.]]\nb1 [ 0. -1. -2.]\nW2 [ 1. -2.  2.]\nb2 [-0.5]\nX (8, 3)\n[[0 0 0]\n [0 0 1]\n [0 1 0]\n [0 1 1]\n [1 0 0]\n [1 0 1]\n [1 1 0]\n [1 1 1]]\nout [-0.5  0.5  0.5 -0.5  0.5 -0.5 -0.5  0.5]\n",
+     "seconds": 0.01
+    }
+   ]
+  },
+  {
+   "step": 1,
+   "content": "The network computes h = relu(s), relu(s-1), relu(s-2) where s = x.sum(); out = h0 - 2h1 + 2h2 - 0.5, i.e. parity (+0.5 if sum odd).",
+   "thinking": "The network: h1 = relu(sum(x) - 0), relu(sum(x)-1), relu(sum(x)-2). s = number of ones. out = relu(s) - 2 relu(s-1) + 2 relu(s-2) - 0.5.\n\nFor s=0: 0 -0 +0 -0.5 = -0.5\ns=1: 1 - 0 + 0 - 0.5 = 0.5\ns=2: 2 - 2 + 0 - 0.5 = -0.5\ns=3: 3 - 4 + 2 - 0.5 = 0.5\n\nSo it's a parity function: out = +0.5 if s odd, -0.5 if s even.\n\nNow, construction: variable at h1 is the three relu terms. Site h1 has width 3, aligned to [(s)_+, (s-1)_+, (s-2)_+]. Those are three independent-ish nonlinear functions of s. Since s takes values 0..3, better: the three relu coordinates as variables themselves \u2014 they are linear in the activation (identity). That's fine: variables = the 3 coordinates of h1.\n\nBut instruction: \"If the network encodes a quantity through several nonlinear functions of it... the variable should be those functions' values, a few coordinates, not the raw quantity.\" So define three variables u0 = relu(x.sum()), u1 = relu(x.sum()-1), u2 = relu(x.sum()-2). Each is a single coordinate, aligned to h1.\n\nThen out = u0 - 2u1 + 2u2 - 0.5.\n\nInterchange test: swapping one variable at h1 \u2014 model must respond correctly. Each variable is its own coordinate, fine.\n\nLet me write the construction. Compute s from x.\n\nNote: model must compute from previous variables using iv returns.\n\nLet me write:\n\ndef model(x, iv):\n    s = x.sum(axis=1)\n    u0 = iv(\"u0\", np.maximum(s, 0))\n    u1 = iv(\"u1\", np.maximum(s-1, 0))\n    u2 = iv(\"u2\", np.maximum(s-2, 0))\n    out = u0 - 2*u1 + 2*u2 - 0.5\n    return out[:, None]\n\nBut careful: the iv replacement changes s effectively? Not needed \u2014 each variable is computed independently from x. Interchange test at site h1: replaces part of the activation encoding u1 with u1 from A, then everything after recomputed. Our model with iv u1 from A: out = u0(B) - 2 u1(A) + 2 u2(B) - 0.5. That matches network. Good.\n\nEdit test: each variable is alone at its site? All three at same site h1. Hmm \u2014 \"Edit, only for a variable that is alone at its site\". Since three variables at one site, edit test may not be applied. Fine.\n\nActually could also make a single variable? No \u2014 separate per coordinate is better.\n\nLet me submit.",
+   "finish": "tool_calls",
+   "context_tokens": 2573,
+   "tools": [
+    {
+     "tool": "submit",
+     "n": 1,
+     "code": "\nDESCRIPTION = (\"The three hidden ReLU units are all driven by the same scalar s = x0+x1+x2, with biases 0,-1,-2: \"\n               \"h1 = [relu(s), relu(s-1), relu(s-2)]. These three shifted/thresholded copies of s are the site's \"\n               \"three coordinates. The output weights (1,-2,2) with bias -0.5 make out = relu(s) - 2relu(s-1) \"\n               \"+ 2relu(s-2) - 0.5, which equals +0.5 when s is odd and -0.5 when s is even (parity of the input).\")\nimport numpy as np\n\ndef model(x, iv):\n    s = x[:, 0] + x[:, 1] + x[:, 2]\n    u0 = iv(\"u0\", np.maximum(s, 0.0))\n    u1 = iv(\"u1\", np.maximum(s - 1.0, 0.0))\n    u2 = iv(\"u2\", np.maximum(s - 2.0, 0.0))\n    out = u0 - 2.0 * u1 + 2.0 * u2 - 0.5\n    return out[:, None]\n\nALIGN = {\"u0\": [\"h1\"], \"u1\": [\"h1\"], \"u2\": [\"h1\"]}\n",
+     "output": "JUDGE REPORT   (8 held-out inputs; construction 777 chars)\n1. BEHAVIOUR  construction vs network output: same decision on 100.0% of inputs (a constant output would get 50.0%); output R2 1.000\n2-3. SITES   explained = share of the activation's variance the variables explain;  substitute = network decision kept when the activation is replaced by the construction's prediction;  keep = when only the named subspace of the real activation is kept;  remove = when the named subspace is removed (should be LOW) vs a random subspace of equal size;  mean-ablate = when the whole site is replaced by its mean\n  h1          (3 dims named of 3; 3 principal components suffice; u0, u1, u2): explained 1.000 | substitute 100.0% | keep 100.0% | remove 25.0% (random n/a) | mean-ablate 50.0%\n4. INTERVENTIONS   interchange = one variable is copied from another input's run. edit (only for a variable that is alone at its site) = a random half of its coordinates are set to another input's values. right = the construction predicted the network's new decision (all cases / cases where the decision changed).  controls: the same swap in a random subspace; guessing 'no change'; guessing the source input's output\n  interchange u0 @ h1: right 100.0% / 100.0% when changed (network changed in 31.4%); output R2 1.000 | controls: random subspace 84.5%, no-change 68.6%, source-output 62.4%\n  interchange u1 @ h1: right 100.0% / 100.0% when changed (network changed in 38.2%); output R2 1.000 | controls: random subspace 30.3%, no-change 61.8%, source-output 68.0%\n  interchange u2 @ h1: right 100.0% / 100.0% when changed (network changed in 18.6%); output R2 1.000 | controls: random subspace 76.8%, no-change 81.3%, source-output 58.8%\nSTAGES   hidden layer 1: VERIFIED at h1\nVERDICT: VERIFIED AND COMPLETE: every stage of the network has a verified site."
+    }
+   ]
+  }
+ ],
+ "submissions": [
+  {
+   "n": 1,
+   "step": 1,
+   "file": "submission_01.py",
+   "verdict": {
+    "verified": true,
+    "fails": [],
+    "stages_total": 1,
+    "stages_verified": 1,
+    "complete": true,
+    "score": 1.0
+   },
+   "report_text": "JUDGE REPORT   (8 held-out inputs; construction 777 chars)\n1. BEHAVIOUR  construction vs network output: same decision on 100.0% of inputs (a constant output would get 50.0%); output R2 1.000\n2-3. SITES   explained = share of the activation's variance the variables explain;  substitute = network decision kept when the activation is replaced by the construction's prediction;  keep = when only the named subspace of the real activation is kept;  remove = when the named subspace is removed (should be LOW) vs a random subspace of equal size;  mean-ablate = when the whole site is replaced by its mean\n  h1          (3 dims named of 3; 3 principal components suffice; u0, u1, u2): explained 1.000 | substitute 100.0% | keep 100.0% | remove 25.0% (random n/a) | mean-ablate 50.0%\n4. INTERVENTIONS   interchange = one variable is copied from another input's run. edit (only for a variable that is alone at its site) = a random half of its coordinates are set to another input's values. right = the construction predicted the network's new decision (all cases / cases where the decision changed).  controls: the same swap in a random subspace; guessing 'no change'; guessing the source input's output\n  interchange u0 @ h1: right 100.0% / 100.0% when changed (network changed in 31.4%); output R2 1.000 | controls: random subspace 84.5%, no-change 68.6%, source-output 62.4%\n  interchange u1 @ h1: right 100.0% / 100.0% when changed (network changed in 38.2%); output R2 1.000 | controls: random subspace 30.3%, no-change 61.8%, source-output 68.0%\n  interchange u2 @ h1: right 100.0% / 100.0% when changed (network changed in 18.6%); output R2 1.000 | controls: random subspace 76.8%, no-change 81.3%, source-output 58.8%\nSTAGES   hidden layer 1: VERIFIED at h1\nVERDICT: VERIFIED AND COMPLETE: every stage of the network has a verified site."
+  }
+ ],
+ "compactions": [],
+ "usage": {
+  "prompt_tokens": 4857,
+  "completion_tokens": 1208,
+  "calls": 2
+ },
+ "cost": 0.0023559959999999995,
+ "status": "done",
+ "best": 1,
+ "final_message": "The network computes parity of the 3 binary inputs.\n\nAll three hidden units share the same prefactor row (W1 is all ones), so each is a shifted copy of the scalar sum s = x\u2080+x\u2081+x\u2082:\n- h1 = [relu(s), relu(s\u22121), relu(s\u22122)] with biases 0, \u22121, \u22122.\n\nThe output combines them with weights (1, \u22122, 2) and bias \u22120.5:\nout = relu(s) \u2212 2\u00b7relu(s\u22121) + 2\u00b7relu(s\u22122) \u2212 0.5.\n\nFor integer s \u2208 {0,1,2,3} this double-difference yields +0.5 when s is odd and \u22120.5 when s is even \u2014 i.e. the sign of the output is the parity of the input. The construction reproduces the three hidden activations as named variables (verified at site h1) and applies this output map, matching the network exactly.",
+ "seconds": 14.0,
+ "verdict": {
+  "verified": true,
+  "fails": [],
+  "stages_total": 1,
+  "stages_verified": 1,
+  "complete": true,
+  "score": 1.0
+ }
+}

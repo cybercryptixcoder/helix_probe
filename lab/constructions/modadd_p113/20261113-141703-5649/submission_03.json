@@ -1,0 +1,138 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 1775,
+ "variables": {
+  "pat": {
+   "dim": 12,
+   "sites": [
+    "attn_pattern"
+   ]
+  },
+  "emb2": {
+   "dim": 128,
+   "sites": []
+  }
+ },
+ "unaligned_variables": [
+  "emb2"
+ ],
+ "constant_sites_ignored": [
+  "embed.2"
+ ],
+ "behaviour": {
+  "match": 0.9657008613938919,
+  "r2": -7.1770053036327806,
+  "kl": 0.017712067709834984,
+  "baseline_constant_match": 0.9657008613938919
+ },
+ "sites": {
+  "attn_pattern": {
+   "width": 12,
+   "variables": [
+    "pat"
+   ],
+   "named_dims": 12,
+   "named_rank": 1,
+   "explained": -1.9984014443252818e-15,
+   "substitute_match": 0.9995301487862177,
+   "substitute_kl": 5.228027239313649e-08,
+   "substitute_r2": 0.9999738448658486,
+   "mean_ablate_match": 0.9995301487862177,
+   "recovered": 0.0,
+   "keep_named_match": 0.9993735317149569,
+   "remove_named_match": 1.0,
+   "remove_random_match": 1.0,
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "pat",
+   "site": "attn_pattern",
+   "mode": "interchange",
+   "dim": 12,
+   "agreement": 0.9615,
+   "r2": -7.229042077198201,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.923,
+   "control_random_subspace": 0.9615,
+   "pass": true
+  },
+  {
+   "variable": "pat",
+   "site": "attn_pattern",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.9615,
+   "r2": -7.229042077198201,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.923,
+   "control_random_subspace": 0.962,
+   "pass": true
+  }
+ ],
+ "uncovered_sites": [
+  "embed.0",
+  "embed.1",
+  "attn_out",
+  "resid_mid",
+  "mlp_pre",
+  "mlp_post",
+  "mlp_out",
+  "resid_post"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [
+    "attn_pattern"
+   ],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "attn_pattern has almost no effect on the output (replacing the whole site by its mean changes 0.0% of decisions), so nothing can be verified here; use another site of this stage"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 3.5
+}

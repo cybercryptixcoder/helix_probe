@@ -1,0 +1,10 @@
+JUDGE REPORT   (8 held-out inputs; construction 777 chars)
+1. BEHAVIOUR  construction vs network output: same decision on 100.0% of inputs (a constant output would get 50.0%); output R2 1.000
+2-3. SITES   explained = share of the activation's variance the variables explain;  substitute = network decision kept when the activation is replaced by the construction's prediction;  keep = when only the named subspace of the real activation is kept;  remove = when the named subspace is removed (should be LOW) vs a random subspace of equal size;  mean-ablate = when the whole site is replaced by its mean
+  h1          (3 dims named of 3; 3 principal components suffice; u0, u1, u2): explained 1.000 | substitute 100.0% | keep 100.0% | remove 25.0% (random n/a) | mean-ablate 50.0%
+4. INTERVENTIONS   interchange = one variable is copied from another input's run. edit (only for a variable that is alone at its site) = a random half of its coordinates are set to another input's values. right = the construction predicted the network's new decision (all cases / cases where the decision changed).  controls: the same swap in a random subspace; guessing 'no change'; guessing the source input's output
+  interchange u0 @ h1: right 100.0% / 100.0% when changed (network changed in 31.4%); output R2 1.000 | controls: random subspace 84.5%, no-change 68.6%, source-output 62.4%
+  interchange u1 @ h1: right 100.0% / 100.0% when changed (network changed in 38.2%); output R2 1.000 | controls: random subspace 30.3%, no-change 61.8%, source-output 68.0%
+  interchange u2 @ h1: right 100.0% / 100.0% when changed (network changed in 18.6%); output R2 1.000 | controls: random subspace 76.8%, no-change 81.3%, source-output 58.8%
+STAGES   hidden layer 1: VERIFIED at h1
+VERDICT: VERIFIED AND COMPLETE: every stage of the network has a verified site.

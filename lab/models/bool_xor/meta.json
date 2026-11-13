@@ -35,6 +35,23 @@
   }
  ],
  "input": "2 bits, e.g. [[0, 1]]",
+ "domain": {
+  "axes": [
+   {
+    "values": [
+     0,
+     1
+    ]
+   },
+   {
+    "values": [
+     0,
+     1
+    ]
+   }
+  ],
+  "text": "The network is used on every input of 2 values that are each 0 or 1 (4 inputs)."
+ },
  "id": "bool_xor",
  "tensors": [
   {
@@ -68,22 +85,5 @@
    "desc": ""
   }
  ],
- "params": 9,
- "domain": {
-  "axes": [
-   {
-    "values": [
-     0,
-     1
-    ]
-   },
-   {
-    "values": [
-     0,
-     1
-    ]
-   }
-  ],
-  "text": "The network is used on every input of 2 values that are each 0 or 1 (4 inputs)."
- }
+ "params": 9
 }
