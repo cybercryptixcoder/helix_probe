@@ -44,3 +44,4 @@ goodfire-com-research-covariance-pooling | Covariance-based Sequence Pooling (se
 goodfire-com-research-reward-hacking-activation-monitors | Models Know When They're Reward Hacking — and We Can Catch Them at Scale | Goodfire | 2026-09 | 3
 arxiv-2605.12412 | Stories in Space: In-Context Learning Trajectories in Conceptual Belief Space (Meandering on Manifolds) | Goodfire / Stanford | 2026-05 | 3
 goodfire-com-research-bsf-vision | Uncovering Neural Geometry in Vision Models With Block-Sparse Featurizers | Goodfire / Harvard / Stanford / Brown | 2026-07 | 3
+goodfire-com-research-under-the-hood-of-a-reasoning-model | Under the Hood of a Reasoning Model: first public SAEs on DeepSeek-R1 (671B) | Goodfire | 2025-04 | 2
