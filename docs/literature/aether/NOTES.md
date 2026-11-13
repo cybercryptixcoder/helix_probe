@@ -4,7 +4,7 @@
 
 ## Status
 
-- Entries written: 13 (INDEX.md is authoritative)
+- Entries written: 14 (INDEX.md is authoritative)
 - Last commit: literature (aether): 7 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
@@ -20,7 +20,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] A Global Workspace in Language Models | https://www.anthropic.com/research/global-workspace | J-space / J-lens, broadcast channel
 - [x] HeadVis | https://transformer-circuits.pub/2026/headvis/index.html | head inspection tool; attention decomposition agenda
 - [x] Slot Machines: multiple entities | https://arxiv.org/abs/2604.21139 | current/prior entity slots; decodable-but-unused
-- [ ] Latent Planning Emerges with Scale | https://arxiv.org/abs/2604.12493 | latent plan readout
+- [x] Latent Planning Emerges with Scale | https://arxiv.org/abs/2604.12493 | planning = causally causes distant token AND its licence
 - [ ] Reading Between the Dots: decoding across filler tokens | https://arxiv.org/abs/2607.03502 | hidden computation
 - [ ] A Shared Subcircuit Lets LLMs Count Down | https://arxiv.org/abs/2607.12279 | circuit
 - [ ] Evaluating and Improving LLM Self-Modeling | https://arxiv.org/abs/2608.30980 | self-knowledge
@@ -203,6 +203,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - anthropic-com-research-global-workspace | A Global Workspace in Language Models (J-space) (Anthropic)
 - transformer-circuits-pub-2026-headvis-index-html | HeadVis (Anthropic / tcpub)
 - arxiv-2604.21139 | Slot Machines: multiple entities (Anthropic Fellows)
+- arxiv-2604.12493 | Latent Planning Emerges with Scale (Anthropic Fellows / UvA)
 
 ## Patterns noticed
 
@@ -239,6 +240,10 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **Decodable but unused** is a real and common phenomenon: a probe reads prior-entity traits on later tokens, but patching those tokens changes nothing. Use probe + patch together, always. (arxiv-2604.21139)
 - Several representations of the *same* information at different token roles ("slots") are orthogonal; multi-slot MoE probes are the tool to find them. (arxiv-2604.21139)
 - Synthetic multi-step relational tasks with prefill + single next token are the standard causal-test harness in Anthropic papers (patching, steering, dual binding). (arxiv-2604.21139, arxiv-2606.17056)
+- **Planning needs a two-condition test** (causes the distant output AND causes the licence for it) — decodability of a future token is not planning. (arxiv-2604.12493)
+- Ablate-on-success / boost-on-failure with random-feature controls is the standard causal check for "this feature is the mechanism" in feature-circuit papers. (arxiv-2604.12493)
+- Planning is piecemeal: whether a model plans depends on task frequency and loss weight, not on a single global planning module. (arxiv-2604.12493)
+- Negative result pattern: having the representation does not entail context adaptation (couplets) — same gap as decodable-but-unused in SLOT. (arxiv-2604.12493, arxiv-2604.21139)
 
 ## Could not read
 

@@ -13,3 +13,4 @@ arxiv-2512.01222 | Unsupervised Decoding of Encoded Reasoning Using LM Interpret
 anthropic-com-research-global-workspace | A Global Workspace in Language Models (J-space) | Anthropic | 2026-07 | 3
 transformer-circuits-pub-2026-headvis-index-html | HeadVis: An Interactive Tool for Investigating Attention Heads | Anthropic | 2026-05 | 3
 arxiv-2604.21139 | Slot Machines: How LLMs Keep Track of Multiple Entities | Anthropic Fellows | 2026-04 | 3
+arxiv-2604.12493 | Latent Planning Emerges with Scale | Anthropic Fellows / UvA | 2026-04 | 3
