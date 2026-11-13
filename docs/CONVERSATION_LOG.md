@@ -114,3 +114,4 @@ Tags: **[decided]** · **[open]** · **[idea]** · **[finding]** · **[correctio
   - simplicity as guidance.
 
   The prompt is kept privately because it contains the key.
+- [decided] Lab UI restyled (Nov 13): soft cards instead of heavy borders, a calmer cool palette, the same fonts; format, units, run settings and templates folded into menus.
