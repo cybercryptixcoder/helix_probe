@@ -4,8 +4,8 @@
 
 ## Status
 
-- Entries written: 23 (INDEX.md is authoritative)
-- Last commit: literature (aether): 22 entries
+- Entries written: 24 (INDEX.md is authoritative)
+- Last commit: literature (aether): 23 entries
 - Current source: `SEED_QUEUE.md` long tail, priority block first. Core already covers the three field surveys,
   the main transformer-circuits posts and the main Goodfire posts, so Aether takes the rest.
 - Note 2026-11-12: the Priority block is now fully ticked; from here the loop works down the raw seed queue.
@@ -31,7 +31,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - [x] Believe It or Not: implanted facts | https://alignment.anthropic.com/2025/believe-it-or-not/ | DONE (belief depth = generality + robustness + representation; SDF > prompting/AlphaEdit; plausibility confound)
 - [ ] Do Reasoning Models Use Their Scratchpad Like We Do | 2025-03 | 
 - [ ] Reasoning Models Don't Always Say What They Think | 2025-04 | CoT faithfulness
-- [ ] Reasoning Theater: Performative CoT (Goodfire) | 2026-03 | 
+- [x] Reasoning Theater: Performative CoT (Goodfire) | 2026-03 | DONE (attention-pooled probe 88% vs 32% single-token; performativity = monitor-minus-probe gap; forced-answer control; 67.7% tokens saved @95% conf)
 - [x] Fine-Tuned Lie Detectors Failed to Generalize | https://alignment.anthropic.com/2026/lie-detectors/ | DONE (in-dist AUROC 0.60→0.95, cross-category plateaus 0.70-0.75; third-person > first-person)
 - [ ] Liars' Bench | https://arxiv.org/abs/2511.16035 | benchmark
 - [ ] Evaluating Honesty and Lie Detection Techniques | 2025-11 | 
@@ -191,6 +191,7 @@ Working rule: take the top unchecked item, skip anything whose key already exist
   (4) other labs, (5) topic searches.
 
 ## Done
+- goodfire-com-research-reasoning-theater | Reasoning Theater: performative CoT = gap between CoT monitor and probe/forced-answer state (Goodfire / Harvard)
 - alignment-anthropic-com-2025-believe-it-or-not | Believe It or Not: belief depth = generality + robustness + representation (Anthropic Fellows)
 - anthropic-com-research-introspection | Signs of Introspection in LLMs (concept injection; Anthropic)
 - arxiv-2605.25459 | From Simulation to Enaction: Post-trained LMs Recognize their Own Generations (IAS Princeton / Anthropic)
@@ -283,6 +284,10 @@ Working rule: take the top unchecked item, skip anything whose key already exist
 - **Calibration, not just AUROC, is the licence to treat a probe readout as a quantity**: a probe whose score of 0.xy means an xy% chance of the positive class can be optimised against directly, whereas a high-AUROC-but-uncalibrated probe can only rank. Check calibration under the deployment distribution (streaming, on-policy activations, probe-produced spans) at a threshold fixed in advance, and expect the deployed precision/recall to sit well below the held-out AUC number. (arxiv-2602.10067, arxiv-2604.14865)
 - **Decompose an end-to-end improvement into weights vs context**: 58% fewer hallucinations split into 10% policy change, 35% inlined in-context corrections, 13% direct resolution — the headline number overstated what training the weights actually bought, and the no-inline ablation plus an *untrained* base model with the same intervention harness is what exposed it. Any "our intervention improved behaviour" claim needs the same untrained-pipeline null. (arxiv-2602.10067, arxiv-2510.20487)
 - **Reward/monitor probes survive fine-tuning on the same base**: a frozen probe trained on the frozen model's activations kept its ordering when run on the RL'd policy's activations, so no second parameter copy is needed at serving time. Useful as evidence that representations are stable under post-training — but it is the *opposite* sign of the eval-awareness vector being silently re-written by post-training, so re-test transfer per pipeline rather than assuming either direction. (arxiv-2602.10067, arxiv-2606.17056)
+- **Pooling across positions is again the decisive design choice**: an attention/context-pooling probe reaches ~88% on 4-way MMLU while single-token linear probes sit near the 25% chance line (~32%), so "how do I aggregate tokens" matters more than the classifier head. Same lesson as top-K segment pooling for harmful-intent probes. (goodfire-com-research-reasoning-theater, arxiv-2604.14865)
+- **Define the target quantity as a *difference between two readouts*, not an accuracy**: performativity = (CoT-monitor accuracy) − (probe/forced-answer accuracy) at the same position makes the claim robust to both estimators being weak on hard items, and gives a sign convention for "internals commit before the text does". Reusable shape for any "does the surface report track the internal variable" question. (goodfire-com-research-reasoning-theater, arxiv-2605.25459)
+- **Forced-choice as the temporal validator**: to test a probe's claim that the model "already knows" at position t, cut the generation there and require an immediate answer — an independent, non-probe check on a trajectory readout, analogous to ablation tests for static probes. (goodfire-com-research-reasoning-theater)
+- **Difficulty is a confound for faithfulness claims**: the same model looks performative on recall items and genuine on hard multi-step items, so any CoT-faithfulness result needs task difficulty held fixed before the frame "this model reasons vs performs" is licenced. (goodfire-com-research-reasoning-theater)
 
 ## Could not read
 

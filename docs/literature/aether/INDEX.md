@@ -24,3 +24,4 @@ arxiv-2604.14865 | Segment-Level Coherence for Robust Harmful Intent Probing in 
 arxiv-2510.20487 | Steering Evaluation-Aware Language Models to Act Like They Are Deployed | MATS | 2026-03 | 2
 alignment-anthropic-com-2026-lie-detectors | Fine-Tuned Lie Detectors Failed to Generalize | MATS / Anthropic Fellows / Anthropic | 2026-08 | 2
 arxiv-2602.10067 | Features as Rewards: Scalable Supervision for Open-Ended Tasks via Interpretability | Goodfire | 2026-02 | 3
+goodfire-com-research-reasoning-theater | Reasoning Theater: Probing for Performative Chain-of-Thought | Goodfire / Harvard | 2026-03 | 3
