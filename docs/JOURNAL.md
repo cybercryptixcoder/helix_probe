@@ -1070,3 +1070,13 @@ All 34 reader jobs finished: 193 entries in `docs/literature/core/`, plus an ind
 - some scout dates or links were corrected.
 
 The method is in `docs/literature/survey_method/`. Next: SYNTHESIS.md.
+
+## 2026-11-12 (late): survey synthesis
+
+`docs/literature/SYNTHESIS.md` is written from the 34 reader notes and checked against the entries. Main points:
+- **The goal is the field's own goal.** A predictive white box is what the field already means by understanding: predict behaviour under intervention.
+- **The gap.** Nobody derives an executable model from a trained network's weights and scores it with the field's intervention tests against black-box and weight-statistic baselines beyond toys. CHIVE and the causal-abstraction work leave weight-derived hypotheses untested.
+- **Biggest risks:**
+  - Anthropic's interference-weights result (a 1-layer model is not sparse in a transcoder basis);
+  - white-box tools giving little uplift over black-box baselines.
+- **Evaluation adopted:** intervention-outcome / IIA, substitution (damage restored), mechanism agreement, and the baseline set in §5.
