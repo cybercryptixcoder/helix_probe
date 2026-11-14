@@ -1,0 +1,340 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 1325,
+ "variables": {
+  "fourier_i": {
+   "dim": 10,
+   "sites": [
+    "embed.0",
+    "resid_mid"
+   ]
+  },
+  "fourier_j": {
+   "dim": 10,
+   "sites": [
+    "embed.1",
+    "resid_mid"
+   ]
+  },
+  "cos_sum": {
+   "dim": 5,
+   "sites": []
+  },
+  "sin_sum": {
+   "dim": 5,
+   "sites": []
+  },
+  "logits": {
+   "dim": 113,
+   "sites": []
+  }
+ },
+ "unaligned_variables": [
+  "cos_sum",
+  "sin_sum",
+  "logits"
+ ],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": 0.3350198110887487,
+  "kl": 0.00119753681616242,
+  "baseline_constant_match": 0.010649960845732186
+ },
+ "sites": {
+  "embed.0": {
+   "width": 128,
+   "variables": [
+    "fourier_i"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.944078052746613,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0001461586264020938,
+   "substitute_r2": 0.9932120795848141,
+   "mean_ablate_match": 0.008927173061863743,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.007204385277995302,
+   "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "embed.1": {
+   "width": 128,
+   "variables": [
+    "fourier_j"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.9442244053916218,
+   "substitute_match": 1.0,
+   "substitute_kl": 7.713922122317633e-05,
+   "substitute_r2": 0.9930833694428212,
+   "mean_ablate_match": 0.00845732184808144,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.007517619420516836,
+   "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "resid_mid": {
+   "width": 128,
+   "variables": [
+    "fourier_i",
+    "fourier_j"
+   ],
+   "named_dims": 20,
+   "named_rank": 20,
+   "pca_sufficient_rank": 10,
+   "activation_rank": 128,
+   "explained": 0.9191945031809775,
+   "substitute_match": 0.8371182458888019,
+   "substitute_kl": 0.5276087142930378,
+   "substitute_r2": 0.7249426785891914,
+   "mean_ablate_match": 0.008770555990602976,
+   "recovered": 0.8356770421867594,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.00798747063429914,
+   "remove_random_match": 0.9992691203341164,
+   "used_rank": 20,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "fourier_i",
+   "variables": [
+    "fourier_i"
+   ],
+   "site": "embed.0",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 1.0,
+   "r2": 0.31184589059127943,
+   "network_changed": 0.993,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.007,
+   "baseline_source_output": 0.009,
+   "control_random_subspace": 0.007,
+   "attribution_patching": 0.361,
+   "attribution_patching_when_changed": 0.3564954682779456,
+   "pass": true
+  },
+  {
+   "variable": "fourier_i",
+   "variables": [
+    "fourier_i"
+   ],
+   "site": "embed.0",
+   "mode": "edit",
+   "dim": 10,
+   "agreement": 0.5155,
+   "r2": 0.27458695227312946,
+   "network_changed": 0.804,
+   "agreement_when_changed": 0.457089552238806,
+   "baseline_no_change": 0.196,
+   "baseline_source_output": 0.01,
+   "control_random_subspace": 0.2215,
+   "attribution_patching": 0.4325,
+   "attribution_patching_when_changed": 0.31654228855721395,
+   "pass": false
+  },
+  {
+   "variable": "fourier_j",
+   "variables": [
+    "fourier_j"
+   ],
+   "site": "embed.1",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 1.0,
+   "r2": 0.31265683465965566,
+   "network_changed": 0.991,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.009,
+   "baseline_source_output": 0.007,
+   "control_random_subspace": 0.009,
+   "attribution_patching": 0.327,
+   "attribution_patching_when_changed": 0.32088799192734613,
+   "pass": true
+  },
+  {
+   "variable": "fourier_j",
+   "variables": [
+    "fourier_j"
+   ],
+   "site": "embed.1",
+   "mode": "edit",
+   "dim": 10,
+   "agreement": 0.517,
+   "r2": 0.275447226108016,
+   "network_changed": 0.818,
+   "agreement_when_changed": 0.46454767726161367,
+   "baseline_no_change": 0.182,
+   "baseline_source_output": 0.0075,
+   "control_random_subspace": 0.1975,
+   "attribution_patching": 0.4,
+   "attribution_patching_when_changed": 0.28422982885085574,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "fourier_i",
+    "fourier_j"
+   ],
+   "site": "resid_mid",
+   "mode": "interchange",
+   "dim": 20,
+   "agreement": 0.494,
+   "r2": -0.38747527932452264,
+   "network_changed": 0.946,
+   "agreement_when_changed": 0.5095137420718816,
+   "baseline_no_change": 0.054,
+   "baseline_source_output": 0.494,
+   "control_random_subspace": 0.0125,
+   "attribution_patching": 0.0565,
+   "attribution_patching_when_changed": 0.04704016913319239,
+   "pass": false
+  },
+  {
+   "variable": "fourier_i",
+   "variables": [
+    "fourier_i"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 10,
+   "agreement": 0.0335,
+   "r2": -1.7944201238690187,
+   "network_changed": 0.7155,
+   "agreement_when_changed": 0.04053109713487072,
+   "baseline_no_change": 0.2845,
+   "baseline_source_output": 0.0185,
+   "control_random_subspace": 0.007,
+   "attribution_patching": 0.4485,
+   "attribution_patching_when_changed": 0.33962264150943394,
+   "pass": false
+  },
+  {
+   "variable": "fourier_j",
+   "variables": [
+    "fourier_j"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 10,
+   "agreement": 0.037,
+   "r2": -1.8135944280053407,
+   "network_changed": 0.717,
+   "agreement_when_changed": 0.044630404463040445,
+   "baseline_no_change": 0.283,
+   "baseline_source_output": 0.019,
+   "control_random_subspace": 0.009,
+   "attribution_patching": 0.4375,
+   "attribution_patching_when_changed": 0.33403068340306835,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "fourier_i",
+    "fourier_j"
+   ],
+   "site": "resid_mid",
+   "mode": "edit",
+   "dim": 20,
+   "agreement": 0.207,
+   "r2": -0.23470767684964167,
+   "network_changed": 0.835,
+   "agreement_when_changed": 0.19880239520958085,
+   "baseline_no_change": 0.165,
+   "baseline_source_output": 0.029,
+   "control_random_subspace": 0.0565,
+   "attribution_patching": 0.247,
+   "attribution_patching_when_changed": 0.17485029940119762,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [
+  "attn_pattern",
+  "attn_out",
+  "mlp_pre",
+  "mlp_post",
+  "mlp_out",
+  "resid_post"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [
+    "embed.0",
+    "embed.1"
+   ],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [
+    "resid_mid"
+   ],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "edit of fourier_i at embed.0: prediction right in 45.7% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "edit of fourier_j at embed.1: prediction right in 46.5% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "substitution at resid_mid: 83.7% (need 90%)",
+   "interchange of all variables at resid_mid: prediction right in 51.0% of the cases where the network's output changed (need 90%)",
+   "partial of fourier_i at resid_mid: prediction right in 4.1% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of fourier_j at resid_mid: prediction right in 4.5% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "edit of all variables at resid_mid: prediction right in 19.9% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "(at resid_mid it is enough that EITHER every partial test OR the edit of all variables passes)"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 37.61
+}

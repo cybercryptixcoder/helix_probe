@@ -1,0 +1,32 @@
+JUDGE REPORT   (6385 held-out inputs; construction 1,471 chars)
+1. BEHAVIOUR  construction vs network output: same decision on 100.0% of inputs (a constant output would get 1.1%); output R2 -0.180; KL 0.003
+2-3. SITES   explained = share of the activation's variance the variables explain;  substitute = network decision kept when the activation is replaced by the construction's prediction;  keep = when only the named subspace of the real activation is kept;  remove = when the named subspace is removed (should be LOW) vs a random subspace of equal size;  mean-ablate = when the whole site is replaced by its mean
+  embed.0     (112 dims named of 128; 7 principal components suffice; a_ff): explained 1.000 | substitute 100.0% | keep 100.0% | remove 0.9% (random 5.5%) | mean-ablate 0.9%
+  embed.1     (112 dims named of 128; 7 principal components suffice; b_ff): explained 1.000 | substitute 100.0% | keep 100.0% | remove 0.8% (random 6.7%) | mean-ablate 0.8%
+  attn_pattern (0 dims named of 12; 2 principal components suffice; pat): explained 0.000 | substitute 77.5% | keep 77.5% | remove 100.0% (random n/a) | mean-ablate 77.5%
+  mlp_post    (112 dims named of 512; 17 principal components suffice; s_ff): explained 0.136 | substitute 100.0% | keep 100.0% | remove 1.6% (random 100.0%) | mean-ablate 1.7%
+  mlp_out     (112 dims named of 128; 7 principal components suffice; s_ff): explained 0.899 | substitute 100.0% | keep 100.0% | remove 1.7% (random 7.7%) | mean-ablate 1.7%
+4. INTERVENTIONS   interchange = everything named at the site is copied from another input's run (need 90%). Then tests that make states no input produces (need 50% of the cases where the decision changed): partial = one variable is copied while the site's other variables stay; edit = a random half of the coordinates of everything named at the site are copied. Where both are run, it is enough that all partial tests pass OR the edit passes. right = the construction predicted the network's new decision (all cases / cases where the decision changed).  controls: the same swap in a random subspace; guessing 'no change'; guessing the source input's output; attribution patching (a first-order estimate computed on the network itself)
+  interchange a_ff @ embed.0: right 100.0% / 100.0% when changed (network changed in 99.3%); output R2 -0.184 | controls: random subspace 99.9%, no-change 0.7%, source-output 0.9%, attribution patching 36.5%
+  edit        a_ff @ embed.0: right 24.1% / 15.9% when changed (network changed in 81.0%); output R2 -0.189 | controls: random subspace 51.9%, no-change 19.0%, source-output 1.0%, attribution patching 43.1%
+  interchange b_ff @ embed.1: right 100.0% / 100.0% when changed (network changed in 99.1%); output R2 -0.172 | controls: random subspace 99.9%, no-change 0.9%, source-output 0.7%, attribution patching 34.1%
+  edit        b_ff @ embed.1: right 24.8% / 15.2% when changed (network changed in 81.0%); output R2 -0.187 | controls: random subspace 50.8%, no-change 18.9%, source-output 0.9%, attribution patching 41.6%
+  interchange pat @ attn_pattern: right 100.0% / n/a when changed (network changed in 0.0%); output R2 -0.176 | controls: random subspace 100.0%, no-change 100.0%, source-output 1.2%, attribution patching 100.0%
+  interchange s_ff @ mlp_post: right 100.0% / 100.0% when changed (network changed in 98.8%); output R2 -0.208 | controls: random subspace 1.2%, no-change 1.2%, source-output 100.0%, attribution patching 100.0%
+  edit        s_ff @ mlp_post: right 26.8% / 16.0% when changed (network changed in 77.8%); output R2 -0.191 | controls: random subspace 48.1%, no-change 22.2%, source-output 20.9%, attribution patching 100.0%
+  interchange s_ff @ mlp_out: right 100.0% / 100.0% when changed (network changed in 98.8%); output R2 -0.210 | controls: random subspace 99.9%, no-change 1.2%, source-output 100.0%, attribution patching 100.0%
+  edit        s_ff @ mlp_out: right 27.3% / 15.3% when changed (network changed in 77.1%); output R2 -0.181 | controls: random subspace 48.0%, no-change 22.9%, source-output 20.0%, attribution patching 100.0%
+Ignored (the site is identical for every input, so it holds no variable): embed.2
+Variables in model() with no site in ALIGN (not tested): eq
+STAGES   embedding: named but failing;  attention: named but failing;  mlp neurons: named but failing;  readout: named but failing
+VERDICT: NOT VERIFIED (0 of 4 stages verified). Failing:
+  - size at embed.0: you named 112 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact
+  - edit of a_ff at embed.0: prediction right in 15.9% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - size at embed.1: you named 112 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact
+  - edit of b_ff at embed.1: prediction right in 15.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - substitution at attn_pattern: 77.5% (need 90%)
+  - removal at attn_pattern: removing the named subspace leaves 100.0% of decisions, while mean-ablating the whole site leaves 77.5%: what you named is not what the output depends on here
+  - size at mlp_post: you named 112 dimensions, but the 17 largest principal components of this site already keep 90% of decisions (limit 34): the variables must be more compact
+  - edit of s_ff at mlp_post: prediction right in 16.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - size at mlp_out: you named 112 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact
+  - edit of s_ff at mlp_out: prediction right in 15.3% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)

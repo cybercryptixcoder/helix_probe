@@ -1,0 +1,232 @@
+{
+ "n_inputs": 6000,
+ "n_fit": 3000,
+ "n_test": 3000,
+ "source_chars": 1507,
+ "variables": {
+  "i3": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "i4": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "c2": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "s": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 0.25033333333333335,
+  "r2": -11.802011554218168,
+  "kl": 54.6274464128327,
+  "baseline_constant_match": 0.4673333333333333
+ },
+ "sites": {
+  "h1": {
+   "width": 32,
+   "variables": [
+    "i3",
+    "i4",
+    "c2",
+    "s"
+   ],
+   "named_dims": 4,
+   "named_rank": 3,
+   "pca_sufficient_rank": 5,
+   "activation_rank": 6,
+   "explained": 0.4439817614736651,
+   "substitute_match": 0.4673333333333333,
+   "substitute_kl": 15.97999999999706,
+   "substitute_r2": -0.2714937745578392,
+   "mean_ablate_match": 0.4673333333333333,
+   "recovered": 0.0,
+   "keep_named_match": 0.283,
+   "remove_named_match": 0.4673333333333333,
+   "remove_random_match": 0.47055555555555556,
+   "used_rank": 2,
+   "unused_variables": [
+    "c2"
+   ],
+   "off_manifold": "fails",
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "all variables",
+   "variables": [
+    "i3",
+    "i4",
+    "c2",
+    "s"
+   ],
+   "site": "h1",
+   "mode": "interchange",
+   "dim": 4,
+   "agreement": 0.2455,
+   "r2": -12.577907922318982,
+   "network_changed": 0.4225,
+   "agreement_when_changed": 0.25207100591715975,
+   "baseline_no_change": 0.5775,
+   "baseline_source_output": 0.415,
+   "control_random_subspace": 0.2645,
+   "attribution_patching": 0.5775,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "i3",
+   "variables": [
+    "i3"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 0.3245,
+   "r2": -8.084988524692335,
+   "network_changed": 0.3845,
+   "agreement_when_changed": 0.41482444733420026,
+   "baseline_no_change": 0.6155,
+   "baseline_source_output": 0.3425,
+   "control_random_subspace": 0.3505,
+   "attribution_patching": 0.6155,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "i4",
+   "variables": [
+    "i4"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 0.203,
+   "r2": -10.759403112049716,
+   "network_changed": 0.4895,
+   "agreement_when_changed": 0.2379979570990807,
+   "baseline_no_change": 0.5105,
+   "baseline_source_output": 0.4205,
+   "control_random_subspace": 0.371,
+   "attribution_patching": 0.5105,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "c2",
+   "variables": [
+    "c2"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 0.258,
+   "r2": -11.65273904710056,
+   "network_changed": 0.0115,
+   "agreement_when_changed": 0.30434782608695654,
+   "baseline_no_change": 0.9885,
+   "baseline_source_output": 0.359,
+   "control_random_subspace": 0.227,
+   "attribution_patching": 0.9885,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "s",
+   "variables": [
+    "s"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 0.1595,
+   "r2": -18.735122256838352,
+   "network_changed": 0.376,
+   "agreement_when_changed": 0.1196808510638298,
+   "baseline_no_change": 0.624,
+   "baseline_source_output": 0.423,
+   "control_random_subspace": 0.3075,
+   "attribution_patching": 0.624,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "i3",
+    "i4",
+    "c2",
+    "s"
+   ],
+   "site": "h1",
+   "mode": "edit",
+   "dim": 4,
+   "agreement": 0.245,
+   "r2": -9.119807882227525,
+   "network_changed": 0.4465,
+   "agreement_when_changed": 0.2866741321388578,
+   "baseline_no_change": 0.5535,
+   "baseline_source_output": 0.383,
+   "control_random_subspace": 0.344,
+   "attribution_patching": 0.5535,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [
+  "h2"
+ ],
+ "stages": {
+  "hidden layer 1": {
+   "sites": [
+    "h1"
+   ],
+   "named": [
+    "h1"
+   ],
+   "verified": []
+  },
+  "hidden layer 2": {
+   "sites": [
+    "h2"
+   ],
+   "named": [],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "behaviour: the construction's output agrees with the network on 25.0% of inputs (need 95%)",
+   "substitution at h1: 46.7% (need 90%)",
+   "interchange of all variables at h1: prediction right in 25.2% of the cases where the network's output changed (need 90%)",
+   "partial of c2 at h1: the network's output changed in only 1.1% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
+   "partial of i3 at h1: prediction right in 41.5% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of i4 at h1: prediction right in 23.8% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of s at h1: prediction right in 12.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "edit of all variables at h1: prediction right in 28.7% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "(at h1 it is enough that EITHER every partial test OR the edit of all variables passes)"
+  ],
+  "stages_total": 2,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 0.46
+}
