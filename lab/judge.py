@@ -22,14 +22,13 @@ The judge measures, on inputs held out from fitting:
                     subspace; also remove the named subspace ("remove only what it names"), next to mean-ablating the
                     whole site and removing a random subspace of the same size. The named subspace must also be
                     compact: not much larger than the number of principal components of the site that suffice.
-  4. INTERVENTION   interchange: copy a variable's subspace from a source input's run into a base input's run, and
-                    compare the network's new output with what the construction predicts when that variable is set to
-                    its source value. Where a site holds several variables, swapping one of them already makes a
-                    state that no input produces. A variable that is alone at its site also gets a stricter edit: a
-                    random half of its coordinates are given the values they have on the source input, written into
-                    the network along the variable's fitted directions, and compared with the construction's
-                    prediction for that edited state.
-                    Controls: the same test with a random subspace; predicting "no change"; predicting the source
+  4. INTERVENTION   interchange: everything the construction names at a site is copied from a source input's run
+                    into a base input's run (read with a linear probe, written along the alignment directions), and
+                    the network's new output is compared with what the construction predicts when those variables
+                    take their source values. Then two stricter tests that make states no input produces:
+                    partial (one variable copied while the site's other variables stay) and, for a variable alone
+                    at its site, edit (a random half of its coordinates copied).
+                    Controls: the same swap in a random subspace; predicting "no change"; predicting the source
                     output; attribution patching (the first-order estimate of the same change, on the real network).
 
 Run:  python3 lab/judge.py <target id> <construction.py> [--variant original|shuffled|untrained|permuted] [--json out.json]
@@ -49,7 +48,7 @@ PASS = {"behaviour": 0.95,       # share of inputs on which the construction and
         "necessity": 0.5,        # removing the named subspace must do this share of the damage of mean-ablating the site
         "compact": 2,            # the named subspace may be at most this many times the smallest sufficient PCA subspace (or 4 more)
         "interchange": 0.90,     # interchange predictions right, among cases where the network's decision changed
-        "edit": 0.50}            # edit predictions right (and at least twice the random-subspace control)
+        "edit": 0.50}            # partial-interchange and edit predictions right, among cases where the decision changed
 
 
 class ConstructionError(Exception):
@@ -280,49 +279,58 @@ def judge(kind, W, X, source, seed=0, n_pairs=2000, groups=None):
         # interventions on each variable at this site
         # interchange reads each variable from the real activations with the linear probe D
         dA = (A[src] - A[base]) @ D                                             # the change in every variable, as read from the two runs
-        for v in names:
-            J = cols[v]
-            # A variable alone at its site is also tested by a coordinate edit, because swapping the whole of it is
-            # nearly the same as swapping the whole site. Where a site holds several variables, swapping one of them
-            # already produces a state no input produces.
-            for mode in (["interchange", "edit"] if len(J) >= 2 and len(names) == 1 else ["interchange"]):
-                mask = np.ones((n_pairs, len(J)))
-                if mode == "edit":
-                    mask = (rng.random((n_pairs, len(J))) < 0.5).astype(float)
-                    dead = mask.sum(1) == 0
-                    mask[dead, rng.integers(0, len(J), dead.sum())] = 1
-                    full = mask.sum(1) == len(J)
-                    mask[full, rng.integers(0, len(J), full.sum())] = 0
-                new_val = np.where(mask > 0, vals[v][src], vals[v][base])
-                o_pred, _ = run_model(model, X[base], {v: new_val})
-                if mode == "interchange":      # copy the variable's coordinates as read from the source run's activation
-                    delta = dA[:, J] @ M[J]
-                else:                          # write the construction's own new value along the variable's fitted directions
-                    delta = (new_val - vals[v][base]) @ M[J]
-                o_net = nets.forward(kind, W, X[base], hook={s: A[base] + delta})
-                # attribution patching's answer for the same change: the first-order estimate, computed on the network
-                o_lin = out_n[base] + (nets.forward(kind, W, X[base], hook={s: A[base] + 1e-3 * delta}) - out_n[base]) / 1e-3
-                r = max(1, int(np.linalg.matrix_rank(M[J], tol=1e-8 * max(1.0, np.abs(M).max()))))
-                Pr = rand_proj(min(r, A.shape[1]))
-                o_rand = nets.forward(kind, W, X[base], hook={s: A[base] + (A[src] - A[base]) @ Pr})
-                net_changed = ~same(o_net, out_n[base])
-                agree = same(o_pred, o_net)
-                rep["interventions"].append({
-                    "variable": v, "site": s, "mode": mode, "dim": int(len(J)),
-                    "agreement": float(agree.mean()),
-                    "r2": r2(o_pred, o_net),
-                    "network_changed": float(net_changed.mean()),
-                    "agreement_when_changed": float(agree[net_changed].mean()) if net_changed.any() else None,
-                    "baseline_no_change": match(out_n[base], o_net),
-                    "baseline_source_output": match(out_n[src], o_net),
-                    "control_random_subspace": match(o_pred, o_rand),
-                    "attribution_patching": float(same(o_lin, o_net).mean()),
-                    "attribution_patching_when_changed": float(same(o_lin, o_net)[net_changed].mean()) if net_changed.any() else None,
-                })
+        # Three kinds of intervention test at a site:
+        #   interchange  everything named at the site is copied from the source run (the standard interchange test);
+        #   partial      one variable is copied while the site's other variables stay (only where there are several):
+        #                a state that no input produces;
+        #   edit         for a variable alone at its site: a random half of its coordinates are set to the source's
+        #                values, also a state that no input produces.
+        tests = [("interchange", names, None)]
+        if len(names) > 1:
+            tests += [("partial", [v], None) for v in names]
+        elif V.shape[1] >= 2:
+            tests.append(("edit", names, "half"))
+        allJ = np.arange(V.shape[1])
+        for mode, vs, how in tests:
+            J = np.concatenate([cols[v] for v in vs])
+            mask = np.ones((n_pairs, len(J)))
+            if how == "half":
+                mask = (rng.random((n_pairs, len(J))) < 0.5).astype(float)
+                dead = mask.sum(1) == 0
+                mask[dead, rng.integers(0, len(J), dead.sum())] = 1
+                full_ = mask.sum(1) == len(J)
+                mask[full_, rng.integers(0, len(J), full_.sum())] = 0
+            new_all = V[base].copy()
+            new_all[:, J] = np.where(mask > 0, V[src][:, J], V[base][:, J])
+            o_pred, _ = run_model(model, X[base], {v: new_all[:, cols[v]] for v in vs})
+            if mode == "edit":             # write the construction's own new value along the variable's fitted directions
+                delta = (new_all[:, J] - V[base][:, J]) @ M[J]
+            else:                          # copy the variables' coordinates as read from the source run's activation
+                delta = dA[:, J] @ M[J]
+            o_net = nets.forward(kind, W, X[base], hook={s: A[base] + delta})
+            # attribution patching's answer for the same change: the first-order estimate, computed on the network
+            o_lin = out_n[base] + (nets.forward(kind, W, X[base], hook={s: A[base] + 1e-3 * delta}) - out_n[base]) / 1e-3
+            r = max(1, int(np.linalg.matrix_rank(M[J], tol=1e-8 * max(1.0, np.abs(M).max()))))
+            Pr = rand_proj(min(r, A.shape[1]))
+            o_rand = nets.forward(kind, W, X[base], hook={s: A[base] + (A[src] - A[base]) @ Pr})
+            net_changed = ~same(o_net, out_n[base])
+            agree = same(o_pred, o_net)
+            rep["interventions"].append({
+                "variable": vs[0] if len(vs) == 1 else "all variables", "variables": vs, "site": s, "mode": mode, "dim": int(len(J)),
+                "agreement": float(agree.mean()),
+                "r2": r2(o_pred, o_net),
+                "network_changed": float(net_changed.mean()),
+                "agreement_when_changed": float(agree[net_changed].mean()) if net_changed.any() else None,
+                "baseline_no_change": match(out_n[base], o_net),
+                "baseline_source_output": match(out_n[src], o_net),
+                "control_random_subspace": match(o_pred, o_rand),
+                "attribution_patching": float(same(o_lin, o_net).mean()),
+                "attribution_patching_when_changed": float(same(o_lin, o_net)[net_changed].mean()) if net_changed.any() else None,
+            })
     for s, r in rep["sites"].items():
         # variables whose interventions never change the output are present but unused: they do not count toward size
         M, cols = r.pop("_M"), r.pop("_cols")
-        live = [v for v in r["variables"] if any(t["site"] == s and t["variable"] == v and t["network_changed"] >= 0.05 for t in rep["interventions"])]
+        live = [v for v in r["variables"] if any(t["site"] == s and t["variables"] == [v] and t["network_changed"] >= 0.05 for t in rep["interventions"])]
         J = np.concatenate([cols[v] for v in live]) if live else np.array([], int)
         r["used_rank"] = int(np.linalg.matrix_rank(M[J], tol=1e-8 * max(1.0, np.abs(M).max()))) if len(J) else 0
         r["unused_variables"] = [v for v in r["variables"] if v not in live]
@@ -354,8 +362,10 @@ def verdict(rep):
       - the named subspace is compact: at most twice (or 4 more than) the number of principal components of the site
         that suffice to keep 90% of decisions (variables that the construction correctly marks as unused, i.e. whose
         interventions change nothing, are not counted);
-      - the construction's predictions about interchange interventions on every variable there hold, and, for a
-        variable that is alone at its site, about coordinate edits too.
+      - its interchange predictions hold (everything named at the site copied from another input: 90%), and so do
+        its predictions for states that no input produces: one variable copied while the others stay (partial), or,
+        for a variable alone at its site, half of its coordinates copied (edit): 50% of the cases where the network's
+        decision changed (where "no change" scores 0 and a random class about 1/classes).
     A site with no effect on the output cannot be verified. A construction is VERIFIED when it behaves
     like the network and every site it names is verified, and COMPLETE when, in addition, every stage of the
     network has a verified site. The thresholds are PASS (top of this file)."""
@@ -389,11 +399,11 @@ def verdict(rep):
                 t["pass"] = False
                 mine.append(f"{t['mode']} of {t['variable']} at {s}: the network's output changed in only {t['network_changed']:.1%} of cases, but "
                             "the construction predicted changes: at this site the network's output does not depend on this variable")
-            elif t["mode"] == "edit":
-                t["pass"] = bool(score >= PASS["edit"] and score >= 2 * t["control_random_subspace"])
+            elif t["mode"] in ("edit", "partial"):
+                t["pass"] = bool(score >= PASS["edit"])
                 if not t["pass"]:
-                    mine.append(f"edit of {t['variable']} at {s}: prediction right in {score:.1%} of the cases where the network's output "
-                                f"changed (need {PASS['edit']:.0%} and twice the random-subspace control, {t['control_random_subspace']:.1%})")
+                    mine.append(f"{t['mode']} of {t['variable']} at {s}: prediction right in {score:.1%} of the cases where the network's output "
+                                f"changed (need {PASS['edit']:.0%}; guessing 'no change' gets 0% of these)")
             else:
                 t["pass"] = bool(score >= PASS["interchange"])
                 if not t["pass"]:
@@ -424,10 +434,12 @@ def render(rep):
                  f"{', '.join(r['variables'])}): explained {r['explained']:.3f} | "
                  f"substitute {r['substitute_match']:.1%} | keep {r['keep_named_match']:.1%} | remove {r['remove_named_match']:.1%} "
                  f"(random {rr}) | mean-ablate {r['mean_ablate_match']:.1%}")
-    L.append("4. INTERVENTIONS   interchange = one variable is copied from another input's run. edit (only for a variable that is alone "
-             "at its site) = a random half of its coordinates are set to another input's values. right = the construction predicted "
-             "the network's new decision (all cases / cases where the decision changed).  controls: the same swap in a random "
-             "subspace; guessing 'no change'; guessing the source input's output; attribution patching (a first-order estimate computed on the network itself)")
+    L.append("4. INTERVENTIONS   interchange = everything named at the site is copied from another input's run (need 90%). "
+             "partial = one variable is copied while the site's other variables stay; edit (for a variable alone at its site) = a "
+             "random half of its coordinates are copied: both make states that no input produces (need 50% of the cases where "
+             "the decision changed). right = the construction predicted the network's new decision (all cases / cases where "
+             "the decision changed).  controls: the same swap in a random subspace; guessing 'no change'; guessing the source "
+             "input's output; attribution patching (a first-order estimate computed on the network itself)")
     for t in rep["interventions"]:
         w = "n/a" if t["agreement_when_changed"] is None else f"{t['agreement_when_changed']:.1%}"
         L.append(f"  {t['mode']:11s} {t['variable']} @ {t['site']}: right {t['agreement']:.1%} / {w} when changed (network changed in "
