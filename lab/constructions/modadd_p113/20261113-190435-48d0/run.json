@@ -634,6 +634,22 @@
      "seconds": 0.0
     }
    ]
+  },
+  {
+   "step": 39,
+   "content": "",
+   "thinking": "The 4 pairs are orthogonal 2-dim subspaces in R^128, each with norm ~0.7 in both directions. Beautiful, clean Fourier embedding: E[t] = c + sum_k [A_k cos(2\u03c0kt/113) + B_k sin(2\u03c0kt/113)] with orthogonal A_k,B_k.\n\nNow let's simulate the \"partial\" intervention at embed.0 for each pair and compare with candidate models.\n\nNote: the interventions are done via the judge's probe (fit from my variables) \u2014 approximately the same.\n\nSimulate: xb (B's i,j), xa (A's i,j). For pair k: embed.0' = embed.0(B) + (coefA - coefB) applied to (A_k,B_k) where coef are the fitted 2-dim projections... precisely: the change in activation = (vars(A)-vars(B))@M. With vars = [cos_k t, sin_k t] and M = [A_k;B_k], the change = (cos_k i_A - cos_k i_B) A_k + (sin_k i_A - sin_k i_B) B_k.\n\nSo embed.0' = embed.0(B) + that. Then run the network.\n\nCompute also the E-projector removal: the \"removed\" component in E space equals the change of the true pair-k component of E (approximately).\n\nLet's simulate and compare candidate decisions:\n1. blend model: out[c] = sum_q A_q cos(2\u03c0 q (s_q - c)/113) where s_q = (i_A + j) for q=k else (i_B+j).\n2. \"s from phasor mean\"\n3. s = (i_A + j) (i.e. full swap)\n4. s = sB (no change)\n\nLet's measure the agreement rate on changed cases.",
+   "finish": "tool_calls",
+   "context_tokens": 73848,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\ndef run_emb(x, emb0):\n    B=len(x); Xe=(E_[x]+Pp[None,:,:]).copy(); Xe[:,0]=emb0\n    q=np.stack([Xe[:,2]@WQ_[h] for h in range(4)],1)\n    kk=np.stack([Xe@WK_[h] for h in range(4)],1)\n    lg=np.einsum('bhd,bhpd->bhp',q,kk)/np.sqrt(32)\n    a=np.exp(lg-lg.max(-1,keepdims=True)); a=a/a.sum(-1,keepdims=True)\n    v=np.stack([Xe@WV_[h] for h in range(4)],1)\n    ao=np.einsum('bhp,bhpd->bhd,e->be',a,v,1) if False else np.einsum('bhd,hde->be',np.einsum('bhp,bhpd->bhd',a,v),WO_)\n    rm=Xe[:,2]+ao\n    return (rm+np.maximum(rm@Wi_,0)@Wo_)@WU_\nrng=np.random.RandomState(3); n=1000\nib_idx=rng.permutation(len(X))[:n]; ia_idx=rng.permutation(len(X))[:n]\nxb=X[ib_idx]; xa=X[ia_idx]\nemb0B=E_[xb[:,0]]+Pp[0]\niA=xa[:,0].astype(float); iB=xb[:,0].astype(float)\nsB=(xb[:,0]+xb[:,1])%113; sA=(xa[:,0]+xa[:,1])%113\nout1=run_emb(xb,emb0B); dec1=out1.argmax(1)\nprint(\"sanity\", np.mean(dec1==sB))\nc=np.arange(113)[None,:]\nfor qi,k in enumerate(FREQ):\n    chg=(np.cos(2*np.pi*k*iA/113)-np.cos(2*np.pi*k*iB/113))[:,None]*A_k[k][None,:] \\\n        +(np.sin(2*np.pi*k*iA/113)-np.sin(2*np.pi*k*iB/113))[:,None]*B_k[k][None,:]\n    dec=run_emb(xb,emb0B+chg).argmax(1)\n    s_k=np.where(True,(iA+xb[:,1])%113,sA)\n    # blend model\n    blend=np.zeros((n,113))\n    for q2,k2 in enumerate(FREQ):\n        sq = s_k if q2==qi else sB\n        blend += np.cos(2*np.pi*k2*(sq[:,None]-c)/113)\n    db=blend.argmax(1)\n    chgmask=dec!=sB\n    print(\"pair\",k,\"changed\",round(chgmask.mean(),2),\n          \"| fullA\",round(np.mean(dec[chgmask]==s_k[chgmask]),2),\n          \"| blend\",round(np.mean(db[chgmask]==dec[chgmask]),2),\n          \"| nochange\",round(np.mean(sB[chgmask]==dec[chgmask]),2))\n",
+     "ok": true,
+     "output": "sanity 1.0\npair 8 changed 0.66 | fullA 0.07 | blend 0.45 | nochange 0.0\npair 11 changed 0.46 | fullA 0.03 | blend 0.63 | nochange 0.0\npair 23 changed 0.61 | fullA 0.04 | blend 0.88 | nochange 0.0\npair 25 changed 0.48 | fullA 0.06 | blend 0.43 | nochange 0.0\n",
+     "seconds": 0.22
+    }
+   ]
   }
  ],
  "submissions": [
@@ -783,11 +799,11 @@
  ],
  "compactions": [],
  "usage": {
-  "prompt_tokens": 1217705,
-  "completion_tokens": 51465,
-  "calls": 39
+  "prompt_tokens": 1291553,
+  "completion_tokens": 52612,
+  "calls": 40
  },
- "cost": 0.09504236399999998,
+ "cost": 0.09693476399999998,
  "status": "running",
  "best": 7,
  "final_message": ""
