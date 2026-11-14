@@ -1,0 +1,643 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 1786,
+ "variables": {
+  "e0": {
+   "dim": 10,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "e1": {
+   "dim": 10,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "ai": {
+   "dim": 10,
+   "sites": [
+    "attn_out",
+    "resid_mid"
+   ]
+  },
+  "aj": {
+   "dim": 10,
+   "sites": [
+    "attn_out",
+    "resid_mid"
+   ]
+  },
+  "code": {
+   "dim": 8,
+   "sites": [
+    "mlp_post",
+    "mlp_out",
+    "resid_post"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": -0.04515508000178947,
+  "kl": 1.6895297094399555,
+  "baseline_constant_match": 0.010649960845732186
+ },
+ "sites": {
+  "embed.0": {
+   "width": 128,
+   "variables": [
+    "e0"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.8748633753339576,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0006315230910252037,
+   "substitute_r2": 0.9805049235121446,
+   "mean_ablate_match": 0.008927173061863743,
+   "recovered": 1.0,
+   "keep_named_match": 0.9998433829287392,
+   "remove_named_match": 0.005794831636648395,
+   "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "edit",
+   "pass": true
+  },
+  "embed.1": {
+   "width": 128,
+   "variables": [
+    "e1"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.8742462866868059,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0006417941921579173,
+   "substitute_r2": 0.9802592250118422,
+   "mean_ablate_match": 0.00845732184808144,
+   "recovered": 1.0,
+   "keep_named_match": 0.9995301487862177,
+   "remove_named_match": 0.004698512137823023,
+   "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "edit",
+   "pass": true
+  },
+  "attn_out": {
+   "width": 128,
+   "variables": [
+    "ai",
+    "aj"
+   ],
+   "named_dims": 20,
+   "named_rank": 20,
+   "pca_sufficient_rank": 10,
+   "activation_rank": 128,
+   "explained": 0.9088902411191775,
+   "substitute_match": 0.8078308535630384,
+   "substitute_kl": 0.6705623443473416,
+   "substitute_r2": 0.7012090685485737,
+   "mean_ablate_match": 0.008770555990602976,
+   "recovered": 0.8061305103491864,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.012059514487079091,
+   "remove_random_match": 0.9992691203341164,
+   "used_rank": 20,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "resid_mid": {
+   "width": 128,
+   "variables": [
+    "ai",
+    "aj"
+   ],
+   "named_dims": 20,
+   "named_rank": 20,
+   "pca_sufficient_rank": 10,
+   "activation_rank": 128,
+   "explained": 0.9088902411191775,
+   "substitute_match": 0.8078308535630384,
+   "substitute_kl": 0.6705623443473413,
+   "substitute_r2": 0.7012090685485738,
+   "mean_ablate_match": 0.008770555990602976,
+   "recovered": 0.8061305103491864,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.012059514487079091,
+   "remove_random_match": 0.9985382406682328,
+   "used_rank": 20,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "mlp_post": {
+   "width": 512,
+   "variables": [
+    "code"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 17,
+   "activation_rank": 512,
+   "explained": 0.15495257777221105,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.00018793341588986033,
+   "substitute_r2": 0.9774228424414223,
+   "mean_ablate_match": 0.016601409553641346,
+   "recovered": 1.0,
+   "keep_named_match": 0.9954581049334378,
+   "remove_named_match": 0.022396241190289743,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "off_manifold": "edit",
+   "pass": true
+  },
+  "mlp_out": {
+   "width": 128,
+   "variables": [
+    "code"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.898875441856278,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.00018793341588986033,
+   "substitute_r2": 0.9774228424414223,
+   "mean_ablate_match": 0.016601409553641346,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.020830070477682067,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "off_manifold": "edit",
+   "pass": true
+  },
+  "resid_post": {
+   "width": 128,
+   "variables": [
+    "code"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.862648365647316,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0001831362322844055,
+   "substitute_r2": 0.9788288469051235,
+   "mean_ablate_match": 0.010649960845732186,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.01754111198120595,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "off_manifold": "edit",
+   "pass": true
+  }
+ },
+ "interventions": [
+  {
+   "variable": "e0",
+   "variables": [
+    "e0"
+   ],
+   "site": "embed.0",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 0.999,
+   "r2": -0.05585552005029881,
+   "network_changed": 0.993,
+   "agreement_when_changed": 0.998992950654582,
+   "baseline_no_change": 0.007,
+   "baseline_source_output": 0.009,
+   "control_random_subspace": 0.007,
+   "attribution_patching": 0.3395,
+   "attribution_patching_when_changed": 0.33484390735146025,
+   "pass": true
+  },
+  {
+   "variable": "e0",
+   "variables": [
+    "e0"
+   ],
+   "site": "embed.0",
+   "mode": "edit",
+   "dim": 10,
+   "agreement": 0.683,
+   "r2": -0.05419032027614157,
+   "network_changed": 0.786,
+   "agreement_when_changed": 0.6361323155216285,
+   "baseline_no_change": 0.214,
+   "baseline_source_output": 0.011,
+   "control_random_subspace": 0.2235,
+   "attribution_patching": 0.446,
+   "attribution_patching_when_changed": 0.3256997455470738,
+   "pass": true
+  },
+  {
+   "variable": "e1",
+   "variables": [
+    "e1"
+   ],
+   "site": "embed.1",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 0.9965,
+   "r2": -0.04770214000997375,
+   "network_changed": 0.991,
+   "agreement_when_changed": 0.9964682139253279,
+   "baseline_no_change": 0.009,
+   "baseline_source_output": 0.007,
+   "control_random_subspace": 0.009,
+   "attribution_patching": 0.3085,
+   "attribution_patching_when_changed": 0.3022199798183653,
+   "pass": true
+  },
+  {
+   "variable": "e1",
+   "variables": [
+    "e1"
+   ],
+   "site": "embed.1",
+   "mode": "edit",
+   "dim": 10,
+   "agreement": 0.6645,
+   "r2": -0.05044244290761091,
+   "network_changed": 0.809,
+   "agreement_when_changed": 0.6205191594561187,
+   "baseline_no_change": 0.191,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 0.2,
+   "attribution_patching": 0.4065,
+   "attribution_patching_when_changed": 0.2873918417799753,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "ai",
+    "aj"
+   ],
+   "site": "attn_out",
+   "mode": "interchange",
+   "dim": 20,
+   "agreement": 0.4225,
+   "r2": -0.1371603115457567,
+   "network_changed": 0.9355,
+   "agreement_when_changed": 0.4398717263495457,
+   "baseline_no_change": 0.0645,
+   "baseline_source_output": 0.4225,
+   "control_random_subspace": 0.0125,
+   "attribution_patching": 0.0575,
+   "attribution_patching_when_changed": 0.04596472474612507,
+   "pass": false
+  },
+  {
+   "variable": "ai",
+   "variables": [
+    "ai"
+   ],
+   "site": "attn_out",
+   "mode": "partial",
+   "dim": 10,
+   "agreement": 0.0325,
+   "r2": -0.19387552417697673,
+   "network_changed": 0.704,
+   "agreement_when_changed": 0.040482954545454544,
+   "baseline_no_change": 0.296,
+   "baseline_source_output": 0.0205,
+   "control_random_subspace": 0.007,
+   "attribution_patching": 0.46,
+   "attribution_patching_when_changed": 0.3465909090909091,
+   "pass": false
+  },
+  {
+   "variable": "aj",
+   "variables": [
+    "aj"
+   ],
+   "site": "attn_out",
+   "mode": "partial",
+   "dim": 10,
+   "agreement": 0.034,
+   "r2": -0.19528195684369232,
+   "network_changed": 0.7075,
+   "agreement_when_changed": 0.04240282685512368,
+   "baseline_no_change": 0.2925,
+   "baseline_source_output": 0.0185,
+   "control_random_subspace": 0.009,
+   "attribution_patching": 0.453,
+   "attribution_patching_when_changed": 0.3462897526501767,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "ai",
+    "aj"
+   ],
+   "site": "attn_out",
+   "mode": "edit",
+   "dim": 20,
+   "agreement": 0.2685,
+   "r2": -0.11978980764134795,
+   "network_changed": 0.827,
+   "agreement_when_changed": 0.2666263603385732,
+   "baseline_no_change": 0.173,
+   "baseline_source_output": 0.0265,
+   "control_random_subspace": 0.0595,
+   "attribution_patching": 0.2475,
+   "attribution_patching_when_changed": 0.16626360338573157,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "ai",
+    "aj"
+   ],
+   "site": "resid_mid",
+   "mode": "interchange",
+   "dim": 20,
+   "agreement": 0.4225,
+   "r2": -0.13716031154405672,
+   "network_changed": 0.9355,
+   "agreement_when_changed": 0.4398717263495457,
+   "baseline_no_change": 0.0645,
+   "baseline_source_output": 0.4225,
+   "control_random_subspace": 0.0115,
+   "attribution_patching": 0.0575,
+   "attribution_patching_when_changed": 0.04596472474612507,
+   "pass": false
+  },
+  {
+   "variable": "ai",
+   "variables": [
+    "ai"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 10,
+   "agreement": 0.0325,
+   "r2": -0.1938755241771002,
+   "network_changed": 0.704,
+   "agreement_when_changed": 0.040482954545454544,
+   "baseline_no_change": 0.296,
+   "baseline_source_output": 0.0205,
+   "control_random_subspace": 0.007,
+   "attribution_patching": 0.46,
+   "attribution_patching_when_changed": 0.3465909090909091,
+   "pass": false
+  },
+  {
+   "variable": "aj",
+   "variables": [
+    "aj"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 10,
+   "agreement": 0.034,
+   "r2": -0.19528195684378424,
+   "network_changed": 0.7075,
+   "agreement_when_changed": 0.04240282685512368,
+   "baseline_no_change": 0.2925,
+   "baseline_source_output": 0.0185,
+   "control_random_subspace": 0.009,
+   "attribution_patching": 0.453,
+   "attribution_patching_when_changed": 0.3462897526501767,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "ai",
+    "aj"
+   ],
+   "site": "resid_mid",
+   "mode": "edit",
+   "dim": 20,
+   "agreement": 0.2585,
+   "r2": -0.1281696736840301,
+   "network_changed": 0.836,
+   "agreement_when_changed": 0.2541866028708134,
+   "baseline_no_change": 0.164,
+   "baseline_source_output": 0.024,
+   "control_random_subspace": 0.058,
+   "attribution_patching": 0.245,
+   "attribution_patching_when_changed": 0.17583732057416268,
+   "pass": false
+  },
+  {
+   "variable": "code",
+   "variables": [
+    "code"
+   ],
+   "site": "mlp_post",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 1.0,
+   "r2": -0.06102605687196894,
+   "network_changed": 0.988,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.012,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.012,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "code",
+   "variables": [
+    "code"
+   ],
+   "site": "mlp_post",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.747,
+   "r2": -0.047629418545379165,
+   "network_changed": 0.7855,
+   "agreement_when_changed": 0.7199236155315086,
+   "baseline_no_change": 0.2145,
+   "baseline_source_output": 0.198,
+   "control_random_subspace": 0.207,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "code",
+   "variables": [
+    "code"
+   ],
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 1.0,
+   "r2": -0.06196248514713165,
+   "network_changed": 0.988,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.012,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.012,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "code",
+   "variables": [
+    "code"
+   ],
+   "site": "mlp_out",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.73,
+   "r2": -0.043856234549689344,
+   "network_changed": 0.774,
+   "agreement_when_changed": 0.6912144702842378,
+   "baseline_no_change": 0.226,
+   "baseline_source_output": 0.1845,
+   "control_random_subspace": 0.2215,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "code",
+   "variables": [
+    "code"
+   ],
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 1.0,
+   "r2": -0.052683701182765885,
+   "network_changed": 0.988,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.012,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.012,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "code",
+   "variables": [
+    "code"
+   ],
+   "site": "resid_post",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.722,
+   "r2": -0.04312780540234584,
+   "network_changed": 0.7945,
+   "agreement_when_changed": 0.6865953429830082,
+   "baseline_no_change": 0.2055,
+   "baseline_source_output": 0.1965,
+   "control_random_subspace": 0.2025,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  }
+ ],
+ "uncovered_sites": [
+  "attn_pattern",
+  "mlp_pre"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [
+    "embed.0",
+    "embed.1"
+   ],
+   "verified": [
+    "embed.0",
+    "embed.1"
+   ]
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [
+    "attn_out",
+    "resid_mid"
+   ],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [
+    "mlp_post"
+   ],
+   "verified": [
+    "mlp_post"
+   ]
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "verified": [
+    "mlp_out",
+    "resid_post"
+   ]
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "substitution at attn_out: 80.8% (need 90%)",
+   "interchange of all variables at attn_out: prediction right in 44.0% of the cases where the network's output changed (need 90%)",
+   "partial of ai at attn_out: prediction right in 4.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of aj at attn_out: prediction right in 4.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "edit of all variables at attn_out: prediction right in 26.7% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "(at attn_out it is enough that EITHER every partial test OR the edit of all variables passes)",
+   "substitution at resid_mid: 80.8% (need 90%)",
+   "interchange of all variables at resid_mid: prediction right in 44.0% of the cases where the network's output changed (need 90%)",
+   "partial of ai at resid_mid: prediction right in 4.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of aj at resid_mid: prediction right in 4.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "edit of all variables at resid_mid: prediction right in 25.4% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "(at resid_mid it is enough that EITHER every partial test OR the edit of all variables passes)"
+  ],
+  "stages_total": 4,
+  "stages_verified": 3,
+  "complete": false,
+  "score": 0.75
+ },
+ "seconds": 38.25
+}
