@@ -1,0 +1,286 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 2138,
+ "variables": {
+  "fi": {
+   "dim": 10,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "fj": {
+   "dim": 10,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "sfun": {
+   "dim": 10,
+   "sites": [
+    "resid_post"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 0.04494909945184025,
+  "r2": -0.7028037981000343,
+  "kl": 23.277654008700587,
+  "baseline_constant_match": 0.010649960845732186
+ },
+ "sites": {
+  "embed.0": {
+   "width": 128,
+   "variables": [
+    "fi"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.944078052746613,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0001461586264020938,
+   "substitute_r2": 0.9932120795848141,
+   "mean_ablate_match": 0.008927173061863743,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.007204385277995302,
+   "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "embed.1": {
+   "width": 128,
+   "variables": [
+    "fj"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.9442244053916218,
+   "substitute_match": 1.0,
+   "substitute_kl": 7.713922122317633e-05,
+   "substitute_r2": 0.9930833694428212,
+   "mean_ablate_match": 0.00845732184808144,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.007517619420516836,
+   "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "resid_post": {
+   "width": 128,
+   "variables": [
+    "sfun"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.863860657940989,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.00019185828087422938,
+   "substitute_r2": 0.9791834276351913,
+   "mean_ablate_match": 0.010649960845732186,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.011746280344557557,
+   "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "fi",
+   "variables": [
+    "fi"
+   ],
+   "site": "embed.0",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 0.0435,
+   "r2": -0.6862080260017995,
+   "network_changed": 0.993,
+   "agreement_when_changed": 0.0433031218529708,
+   "baseline_no_change": 0.007,
+   "baseline_source_output": 0.009,
+   "control_random_subspace": 0.011,
+   "attribution_patching": 0.361,
+   "attribution_patching_when_changed": 0.3564954682779456,
+   "pass": false
+  },
+  {
+   "variable": "fi",
+   "variables": [
+    "fi"
+   ],
+   "site": "embed.0",
+   "mode": "edit",
+   "dim": 10,
+   "agreement": 0.028,
+   "r2": -0.7161386770951594,
+   "network_changed": 0.804,
+   "agreement_when_changed": 0.024253731343283583,
+   "baseline_no_change": 0.196,
+   "baseline_source_output": 0.01,
+   "control_random_subspace": 0.016,
+   "attribution_patching": 0.4325,
+   "attribution_patching_when_changed": 0.31654228855721395,
+   "pass": false
+  },
+  {
+   "variable": "fj",
+   "variables": [
+    "fj"
+   ],
+   "site": "embed.1",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 0.043,
+   "r2": -0.6821782217027321,
+   "network_changed": 0.991,
+   "agreement_when_changed": 0.04339051463168517,
+   "baseline_no_change": 0.009,
+   "baseline_source_output": 0.007,
+   "control_random_subspace": 0.008,
+   "attribution_patching": 0.327,
+   "attribution_patching_when_changed": 0.32088799192734613,
+   "pass": false
+  },
+  {
+   "variable": "fj",
+   "variables": [
+    "fj"
+   ],
+   "site": "embed.1",
+   "mode": "edit",
+   "dim": 10,
+   "agreement": 0.0375,
+   "r2": -0.717651968170973,
+   "network_changed": 0.818,
+   "agreement_when_changed": 0.03606356968215159,
+   "baseline_no_change": 0.182,
+   "baseline_source_output": 0.0075,
+   "control_random_subspace": 0.016,
+   "attribution_patching": 0.4,
+   "attribution_patching_when_changed": 0.28422982885085574,
+   "pass": false
+  },
+  {
+   "variable": "sfun",
+   "variables": [
+    "sfun"
+   ],
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 0.0545,
+   "r2": -0.7225202865497138,
+   "network_changed": 0.988,
+   "agreement_when_changed": 0.05465587044534413,
+   "baseline_no_change": 0.012,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.0095,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "sfun",
+   "variables": [
+    "sfun"
+   ],
+   "site": "resid_post",
+   "mode": "edit",
+   "dim": 10,
+   "agreement": 0.036,
+   "r2": -0.6894704427697318,
+   "network_changed": 0.7995,
+   "agreement_when_changed": 0.03627267041901188,
+   "baseline_no_change": 0.2005,
+   "baseline_source_output": 0.2225,
+   "control_random_subspace": 0.023,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [
+  "attn_pattern",
+  "attn_out",
+  "resid_mid",
+  "mlp_pre",
+  "mlp_post",
+  "mlp_out"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [
+    "embed.0",
+    "embed.1"
+   ],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [
+    "resid_post"
+   ],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "behaviour: the construction's output agrees with the network on 4.5% of inputs (need 95%)",
+   "interchange of fi at embed.0: prediction right in 4.3% of the cases where the network's output changed (need 90%)",
+   "edit of fi at embed.0: prediction right in 2.4% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "interchange of fj at embed.1: prediction right in 4.3% of the cases where the network's output changed (need 90%)",
+   "edit of fj at embed.1: prediction right in 3.6% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "interchange of sfun at resid_post: prediction right in 5.5% of the cases where the network's output changed (need 90%)",
+   "edit of sfun at resid_post: prediction right in 3.6% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 15.18
+}

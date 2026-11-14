@@ -1,0 +1,51 @@
+JUDGE REPORT   (6385 held-out inputs; construction 1,240 chars)
+1. BEHAVIOUR  construction vs network output: same decision on 100.0% of inputs (a constant output would get 1.0%); output R2 -0.039; KL 0.005
+2-3. SITES   explained = share of the activation's variance the variables explain;  substitute = network decision kept when the activation is replaced by the construction's prediction;  keep = when only the named subspace of the real activation is kept;  remove = when the named subspace is removed (should be LOW) vs a random subspace of equal size;  mean-ablate = when the whole site is replaced by its mean
+  embed.0     (112 dims named of 128; 7 principal components suffice; a_oh): explained 1.000 | substitute 100.0% | keep 100.0% | remove 1.8% (random 5.2%) | mean-ablate 1.8%
+  embed.1     (112 dims named of 128; 7 principal components suffice; b_oh): explained 1.000 | substitute 100.0% | keep 100.0% | remove 1.8% (random 5.0%) | mean-ablate 1.8%
+  attn_out    (128 dims named of 128; 9 principal components suffice; a_oh, b_oh): explained 0.964 | substitute 99.5% | keep 100.0% | remove 0.8% (random n/a) | mean-ablate 0.8%
+  resid_mid   (128 dims named of 128; 9 principal components suffice; a_oh, b_oh): explained 0.964 | substitute 99.5% | keep 100.0% | remove 0.8% (random n/a) | mean-ablate 0.8%
+  mlp_pre     (128 dims named of 512; 8 principal components suffice; a_oh, b_oh): explained 0.977 | substitute 99.5% | keep 100.0% | remove 3.2% (random 99.2%) | mean-ablate 3.2%
+  mlp_out     (112 dims named of 128; 7 principal components suffice; c_oh): explained 0.886 | substitute 100.0% | keep 100.0% | remove 1.6% (random 14.3%) | mean-ablate 1.6%
+4. INTERVENTIONS   interchange = everything named at the site is copied from another input's run (need 90%). Then tests that make states no input produces (need 50% of the cases where the decision changed): partial = one variable is copied while the site's other variables stay; edit = a random half of the coordinates of everything named at the site are copied. Where both are run, it is enough that all partial tests pass OR the edit passes. right = the construction predicted the network's new decision (all cases / cases where the decision changed).  controls: the same swap in a random subspace; guessing 'no change'; guessing the source input's output; attribution patching (a first-order estimate computed on the network itself)
+  interchange a_oh @ embed.0: right 100.0% / 100.0% when changed (network changed in 98.1%); output R2 -0.038 | controls: random subspace 100.0%, no-change 1.9%, source-output 1.8%, attribution patching 33.1%
+  edit        a_oh @ embed.0: right 55.5% / 39.2% when changed (network changed in 70.0%); output R2 -0.058 | controls: random subspace 40.0%, no-change 30.0%, source-output 1.1%, attribution patching 49.5%
+  interchange b_oh @ embed.1: right 100.0% / 100.0% when changed (network changed in 98.5%); output R2 -0.039 | controls: random subspace 99.6%, no-change 1.6%, source-output 1.6%, attribution patching 33.2%
+  edit        b_oh @ embed.1: right 54.6% / 39.2% when changed (network changed in 71.0%); output R2 -0.056 | controls: random subspace 40.2%, no-change 29.0%, source-output 0.9%, attribution patching 49.5%
+  interchange all variables @ attn_out: right 95.7% / 95.7% when changed (network changed in 99.2%); output R2 -0.054 | controls: random subspace 100.0%, no-change 0.9%, source-output 95.7%, attribution patching 3.9%
+  partial     a_oh @ attn_out: right 8.1% / 8.2% when changed (network changed in 85.3%); output R2 -0.089 | controls: random subspace 1.8%, no-change 14.7%, source-output 2.5%, attribution patching 35.9%
+  partial     b_oh @ attn_out: right 8.6% / 9.0% when changed (network changed in 86.2%); output R2 -0.087 | controls: random subspace 1.6%, no-change 13.8%, source-output 3.3%, attribution patching 35.8%
+  edit        all variables @ attn_out: right 26.0% / 21.4% when changed (network changed in 85.2%); output R2 -0.077 | controls: random subspace 15.1%, no-change 14.8%, source-output 8.2%, attribution patching 29.7%
+  interchange all variables @ resid_mid: right 95.7% / 95.7% when changed (network changed in 99.2%); output R2 -0.054 | controls: random subspace 100.0%, no-change 0.9%, source-output 95.7%, attribution patching 3.9%
+  partial     a_oh @ resid_mid: right 8.1% / 8.2% when changed (network changed in 85.3%); output R2 -0.089 | controls: random subspace 1.9%, no-change 14.7%, source-output 2.5%, attribution patching 35.9%
+  partial     b_oh @ resid_mid: right 8.6% / 9.0% when changed (network changed in 86.2%); output R2 -0.087 | controls: random subspace 1.6%, no-change 13.8%, source-output 3.3%, attribution patching 35.8%
+  edit        all variables @ resid_mid: right 27.0% / 21.2% when changed (network changed in 84.2%); output R2 -0.076 | controls: random subspace 14.5%, no-change 15.8%, source-output 7.8%, attribution patching 30.9%
+  interchange all variables @ mlp_pre: right 94.0% / 94.0% when changed (network changed in 99.1%); output R2 -0.053 | controls: random subspace 0.9%, no-change 0.9%, source-output 94.0%, attribution patching 3.8%
+  partial     a_oh @ mlp_pre: right 7.5% / 7.5% when changed (network changed in 83.2%); output R2 -0.086 | controls: random subspace 2.5%, no-change 16.8%, source-output 2.6%, attribution patching 36.5%
+  partial     b_oh @ mlp_pre: right 8.1% / 8.5% when changed (network changed in 84.7%); output R2 -0.085 | controls: random subspace 2.1%, no-change 15.3%, source-output 3.4%, attribution patching 36.6%
+  edit        all variables @ mlp_pre: right 27.8% / 22.5% when changed (network changed in 84.8%); output R2 -0.075 | controls: random subspace 11.6%, no-change 15.2%, source-output 7.8%, attribution patching 29.5%
+  interchange c_oh @ mlp_out: right 100.0% / 100.0% when changed (network changed in 99.2%); output R2 -0.041 | controls: random subspace 99.9%, no-change 0.8%, source-output 100.0%, attribution patching 100.0%
+  edit        c_oh @ mlp_out: right 56.8% / 39.9% when changed (network changed in 65.6%); output R2 -0.037 | controls: random subspace 38.1%, no-change 34.4%, source-output 29.8%, attribution patching 100.0%
+STAGES   embedding: named but failing;  attention: named but failing;  mlp neurons: named but failing;  readout: named but failing
+VERDICT: NOT VERIFIED (0 of 4 stages verified). Failing:
+  - size at embed.0: you named 112 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact
+  - edit of a_oh at embed.0: prediction right in 39.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - size at embed.1: you named 112 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact
+  - edit of b_oh at embed.1: prediction right in 39.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - size at attn_out: you named 128 dimensions, but the 9 largest principal components of this site already keep 90% of decisions (limit 18): the variables must be more compact
+  - partial of a_oh at attn_out: prediction right in 8.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - partial of b_oh at attn_out: prediction right in 9.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - edit of all variables at attn_out: prediction right in 21.4% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - (at attn_out it is enough that EITHER every partial test OR the edit of all variables passes)
+  - size at resid_mid: you named 128 dimensions, but the 9 largest principal components of this site already keep 90% of decisions (limit 18): the variables must be more compact
+  - partial of a_oh at resid_mid: prediction right in 8.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - partial of b_oh at resid_mid: prediction right in 9.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - edit of all variables at resid_mid: prediction right in 21.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - (at resid_mid it is enough that EITHER every partial test OR the edit of all variables passes)
+  - size at mlp_pre: you named 128 dimensions, but the 8 largest principal components of this site already keep 90% of decisions (limit 16): the variables must be more compact
+  - partial of a_oh at mlp_pre: prediction right in 7.5% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - partial of b_oh at mlp_pre: prediction right in 8.5% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - edit of all variables at mlp_pre: prediction right in 22.5% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
+  - (at mlp_pre it is enough that EITHER every partial test OR the edit of all variables passes)
+  - size at mlp_out: you named 112 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact
+  - edit of c_oh at mlp_out: prediction right in 39.9% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
