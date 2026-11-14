@@ -6,8 +6,9 @@ this repo should be able to continue from these files alone, with no separate ha
 ## CURRENT STATE (2026-11-13, branch `constructor-attempt`). Read this first.
 
 > **This branch** is a separate attempt at the main goal, the constructor. `main` continues independently; never
-> push this branch's work to `main`. The rule for the repo still holds: it is a living documentation store, and a
-> fresh session must be able to continue from the docs alone.
+> push this branch's work to `main`, and never edit `main`. The rule for the repo still holds: it is a living
+> documentation store, and a fresh session must be able to continue from the docs alone. On this branch every
+> substep is committed and pushed (see "How work is persisted" below).
 
 ### The goal
 
@@ -20,91 +21,128 @@ in the network. It is judged by three tests, each against baselines that underst
 2. intervene on a variable in both: same change?
 3. same internal computation?
 
-The bar: a blinded, verified construction of Mystery transformer A (`lab/models/modadd_p113`) with controls; then the
-same constructor, unchanged, on networks it was not developed on; then predictions that beat know-nothing baselines.
+The bar, in order: (1) a blinded, verified construction of Mystery transformer A (`lab/models/modadd_p113`) with
+controls; (2) the same constructor, unchanged, on networks it was not developed on; (3) predictions of held-out
+interventions that beat know-nothing baselines; (4) stretch: one behaviour inside a small open language model.
 
 ### What exists now, and how to run it
 
 Everything is in `lab/`. Full description: [`docs/WHAT_WE_ARE_BUILDING.md`](../WHAT_WE_ARE_BUILDING.md).
+Using the web page: [`lab/GUIDE.md`](../../lab/GUIDE.md), section "The constructor page".
 
 | Piece | File | What it does |
 |---|---|---|
-| Construction format | described at the top of `lab/judge.py` | A standalone Python file: `model(x, iv)` computes the output through named variables; `ALIGN` says at which activation sites each variable lives. It cannot see the weights. |
-| The judge | `lab/judge.py` | Tests a construction against a network: behaviour, alignment fit, substitution, removal against a random subspace, interchange interventions, off-manifold edits. The same tests for every network. |
-| The constructor | `lab/constructor.py` | The reader (DeepSeek V4.1 Flash) investigates the network in a persistent Python session (`lab/kernel.py`), submits constructions, reads the judge's reports and revises. Blinded by default. |
-| Sites and controls | `lab/nets.py` | Forward passes with named activation sites that can be recorded or replaced; the shuffled / untrained / permuted variants; each network's input set. |
+| Construction format | top of `lab/judge.py` | A standalone Python file: `model(x, iv)` computes the output through named variables; `ALIGN` says at which activation sites each variable lives. It cannot see the weights. |
+| The judge | `lab/judge.py` | Tests a construction against a network: behaviour, alignment fit, substitution, necessity, compactness, interchange, partial/edit tests, each next to controls (including attribution patching). The same for every network. |
+| The constructor | `lab/constructor.py`, `lab/kernel.py` | The reader (DeepSeek V4.1 Flash) investigates the network in a persistent Python session, submits constructions, reads the judge's reports and revises. Blinded by default. |
+| Sites, controls, input sets | `lab/nets.py` | Forward passes with named activation sites; shuffled / untrained / permuted variants; each network's input set. |
+| Compiled targets | `lab/targets/build_tracr.py` | Four RASP programs compiled with Tracr into rotated transformers (`lab/models/tracr_*`). |
+| Held-out interventions | `lab/predict.py` | Interventions drawn without looking at the construction; the construction against no-change, a statistics regressor, attribution patching, the prior-only construction. |
+| Questions | `lab/ask.py` | Put a specific question to the reader about a constructed network. |
+| Results | `lab/results.py` | Writes a `README.md` in each run folder, `lab/constructions/INDEX.md` and `docs/RESULTS_CONSTRUCTOR.md`. |
+| Web page | `lab/server.py`, `lab/static/constructor.html` | Run and inspect all of the above in the browser at `/constructor`. |
 
 ```bash
-python3 lab/judge.py modadd_p113 lab/constructions/_oracle/modadd_p113.py     # judge a construction file
-python3 lab/constructor.py modadd_p113 --steps 60                              # run the constructor (needs lab/.env with LUMINAL_API_KEY)
-python3 lab/constructor.py modadd_p113 --variant shuffled                      # a control
-python3 lab/server.py                                                          # the lab's web app (constructor not wired into it yet)
+python3 lab/server.py                                        # web app; open http://localhost:8765/constructor
+python3 lab/constructor.py modadd_p113                       # a blinded run (needs lab/.env with LUMINAL_API_KEY)
+python3 lab/constructor.py modadd_p113 --variant shuffled    # a control
+python3 lab/constructor.py modadd_p113 --told --no-weights --one-shot     # the prior-only control
+python3 lab/judge.py <target> <construction.py>              # judge any construction file
+python3 lab/predict.py <target> <construction.py>            # held-out interventions against baselines
+python3 lab/ask.py <target> <run id> "question"              # ask the reader about a constructed network
+python3 lab/results.py                                       # regenerate the result pages and tables
 ```
 
 Each constructor run writes `lab/constructions/<target>/<run id>/`: `run.json` (every step), each submission with
-its judge report, and the best one as `construction.py` with `report.txt`.
+its judge report, the best one as `construction.py` with `report.txt`, and a `README.md`.
 
-### Latest results
+### Latest results (numbers and run links: [`docs/RESULTS_CONSTRUCTOR.md`](../RESULTS_CONSTRUCTOR.md))
 
-- **The judge discriminates** (experiment E0). On mod-add, a hand-written oracle construction passes substitution and
-  interchange at the embedding, MLP-neuron and readout stages (100%), while the same construction with wrong
-  frequencies gets about 1% and a behaviour-only lookup table fails the removal and edit tests. All three match the
-  network's behaviour on 100% of inputs, so behaviour alone separates nothing.
-- **The constructor works end to end on XOR** (verified and complete in 2 steps).
-- **Mod-add, blinded, first run: no result.** The reader found the task and the key frequencies {8, 11, 22, 23, 25}
-  from the weights within 7 steps, then spent the remaining 33 steps on the attention stage and never submitted a
-  construction (E1).
+All runs blinded unless stated. "Complete" means every stage of the network has a site that passes every test.
 
-Numbers and details: [`docs/EXPERIMENT_LOG.md`](../EXPERIMENT_LOG.md).
+| Network | Used in development? | Result |
+|---|---|---|
+| XOR, 3-bit parity, 2-bit compare, majority (tiny MLPs) | yes | Complete, 2 steps each |
+| `modadd_p113`, Mystery transformer A | yes | 3 of 4 stages: Fourier features at frequencies {8, 11, 22, 23, 25} at the embeddings, cos/sin of k(i+j) in the MLP neurons, cosine readout with amplitudes [12.5, 6.2, 0.3, 9.8, 6.7] (E3). The attention stage is not verified, and a hand-written oracle fails there too. |
+| `tracr_hist` (compiled, rotated) | yes | Complete, 21 steps: attention weight on BOS = 1/(count+1), MLP turns it into the count (E6) |
+| `tracr_reverse`, `tracr_first_match`, `tracr_count_greater` | **no** | Complete, in 9, 23 and 47 steps (E8) |
+| `modmul_p113`, Mystery transformer C | **no** | Running. The reader found Fourier features over the discrete log base 3 at frequencies {4, 28, 31, 41}; confirmed independently (E8). Embedding verified so far. |
 
-### Working on right now
+Controls on mod-add:
+- **Prior-only** (task named, no weights, one submission): 0 stages; substitution at the embedding 5.7% (E4).
+- **Shuffled, untrained**: 0 stages so far on the frozen judge (E8, running).
+- **Permuted**: 3 stages so far (E8, running), as expected for the same function.
+- **Judge calibration**: a hand-written oracle passes; the same file with wrong frequencies and a lookup table fail;
+  all three match the network's behaviour on 100% of inputs (E0, and re-checked after every judge change).
 
-*(Checkpoint written 2026-11-13 18:55 after a session interruption. The log entries for the items below are being
-written next; until then this list is the record.)*
+Held-out interventions (E7), mod-add: the construction beats "no change", the statistics regressor and the prior-only
+construction (82% against 80%, 75% and 34% decision accuracy), and beats attribution patching on interventions on
+its own variables through the nonlinear part of the network (100% against 36% at the embedding). On arbitrary
+subspace interventions attribution patching wins (91%) and is exact after the MLP, where the network is linear.
 
-- **Judge v2** is in `lab/judge.py`: the random-subspace gate was replaced by a necessity test (removing the named
-  subspace must do half the damage of mean-ablating the site) and a compactness test (named dimensions at most twice
-  the number of principal components that suffice); coordinate edits apply only to a variable that is alone at its
-  site; constant sites are ignored; networks with one decision per position are supported.
-- **Compiled targets**: `lab/targets/build_tracr.py` compiles four RASP programs with Tracr into rotated transformers
-  (`lab/models/tracr_*`); `lab/nets.py` has a general multi-layer transformer with sites.
-- **Dev runs under judge v2**: `tracr_hist` blinded reached VERIFIED AND COMPLETE (all 4 stages, 21 steps, run
-  `lab/constructions/tracr_hist/20261113-143146-5ab6`); the three other Boolean nets verified in 2 steps each;
-  `modadd_p113` dev4 (`20261113-143146-4fc2`) was cut off at step 29 by the interruption and must be rerun.
-- **Controls on mod-add** (`20261113-1417*` folders) straddled the judge change and were stopped; they must be rerun.
-  The prior-only control finished: it fails everything (substitution at `embed.0` 5.7%).
-- **Held-out intervention benchmark** `lab/predict.py` (construction vs no-change, statistics regressor, attribution
-  patching, prior-only construction). First result on mod-add is NEGATIVE: the construction predicts worse than
-  "no change" (70% vs 82% decision accuracy); attribution patching gets 93%. Cause not yet diagnosed.
+### Working on right now (updated 2026-11-13 19:45)
+
+1. The official batch on the frozen constructor (commit `391998c0`) is finishing: mod-add replicate A, mod-mul, and
+   the shuffled / untrained / permuted controls. E8 in the experiment log is updated as they end.
+2. Next, judge v3.1 (planned in E8, not yet applied because runs are in flight): at a site with several variables,
+   the off-manifold requirement is met if every single-variable swap passes OR the coordinate edit of everything
+   named at the site passes. Reason: single-frequency swaps on mod-add are knife-edge even for the oracle (51–90%),
+   so a split construction currently faces a harder test than the same content lumped.
+3. Then: rerun mod-add and mod-mul on v3.1, rejudge every delivered construction (the change only relaxes, so
+   nothing that passes can fail), and regenerate the results.
+4. `modsub_p113` is training (`lab/targets/train_modadd.py --op sub`, log in `/tmp/logs/train_modsub.log` on the
+   session machine; about 25,000 epochs). When done: `python3 lab/targets/build_registry.py`, then a held-out run.
 
 ### Tried and failed, and why
 
-- Letting the reader decide when to submit: it tried to understand the hardest stage (attention) completely before
-  testing anything (E1).
-- Reading a variable out of the activations with the pseudo-inverse of the alignment map: unnamed variance at the
-  site leaks into the decode. A fitted linear probe is used instead (E0).
+- Letting the reader decide when to submit (E1), then reminding it (E2): it tried to understand the hardest stage
+  completely before testing anything. Fixed by forced submit turns (E3).
+- Reading a variable out of activations with the pseudo-inverse of the alignment map (E0): unnamed variance leaks
+  into the decode. A fitted linear probe is used for interchange.
+- The random-subspace gate and coordinate edits on every variable (judge v1): rejected a correct construction of a
+  compiled network (E5). Replaced by necessity, compactness, and partial tests.
+- Demanding 90% of every single-variable swap (judge v2): punished a finer construction of mod-add (E6).
+- Editing the judge while runs were in flight (E4): the runs had to be discarded.
+- Translating an arbitrary activation edit into variable changes with the linear probe in `predict.py` (E7): worse
+  than "no change". The pseudo-inverse of the alignment map is the faithful translation there.
+- MIT's game policies: no environment or states are released, so there is no input set to judge on. Not attempted.
 
 ### Exact next steps
 
-1. Get a verified mod-add construction from the blinded constructor; iterate on the process, not on the network.
-2. Controls on mod-add: `--variant shuffled`, `untrained`, `permuted`, and the prior-only run (`--told --no-weights`).
-3. Freeze the constructor; run it unchanged on `modmul_p113` and on new networks with known mechanisms.
-4. Input sets for MIT's game policies (they need game states; the released logs hold only weights and prompts).
-5. Baselines for predicting held-out interventions (weight statistics + regressor, behaviour-only surrogate,
-   attribution patching, weights-ignoring reader).
-6. Wire the constructor into the lab's web app.
+1. When the five remaining runs end: `python3 lab/results.py`, finish E8, push.
+2. Apply judge v3.1 (see above), re-check the calibration constructions
+   (`lab/constructions/_oracle/modadd_p113.py` must pass 3 stages; a wrong-frequency copy and a lookup table must
+   fail), rejudge delivered constructions, update the prompt's test description to match.
+3. Rerun `modadd_p113` twice and `modmul_p113` twice on v3.1; rerun the three weight controls and two more prior-only.
+4. Run `lab/predict.py` on each verified construction and add the table to the results.
+5. Held-out `modsub_p113` when trained. More compiled programs with variable-length inputs if time allows.
+6. The mod-add attention stage: test the hypothesis in `CONVERSATION_LOG.md` (variables are attention weight times
+   Fourier features) with a hand-written oracle first.
+7. Stretch: sites for a transformer with LayerNorm, and one behaviour in a small open language model.
+
+### How work is persisted
+
+- `bash /home/claude/push.sh "message"` on the session machine: checks the branch is `constructor-attempt` and that
+  the Luminal key is in no tracked file, commits as `cybercryptixcoder`, pushes. Used after every substep.
+- The Luminal key lives only in `lab/.env` (gitignored). A new session must create that file again.
+- `judge.py`, `constructor.py`, `kernel.py` and `nets.py` are not edited while official runs are in flight.
 
 ### Map of files added on this branch
 
 | File | What it holds |
 |---|---|
 | `lab/judge.py` | The judge and the definition of a construction |
-| `lab/constructor.py` | The constructor loop, its prompt and tools |
-| `lab/kernel.py` | The persistent Python session the reader works in |
-| `lab/nets.py` (extended) | Activation sites, stages, input sets |
+| `lab/constructor.py`, `lab/kernel.py` | The constructor loop, its prompt and tools; the reader's Python session |
+| `lab/nets.py` (extended) | Activation sites, stages, input sets, a general transformer |
+| `lab/predict.py` | Held-out intervention benchmark with baselines |
+| `lab/ask.py` | Specific questions to the reader about a constructed network |
+| `lab/results.py` | Result pages and tables |
+| `lab/static/constructor.html`, `lab/server.py` (extended) | The constructor page and its endpoints |
+| `lab/targets/build_tracr.py`, `lab/models/tracr_*` | Compiled targets |
 | `lab/constructions/_oracle/` | Hand-written reference constructions used to calibrate the judge (not made by the constructor) |
-| `lab/constructions/<target>/<run id>/` | Constructor runs |
-| `docs/EXPERIMENT_LOG.md` | Every experiment on this branch, with failures |
+| `lab/constructions/<target>/<run id>/` | Constructor runs; `lab/constructions/INDEX.md` lists them |
+| `docs/EXPERIMENT_LOG.md` | Every experiment on this branch (E0–E8), with failures |
+| `docs/RESULTS_CONSTRUCTOR.md` | The results table (generated) |
 
 ### Map of the docs
 
@@ -112,7 +150,8 @@ written next; until then this list is the record.)*
 |---|---|
 | `docs/WHAT_WE_ARE_BUILDING.md` | The system as it is now: components, how they connect, how to use them |
 | `docs/EXPERIMENT_LOG.md` | Dated experiments on this branch |
-| `docs/CONVERSATION_LOG.md` | Every idea, question and decision, in order |
+| `docs/RESULTS_CONSTRUCTOR.md` | Results table with links to each run's page |
+| `docs/CONVERSATION_LOG.md` | Every idea, question, instruction and decision, in order |
 | `docs/DIRECTIONS.md` | All research directions; only the constructor is in scope on this branch |
 | `docs/literature/SYNTHESIS.md` | What the interpretability field builds and measures; what a construction is |
 | `docs/literature/core/`, `docs/literature/wsp/` | Paper entries; `wsp/K1_STATE_OF_ART.md` covers LLMs reading weights |
