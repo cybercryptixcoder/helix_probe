@@ -314,3 +314,34 @@ structure only appears after reordering the tokens by discrete log, which the re
 variables, the off-manifold requirement is met if every single-variable swap passes OR the coordinate edit of
 everything named at the site passes. These are two protocols for the same question, so a split construction can
 never score worse than the same content lumped. The change only relaxes; constructions that pass v3 still pass.
+
+## 2026-11-13 20:05. E9: held-out interventions on the compiled-network constructions
+
+**Why.** E7 measured Level 3 on mod-add only. The same benchmark on the four complete constructions shows whether the
+picture holds on networks of a different kind.
+
+**Setup.** `lab/predict.py`, default settings (40 interventions per site, removals and patches of random, unit and
+principal-component subspaces; half scored), on the delivered constructions of `tracr_hist`, `tracr_first_match`,
+`tracr_reverse` and `tracr_count_greater`. Results are saved as `predict.json` in each run folder and shown on the
+constructor page. A decision counts as right only if every output position is right.
+
+**What happened** (decision accuracy over all sites; in brackets, over the cases where the network's decision changed).
+
+| Network | Construction | No change | Statistics + regressor | Attribution patching |
+|---|---|---|---|---|
+| `tracr_reverse` | 93.5% (74.6%) | 75.0% (0%) | 65.0% | 94.1% (76.3%) |
+| `tracr_first_match` | 84.9% (30.8%) | 79.0% (0%) | 75.5% | 93.7% (79.1%) |
+| `tracr_count_greater` | 45.6% (21.0%) | 32.0% (0%) | 23.6% | 49.2% (25.3%) |
+| `tracr_hist` | 36.4% (5.5%) | 39.8% (0%) | 23.9% | 59.6% (32.9%) |
+
+**Conclusion.** Same shape as on mod-add. The construction beats the behaviour-only surrogate and the statistics
+regressor on three of four networks (on `tracr_hist` it is below "no change"), and attribution patching is ahead on
+all four, narrowly on `tracr_reverse` and `tracr_count_greater`. A construction's alignment describes the states the
+network actually visits; arbitrary subspace edits push compiled networks into states the construction says nothing
+about, while attribution patching reads the network's own local slope. Level 3 as the bar states it ("beats
+attribution patching") is NOT met on arbitrary interventions. It is met on interventions on the construction's own
+variables through nonlinear stages (E7).
+
+**Idea not yet tried.** Give the construction's alignment a causal read map (fit how downstream variables respond to
+small perturbations at a site, once, on the fit inputs) instead of the pseudo-inverse of the write map. That would use
+the network at alignment time, not at prediction time.
