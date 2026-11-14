@@ -1,0 +1,347 @@
+{
+ "n_inputs": 6000,
+ "n_fit": 3000,
+ "n_test": 3000,
+ "source_chars": 3978,
+ "variables": {
+  "h1u0": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "h1u1": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "h1u2": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "h1u3": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "sel_a": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "sel_b": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "h2": {
+   "dim": 8,
+   "sites": [
+    "h2"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": 1.0,
+  "kl": -4.6111948957212366e-23,
+  "baseline_constant_match": 0.4673333333333333
+ },
+ "sites": {
+  "h1": {
+   "width": 32,
+   "variables": [
+    "h1u0",
+    "h1u1",
+    "h1u2",
+    "h1u3",
+    "sel_a",
+    "sel_b"
+   ],
+   "named_dims": 6,
+   "named_rank": 6,
+   "pca_sufficient_rank": 5,
+   "activation_rank": 6,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": -2.007322616064094e-23,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.4673333333333333,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.4673333333333333,
+   "remove_random_match": 0.6143333333333333,
+   "used_rank": 6,
+   "unused_variables": [],
+   "off_manifold": "partial",
+   "pass": true
+  },
+  "h2": {
+   "width": 32,
+   "variables": [
+    "h2"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 5,
+   "activation_rank": 8,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": -8.309162176683911e-26,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.4673333333333333,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.4673333333333333,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "off_manifold": "edit",
+   "pass": true
+  }
+ },
+ "interventions": [
+  {
+   "variable": "all variables",
+   "variables": [
+    "h1u0",
+    "h1u1",
+    "h1u2",
+    "h1u3",
+    "sel_a",
+    "sel_b"
+   ],
+   "site": "h1",
+   "mode": "interchange",
+   "dim": 6,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.6445,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.3555,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.4185,
+   "attribution_patching": 0.3555,
+   "attribution_patching_when_changed": 0.0,
+   "pass": true
+  },
+  {
+   "variable": "h1u0",
+   "variables": [
+    "h1u0"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.148,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.852,
+   "baseline_source_output": 0.364,
+   "control_random_subspace": 0.675,
+   "attribution_patching": 0.852,
+   "attribution_patching_when_changed": 0.0,
+   "pass": true
+  },
+  {
+   "variable": "h1u1",
+   "variables": [
+    "h1u1"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.163,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.837,
+   "baseline_source_output": 0.3935,
+   "control_random_subspace": 0.706,
+   "attribution_patching": 0.837,
+   "attribution_patching_when_changed": 0.0,
+   "pass": true
+  },
+  {
+   "variable": "h1u2",
+   "variables": [
+    "h1u2"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.137,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.863,
+   "baseline_source_output": 0.407,
+   "control_random_subspace": 0.59,
+   "attribution_patching": 0.863,
+   "attribution_patching_when_changed": 0.0,
+   "pass": true
+  },
+  {
+   "variable": "h1u3",
+   "variables": [
+    "h1u3"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.1455,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.8545,
+   "baseline_source_output": 0.3955,
+   "control_random_subspace": 0.648,
+   "attribution_patching": 0.8545,
+   "attribution_patching_when_changed": 0.0,
+   "pass": true
+  },
+  {
+   "variable": "sel_a",
+   "variables": [
+    "sel_a"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.323,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.677,
+   "baseline_source_output": 0.3755,
+   "control_random_subspace": 0.4665,
+   "attribution_patching": 0.677,
+   "attribution_patching_when_changed": 0.0,
+   "pass": true
+  },
+  {
+   "variable": "sel_b",
+   "variables": [
+    "sel_b"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.2925,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.7075,
+   "baseline_source_output": 0.374,
+   "control_random_subspace": 0.64,
+   "attribution_patching": 0.7075,
+   "attribution_patching_when_changed": 0.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "h1u0",
+    "h1u1",
+    "h1u2",
+    "h1u3",
+    "sel_a",
+    "sel_b"
+   ],
+   "site": "h1",
+   "mode": "edit",
+   "dim": 6,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.446,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.554,
+   "baseline_source_output": 0.543,
+   "control_random_subspace": 0.465,
+   "attribution_patching": 0.554,
+   "attribution_patching_when_changed": 0.0,
+   "pass": true
+  },
+  {
+   "variable": "h2",
+   "variables": [
+    "h2"
+   ],
+   "site": "h2",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.6445,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.3555,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.3715,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "h2",
+   "variables": [
+    "h2"
+   ],
+   "site": "h2",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.999,
+   "r2": 1.0,
+   "network_changed": 0.365,
+   "agreement_when_changed": 0.9972602739726028,
+   "baseline_no_change": 0.635,
+   "baseline_source_output": 0.626,
+   "control_random_subspace": 0.634,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  }
+ ],
+ "uncovered_sites": [],
+ "stages": {
+  "hidden layer 1": {
+   "sites": [
+    "h1"
+   ],
+   "named": [
+    "h1"
+   ],
+   "verified": [
+    "h1"
+   ]
+  },
+  "hidden layer 2": {
+   "sites": [
+    "h2"
+   ],
+   "named": [
+    "h2"
+   ],
+   "verified": [
+    "h2"
+   ]
+  }
+ },
+ "verdict": {
+  "verified": true,
+  "fails": [],
+  "stages_total": 2,
+  "stages_verified": 2,
+  "complete": true,
+  "score": 1.0
+ },
+ "seconds": 0.45
+}
