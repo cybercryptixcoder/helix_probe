@@ -1,6 +1,6 @@
 # Constructor runs
 
-*Written by `lab/results.py` on 2026-11-14 01:18. Every run of `lab/constructor.py`, grouped by network, best first. Each run id links to that run's page.*
+*Written by `lab/results.py` on 2026-11-14 01:19. Every run of `lab/constructor.py`, grouped by network, best first. Each run id links to that run's page.*
 
 ## `astra_breakout`: a policy for MinAtar Breakout: move the paddle under where the ball will land
 
@@ -47,7 +47,7 @@
 | [`20261113-143146-4fc2`](modadd_p113/20261113-143146-4fc2/README.md) | blinded | dev4 blinded, judge v2 (necessity, compactness, per-variable interchange) | interrupted | no construction | n/a | 28 | 3 | $0.05 |
 | [`20261113-200059-7f3a`](modadd_p113/20261113-200059-7f3a/README.md) | blinded | v1.1: blinded, replicate B | interrupted | no construction | n/a | 26 | 3 | $0.06 |
 | [`20261113-200059-b4d8`](modadd_p113/20261113-200059-b4d8/README.md) | blinded | v1.1: blinded, replicate C | interrupted | no construction | n/a | 30 | 4 | $0.07 |
-| [`20261114-003532-8fe7`](modadd_p113/20261114-003532-8fe7/README.md) | blinded | v1.1: blinded, replicate B (rerun) | running | no construction | n/a | 63 | 8 | $0.34 |
+| [`20261114-003532-8fe7`](modadd_p113/20261114-003532-8fe7/README.md) | blinded | v1.1: blinded, replicate B (rerun) | running | no construction | n/a | 66 | 9 | $0.35 |
 | [`20261113-190435-48d0`](modadd_p113/20261113-190435-48d0/README.md) | permuted | v1 official: control permuted | done | 3 of 4 stages | 100.0% | 80 | 12 | $0.36 |
 | [`20261113-190435-9b22`](modadd_p113/20261113-190435-9b22/README.md) | untrained | v1 official: control untrained | done | 1 of 4 stages | 94.8% | 80 | 12 | $0.38 |
 | [`20261113-141703-0b38`](modadd_p113/20261113-141703-0b38/README.md) | prior-only | control: prior-only (task named, no weights, one submission) | done | 0 of 4 stages | 100.0% | 2 | 1 | $0.05 |

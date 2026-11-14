@@ -1048,6 +1048,22 @@
      "seconds": 0.02
     }
    ]
+  },
+  {
+   "step": 65,
+   "content": "",
+   "thinking": "W_K is 4 x 128 x 32 per docs: \"W_Q, W_K, W_V: 4 x 128 x 32 (per head: d_model x d_head)\". So W_K[h] is (128,32). I need x_p (128) @ W_K[h] (128,32) \u2192 einsum 'npe,hed->nhpd'? No: 'npe,hef->nhpf'. Let me fix: W_K indexed [h,d_model,d_head] so W_K[h] is (128,32) \u2192 einsum 'npe,hdf->nhpf'.\n\nSimilarly W_Q: einsum 'd,hdf->hf'. W_V: W_V[h] is (128,32). W_O: (4,32,128) \u2192 W_O[h] is (32,128).",
+   "finish": "tool_calls",
+   "context_tokens": 32186,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nimport numpy as np\nD=128\nx2 = (W_E[113]+W_pos[2])\nXp = np.stack([W_E[tok[:,0]]+W_pos[0], W_E[tok[:,1]]+W_pos[1], np.repeat(x2[None,:],len(X),0)],axis=1)\nq = np.einsum('d,hdf->hf', x2, W_Q)\nK = np.einsum('npe,hdf->nhpf', Xp, W_K)\nlo = np.einsum('hf,nhpf->nhp', q, K)/np.sqrt(32)\nw = np.exp(lo - lo.max(2,keepdims=True)); w /= w.sum(2,keepdims=True)\nA = acts(X[:200])\nprint('attn_pattern match', np.abs(A['attn_pattern']-w[:200].reshape(200,12)).max())\nfor h in range(4):\n    print('h',h,'mean',w[:,h,:].mean(0).round(3),'std',w[:,h,:].std(0).round(3),\n          'logstd',lo[:,h,:].std(0).round(2),'corr(w0,w1)',np.corrcoef(w[:,h,0],w[:,h,1])[0,1].round(3))\n",
+     "ok": true,
+     "output": "attn_pattern match 0.9996083365085482\nh 0 mean [0.477 0.523 0.   ] std [0.467 0.467 0.003] logstd [9.07 9.07 0.  ] corr(w0,w1) -1.0\nh 1 mean [0.477 0.523 0.   ] std [0.468 0.468 0.003] logstd [9.32 9.32 0.  ] corr(w0,w1) -1.0\nh 2 mean [0.012 0.009 0.979] std [0.056 0.047 0.072] logstd [3.71 3.71 0.  ] corr(w0,w1) -0.016\nh 3 mean [0.478 0.522 0.   ] std [0.448 0.448 0.003] logstd [5.55 5.55 0.  ] corr(w0,w1) -1.0\n",
+     "seconds": 8.64
+    }
+   ]
   }
  ],
  "submissions": [
@@ -1255,11 +1271,11 @@
   }
  ],
  "usage": {
-  "prompt_tokens": 2841411,
-  "completion_tokens": 193633,
-  "calls": 65
+  "prompt_tokens": 2873597,
+  "completion_tokens": 194147,
+  "calls": 66
  },
- "cost": 0.345604752,
+ "cost": 0.346469352,
  "status": "running",
  "best": 9,
  "final_message": ""
