@@ -66,6 +66,7 @@ All runs blinded unless stated. "Complete" means every stage of the network has 
 | `modadd_p113`, Mystery transformer A | yes | 3 of 4 stages: Fourier features at frequencies {8, 11, 22, 23, 25} at the embeddings, cos/sin of k(i+j) in the MLP neurons, cosine readout with amplitudes [12.5, 6.2, 0.3, 9.8, 6.7] (E3). The attention stage is not verified, and a hand-written oracle fails there too. |
 | `tracr_hist` (compiled, rotated) | yes | Complete, 21 steps: attention weight on BOS = 1/(count+1), MLP turns it into the count (E6) |
 | `tracr_reverse`, `tracr_first_match`, `tracr_count_greater` | **no** | Complete, in 9, 23 and 47 steps (E8) |
+| `tracr_first_match`, `tracr_count_greater`, second runs | **no** | Complete again, in 22 and 33 steps (E10) |
 | `modmul_p113`, Mystery transformer C | **no** | **Complete**, 76 steps: Fourier features over the discrete log base 3 at frequencies {4, 28, 31, 41} (confirmed independently), an additive code after the near-uniform attention, the product's clock by angle addition in the MLP, readout from that clock (E8) |
 
 Controls on mod-add:
@@ -84,15 +85,19 @@ subspace interventions attribution patching wins (91%) and is exact after the ML
 The compiled networks show the same shape (E9): the construction beats "no change" and the statistics regressor on
 three of four, and attribution patching is ahead on all four. Level 3 as stated in the bar is therefore not met.
 
-### Working on right now (updated 2026-11-13 20:45)
+### Working on right now (updated 2026-11-14 00:45)
 
-1. Judge v3.1 is applied (E10) and every delivered construction was re-judged with it; no verdict changed.
-2. A second batch is running on the constructor frozen at the E10 commit: mod-add replicates B and C, mod-mul
-   replicate B, replicates of two compiled networks, and prior-only controls (mod-add twice, mod-mul once). Logs on
-   the session machine are `/tmp/logs/v2_*.log`; the run folders are pushed every 4 minutes while they run.
-3. `modsub_p113` is training (`lab/targets/train_modadd.py --op sub`; about 25,000 epochs; the log is
-   `/tmp/logs/train_modsub.log` on the session machine). When it ends: `python3 lab/targets/build_registry.py`, then
-   a held-out run. If the session machine is gone, retrain with the same command (about 1.5 hours on 2 CPUs).
+1. Five runs are in flight on the constructor frozen at commit `b8a40aaa` (judge v3.1), relaunched after a second
+   session interruption killed them: `astra_breakout` (blinded, held out; MIT's hand-written MinAtar Breakout policy
+   with 6,000 real game states, E11), mod-add replicates B and C, mod-mul replicate B, and the mod-mul prior-only
+   control. Their folders are `lab/constructions/<target>/20261114-00*`; they are pushed every 4 minutes.
+   **If you find them with status "running" and no process alive, they were interrupted: rerun them**
+   (`python3 lab/constructor.py <target>`; prior-only: add `--told --no-weights --one-shot --steps 20`).
+2. Already finished in batch 2 (E10): `tracr_first_match` and `tracr_count_greater` replicates, both complete again;
+   two more prior-only controls on mod-add, both 0 of 4 stages.
+3. `modsub_p113` is NOT trained: the training job was killed at epoch 11,750 of 25,000. To get it:
+   `python3 lab/targets/train_modadd.py --op sub --p 113 --seed 0 --out lab/models/modsub_p113` (about 1.5 hours on
+   2 CPUs), then `python3 lab/targets/build_registry.py`.
 
 ### Tried and failed, and why
 

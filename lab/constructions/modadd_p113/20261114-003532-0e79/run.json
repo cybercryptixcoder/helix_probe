@@ -1,0 +1,97 @@
+{
+ "id": "20261114-003532-0e79",
+ "config": {
+  "target": "modadd_p113",
+  "variant": "original",
+  "told": false,
+  "weights": true,
+  "allow_forward": true,
+  "effort": "high",
+  "max_steps": 80,
+  "max_tokens": 12000,
+  "seed": 0,
+  "title": "v1.1: blinded, replicate C (rerun)",
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "one_shot": false
+ },
+ "started": 1794634532.1613817,
+ "system": "You are an interpretability researcher. You are given a trained neural network: its weights, its architecture and the set of inputs it is used on. Your job is to work out HOW it computes its outputs and to write that down as a CONSTRUCTION that an automatic judge will test.\n\nWHAT A CONSTRUCTION IS\nA short, standalone Python file that defines:\n\n  DESCRIPTION = \"plain-language account of the mechanism\"\n\n  def model(x, iv):\n      # x: the inputs, a numpy array [B, n_in]. Must return the network's predicted output, an array [B, n_out].\n      # Every named intermediate variable is registered with iv:\n      #     v = iv(\"name\", value)        value is an array [B] or [B, k]; iv returns it in the same shape.\n      # ALWAYS compute later steps from what iv returned, never from a copy made before the iv call:\n      # during intervention tests iv returns a replaced value, and your model must respond to it.\n      ...\n\n  ALIGN = {\"name\": [\"site\", ...], ...}     # for each variable, the activation site(s) of the network where it lives\n\nThe file can use numpy (as np) and math only. It CANNOT see the weights W or run the network: every constant it needs (frequencies, thresholds, coefficients, small tables) must be written into the file as literals, after you have measured them. Limit: 16,000 characters. It is meant to be a compact program that a person can read, not a copy of the network.\n\nA small example of the format, for an unrelated toy network (2 inputs, one hidden layer \"h1\", 1 output) that outputs max(x1, x2):\n\n  DESCRIPTION = \"Outputs max(x1, x2). The hidden layer holds relu(x1 - x2) and x2; the output adds them.\"\n  def model(x, iv):\n      gap = iv(\"gap\", np.maximum(x[:, 0] - x[:, 1], 0))\n      base = iv(\"base\", x[:, 1])\n      return (gap + base)[:, None]\n  ALIGN = {\"gap\": [\"h1\"], \"base\": [\"h1\"]}\n\nHOW THE JUDGE TESTS IT (on inputs held out from fitting)\n1. Behaviour: does model(x) make the same decision as the network (largest output; sign if there is one output; if the network makes one decision per position, all of them)?\n2. Alignment: at each site in ALIGN the judge fits ONE affine map from the variables you placed there to the real activations (activation = c + variables @ M). So a variable must be related to the activations linearly. If the network encodes a quantity through several nonlinear functions of it (for example a one-hot code, or a few smooth functions of it), the variable should be those functions' values, a few coordinates, not the raw quantity.\n3. Substitution: the site's activation is replaced by the construction's prediction (c + variables @ M) and the rest of the network runs. The decisions must survive. Removing the named subspace from the real activation must destroy them. And the variables must be compact: the judge reports how many principal components of the site suffice to keep the decisions, and you may name at most about twice that many dimensions. Huge variables (a lookup table of the inputs) fail this.\n4. Interchange, at each site s you align to: the network is run on an input B, but at site s the part of the activation that encodes your variables is replaced by what it is on another input A (the variables are read from the two real activations with a linear probe, and the change (v(A) - v(B)) @ M is added at site s); everything after site s is recomputed. The network's new decision must equal what model(B) returns when iv gives those variables their values from A (need 90%). So the causal wiring of model() must mirror the network: a variable must feed the later variables the way the activation at its site feeds the later sites. A variable placed at several sites is tested at each site separately.\n5. Off-manifold tests, which make states that no input produces (need 50% of the cases where the network's decision changes). Two are run at each site, and passing EITHER is enough: partial (each variable at the site is copied from A while the site's other variables keep their values from B; needs several variables at the site) and edit (a random half of the coordinates of everything you named at the site are copied). Both need realistic coefficients in model(), not just the right decision on ordinary inputs. Where the network keeps parts separate (one per position, per input, per feature group), give each part its own variable, with the coordinates that belong together kept together: copying whole parts keeps every part at a value it really takes.\nA site is verified when it passes 3-5. The network's sites are grouped into STAGES (the successive steps of its computation); a stage is explained when one of its sites is verified. The construction is COMPLETE when it behaves like the network and every stage is explained. That is the goal, reached one stage at a time, with variables that are as low-dimensional as you can make them.\n\nYOUR TOOLS\n- python(code): runs in a persistent session (variables stay between calls). Available: W (dict of weight arrays), X (all inputs the network is used on, [N, n_in]), run(x) -> outputs, acts(x) -> {site: activations [B, width]} (every site, exact: you never need to re-implement the forward pass), SITES, np, scipy, sklearn. Print what you want to see; output is cut at about 8,000 characters, so print summaries, not raw arrays.\n- submit(code): sends a construction file to the judge and returns its report. The report is the fastest way to learn what is right: it tells you, site by site and variable by variable, what passes and what fails.\n\nSUBMIT EARLY, THEN IMPROVE STAGE BY STAGE\nDo not try to understand everything before you submit. A construction that explains only one stage is a valid submission, and partial constructions are expected along the way: stages are added one at a time. Make your first submission within your first 6 steps, as soon as you know what the network does and have one candidate variable at one site. After that, submit whenever you have changed something. If you go 6 steps without submitting, you will be required to submit what you have. Explain the easy stages first and leave the hardest stage for last.\n\nHOW TO WORK\n1. Find out WHAT the network does: run it on its inputs and find the rule relating inputs to outputs.\n2. Find out HOW, stage by stage. Look at the weights themselves for structure (which rows or columns matter, low rank, sparsity, repeated or regular patterns along an index, groups of similar units), and at the activations at each site as functions of the input. Look for a small set of quantities that each site's activations are simple (linear) functions of, and check candidates by regression before you rely on them. Let the numbers decide; do not assume a mechanism because it is familiar.\n3. Write the construction with one or more variables for each stage, computed from the previous stage's variables. Measure the constants with python, write them into the file, submit, read the report, and fix what fails.\n4. If a site fails, investigate why with python (what does the activation depend on that your variables miss? is the variable used by the network at that site at all?) before resubmitting. You can reproduce any of the judge's tests yourself with run and acts. A variable that is present at a site but not used by what comes after should be given its own name and not fed forward in model().\nKeep each message short. Do the thinking with code. When the judge reports VERIFIED AND COMPLETE, or you are certain you cannot improve further, reply with a short final summary and no tool call.",
+ "task": "THE NETWORK\nA one-layer transformer with no LayerNorm and no biases. Vocabulary of 114 tokens; the input is a sequence of 3 tokens; the output is 113 logits read at the last position.\n  x = W_E[tokens] + W_pos                     W_E: 114 x 128, W_pos: 3 x 128\n  attention: 4 heads of size 32, causal       W_Q, W_K, W_V: 4 x 128 x 32 (per head: d_model x d_head), W_O: 4 x 32 x 128\n  x = x + sum_h softmax(q k^T / sqrt(32)) v W_O[h]\n  x = x + relu(x @ W_in) @ W_out              W_in: 128 x 512, W_out: 512 x 128\n  logits = x[last] @ W_U                      W_U: 128 x 113\n\nWeight tensors in W: W_E (114, 128) = token embedding (row = token); W_pos (3, 128) = position embedding; W_Q (4, 128, 32) = queries [head, d_model, d_head]; W_K (4, 128, 32) = keys [head, d_model, d_head]; W_V (4, 128, 32) = values [head, d_model, d_head]; W_O (4, 32, 128) = head outputs [head, d_head, d_model]; W_in (128, 512) = MLP input (column = neuron); W_out (512, 128) = MLP output (row = neuron); W_U (128, 113) = unembedding (column = output class)\n(226,048 parameters.)\n\nACTIVATION SITES (name, width, what it is) by stage:\n  stage: embedding\n    embed.0  [128]  token + position embedding at position 0\n    embed.1  [128]  token + position embedding at position 1\n    embed.2  [128]  token + position embedding at position 2\n  stage: attention\n    attn_pattern  [12]  attention weights of the last position: for each head, its weight on each of the 3 positions, flattened as head * 3 + position\n    attn_out  [128]  what the attention layer adds at the last position\n    resid_mid  [128]  residual stream at the last position after attention\n  stage: mlp neurons\n    mlp_pre  [512]  MLP neurons before ReLU (last position)\n    mlp_post  [512]  MLP neurons after ReLU (last position)\n  stage: readout\n    mlp_out  [128]  what the MLP adds to the residual stream\n    resid_post  [128]  residual stream at the last position after the MLP\n  stage: output  (not a site you can align to; model() returns it)\n    out  [113]  the network's output\n\nTHE INPUTS\nThe network is used on every input [i, j, 113] with i and j each ranging over 0..112 (12,769 inputs).\n\nYou are not told what the network does or what its inputs and outputs mean. Find out.\n\nBegin.",
+ "steps": [
+  {
+   "step": 0,
+   "content": "",
+   "thinking": "Let's explore. Inputs are [i, j, 113] where i,j in 0..112. Output 113 logits. Likely a task like: output token = ... Let's look at network behavior.\n\nLet's start.",
+   "finish": "tool_calls",
+   "context_tokens": 2809,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nimport numpy as np\nprint(W.keys())\nprint(W['W_E'].shape, W['W_pos'].shape, W['W_U'].shape)\n# inputs\nprint(X.shape, X[:5], X[-5:])\no = run(X)\nprint(o.shape)\nprint(\"pred\", o.argmax(1)[:20])\nprint(\"i,j\", X[:20])\n",
+     "ok": true,
+     "output": "dict_keys(['W_E', 'W_K', 'W_O', 'W_Q', 'W_U', 'W_V', 'W_in', 'W_out', 'W_pos'])\n(114, 128) (3, 128) (128, 113)\n(12769, 3) [[  0   0 113]\n [  0   1 113]\n [  0   2 113]\n [  0   3 113]\n [  0   4 113]] [[112 108 113]\n [112 109 113]\n [112 110 113]\n [112 111 113]\n [112 112 113]]\n(12769, 113)\npred [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19]\ni,j [[  0   0 113]\n [  0   1 113]\n [  0   2 113]\n [  0   3 113]\n [  0   4 113]\n [  0   5 113]\n [  0   6 113]\n [  0   7 113]\n [  0   8 113]\n [  0   9 113]\n [  0  10 113]\n [  0  11 113]\n [  0  12 113]\n [  0  13 113]\n [  0  14 113]\n [  0  15 113]\n [  0  16 113]\n [  0  17 113]\n [  0  18 113]\n [  0  19 113]]\n",
+     "seconds": 0.62
+    }
+   ]
+  },
+  {
+   "step": 1,
+   "content": "",
+   "thinking": "So output is j apparently? Check: input [i,j,113], pred = j? For i=0, pred=j. Let's check all.",
+   "finish": "tool_calls",
+   "context_tokens": 3342,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\npred = o.argmax(1)\nprint(\"pred==j frac\", (pred==X[:,1]).mean(), \"pred==i\", (pred==X[:,0]).mean())\n# check with i varying\nprint(pred[:200].reshape(1,-1))\nprint(np.where(pred!=X[:,1])[0][:20])\n# check margin\nsrt=np.sort(o,1)\nprint(\"margin\", (srt[:,-1]-srt[:,-2]).min(), np.median(srt[:,-1]-srt[:,-2]))\n",
+     "ok": true,
+     "output": "pred==j frac 0.008849557522123894 pred==i 0.008849557522123894\n[[  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38\n   39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77\n   78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108 109 110 111 112   1   2   3   4\n    5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43\n   44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82\n   83  84  85  86  87]]\n[113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132]\nmargin 3.506382124911706 11.80055343504146\n",
+     "seconds": 0.03
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "content": "",
+   "thinking": "Hmm, pred doesn't equal j. Let's look more carefully. For i=0: pred = [0..112] then next (i=1) = [1,2,3,...]. Wait indices: X[:20] are (0,0)...(0,19), pred = 0..19. Then at index 113 we get j=0, i=1, pred=1. Then index 114: i=1,j=1, pred=2. Hmm so pred = i+j? For i=0, pred=j (j from 0..112 -> 0..112). For i=1, pred = 1+j. So pred = i+j mod something? Let's check: at j=112, i=1: index 113+112=225, pred would be 113? But 113 is not in vocabulary. Let's check pred = (i+j) mod 113? Let's test.",
+   "finish": "tool_calls",
+   "context_tokens": 4038,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\npred=o.argmax(1)\ns=(X[:,0]+X[:,1])%113\nprint(\"mod113 frac\",(pred==s).mean())\nprint(\"diff\",(pred-s)%113)\nprint((pred != s).sum())\nidx=np.where(pred!=s)[0][:20]\nprint(X[idx], pred[idx], s[idx])\n",
+     "ok": true,
+     "output": "mod113 frac 1.0\ndiff [0 0 0 0 0 0 ... 0 0 0 0 0 0]\n0\n[] [] []\n",
+     "seconds": 0.0
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "content": "",
+   "thinking": "The network computes (i+j) mod 113, where i,j \u2208 0..112, j is the second token, and 113 is a \"=\" token. Output class = (i+j) mod 113.\n\nNow let's understand mechanism. Likely: attention head at last position attends to positions 0 and 1 (keys from token i and j), and the model computes something modular. Modular addition with 113 classes. Typical mechanism: use trigonometric features (Fourier basis) of tokens.\n\nLet's look at embeddings: maybe W_E rows for tokens 0..112 are Fourier features of token index with certain frequencies. Check structure: project W_E onto FFT-like basis.\n\nLet's compute singular values of W_E[0:113], and check if it's built from cos/sin at frequency k: 2*pi*k*n/113.\n\nActually, let's look at W_E and W_pos and see.\n\nStandard: embed token n as cos/sin(2\u03c0kn/113). Then attention: query from position 2 (the \"=\" position embedding), keys from positions 0,1. Attention combines values. Then MLP computes multiplication (trig identity) which yields cos/sin of sum, then unembedding reads out.\n\nPlan of stages:\n- embedding: W_E rows for tokens 0..112 are functions of n.\n- attention: last position attends to pos 0 and pos 1.\n- mlp: computes product of (cos,sin) pairs -> sum frequencies.\n- readout.\n\nLet's investigate numerically.",
+   "finish": "tool_calls",
+   "context_tokens": 4409,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nE=W['W_E'][:113]   # tokens 0..112\nprint(np.linalg.svd(E,compute_uv=False)[:20])\n# check if E rows are cos/sin of 2pi k n/113 for some k\nn=np.arange(113)\nF=np.stack([np.cos(2*np.pi*k*n/113) for k in range(1,57)]+[np.sin(2*np.pi*k*n/113) for k in range(1,57)],1)  # 112 features\n# regress E onto F\ncoef,res,rank,sv=np.linalg.lstsq(F,E,rcond=None)\npred=F@coef\nprint(\"rel err\", np.linalg.norm(pred-E)/np.linalg.norm(E))\n# which frequencies used? magnitude of coef per freq\nc2=coef.reshape(2,56,128)\nmag=np.linalg.norm(c2,axis=2)  # [2,56]\nprint(np.round(mag,2))\n",
+     "ok": true,
+     "output": "[6.0901 5.726  5.4275 5.3339 5.154  4.9621 4.9214 4.7119 3.0995 2.9748 1.3625 0.9623 0.8422 0.7525 0.7009 0.6728 0.6035 0.5894 0.5762 0.56  ]\nrel err 0.05348168661501011\n[[0.05 0.04 0.05 0.04 0.04 0.06 0.05 0.72 0.05 0.04 0.63 0.04 0.04 0.05 0.05 0.13 0.05 0.04 0.05 0.04 0.04 0.39 0.68 0.06 0.69 0.04 0.05 0.04 0.04 0.04 0.05\n  0.04 0.06 0.04 0.04 0.05 0.04 0.06 0.05 0.05 0.05 0.06 0.03 0.05 0.04 0.13 0.04 0.05 0.04 0.08 0.03 0.03 0.03 0.04 0.04 0.04]\n [0.04 0.05 0.05 0.04 0.05 0.06 0.04 0.8  0.05 0.04 0.66 0.05 0.04 0.05 0.05 0.05 0.05 0.03 0.05 0.04 0.04 0.41 0.75 0.06 0.69 0.04 0.05 0.04 0.04 0.04 0.05\n  0.04 0.05 0.04 0.04 0.04 0.04 0.05 0.04 0.06 0.05 0.06 0.04 0.05 0.04 0.06 0.04 0.05 0.03 0.09 0.03 0.04 0.04 0.05 0.04 0.04]]\n",
+     "seconds": 0.01
+    }
+   ]
+  }
+ ],
+ "submissions": [],
+ "compactions": [],
+ "usage": {
+  "prompt_tokens": 14598,
+  "completion_tokens": 1260,
+  "calls": 4
+ },
+ "cost": 0.00194004,
+ "status": "running",
+ "best": null,
+ "final_message": ""
+}
