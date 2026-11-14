@@ -1,0 +1,675 @@
+{
+ "target": "tracr_hist",
+ "n_interventions_scored": 160,
+ "n_inputs": 122,
+ "sites": [
+  "embed",
+  "attn0.pattern",
+  "attn0.out",
+  "resid0.mid",
+  "mlp0.pre",
+  "mlp0.post",
+  "mlp0.out",
+  "resid0.post"
+ ],
+ "sites_aligned_by_construction": [
+  "attn0.out",
+  "embed",
+  "mlp0.out",
+  "mlp0.pre",
+  "resid0.mid"
+ ],
+ "predictors": {
+  "construction": {
+   "all_sites": {
+    "decision_accuracy": 0.3641905737704918,
+    "accuracy_when_changed": 0.05501700680272109,
+    "accuracy_when_unchanged": 0.8327319587628866,
+    "share_changed": 0.6024590163934426,
+    "kept_spearman": 0.48642632089077087,
+    "kept_mae": 0.3013831967213115,
+    "n_interventions": 160
+   },
+   "aligned_sites": {
+    "decision_accuracy": 0.3151183970856102,
+    "accuracy_when_changed": 0.08489699514499409,
+    "accuracy_when_unchanged": 0.7087727170742651,
+    "share_changed": 0.6309819506540818,
+    "kept_spearman": 0.6854715085100646,
+    "kept_mae": 0.144394767345587,
+    "n_interventions": 99
+   },
+   "remove_aligned": {
+    "decision_accuracy": 0.2907425265188042,
+    "accuracy_when_changed": 0.06215260232440627,
+    "accuracy_when_unchanged": 0.6903710247349824,
+    "share_changed": 0.6361298617807779,
+    "kept_spearman": 0.6473637817666319,
+    "kept_mae": 0.15750562520090003,
+    "n_interventions": 51
+   },
+   "patch_aligned": {
+    "decision_accuracy": 0.3410177595628415,
+    "accuracy_when_changed": 0.10947310947310947,
+    "accuracy_when_unchanged": 0.7277701778385773,
+    "share_changed": 0.6255122950819673,
+    "kept_spearman": 0.7743491709072795,
+    "kept_mae": 0.13046448087431692,
+    "n_interventions": 48
+   },
+   "remove_all": {
+    "decision_accuracy": 0.3702185792349727,
+    "accuracy_when_changed": 0.04100683447241207,
+    "accuracy_when_unchanged": 0.8350200047069899,
+    "share_changed": 0.5853825136612022,
+    "kept_spearman": 0.49643115605205057,
+    "kept_mae": 0.29478922716627637,
+    "n_interventions": 84
+   },
+   "patch_all": {
+    "decision_accuracy": 0.35752804141501293,
+    "accuracy_when_changed": 0.06960597118555806,
+    "accuracy_when_unchanged": 0.82996297351182,
+    "share_changed": 0.6213330457290768,
+    "kept_spearman": 0.4853618551283352,
+    "kept_mae": 0.3086712683347713,
+    "n_interventions": 76
+   },
+   "by_site": {
+    "embed": {
+     "decision_accuracy": 0.0060396893874029335,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 0.9333333333333333,
+     "share_changed": 0.9935289042277826,
+     "kept_spearman": 0.3120341887093055,
+     "kept_mae": 0.11561691113028474,
+     "n_interventions": 19
+    },
+    "attn0.pattern": {
+     "decision_accuracy": 0.38912855910267474,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.6108714408973253,
+     "kept_spearman": null,
+     "kept_mae": 0.6108714408973254,
+     "n_interventions": 19
+    },
+    "attn0.out": {
+     "decision_accuracy": 0.3252608047690015,
+     "accuracy_when_changed": 0.05821665438467207,
+     "accuracy_when_unchanged": 0.5983421250941975,
+     "share_changed": 0.5055886736214605,
+     "kept_spearman": 0.7515627033045852,
+     "kept_mae": 0.1933681073025335,
+     "n_interventions": 22
+    },
+    "resid0.mid": {
+     "decision_accuracy": 0.12873674059787849,
+     "accuracy_when_changed": 0.07177700348432056,
+     "accuracy_when_unchanged": 0.2566510172143975,
+     "share_changed": 0.6918997107039537,
+     "kept_spearman": 0.8474180213776817,
+     "kept_mae": 0.2184185149469624,
+     "n_interventions": 17
+    },
+    "mlp0.pre": {
+     "decision_accuracy": 0.12444113263785395,
+     "accuracy_when_changed": 0.025070955534531692,
+     "accuracy_when_unchanged": 0.49298245614035086,
+     "share_changed": 0.7876304023845008,
+     "kept_spearman": -0.019001778063774337,
+     "kept_mae": 0.18777943368107303,
+     "n_interventions": 22
+    },
+    "mlp0.post": {
+     "decision_accuracy": 0.1916471506635441,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.8083528493364559,
+     "kept_spearman": null,
+     "kept_mae": 0.8083528493364557,
+     "n_interventions": 21
+    },
+    "mlp0.out": {
+     "decision_accuracy": 1.0,
+     "accuracy_when_changed": 1.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.17773943054357205,
+     "kept_spearman": 1.0,
+     "kept_mae": 0.0,
+     "n_interventions": 19
+    },
+    "resid0.post": {
+     "decision_accuracy": 0.7455113192818111,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.2544886807181889,
+     "kept_spearman": null,
+     "kept_mae": 0.25448868071818886,
+     "n_interventions": 21
+    }
+   }
+  },
+  "no_change": {
+   "all_sites": {
+    "decision_accuracy": 0.3975409836065574,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6024590163934426,
+    "kept_spearman": null,
+    "kept_mae": 0.6024590163934426,
+    "n_interventions": 160
+   },
+   "aligned_sites": {
+    "decision_accuracy": 0.3690180493459182,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6309819506540818,
+    "kept_spearman": null,
+    "kept_mae": 0.6309819506540818,
+    "n_interventions": 99
+   },
+   "remove_aligned": {
+    "decision_accuracy": 0.3638701382192221,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6361298617807779,
+    "kept_spearman": null,
+    "kept_mae": 0.6361298617807779,
+    "n_interventions": 51
+   },
+   "patch_aligned": {
+    "decision_accuracy": 0.3744877049180328,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6255122950819673,
+    "kept_spearman": null,
+    "kept_mae": 0.6255122950819672,
+    "n_interventions": 48
+   },
+   "remove_all": {
+    "decision_accuracy": 0.4146174863387978,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.5853825136612022,
+    "kept_spearman": null,
+    "kept_mae": 0.5853825136612021,
+    "n_interventions": 84
+   },
+   "patch_all": {
+    "decision_accuracy": 0.37866695427092323,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6213330457290768,
+    "kept_spearman": null,
+    "kept_mae": 0.6213330457290768,
+    "n_interventions": 76
+   },
+   "by_site": {
+    "embed": {
+     "decision_accuracy": 0.0064710957722174285,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.9935289042277826,
+     "kept_spearman": null,
+     "kept_mae": 0.9935289042277828,
+     "n_interventions": 19
+    },
+    "attn0.pattern": {
+     "decision_accuracy": 0.38912855910267474,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.6108714408973253,
+     "kept_spearman": null,
+     "kept_mae": 0.6108714408973254,
+     "n_interventions": 19
+    },
+    "attn0.out": {
+     "decision_accuracy": 0.4944113263785395,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.5055886736214605,
+     "kept_spearman": null,
+     "kept_mae": 0.5055886736214604,
+     "n_interventions": 22
+    },
+    "resid0.mid": {
+     "decision_accuracy": 0.30810028929604627,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.6918997107039537,
+     "kept_spearman": null,
+     "kept_mae": 0.6918997107039538,
+     "n_interventions": 17
+    },
+    "mlp0.pre": {
+     "decision_accuracy": 0.21236959761549926,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.7876304023845008,
+     "kept_spearman": null,
+     "kept_mae": 0.7876304023845008,
+     "n_interventions": 22
+    },
+    "mlp0.post": {
+     "decision_accuracy": 0.1916471506635441,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.8083528493364559,
+     "kept_spearman": null,
+     "kept_mae": 0.8083528493364557,
+     "n_interventions": 21
+    },
+    "mlp0.out": {
+     "decision_accuracy": 0.822260569456428,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.17773943054357205,
+     "kept_spearman": null,
+     "kept_mae": 0.17773943054357202,
+     "n_interventions": 19
+    },
+    "resid0.post": {
+     "decision_accuracy": 0.7455113192818111,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.2544886807181889,
+     "kept_spearman": null,
+     "kept_mae": 0.25448868071818886,
+     "n_interventions": 21
+    }
+   }
+  },
+  "source_output": {
+   "all_sites": {
+    "decision_accuracy": 0.23524590163934425,
+    "accuracy_when_changed": 0.007057823129251701,
+    "accuracy_when_unchanged": 0.5810567010309279,
+    "share_changed": 0.6024590163934426,
+    "kept_spearman": -0.004076177157808472,
+    "kept_mae": 0.47407786885245906,
+    "n_interventions": 160
+   },
+   "aligned_sites": {
+    "decision_accuracy": 0.20384169564497434,
+    "accuracy_when_changed": 0.005642304159559113,
+    "accuracy_when_unchanged": 0.5427417545434149,
+    "share_changed": 0.6309819506540818,
+    "kept_spearman": -0.08132770611072007,
+    "kept_mae": 0.4973505547276038,
+    "n_interventions": 99
+   },
+   "remove_aligned": {
+    "decision_accuracy": 0.3638701382192221,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6361298617807779,
+    "kept_spearman": null,
+    "kept_mae": 0.6361298617807779,
+    "n_interventions": 51
+   },
+   "patch_aligned": {
+    "decision_accuracy": 0.03381147540983607,
+    "accuracy_when_changed": 0.01173901173901174,
+    "accuracy_when_unchanged": 0.07067943456452348,
+    "share_changed": 0.6255122950819673,
+    "kept_spearman": null,
+    "kept_mae": 0.34989754098360654,
+    "n_interventions": 48
+   },
+   "remove_all": {
+    "decision_accuracy": 0.4146174863387978,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.5853825136612022,
+    "kept_spearman": null,
+    "kept_mae": 0.5853825136612021,
+    "n_interventions": 84
+   },
+   "patch_all": {
+    "decision_accuracy": 0.03699309749784297,
+    "accuracy_when_changed": 0.014407220968581843,
+    "accuracy_when_unchanged": 0.07405297636001139,
+    "share_changed": 0.6213330457290768,
+    "kept_spearman": null,
+    "kept_mae": 0.35105694564279544,
+    "n_interventions": 76
+   },
+   "by_site": {
+    "embed": {
+     "decision_accuracy": 0.004314063848144953,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 0.6666666666666666,
+     "share_changed": 0.9935289042277826,
+     "kept_spearman": -0.888041262527039,
+     "kept_mae": 0.5371009490940466,
+     "n_interventions": 19
+    },
+    "attn0.pattern": {
+     "decision_accuracy": 0.34641932700603967,
+     "accuracy_when_changed": 0.006355932203389831,
+     "accuracy_when_unchanged": 0.8802660753880266,
+     "share_changed": 0.6108714408973253,
+     "kept_spearman": 0.3842990000293294,
+     "kept_mae": 0.39257981018119065,
+     "n_interventions": 19
+    },
+    "attn0.out": {
+     "decision_accuracy": 0.22317436661698956,
+     "accuracy_when_changed": 0.006632277081798084,
+     "accuracy_when_unchanged": 0.4446119065561417,
+     "share_changed": 0.5055886736214605,
+     "kept_spearman": -0.25168785899173446,
+     "kept_mae": 0.5711624441132638,
+     "n_interventions": 22
+    },
+    "resid0.mid": {
+     "decision_accuracy": 0.19720347155255544,
+     "accuracy_when_changed": 0.003484320557491289,
+     "accuracy_when_unchanged": 0.6322378716744914,
+     "share_changed": 0.6918997107039537,
+     "kept_spearman": -0.02445752036907667,
+     "kept_mae": 0.5106075216972035,
+     "n_interventions": 17
+    },
+    "mlp0.pre": {
+     "decision_accuracy": 0.11997019374068554,
+     "accuracy_when_changed": 0.004257332071901609,
+     "accuracy_when_unchanged": 0.5491228070175439,
+     "share_changed": 0.7876304023845008,
+     "kept_spearman": -0.021662947085992524,
+     "kept_mae": 0.451564828614009,
+     "n_interventions": 22
+    },
+    "mlp0.post": {
+     "decision_accuracy": 0.10772833723653395,
+     "accuracy_when_changed": 0.007242877836793819,
+     "accuracy_when_unchanged": 0.5315682281059063,
+     "share_changed": 0.8083528493364559,
+     "kept_spearman": -0.11859600165779591,
+     "kept_mae": 0.481264637002342,
+     "n_interventions": 21
+    },
+    "mlp0.out": {
+     "decision_accuracy": 0.4840379637618637,
+     "accuracy_when_changed": 0.04854368932038835,
+     "accuracy_when_unchanged": 0.5781741867785939,
+     "share_changed": 0.17773943054357205,
+     "kept_spearman": 0.2570738347668606,
+     "kept_mae": 0.41328731665228646,
+     "n_interventions": 19
+    },
+    "resid0.post": {
+     "decision_accuracy": 0.4102263856362217,
+     "accuracy_when_changed": 0.024539877300613498,
+     "accuracy_when_unchanged": 0.5418848167539267,
+     "share_changed": 0.2544886807181889,
+     "kept_spearman": 0.3489113503954588,
+     "kept_mae": 0.43091334894613587,
+     "n_interventions": 21
+    }
+   }
+  },
+  "statistics": {
+   "all_sites": {
+    "decision_accuracy": 0.23924180327868852,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 0.6018041237113402,
+    "share_changed": 0.6024590163934426,
+    "kept_spearman": 0.8302165268132151,
+    "kept_mae": 0.1282032979612056,
+    "n_interventions": 160
+   },
+   "aligned_sites": {
+    "decision_accuracy": 0.2069879119059447,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 0.5609154139555755,
+    "share_changed": 0.6309819506540818,
+    "kept_spearman": 0.8427126995838766,
+    "kept_mae": 0.11079502036164851,
+    "n_interventions": 99
+   },
+   "remove_aligned": {
+    "decision_accuracy": 0.17647058823529413,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 0.48498233215547704,
+    "share_changed": 0.6361298617807779,
+    "kept_spearman": 0.824348227103137,
+    "kept_mae": 0.11851458949753113,
+    "n_interventions": 51
+   },
+   "patch_aligned": {
+    "decision_accuracy": 0.23941256830601093,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 0.6393068855449157,
+    "share_changed": 0.6255122950819673,
+    "kept_spearman": 0.8781339195483575,
+    "kept_mae": 0.10259297815477324,
+    "n_interventions": 48
+   },
+   "remove_all": {
+    "decision_accuracy": 0.22511709601873536,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 0.5429512826547422,
+    "share_changed": 0.5853825136612022,
+    "kept_spearman": 0.814282487155649,
+    "kept_mae": 0.1431777488072521,
+    "n_interventions": 84
+   },
+   "patch_all": {
+    "decision_accuracy": 0.2548533218291631,
+    "accuracy_when_changed": 0.0,
+    "accuracy_when_unchanged": 0.6730276274565651,
+    "share_changed": 0.6213330457290768,
+    "kept_spearman": 0.871797788028259,
+    "kept_mae": 0.11165258913136475,
+    "n_interventions": 76
+   },
+   "by_site": {
+    "embed": {
+     "decision_accuracy": 0.0,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 0.0,
+     "share_changed": 0.9935289042277826,
+     "kept_spearman": -0.2297363363053429,
+     "kept_mae": 0.07818086748922348,
+     "n_interventions": 19
+    },
+    "attn0.pattern": {
+     "decision_accuracy": 0.10526315789473684,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 0.270509977827051,
+     "share_changed": 0.6108714408973253,
+     "kept_spearman": 0.8333414337804328,
+     "kept_mae": 0.1816820843788643,
+     "n_interventions": 19
+    },
+    "attn0.out": {
+     "decision_accuracy": 0.30327868852459017,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 0.613413715146948,
+     "share_changed": 0.5055886736214605,
+     "kept_spearman": 0.9424485869650507,
+     "kept_mae": 0.12809054885075827,
+     "n_interventions": 22
+    },
+    "resid0.mid": {
+     "decision_accuracy": 0.0,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 0.0,
+     "share_changed": 0.6918997107039537,
+     "kept_spearman": 0.4717458956788379,
+     "kept_mae": 0.20078068295845689,
+     "n_interventions": 17
+    },
+    "mlp0.pre": {
+     "decision_accuracy": 0.041356184798807746,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 0.19473684210526315,
+     "share_changed": 0.7876304023845008,
+     "kept_spearman": 0.7792628674105996,
+     "kept_mae": 0.08502143951622922,
+     "n_interventions": 22
+    },
+    "mlp0.post": {
+     "decision_accuracy": 0.0585480093676815,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 0.3054989816700611,
+     "share_changed": 0.8083528493364559,
+     "kept_spearman": 0.4079164541923373,
+     "kept_mae": 0.18127846906772774,
+     "n_interventions": 21
+    },
+    "mlp0.out": {
+     "decision_accuracy": 0.67946505608283,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 0.8263378803777545,
+     "share_changed": 0.17773943054357205,
+     "kept_spearman": 0.7756480887804315,
+     "kept_mae": 0.07271237784949812,
+     "n_interventions": 19
+    },
+    "resid0.post": {
+     "decision_accuracy": 0.6932084309133489,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 0.9298429319371728,
+     "share_changed": 0.2544886807181889,
+     "kept_spearman": 0.8520121792853883,
+     "kept_mae": 0.10881015258899965,
+     "n_interventions": 21
+    }
+   }
+  },
+  "attribution": {
+   "all_sites": {
+    "decision_accuracy": 0.5959016393442623,
+    "accuracy_when_changed": 0.3292517006802721,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6024590163934426,
+    "kept_spearman": 0.3475968283299782,
+    "kept_mae": 0.37853483606557375,
+    "n_interventions": 160
+   },
+   "aligned_sites": {
+    "decision_accuracy": 0.4648120549759894,
+    "accuracy_when_changed": 0.15181734680488124,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6309819506540818,
+    "kept_spearman": 0.43736472631056245,
+    "kept_mae": 0.49453551912568305,
+    "n_interventions": 99
+   },
+   "remove_aligned": {
+    "decision_accuracy": 0.4484088717454195,
+    "accuracy_when_changed": 0.1328954017180394,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6361298617807779,
+    "kept_spearman": 0.4248469720784715,
+    "kept_mae": 0.5294117647058824,
+    "n_interventions": 51
+   },
+   "patch_aligned": {
+    "decision_accuracy": 0.4822404371584699,
+    "accuracy_when_changed": 0.17226317226317225,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6255122950819673,
+    "kept_spearman": 0.5059951653180986,
+    "kept_mae": 0.45747950819672134,
+    "n_interventions": 48
+   },
+   "remove_all": {
+    "decision_accuracy": 0.5861631537861046,
+    "accuracy_when_changed": 0.2930488414735789,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.5853825136612022,
+    "kept_spearman": 0.37853007080421924,
+    "kept_mae": 0.4003708040593286,
+    "n_interventions": 84
+   },
+   "patch_all": {
+    "decision_accuracy": 0.606665228645384,
+    "accuracy_when_changed": 0.3669501822600243,
+    "accuracy_when_unchanged": 1.0,
+    "share_changed": 0.6213330457290768,
+    "kept_spearman": 0.32829976428203617,
+    "kept_mae": 0.3544003451251079,
+    "n_interventions": 76
+   },
+   "by_site": {
+    "embed": {
+     "decision_accuracy": 0.0064710957722174285,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.9935289042277826,
+     "kept_spearman": -0.06133519270302077,
+     "kept_mae": 0.9516824849007763,
+     "n_interventions": 19
+    },
+    "attn0.pattern": {
+     "decision_accuracy": 0.38912855910267474,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.6108714408973253,
+     "kept_spearman": null,
+     "kept_mae": 0.6108714408973254,
+     "n_interventions": 19
+    },
+    "attn0.out": {
+     "decision_accuracy": 0.4944113263785395,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.5055886736214605,
+     "kept_spearman": null,
+     "kept_mae": 0.5055886736214604,
+     "n_interventions": 22
+    },
+    "resid0.mid": {
+     "decision_accuracy": 0.30810028929604627,
+     "accuracy_when_changed": 0.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.6918997107039537,
+     "kept_spearman": null,
+     "kept_mae": 0.6918997107039538,
+     "n_interventions": 17
+    },
+    "mlp0.pre": {
+     "decision_accuracy": 0.4899403874813711,
+     "accuracy_when_changed": 0.35241248817407755,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.7876304023845008,
+     "kept_spearman": 0.8797409485848835,
+     "kept_mae": 0.3632637853949329,
+     "n_interventions": 22
+    },
+    "mlp0.post": {
+     "decision_accuracy": 0.9968774395003903,
+     "accuracy_when_changed": 0.9961371318203767,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.8083528493364559,
+     "kept_spearman": 1.0,
+     "kept_mae": 0.0,
+     "n_interventions": 21
+    },
+    "mlp0.out": {
+     "decision_accuracy": 1.0,
+     "accuracy_when_changed": 1.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.17773943054357205,
+     "kept_spearman": 1.0,
+     "kept_mae": 0.0,
+     "n_interventions": 19
+    },
+    "resid0.post": {
+     "decision_accuracy": 1.0,
+     "accuracy_when_changed": 1.0,
+     "accuracy_when_unchanged": 1.0,
+     "share_changed": 0.2544886807181889,
+     "kept_spearman": 1.0,
+     "kept_mae": 0.0,
+     "n_interventions": 21
+    }
+   }
+  }
+ },
+ "text": "HELD-OUT INTERVENTIONS on tracr_hist: 160 interventions x 122 inputs. The construction aligns to: attn0.out, embed, mlp0.out, mlp0.pre, resid0.mid.\n\nPATCH a subspace from another input, at sites the construction aligns to\n  predictor      decision acc  when changed  when unchanged  kept: Spearman  kept: abs err\n  construction          34.1%         10.9%           72.8%            0.77           0.13\n  no_change             37.4%          0.0%          100.0%             n/a           0.63\n  source_output          3.4%          1.2%            7.1%             n/a           0.35\n  statistics            23.9%          0.0%           63.9%            0.88           0.10\n  attribution           48.2%         17.2%          100.0%            0.51           0.46\n  (the network's decision changed in 62.6% of these cases; 48 interventions)\n\nREMOVE a subspace, at sites the construction aligns to\n  predictor      decision acc  when changed  when unchanged  kept: Spearman  kept: abs err\n  construction          29.1%          6.2%           69.0%            0.65           0.16\n  no_change             36.4%          0.0%          100.0%             n/a           0.64\n  source_output         36.4%          0.0%          100.0%             n/a           0.64\n  statistics            17.6%          0.0%           48.5%            0.82           0.12\n  attribution           44.8%         13.3%          100.0%            0.42           0.53\n  (the network's decision changed in 63.6% of these cases; 51 interventions)\n\nPATCH, all sites (the construction predicts 'no change' where it has no alignment)\n  predictor      decision acc  when changed  when unchanged  kept: Spearman  kept: abs err\n  construction          35.8%          7.0%           83.0%            0.49           0.31\n  no_change             37.9%          0.0%          100.0%             n/a           0.62\n  source_output          3.7%          1.4%            7.4%             n/a           0.35\n  statistics            25.5%          0.0%           67.3%            0.87           0.11\n  attribution           60.7%         36.7%          100.0%            0.33           0.35\n  (the network's decision changed in 62.1% of these cases; 76 interventions)\n\nREMOVE, all sites\n  predictor      decision acc  when changed  when unchanged  kept: Spearman  kept: abs err\n  construction          37.0%          4.1%           83.5%            0.50           0.29\n  no_change             41.5%          0.0%          100.0%             n/a           0.59\n  source_output         41.5%          0.0%          100.0%             n/a           0.59\n  statistics            22.5%          0.0%           54.3%            0.81           0.14\n  attribution           58.6%         29.3%          100.0%            0.38           0.40\n  (the network's decision changed in 58.5% of these cases; 84 interventions)\n\nEverything\n  predictor      decision acc  when changed  when unchanged  kept: Spearman  kept: abs err\n  construction          36.4%          5.5%           83.3%            0.49           0.30\n  no_change             39.8%          0.0%          100.0%             n/a           0.60\n  source_output         23.5%          0.7%           58.1%           -0.00           0.47\n  statistics            23.9%          0.0%           60.2%            0.83           0.13\n  attribution           59.6%         32.9%          100.0%            0.35           0.38\n  (the network's decision changed in 60.2% of these cases; 160 interventions)\n\nDecision accuracy by site, both modes (construction / attribution / statistics / no_change):\n  embed         0.6% / 0.6% / 0.0% / 0.6%\n  attn0.pattern 38.9% / 38.9% / 10.5% / 38.9%   (not aligned by the construction)\n  attn0.out     32.5% / 49.4% / 30.3% / 49.4%\n  resid0.mid    12.9% / 30.8% / 0.0% / 30.8%\n  mlp0.pre      12.4% / 49.0% / 4.1% / 21.2%\n  mlp0.post     19.2% / 99.7% / 5.9% / 19.2%   (not aligned by the construction)\n  mlp0.out      100.0% / 100.0% / 67.9% / 82.2%\n  resid0.post   74.6% / 100.0% / 69.3% / 74.6%   (not aligned by the construction)"
+}
