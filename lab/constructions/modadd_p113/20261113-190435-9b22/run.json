@@ -1206,6 +1206,22 @@
      "seconds": 0.95
     }
    ]
+  },
+  {
+   "step": 75,
+   "content": "",
+   "thinking": "resid_post: R2 0.99345 with [S,phi32]. residue is 0.0065 of variance \u2014 but decisions depend on the small nonlinear part... Hmm, substitute test: replacing resid_post with prediction (R2 0.9934) \u2014 the logits error would be... Let's estimate decision agreement when resid_post is replaced by the prediction: that's essentially using my model's out18 estimate vs actual. Since the S-only prediction corresponds to the additive model (94.9%) and adding phi gives 95.8%, substitute should be ~95.8%. Good.\n\nNow simulate the full construction with quantization: quantize q's (2 chars), coefficients (2 chars), additive table (2 chars), and check accuracy for T=24 and T=32.\n\nNote: the additive table T should be refit jointly with phi features (as I did). And the phi coefficients come from the joint fit.\n\nChar budget check: I'll compute the exact char counts.\n\nLet me write the simulation: joint lstsq gives coefficients: C (18), T (113x18) from S, and Wphi (T x 18). Then quantize all to base62 2-char, and compute accuracy.\n\nRanges: need per-block lo/hi.\n\nLet's do it.",
+   "finish": "tool_calls",
+   "context_tokens": 21377,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nimport numpy as np\nS=KEEP['S']; Y18=KEEP['Y18']; pre=KEEP['pre']; ordk=KEEP['ordk']\nN=X.shape[0]; Alin=np.hstack([np.ones((N,1)),S])\ndef quant(A,lo,hi,lev=3843):\n    q=np.clip(np.round((A-lo)/(hi-lo)*lev),0,lev).astype(int)\n    return lo+q*(hi-lo)/lev\nfor T in [24,32]:\n    ks=ordk[:T]; phi=np.maximum(pre[:,ks],0)\n    F=np.hstack([Alin,phi]); Q=np.linalg.lstsq(F,Y18,rcond=None)[0]\n    C=Q[0]; Tt=Q[1:114]; Wp=Q[114:]\n    # quantize\n    Cq=quant(C,C.min(),C.max()); Tq=quant(Tt,Tt.min(),Tt.max()); Wq=quant(Wp,Wp.min(),Wp.max())\n    qq=np.array([KEEP['pre'][:,k] for k in ks])\n    PREQ=quant(qq,qq.min(),qq.max())\n    phiq=np.maximum(PREQ.T,0)\n    P=Cq[None,:]+S@Tq+phiq@Wq\n    print(T,\"acc\",round((P.argmax(1)==Y18.argmax(1)).mean(),5),\n          \"chars\",2*(18+113*18+T*113+T*18+T),\n          \"ranges\",np.round([Tt.min(),Tt.max(),Wp.min(),Wp.max(),qq.min(),qq.max()],4))\n",
+     "ok": true,
+     "output": "24 acc 0.95583 chars 10440 ranges [-0.2031  0.2119 -0.1008  0.1391 -0.2868  0.2967]\n32 acc 0.95802 chars 12552 ranges [-0.1976  0.2097 -0.1121  0.137  -0.2868  0.2967]\n",
+     "seconds": 0.18
+    }
+   ]
   }
  ],
  "submissions": [
@@ -1439,11 +1455,11 @@
   }
  ],
  "usage": {
-  "prompt_tokens": 3156563,
-  "completion_tokens": 193615,
-  "calls": 75
+  "prompt_tokens": 3177940,
+  "completion_tokens": 194295,
+  "calls": 76
  },
- "cost": 0.35376786,
+ "cost": 0.354750048,
  "status": "running",
  "best": 11,
  "final_message": ""
