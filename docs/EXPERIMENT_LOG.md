@@ -585,3 +585,20 @@ prior-only control 1 on `gpt2_countdown`, blinded run A on the new target `gpt2_
   residual sites are now read from the cache without a forward pass.
 - State at 12:40: countdown run A 1 of 5 stages after 6 submissions; be-verb run A 2 of 5 after 4 (then paused with a
   STOP file to give the countdown run the machine; resume it with `--resume 20261114-114450-62b2`).
+
+## 2026-11-14 13:10-13:55. E19, what blocks the countdown reader; a faster judge; a second model family
+
+- **Run A after 56 steps and 10 submissions: 1 of 5 stages** (the answer's identity at depth 12). It works bottom-up
+  and is stuck on the partial tests of the embedding cut: what the model answers when ONE number is swapped.
+- **Is that a judge artefact? No.** The judge's subspace swap of a number's identity at `resid0` gives the same answer
+  as swapping the token in the prompt in 100% of 200 pairs (n1, n3, n4). What the model does after a swap of n3 is
+  not "n4 + sign(n4 - n3')" (22%): in 43% of cases the answer is 5 or more away from n4, e.g. "97, 96, 28, 94," -> 24,
+  "38, 39, 76, 41," -> 77. It looks like "one step beyond the extreme number, in the run's direction" (32% exact for
+  my crude version). So the early stages need a real model of how GPT-2 reads a number list; this is the new,
+  checkable content a complete construction would carry. Left to the reader.
+- **Judge time** was 5-7 minutes for a nine-site submission. Now: the two costly controls (attribution patching,
+  random subspace) run on the interchange test only, the principal-component count is cached, 300 pairs instead
+  of 400. A one-cut check: 28 s with another process on the machine.
+- **Pythia (GPT-NeoX) in `lab/lm.py`**: rotary positions, parallel residual, untied unembedding. Final logits agree
+  with Hugging Face to 0.002 in float32 (Hugging Face's default half-precision load differs from both by 0.7). New
+  target `pythia70m_be_verb`: the rule holds on 94.9% of 649 prompts. So the tool is not GPT-2-only.

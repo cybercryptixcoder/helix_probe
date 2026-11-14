@@ -1,0 +1,70 @@
+{
+ "id": "pythia70m_be_verb",
+ "name": "pythia70m_be_verb",
+ "forward": "lm",
+ "model": "EleutherAI/pythia-70m",
+ "family": "neox",
+ "arch": "EleutherAI/pythia-70m: a pre-trained decoder-only transformer language model (6 layers, 8 heads per layer, d_model 512, d_head 64, d_mlp 2048, vocabulary 50304; pre-LayerNorm blocks: resid += attn(ln1(resid)) + mlp(ln2(resid)), both reading the block's input; rotary position encoding inside attention, no position embedding; logits = ln_f(resid) @ W_U, W_U not tied to W_E; GELU).",
+ "cfg": {
+  "family": "neox",
+  "model_id": "EleutherAI/pythia-70m",
+  "n_layers": 6,
+  "n_heads": 8,
+  "d_model": 512,
+  "d_head": 64,
+  "d_mlp": 2048,
+  "n_vocab": 50304,
+  "n_ctx": 2048,
+  "ln_eps": 1e-05,
+  "rotary_dims": 16,
+  "rotary_base": 10000,
+  "parallel": true,
+  "gelu": "exact"
+ },
+ "params": 44670976,
+ "x_names": [
+  "cue",
+  "noun"
+ ],
+ "answers": [
+  " is",
+  " are",
+  " was",
+  " were"
+ ],
+ "answer_ids": [
+  310,
+  403,
+  369,
+  497
+ ],
+ "n_prompts": 649,
+ "n_tokens": 5,
+ "split_by": "noun",
+ "roles": {
+  "comma": 2,
+  "cue": 1,
+  "noun": 4,
+  "the": 3,
+  "end": 4
+ },
+ "example_prompts": [
+  "<|endoftext|>Now, the boy",
+  "<|endoftext|>Currently, the roads",
+  "<|endoftext|>Always, the cars",
+  "<|endoftext|>Yesterday, the letter",
+  "<|endoftext|>Previously, the road",
+  "<|endoftext|>Before, the car"
+ ],
+ "domain": {
+  "file": "inputs.npy",
+  "text": "Each prompt is \"<cue>, the <noun>\": a one-word time cue, a comma, \"the\", and a noun. x[:, 0] = which cue (index into a list of 12 cue words), x[:, 1] = which noun (index into a list of 60 nouns). Token positions: 0 <|endoftext|>, 1 the cue, 2 comma, 3 \" the\", 4 the noun (the last token). Roles: cue = 1, comma = 2, the = 3, noun = end = 4. The cue words, in index order: Now, Currently, Usually, Often, Always, Sometimes, Yesterday, Earlier, Previously, Once, Before, Originally. The nouns, in index order: boy, girl, man, woman, dog, teacher, doctor, king, child, car, house, book, cat, student, player, bird, tree, table, room, road, queen, judge, driver, writer, farmer, soldier, river, window, door, letter, boys, girls, men, women, dogs, teachers, doctors, kings, children, cars, houses, books, cats, students, players, birds, trees, tables, rooms, roads, queens, judges, drivers, writers, farmers, soldiers, rivers, windows, doors, letters."
+ },
+ "context": "Half of the cue words point to the present and half to the past; half of the nouns are singular and half plural.",
+ "answer": {
+  "short": "Pythia-70m prefers the form of 'to be' that agrees with the noun's number and the cue's tense: is / are / was / were."
+ },
+ "task_file": "be_verb_pythia.py",
+ "tensors": [],
+ "group": "language models"
+}

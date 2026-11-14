@@ -47,7 +47,10 @@ def build(task_file):
     c = model.cfg
     arch = (f"{t.MODEL}: a pre-trained decoder-only transformer language model ({c['n_layers']} layers, {c['n_heads']} heads per layer, "
             f"d_model {c['d_model']}, d_head {c['d_head']}, d_mlp {c['d_mlp']}, vocabulary {c['n_vocab']}; pre-LayerNorm blocks: "
-            "resid += attn(ln1(resid)); resid += mlp(ln2(resid)); logits = ln_f(resid) @ W_U; learned absolute position embeddings; GELU).")
+            + ("resid += attn(ln1(resid)); resid += mlp(ln2(resid)); logits = ln_f(resid) @ W_U; learned absolute position embeddings; GELU)."
+               if c["family"] == "gpt2" else
+               "resid += attn(ln1(resid)) + mlp(ln2(resid)), both reading the block's input; rotary position encoding inside attention, no position "
+               "embedding; logits = ln_f(resid) @ W_U, W_U not tied to W_E; GELU)."))
     meta = {"id": t.ID, "name": getattr(t, "NAME", t.ID), "forward": "lm", "model": t.MODEL, "family": c["family"],
             "arch": arch, "cfg": c, "params": int(sum(v.numel() for k, v in model.P.items() if k != "W_U")),
             "x_names": t.X_NAMES, "answers": t.ANSWERS, "answer_ids": answer_ids, "n_prompts": len(keep), "n_tokens": T,

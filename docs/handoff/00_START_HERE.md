@@ -19,7 +19,7 @@ checkable claim). The tool is the deliverable; the discovery proves it.
 
 | Piece | File | What it does |
 |---|---|---|
-| LM engine | `lab/lm.py` | GPT-2-family models (from Hugging Face) with named, replaceable activation sites at any token position: `resid{L}@p`, `attn{L}@p`, `head{L}.{H}@p`, `mlp{L}@p`, `neur{L}@p`, `pattern{L}.{H}@p`. Caches the residual stream, recomputes only what an intervention can change. Matches Hugging Face's logits to 1e-4. |
+| LM engine | `lab/lm.py` | GPT-2-family and Pythia (GPT-NeoX) models (from Hugging Face; a new family = one loader function) with named, replaceable activation sites at any token position: `resid{L}@p`, `attn{L}@p`, `head{L}.{H}@p`, `mlp{L}@p`, `neur{L}@p`, `pattern{L}.{H}@p`. Caches the residual stream, recomputes only what an intervention can change. Matches Hugging Face's logits to 1e-4. |
 | LM task | `lab/lm_tasks/*.py`, `lab/lm_build.py` | A task file names the model, the prompts, the input features, the roles (named positions) and the answer tokens. `python3 lab/lm_build.py lab/lm_tasks/<file>.py` turns it into a target in `lab/models/<id>/`. How to write one: `lab/lm_tasks/README.md`. |
 | LM judge | `lab/lmjudge.py` | The same tests as `judge.py`, with **cuts** (all residual sites named at one depth, tested together, the other positions mean-ablated) and **stages by depth band** (embedding + four bands of layers). Categorical identity variables allowed. `python3 lab/judge.py <lm target> <file>` dispatches here. |
 | Reader session for LMs | `lab/kernel.py` (`lm_env`), `LM_SYSTEM` in `lab/constructor.py` | The reader gets `run`, `logits`, `acts`, `hook=` (its own patching experiments), `run_tokens`, the weights `W`, `unembed`, `top`. |
@@ -84,7 +84,7 @@ open question (in particular: the direction is NOT a linear variable at the n4 p
 3. A stricter pass without identity variables (compact codes only): E16 shows a 29-dimensional Fourier code over
    period 100 passes at depth 9, so it exists to be found.
 4. A second LM target with all-binary variables (number x tense of "is / are / was / were"; E15 shows GPT-2 does it).
-5. A second model family in `lm.py` (Pythia / GPT-NeoX): add a loader that fills the same weight names.
+5. (done 13:55) Pythia / GPT-NeoX is supported: target `pythia70m_be_verb` (the model follows the rule on 94.9%). No run on it yet.
 
 ### How work is persisted
 

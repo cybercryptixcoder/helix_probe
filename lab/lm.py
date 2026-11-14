@@ -80,12 +80,50 @@ def load_gpt2(model_id):
     return cfg, P
 
 
-LOADERS = {"gpt2": load_gpt2}
+def load_neox(model_id):
+    """Weights of a GPT-NeoX checkpoint (the Pythia models), under the engine's names. Differences from GPT-2, carried in
+    cfg: rotary position encoding on the first rotary_dims of each head's query and key (no position embedding);
+    attention and MLP of a block both read the block's input (parallel residual); exact GELU; untied unembedding."""
+    from transformers import GPTNeoXForCausalLM
+    hf = GPTNeoXForCausalLM.from_pretrained(model_id)
+    sd = {k: v.detach().float() for k, v in hf.state_dict().items()}
+    c = hf.config
+    L, H, d = c.num_hidden_layers, c.num_attention_heads, c.hidden_size
+    dh = d // H
+    P = {"W_E": sd["gpt_neox.embed_in.weight"], "ln_f.w": sd["gpt_neox.final_layer_norm.weight"], "ln_f.b": sd["gpt_neox.final_layer_norm.bias"],
+         "W_U": hf.get_output_embeddings().weight.detach().float().T.contiguous()}
+    for l in range(L):
+        p = f"gpt_neox.layers.{l}."
+        qkv = sd[p + "attention.query_key_value.weight"].reshape(H, 3, dh, d)       # rows are grouped per head: q, k, v
+        qb = sd[p + "attention.query_key_value.bias"].reshape(H, 3, dh)
+        for i, n in enumerate("QKV"):
+            P[f"L{l}.W_{n}"] = qkv[:, i].permute(0, 2, 1).contiguous()               # [H, d, dh]
+            P[f"L{l}.b_{n}"] = qb[:, i].contiguous()
+        P[f"L{l}.W_O"] = sd[p + "attention.dense.weight"].T.reshape(H, dh, d).contiguous()
+        P[f"L{l}.b_O"] = sd[p + "attention.dense.bias"]
+        P[f"L{l}.ln1.w"], P[f"L{l}.ln1.b"] = sd[p + "input_layernorm.weight"], sd[p + "input_layernorm.bias"]
+        P[f"L{l}.ln2.w"], P[f"L{l}.ln2.b"] = sd[p + "post_attention_layernorm.weight"], sd[p + "post_attention_layernorm.bias"]
+        P[f"L{l}.W_in"], P[f"L{l}.b_in"] = sd[p + "mlp.dense_h_to_4h.weight"].T.contiguous(), sd[p + "mlp.dense_h_to_4h.bias"]
+        P[f"L{l}.W_out"], P[f"L{l}.b_out"] = sd[p + "mlp.dense_4h_to_h.weight"].T.contiguous(), sd[p + "mlp.dense_4h_to_h.bias"]
+    cfg = {"family": "neox", "model_id": model_id, "n_layers": L, "n_heads": H, "d_model": d, "d_head": dh,
+           "d_mlp": P["L0.W_in"].shape[1], "n_vocab": P["W_E"].shape[0], "n_ctx": c.max_position_embeddings, "ln_eps": c.layer_norm_eps,
+           "rotary_dims": int(dh * getattr(c, "rotary_pct", 0.25)), "rotary_base": getattr(c, "rotary_emb_base", 10000), "parallel": bool(c.use_parallel_residual), "gelu": "exact"}
+    del hf, sd
+    return cfg, P
+
+
+LOADERS = {"gpt2": load_gpt2, "neox": load_neox}
 _MODELS = {}
 
 
 def family_of(model_id):
-    return "gpt2"            # every supported checkpoint so far has the GPT-2 architecture
+    """Which loader a Hugging Face checkpoint needs (from its config's model_type)."""
+    from transformers import AutoConfig
+    mt = AutoConfig.from_pretrained(model_id).model_type
+    fam = {"gpt2": "gpt2", "gpt_neox": "neox"}.get(mt)
+    if fam is None:
+        raise ValueError(f"{model_id} has architecture '{mt}'; lm.py supports gpt2 (GPT-2 family) and gpt_neox (Pythia). Add a loader to LOADERS.")
+    return fam
 
 
 class LM:
@@ -115,7 +153,20 @@ class LM:
 
     def embed(self, tokens):
         tokens = torch.as_tensor(np.asarray(tokens), dtype=torch.long)
+        if "W_pos" not in self.P:           # rotary models have no position embedding
+            return self.P["W_E"][tokens]
         return self.P["W_E"][tokens] + self.P["W_pos"][: tokens.shape[1]]
+
+    def rotary(self, x, first):
+        """Rotate the first rotary_dims of queries / keys x [B, H, T', dh] whose positions start at `first`."""
+        r = self.cfg["rotary_dims"]
+        inv = 1.0 / (self.cfg["rotary_base"] ** (torch.arange(0, r, 2).float() / r))
+        f = torch.outer(torch.arange(first, first + x.shape[2]).float(), inv)
+        emb = torch.cat([f, f], -1)
+        cos, sin = emb.cos()[None, None], emb.sin()[None, None]
+        xr = x[..., :r]
+        half = torch.cat([-xr[..., r // 2:], xr[..., : r // 2]], -1)
+        return torch.cat([xr * cos + half * sin, x[..., r:]], -1)
 
     def forward(self, resid, start=0, hooks=None, want=None, stop=None, prefix=None):
         """Run blocks start..n_layers-1 on the residual stream resid [B, T, d] (the stream entering block `start`).
@@ -167,6 +218,8 @@ class LM:
             q = torch.einsum("btd,hde->bhte", x, P[f"L{l}.W_Q"]) + P[f"L{l}.b_Q"][None, :, None, :]
             k = torch.einsum("btd,hde->bhte", xk, P[f"L{l}.W_K"]) + P[f"L{l}.b_K"][None, :, None, :]
             v = torch.einsum("btd,hde->bhte", xk, P[f"L{l}.W_V"]) + P[f"L{l}.b_V"][None, :, None, :]
+            if cfg.get("rotary_dims"):
+                q, k = self.rotary(q, pm), self.rotary(k, 0)
             sc = (q @ k.transpose(-1, -2)) / math.sqrt(dh)
             pat = torch.softmax(sc.masked_fill(mask, float("-inf")), -1)              # [B, H, Ta, T]
             ph = [h for h in range(H) if ("pattern", l, h) in hooks or ("pattern", l, h) in want]
@@ -184,9 +237,10 @@ class LM:
             else:
                 a = torch.einsum("bhte,hed->btd", z, P[f"L{l}.W_O"]) + P[f"L{l}.b_O"]
             a = site(("attn", l, None), a)
+            x = self.ln(resid if cfg.get("parallel") else resid + a, P[f"L{l}.ln2.w"], P[f"L{l}.ln2.b"])   # parallel: the MLP reads the block's input
             resid = resid + a
-            x = self.ln(resid, P[f"L{l}.ln2.w"], P[f"L{l}.ln2.b"])
-            hid = gelu_new(x @ P[f"L{l}.W_in"] + P[f"L{l}.b_in"])
+            hid = x @ P[f"L{l}.W_in"] + P[f"L{l}.b_in"]
+            hid = torch.nn.functional.gelu(hid) if cfg.get("gelu") == "exact" else gelu_new(hid)
             hid = site(("neur", l, None), hid)
             m = hid @ P[f"L{l}.W_out"] + P[f"L{l}.b_out"]
             m = site(("mlp", l, None), m)
@@ -243,7 +297,11 @@ class Task:
                 lm.P[k] = torch.randn(v.shape, generator=g) * (v.std() + 1e-8) + v.mean()
             else:
                 raise ValueError(f"LM targets have the variants original, shuffled, untrained; not {variant}")
-        lm.P["W_U"] = lm.P["W_E"].T.contiguous()
+        if base.cfg["family"] == "gpt2":
+            lm.P["W_U"] = lm.P["W_E"].T
+        else:
+            v = base.P["W_U"]
+            lm.P["W_U"] = v.flatten()[torch.randperm(v.numel(), generator=g)].reshape(v.shape) if variant == "shuffled" else torch.randn(v.shape, generator=g) * v.std() + v.mean()
         return lm
 
     # ---- indices and positions
