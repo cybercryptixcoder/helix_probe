@@ -143,3 +143,131 @@ test is what carries weight there; the reader makes indexing mistakes that cost 
 
 **Changed as a result.** A one-shot option for the prior-only control (a judge report is itself information about the
 network, so that control gets one submission and no report). Controls and a replicate launched.
+
+## 2026-11-13 14:17. E4: first controls on mod-add (stopped: they straddled a judge change)
+
+**Why.** Shuffled, untrained and permuted weights, and a prior-only run, to see whether E3's success could come from
+priors, leakage or luck.
+
+**Setup.** `modadd_p113`, blinded, 60 steps each, variants shuffled / untrained / permuted (runs `20261113-141703-*`),
+plus a second blinded replicate (80 steps), plus prior-only: `--told --no-weights --one-shot` (the task is named; no
+weights, no network, one submission, no report).
+
+**What happened.**
+- Prior-only (run `20261113-141703-0b38`, finished): the reader wrote a Fourier construction from memory with guessed
+  frequencies. Substitution at `embed.0` 5.7%, interchange 7.6%; 0 of 4 stages. Memory of the published mechanism
+  does not supply this network's frequencies.
+- Replicate 2 reached embedding, MLP neurons and readout verified by its 4th submission (step about 30).
+- Shuffled and untrained: 0 stages verified at the point they were stopped (31 and 54 steps).
+- Permuted: embedding verified and the readout at `mlp_out` by step 28.
+- A loophole showed up on the shuffled network: a variable aligned to `embed.2`, which is identical for every input,
+  passed every test trivially and the embedding stage was reported as verified.
+- I changed `judge.py` while these runs were in flight (the judge runs as a subprocess, so they picked the change up
+  mid-run). The four unfinished runs were stopped; they are kept in the repo as partial records only.
+
+**Conclusion.** Prior-only fails as it should. The other controls must be rerun on a frozen judge. Rule adopted: no
+edits to `judge.py`, `constructor.py`, `kernel.py` or `nets.py` while official runs are in flight.
+
+**Changed as a result.** The judge ignores sites that are constant on the input set.
+
+## 2026-11-13 14:25. E5: the judge on compiled (Tracr) networks, and judge v2
+
+**Why.** Level 2 needs networks with known mechanisms that the reader cannot have memorised. Tracr compiles RASP
+programs to exact transformer weights.
+
+**Setup.** `lab/targets/build_tracr.py` compiles four programs for a fixed input length and saves them in a general
+transformer format (`nets.transformer`, sites over all positions): `tracr_hist` and `tracr_reverse` (library
+programs), `tracr_first_match` and `tracr_count_greater` (written here). The residual stream is rotated by a random
+orthogonal matrix and MLP neurons are permuted and rescaled, so the weights are dense; the script checks the result
+against Tracr's own output. A hand-written oracle for `tracr_hist` (`lab/constructions/_oracle/tracr_hist.py`) was
+judged.
+
+**What happened.** The correct oracle failed judge v1 in two ways:
+- Removal: removing a random 10-dimensional subspace at `embed` destroyed 100% of decisions, the same as removing the
+  named subspace. Compiled networks have no slack, so "a random subspace of the same size does no damage" is false for
+  them, and the random-subspace gate rejects correct constructions.
+- Edit: copying a random half of the coordinates of a one-hot variable makes invalid codes (two tokens at once), and
+  the network's response to those is arbitrary: 40% right.
+
+**Conclusion.** Two of the gates were tuned to a trained, redundant network. They were replaced (judge v2):
+- necessity: removing the named subspace must do at least half the damage of mean-ablating the whole site;
+- compactness: the named dimensions that the output depends on may be at most twice (or 4 more than) the number of
+  principal components of the site that keep 90% of decisions (found by binary search). This is what now rejects a
+  lookup table (112 dimensions named where 7 suffice);
+- a site whose mean-ablation changes under 5% of decisions cannot be verified;
+- variables that the construction correctly marks as unused are not counted toward size;
+- outputs with one decision per position are supported (all positions must match).
+The random-subspace removal is still reported, but does not gate.
+
+Re-checked on mod-add after the change: oracle 3 stages verified; wrong frequencies 0; lookup table 0; E3's
+construction 3. The `tracr_hist` oracle, with one variable per position, verifies at every site it names.
+
+## 2026-11-13 14:31. E6: dev runs under judge v2 (Tracr histogram complete; mod-add cut off)
+
+**Setup.** Blinded. `tracr_hist` 60 steps; `bool_parity3`, `bool_compare2`, `bool_majority3` 30 steps;
+`modadd_p113` 80 steps (dev4).
+
+**What happened.**
+- `tracr_hist` (run `20261113-143146-5ab6`): **VERIFIED AND COMPLETE** on the 3rd submission, 21 steps, 7 min, $0.09.
+  The construction: token code per position at `embed`; `q_p = 1/(m_p + 1)` at `attn0.out`, `resid0.mid` and
+  `mlp0.pre`, where `m_p` is the number of positions holding the same token as position p; powers of `q_p` at
+  `mlp0.out`; logits from a polynomial in `q_p`. This is the compiled mechanism (the attention head attends to equal
+  tokens and to BOS, whose weight is 1/(count+1); the MLP converts that to the count), read from rotated weights.
+- The three Boolean nets: verified and complete in 2 steps each.
+- `modadd_p113` dev4 (run `20261113-143146-4fc2`): 0 stages at step 28, when the session was interrupted. Following
+  the prompt's advice to split variables into parts, the reader had made one variable per cosine and per sine
+  (`c8`, `s8`, ...). Swapping one of them alone was right in 31–84% of changed cases, below the 90% that judge v2
+  demanded of every interchange.
+
+**Conclusion.** The constructor generalises to a compiled network it was not tuned on. But judge v2 punished a finer
+construction of mod-add: one lumped 10-dimensional variable passes (edit at 50%), the same content split into parts
+fails (interchange at 90%). Splitting must never raise the bar.
+
+**Changed as a result (judge v3).** At a site with several variables, the standard interchange test copies everything
+named at the site (90%); copying one variable alone is a "partial" test with the same bar as an edit (50% of the cases
+where the network's decision changed, where "no change" scores 0). The hand-written oracle split by frequency gets
+51–90% on partial tests and passes; lumped it passes as before; the lookup table and wrong frequencies still fail.
+
+## 2026-11-13 14:50–19:10. E7: do constructions predict held-out interventions better than baselines? (mixed)
+
+**Why.** Level 3 of the bar: predictions of interventions the construction was not tested on, against baselines that
+understand nothing.
+
+**Setup.** `lab/predict.py` on `modadd_p113` with E3's construction. Interventions are drawn without looking at any
+construction: at each of 9 sites, 48 subspaces (random, random units, top principal components, random mixtures of
+the top 24 components), each either removed or patched in from another input. Half the interventions and 1,500
+held-out inputs are scored. Predictors: the construction with its alignment (it never runs the network; where it has
+no alignment it predicts "no change"); no-change (the behaviour-only surrogate); a gradient-boosted regressor on
+statistics of the intervention; attribution patching (first-order estimate on the real network); and the prior-only
+construction from E4 put through the same pipeline.
+
+**What happened.**
+
+| Predictor | Decision accuracy, all 216 interventions | When the decision changed | Patches at aligned sites | Removals at aligned sites |
+|---|---|---|---|---|
+| Construction (E3) | 82.3% | 13.9% | see `predict.py` output | 88.2% |
+| No change | 80.1% | 0% | | 86.9% |
+| Statistics + regressor | 75.0% | 0% | | 80.9% |
+| Prior-only construction | 34.2% | 1.1% | | 42.3% |
+| Attribution patching | **90.8%** | **57.0%** | | **97.5%** |
+
+By site (construction / attribution patching): `embed.0` 91.5% / 91.4%, `embed.1` 88.6% / 87.4%, `mlp_post`
+80.8% / 100%, `mlp_out` 92.9% / 100%, `resid_post` 85.0% / 100%.
+
+On the judge's own interventions on the construction's variables (held-out inputs), attribution patching is now
+reported next to every test: at `embed.0` the construction is right in 100% of interchanges and attribution patching
+in 36%; for coordinate edits 67% against 43%. After the MLP the network is linear in the activation, so attribution
+patching is exact there (100%) and the construction's edit predictions are 75–77%.
+
+Two mistakes on the way: the first version translated an activation edit into a change of the variables with the
+linear probe, which amplifies low-variance directions and made the construction worse than "no change" (70%); reading
+the edit off the named subspace (pseudo-inverse of the alignment map) is the faithful version of the construction's
+claim that the rest of the activation does not matter.
+
+**Conclusion.** Honest status of Level 3: the construction beats the behaviour-only surrogate, the statistics
+regressor and the prior-only reader. It beats attribution patching only where the path to the output is nonlinear and
+the intervention is on its variables (the embedding stage). On arbitrary subspace interventions attribution patching
+wins clearly, and it is exact at every site after the MLP. The construction rarely names the exact new decision when
+an arbitrary subspace edit changes it (14–18%).
+
+**Changed as a result.** The judge reports attribution patching beside every intervention test.

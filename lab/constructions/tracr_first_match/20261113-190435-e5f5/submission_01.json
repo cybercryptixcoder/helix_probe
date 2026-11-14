@@ -1,0 +1,173 @@
+{
+ "n_inputs": 1024,
+ "n_fit": 512,
+ "n_test": 512,
+ "source_chars": 739,
+ "variables": {
+  "tok0": {
+   "dim": 6,
+   "sites": []
+  },
+  "tok1": {
+   "dim": 6,
+   "sites": []
+  },
+  "tok2": {
+   "dim": 6,
+   "sites": []
+  },
+  "tok3": {
+   "dim": 6,
+   "sites": []
+  },
+  "tok4": {
+   "dim": 6,
+   "sites": []
+  },
+  "tok5": {
+   "dim": 6,
+   "sites": []
+  },
+  "embed": {
+   "dim": 36,
+   "sites": [
+    "embed"
+   ]
+  }
+ },
+ "unaligned_variables": [
+  "tok0",
+  "tok1",
+  "tok2",
+  "tok3",
+  "tok4",
+  "tok5"
+ ],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 0.0,
+  "r2": -0.6499662635071863,
+  "kl": 0.11094407167172733,
+  "baseline_constant_match": 0.310546875
+ },
+ "sites": {
+  "embed": {
+   "width": 108,
+   "variables": [
+    "embed"
+   ],
+   "named_dims": 36,
+   "named_rank": 15,
+   "pca_sufficient_rank": 13,
+   "activation_rank": 15,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": -1.232859770332954e-17,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.03515625,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.017578125,
+   "remove_random_match": 0.9895833333333334,
+   "used_rank": 15,
+   "unused_variables": [],
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "embed",
+   "variables": [
+    "embed"
+   ],
+   "site": "embed",
+   "mode": "interchange",
+   "dim": 36,
+   "agreement": 0.0,
+   "r2": -0.6402601190107156,
+   "network_changed": 0.851,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.149,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.0235,
+   "attribution_patching": 0.2565,
+   "attribution_patching_when_changed": 0.2573443008225617,
+   "pass": false
+  },
+  {
+   "variable": "embed",
+   "variables": [
+    "embed"
+   ],
+   "site": "embed",
+   "mode": "edit",
+   "dim": 36,
+   "agreement": 0.1095,
+   "r2": -0.6734562668803006,
+   "network_changed": 0.741,
+   "agreement_when_changed": 0.14777327935222673,
+   "baseline_no_change": 0.259,
+   "baseline_source_output": 0.2495,
+   "control_random_subspace": 0.024,
+   "attribution_patching": 0.406,
+   "attribution_patching_when_changed": 0.3090418353576248,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [
+  "attn0.out",
+  "resid0.mid",
+  "mlp0.pre",
+  "mlp0.post",
+  "mlp0.out",
+  "resid0.post"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed"
+   ],
+   "named": [
+    "embed"
+   ],
+   "verified": []
+  },
+  "layer 0 attention": {
+   "sites": [
+    "attn0.out",
+    "resid0.mid"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "layer 0 mlp neurons": {
+   "sites": [
+    "mlp0.pre",
+    "mlp0.post"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "layer 0 output": {
+   "sites": [
+    "mlp0.out",
+    "resid0.post"
+   ],
+   "named": [],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "behaviour: the construction's output agrees with the network on 0.0% of inputs (need 95%)",
+   "interchange of embed at embed: prediction right in 0.0% of the cases where the network's output changed (need 90%)",
+   "edit of embed at embed: prediction right in 14.8% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 0.25
+}
