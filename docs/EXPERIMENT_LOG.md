@@ -469,13 +469,13 @@ specific question, and it needs the input semantics. The constructor gives the f
 | `tracr_count_greater` replicate B | `20261113-200059-cb04` | complete, 4 of 4 | 33 |
 | `modmul_p113` replicate B | `20261114-003532-fe44` | 3 of 4: embedding, MLP neurons, readout verified; attention not named | 80 |
 | `modadd_p113` replicate C | `20261114-003532-0e79` | 3 of 4: embedding, MLP neurons, readout; attention not named | 80 |
-| `modadd_p113` replicate B | `20261114-003532-8fe7` | 3 of 4 at step 60; still running when this was written (see `RESULTS_CONSTRUCTOR.md`) | 60+ |
+| `modadd_p113` replicate B | `20261114-003532-8fe7` | 3 of 4: embedding, MLP neurons, readout; attention not named (finished 02:05) | 80 |
 | `astra_breakout` | E12 | complete, 2 of 2 | 33 |
 | mod-add prior-only B, C | `20261113-200059-4f94`, `-9cb3` | 0 of 4 each | 2, 4 |
 | mod-mul prior-only | `20261114-003532-*` (no weights) | 0 of 4 | 4 |
 
 **Conclusions.**
-- Mod-add is stable at 3 of 4 stages across five blinded runs (E3, the E4 replicate, A, C, and B so far), always the
+- Mod-add is stable at 3 of 4 stages across five blinded runs (E3, the E4 replicate, A, B, C), always the
   same three: embedding, MLP neurons, readout, with the frequencies {8, 11, 22, 23, 25}. No run verified attention.
 - Mod-mul: one run complete (E8), one run 3 of 4 with the attention stage left unnamed. So "complete" on mod-mul is
   not reliable from one run to the next; the discrete-log embedding, the MLP and the readout were verified both times.

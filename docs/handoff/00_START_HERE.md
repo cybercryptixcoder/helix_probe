@@ -91,9 +91,7 @@ partly; level 4 (a real language model) not attempted.
 
 ### Working on right now (updated 2026-11-14 01:40)
 
-- The last run of batch 2, mod-add replicate B (`lab/constructions/modadd_p113/20261114-003532-8fe7`), was at step
-  63 with 3 of 4 stages. If its `run.json` still says "running" and no process is alive, it was interrupted: it adds
-  nothing new and need not be rerun.
+- Batch 2 is finished: the last run, mod-add replicate B, ended at 3 of 4 stages like the others.
 - Nothing else is in flight. The constructor is frozen at `b8a40aaa`; it may be edited again now.
 - `modsub_p113` is NOT trained (the job was killed at epoch 11,750 of 25,000). To get it:
   `python3 lab/targets/train_modadd.py --op sub --p 113 --seed 0 --out lab/models/modsub_p113` (about 1.5 hours on
