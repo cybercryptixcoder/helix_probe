@@ -295,7 +295,7 @@ function renderVariants() {
 
 /* ---------- targets ---------- */
 async function loadTargets() {
-  S.targets = await api('/api/targets'); $('#nT').textContent = S.targets.length + ' networks';
+  S.targets = await api('/api/targets?kind=weights'); $('#nT').textContent = S.targets.length + ' networks';
   const fams = {}; S.targets.forEach(t => (fams[t.family] = fams[t.family] || []).push(t));
   const order = Object.keys(fams).sort((a, b) => Math.min(...fams[a].map(t => t.params)) - Math.min(...fams[b].map(t => t.params)));
   const revealed = JSON.parse(localStorage.wrlRevealed || '{}');

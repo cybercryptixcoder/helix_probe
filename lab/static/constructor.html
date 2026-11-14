@@ -78,6 +78,15 @@ h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:19px;mar
 .desc{font-family:var(--serif);font-size:17px;line-height:1.35;margin:8px 0}
 .note{font-size:12.5px;line-height:1.45;opacity:.8;margin:2px 0 6px}
 .qa{border-left:3px solid var(--teal);padding:2px 0 2px 10px;margin:8px 0}
+.map td,.map th{white-space:normal;text-align:center;vertical-align:top;min-width:54px}
+.map td.v{background:rgb(98 190 118 / .45)}.map td.f{background:rgb(240 105 42 / .25)}.map td.e{opacity:.35}
+.map td small{display:block;font-size:10px;opacity:.8}
+.bar{display:inline-block;height:9px;background:var(--teal);vertical-align:middle;border:1px solid var(--ink)}
+.bar.neg{background:var(--orange)}
+.comp{font-family:var(--mono);font-size:11.5px;margin:2px 0;white-space:nowrap}
+.cvar{margin:8px 0 2px;font-weight:700;font-size:12.5px}
+.task{margin:6px 10px;padding:6px 10px;border:var(--thin);background:var(--field);font-size:12px}
+.task .m{font-family:var(--mono);font-size:10.5px;opacity:.75}
 </style>
 </head>
 <body>
@@ -99,7 +108,7 @@ h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:19px;mar
           <label>Weights</label>
           <div class="row" id="variants"></div>
           <label>Step budget</label>
-          <input type="number" id="steps" value="80" min="5" max="200">
+          <input type="number" id="steps" value="80" min="5" max="400">
           <label>What the reader is told</label>
           <div class="row" id="modes"></div>
           <div class="hint" id="modeHint" style="margin-top:6px"></div>
@@ -112,6 +121,10 @@ h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:19px;mar
       <div class="frame" style="flex:1">
         <h2>Runs <small id="runCount"></small></h2>
         <div class="scroll" id="runs"></div>
+      </div>
+      <div class="frame" style="max-height:30%">
+        <h2>Language-model tasks <small>lab/lm_tasks</small></h2>
+        <div class="scroll" id="tasks"></div>
       </div>
     </div>
     <div class="col">
@@ -133,7 +146,7 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const pct = v => v == null ? 'n/a' : (100 * v).toFixed(1) + '%';
 const api = async (u, o) => (await fetch(u, o)).json();
-const S = {variant: 'original', mode: 'blinded', running: null, sel: null, live: null};
+const S = {variant: 'original', mode: 'blinded', running: null, sel: null, live: null, targets: [], poll: null};
 const setTheme = t => { document.documentElement.dataset.theme = t; localStorage.wrlTheme = t; };
 setTheme(localStorage.wrlTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
 $('themeBtn').onclick = () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
@@ -150,15 +163,18 @@ function chips(el, items, cur, on) {
     c.onclick = () => on(k); el.appendChild(c);
   }
 }
+const isLM = () => (S.targets.find(t => t.id === $('target').value) || {}).forward === 'lm';
 function drawOptions() {
-  chips($('variants'), [['original','trained'],['shuffled','shuffled'],['untrained','untrained'],['permuted','permuted']], S.variant, k => { S.variant = k; drawOptions(); });
+  const vs = [['original','trained'],['shuffled','shuffled'],['untrained','untrained']].concat(isLM() ? [] : [['permuted','permuted']]);
+  if (!vs.some(v => v[0] === S.variant)) S.variant = 'original';
+  chips($('variants'), vs, S.variant, k => { S.variant = k; drawOptions(); });
   chips($('modes'), Object.entries(MODES).map(([k, v]) => [k, v[0]]), S.mode, k => { S.mode = k; drawOptions(); });
   $('modeHint').textContent = MODES[S.mode][1];
 }
 
 function badge(r) {
   if (r.status === 'running') return '<span class="badge run">running</span>';
-  if (r.status === 'interrupted' && r.stages_total == null) return '<span class="badge no">interrupted</span>';
+  if (r.status === 'interrupted') return `<span class="badge no">interrupted${r.stages_total != null ? ' · ' + r.stages_verified + '/' + r.stages_total : ''}</span>`;
   if (r.complete) return '<span class="badge ok">complete</span>';
   if (r.stages_total == null) return '<span class="badge no">no construction</span>';
   return `<span class="badge ${r.stages_verified ? 'part' : 'no'}">${r.stages_verified}/${r.stages_total} stages</span>`;
@@ -190,13 +206,41 @@ function stepHtml(s) {
   }
   return h + '</div>';
 }
-async function openRun(target, id) {
+async function openRun(target, id, quiet) {
   S.sel = id; S.live = null;
   const d = await api(`/api/constructions/${target}/${id}`);
-  $('log').innerHTML = d.run.steps.map(stepHtml).join('') + (d.run.final_message ? `<div class="step"><div class="hd">final summary</div><div class="say">${esc(d.run.final_message)}</div></div>` : '');
-  $('stepInfo').textContent = `${d.run.steps.length} steps · ${d.run.status}`;
-  drawConstruction(d, target, id);
-  loadRuns();
+  const log = $('log'), stick = log.scrollTop + log.clientHeight >= log.scrollHeight - 60, n = d.run.steps.length;
+  if (!quiet || S.shown !== id + ':' + n + ':' + d.run.status) {
+    const top = log.scrollTop;
+    log.innerHTML = d.run.steps.map(stepHtml).join('') + (d.run.final_message ? `<div class="step"><div class="hd">final summary</div><div class="say">${esc(d.run.final_message)}</div></div>` : '')
+      + (d.run.status === 'running' ? '<div class="pad hint">The run is going on as its own process: you can close this page and come back. This view refreshes every few seconds.</div>' : '');
+    log.scrollTop = quiet ? (stick ? log.scrollHeight : top) : 0;
+    const ck = S.shown ? S.shown.split(':')[0] : null;
+    if (!quiet || ck !== id || d.report && S.shownRep !== JSON.stringify(d.report.verdict) + (d.circuit ? 'c' : '')) drawConstruction(d, target, id);
+    S.shownRep = d.report ? JSON.stringify(d.report.verdict) + (d.circuit ? 'c' : '') : null;
+    S.shown = id + ':' + n + ':' + d.run.status;
+  }
+  const st = d.run.status, c = d.run.config;
+  let info = `${n} of ${c.max_steps} steps · ${st} · $${(d.run.cost || 0).toFixed(2)}`;
+  $('stepInfo').innerHTML = esc(info) + (st !== 'running' && !(d.report && d.report.verdict.complete) && !c.one_shot
+    ? ' <button class="btn sm teal" id="resumeBtn" title="Continue this run from the reader\'s notes and its best submission">Resume</button>' : '');
+  if ($('resumeBtn')) $('resumeBtn').onclick = async () => {
+    await fetch('/api/launch', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({target, resume: id, steps: n + (+$('steps').value)})});
+    follow(target, id);
+  };
+  S.running = st === 'running' ? id : (S.running === id ? null : S.running);
+  $('stop').disabled = st !== 'running';
+  if (st === 'running' && !S.poll) follow(target, id);
+  if (!quiet) loadRuns();
+  return st;
+}
+function follow(target, id) {           // poll a run that is going on as its own process
+  clearInterval(S.poll);
+  S.poll = setInterval(async () => {
+    if (S.sel !== id) { clearInterval(S.poll); S.poll = null; return; }
+    const st = await openRun(target, id, true);
+    if (st !== 'running') { clearInterval(S.poll); S.poll = null; loadRuns(); }
+  }, 4000);
 }
 
 function drawConstruction(d, target, id) {
@@ -212,15 +256,18 @@ function drawConstruction(d, target, id) {
   h += '<div class="stages">' + Object.entries(rep.stages).map(([name, st]) =>
     `<div class="stage ${st.verified.length ? 'ok' : (st.named.length ? 'fail' : 'none')}">${esc(name)}<small>${st.verified.length ? 'verified at ' + st.verified.join(', ') : (st.named.length ? 'named, failing' : 'not explained')}</small></div>`).join('') + '</div>';
   h += `<div class="note">Run in place of the network: same decision on <b>${pct(b.match)}</b> of ${rep.n_test} held-out inputs (a constant output: ${pct(b.baseline_constant_match)}). Construction length: ${rep.source_chars.toLocaleString()} characters.</div>`;
-  h += '<h3>Sites</h3><div class="note">Substitute: decisions kept when the site is replaced by the construction\'s prediction. Remove: decisions kept when the named subspace is removed (should fall to the mean-ablate level).</div>';
+  if (rep.kind === 'lm') h += mechanismMap(rep) + circuitHtml(d);
+  h += '<h3>' + (rep.kind === 'lm' ? 'Units (cuts and component sites)' : 'Sites') + '</h3><div class="note">Substitute: decisions kept when the site is replaced by the construction\'s prediction. Remove: decisions kept when the named subspace is removed (should fall to the mean-ablate level).</div>';
   h += '<div class="tw"><table><tr><th>site</th><th class="l">variables</th><th>dims / PCs that suffice</th><th>explained</th><th>substitute</th><th>remove</th><th>mean-ablate</th></tr>' +
     Object.entries(rep.sites).map(([s, r]) => `<tr class="${r.pass ? '' : 'bad'}"><td>${esc(s)}</td><td class="l" title="${esc(r.variables.join(', '))}">${esc(r.variables.length > 3 ? r.variables.slice(0, 3).join(', ') + ' +' + (r.variables.length - 3) : r.variables.join(', '))}</td><td>${r.named_rank} / ${r.pca_sufficient_rank}</td><td>${r.explained.toFixed(2)}</td><td>${pct(r.substitute_match)}</td><td>${pct(r.remove_named_match)}</td><td>${pct(r.mean_ablate_match)}</td></tr>`).join('') + '</table></div>';
   h += '<h3>Interventions</h3><div class="note">Share of cases where the construction predicted the network\'s new decision, among cases where the decision changed, next to predictors that understand nothing. Attribution patching is a first-order estimate computed on the network itself.</div>';
   h += '<div class="tw"><table><tr><th>test</th><th class="l">variable</th><th>site</th><th>construction</th><th>no change</th><th>source output</th><th>attribution patching</th></tr>' +
     rep.interventions.map(t => `<tr class="${t.pass ? '' : 'bad'}"><td>${t.mode}</td><td class="l">${esc(t.variable)}</td><td>${esc(t.site)}</td><td><b>${pct(t.agreement_when_changed ?? t.agreement)}</b></td><td>${t.agreement_when_changed == null ? pct(t.baseline_no_change) : '0.0%'}</td><td>${pct(t.baseline_source_output)}</td><td>${pct(t.attribution_patching_when_changed ?? t.attribution_patching)}</td></tr>`).join('') + '</table></div>';
   if (v.fails.length) h += '<h3>What fails</h3><div class="note">' + v.fails.map(esc).join('<br>') + '</div>';
+  if (rep.kind !== 'lm') {
   h += `<h3>Held-out interventions</h3><div class="note">Interventions drawn without looking at the construction (subspaces removed or patched in at every site), predicted by the construction and by baselines.</div>`;
   h += d.predict ? `<pre class="rep">${esc(d.predict.text || '')}</pre>` : `<button class="btn sm teal" id="predBtn">Run the benchmark (about a minute)</button>`;
+  }
   h += `<h3>Ask about this network</h3><div class="note">Put a specific question to the reader (for example "which inputs does the output ignore?" or "what task is this, in one line?"). It answers from the construction and can check the weights first.</div>`;
   h += (d.questions || []).map(q => `<div class="qa"><b>${esc(q.question)}</b><div class="say">${esc(q.answer)}</div></div>`).join('');
   h += `<div class="row"><input id="askBox" placeholder="Your question" style="flex:1;border:var(--thin);background:var(--field);padding:6px 8px"><button class="btn sm teal" id="askBtn">Ask</button></div>`;
@@ -233,6 +280,11 @@ function drawConstruction(d, target, id) {
     await fetch(`/api/constructions/${target}/${id}/ask`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question: q})});
     openRun(target, id);
   };
+  if ($('circBtn')) $('circBtn').onclick = async () => {
+    $('circBtn').disabled = true; $('circBtn').textContent = 'measuring… (a few minutes)';
+    await fetch(`/api/constructions/${target}/${id}/circuit`, {method: 'POST'});
+    S.shown = null; openRun(target, id, true);
+  };
   if ($('predBtn')) $('predBtn').onclick = async () => {
     $('predBtn').disabled = true; $('predBtn').textContent = 'running…';
     await fetch(`/api/constructions/${target}/${id}/predict`, {method: 'POST'});
@@ -240,7 +292,64 @@ function drawConstruction(d, target, id) {
   };
 }
 
+function mechanismMap(rep) {            // depth x position: which variables the construction places where, and whether the cut passed
+  const cuts = Object.entries(rep.sites).filter(([, r]) => r.unit === 'cut');
+  if (!cuts.length) return '';
+  const cell = {}, poss = new Set();
+  for (const [v, info] of Object.entries(rep.variables)) for (const s of info.sites) {
+    const m = s.match(/^resid(\d+)@(.+)$/); if (!m) continue;
+    poss.add(m[2]); (cell[m[1] + '@' + m[2]] = cell[m[1] + '@' + m[2]] || []).push(v);
+  }
+  const cols = [...poss], depths = cuts.map(([n]) => +n.slice(3)).sort((a, b) => a - b);
+  let h = '<h3>The mechanism: what is held where</h3><div class="note">Rows are depths (the residual stream entering that block; 0 is the embedding), columns are token positions. Green: the cut at that depth passed every test. Empty cells are positions the construction says the later layers do not need.</div>';
+  h += '<div class="tw"><table class="map"><tr><th>depth</th>' + cols.map(c => `<th>${esc(c)}</th>`).join('') + '<th>substitute</th><th>interchange</th></tr>';
+  for (const L of depths) {
+    const r = rep.sites['cut' + L], it = rep.interventions.find(t => t.site === 'cut' + L && t.mode === 'interchange');
+    h += `<tr><td>resid${L}</td>` + cols.map(c => { const vs = cell[L + '@' + c]; return vs ? `<td class="${r.pass ? 'v' : 'f'}">${vs.map(v => esc(v) + (rep.categorical && rep.categorical[v] ? '<small>identity, ' + rep.categorical[v] + ' values</small>' : `<small>${rep.variables[v].dim} dim</small>`)).join('<br>')}</td>` : '<td class="e">·</td>'; }).join('')
+      + `<td>${pct(r.substitute_match)}</td><td>${it ? pct(it.agreement_when_changed ?? it.agreement) : ''}</td></tr>`;
+  }
+  return h + '</table></div>';
+}
+function circuitHtml(d) {
+  let h = '<h3>The circuit: which components write each variable</h3><div class="note">The residual stream is a sum of what each head and MLP wrote, so a variable\'s read-out splits exactly into one share per component. "without" = with that component\'s output at the position replaced by its mean: how much of the variable is left / how many answers survive.</div>';
+  const c = d.circuit;
+  if (!c || !c.variables) return h + '<button class="btn sm teal" id="circBtn">Measure the circuit</button>';
+  for (const e of c.variables) {
+    h += `<div class="cvar">${esc(e.variable)} @ ${esc(e.site)} <span class="hint">probe R² ${e.probe_r2.toFixed(2)}</span></div>`;
+    for (const r of e.components) {
+      if (r.component === 'embedding') { h += `<div class="comp">embedding  ${r.share >= 0 ? '+' : ''}${r.share.toFixed(2)}</div>`; continue; }
+      const w = Math.min(140, Math.round(Math.abs(r.share) * 200));
+      h += `<div class="comp"><span style="display:inline-block;width:74px">${esc(r.component)}</span><span class="bar ${r.share < 0 ? 'neg' : ''}" style="width:${w}px"></span> ${r.share >= 0 ? '+' : ''}${r.share.toFixed(2)}`
+        + ` · without: R² ${r.variable_r2_without.toFixed(2)}, answers ${pct(r.answers_kept_without)}` + (r.attends ? ' · attends ' + r.attends.map(a => esc(a[0]) + ' ' + a[1].toFixed(2)).join(', ') : '') + '</div>';
+    }
+  }
+  return h;
+}
+async function loadTasks() {
+  const ts = await api('/api/lm_tasks');
+  $('tasks').innerHTML = ts.map(t => `<div class="task"><b>${esc(t.id)}</b> <span class="badge ${t.built ? 'ok' : 'part'}">${t.built ? 'built' : 'not built'}</span>
+    <button class="btn sm" data-f="${esc(t.file)}" style="float:right">${t.built ? 'Rebuild' : 'Build'}</button>
+    <div class="m">${esc(t.model)} · ${esc(t.file)}</div><div class="m">${esc(t.doc.slice(0, 150))}</div></div>`).join('')
+    + '<div class="pad hint">A task is a small Python file: the model, the prompts, the answer tokens (see lab/lm_tasks/README.md). Build turns it into a network you can pick above.</div>';
+  for (const b of $('tasks').querySelectorAll('button')) b.onclick = async () => {
+    b.disabled = true; b.textContent = 'building…';
+    const r = await (await fetch('/api/lm_tasks/build', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({file: b.dataset.f})})).json();
+    if (r.error) alert(r.error);
+    await loadTargets(r.id); loadTasks();
+  };
+}
 async function start() {
+  const target = $('target').value;
+  const body = {target, variant: S.variant, steps: +$('steps').value, told: S.mode !== 'blinded', no_weights: S.mode === 'prior', one_shot: S.mode === 'prior',
+                title: MODES[S.mode][0].toLowerCase() + (S.variant === 'original' ? '' : ', ' + S.variant)};
+  $('go').disabled = true; $('log').innerHTML = '<div class="pad hint">Starting the run…</div>';
+  $('cons').innerHTML = '<div class="hint">Waiting for the first submission…</div>';
+  const r = await (await fetch('/api/launch', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})).json();
+  $('go').disabled = false;
+  if (r.error) { $('log').innerHTML = `<div class="pad hint">${esc(r.error)}</div>`; return; }
+  S.shown = null; await openRun(target, r.id); follow(target, r.id);
+}
+async function startStreaming() {
   const target = $('target').value;
   const body = {target, variant: S.variant, steps: +$('steps').value, told: S.mode !== 'blinded', no_weights: S.mode === 'prior', one_shot: S.mode === 'prior',
                 title: MODES[S.mode][0].toLowerCase() + (S.variant === 'original' ? '' : ', ' + S.variant)};
@@ -286,14 +395,22 @@ async function liveBest(target, id) {       // show the best submission so far w
   } catch (e) {}
 }
 $('go').onclick = start;
-$('stop').onclick = () => S.running && fetch('/api/stop/' + S.running, {method: 'POST'});
+$('stop').onclick = () => S.running && fetch(`/api/constructions/${$('target').value}/${S.running}/stop`, {method: 'POST'});
 
+async function loadTargets(select) {
+  S.targets = (await api('/api/targets')).filter(t => t.domain);
+  const cur = select || $('target').value || localStorage.wrlTarget;
+  const opt = t => `<option value="${t.id}">${esc(t.name)}${t.name === t.id ? '' : ' · ' + t.id} (${t.forward === 'lm' ? esc(t.model) + ', ' + t.n_prompts + ' prompts' : t.params.toLocaleString() + ' weights'})</option>`;
+  const lms = S.targets.filter(t => t.forward === 'lm'), rest = S.targets.filter(t => t.forward !== 'lm');
+  $('target').innerHTML = (lms.length ? '<optgroup label="Language models">' + lms.map(opt).join('') + '</optgroup>' : '') + '<optgroup label="Small networks">' + rest.map(opt).join('') + '</optgroup>';
+  if (cur && S.targets.some(t => t.id === cur)) $('target').value = cur;
+}
 (async () => {
-  const targets = await api('/api/targets');
-  $('target').innerHTML = targets.filter(t => t.domain).map(t => `<option value="${t.id}">${esc(t.name)} · ${t.id} (${t.params.toLocaleString()} weights)</option>`).join('');
-  $('target').onchange = () => { S.sel = null; $('log').innerHTML = ''; $('cons').innerHTML = '<div class="hint">No construction yet for this network. Press Construct.</div>'; loadRuns(); };
-  drawOptions(); loadRuns();
-  setInterval(() => { if (!S.running) loadRuns(); }, 15000);
+  await loadTargets();
+  $('target').onchange = () => { localStorage.wrlTarget = $('target').value; S.sel = null; S.shown = null; clearInterval(S.poll); S.poll = null; $('log').innerHTML = ''; $('steps').value = isLM() ? 150 : 80; $('cons').innerHTML = '<div class="hint">No construction yet for this network. Press Construct.</div>'; drawOptions(); loadRuns(); };
+  $('steps').value = isLM() ? 150 : 80;
+  drawOptions(); loadRuns(); loadTasks();
+  setInterval(() => { if (!S.poll) loadRuns(); }, 15000);
 })();
 </script>
 </body>

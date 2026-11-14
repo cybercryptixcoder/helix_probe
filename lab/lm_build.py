@@ -56,6 +56,10 @@ def build(task_file):
             "domain": {"file": "inputs.npy", "text": t.TEXT}, "context": t.CONTEXT, "answer": {"short": t.ANSWER},
             "task_file": str(Path(task_file).name), "tensors": [], "group": "language models"}
     (out / "meta.json").write_text(json.dumps(meta, indent=1))
+    idx = LAB / "models" / "index.json"
+    ids = json.loads(idx.read_text())
+    if t.ID not in ids:
+        idx.write_text(json.dumps(sorted(ids + [t.ID])))
     print(f"built {t.ID}: {len(keep)} prompts of {T} tokens; answers {t.ANSWERS} = {answer_ids}; roles {meta['roles']}")
     return t.ID
 
