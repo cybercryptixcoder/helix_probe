@@ -286,7 +286,7 @@ def construction_detail(target, rid):
     out = {"run": json.loads((rdir / "run.json").read_text())}
     for key, name in (("construction", "construction.py"), ("report_text", "report.txt")):
         out[key] = (rdir / name).read_text() if (rdir / name).exists() else None
-    for key, name in (("report", "report.json"), ("predict", "predict.json")):
+    for key, name in (("report", "report.json"), ("predict", "predict.json"), ("questions", "questions.json")):
         out[key] = json.loads((rdir / name).read_text()) if (rdir / name).exists() else None
     return out
 
@@ -392,6 +392,10 @@ class H(BaseHTTPRequestHandler):
                 res["text"] = predict.render(res)
                 (rdir / "predict.json").write_text(json.dumps(res, indent=1))
                 return self.send(200, res)
+            m = re.match(r"^/api/constructions/([\w-]+)/([\w-]+)/ask$", p)
+            if m:       # a specific question put to the reader about this network (lab/ask.py); saved in the run folder
+                import ask
+                return self.send(200, ask.ask(m.group(1), m.group(2), self.body().get("question", "").strip()))
             if p == "/api/construct":
                 import constructor
                 cfg = self.body()

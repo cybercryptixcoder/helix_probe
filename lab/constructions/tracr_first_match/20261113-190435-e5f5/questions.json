@@ -1,0 +1,9 @@
+[
+ {
+  "asked": "2026-11-13 19:17:24",
+  "question": "In one sentence: what rule decides the output at each position, and which input positions does the output at position 3 depend on?",
+  "answer": "At each readout position **p**, the network picks **class 1 iff \\(t_p = t_1\\)** (position 1), otherwise **class 0**; so the output at **position 3 depends only on input positions 1 and 3** (`t1` and `t3`), not BOS or `t2, t4, t5`.\n\nThis rests on the verified construction and the judge\u2019s 100% behavioral match plus the `tok1`/`tok3` intervention results. Confidence: **99**.",
+  "checks": [],
+  "cost": 0.0024
+ }
+]

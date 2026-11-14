@@ -698,6 +698,22 @@
      "seconds": 2.69
     }
    ]
+  },
+  {
+   "step": 43,
+   "content": "",
+   "thinking": "",
+   "finish": "tool_calls",
+   "context_tokens": 82284,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\ndef pckeep(site):\n    V=S[site]; mu=V.mean(0); U,sv,Vt=np.linalg.svd(V-mu,full_matrices=False)\n    out=[]\n    for k in [6,10,16,20,30,40,52,64,80,100,128]:\n        if k>len(sv): continue\n        mod = mu + (V-mu)@Vt[:k].T@Vt[:k]\n        if site=='attn_out': lg=(S['resid_mid']-S['attn_out']+mod+S['mlp_out'])@W['W_U']\n        elif site=='resid_mid': lg=(mod+S['mlp_out'])@W['W_U']\n        elif site=='mlp_pre': lg=(S['resid_mid']+np.maximum(mod,0)@W['W_out'])@W['W_U']\n        elif site=='mlp_post': lg=(S['resid_mid']+mod@W['W_out'])@W['W_U']\n        elif site=='mlp_out': lg=(S['resid_mid']+mod)@W['W_U']\n        elif site=='resid_post': lg=mod@W['W_U']\n        out.append((k,float((lg.argmax(1)==dec).mean().round(3))))\n    print(site, out)\nfor s in ['attn_out','resid_mid','mlp_pre','mlp_post','mlp_out','resid_post']: pckeep(s)\n",
+     "ok": true,
+     "output": "attn_out [(6, 0.578), (10, 0.609), (16, 0.701), (20, 0.726), (30, 0.804), (40, 0.861), (52, 0.912), (64, 0.939), (80, 0.98), (100, 0.996), (128, 1.0)]\nresid_mid [(6, 0.578), (10, 0.609), (16, 0.701), (20, 0.726), (30, 0.804), (40, 0.861), (52, 0.912), (64, 0.939), (80, 0.98), (100, 0.996), (128, 1.0)]\nmlp_pre [(6, 0.782), (10, 0.798), (16, 0.824), (20, 0.854), (30, 0.892), (40, 0.933), (52, 0.955), (64, 0.976), (80, 0.99), (100, 0.998), (128, 1.0)]\nmlp_post [(6, 0.782), (10, 0.803), (16, 0.831), (20, 0.852), (30, 0.894), (40, 0.926), (52, 0.937), (64, 0.946), (80, 0.952), (100, 0.959), (128, 0.965)]\nmlp_out [(6, 0.791), (10, 0.837), (16, 0.858), (20, 0.879), (30, 0.918), (40, 0.935), (52, 0.952), (64, 0.961), (80, 0.971), (100, 0.985), (128, 1.0)]\nresid_post [(6, 0.521), (10, 0.565), (16, 0.703), (20, 0.734), (30, 0.802), (40, 0.852), (52, 0.891), (64, 0.925), (80, 0.965), (100, 0.978), (128, 1.0)]\n",
+     "seconds": 13.37
+    }
+   ]
   }
  ],
  "submissions": [
@@ -827,11 +843,11 @@
  ],
  "compactions": [],
  "usage": {
-  "prompt_tokens": 1376264,
-  "completion_tokens": 62766,
-  "calls": 43
+  "prompt_tokens": 1458548,
+  "completion_tokens": 63143,
+  "calls": 44
  },
- "cost": 0.10758835199999997,
+ "cost": 0.10860383999999997,
  "status": "running",
  "best": 3,
  "final_message": ""

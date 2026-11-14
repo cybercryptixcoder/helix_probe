@@ -1,0 +1,14 @@
+[
+ {
+  "asked": "2026-11-13 19:18:12",
+  "question": "If every token in the input is the same, what does the network output at each position, and which internal variable carries that?",
+  "answer": "For the stated input family, \u201call tokens the same\u201d means t1=\u2026=t5=s with s\u2208{1,2,3}. Then at every scored position p=1..5 the network outputs the one-hot for **class 5** (logit \u22481, all others \u22480): each token occurs 5 times among positions 1..5.\n\nIt is carried by the **attention-count coordinate q_p = 1/(m_p+1) = 1/6** at `attn0.out` / `resid0.mid` / `mlp0.pre`; downstream, the MLP power coordinates at `mlp0.out` are the constant values 1/6, 1/36, 1/216, 1/1296. The final projection turns that q=1/6 into class 5.\n\nVerified by the judge\u2019s q-interventions (100% correct when changed) and by just running the network on [0,s,s,s,s,s] for s=1,2,3: class 5 at all five positions. (Literal all-six-zeros is outside the stated input set and gives near-zero, meaningless logits.) Confidence: **95**.",
+  "checks": [
+   {
+    "code": "\nimport numpy as np\ncases = []\nfor s in [0,1,2,3]:\n    x = np.array([[0,s,s,s,s,s]])\n    y = run(x)\n    cases.append((s, y.reshape(5,6).argmax(1).tolist(), np.round(y.reshape(5,6),3)))\nfor c in cases:\n    print(c)\n",
+    "output": "(0, [5, 5, 5, 1, 3], array([[-0.,  0.,  0.,  0., -0.,  0.],\n       [-0.,  0., -0.,  0., -0.,  0.],\n       [ 0.,  0., -0., -0., -0.,  0.],\n       [-0.,  0.,  0., -0., -0.,  0.],\n       [ 0.,  0., -0.,  0., -0.,  0.]]))\n(1, [5, 5, 5, 5, 5], array([[ 0., -0., -0.,  0.,  0.,  1.],\n       [-0., -0., -0.,  0.,  0.,  1.],\n       [-0.,  0., -0.,  0.,  0.,  1.],\n       [-0.,  0., -0.,  0.,  0.,  1.],\n       [ 0.,  0., -0.,  0.,  0.,  1.]]))\n(2, [5, 5, 5, 5, 5], array([[-0., -0., -0.,  0.,  0.,  1.],\n       [-0., -0., -0.,  0.,  0.,  1.],\n       [-0., -0.,  0.,  0.,  0.,  1.],\n       [-0.,  0., -0.,  0.,  0.,  1.],\n       [-0.,  0., -0.,  0.,  0.,  1.]]))\n(3, [5, 5, 5, 5, 5], array([[ 0.,  0., -0.,  0.,  0.,  1.],\n       [ 0., -0., -0.,  0.,  0.,  1.],\n       [-0.,  0.,  0.,  0.,  0.,  1.],\n       [-0.,  0., -0.,  0.,  0.,  1.],\n       [ 0.,  0., -0.,  0.,  0.,  1.]]))\n"
+   }
+  ],
+  "cost": 0.0045
+ }
+]

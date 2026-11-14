@@ -66,6 +66,11 @@ reader investigates a network with its own code and writes a *construction* of i
    construction predicted the network's new decision, next to "no change", "source output" and attribution patching.
    Rows that fail are tinted. **Run the benchmark** scores the construction on held-out interventions
    (`lab/predict.py`, about a minute). The construction's source is at the bottom.
-4. **Runs** (left, below): every past run for the selected network; click one to load it.
+4. **Ask about this network** (right, under the tables): type a specific question and press **Ask**. The reader
+   answers from the construction and may check the weights with code first; questions and answers are kept with the
+   run (`questions.json`). Specific questions work better than open ones. From a terminal:
+   `python3 lab/ask.py <network> <run id> "question"`.
+5. **Runs** (left, below): every past run for the selected network; click one to load it. Selecting a network opens
+   its best construction.
 
 Everything shown is read from `lab/constructions/<network>/<run id>/`, which is committed to the repository.

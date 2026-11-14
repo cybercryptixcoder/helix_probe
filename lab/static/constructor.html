@@ -76,6 +76,7 @@ h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:19px;mar
 .verdict.ok{background:var(--green)}.verdict.part{background:var(--yellow)}.verdict.no{background:var(--orange)}
 .desc{font-family:var(--serif);font-size:17px;line-height:1.35;margin:8px 0}
 .note{font-size:12.5px;line-height:1.45;opacity:.8;margin:2px 0 6px}
+.qa{border-left:3px solid var(--teal);padding:2px 0 2px 10px;margin:8px 0}
 </style>
 </head>
 <body>
@@ -219,9 +220,18 @@ function drawConstruction(d, target, id) {
   if (v.fails.length) h += '<h3>What fails</h3><div class="note">' + v.fails.map(esc).join('<br>') + '</div>';
   h += `<h3>Held-out interventions</h3><div class="note">Interventions drawn without looking at the construction (subspaces removed or patched in at every site), predicted by the construction and by baselines.</div>`;
   h += d.predict ? `<pre class="rep">${esc(d.predict.text || '')}</pre>` : `<button class="btn sm teal" id="predBtn">Run the benchmark (about a minute)</button>`;
+  h += `<h3>Ask about this network</h3><div class="note">Put a specific question to the reader (for example "which inputs does the output ignore?" or "what task is this, in one line?"). It answers from the construction and can check the weights first.</div>`;
+  h += (d.questions || []).map(q => `<div class="qa"><b>${esc(q.question)}</b><div class="say">${esc(q.answer)}</div></div>`).join('');
+  h += `<div class="row"><input id="askBox" placeholder="Your question" style="flex:1;border:var(--thin);background:var(--field);padding:6px 8px"><button class="btn sm teal" id="askBtn">Ask</button></div>`;
   h += `<h3>The construction</h3><pre class="code">${esc(d.construction)}</pre>`;
   $('cons').innerHTML = h;
   $('consInfo').textContent = `${target} / ${id}`;
+  if ($('askBtn') && id) $('askBtn').onclick = async () => {
+    const q = $('askBox').value.trim(); if (!q) return;
+    $('askBtn').disabled = true; $('askBtn').textContent = 'asking…';
+    await fetch(`/api/constructions/${target}/${id}/ask`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question: q})});
+    openRun(target, id);
+  };
   if ($('predBtn')) $('predBtn').onclick = async () => {
     $('predBtn').disabled = true; $('predBtn').textContent = 'running…';
     await fetch(`/api/constructions/${target}/${id}/predict`, {method: 'POST'});
