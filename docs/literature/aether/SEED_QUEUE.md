@@ -93,7 +93,7 @@ Read all of these (they were triaged as useful or minor, not essential). Title |
 - Interpreting Evo 2: Arc Institute's Next-Generation Genomic Foundation Model | 2025-02 | https://www.goodfire.com/research/interpreting-evo-2 | goodfire
 - Under the Hood of a Reasoning Model | 2025-04 | https://www.goodfire.com/research/under-the-hood-of-a-reasoning-model | goodfire
 - Announcing Our $50M Series A to Advance AI Interpretability Research | 2025-04 | https://www.goodfire.com/blog/announcing-our-50m-series-a | goodfire
-- Painting With Concepts Using Diffusion Model Latents | 2025-05 | https://www.goodfire.com/research/painting-with-concepts | goodfire
+- [x] Painting With Concepts Using Diffusion Model Latents | 2025-05 | https://www.goodfire.com/research/painting-with-concepts | goodfire | DONE — goodfire-com-research-painting-with-concepts
 - Partnering with Radical AI to Advance Materials Science With Interpretability | 2025-07 | https://www.goodfire.com/blog/radical-partnership-announcement | goodfire
 - Finding the Tree of Life in Evo 2 | 2025-08 | https://www.goodfire.com/research/phylogeny-manifold | goodfire
 - Goodfire Announces Collaboration to Advance Genomic Medicine with AI Interpretability (Mayo Clinic) | 2025-09 | https://www.goodfire.com/blog/mayo-clinic-collaboration | goodfire
