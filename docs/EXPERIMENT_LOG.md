@@ -387,3 +387,28 @@ was updated to say the same. This can only relax the verdict.
 **Second batch, on the constructor frozen at this commit** (reader, prompt and judge unchanged from here): mod-add
 replicates B and C, mod-mul replicate B, compiled replicates (`tracr_first_match`, `tracr_count_greater`), and
 prior-only controls (mod-add twice, mod-mul once). Results are added below when the runs end.
+
+## 2026-11-13 21:05. E11: a game policy with a real input set (MIT's hand-written Breakout network)
+
+**Why.** The bar asks for MIT's game policies, blinded. The four PPO policies in the lab (MIT's experiment 1) cannot be
+judged: MIT released the weights and prompts but not their own 10 x 10 game environments, so there are no input
+states. MIT's experiment 5 offers a way in: a 600-32-32-6 tanh policy for **MinAtar** Breakout whose every weight
+was written by GPT-6 Astra in one reply. MinAtar is a public package, so real game states can be generated; the
+network's design is known from the reply; and a reader cannot have memorised it (it was written in November 2026).
+
+**Setup.** `lab/targets/build_minatar.py`: loads `exp5_write_from_scratch/networks/breakout/hand.npz` from the MIT
+logs, builds the 600-number observation exactly as MIT's prompt defines it, plays MinAtar 1.0.15 Breakout with
+sampled actions and sticky actions 0.1 (MIT's scoring rule), and saves 6,000 distinct visited states as the input set.
+
+**What happened.** The policy scores 0.069 points per step here; MIT reports 517.4 points over 7,417 steps, 0.070 per
+step. So the observation is built correctly. 11,198 distinct states were seen in 12 episodes; 6,000 are kept. On
+them the network chooses no-op 2,827 times, left 1,620, right 1,553, and never up, down or fire. The new target is
+`lab/models/astra_breakout` ("Hand-written game policy"), with a neutral input description for blinded runs (it says
+only that the inputs are 600 numbers that are 0 or 1 and that `X` is a sample of the inputs met in use).
+
+**Not done.** MIT's experiment-1 PPO policies still have no input set. Writing approximate versions of MIT's own
+environments from the prompt text would put the networks off their training distribution; not attempted.
+
+**Next.** A blinded constructor run on `astra_breakout` (held out: it was never used in development).
+A small, function-preserving change was made to `nets.domain_inputs` while batch 2 was in flight: input sets stored in
+a file are cast to 64-bit on load. No in-flight run uses a file-based input set.

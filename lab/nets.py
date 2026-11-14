@@ -176,6 +176,7 @@ def domain_inputs(meta, max_n=20000, seed=0):
     if "file" in dom:
         import os
         X = np.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), "models", meta["id"], dom["file"]))
+        X = X.astype(np.int64 if np.issubdtype(X.dtype, np.integer) else np.float64)     # stored compactly; used at full width
     else:
         axes = [np.arange(*a["range"]) if "range" in a else np.asarray(a["values"]) for a in dom["axes"]]
         total = int(np.prod([len(a) for a in axes]))

@@ -1,0 +1,120 @@
+{
+ "id": "astra_breakout",
+ "name": "Hand-written game policy",
+ "family": "MIT Sparks, written from scratch (CC BY 4.0)",
+ "forward": "mlp_tanh",
+ "order": [
+  "W1",
+  "b1",
+  "W2",
+  "b2",
+  "W3",
+  "b3"
+ ],
+ "arch": "A multilayer perceptron with 600 inputs, two hidden layers of 32 units with tanh, and 6 outputs.\n  h1 = tanh(x @ W1 + b1);  h2 = tanh(h1 @ W2 + b2);  out = h2 @ W3 + b3\nThe network's decision is its largest output.",
+ "context": "The input is a 10 x 10 grid with 6 binary channels; input index = (row * 10 + column) * 6 + channel, rows 0 (top) to 9 (bottom). Channels: 0 player, 1 danger, 2 reward, 3 projectile, 4 trail, 5 gauge. The 6 outputs are logits for the actions no-op, left, up, right, down, fire. The network is a policy for a MinAtar game.",
+ "tensor_desc": {
+  "W1": "layer 1 weights (row i = input i)",
+  "W2": "layer 2 weights",
+  "W3": "output weights (column = output)"
+ },
+ "answer": {
+  "short": "a policy for MinAtar Breakout: move the paddle under where the ball will land",
+  "detail": "Design, from the model's own reply (MIT logs, exp5, runs/breakout/reply/answer.md): the first layer computes four landing-position errors (where the ball will come down, minus the paddle's column) for the ball descending right, descending left, ascending right and ascending left, and two direction indicators read from the trail; descending predictions include wall reflections. The second layer gates the left and right decisions and chooses no-op when the paddle is already in place. 815 of the 20,486 weights are non-zero. Scored by MIT at 517 points per episode (PPO at 500M steps: 25)."
+ },
+ "source": "MIT Sparks logs, exp5_write_from_scratch/networks/breakout/hand.npz (written by GPT-6 Astra in one reply; CC BY 4.0). Input states generated here by playing MinAtar 1.0.15 Breakout with the network (lab/targets/build_minatar.py).",
+ "perm_groups": [
+  {
+   "size": 32,
+   "members": [
+    [
+     "W1",
+     1
+    ],
+    [
+     "b1",
+     0
+    ],
+    [
+     "W2",
+     0
+    ]
+   ]
+  },
+  {
+   "size": 32,
+   "members": [
+    [
+     "W2",
+     1
+    ],
+    [
+     "b2",
+     0
+    ],
+    [
+     "W3",
+     0
+    ]
+   ]
+  }
+ ],
+ "input": "600 numbers that are each 0 or 1, shape [B, 600]",
+ "domain": {
+  "file": "inputs.npy",
+  "text": "The network is used on inputs of 600 numbers that are each 0 or 1. X holds 6,000 such inputs, a sample of the inputs it meets in use."
+ },
+ "score_check": {
+  "points_per_step": 0.06906633630011863,
+  "mit_points_per_step": 0.06975824576437313,
+  "states_collected": 11198
+ },
+ "tensors": [
+  {
+   "name": "W1",
+   "shape": [
+    600,
+    32
+   ],
+   "desc": "layer 1 weights (row i = input i)"
+  },
+  {
+   "name": "b1",
+   "shape": [
+    32
+   ],
+   "desc": ""
+  },
+  {
+   "name": "W2",
+   "shape": [
+    32,
+    32
+   ],
+   "desc": "layer 2 weights"
+  },
+  {
+   "name": "b2",
+   "shape": [
+    32
+   ],
+   "desc": ""
+  },
+  {
+   "name": "W3",
+   "shape": [
+    32,
+    6
+   ],
+   "desc": "output weights (column = output)"
+  },
+  {
+   "name": "b3",
+   "shape": [
+    6
+   ],
+   "desc": ""
+  }
+ ],
+ "params": 20486
+}
