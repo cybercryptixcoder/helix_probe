@@ -37,8 +37,13 @@ def ask(target, run_id, question, emit=None, max_steps=8):
     try:
         for step in range(max_steps):
             last = step == max_steps - 1
-            content, thinking, calls, usage, _ = C.chat(msgs, None if last else TOOLS, "high", 6000, emit, lambda: False)
+            if last:        # no more checks: the reader must answer from what it has
+                msgs.append({"role": "user", "content": "No more checks. Answer the question now, in a few sentences, from what you have."})
+            content, thinking, calls, usage, _ = C.chat(msgs, None if last else TOOLS, "low" if last else "high", 8000, emit, lambda: False)
             cost += C.luminal.cost(usage)
+            if last and not content.strip():      # the reader spent its whole budget thinking: ask once more, briefly
+                content, thinking, calls, usage, _ = C.chat(msgs, None, "low", 8000, emit, lambda: False)
+                cost += C.luminal.cost(usage)
             if not calls:
                 answer = content
                 break
