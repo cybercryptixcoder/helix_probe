@@ -31,7 +31,7 @@ Read all of these (they were triaged as useful or minor, not essential). Title |
 - Circuits Updates, September 2024 | 2024-10 | https://transformer-circuits.pub/2024/september-update/index.html | anthropic
 - Using Dictionary Learning Features as Classifiers | 2024-10 | https://transformer-circuits.pub/2024/features-as-classifiers/index.html | anthropic
 - Evaluating Feature Steering: A Case Study in Mitigating Social Biases | 2024-10 | https://www.anthropic.com/research/evaluating-feature-steering | anthropic
-- Evaluating Sparse Autoencoders on Targeted Concept Erasure Tasks | 2024-11 | https://arxiv.org/abs/2411.18895 | anthropic
+- [x] Evaluating Sparse Autoencoders on Targeted Concept Erasure Tasks | 2024-11 | https://arxiv.org/abs/2411.18895 | anthropic — DONE entry 119 (`arxiv-2411.18895`); arXiv HTML v1 full incl. Appendices A.1–A.7 and the judge prompt, no figures; SHIFT/SCR + TPP (ablate a class's top-attribution latents, require the target probe to drop and the other class probes not to), r=0.81/0.88 with vs without the LLM judge, unimodality + training-monotonicity as the sanity checks
 - Circuits Updates, January 2025 | 2025-01 | https://transformer-circuits.pub/2025/january-update/index.html | anthropic
 - Recommendations for Technical AI Safety Research Directions | 2025-01 | https://alignment.anthropic.com/2025/recommended-directions/index.html | anthropic
 - Tracing the Thoughts of a Large Language Model | 2025-03 | https://www.anthropic.com/research/tracing-thoughts-language-model | anthropic
@@ -150,3 +150,4 @@ Read all of these (they were triaged as useful or minor, not essential). Title |
 - SAE Scaling with Feature Manifolds | 2026 | https://www.goodfire.com/research/sae-scaling-with-feature-manifolds | goodfire  (missing from queue)
 - Open Problems in Mechanistic Interpretability | 2026 | https://www.goodfire.com/research/open-problems-in-mech-interp | goodfire  (missing from queue)
 - The Circuits Research Landscape | 2026 | https://www.goodfire.com/research/the-circuits-research-landscape | goodfire  (missing from queue)
+- Done 2026-11-14: `arxiv-2609.04344` (SharedSAE, cross-model shared dictionary) was NOT in SEED_QUEUE — taken from outside the queue after the title/HEAD pre-flight; no queue line to tick.
