@@ -1,0 +1,487 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 1699,
+ "variables": {
+  "code_i": {
+   "dim": 8,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "code_j": {
+   "dim": 8,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "cos_k": {
+   "dim": 4,
+   "sites": [
+    "mlp_post",
+    "mlp_out",
+    "resid_post"
+   ]
+  },
+  "sin_k": {
+   "dim": 4,
+   "sites": [
+    "mlp_post",
+    "mlp_out",
+    "resid_post"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 0.1163664839467502,
+  "r2": -0.14782861005767933,
+  "kl": 14.699738454250701,
+  "baseline_constant_match": 0.010649960845732186
+ },
+ "sites": {
+  "embed.0": {
+   "width": 128,
+   "variables": [
+    "code_i"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.8740015220660664,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0005979130215883263,
+   "substitute_r2": 0.9806445249871725,
+   "mean_ablate_match": 0.008927173061863743,
+   "recovered": 1.0,
+   "keep_named_match": 0.9996867658574785,
+   "remove_named_match": 0.005794831636648395,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "pass": false
+  },
+  "embed.1": {
+   "width": 128,
+   "variables": [
+    "code_j"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.8734991795601484,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0005909586808026733,
+   "substitute_r2": 0.9804388584666874,
+   "mean_ablate_match": 0.00845732184808144,
+   "recovered": 1.0,
+   "keep_named_match": 0.9993735317149569,
+   "remove_named_match": 0.004698512137823023,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "pass": false
+  },
+  "mlp_post": {
+   "width": 512,
+   "variables": [
+    "cos_k",
+    "sin_k"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 17,
+   "activation_rank": 512,
+   "explained": 0.0929086201836451,
+   "substitute_match": 0.09162098668754894,
+   "substitute_kl": 4.9736528516003515,
+   "substitute_r2": 0.4786486782825484,
+   "mean_ablate_match": 0.016601409553641346,
+   "recovered": 0.07628603280777192,
+   "keep_named_match": 0.18198903680501174,
+   "remove_named_match": 0.39937353171495693,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "pass": false
+  },
+  "mlp_out": {
+   "width": 128,
+   "variables": [
+    "cos_k",
+    "sin_k"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.3675291625567204,
+   "substitute_match": 0.09162098668754894,
+   "substitute_kl": 4.973652851600353,
+   "substitute_r2": 0.47864867828254853,
+   "mean_ablate_match": 0.016601409553641346,
+   "recovered": 0.07628603280777192,
+   "keep_named_match": 0.7754111198120596,
+   "remove_named_match": 0.1547376664056382,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "pass": false
+  },
+  "resid_post": {
+   "width": 128,
+   "variables": [
+    "cos_k",
+    "sin_k"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.358221735795789,
+   "substitute_match": 0.0692247454972592,
+   "substitute_kl": 5.362974324792691,
+   "substitute_r2": 0.4552210593927408,
+   "mean_ablate_match": 0.010649960845732186,
+   "recovered": 0.05920531898052873,
+   "keep_named_match": 0.628974158183242,
+   "remove_named_match": 0.1563038371182459,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "code_i",
+   "variables": [
+    "code_i"
+   ],
+   "site": "embed.0",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 0.121,
+   "r2": -0.1510438898835269,
+   "network_changed": 0.993,
+   "agreement_when_changed": 0.1203423967774421,
+   "baseline_no_change": 0.007,
+   "baseline_source_output": 0.009,
+   "control_random_subspace": 0.007,
+   "attribution_patching": 0.339,
+   "attribution_patching_when_changed": 0.33434038267875127,
+   "pass": false
+  },
+  {
+   "variable": "code_i",
+   "variables": [
+    "code_i"
+   ],
+   "site": "embed.0",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.0535,
+   "r2": -0.1765792187233719,
+   "network_changed": 0.791,
+   "agreement_when_changed": 0.0461441213653603,
+   "baseline_no_change": 0.209,
+   "baseline_source_output": 0.0055,
+   "control_random_subspace": 0.0415,
+   "attribution_patching": 0.4295,
+   "attribution_patching_when_changed": 0.3053097345132743,
+   "pass": false
+  },
+  {
+   "variable": "code_j",
+   "variables": [
+    "code_j"
+   ],
+   "site": "embed.1",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 0.1235,
+   "r2": -0.14545404799687578,
+   "network_changed": 0.991,
+   "agreement_when_changed": 0.124117053481332,
+   "baseline_no_change": 0.009,
+   "baseline_source_output": 0.007,
+   "control_random_subspace": 0.009,
+   "attribution_patching": 0.31,
+   "attribution_patching_when_changed": 0.30373360242179614,
+   "pass": false
+  },
+  {
+   "variable": "code_j",
+   "variables": [
+    "code_j"
+   ],
+   "site": "embed.1",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.051,
+   "r2": -0.1811757480328895,
+   "network_changed": 0.8175,
+   "agreement_when_changed": 0.04159021406727829,
+   "baseline_no_change": 0.1825,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 0.0435,
+   "attribution_patching": 0.422,
+   "attribution_patching_when_changed": 0.309480122324159,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "cos_k",
+    "sin_k"
+   ],
+   "site": "mlp_post",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 0.043,
+   "r2": -0.1962098904829901,
+   "network_changed": 0.6175,
+   "agreement_when_changed": 0.05101214574898785,
+   "baseline_no_change": 0.3825,
+   "baseline_source_output": 0.051,
+   "control_random_subspace": 0.0115,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "cos_k",
+   "variables": [
+    "cos_k"
+   ],
+   "site": "mlp_post",
+   "mode": "partial",
+   "dim": 4,
+   "agreement": 0.0365,
+   "r2": -0.17556725671194906,
+   "network_changed": 0.2995,
+   "agreement_when_changed": 0.0333889816360601,
+   "baseline_no_change": 0.7005,
+   "baseline_source_output": 0.0175,
+   "control_random_subspace": 0.0265,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "sin_k",
+   "variables": [
+    "sin_k"
+   ],
+   "site": "mlp_post",
+   "mode": "partial",
+   "dim": 4,
+   "agreement": 0.044,
+   "r2": -0.1942564996928815,
+   "network_changed": 0.3365,
+   "agreement_when_changed": 0.04309063893016345,
+   "baseline_no_change": 0.6635,
+   "baseline_source_output": 0.022,
+   "control_random_subspace": 0.032,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "cos_k",
+    "sin_k"
+   ],
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 0.043,
+   "r2": -0.1993148307336885,
+   "network_changed": 0.621,
+   "agreement_when_changed": 0.050724637681159424,
+   "baseline_no_change": 0.379,
+   "baseline_source_output": 0.0515,
+   "control_random_subspace": 0.0115,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "cos_k",
+   "variables": [
+    "cos_k"
+   ],
+   "site": "mlp_out",
+   "mode": "partial",
+   "dim": 4,
+   "agreement": 0.037,
+   "r2": -0.17614609050701113,
+   "network_changed": 0.293,
+   "agreement_when_changed": 0.03583617747440273,
+   "baseline_no_change": 0.707,
+   "baseline_source_output": 0.017,
+   "control_random_subspace": 0.0265,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "sin_k",
+   "variables": [
+    "sin_k"
+   ],
+   "site": "mlp_out",
+   "mode": "partial",
+   "dim": 4,
+   "agreement": 0.0435,
+   "r2": -0.19581571495562655,
+   "network_changed": 0.339,
+   "agreement_when_changed": 0.04129793510324484,
+   "baseline_no_change": 0.661,
+   "baseline_source_output": 0.022,
+   "control_random_subspace": 0.032,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "cos_k",
+    "sin_k"
+   ],
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 0.0455,
+   "r2": -0.18217529158594647,
+   "network_changed": 0.633,
+   "agreement_when_changed": 0.053712480252764615,
+   "baseline_no_change": 0.367,
+   "baseline_source_output": 0.055,
+   "control_random_subspace": 0.0115,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "cos_k",
+   "variables": [
+    "cos_k"
+   ],
+   "site": "resid_post",
+   "mode": "partial",
+   "dim": 4,
+   "agreement": 0.037,
+   "r2": -0.17361466001817139,
+   "network_changed": 0.306,
+   "agreement_when_changed": 0.03431372549019608,
+   "baseline_no_change": 0.694,
+   "baseline_source_output": 0.017,
+   "control_random_subspace": 0.0265,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "sin_k",
+   "variables": [
+    "sin_k"
+   ],
+   "site": "resid_post",
+   "mode": "partial",
+   "dim": 4,
+   "agreement": 0.042,
+   "r2": -0.18735694246685086,
+   "network_changed": 0.35,
+   "agreement_when_changed": 0.037142857142857144,
+   "baseline_no_change": 0.65,
+   "baseline_source_output": 0.0235,
+   "control_random_subspace": 0.032,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [
+  "attn_pattern",
+  "attn_out",
+  "resid_mid",
+  "mlp_pre"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [
+    "embed.0",
+    "embed.1"
+   ],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [
+    "mlp_post"
+   ],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "behaviour: the construction's output agrees with the network on 11.6% of inputs (need 95%)",
+   "interchange of code_i at embed.0: prediction right in 12.0% of the cases where the network's output changed (need 90%)",
+   "edit of code_i at embed.0: prediction right in 4.6% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "interchange of code_j at embed.1: prediction right in 12.4% of the cases where the network's output changed (need 90%)",
+   "edit of code_j at embed.1: prediction right in 4.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "substitution at mlp_post: 9.2% (need 90%)",
+   "interchange of all variables at mlp_post: prediction right in 5.1% of the cases where the network's output changed (need 90%)",
+   "partial of cos_k at mlp_post: prediction right in 3.3% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of sin_k at mlp_post: prediction right in 4.3% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "substitution at mlp_out: 9.2% (need 90%)",
+   "interchange of all variables at mlp_out: prediction right in 5.1% of the cases where the network's output changed (need 90%)",
+   "partial of cos_k at mlp_out: prediction right in 3.6% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of sin_k at mlp_out: prediction right in 4.1% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "substitution at resid_post: 6.9% (need 90%)",
+   "interchange of all variables at resid_post: prediction right in 5.4% of the cases where the network's output changed (need 90%)",
+   "partial of cos_k at resid_post: prediction right in 3.4% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of sin_k at resid_post: prediction right in 3.7% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 47.35
+}
