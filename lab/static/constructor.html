@@ -156,6 +156,7 @@ function drawOptions() {
 
 function badge(r) {
   if (r.status === 'running') return '<span class="badge run">running</span>';
+  if (r.status === 'interrupted' && r.stages_total == null) return '<span class="badge no">interrupted</span>';
   if (r.complete) return '<span class="badge ok">complete</span>';
   if (r.stages_total == null) return '<span class="badge no">no construction</span>';
   return `<span class="badge ${r.stages_verified ? 'part' : 'no'}">${r.stages_verified}/${r.stages_total} stages</span>`;
@@ -170,6 +171,11 @@ async function loadRuns() {
       <div class="m">${r.variant}${r.weights ? '' : ' · no weights'}${r.told ? ' · task named' : ''} · ${r.steps} steps · ${r.submissions} submissions · $${(r.cost || 0).toFixed(2)}</div>
     </div>`).join('') || '<div class="pad hint">No runs yet for this network.</div>';
   for (const el of $('runs').querySelectorAll('.runitem')) el.onclick = () => openRun(t, el.dataset.id);
+  if (!S.sel && !S.running && mine.length) {      // nothing open yet: show this network's best finished construction
+    const score = r => (r.complete ? 1000 : 0) + (r.stages_verified || 0) * 10 + (r.variant === 'original' && r.weights ? 5 : 0);
+    const best = mine.filter(r => r.status !== 'running' && r.stages_total != null).sort((a, b) => score(b) - score(a))[0];
+    if (best) openRun(t, best.id);
+  }
 }
 
 function stepHtml(s) {
@@ -274,7 +280,7 @@ $('stop').onclick = () => S.running && fetch('/api/stop/' + S.running, {method: 
 (async () => {
   const targets = await api('/api/targets');
   $('target').innerHTML = targets.filter(t => t.domain).map(t => `<option value="${t.id}">${esc(t.name)} · ${t.id} (${t.params.toLocaleString()} weights)</option>`).join('');
-  $('target').onchange = () => { S.sel = null; loadRuns(); };
+  $('target').onchange = () => { S.sel = null; $('log').innerHTML = ''; $('cons').innerHTML = '<div class="hint">No construction yet for this network. Press Construct.</div>'; loadRuns(); };
   drawOptions(); loadRuns();
   setInterval(() => { if (!S.running) loadRuns(); }, 15000);
 })();

@@ -528,7 +528,8 @@
   "calls": 27
  },
  "cost": 0.10166475600000001,
- "status": "running",
+ "status": "interrupted",
  "best": 3,
- "final_message": ""
+ "final_message": "",
+ "note": "The process was killed (session interruption or a deliberate stop) before the run ended; the record is partial."
 }
