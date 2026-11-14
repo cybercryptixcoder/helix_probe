@@ -460,3 +460,25 @@ answer turn.)
 
 **Conclusion.** The owner's observation from `main` holds here: the construction is the reading; naming is a second,
 specific question, and it needs the input semantics. The constructor gives the first, `ask.py` the second.
+
+## 2026-11-14 01:35. E10, results of the second batch (constructor frozen at `b8a40aaa`, judge v3.1)
+
+| Network | Run | Result | Steps |
+|---|---|---|---|
+| `tracr_first_match` replicate B | `20261113-200059-d63d` | complete, 4 of 4 | 22 |
+| `tracr_count_greater` replicate B | `20261113-200059-cb04` | complete, 4 of 4 | 33 |
+| `modmul_p113` replicate B | `20261114-003532-fe44` | 3 of 4: embedding, MLP neurons, readout verified; attention not named | 80 |
+| `modadd_p113` replicate C | `20261114-003532-0e79` | 3 of 4: embedding, MLP neurons, readout; attention not named | 80 |
+| `modadd_p113` replicate B | `20261114-003532-8fe7` | 3 of 4 at step 60; still running when this was written (see `RESULTS_CONSTRUCTOR.md`) | 60+ |
+| `astra_breakout` | E12 | complete, 2 of 2 | 33 |
+| mod-add prior-only B, C | `20261113-200059-4f94`, `-9cb3` | 0 of 4 each | 2, 4 |
+| mod-mul prior-only | `20261114-003532-*` (no weights) | 0 of 4 | 4 |
+
+**Conclusions.**
+- Mod-add is stable at 3 of 4 stages across five blinded runs (E3, the E4 replicate, A, C, and B so far), always the
+  same three: embedding, MLP neurons, readout, with the frequencies {8, 11, 22, 23, 25}. No run verified attention.
+- Mod-mul: one run complete (E8), one run 3 of 4 with the attention stage left unnamed. So "complete" on mod-mul is
+  not reliable from one run to the next; the discrete-log embedding, the MLP and the readout were verified both times.
+- The compiled networks completed in every run (two runs each for first-match and count-greater).
+- Prior-only fails on both trained networks every time (4 runs), so naming the task does not supply the mechanism.
+- Step budgets matter: both 3-of-4 runs used all 80 steps and reached their third stage on a late submission.

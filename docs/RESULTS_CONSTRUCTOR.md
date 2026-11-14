@@ -1,6 +1,6 @@
 # Constructor results
 
-*Written by `lab/results.py` on 2026-11-14 00:53 from the run folders in `lab/constructions/`. Do not edit by hand; rerun the script. The reader is DeepSeek V4.1 Flash. "Blinded" means the reader was given the architecture, the weights and the input set, and was not told what the network does. Development networks are the ones the constructor's prompt and the judge were worked out on; held-out networks were run only after both were frozen.*
+*Written by `lab/results.py` on 2026-11-14 01:18 from the run folders in `lab/constructions/`. Do not edit by hand; rerun the script. The reader is DeepSeek V4.1 Flash. "Blinded" means the reader was given the architecture, the weights and the input set, and was not told what the network does. Development networks are the ones the constructor's prompt and the judge were worked out on; held-out networks were run only after both were frozen.*
 
 ## Best blinded run per network (trained weights)
 
@@ -11,8 +11,8 @@
 | `bool_majority3` | majority(x1, x2, x3): 1 if at least two inputs are 1 | yes | **all 1 (complete)** | 100.0% | 2 | [`20261113-143146-02b7`](../lab/constructions/bool_majority3/20261113-143146-02b7/README.md) (best of 1) |
 | `bool_parity3` | x1 XOR x2 XOR x3 (odd number of ones) | yes | **all 1 (complete)** | 100.0% | 2 | [`20261113-143146-d2db`](../lab/constructions/bool_parity3/20261113-143146-d2db/README.md) (best of 1) |
 | `bool_xor` | x1 XOR x2 | yes | **all 1 (complete)** | 100.0% | 2 | [`20261113-134430-3f45`](../lab/constructions/bool_xor/20261113-134430-3f45/README.md) (best of 1) |
-| `modadd_p113` | (a + b) mod 113 | yes | 3 of 4 | 100.0% | 60 | [`20261113-135953-158c`](../lab/constructions/modadd_p113/20261113-135953-158c/README.md) (best of 8) |
-| `modmul_p113` | (a * b) mod 113 | **no (held out)** | **all 4 (complete)** | 97.3% | 76 | [`20261113-190435-ec84`](../lab/constructions/modmul_p113/20261113-190435-ec84/README.md) (best of 2) |
+| `modadd_p113` | (a + b) mod 113 | yes | 3 of 4 | 100.0% | 60 | [`20261113-135953-158c`](../lab/constructions/modadd_p113/20261113-135953-158c/README.md) (best of 9) |
+| `modmul_p113` | (a * b) mod 113 | **no (held out)** | **all 4 (complete)** | 97.3% | 76 | [`20261113-190435-ec84`](../lab/constructions/modmul_p113/20261113-190435-ec84/README.md) (best of 3) |
 | `tracr_count_greater` | output i is the number of tokens greater than token i | **no (held out)** | **all 4 (complete)** | 100.0% | 47 | [`20261113-190435-53c5`](../lab/constructions/tracr_count_greater/20261113-190435-53c5/README.md) (best of 2) |
 | `tracr_first_match` | output i is 1 if token i equals the first token, else 0 | **no (held out)** | **all 4 (complete)** | 100.0% | 23 | [`20261113-190435-e5f5`](../lab/constructions/tracr_first_match/20261113-190435-e5f5/README.md) (best of 2) |
 | `tracr_hist` | histogram: output i is the number of tokens equal to token i | yes | **all 4 (complete)** | 100.0% | 21 | [`20261113-143146-5ab6`](../lab/constructions/tracr_hist/20261113-143146-5ab6/README.md) (best of 1) |
