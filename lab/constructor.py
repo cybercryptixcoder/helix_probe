@@ -299,9 +299,18 @@ class Kernel:
 def run_judge(target, variant, path, seed=0, timeout=1500):
     """Judge a construction file in a separate process. Returns (text shown to the reader, report dict or None)."""
     out_json = path.with_suffix(".json")
+    import fcntl
     try:
-        p = subprocess.run([sys.executable, str(LAB / "judge.py"), target, str(path), "--variant", variant, "--seed", str(seed),
-                            "--json", str(out_json)], capture_output=True, text=True, timeout=timeout, cwd="/tmp")
+        # one judge at a time on this machine (a lock file): judging a language model takes about 2 GB, and two runs
+        # judging at once were killed for memory. A judge that dies without a message is tried once more.
+        with open("/tmp/helix_judge.lock", "w") as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            for attempt in range(2):
+                p = subprocess.run([sys.executable, str(LAB / "judge.py"), target, str(path), "--variant", variant, "--seed", str(seed),
+                                    "--json", str(out_json)], capture_output=True, text=True, timeout=timeout, cwd="/tmp")
+                if p.returncode in (0, 1) or "Traceback" in (p.stderr or ""):
+                    break
+                time.sleep(20)
     except subprocess.TimeoutExpired:
         return f"The judge timed out after {timeout} s: model(x, iv) is too slow. It must run on a few thousand inputs in seconds.", None
     text = (p.stdout or "").strip() or ("The judge crashed:\n" + (p.stderr or "")[-1500:])

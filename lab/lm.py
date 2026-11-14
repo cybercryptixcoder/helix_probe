@@ -52,13 +52,14 @@ def load_gpt2(model_id):
     """Weights of a GPT-2-architecture checkpoint, under the engine's names. Returns (cfg, dict of torch tensors)."""
     from transformers import GPT2LMHeadModel
     hf = GPT2LMHeadModel.from_pretrained(model_id)
-    sd = {k: v.detach().float() for k, v in hf.state_dict().items()}
+    sd = {k: v.detach().float() for k, v in hf.state_dict().items() if not k.endswith((".attn.bias", ".attn.masked_bias"))}
     c = hf.config
+    del hf
     L, H, d = c.n_layer, c.n_head, c.n_embd
     dh = d // H
     P = {"W_E": sd["transformer.wte.weight"], "W_pos": sd["transformer.wpe.weight"],
          "ln_f.w": sd["transformer.ln_f.weight"], "ln_f.b": sd["transformer.ln_f.bias"],
-         "W_U": sd["transformer.wte.weight"].T.contiguous()}
+         "W_U": sd["transformer.wte.weight"].T}                     # a view: the unembedding is tied to the embedding
     for l in range(L):
         p = f"transformer.h.{l}."
         ca, cb = sd[p + "attn.c_attn.weight"], sd[p + "attn.c_attn.bias"]          # [d, 3d], [3d]
@@ -71,6 +72,9 @@ def load_gpt2(model_id):
         P[f"L{l}.ln2.w"], P[f"L{l}.ln2.b"] = sd[p + "ln_2.weight"], sd[p + "ln_2.bias"]
         P[f"L{l}.W_in"], P[f"L{l}.b_in"] = sd[p + "mlp.c_fc.weight"], sd[p + "mlp.c_fc.bias"]             # [d, m], [m]
         P[f"L{l}.W_out"], P[f"L{l}.b_out"] = sd[p + "mlp.c_proj.weight"], sd[p + "mlp.c_proj.bias"]       # [m, d], [d]
+    P = {k: v.clone() if k not in ("W_E", "W_U", "W_pos") and v.dim() > 1 else v for k, v in P.items()}   # drop references into the big source tensors
+    del sd, ca, cb
+    import gc; gc.collect()
     cfg = {"family": "gpt2", "model_id": model_id, "n_layers": L, "n_heads": H, "d_model": d, "d_head": dh,
            "d_mlp": P["L0.W_in"].shape[1], "n_vocab": P["W_E"].shape[0], "n_ctx": P["W_pos"].shape[0], "ln_eps": c.layer_norm_epsilon}
     return cfg, P
