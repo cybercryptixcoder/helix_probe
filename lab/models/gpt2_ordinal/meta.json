@@ -1,0 +1,63 @@
+{
+ "id": "gpt2_ordinal",
+ "name": "gpt2_ordinal",
+ "forward": "lm",
+ "model": "gpt2",
+ "family": "gpt2",
+ "arch": "gpt2: a pre-trained decoder-only transformer language model (12 layers, 12 heads per layer, d_model 768, d_head 64, d_mlp 3072, vocabulary 50257; pre-LayerNorm blocks: resid += attn(ln1(resid)); resid += mlp(ln2(resid)); logits = ln_f(resid) @ W_U; learned absolute position embeddings; GELU).",
+ "cfg": {
+  "family": "gpt2",
+  "model_id": "gpt2",
+  "n_layers": 12,
+  "n_heads": 12,
+  "d_model": 768,
+  "d_head": 64,
+  "d_mlp": 3072,
+  "n_vocab": 50257,
+  "n_ctx": 1024,
+  "ln_eps": 1e-05
+ },
+ "params": 124439808,
+ "x_names": [
+  "n",
+  "template"
+ ],
+ "answers": [
+  "st",
+  "nd",
+  "rd",
+  "th"
+ ],
+ "answer_ids": [
+  301,
+  358,
+  4372,
+  400
+ ],
+ "n_prompts": 2020,
+ "n_tokens": 5,
+ "split_by": "n",
+ "roles": {
+  "num": 4,
+  "end": 4
+ },
+ "example_prompts": [
+  "<|endoftext|>It was the 0",
+  "<|endoftext|>It was the 84",
+  "<|endoftext|>It was the 168",
+  "<|endoftext|>It was the 252",
+  "<|endoftext|>It was the 336",
+  "<|endoftext|>It was the 427"
+ ],
+ "domain": {
+  "file": "inputs.npy",
+  "text": "Each prompt is a short phrase that ends in a number n written in digits (one token). x[:, 0] = n; x[:, 1] = which of the 4 phrase templates (0: \"It was the <n>\"; 1: \"This is the <n>\"; 2: \"He finished the <n>\"; 3: \"Then on the <n>\"). Roles: num = end = the number's position (the last token)."
+ },
+ "context": "The prompts end in a number; the answer tokens are the English ordinal suffixes.",
+ "answer": {
+  "short": "GPT-2 small continues a number with its ordinal suffix: st / nd / rd / th by the last digit, with th for 11, 12, 13."
+ },
+ "task_file": "ordinal.py",
+ "tensors": [],
+ "group": "language models"
+}
