@@ -1,0 +1,355 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 2418,
+ "variables": {
+  "tok0": {
+   "dim": 113,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "tok1": {
+   "dim": 113,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "rm_feat": {
+   "dim": 104,
+   "sites": [
+    "resid_mid"
+   ]
+  },
+  "pre_feat": {
+   "dim": 9,
+   "sites": [
+    "mlp_pre"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 0.402662490211433,
+  "r2": -3.872427717549603,
+  "kl": 0.009063045973635971,
+  "baseline_constant_match": 0.402662490211433
+ },
+ "sites": {
+  "embed.0": {
+   "width": 128,
+   "variables": [
+    "tok0"
+   ],
+   "named_dims": 113,
+   "named_rank": 112,
+   "pca_sufficient_rank": 69,
+   "activation_rank": 112,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": -1.8145042455491433e-18,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.6166014095536414,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.6166014095536414,
+   "remove_random_match": 0.636909423127121,
+   "used_rank": 112,
+   "unused_variables": [],
+   "pass": false
+  },
+  "embed.1": {
+   "width": 128,
+   "variables": [
+    "tok1"
+   ],
+   "named_dims": 113,
+   "named_rank": 112,
+   "pca_sufficient_rank": 66,
+   "activation_rank": 112,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": 3.0944857864157757e-18,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.6075176194205169,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.6075176194205169,
+   "remove_random_match": 0.6367006003654399,
+   "used_rank": 112,
+   "unused_variables": [],
+   "pass": false
+  },
+  "resid_mid": {
+   "width": 128,
+   "variables": [
+    "rm_feat"
+   ],
+   "named_dims": 104,
+   "named_rank": 104,
+   "pca_sufficient_rank": 52,
+   "activation_rank": 128,
+   "explained": 0.928690889180701,
+   "substitute_match": 0.8357086922474549,
+   "substitute_kl": 0.00015176606204798148,
+   "substitute_r2": 0.9242819727960452,
+   "mean_ablate_match": 0.402662490211433,
+   "recovered": 0.7249606712113267,
+   "keep_named_match": 0.9902897415818325,
+   "remove_named_match": 0.402662490211433,
+   "remove_random_match": 0.5368311145914905,
+   "used_rank": 104,
+   "unused_variables": [],
+   "pass": false
+  },
+  "mlp_pre": {
+   "width": 512,
+   "variables": [
+    "pre_feat"
+   ],
+   "named_dims": 9,
+   "named_rank": 9,
+   "pca_sufficient_rank": 30,
+   "activation_rank": 128,
+   "explained": 0.0769010710339616,
+   "substitute_match": 0.7566170712607674,
+   "substitute_kl": 0.00041978067500833,
+   "substitute_r2": 0.7909659942089307,
+   "mean_ablate_match": 0.7588097102584181,
+   "recovered": -0.009090909090909175,
+   "keep_named_match": 0.7678935003915427,
+   "remove_named_match": 0.8909945184025059,
+   "remove_random_match": 0.9623074915165754,
+   "used_rank": 9,
+   "unused_variables": [],
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "tok0",
+   "variables": [
+    "tok0"
+   ],
+   "site": "embed.0",
+   "mode": "interchange",
+   "dim": 113,
+   "agreement": 0.4175,
+   "r2": -3.866443779466721,
+   "network_changed": 0.496,
+   "agreement_when_changed": 0.3165322580645161,
+   "baseline_no_change": 0.504,
+   "baseline_source_output": 0.4725,
+   "control_random_subspace": 0.4335,
+   "attribution_patching": 0.888,
+   "attribution_patching_when_changed": 0.8689516129032258,
+   "pass": false
+  },
+  {
+   "variable": "tok0",
+   "variables": [
+    "tok0"
+   ],
+   "site": "embed.0",
+   "mode": "edit",
+   "dim": 113,
+   "agreement": 0.416,
+   "r2": -3.872488397391866,
+   "network_changed": 0.3155,
+   "agreement_when_changed": 0.294770206022187,
+   "baseline_no_change": 0.6845,
+   "baseline_source_output": 0.3905,
+   "control_random_subspace": 0.412,
+   "attribution_patching": 0.936,
+   "attribution_patching_when_changed": 0.8748019017432647,
+   "pass": false
+  },
+  {
+   "variable": "tok1",
+   "variables": [
+    "tok1"
+   ],
+   "site": "embed.1",
+   "mode": "interchange",
+   "dim": 113,
+   "agreement": 0.4015,
+   "r2": -3.89148578475692,
+   "network_changed": 0.518,
+   "agreement_when_changed": 0.3166023166023166,
+   "baseline_no_change": 0.482,
+   "baseline_source_output": 0.5035,
+   "control_random_subspace": 0.3955,
+   "attribution_patching": 0.8915,
+   "attribution_patching_when_changed": 0.861003861003861,
+   "pass": false
+  },
+  {
+   "variable": "tok1",
+   "variables": [
+    "tok1"
+   ],
+   "site": "embed.1",
+   "mode": "edit",
+   "dim": 113,
+   "agreement": 0.4105,
+   "r2": -3.8582531025533804,
+   "network_changed": 0.3105,
+   "agreement_when_changed": 0.31239935587761675,
+   "baseline_no_change": 0.6895,
+   "baseline_source_output": 0.4,
+   "control_random_subspace": 0.3925,
+   "attribution_patching": 0.94,
+   "attribution_patching_when_changed": 0.8711755233494364,
+   "pass": false
+  },
+  {
+   "variable": "rm_feat",
+   "variables": [
+    "rm_feat"
+   ],
+   "site": "resid_mid",
+   "mode": "interchange",
+   "dim": 104,
+   "agreement": 0.3955,
+   "r2": -3.8464893095213064,
+   "network_changed": 0.6665,
+   "agreement_when_changed": 0.3353338334583646,
+   "baseline_no_change": 0.3335,
+   "baseline_source_output": 0.7755,
+   "control_random_subspace": 0.4045,
+   "attribution_patching": 0.8205,
+   "attribution_patching_when_changed": 0.8102025506376594,
+   "pass": false
+  },
+  {
+   "variable": "rm_feat",
+   "variables": [
+    "rm_feat"
+   ],
+   "site": "resid_mid",
+   "mode": "edit",
+   "dim": 104,
+   "agreement": 0.3975,
+   "r2": -3.4185332399632937,
+   "network_changed": 0.4915,
+   "agreement_when_changed": 0.30925737538148523,
+   "baseline_no_change": 0.5085,
+   "baseline_source_output": 0.4735,
+   "control_random_subspace": 0.4065,
+   "attribution_patching": 0.8895,
+   "attribution_patching_when_changed": 0.8535096642929807,
+   "pass": false
+  },
+  {
+   "variable": "pre_feat",
+   "variables": [
+    "pre_feat"
+   ],
+   "site": "mlp_pre",
+   "mode": "interchange",
+   "dim": 9,
+   "agreement": 0.422,
+   "r2": -3.9250228884062546,
+   "network_changed": 0.0785,
+   "agreement_when_changed": 0.2229299363057325,
+   "baseline_no_change": 0.9215,
+   "baseline_source_output": 0.299,
+   "control_random_subspace": 0.432,
+   "attribution_patching": 0.9825,
+   "attribution_patching_when_changed": 0.8789808917197452,
+   "pass": false
+  },
+  {
+   "variable": "pre_feat",
+   "variables": [
+    "pre_feat"
+   ],
+   "site": "mlp_pre",
+   "mode": "edit",
+   "dim": 9,
+   "agreement": 0.4305,
+   "r2": -3.92120175276185,
+   "network_changed": 0.0485,
+   "agreement_when_changed": 0.25773195876288657,
+   "baseline_no_change": 0.9515,
+   "baseline_source_output": 0.302,
+   "control_random_subspace": 0.4305,
+   "attribution_patching": 0.9885,
+   "attribution_patching_when_changed": 0.8865979381443299,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [
+  "attn_pattern",
+  "attn_out",
+  "mlp_post",
+  "mlp_out",
+  "resid_post"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [
+    "embed.0",
+    "embed.1"
+   ],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [
+    "resid_mid"
+   ],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [
+    "mlp_pre"
+   ],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "behaviour: the construction's output agrees with the network on 40.3% of inputs (need 95%)",
+   "interchange of tok0 at embed.0: prediction right in 31.7% of the cases where the network's output changed (need 90%)",
+   "edit of tok0 at embed.0: prediction right in 29.5% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "interchange of tok1 at embed.1: prediction right in 31.7% of the cases where the network's output changed (need 90%)",
+   "edit of tok1 at embed.1: prediction right in 31.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "substitution at resid_mid: 83.6% (need 90%)",
+   "interchange of rm_feat at resid_mid: prediction right in 33.5% of the cases where the network's output changed (need 90%)",
+   "edit of rm_feat at resid_mid: prediction right in 30.9% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "substitution at mlp_pre: 75.7% (need 90%)",
+   "removal at mlp_pre: removing the named subspace leaves 89.1% of decisions, while mean-ablating the whole site leaves 75.9%: what you named is not what the output depends on here",
+   "interchange of pre_feat at mlp_pre: prediction right in 22.3% of the cases where the network's output changed (need 90%)",
+   "edit of pre_feat at mlp_pre: the network's output changed in only 4.9% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 99.81
+}
