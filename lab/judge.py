@@ -498,7 +498,9 @@ if __name__ == "__main__":
         import lmjudge
         try:
             rep = lmjudge.judge(a.target, Path(a.construction).read_text(), a.variant, a.seed)
-        except ConstructionError as e:
+        except Exception as e:                      # lmjudge raises the ConstructionError of the imported judge module
+            if type(e).__name__ != "ConstructionError":
+                raise
             print("CONSTRUCTION ERROR:", e); sys.exit(1)
         print(lmjudge.render(rep))
         if a.json:
