@@ -1,0 +1,129 @@
+{
+ "id": "20261113-200059-d63d",
+ "config": {
+  "target": "tracr_first_match",
+  "variant": "original",
+  "told": false,
+  "weights": true,
+  "allow_forward": true,
+  "effort": "high",
+  "max_steps": 80,
+  "max_tokens": 12000,
+  "seed": 0,
+  "title": "v1.1: blinded, replicate B",
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "one_shot": false
+ },
+ "started": 1794618059.9260933,
+ "system": "You are an interpretability researcher. You are given a trained neural network: its weights, its architecture and the set of inputs it is used on. Your job is to work out HOW it computes its outputs and to write that down as a CONSTRUCTION that an automatic judge will test.\n\nWHAT A CONSTRUCTION IS\nA short, standalone Python file that defines:\n\n  DESCRIPTION = \"plain-language account of the mechanism\"\n\n  def model(x, iv):\n      # x: the inputs, a numpy array [B, n_in]. Must return the network's predicted output, an array [B, n_out].\n      # Every named intermediate variable is registered with iv:\n      #     v = iv(\"name\", value)        value is an array [B] or [B, k]; iv returns it in the same shape.\n      # ALWAYS compute later steps from what iv returned, never from a copy made before the iv call:\n      # during intervention tests iv returns a replaced value, and your model must respond to it.\n      ...\n\n  ALIGN = {\"name\": [\"site\", ...], ...}     # for each variable, the activation site(s) of the network where it lives\n\nThe file can use numpy (as np) and math only. It CANNOT see the weights W or run the network: every constant it needs (frequencies, thresholds, coefficients, small tables) must be written into the file as literals, after you have measured them. Limit: 16,000 characters. It is meant to be a compact program that a person can read, not a copy of the network.\n\nA small example of the format, for an unrelated toy network (2 inputs, one hidden layer \"h1\", 1 output) that outputs max(x1, x2):\n\n  DESCRIPTION = \"Outputs max(x1, x2). The hidden layer holds relu(x1 - x2) and x2; the output adds them.\"\n  def model(x, iv):\n      gap = iv(\"gap\", np.maximum(x[:, 0] - x[:, 1], 0))\n      base = iv(\"base\", x[:, 1])\n      return (gap + base)[:, None]\n  ALIGN = {\"gap\": [\"h1\"], \"base\": [\"h1\"]}\n\nHOW THE JUDGE TESTS IT (on inputs held out from fitting)\n1. Behaviour: does model(x) make the same decision as the network (largest output; sign if there is one output; if the network makes one decision per position, all of them)?\n2. Alignment: at each site in ALIGN the judge fits ONE affine map from the variables you placed there to the real activations (activation = c + variables @ M). So a variable must be related to the activations linearly. If the network encodes a quantity through several nonlinear functions of it (for example a one-hot code, or a few smooth functions of it), the variable should be those functions' values, a few coordinates, not the raw quantity.\n3. Substitution: the site's activation is replaced by the construction's prediction (c + variables @ M) and the rest of the network runs. The decisions must survive. Removing the named subspace from the real activation must destroy them. And the variables must be compact: the judge reports how many principal components of the site suffice to keep the decisions, and you may name at most about twice that many dimensions. Huge variables (a lookup table of the inputs) fail this.\n4. Interchange, at each site s you align to: the network is run on an input B, but at site s the part of the activation that encodes your variables is replaced by what it is on another input A (the variables are read from the two real activations with a linear probe, and the change (v(A) - v(B)) @ M is added at site s); everything after site s is recomputed. The network's new decision must equal what model(B) returns when iv gives those variables their values from A (need 90%). So the causal wiring of model() must mirror the network: a variable must feed the later variables the way the activation at its site feeds the later sites. A variable placed at several sites is tested at each site separately.\n5. Off-manifold tests, which make states that no input produces (need 50% of the cases where the network's decision changes). Two are run at each site, and passing EITHER is enough: partial (each variable at the site is copied from A while the site's other variables keep their values from B; needs several variables at the site) and edit (a random half of the coordinates of everything you named at the site are copied). Both need realistic coefficients in model(), not just the right decision on ordinary inputs. Where the network keeps parts separate (one per position, per input, per feature group), give each part its own variable, with the coordinates that belong together kept together: copying whole parts keeps every part at a value it really takes.\nA site is verified when it passes 3-5. The network's sites are grouped into STAGES (the successive steps of its computation); a stage is explained when one of its sites is verified. The construction is COMPLETE when it behaves like the network and every stage is explained. That is the goal, reached one stage at a time, with variables that are as low-dimensional as you can make them.\n\nYOUR TOOLS\n- python(code): runs in a persistent session (variables stay between calls). Available: W (dict of weight arrays), X (all inputs the network is used on, [N, n_in]), run(x) -> outputs, acts(x) -> {site: activations [B, width]} (every site, exact: you never need to re-implement the forward pass), SITES, np, scipy, sklearn. Print what you want to see; output is cut at about 8,000 characters, so print summaries, not raw arrays.\n- submit(code): sends a construction file to the judge and returns its report. The report is the fastest way to learn what is right: it tells you, site by site and variable by variable, what passes and what fails.\n\nSUBMIT EARLY, THEN IMPROVE STAGE BY STAGE\nDo not try to understand everything before you submit. A construction that explains only one stage is a valid submission, and partial constructions are expected along the way: stages are added one at a time. Make your first submission within your first 6 steps, as soon as you know what the network does and have one candidate variable at one site. After that, submit whenever you have changed something. If you go 6 steps without submitting, you will be required to submit what you have. Explain the easy stages first and leave the hardest stage for last.\n\nHOW TO WORK\n1. Find out WHAT the network does: run it on its inputs and find the rule relating inputs to outputs.\n2. Find out HOW, stage by stage. Look at the weights themselves for structure (which rows or columns matter, low rank, sparsity, repeated or regular patterns along an index, groups of similar units), and at the activations at each site as functions of the input. Look for a small set of quantities that each site's activations are simple (linear) functions of, and check candidates by regression before you rely on them. Let the numbers decide; do not assume a mechanism because it is familiar.\n3. Write the construction with one or more variables for each stage, computed from the previous stage's variables. Measure the constants with python, write them into the file, submit, read the report, and fix what fails.\n4. If a site fails, investigate why with python (what does the activation depend on that your variables miss? is the variable used by the network at that site at all?) before resubmitting. You can reproduce any of the judge's tests yourself with run and acts. A variable that is present at a site but not used by what comes after should be given its own name and not fed forward in model().\nKeep each message short. Do the thinking with code. When the judge reports VERIFIED AND COMPLETE, or you are certain you cannot improve further, reply with a short final summary and no tool call.",
+ "task": "THE NETWORK\nA 1-layer transformer with no LayerNorm. Vocabulary of 6 tokens; the input is a sequence of 6 tokens; residual stream width 18.\n  x = W_E[tokens] + W_pos\n  layer 0: attention (1 head of size 7, bidirectional, biases b_Q, b_K, b_V, b_O): x = x + softmax((x W_Q + b_Q)(x W_K + b_K)^T / sqrt(7)) (x W_V + b_V) W_O + b_O;  then MLP (16 ReLU neurons): x = x + relu(x W_in + b_in) W_out + b_out\n  output = x[positions 1..5] @ W_U: 2 numbers for each of the last 5 positions, flattened as (position - 1) * 2 + class. The network's decision at a position is its largest of those 2 numbers.\n\nWeight tensors in W: W_E (6, 18) = token embedding (row = token); W_pos (6, 18) = position embedding (row = position); L0.W_Q (1, 18, 7); L0.b_Q (1, 7); L0.W_K (1, 18, 7); L0.b_K (1, 7); L0.W_V (1, 18, 7); L0.b_V (1, 7); L0.W_O (1, 7, 18); L0.b_O (18,); L0.W_in (18, 16); L0.b_in (16,); L0.W_out (16, 18); L0.b_out (18,); W_U (18, 2) = output weights (column = class)\n(1,405 parameters.)\n\nACTIVATION SITES (name, width, what it is) by stage:\n  stage: embedding\n    embed  [108]  token + position embeddings, all 6 positions (index = position * 18 + dimension)\n  stage: layer 0 attention\n    attn0.pattern  [36]  layer 0 attention weights (index = head * 36 + query position * 6 + key position)\n    attn0.out  [108]  what layer 0's attention adds to the residual stream, all positions\n    resid0.mid  [108]  residual stream after layer 0's attention, all positions\n  stage: layer 0 mlp neurons\n    mlp0.pre  [96]  layer 0 MLP neurons before ReLU, all positions (index = position * 16 + neuron)\n    mlp0.post  [96]  layer 0 MLP neurons after ReLU, all positions\n  stage: layer 0 output\n    mlp0.out  [108]  what layer 0's MLP adds to the residual stream, all positions\n    resid0.post  [108]  residual stream after layer 0, all positions\n  stage: output  (not a site you can align to; model() returns it)\n    out  [10]  the network's output\n\nTHE INPUTS\nThe network is used on every input [0, t1, ..., t5] where each of t1..t5 is one of the tokens [1, 2, 3, 5] (1,024 inputs).\n\nYou are not told what the network does or what its inputs and outputs mean. Find out.\n\nBegin.",
+ "steps": [
+  {
+   "step": 0,
+   "content": "I'll start by exploring the network's behavior.",
+   "thinking": "",
+   "finish": "tool_calls",
+   "context_tokens": 2837,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nimport numpy as np\nprint(X.shape, X[:5])\nprint(np.unique(X))\nout = run(X)\nprint(out.shape)\nprint(out[:5])\n# decisions\ndec = out.reshape(-1,5,2).argmax(-1)\nprint(dec[:10])\nprint(np.bincount(dec.ravel()))\n",
+     "ok": true,
+     "output": "(1024, 6) [[0 1 1 1 1 1]\n [0 1 1 1 1 2]\n [0 1 1 1 1 3]\n [0 1 1 1 1 5]\n [0 1 1 1 2 1]]\n[0 1 2 3 5]\n(1024, 10)\n[[0. 1. 0. 1. 0. 1. 0. 1. 0. 1.]\n [0. 1. 0. 1. 0. 1. 0. 1. 1. 0.]\n [0. 1. 0. 1. 0. 1. 0. 1. 1. 0.]\n [0. 1. 0. 1. 0. 1. 0. 1. 1. 0.]\n [0. 1. 0. 1. 0. 1. 1. 0. 0. 1.]]\n[[1 1 1 1 1]\n [1 1 1 1 0]\n [1 1 1 1 0]\n [1 1 1 1 0]\n [1 1 1 0 1]\n [1 1 1 0 0]\n [1 1 1 0 0]\n [1 1 1 0 0]\n [1 1 1 0 1]\n [1 1 1 0 0]]\n[3072 2048]\n",
+     "seconds": 0.03
+    }
+   ]
+  },
+  {
+   "step": 1,
+   "content": "",
+   "thinking": "Interesting. Output at position p (1..5) \u2014 decision. Let's look: For input [0,1,1,1,1,1], all decisions 1. For [0,1,1,1,1,2] positions 1-4 =1, position5=0. Hmm.\n\nLet me compare each position's decision to the tokens. Let's denote t1..t5 (positions 1..5). Position p decision seems to compare something.\n\nLet me guess: decision at position p = whether t_p == something? For [0,1,1,1,1,2]: t5=2, decision at position 5 is 0 while all others are 1. Hmm, decision 1 = class 1. So maybe class1 means \"t_p equals t_{p-1}\"? For [0,1,1,1,1,2]: t5=2 vs t4=1, not equal \u2192 class 0. Yes! Others equal \u2192 class 1.\n\nCheck [0,1,1,1,2,1]: decisions 1,1,1,0,1. t4=2 vs t3=1 \u2192 not equal, class 0. t5=1 vs t4=2 \u2192 not equal but class 1? Hmm that gives class 1. Contradicts.\n\nMaybe \"t_p equals t_1\"? For [0,1,1,1,2,1]: all equal t1=1 \u2192 all 1, but position4 is 0. So no.\n\nMaybe compare t_p with t_{p-1}: position 5: t5=1, t4=2, unequal \u2192 predicted 0 but actual 1. So not.\n\nLet's think: maybe bigger/smaller comparison. Let me just compute the actual decision vs comparison and check.\n\nLet's do systematic analysis.",
+   "finish": "tool_calls",
+   "context_tokens": 3325,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nimport itertools\ntoks = X[:,1:]\ndec = out.reshape(-1,5,2).argmax(-1)\n# check hypothesis: dec[p] = (t_p == t_{p-1})?  p=0 uses t0=0\nprev = X[:, :-1]\nfor p in range(5):\n    eq = (toks[:,p] == prev[:,p])\n    print(p, \"equal-prev:\", (dec[:,p]==eq).mean(), \"dec1 frac\", dec[:,p].mean())\n",
+     "ok": true,
+     "output": "0 equal-prev: 0.0 dec1 frac 1.0\n1 equal-prev: 1.0 dec1 frac 0.25\n2 equal-prev: 0.625 dec1 frac 0.25\n3 equal-prev: 0.625 dec1 frac 0.25\n4 equal-prev: 0.625 dec1 frac 0.25\n",
+     "seconds": 0.0
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "content": "",
+   "thinking": "Position 0 (token position 1) always class 1 (t1 never 0, prev=0? no, prev is position 0 which is token 0, so t1 != 0, \"equal\" would be False, so dec=1 means not equal... wait dec1 frac is 1.0 and equal-prev is 0.0, accuracy 0.0).\n\nPosition1: exact match with equal-prev = 1.0. So decision = (t_p == t_{p-1}).\n\nPositions 2,3,4: 62.5%. Let's look deeper. Maybe comparing to max of previous? Or something about which pair.\n\nLet's check: 62.5% = 5/8. Hmm. Let me look at what determines it.",
+   "finish": "tool_calls",
+   "context_tokens": 3978,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nprev = X[:, :-1]\nfor p in [2]:\n    h = (dec[:,p]==1)\n    print(\"dec1 frac\", h.mean())\n    # conditional on t_p == t_{p-1}\n    print(\"eq prev\", h[(toks[:,p]==prev[:,p])].mean(), (toks[:,p]==prev[:,p]).sum())\n    print(\"neq prev\", h[(toks[:,p]!=prev[:,p])].mean())\n    for t in [1,2,3,5]:\n        print(\"t_p=\",t, h[toks[:,p]==t].mean())\n    for t in [1,2,3,5]:\n        print(\"t_{p-1}=\",t, h[prev[:,p]==t].mean())\n",
+     "ok": true,
+     "output": "dec1 frac 0.25\neq prev 0.25 256\nneq prev 0.25\nt_p= 1 0.25\nt_p= 2 0.25\nt_p= 3 0.25\nt_p= 5 0.25\nt_{p-1}= 1 0.25\nt_{p-1}= 2 0.25\nt_{p-1}= 3 0.25\nt_{p-1}= 5 0.25\n",
+     "seconds": 0.0
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "content": "",
+   "thinking": "Interesting: for position index 2 (the 3rd token), dec1 frac = 0.25 and independent of t_p and t_{p-1}. Earlier the \"eq prev\" accuracy was 0.625 \u2014 because dec1 frac 0.25 and eq frac 0.25 -> matches when eq=0 and dec=0? Accuracy: P(dec==eq) = P(eq=1,dec=1)+P(eq=0,dec=0) = 0.25*0.25+0.75*0.75 = 0.0625+0.5625=0.625. Yes, matches. So independent.\n\nSo position index 2 decision is a quarter-1 thing. Maybe comparing to position 1 (t1)? Let's test other relations.",
+   "finish": "tool_calls",
+   "context_tokens": 4484,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nprev = X[:, :-1]\nt1 = X[:,1]\nfor p in [1,2,3,4]:\n    h=(dec[:,p]==1)\n    print(\"p\",p)\n    print(\"  eq t1\", h[toks[:,p]==t1].mean(), \"neq\", h[toks[:,p]!=t1].mean())\n    print(\"  gt prev\", h[toks[:,p]>prev[:,p]].mean(), \"lt\", h[toks[:,p]<prev[:,p]].mean())\n    print(\"  eq tok0? \", h[(toks[:,p]==0)].mean())\n",
+     "ok": true,
+     "output": "p 1\n  eq t1 1.0 neq 0.0\n  gt prev 0.0 lt 0.0\n<your code>:9: RuntimeWarning: Mean of empty slice\n/usr/local/lib/python3.13/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide\n  ret = ret.dtype.type(ret / rcount)\n  eq tok0?  nan\np 2\n  eq t1 1.0 neq 0.0\n  gt prev 0.25 lt 0.25\n  eq tok0?  nan\np 3\n  eq t1 1.0 neq 0.0\n  gt prev 0.25 lt 0.25\n  eq tok0?  nan\np 4\n  eq t1 1.0 neq 0.0\n  gt prev 0.25 lt 0.25\n  eq tok0?  nan\n",
+     "seconds": 0.0
+    }
+   ]
+  },
+  {
+   "step": 4,
+   "content": "",
+   "thinking": "Decision at position p = (t_p == t_1). Positions 2,3,4 give exactly this too (eq t1: 1.0 accuracy). Great, simple.\n\nSo the network computes \"is token at position p equal to token at position 1\" for p=1..5 (trivially position1 = itself \u2192 1).\n\nNow let's figure out how. Look at weights.",
+   "finish": "tool_calls",
+   "context_tokens": 5055,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nprint(list(W.keys()))\nfor k,v in W.items(): print(k, v.shape)\nprint(\"W_E\\n\", np.round(W['W_E'],2))\nprint(\"W_pos\\n\", np.round(W['W_pos'],2))\n",
+     "ok": true,
+     "output": "['W_E', 'W_pos', 'L0.W_Q', 'L0.b_Q', 'L0.W_K', 'L0.b_K', 'L0.W_V', 'L0.b_V', 'L0.W_O', 'L0.b_O', 'L0.W_in', 'L0.b_in', 'L0.W_out', 'L0.b_out', 'W_U', 'out_positions']\nW_E (6, 18)\nW_pos (6, 18)\nL0.W_Q (1, 18, 7)\nL0.b_Q (1, 7)\nL0.W_K (1, 18, 7)\nL0.b_K (1, 7)\nL0.W_V (1, 18, 7)\nL0.b_V (1, 7)\nL0.W_O (1, 7, 18)\nL0.b_O (18,)\nL0.W_in (18, 16)\nL0.b_in (16,)\nL0.W_out (16, 18)\nL0.b_out (18,)\nW_U (18, 2)\nout_positions (5,)\nW_E\n [[ 0.11  0.24 -0.19 -0.56 -0.05  0.74 -0.16 -0.65 -0.18 -0.11  0.24  0.08 -0.37  0.12  0.15 -0.1   0.14  0.52]\n [ 0.38  0.42  0.02  0.33 -0.52  0.73 -0.42 -0.29  0.04 -0.29  0.38 -0.06 -0.48 -0.05 -0.16  0.01  0.07 -0.09]\n [-0.11  0.36 -0.51 -0.05 -0.24  0.31  0.01 -0.59 -0.14 -0.32  0.13 -0.24 -0.39 -0.55  0.14 -0.06  0.62 -0.16]\n [-0.48 -0.23 -0.21  0.23 -0.4   0.7  -0.34 -0.27 -0.42  0.16  0.1   0.12 -0.66 -0.17  0.2  -0.08  0.17  0.12]\n [ 0.25 -0.16 -0.23  0.32  0.15  0.35 -0.13 -0.66 -0.54 -0.47  0.1  -0.22 -0.57 -0.2  -0.17 -0.38 -0.1   0.2 ]\n [ 0.14  0.26 -0.4   0.03 -0.08  0.5  -0.72 -0.01 -0.4  -0.22 -0.18  0.08 -0.19 -0.36 -0.29 -0.24  0.46  0.45]]\nW_pos\n [[ 0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.    0.  ]\n [-0.21  0.2  -0.35  0.34 -0.22 -0.15  0.14 -0.12 -0.18 -0.08  0.3   0.2   0.37  0.45 -0.08 -0.16  0.07  0.18]\n [ 0.06 -0.49 -0.02  0.06 -0.04 -0.1  -0.01 -0.08  0.57 -0.06  0.07  0.08 -0.19  0.17 -0.2  -0.17  0.47  0.18]\n [ 0.48 -0.14  0.03 -0.02  0.04 -0.07 -0.11  0.02 -0.37  0.14 -0.01  0.14 -0.    0.32  0.39 -0.07  0.4  -0.37]\n [ 0.3  -0.09  0.06  0.22 -0.17  0.01  0.1  -0.47  0.01  0.49 -0.16  0.2   0.31 -0.33 -0.11  0.18 -0.    0.16]\n [-0.07  0.11  0.48 -0.01 -0.03 -0.38 -0.08 -0.02 -0.11 -0.22  0.33  0.47 -0.12 -0.33  0.18 -0.07  0.08  0.2 ]]\n",
+     "seconds": 0.0
+    }
+   ]
+  },
+  {
+   "step": 5,
+   "content": "",
+   "thinking": "Now the attention. Let me look at attention patterns: which query attends to which key.",
+   "finish": "tool_calls",
+   "context_tokens": 6372,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\na = acts(X[:4])\nfor k,v in a.items(): print(k, v.shape)\npat = a['attn0.pattern']\nprint(np.round(pat[0].reshape(6,6),3))\nprint(np.round(pat[1].reshape(6,6),3))\nprint(np.round(pat[5].reshape(6,6),3))\n",
+     "ok": false,
+     "output": "embed (4, 108)\nattn0.pattern (4, 36)\nattn0.out (4, 108)\nresid0.mid (4, 108)\nmlp0.pre (4, 96)\nmlp0.post (4, 96)\nmlp0.out (4, 108)\nresid0.post (4, 108)\nout (4, 10)\n[[1. 0. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0.]]\n[[1. 0. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0.]\n [0. 1. 0. 0. 0. 0.]]\nTraceback (most recent call last):\n    exec(compile(code, \"<your code>\", \"exec\"), env)\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<your code>\", line 7, in <module>\nIndexError: index 5 is out of bounds for axis 0 with size 4\n",
+     "seconds": 0.0
+    }
+   ]
+  }
+ ],
+ "submissions": [],
+ "compactions": [],
+ "usage": {
+  "prompt_tokens": 26051,
+  "completion_tokens": 1682,
+  "calls": 6
+ },
+ "cost": 0.003699684,
+ "status": "running",
+ "best": null,
+ "final_message": ""
+}
