@@ -1,0 +1,1025 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 2203,
+ "variables": {
+  "if8": {
+   "dim": 2,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "jf8": {
+   "dim": 2,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "sp8": {
+   "dim": 2,
+   "sites": [
+    "resid_mid"
+   ]
+  },
+  "if11": {
+   "dim": 2,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "jf11": {
+   "dim": 2,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "sp11": {
+   "dim": 2,
+   "sites": [
+    "resid_mid"
+   ]
+  },
+  "if22": {
+   "dim": 2,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "jf22": {
+   "dim": 2,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "sp22": {
+   "dim": 2,
+   "sites": [
+    "resid_mid"
+   ]
+  },
+  "if23": {
+   "dim": 2,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "jf23": {
+   "dim": 2,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "sp23": {
+   "dim": 2,
+   "sites": [
+    "resid_mid"
+   ]
+  },
+  "if25": {
+   "dim": 2,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "jf25": {
+   "dim": 2,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "sp25": {
+   "dim": 2,
+   "sites": [
+    "resid_mid"
+   ]
+  },
+  "t8": {
+   "dim": 2,
+   "sites": [
+    "resid_mid"
+   ]
+  },
+  "t23": {
+   "dim": 2,
+   "sites": [
+    "resid_mid"
+   ]
+  },
+  "t25": {
+   "dim": 2,
+   "sites": [
+    "resid_mid"
+   ]
+  },
+  "tf8": {
+   "dim": 2,
+   "sites": [
+    "mlp_post",
+    "resid_post"
+   ]
+  },
+  "tf11": {
+   "dim": 2,
+   "sites": [
+    "mlp_post",
+    "resid_post"
+   ]
+  },
+  "tf22": {
+   "dim": 2,
+   "sites": [
+    "mlp_post",
+    "resid_post"
+   ]
+  },
+  "tf23": {
+   "dim": 2,
+   "sites": [
+    "mlp_post",
+    "resid_post"
+   ]
+  },
+  "tf25": {
+   "dim": 2,
+   "sites": [
+    "mlp_post",
+    "resid_post"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": 0.6248219414493474,
+  "kl": 0.00046094005833769125,
+  "baseline_constant_match": 0.010649960845732186
+ },
+ "sites": {
+  "embed.0": {
+   "width": 128,
+   "variables": [
+    "if8",
+    "if11",
+    "if22",
+    "if23",
+    "if25"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.944078052746613,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0001461586264020938,
+   "substitute_r2": 0.9932120795848141,
+   "mean_ablate_match": 0.008927173061863743,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.007204385277995302,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [
+    "if22"
+   ],
+   "pass": false
+  },
+  "embed.1": {
+   "width": 128,
+   "variables": [
+    "jf8",
+    "jf11",
+    "jf22",
+    "jf23",
+    "jf25"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.9442244053916218,
+   "substitute_match": 1.0,
+   "substitute_kl": 7.713922122317633e-05,
+   "substitute_r2": 0.9930833694428212,
+   "mean_ablate_match": 0.00845732184808144,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.007517619420516836,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [
+    "jf22"
+   ],
+   "pass": false
+  },
+  "resid_mid": {
+   "width": 128,
+   "variables": [
+    "sp8",
+    "sp11",
+    "sp22",
+    "sp23",
+    "sp25",
+    "t8",
+    "t23",
+    "t25"
+   ],
+   "named_dims": 16,
+   "named_rank": 16,
+   "pca_sufficient_rank": 10,
+   "activation_rank": 128,
+   "explained": 0.9573018642652218,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0019134463034307175,
+   "substitute_r2": 0.8917453412467137,
+   "mean_ablate_match": 0.008770555990602976,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.007517619420516836,
+   "remove_random_match": 0.9990080918820151,
+   "used_rank": 8,
+   "unused_variables": [
+    "sp22",
+    "t8",
+    "t23",
+    "t25"
+   ],
+   "pass": false
+  },
+  "mlp_post": {
+   "width": 512,
+   "variables": [
+    "tf8",
+    "tf11",
+    "tf22",
+    "tf23",
+    "tf25"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 17,
+   "activation_rank": 512,
+   "explained": 0.15523528199531866,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.00019393286371829658,
+   "substitute_r2": 0.9777748809612635,
+   "mean_ablate_match": 0.016601409553641346,
+   "recovered": 1.0,
+   "keep_named_match": 0.986530931871574,
+   "remove_named_match": 0.017854346123727487,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [
+    "tf22"
+   ],
+   "pass": false
+  },
+  "resid_post": {
+   "width": 128,
+   "variables": [
+    "tf8",
+    "tf11",
+    "tf22",
+    "tf23",
+    "tf25"
+   ],
+   "named_dims": 10,
+   "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.8638606598062613,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.00019185830636115242,
+   "substitute_r2": 0.979183430509116,
+   "mean_ablate_match": 0.010649960845732186,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.011746280344557557,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [
+    "tf22"
+   ],
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "all variables",
+   "variables": [
+    "if8",
+    "if11",
+    "if22",
+    "if23",
+    "if25"
+   ],
+   "site": "embed.0",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 1.0,
+   "r2": 0.6031817760447216,
+   "network_changed": 0.993,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.007,
+   "baseline_source_output": 0.009,
+   "control_random_subspace": 0.007,
+   "attribution_patching": 0.361,
+   "attribution_patching_when_changed": 0.3564954682779456,
+   "pass": true
+  },
+  {
+   "variable": "if8",
+   "variables": [
+    "if8"
+   ],
+   "site": "embed.0",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.5225,
+   "r2": 0.6110152708576669,
+   "network_changed": 0.655,
+   "agreement_when_changed": 0.3351145038167939,
+   "baseline_no_change": 0.345,
+   "baseline_source_output": 0.007,
+   "control_random_subspace": 0.3125,
+   "attribution_patching": 0.4955,
+   "attribution_patching_when_changed": 0.2580152671755725,
+   "pass": false
+  },
+  {
+   "variable": "if11",
+   "variables": [
+    "if11"
+   ],
+   "site": "embed.0",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.748,
+   "r2": 0.6094238129914474,
+   "network_changed": 0.4715,
+   "agreement_when_changed": 0.5196182396606575,
+   "baseline_no_change": 0.5285,
+   "baseline_source_output": 0.012,
+   "control_random_subspace": 0.666,
+   "attribution_patching": 0.6195,
+   "attribution_patching_when_changed": 0.2757158006362672,
+   "pass": true
+  },
+  {
+   "variable": "if22",
+   "variables": [
+    "if22"
+   ],
+   "site": "embed.0",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 0.6091832091319912,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.012,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "if23",
+   "variables": [
+    "if23"
+   ],
+   "site": "embed.0",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.911,
+   "r2": 0.6155805649767185,
+   "network_changed": 0.592,
+   "agreement_when_changed": 0.8986486486486487,
+   "baseline_no_change": 0.408,
+   "baseline_source_output": 0.012,
+   "control_random_subspace": 0.4045,
+   "attribution_patching": 0.635,
+   "attribution_patching_when_changed": 0.4189189189189189,
+   "pass": true
+  },
+  {
+   "variable": "if25",
+   "variables": [
+    "if25"
+   ],
+   "site": "embed.0",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.7065,
+   "r2": 0.6223756718903843,
+   "network_changed": 0.4645,
+   "agreement_when_changed": 0.5102260495156081,
+   "baseline_no_change": 0.5355,
+   "baseline_source_output": 0.0115,
+   "control_random_subspace": 0.479,
+   "attribution_patching": 0.624,
+   "attribution_patching_when_changed": 0.25080731969860065,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "jf8",
+    "jf11",
+    "jf22",
+    "jf23",
+    "jf25"
+   ],
+   "site": "embed.1",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 1.0,
+   "r2": 0.6020807967983262,
+   "network_changed": 0.991,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.009,
+   "baseline_source_output": 0.007,
+   "control_random_subspace": 0.009,
+   "attribution_patching": 0.327,
+   "attribution_patching_when_changed": 0.32088799192734613,
+   "pass": true
+  },
+  {
+   "variable": "jf8",
+   "variables": [
+    "jf8"
+   ],
+   "site": "embed.1",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.5155,
+   "r2": 0.6112858233881593,
+   "network_changed": 0.658,
+   "agreement_when_changed": 0.3290273556231003,
+   "baseline_no_change": 0.342,
+   "baseline_source_output": 0.006,
+   "control_random_subspace": 0.306,
+   "attribution_patching": 0.4955,
+   "attribution_patching_when_changed": 0.2674772036474164,
+   "pass": false
+  },
+  {
+   "variable": "jf11",
+   "variables": [
+    "jf11"
+   ],
+   "site": "embed.1",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.7335,
+   "r2": 0.609064439739831,
+   "network_changed": 0.4915,
+   "agreement_when_changed": 0.525940996948118,
+   "baseline_no_change": 0.5085,
+   "baseline_source_output": 0.0115,
+   "control_random_subspace": 0.627,
+   "attribution_patching": 0.582,
+   "attribution_patching_when_changed": 0.24923702950152593,
+   "pass": true
+  },
+  {
+   "variable": "jf22",
+   "variables": [
+    "jf22"
+   ],
+   "site": "embed.1",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 0.6097960779945053,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.012,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "jf23",
+   "variables": [
+    "jf23"
+   ],
+   "site": "embed.1",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.908,
+   "r2": 0.6176806689203835,
+   "network_changed": 0.6255,
+   "agreement_when_changed": 0.8800959232613909,
+   "baseline_no_change": 0.3745,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 0.388,
+   "attribution_patching": 0.605,
+   "attribution_patching_when_changed": 0.3932853717026379,
+   "pass": true
+  },
+  {
+   "variable": "jf25",
+   "variables": [
+    "jf25"
+   ],
+   "site": "embed.1",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.707,
+   "r2": 0.6197433630354504,
+   "network_changed": 0.459,
+   "agreement_when_changed": 0.5261437908496732,
+   "baseline_no_change": 0.541,
+   "baseline_source_output": 0.0095,
+   "control_random_subspace": 0.475,
+   "attribution_patching": 0.6215,
+   "attribution_patching_when_changed": 0.238562091503268,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "sp8",
+    "sp11",
+    "sp22",
+    "sp23",
+    "sp25",
+    "t8",
+    "t23",
+    "t25"
+   ],
+   "site": "resid_mid",
+   "mode": "interchange",
+   "dim": 16,
+   "agreement": 0.9205,
+   "r2": 0.39542243750882966,
+   "network_changed": 0.9875,
+   "agreement_when_changed": 0.92,
+   "baseline_no_change": 0.0125,
+   "baseline_source_output": 0.9205,
+   "control_random_subspace": 0.011,
+   "attribution_patching": 0.0595,
+   "attribution_patching_when_changed": 0.05670886075949367,
+   "pass": true
+  },
+  {
+   "variable": "sp8",
+   "variables": [
+    "sp8"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.38,
+   "r2": 0.29383332737449575,
+   "network_changed": 0.3195,
+   "agreement_when_changed": 0.2378716744913928,
+   "baseline_no_change": 0.6805,
+   "baseline_source_output": 0.019,
+   "control_random_subspace": 0.31,
+   "attribution_patching": 0.5395,
+   "attribution_patching_when_changed": 0.16588419405320814,
+   "pass": false
+  },
+  {
+   "variable": "sp11",
+   "variables": [
+    "sp11"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.6905,
+   "r2": 0.5952882783371534,
+   "network_changed": 0.444,
+   "agreement_when_changed": 0.49099099099099097,
+   "baseline_no_change": 0.556,
+   "baseline_source_output": 0.029,
+   "control_random_subspace": 0.649,
+   "attribution_patching": 0.439,
+   "attribution_patching_when_changed": 0.17567567567567569,
+   "pass": false
+  },
+  {
+   "variable": "sp22",
+   "variables": [
+    "sp22"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.973,
+   "r2": 0.5938300085344211,
+   "network_changed": 0.027,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.973,
+   "baseline_source_output": 0.012,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 0.989,
+   "attribution_patching_when_changed": 0.6296296296296297,
+   "pass": true
+  },
+  {
+   "variable": "sp23",
+   "variables": [
+    "sp23"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.6205,
+   "r2": 0.42367805538264913,
+   "network_changed": 0.314,
+   "agreement_when_changed": 0.7531847133757962,
+   "baseline_no_change": 0.686,
+   "baseline_source_output": 0.0185,
+   "control_random_subspace": 0.407,
+   "attribution_patching": 0.5995,
+   "attribution_patching_when_changed": 0.26910828025477707,
+   "pass": true
+  },
+  {
+   "variable": "sp25",
+   "variables": [
+    "sp25"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.5405,
+   "r2": 0.4921301658218492,
+   "network_changed": 0.195,
+   "agreement_when_changed": 0.5025641025641026,
+   "baseline_no_change": 0.805,
+   "baseline_source_output": 0.017,
+   "control_random_subspace": 0.449,
+   "attribution_patching": 0.6745,
+   "attribution_patching_when_changed": 0.16666666666666666,
+   "pass": true
+  },
+  {
+   "variable": "t8",
+   "variables": [
+    "t8"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.9815,
+   "r2": 0.46131847538967474,
+   "network_changed": 0.0185,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.9815,
+   "baseline_source_output": 0.012,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 0.9885,
+   "attribution_patching_when_changed": 0.40540540540540543,
+   "pass": true
+  },
+  {
+   "variable": "t23",
+   "variables": [
+    "t23"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.989,
+   "r2": 0.5232521036130127,
+   "network_changed": 0.011,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.989,
+   "baseline_source_output": 0.013,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 0.995,
+   "attribution_patching_when_changed": 0.5454545454545454,
+   "pass": true
+  },
+  {
+   "variable": "t25",
+   "variables": [
+    "t25"
+   ],
+   "site": "resid_mid",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 0.5606222471789433,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.012,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tf8",
+    "tf11",
+    "tf22",
+    "tf23",
+    "tf25"
+   ],
+   "site": "mlp_post",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 1.0,
+   "r2": 0.5866500543471915,
+   "network_changed": 0.988,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.012,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.012,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "tf8",
+   "variables": [
+    "tf8"
+   ],
+   "site": "mlp_post",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.523,
+   "r2": 0.6110585477662778,
+   "network_changed": 0.629,
+   "agreement_when_changed": 0.3441971383147854,
+   "baseline_no_change": 0.371,
+   "baseline_source_output": 0.054,
+   "control_random_subspace": 0.31,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "tf11",
+   "variables": [
+    "tf11"
+   ],
+   "site": "mlp_post",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.8215,
+   "r2": 0.6258999684189367,
+   "network_changed": 0.4715,
+   "agreement_when_changed": 0.633085896076352,
+   "baseline_no_change": 0.5285,
+   "baseline_source_output": 0.0305,
+   "control_random_subspace": 0.649,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "tf22",
+   "variables": [
+    "tf22"
+   ],
+   "site": "mlp_post",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 0.6251161343113673,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.012,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "tf23",
+   "variables": [
+    "tf23"
+   ],
+   "site": "mlp_post",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.9255,
+   "r2": 0.6178852115344583,
+   "network_changed": 0.5945,
+   "agreement_when_changed": 0.9058031959629941,
+   "baseline_no_change": 0.4055,
+   "baseline_source_output": 0.031,
+   "control_random_subspace": 0.407,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "tf25",
+   "variables": [
+    "tf25"
+   ],
+   "site": "mlp_post",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.7025,
+   "r2": 0.6154651466724211,
+   "network_changed": 0.4605,
+   "agreement_when_changed": 0.5591748099891423,
+   "baseline_no_change": 0.5395,
+   "baseline_source_output": 0.03,
+   "control_random_subspace": 0.449,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tf8",
+    "tf11",
+    "tf22",
+    "tf23",
+    "tf25"
+   ],
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 10,
+   "agreement": 1.0,
+   "r2": 0.6129404803336522,
+   "network_changed": 0.988,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.012,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.012,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "tf8",
+   "variables": [
+    "tf8"
+   ],
+   "site": "resid_post",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.536,
+   "r2": 0.6212498715303361,
+   "network_changed": 0.6475,
+   "agreement_when_changed": 0.3575289575289575,
+   "baseline_no_change": 0.3525,
+   "baseline_source_output": 0.0595,
+   "control_random_subspace": 0.31,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "tf11",
+   "variables": [
+    "tf11"
+   ],
+   "site": "resid_post",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.828,
+   "r2": 0.6262076385922591,
+   "network_changed": 0.464,
+   "agreement_when_changed": 0.6454741379310345,
+   "baseline_no_change": 0.536,
+   "baseline_source_output": 0.031,
+   "control_random_subspace": 0.649,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "tf22",
+   "variables": [
+    "tf22"
+   ],
+   "site": "resid_post",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 0.6251171242172605,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.012,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "tf23",
+   "variables": [
+    "tf23"
+   ],
+   "site": "resid_post",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.924,
+   "r2": 0.625093415558635,
+   "network_changed": 0.598,
+   "agreement_when_changed": 0.9013377926421404,
+   "baseline_no_change": 0.402,
+   "baseline_source_output": 0.0315,
+   "control_random_subspace": 0.407,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "tf25",
+   "variables": [
+    "tf25"
+   ],
+   "site": "resid_post",
+   "mode": "partial",
+   "dim": 2,
+   "agreement": 0.713,
+   "r2": 0.6223290967938526,
+   "network_changed": 0.484,
+   "agreement_when_changed": 0.5568181818181818,
+   "baseline_no_change": 0.516,
+   "baseline_source_output": 0.0305,
+   "control_random_subspace": 0.449,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  }
+ ],
+ "uncovered_sites": [
+  "attn_pattern",
+  "attn_out",
+  "mlp_pre",
+  "mlp_out"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [
+    "embed.0",
+    "embed.1"
+   ],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [
+    "resid_mid"
+   ],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [
+    "mlp_post"
+   ],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [
+    "resid_post"
+   ],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "partial of if8 at embed.0: prediction right in 33.5% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of jf8 at embed.1: prediction right in 32.9% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of sp8 at resid_mid: prediction right in 23.8% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of sp11 at resid_mid: prediction right in 49.1% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of tf8 at mlp_post: prediction right in 34.4% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "partial of tf8 at resid_post: prediction right in 35.8% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 36.8
+}
