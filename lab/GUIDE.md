@@ -54,6 +54,8 @@ Adding a new specimen: put `weights.npz` and a `meta.json` in `lab/models/<id>/`
 Open `http://localhost:8765/constructor` (or press **Constructor** in the top bar). It runs `lab/constructor.py`: the
 reader investigates a network with its own code and writes a *construction* of it, which the judge tests.
 
+![The constructor page showing the verified construction of the mod-mul transformer](../docs/img/constructor_page_modmul.png)
+
 1. **Run** (left): choose the network, the weights (trained, or a control: shuffled, untrained, permuted), the step
    budget, and what the reader is told. *Blinded* is the default: it is not told what the network does. *Prior only*
    is the control with the task named and no weights. Press **Construct**. **Stop** ends the run and keeps what it has.

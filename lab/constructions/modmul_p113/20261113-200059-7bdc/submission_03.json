@@ -1,0 +1,321 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 792,
+ "variables": {
+  "i": {
+   "dim": 1,
+   "sites": []
+  },
+  "j": {
+   "dim": 1,
+   "sites": []
+  },
+  "prod": {
+   "dim": 1,
+   "sites": []
+  },
+  "cos1": {
+   "dim": 1,
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ]
+  },
+  "sin1": {
+   "dim": 1,
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ]
+  }
+ },
+ "unaligned_variables": [
+  "i",
+  "j",
+  "prod"
+ ],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": -0.0390857988066986,
+  "kl": 0.005018296120289291,
+  "baseline_constant_match": 0.010023492560689115
+ },
+ "sites": {
+  "mlp_out": {
+   "width": 128,
+   "variables": [
+    "cos1",
+    "sin1"
+   ],
+   "named_dims": 2,
+   "named_rank": 2,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.011196087789612563,
+   "substitute_match": 0.021143304620203602,
+   "substitute_kl": 8.91411479542716,
+   "substitute_r2": 0.034127556195546416,
+   "mean_ablate_match": 0.01597494126859828,
+   "recovered": 0.005252268024828902,
+   "keep_named_match": 0.06311667971808928,
+   "remove_named_match": 0.7398590446358653,
+   "remove_random_match": 1.0,
+   "used_rank": 0,
+   "unused_variables": [
+    "cos1",
+    "sin1"
+   ],
+   "off_manifold": "partial",
+   "pass": false
+  },
+  "resid_post": {
+   "width": 128,
+   "variables": [
+    "cos1",
+    "sin1"
+   ],
+   "named_dims": 2,
+   "named_rank": 2,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.010999128093246657,
+   "substitute_match": 0.010023492560689115,
+   "substitute_kl": 9.155543938204747,
+   "substitute_r2": 0.01408532079405378,
+   "mean_ablate_match": 0.010023492560689115,
+   "recovered": 0.0,
+   "keep_named_match": 0.05293657008613939,
+   "remove_named_match": 0.7293657008613939,
+   "remove_random_match": 1.0,
+   "used_rank": 0,
+   "unused_variables": [
+    "cos1",
+    "sin1"
+   ],
+   "off_manifold": "partial",
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "all variables",
+   "variables": [
+    "cos1",
+    "sin1"
+   ],
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": -0.03904910241041426,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "cos1",
+   "variables": [
+    "cos1"
+   ],
+   "site": "mlp_out",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": -0.038347735767105595,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "sin1",
+   "variables": [
+    "sin1"
+   ],
+   "site": "mlp_out",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": -0.038435443439212236,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "cos1",
+    "sin1"
+   ],
+   "site": "mlp_out",
+   "mode": "edit",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": -0.03816561506529692,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "cos1",
+    "sin1"
+   ],
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": -0.039051322094283414,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "cos1",
+   "variables": [
+    "cos1"
+   ],
+   "site": "resid_post",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": -0.03831737598893281,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "sin1",
+   "variables": [
+    "sin1"
+   ],
+   "site": "resid_post",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": -0.03846624695355505,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "cos1",
+    "sin1"
+   ],
+   "site": "resid_post",
+   "mode": "edit",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": -0.03775715235988297,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  }
+ ],
+ "uncovered_sites": [
+  "embed.0",
+  "embed.1",
+  "attn_pattern",
+  "attn_out",
+  "resid_mid",
+  "mlp_pre",
+  "mlp_post"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "substitution at mlp_out: 2.1% (need 90%)",
+   "removal at mlp_out: removing the named subspace leaves 74.0% of decisions, while mean-ablating the whole site leaves 1.6%: what you named is not what the output depends on here",
+   "substitution at resid_post: 1.0% (need 90%)",
+   "removal at resid_post: removing the named subspace leaves 72.9% of decisions, while mean-ablating the whole site leaves 1.0%: what you named is not what the output depends on here"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 16.99
+}

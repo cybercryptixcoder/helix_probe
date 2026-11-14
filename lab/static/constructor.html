@@ -43,7 +43,8 @@ button{cursor:pointer}
 .pad{padding:12px 14px}
 label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin:10px 0 4px}
 select,input[type=number]{width:100%;border:var(--thin);background:var(--field);padding:6px 8px}
-.row{display:flex;gap:8px;align-items:center}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tw{overflow-x:auto}
 .chip{border:var(--thin);padding:4px 9px;font-family:var(--mono);font-size:11.5px;background:var(--field);cursor:pointer;user-select:none}
 .chip.on{background:var(--ink);color:var(--card)}
 .hint{font-family:var(--mono);font-size:11px;opacity:.7;line-height:1.45}
@@ -212,11 +213,11 @@ function drawConstruction(d, target, id) {
     `<div class="stage ${st.verified.length ? 'ok' : (st.named.length ? 'fail' : 'none')}">${esc(name)}<small>${st.verified.length ? 'verified at ' + st.verified.join(', ') : (st.named.length ? 'named, failing' : 'not explained')}</small></div>`).join('') + '</div>';
   h += `<div class="note">Run in place of the network: same decision on <b>${pct(b.match)}</b> of ${rep.n_test} held-out inputs (a constant output: ${pct(b.baseline_constant_match)}). Construction length: ${rep.source_chars.toLocaleString()} characters.</div>`;
   h += '<h3>Sites</h3><div class="note">Substitute: decisions kept when the site is replaced by the construction\'s prediction. Remove: decisions kept when the named subspace is removed (should fall to the mean-ablate level).</div>';
-  h += '<table><tr><th>site</th><th class="l">variables</th><th>dims / PCs that suffice</th><th>explained</th><th>substitute</th><th>remove</th><th>mean-ablate</th></tr>' +
-    Object.entries(rep.sites).map(([s, r]) => `<tr class="${r.pass ? '' : 'bad'}"><td>${esc(s)}</td><td class="l" title="${esc(r.variables.join(', '))}">${esc(r.variables.length > 3 ? r.variables.slice(0, 3).join(', ') + ' +' + (r.variables.length - 3) : r.variables.join(', '))}</td><td>${r.named_rank} / ${r.pca_sufficient_rank}</td><td>${r.explained.toFixed(2)}</td><td>${pct(r.substitute_match)}</td><td>${pct(r.remove_named_match)}</td><td>${pct(r.mean_ablate_match)}</td></tr>`).join('') + '</table>';
+  h += '<div class="tw"><table><tr><th>site</th><th class="l">variables</th><th>dims / PCs that suffice</th><th>explained</th><th>substitute</th><th>remove</th><th>mean-ablate</th></tr>' +
+    Object.entries(rep.sites).map(([s, r]) => `<tr class="${r.pass ? '' : 'bad'}"><td>${esc(s)}</td><td class="l" title="${esc(r.variables.join(', '))}">${esc(r.variables.length > 3 ? r.variables.slice(0, 3).join(', ') + ' +' + (r.variables.length - 3) : r.variables.join(', '))}</td><td>${r.named_rank} / ${r.pca_sufficient_rank}</td><td>${r.explained.toFixed(2)}</td><td>${pct(r.substitute_match)}</td><td>${pct(r.remove_named_match)}</td><td>${pct(r.mean_ablate_match)}</td></tr>`).join('') + '</table></div>';
   h += '<h3>Interventions</h3><div class="note">Share of cases where the construction predicted the network\'s new decision, among cases where the decision changed, next to predictors that understand nothing. Attribution patching is a first-order estimate computed on the network itself.</div>';
-  h += '<table><tr><th>test</th><th class="l">variable</th><th>site</th><th>construction</th><th>no change</th><th>source output</th><th>attribution patching</th></tr>' +
-    rep.interventions.map(t => `<tr class="${t.pass ? '' : 'bad'}"><td>${t.mode}</td><td class="l">${esc(t.variable)}</td><td>${esc(t.site)}</td><td><b>${pct(t.agreement_when_changed ?? t.agreement)}</b></td><td>${t.agreement_when_changed == null ? pct(t.baseline_no_change) : '0.0%'}</td><td>${pct(t.baseline_source_output)}</td><td>${pct(t.attribution_patching_when_changed ?? t.attribution_patching)}</td></tr>`).join('') + '</table>';
+  h += '<div class="tw"><table><tr><th>test</th><th class="l">variable</th><th>site</th><th>construction</th><th>no change</th><th>source output</th><th>attribution patching</th></tr>' +
+    rep.interventions.map(t => `<tr class="${t.pass ? '' : 'bad'}"><td>${t.mode}</td><td class="l">${esc(t.variable)}</td><td>${esc(t.site)}</td><td><b>${pct(t.agreement_when_changed ?? t.agreement)}</b></td><td>${t.agreement_when_changed == null ? pct(t.baseline_no_change) : '0.0%'}</td><td>${pct(t.baseline_source_output)}</td><td>${pct(t.attribution_patching_when_changed ?? t.attribution_patching)}</td></tr>`).join('') + '</table></div>';
   if (v.fails.length) h += '<h3>What fails</h3><div class="note">' + v.fails.map(esc).join('<br>') + '</div>';
   h += `<h3>Held-out interventions</h3><div class="note">Interventions drawn without looking at the construction (subspaces removed or patched in at every site), predicted by the construction and by baselines.</div>`;
   h += d.predict ? `<pre class="rep">${esc(d.predict.text || '')}</pre>` : `<button class="btn sm teal" id="predBtn">Run the benchmark (about a minute)</button>`;
