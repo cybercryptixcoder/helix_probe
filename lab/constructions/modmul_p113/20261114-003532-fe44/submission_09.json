@@ -1,0 +1,208 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 5485,
+ "variables": {
+  "code": {
+   "dim": 9,
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": 0.9835553818103144,
+  "kl": 1.0008635701174453e-05,
+  "baseline_constant_match": 0.010023492560689115
+ },
+ "sites": {
+  "mlp_out": {
+   "width": 128,
+   "variables": [
+    "code"
+   ],
+   "named_dims": 9,
+   "named_rank": 9,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.8875462317758335,
+   "substitute_match": 1.0,
+   "substitute_kl": 5.381178641535859e-06,
+   "substitute_r2": 0.9784780670776743,
+   "mean_ablate_match": 0.01597494126859828,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.03476898981989037,
+   "remove_random_match": 1.0,
+   "used_rank": 9,
+   "unused_variables": [],
+   "off_manifold": "edit",
+   "pass": true
+  },
+  "resid_post": {
+   "width": 128,
+   "variables": [
+    "code"
+   ],
+   "named_dims": 9,
+   "named_rank": 9,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
+   "explained": 0.8709672013235302,
+   "substitute_match": 1.0,
+   "substitute_kl": 8.972552793126837e-06,
+   "substitute_r2": 0.9840676649243275,
+   "mean_ablate_match": 0.010023492560689115,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.027564604541895067,
+   "remove_random_match": 1.0,
+   "used_rank": 9,
+   "unused_variables": [],
+   "off_manifold": "edit",
+   "pass": true
+  }
+ },
+ "interventions": [
+  {
+   "variable": "code",
+   "variables": [
+    "code"
+   ],
+   "site": "mlp_out",
+   "mode": "interchange",
+   "dim": 9,
+   "agreement": 0.9995,
+   "r2": 0.9813358191262677,
+   "network_changed": 0.992,
+   "agreement_when_changed": 0.9994959677419355,
+   "baseline_no_change": 0.008,
+   "baseline_source_output": 0.9995,
+   "control_random_subspace": 0.008,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "code",
+   "variables": [
+    "code"
+   ],
+   "site": "mlp_out",
+   "mode": "edit",
+   "dim": 9,
+   "agreement": 0.8465,
+   "r2": 0.9826507521339967,
+   "network_changed": 0.76,
+   "agreement_when_changed": 0.8282894736842106,
+   "baseline_no_change": 0.24,
+   "baseline_source_output": 0.2335,
+   "control_random_subspace": 0.229,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "code",
+   "variables": [
+    "code"
+   ],
+   "site": "resid_post",
+   "mode": "interchange",
+   "dim": 9,
+   "agreement": 1.0,
+   "r2": 0.9828847271007796,
+   "network_changed": 0.992,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.008,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.008,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "code",
+   "variables": [
+    "code"
+   ],
+   "site": "resid_post",
+   "mode": "edit",
+   "dim": 9,
+   "agreement": 0.8505,
+   "r2": 0.9832171389755884,
+   "network_changed": 0.778,
+   "agreement_when_changed": 0.8341902313624678,
+   "baseline_no_change": 0.222,
+   "baseline_source_output": 0.2525,
+   "control_random_subspace": 0.216,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  }
+ ],
+ "uncovered_sites": [
+  "embed.0",
+  "embed.1",
+  "attn_pattern",
+  "attn_out",
+  "resid_mid",
+  "mlp_pre",
+  "mlp_post"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "verified": [
+    "mlp_out",
+    "resid_post"
+   ]
+  }
+ },
+ "verdict": {
+  "verified": true,
+  "fails": [],
+  "stages_total": 4,
+  "stages_verified": 1,
+  "complete": false,
+  "score": 0.25
+ },
+ "seconds": 11.21
+}

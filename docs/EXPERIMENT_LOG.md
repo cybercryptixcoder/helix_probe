@@ -421,3 +421,42 @@ steps), the mod-mul prior-only control, and the first `astra_breakout` run (14 s
 job was also killed at epoch 11,750 of 25,000 (test accuracy 23%, not yet generalised); its weights are only saved
 at the end, so nothing was kept, and it is not being retrained in this session (about 1.5 hours of CPU).
 All five interrupted runs were relaunched at 00:40 on the same frozen constructor, titled "(rerun)".
+
+## 2026-11-14 00:40. E12: the game policy, blinded (held out): verified and complete, and a specific question names the game
+
+**Why.** E11 made a game policy judgeable. This is the bar's "game policies, blinded" item, on a network never used
+in development, and a test of the owner's interface point: ask for the mechanism first, then ask something specific.
+
+**Setup.** `astra_breakout`, blinded, constructor frozen at `b8a40aaa`, 80-step budget. The reader was told only the
+architecture and that the inputs are 600 numbers that are 0 or 1. Run `lab/constructions/astra_breakout/20261114-00*`
+(the first attempt, `20261113-200650-1904`, was killed by the interruption at step 14).
+
+**What happened.** VERIFIED AND COMPLETE at submission 5, step 32 (10 minutes, $0.13). Behaviour match 100%, output
+R² 1.000. Both hidden layers verified: substitution 100%; removing the named subspace drops decisions to the
+mean-ablation level (46.7%); interchange 100%; every partial test 100% (source-output control 36–41%); edits
+99.7–100%. Attribution patching scores 0% on the first hidden layer's interventions (the second layer saturates) and
+100% on the second (the output is linear in it).
+
+The construction, in the reader's words: "a gated three-way comparison". Only 6 first-layer units are live. Four are
+small linear forms: a triangular profile over the cells of one channel plus a ramp over the bottom row of another.
+Two saturate to ±1 and act as selectors. The second layer has 8 live threshold units in 4 pairs; the two selectors
+arm exactly one pair, which reports whether its linear form is below -0.015 or above +0.015. Output 1 wins in the
+first case, output 3 in the second, output 0 otherwise; outputs 2, 4 and 5 are constant at -100.
+
+**Against the known design.** The model that wrote the network described it as: "the first layer computes four
+landing-position errors and two direction indicators ... the second layer gates left/right decisions, choosing no-op
+when positioned correctly." That is the same structure, unit for unit: four error forms, two direction selectors, a
+gate, no-op in the dead band. The reader recovered it from the weights without knowing it was a game.
+
+**The specific question.** Blinded, the reader described the mechanism and did not say "Breakout": it had no reason
+to look for a game. Then `lab/ask.py` was given: "The inputs are a 10 x 10 grid with 6 channels (index = ...) and the
+6 outputs are actions. Which game is this network playing, what do outputs 1 and 3 do, and what does each of your
+variables mean in the game?" After checking the input layout with code, it answered: Breakout (confidence 97);
+output 1 = left, output 3 = right (confidence 80), output 0 = stay; the four linear forms are "predicted ball landing
+column minus paddle column" for four ball-approach cases; the selectors are the ball's direction and level. All
+correct. Note that the question itself supplied the grid layout and the fact that outputs are actions. (A first
+attempt returned an empty answer because the reader used every step on checks; `ask.py` now ends with a forced
+answer turn.)
+
+**Conclusion.** The owner's observation from `main` holds here: the construction is the reading; naming is a second,
+specific question, and it needs the input semantics. The constructor gives the first, `ask.py` the second.
