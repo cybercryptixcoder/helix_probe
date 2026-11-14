@@ -76,3 +76,21 @@ reader investigates a network with its own code and writes a *construction* of i
    its best construction.
 
 Everything shown is read from `lab/constructions/<network>/<run id>/`, which is committed to the repository.
+
+## Language models on the constructor page (added 2026-11-14)
+
+- **Network** now lists language-model targets first (for example `gpt2_countdown`, `gpt2_be_verb`). Their weights
+  are fetched from Hugging Face the first time; nothing large is in the repository.
+- **Construct** starts the run as its own process. You can close the page, or the server, and the run goes on; open
+  the page again and click the run to follow it (it refreshes every few seconds). **Stop** ends it after the
+  current step. **Resume** (next to the step counter of a stopped or interrupted run) continues it from the
+  reader's notes and best submission.
+- **The mechanism: what is held where** is a grid of depth by token position showing which variables the
+  construction places where; green cells belong to a cut that passed every test.
+- **The circuit** (button "Measure the circuit") lists, for each verified variable, the heads and MLPs that write
+  it, where those heads attend, and what happens to the variable and to the answers when each is mean-ablated.
+- **Language-model tasks** (bottom left) lists the task files in `lab/lm_tasks/` and builds them into targets. To
+  study a new behaviour, copy a task file, edit the prompts and answers, and press Build
+  (`lab/lm_tasks/README.md`).
+- From a terminal: `python3 lab/status.py <target>` (one line per run), `python3 lab/status.py <target> <run id>`
+  (one line per submission).

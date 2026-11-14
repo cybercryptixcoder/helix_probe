@@ -1,0 +1,217 @@
+{
+ "target": "gpt2_countdown",
+ "kind": "lm",
+ "n_inputs": 800,
+ "categorical": {
+  "ans_onehot": 102
+ },
+ "n_fit": 400,
+ "n_test": 400,
+ "source_chars": 865,
+ "variables": {
+  "step": {
+   "dim": 1,
+   "sites": [
+    "resid12@end"
+   ]
+  },
+  "next": {
+   "dim": 1,
+   "sites": []
+  },
+  "ans_onehot": {
+   "dim": 362,
+   "sites": [
+    "resid12@end"
+   ]
+  }
+ },
+ "unaligned_variables": [
+  "next"
+ ],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": -0.6513477165451722,
+  "kl": 0.959640132421789,
+  "baseline_constant_match": 0.015
+ },
+ "sites": {
+  "cut12": {
+   "width": 768,
+   "variables": [
+    "step",
+    "ans_onehot"
+   ],
+   "named_dims": 363,
+   "named_rank": 101,
+   "pca_sufficient_rank": 18,
+   "activation_rank": 399,
+   "unit": "cut",
+   "member_sites": [
+    "resid12@end"
+   ],
+   "explained": 0.6370161793606046,
+   "substitute_match": 0.98,
+   "substitute_kl": 0.3595601231983728,
+   "substitute_r2": 0.7985960203473288,
+   "mean_ablate_match": 0.015,
+   "recovered": 0.9796954314720812,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.015,
+   "remove_random_match": 0.9975,
+   "substitute_alone_match": 0.98,
+   "used_rank": 0,
+   "categorical": {
+    "ans_onehot": 102
+   },
+   "unused_variables": [
+    "step"
+   ],
+   "off_manifold": "fails",
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "all variables",
+   "variables": [
+    "step",
+    "ans_onehot"
+   ],
+   "site": "cut12",
+   "mode": "interchange",
+   "dim": 363,
+   "agreement": 0.9975,
+   "r2": -0.6776290350385992,
+   "network_changed": 0.9925,
+   "agreement_when_changed": 0.9974811083123426,
+   "baseline_no_change": 0.0075,
+   "baseline_source_output": 0.9975,
+   "control_random_subspace": 0.0075,
+   "attribution_patching": 0.9675,
+   "attribution_patching_when_changed": 0.9672544080604534,
+   "pass": true
+  },
+  {
+   "variable": "step",
+   "variables": [
+    "step"
+   ],
+   "site": "cut12",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 0.5125,
+   "r2": -0.6365975892928706,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.0075,
+   "control_random_subspace": 0.5125,
+   "attribution_patching": 0.9925,
+   "attribution_patching_when_changed": null,
+   "pass": false
+  },
+  {
+   "variable": "ans_onehot",
+   "variables": [
+    "ans_onehot"
+   ],
+   "site": "cut12",
+   "mode": "partial",
+   "dim": 362,
+   "agreement": 0.9975,
+   "r2": -0.6680613521566787,
+   "network_changed": 0.9925,
+   "agreement_when_changed": 0.9974811083123426,
+   "baseline_no_change": 0.0075,
+   "baseline_source_output": 0.9975,
+   "control_random_subspace": 0.0075,
+   "attribution_patching": 0.995,
+   "attribution_patching_when_changed": 0.9949622166246851,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "step",
+    "ans_onehot"
+   ],
+   "site": "cut12",
+   "mode": "edit",
+   "dim": 363,
+   "agreement": 0.5625,
+   "r2": -0.6749721599253233,
+   "network_changed": 0.62,
+   "agreement_when_changed": 0.42338709677419356,
+   "baseline_no_change": 0.38,
+   "baseline_source_output": 0.33,
+   "control_random_subspace": 0.3825,
+   "attribution_patching": 0.8475,
+   "attribution_patching_when_changed": 0.7661290322580645,
+   "pass": false
+  }
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "resid0 (token + position embeddings)"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "layers 0-2": {
+   "sites": [
+    "resid1",
+    "resid2",
+    "resid3"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "layers 3-5": {
+   "sites": [
+    "resid4",
+    "resid5",
+    "resid6"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "layers 6-8": {
+   "sites": [
+    "resid7",
+    "resid8",
+    "resid9"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "layers 9-11": {
+   "sites": [
+    "resid10",
+    "resid11",
+    "resid12"
+   ],
+   "named": [
+    "cut12"
+   ],
+   "verified": []
+  }
+ },
+ "uncovered_sites": [],
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "partial of step at cut12: the network's output changed in only 0.0% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
+   "edit of all variables at cut12: prediction right in 42.3% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "(at cut12 it is enough that EITHER every partial test OR the edit of all variables passes)"
+  ],
+  "stages_total": 5,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "components_verified": [],
+ "seconds": 41.56
+}
