@@ -86,7 +86,7 @@ Read all of these (they were triaged as useful or minor, not essential). Title |
 - Eliciting Secret Knowledge from Language Models | 2025-10 | https://arxiv.org/abs/2510.01070 | anthropic+core_topics
 - Steering Llama 2 via Contrastive Activation Addition | 2023-12 | https://arxiv.org/abs/2312.06681 | anthropic+core_topics+other_labs
 - Understanding and Steering Llama 3 with Sparse Autoencoders | 2024-09 | https://www.goodfire.com/research/understanding-and-steering-llama-3 | goodfire
-- Feature Steering for Reliable and Expressive AI Engineering | 2024-11 | https://www.goodfire.com/blog/feature-steering-for-reliable-and-expressive-ai-engineering | goodfire
+- [x] Feature Steering for Reliable and Expressive AI Engineering | 2024-11 | https://www.goodfire.com/blog/feature-steering-for-reliable-and-expressive-ai-engineering | goodfire — DONE entry 118 (`goodfire-com-blog-feature-steering-for-reliable-and-expressive-ai-engineering`)
 - Goodfire Ember: Scaling Interpretability for Frontier Model Alignment | 2024-12 | https://goodfire.ai/blog/announcing-goodfire-ember | goodfire
 - Our Approach to Safety at Goodfire | 2024-12 | https://www.goodfire.com/blog/our-approach-to-safety | goodfire
 - Announcing Open-Source SAEs for Llama 3.3 70B and Llama 3.1 8B | 2025-01 | https://www.goodfire.com/blog/sae-open-source-announcement | goodfire
@@ -128,7 +128,7 @@ Read all of these (they were triaged as useful or minor, not essential). Title |
 - Models know when they're reward hacking - and we can catch them at scale | 2026-09 | https://www.goodfire.com/research/reward-hacking-activation-monitors | goodfire
 - We can and must solve alignment | 2026-09 | https://www.goodfire.com/blog/we-can-and-must-solve-alignment | goodfire
 - A practical guide to sparse autoencoders (SAEs) | 2026-09 | https://www.goodfire.com/blog/a-practical-guide-to-saes | goodfire
-- How to build fast, efficient monitors for AI models using probes | 2026-09 | https://www.goodfire.com/blog/probe-monitors-101 | goodfire
+- [x] How to build fast, efficient monitors for AI models using probes | 2026-09 | https://www.goodfire.com/blog/probe-monitors-101 | goodfire — DONE entry 109 (`goodfire-com-blog-probe-monitors-101`)
 - Training and Deploying Production Cyber Monitors on Kimi K3 | 2026-10 | https://www.goodfire.com/research/production-cyber-monitors-on-kimi-k3 | goodfire
 - Better biosecurity monitors for AI agents via protein embeddings | 2026-10 | https://www.goodfire.com/research/better-biosecurity-monitors | goodfire
 - Goodfire and Baseten partner to bring frontier safety to open models | 2026-10 | https://www.goodfire.com/blog/goodfire-baseten-partnership | goodfire
