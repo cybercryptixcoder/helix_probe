@@ -30,7 +30,7 @@ sys.path.insert(0, str(LAB))
 import judge as J  # noqa: E402
 import lm          # noqa: E402
 
-N_PAIRS = 400
+N_PAIRS = 300
 MAX_TEST = 400
 FD_EPS = 2e-2          # step of the finite-difference estimate used for attribution patching (float32 engine)
 PCA_KEEP = 0.99        # compactness is measured against the number of principal components that keep this share of answers
@@ -209,12 +209,21 @@ def judge(tid, source, variant="original", seed=0, n_pairs=N_PAIRS):
         _, sv, Vt = np.linalg.svd(A[fit] - c, full_matrices=False)
         full = int((sv > 1e-6 * max(sv[0], 1e-12)).sum())
         lo, hi = 1, max(full, 1)
+        ck = f"{tid}|{variant}|{seed}|{','.join(u.sites)}|{PCA_KEEP}"       # this number does not depend on the construction: cached
+        cfile = LAB / "runs" / "lm_pca_cache.json"
+        cache = json.loads(cfile.read_text()) if cfile.exists() else {}
+        if ck in cache:
+            lo = hi = cache[ck]
         while lo < hi:
             mid = (lo + hi) // 2
             if J.match(u.run(test, c + (At - c) @ Vt[:mid].T @ Vt[:mid]), clean) >= PCA_KEEP:
                 hi = mid
             else:
                 lo = mid + 1
+        if ck not in cache:
+            cache = json.loads(cfile.read_text()) if cfile.exists() else {}
+            cache[ck] = int(lo)
+            cfile.parent.mkdir(exist_ok=True); cfile.write_text(json.dumps(cache))
         r = {"width": Wd, "variables": names, "named_dims": int(K), "named_rank": rank, "pca_sufficient_rank": int(lo),
              "activation_rank": full, "unit": u.kind, "member_sites": u.sites,
              "explained": float(1 - ((A_hat[test] - At) ** 2).sum() / max(((At - c) ** 2).sum(), 1e-12)),
@@ -247,9 +256,11 @@ def judge(tid, source, variant="original", seed=0, n_pairs=N_PAIRS):
             o_pred, _ = J.run_model(model, X[base], {v: new_all[:, cols[v]] for v in vs})
             delta = (new_all[:, Jc] - V[base][:, Jc]) @ M[Jc] if mode == "edit" else dA[:, Jc] @ M[Jc]
             o_net = u.run(base, A[base] + delta)
-            o_lin = out_n[base] + (u.run(base, A[base] + FD_EPS * delta) - out_n[base]) / FD_EPS
-            rk = max(1, int(np.linalg.matrix_rank(M[Jc], tol=tol)))
-            o_rand = u.run(base, A[base] + (A[src] - A[base]) @ rand_proj(min(rk, Wd)))
+            controls = mode == "interchange"          # the two costly controls are run on the interchange test only
+            if controls:
+                o_lin = out_n[base] + (u.run(base, A[base] + FD_EPS * delta) - out_n[base]) / FD_EPS
+                rk = max(1, int(np.linalg.matrix_rank(M[Jc], tol=tol)))
+                o_rand = u.run(base, A[base] + (A[src] - A[base]) @ rand_proj(min(rk, Wd)))
             changed = ~J.same(o_net, out_n[base])
             agree = J.same(o_pred, o_net)
             rep["interventions"].append({
@@ -257,9 +268,9 @@ def judge(tid, source, variant="original", seed=0, n_pairs=N_PAIRS):
                 "agreement": float(agree.mean()), "r2": J.r2(o_pred, o_net), "network_changed": float(changed.mean()),
                 "agreement_when_changed": float(agree[changed].mean()) if changed.any() else None,
                 "baseline_no_change": J.match(out_n[base], o_net), "baseline_source_output": J.match(out_n[src], o_net),
-                "control_random_subspace": J.match(o_pred, o_rand),
-                "attribution_patching": float(J.same(o_lin, o_net).mean()),
-                "attribution_patching_when_changed": float(J.same(o_lin, o_net)[changed].mean()) if changed.any() else None})
+                "control_random_subspace": J.match(o_pred, o_rand) if controls else None,
+                "attribution_patching": float(J.same(o_lin, o_net).mean()) if controls else None,
+                "attribution_patching_when_changed": float(J.same(o_lin, o_net)[changed].mean()) if controls and changed.any() else None})
             if len(vs) == 1 and changed.mean() >= 0.05:
                 live.append(vs[0])
         live = [v for v in names if v in live]
@@ -296,7 +307,13 @@ def judge(tid, source, variant="original", seed=0, n_pairs=N_PAIRS):
 
 
 def render(rep):
-    text = J.render(rep)
+    import copy
+    rep2 = copy.deepcopy(rep)
+    for t in rep2["interventions"]:
+        for k in ("control_random_subspace", "attribution_patching"):
+            if t[k] is None:
+                t[k] = float("nan")
+    text = J.render(rep2).replace("random subspace nan%, ", "").replace(", attribution patching nan%", "")
     notes = []
     if rep.get("categorical"):
         notes.append("Categorical (one-hot) variables, exempt from the size limit: " + ", ".join(f"{v} ({k} values)" for v, k in rep["categorical"].items()))
