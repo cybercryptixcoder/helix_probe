@@ -164,7 +164,7 @@ YOUR TOOLS
     W: dict of the weights (numpy): W_E [n_vocab, d], W_pos, W_U [d, n_vocab], ln_f.w/b, and per layer l: L{l}.W_Q, W_K, W_V [n_heads, d, d_head], b_Q, b_K, b_V, W_O [n_heads, d_head, d], b_O, ln1.w/b, ln2.w/b, W_in [d, d_mlp], b_in, W_out [d_mlp, d], b_out. CFG: sizes.
     unembed(v) -> logits for final-residual vector(s) v (applies the last LayerNorm); top(vocab_vector, k) -> the k largest tokens.
     np, scipy, sklearn. Print what you want to see; output is cut at about 8,000 characters, so print summaries, not raw arrays.
-  Cost: a run over 200 prompts takes about 0.2-1 s (less when the hooked sites are late in the network and at late positions). A call is stopped after 300 s: plan scans (for example every layer at a few positions first, heads only where it matters), and use a subset of a few hundred prompts.
+  Cost: a run over 200 prompts takes about 0.2-1 s (less when the hooked sites are late in the network and at late positions). A call is stopped after 600 s: plan scans (for example every layer at a few positions first, heads only where it matters), and use a subset of a few hundred prompts.
 - submit(code): sends a construction file to the judge and returns its report (it takes a minute or two). The report is the fastest way to learn what is right: unit by unit, variable by variable, what passes and what fails, next to controls.
 
 SUBMIT EARLY, THEN IMPROVE STAGE BY STAGE
@@ -272,7 +272,7 @@ class Kernel:
         q.put(None)
 
     def run(self, code, timeout=None):
-        timeout = timeout or (300 if self.lm else 120)
+        timeout = timeout or (600 if self.lm else 120)
         t0 = time.time()
         try:
             self.p.stdin.write(json.dumps({"code": code}) + "\n"); self.p.stdin.flush()
