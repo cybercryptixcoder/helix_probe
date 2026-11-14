@@ -245,7 +245,7 @@ function follow(target, id) {           // poll a run that is going on as its ow
 
 function drawConstruction(d, target, id) {
   const rep = d.report;
-  if (!rep) { $('cons').innerHTML = '<div class="hint">This run produced no construction that the judge could test.</div>'; $('consInfo').textContent = ''; return; }
+  if (!rep) { $('cons').innerHTML = '<div class="hint">No construction has passed through the judge yet in this run.</div>'; $('consInfo').textContent = ''; return; }
   const v = rep.verdict, b = rep.behaviour;
   const cls = v.complete ? 'ok' : (v.stages_verified ? 'part' : 'no');
   const head = v.complete ? 'Verified and complete: every stage has a verified site'

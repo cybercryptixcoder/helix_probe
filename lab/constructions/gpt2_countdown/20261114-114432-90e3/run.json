@@ -523,6 +523,70 @@
      "seconds": 7.09
     }
    ]
+  },
+  {
+   "step": 32,
+   "content": "",
+   "thinking": "",
+   "finish": "tool_calls",
+   "context_tokens": 48523,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nimport numpy as np\nAID=np.array(ANSWER_IDS)\nrng=np.random.default_rng(1)\nBsel=np.arange(100); Asel=rng.integers(300,700,100)\ndef build(tuples):\n    return np.array([tok(\"Numbers: \"+\", \".join(str(int(v)) for v in t)+\",\") for t in tuples])\nsgn=np.sign\ndef rules(m):\n    n1,n2,n3,n4=m[:,0],m[:,1],m[:,2],m[:,3]\n    d1,d2,d3=n2-n1,n3-n2,n4-n3\n    return {\"s(d3)\":n4+sgn(d3),\"s(d2)\":n4+sgn(d2),\"s(d1)\":n4+sgn(d1),\n     \"maj\":n4+sgn(sgn(d1)+sgn(d2)+sgn(d3)),\"n4\":n4,\"s(d2+d3)\":n4+sgn(d2+d3),\n     \"s(d1+d2)\":n4+sgn(d1+d2),\"s(d1+d3)\":n4+sgn(d1+d3),\"n3+s(d2)\":n3+sgn(d2),\"n3\":n3}\nout={}\nfor j in [0,1,2,3]:\n    mix=X[Bsel].copy(); mix[:,j]=X[Asel,j]\n    lg,_=run_tokens(build(mix[:,:4]))\n    L=lg[:,AID[0]:AID[0]+362] if False else lg[:,:]\n    p=L[:,:362].argmax(1) if L.shape[1]>=362 else L.argmax(1)\n    out[j]=(mix,p)\n    R=rules(mix)\n    print(\"col\",j,L.shape,{k:round(float((p==v).mean()),2) for k,v in R.items()})\n",
+     "ok": true,
+     "output": "col 0 (100, 50257) {'s(d3)': 0.0, 's(d2)': 0.0, 's(d1)': 0.0, 'maj': 0.0, 'n4': 0.0, 's(d2+d3)': 0.0, 's(d1+d2)': 0.0, 's(d1+d3)': 0.0, 'n3+s(d2)': 0.0, 'n3': 0.0}\ncol 1 (100, 50257) {'s(d3)': 0.0, 's(d2)': 0.0, 's(d1)': 0.0, 'maj': 0.0, 'n4': 0.0, 's(d2+d3)': 0.0, 's(d1+d2)': 0.0, 's(d1+d3)': 0.0, 'n3+s(d2)': 0.0, 'n3': 0.0}\ncol 2 (100, 50257) {'s(d3)': 0.0, 's(d2)': 0.0, 's(d1)': 0.0, 'maj': 0.0, 'n4': 0.0, 's(d2+d3)': 0.0, 's(d1+d2)': 0.0, 's(d1+d3)': 0.0, 'n3+s(d2)': 0.0, 'n3': 0.0}\ncol 3 (100, 50257) {'s(d3)': 0.0, 's(d2)': 0.0, 's(d1)': 0.0, 'maj': 0.0, 'n4': 0.0, 's(d2+d3)': 0.0, 's(d1+d2)': 0.0, 's(d1+d3)': 0.0, 'n3+s(d2)': 0.0, 'n3': 0.0}\n",
+     "seconds": 17.68
+    }
+   ]
+  },
+  {
+   "step": 33,
+   "content": "",
+   "thinking": "run_tokens returns full 50257 logits, so the argmax is over the whole vocab, and predictions are unrelated to numbers. I need to restrict to the answer tokens: index by AID.\n\nEarlier I did `lg[:,AID] if lg.shape[1]>362 else lg`. That worked. Let me redo with that.",
+   "finish": "tool_calls",
+   "context_tokens": 49483,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nimport numpy as np\nAID=np.array(ANSWER_IDS)\nrng=np.random.default_rng(1)\nBsel=np.arange(100); Asel=rng.integers(300,700,100)\ndef build(tuples):\n    return np.array([tok(\"Numbers: \"+\", \".join(str(int(v)) for v in t)+\",\") for t in tuples])\nsgn=np.sign\ndef rules(m):\n    n1,n2,n3,n4=m[:,0],m[:,1],m[:,2],m[:,3]\n    d1,d2,d3=n2-n1,n3-n2,n4-n3\n    return {\"s(d3)\":n4+sgn(d3),\"s(d2)\":n4+sgn(d2),\"s(d1)\":n4+sgn(d1),\n     \"maj\":n4+sgn(sgn(d1)+sgn(d2)+sgn(d3)),\"n4\":n4,\"s(d2+d3)\":n4+sgn(d2+d3),\n     \"s(d1+d2)\":n4+sgn(d1+d2),\"s(d1+d3)\":n4+sgn(d1+d3),\"n3+s(d2)\":n3+sgn(d2),\"n3\":n3}\nout={}\nfor j in [0,1,2,3]:\n    mix=X[Bsel].copy(); mix[:,j]=X[Asel,j]\n    lg,_=run_tokens(build(mix[:,:4]))\n    p=lg[:,AID].argmax(1)\n    out[j]=(mix,p)\n    R=rules(mix)\n    print(\"col\",j,{k:round(float((p==v).mean()),2) for k,v in R.items()})\n",
+     "ok": true,
+     "output": "col 0 {'s(d3)': 1.0, 's(d2)': 1.0, 's(d1)': 0.48, 'maj': 1.0, 'n4': 0.0, 's(d2+d3)': 1.0, 's(d1+d2)': 0.48, 's(d1+d3)': 0.48, 'n3+s(d2)': 0.0, 'n3': 0.0}\ncol 1 {'s(d3)': 0.72, 's(d2)': 0.3, 's(d1)': 0.42, 'maj': 0.72, 'n4': 0.02, 's(d2+d3)': 0.3, 's(d1+d2)': 0.72, 's(d1+d3)': 0.42, 'n3+s(d2)': 0.02, 'n3': 0.0}\ncol 2 {'s(d3)': 0.23, 's(d2)': 0.09, 's(d1)': 0.31, 'maj': 0.31, 'n4': 0.02, 's(d2+d3)': 0.31, 's(d1+d2)': 0.09, 's(d1+d3)': 0.23, 'n3+s(d2)': 0.07, 'n3': 0.01}\ncol 3 {'s(d3)': 0.12, 's(d2)': 0.39, 's(d1)': 0.39, 'maj': 0.39, 'n4': 0.05, 's(d2+d3)': 0.12, 's(d1+d2)': 0.39, 's(d1+d3)': 0.12, 'n3+s(d2)': 0.0, 'n3': 0.0}\n",
+     "seconds": 25.87
+    }
+   ]
+  },
+  {
+   "step": 34,
+   "content": "",
+   "thinking": "Interesting:\n- col 0 (n1 patched): best n4+s(d3) = 1.0! So when n1 is patched, the network ignores it entirely and uses d3 (the last difference). And s(d2) also 1.0 (since d2,d3 both = s_B).\n- col 1 (n2 patched): s(d3) = 0.72, maj = 0.72. Hmm only 72% \u2014 matches \"network unchanged 80%\".\n- col 2 (n3 patched): best 31%.\n- col 3 (n4 patched): best 39%.\n\nHmm, when n4 is patched (col 3) the answer isn't n4A + s_B mostly. Wait but the judge said network changed in 99.8% of the cases when n4v was copied and my formula got 76.2%. Contradiction with col-3 results here (n4+s(d1) = 0.39)?\n\nCareful: the judge's partial copies the *one-hot subspace* of resid0@n4 \u2014 i.e. the W_E component only, not the full residual. Hmm, resid0@n4 = W_E[tok] + W_pos[9]. Copying the projection onto the one-hot subspace {W_E[token], all tokens with values} \u2014 the projection includes W_E[tok] and the projection of W_pos onto that span. So basically the full resid0. So similar to token replacement. But the judge reported the network changed 99.8% and my formula (n4A + stepB... wait which rule? the majority rule, which for col-3 mixes \u2248 0.39) was right 76.2%. Discrepancy!\n\nUnless... the judge's partial test copies the *variable value* = the one-hot vector, and reconstructs the activation as c + onehot@M. That reconstruction is not exactly the real embedding of A's n4 (it's the regression prediction). And M was fit; the reconstruction may be smoothed. Maybe the prediction of the activation for n4 uses the wrong... whatever.\n\nAlternatively the judge's partial copies the value of the variable from A but keeps B's other variables \u2014 and the *site values* are then reconstructed as c+M@vars. That's a full reconstruction of the site, meaning also n4's position value predicted. So residual = predicted. Fine.\n\nHmm, the mismatch suggests my run_tokens emulation isn't equivalent (different prefix? I used \"Numbers:\" for all; the judge uses the actual prompt's prefix; shouldn't matter. Or position embeddings: X prompts are 11 tokens; my build gives 10 tokens!). Yes!! My token sequence \"Numbers: 17, 18, 19, 20,\" is 10 tokens \u2014 missing the leading <|endoftext|> token at position 0. So all positions shift by one: the role positions in my synthetic sequence are 2,4,6,8 and final comma at 9. So predictions differ?! But the answer still came out right in most cases because the model is somewhat position-robust? Hmm, but the earlier arithmetic probe gave exactly n4+sign(d), so it works.\n\nActually wait \u2014 for the judge, the prompt has <|endoftext|> at position 0 (11 tokens). My synthetic is 10 tokens without it. GPT-2's text is continuations; the real prompts include <|endoftext|>. This might matter! Let me redo with the endoftext prefix.\n\nLet me redo the col-3 experiment with the prefix included.",
+   "finish": "tool_calls",
+   "context_tokens": 50446,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nimport numpy as np\nAID=np.array(ANSWER_IDS)\nrng=np.random.default_rng(1)\nBsel=np.arange(100); Asel=rng.integers(300,700,100)\ndef build(tuples):\n    out=[]\n    for t in tuples:\n        ids=[50256]+tok(\"Numbers:\")+tok(\" \"+\", \".join(str(int(v)) for v in t)+\",\")\n        out.append(ids)\n    return np.array(out)\nsgn=np.sign\ndef rules(m):\n    n1,n2,n3,n4=m[:,0],m[:,1],m[:,2],m[:,3]\n    d1,d2,d3=n2-n1,n3-n2,n4-n3\n    return {\"s(d3)\":n4+sgn(d3),\"s(d2)\":n4+sgn(d2),\"s(d1)\":n4+sgn(d1),\n     \"maj\":n4+sgn(sgn(d1)+sgn(d2)+sgn(d3)),\"n4\":n4,\"s(d2+d3)\":n4+sgn(d2+d3),\n     \"s(d1+d2)\":n4+sgn(d1+d2),\"s(d1+d3)\":n4+sgn(d1+d3)}\nprint(len(build(X[Bsel[:2],:4])[0]), build(X[Bsel[:2],:4])[0])\nout={}\nfor j in [0,1,2,3]:\n    mix=X[Bsel].copy(); mix[:,j]=X[Asel,j]\n    arr=build(mix[:,:4])\n    lg,_=run_tokens(arr)\n    p=lg[:,AID].argmax(1)\n    out[j]=(mix,p)\n    R=rules(mix)\n    print(\"col\",j,{k:round(float((p==v).mean()),2) for k,v in R.items()})\n",
+     "ok": true,
+     "output": "11 [50256 49601    25  1596    11  1248    11   678    11  1160    11]\ncol 0 {'s(d3)': 0.95, 's(d2)': 0.95, 's(d1)': 0.43, 'maj': 0.95, 'n4': 0.0, 's(d2+d3)': 0.95, 's(d1+d2)': 0.43, 's(d1+d3)': 0.43}\ncol 1 {'s(d3)': 0.64, 's(d2)': 0.19, 's(d1)': 0.45, 'maj': 0.64, 'n4': 0.01, 's(d2+d3)': 0.19, 's(d1+d2)': 0.64, 's(d1+d3)': 0.45}\ncol 2 {'s(d3)': 0.2, 's(d2)': 0.1, 's(d1)': 0.29, 'maj': 0.29, 'n4': 0.02, 's(d2+d3)': 0.29, 's(d1+d2)': 0.1, 's(d1+d3)': 0.2}\ncol 3 {'s(d3)': 0.23, 's(d2)': 0.48, 's(d1)': 0.48, 'maj': 0.48, 'n4': 0.03, 's(d2+d3)': 0.23, 's(d1+d2)': 0.48, 's(d1+d3)': 0.23}\n",
+     "seconds": 19.35
+    }
+   ]
+  },
+  {
+   "step": 35,
+   "content": "",
+   "thinking": "Now with proper 11 tokens: col 0 \u2192 s(d3) 0.95 (network unchanged 95%: matches judge's 92.5% \"no change\"). col1 \u2192 0.64; col2 \u2192 0.29; col3 \u2192 0.48.\n\nBut the judge's run gave the network changing in 99.8% for n4v with my formula right 76.2%. My emulation gives 48% for the best rule. So the judge's patch is NOT equivalent to token replacement. Interesting \u2014 because the residual after 0 layers = W_E + W_pos, and the one-hot subspace at position 9 spans {W_E[token] : values} whose projection... The judge reconstructs activation = c + vars@M. Since M was fit to predict the *full* activation from the one-hot, the reconstruction \u2248 real activation of A at that position. Hmm.\n\nUnless the one-hot variables for n1v..n4v (all at their own positions) are reconstructed from the *one-hot of value*, but the \"value\" is x's number, and different numbers share token ids? No.\n\nHmm, actually the partial test copies ONE variable's value from A while other variables stay B. But the reconstruction is then c + vars@M where M is the combined map over ALL variables at the cut (n1v..n4v each 128-dim). So the site prediction is the affine map from the whole concatenated one-hot vector. Copying n4v's one-hot from A \u2192 reconstructing resid0@n4 with A's value \u2192 matches A's real activation.\n\nBut there's an issue: the one-hot for n4v is K=128 dims but the fitted M for those dims is derived from a regression over the *fit* prompts. Should be near-exact.\n\nThen why is the judge's network change rate 99.8% when token substitution gives answer change only 52%? Hmm! Because... Oh! Because the judge's partial copy also reconstructs the OTHER positions from B's variables \u2014 fine.\n\nActually maybe the issue is at cut0 the judge reconstructs ALL named positions and mean-fills unnamed. That's what \"partial\" does? For partial: \"copies ONE variable from A while the cut's other variables stay as in B\" \u2014 so all sites reconstructed. Same as my emulation except for means at other positions.\n\nSo prediction for n4v partial: n4A with other numbers B. My emulation says best rule gets 48%. Judge says the network changed in 99.8% of cases?! That's incompatible unless the network's change rate is high but the \"right\" measure compares to *my* prediction... \"right 76.2% / 76.2% when changed (network changed in 99.8%)\". Hmm.\n\nWait \u2014 maybe I misread; maybe in that earlier submission the model had rule s(n2-n1) and my emulation for col-3 with s(d1)=0.48... The judge got 76%. So the judge's states differ from mine.\n\nDifference: the prompt prefix! The judge uses all four prefixes; I used only \"Numbers:\". Shouldn't matter much.\n\nAnother difference: for numbers whose tokenization differs (e.g. 100 vs ' 100' - single token; fine).\n\nHmm, wait: maybe my build of the number string: tok(\" \"+\", \".join(...)+\",\") \u2014 for negative? no negatives. For numbers with 3 digits fine.\n\nBUT: X's tokens at position 9 are tok(' 20') = 1160 \u2713 matches.\n\nHmm, alternatively \u2014 maybe acts/run use X's TOKENS directly and I'm fine.\n\nLet me test directly the judge's partial test at cut0: fit the regression M over all 4 one-hots (as the judge does) and then patch one variable, and compare the network's change rate. That's the honest emulation. Let me write it.\n\nActually, important: the judge fits ONE affine map from all variables (concatenated [B, 4*128]) to each activation. Then partial: build variables for B, replace n4v block with A's one-hot, reconstruct, run.\n\nSince the map is over the concatenated vector, it may mix (e.g. rank-deficient). Fitting a single map from 512 dims to 768 outputs is fine.\n\nLet me emulate to understand. Also note the judge's fit set is 400 prompts, and variance/ridge may smooth things.\n\nLet me just do it.",
+   "finish": "tool_calls",
+   "context_tokens": 52085,
+   "tools": [
+    {
+     "tool": "python",
+     "code": "\nimport numpy as np\nK=128\ndef oh(v,K=K):\n    E=np.zeros((len(v),K)); E[np.arange(len(v)),v]=1; return E\nfit=np.arange(400); ho=np.arange(400,500)\ncols=X[:,:4]\ndef var(rows, j):\n    return oh(X[rows,j])\nsites=[f\"resid0@{p}\" for p in [3,5,7,9]]\nAfit=acts(X[fit],sites)\n# fit single affine map per site from all 4 one-hots\nVfit=np.concatenate([var(fit,j) for j in range(4)],axis=1)\nVho=np.concatenate([var(ho,j) for j in range(4)],axis=1)\n# patch: replace block j with values from another prompt\nAsel=np.arange(500,600)\nVmix={}\nfor j in range(4):\n    Vb=Vho.copy()\n    Vb[:, j*K:(j+1)*K]=var(Asel,j)\n    Vmix[j]=Vb\nM={}\nfor p,s in zip([3,5,7,9],sites):\n    coef,_,_,_=np.linalg.lstsq(Vfit,Afit[s],rcond=None); M[s]=coef\nbase=run(X[ho]).argmax(1)\nres={}\nfor j in range(4):\n    hook={s: Vmix[j]@M[s] for s in sites}\n    # others to mean\n    Mo=acts(X[fit],[f\"resid0@{q}\" for q in range(11) if q not in [3,5,7,9]])\n    for q in range(11):\n        if q not in [3,5,7,9]: hook[f\"resid0@{q}\"]=Mo[f\"resid0@{q}\"].mean(0)\n    lg=run(X[ho],hook=hook); p=lg.argmax(1)\n    mix=X[ho].copy(); mix[:,j]=X[Asel,j]\n    sgn=np.sign\n    n1,n2,n3,n4=mix[:,0],mix[:,1],mix[:,2],mix[:,3]\n    d1,d2,d3=n2-n1,n3-n2,n4-n3\n    maj=n4+sgn(sgn(d1)+sgn(d2)+sgn(d3))\n    print(\"col\",j,\"net changed\",round(float((p!=base).mean()),3), \"maj right\", round(float((p==maj).mean()),3), \"s(d3)\",round(float((p==n4+sgn(d3)).mean()),3))\n",
+     "ok": true,
+     "output": "col 0 net changed 1.0 maj right 0.0 s(d3) 0.0\ncol 1 net changed 1.0 maj right 0.0 s(d3) 0.0\ncol 2 net changed 1.0 maj right 0.0 s(d3) 0.0\ncol 3 net changed 1.0 maj right 0.0 s(d3) 0.0\n",
+     "seconds": 63.91
+    }
+   ]
   }
  ],
  "submissions": [
@@ -614,14 +678,14 @@
   }
  ],
  "usage": {
-  "prompt_tokens": 746991,
-  "completion_tokens": 32371,
-  "calls": 32
+  "prompt_tokens": 947528,
+  "completion_tokens": 36127,
+  "calls": 36
  },
- "cost": 0.07298980800000002,
+ "cost": 0.079215612,
  "status": "running",
  "best": 6,
  "final_message": "",
- "heartbeat": 1794677326.9798276,
+ "heartbeat": 1794677499.3714948,
  "pid": 203
 }

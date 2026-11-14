@@ -421,9 +421,22 @@
   "calls": 22
  },
  "cost": 0.04452127200000001,
- "status": "running",
+ "status": "stopped",
  "best": 4,
  "final_message": "",
- "heartbeat": 1794677328.5927513,
- "pid": 321
+ "heartbeat": 1794677637.6550224,
+ "pid": 321,
+ "seconds": 2638.2,
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "substitution at cut0: 51.7% (need 90%)",
+   "substitution at cut3: 40.0% (need 90%)",
+   "partial of noun_id at cut6: the network's output changed in only 0.0% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable"
+  ],
+  "stages_total": 5,
+  "stages_verified": 2,
+  "complete": false,
+  "score": 0.4
+ }
 }
