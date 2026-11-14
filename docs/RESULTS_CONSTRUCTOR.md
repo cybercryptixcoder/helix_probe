@@ -1,12 +1,12 @@
 # Constructor results
 
-*Written by `lab/results.py` on 2026-11-14 00:35 from the run folders in `lab/constructions/`. Do not edit by hand; rerun the script. The reader is DeepSeek V4.1 Flash. "Blinded" means the reader was given the architecture, the weights and the input set, and was not told what the network does. Development networks are the ones the constructor's prompt and the judge were worked out on; held-out networks were run only after both were frozen.*
+*Written by `lab/results.py` on 2026-11-14 00:49 from the run folders in `lab/constructions/`. Do not edit by hand; rerun the script. The reader is DeepSeek V4.1 Flash. "Blinded" means the reader was given the architecture, the weights and the input set, and was not told what the network does. Development networks are the ones the constructor's prompt and the judge were worked out on; held-out networks were run only after both were frozen.*
 
 ## Best blinded run per network (trained weights)
 
 | Network | What it computes (hidden from the reader) | Used in development? | Stages verified | Behaviour match | Steps | Run |
 |---|---|---|---|---|---|---|
-| `astra_breakout` | a policy for MinAtar Breakout: move the paddle under where the ball will land | **no (held out)** | none | n/a | 14 | [`20261113-200650-1904`](../lab/constructions/astra_breakout/20261113-200650-1904/README.md) (best of 1) |
+| `astra_breakout` | a policy for MinAtar Breakout: move the paddle under where the ball will land | **no (held out)** | **all 2 (complete)** | 100.0% | 33 | [`20261114-003532-cfd2`](../lab/constructions/astra_breakout/20261114-003532-cfd2/README.md) (best of 2) |
 | `bool_compare2` | (2*x1 + x2) > (2*x3 + x4): is the 2-bit number a1a0 greater than b1b0 | yes | **all 1 (complete)** | 100.0% | 2 | [`20261113-143146-0bcf`](../lab/constructions/bool_compare2/20261113-143146-0bcf/README.md) (best of 1) |
 | `bool_majority3` | majority(x1, x2, x3): 1 if at least two inputs are 1 | yes | **all 1 (complete)** | 100.0% | 2 | [`20261113-143146-02b7`](../lab/constructions/bool_majority3/20261113-143146-02b7/README.md) (best of 1) |
 | `bool_parity3` | x1 XOR x2 XOR x3 (odd number of ones) | yes | **all 1 (complete)** | 100.0% | 2 | [`20261113-143146-d2db`](../lab/constructions/bool_parity3/20261113-143146-d2db/README.md) (best of 1) |
@@ -34,5 +34,6 @@ Shuffled and untrained weights should give no verified construction; permuted we
 | `modadd_p113` | untrained | no construction | n/a | 53 | [`20261113-141703-0114`](../lab/constructions/modadd_p113/20261113-141703-0114/README.md) control: untrained, blinded |
 | `modadd_p113` | untrained | 1 of 4 | 94.8% | 80 | [`20261113-190435-9b22`](../lab/constructions/modadd_p113/20261113-190435-9b22/README.md) v1 official: control untrained |
 | `modmul_p113` | prior-only | no construction | n/a | 5 | [`20261113-200059-1652`](../lab/constructions/modmul_p113/20261113-200059-1652/README.md) v1.1: prior-only |
+| `modmul_p113` | prior-only | 0 of 4 | 100.0% | 4 | [`20261114-003532-77f2`](../lab/constructions/modmul_p113/20261114-003532-77f2/README.md) v1.1: prior-only (rerun) |
 
 All runs, including failed and superseded ones: [`lab/constructions/INDEX.md`](../lab/constructions/INDEX.md). What each experiment was for and what was concluded: [`EXPERIMENT_LOG.md`](EXPERIMENT_LOG.md).
