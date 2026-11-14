@@ -134,3 +134,19 @@ Read all of these (they were triaged as useful or minor, not essential). Title |
 - Goodfire and Baseten partner to bring frontier safety to open models | 2026-10 | https://www.goodfire.com/blog/goodfire-baseten-partnership | goodfire
 - Neuron Atlas - Qwen3.6 | 2026-11 | https://www.goodfire.com/research/public_neuron_atlas | goodfire
 - Stochastic Parameter Decomposition (arXiv version) | 2025-06 | https://arxiv.org/abs/2506.20790 | goodfire+other_labs
+- [x] Shaping and Monitoring Models Through Their Internal Representations | 2026-11 | https://www.goodfire.com/research/mechanistic-shaping | goodfire  (was missing from this queue; found via goodfire.com/research index, entry 109)
+- Neural Networks Are Already Clean | 2026-10 | https://www.goodfire.com/research/already-clean | goodfire  (missing from queue; added from the research index)
+- Adversarial Examples Are Not Bugs, They Are Superposition | 2026 | https://www.goodfire.com/research/adversarial-examples-are-not-bugs-they-are-superposition | goodfire  (missing from queue)
+- [x] goodfire-com-research-can-saes-capture-neural-geometry | Can SAEs Capture Neural Geometry? | https://www.goodfire.com/research/can-saes-capture-neural-geometry | goodfire | DONE (110 = goodfire-com-research-can-saes-capture-neural-geometry; arXiv 2604.28119 full HTML incl. Appendices A-G, no figures; capture = fixed small atom group spanning the manifold vs tiling = shattering/dilution; Llama-3.1-8B L19 in dilution across 5 architectures; Ising couplings beat decoder cosine for grouping; cross-SAE stable object is the geometry not the feature)
+- The World Inside Neural Networks | 2026 | https://www.goodfire.com/research/the-world-inside-neural-networks | goodfire  (missing from queue)
+- Why Larger Models Learn More | 2026 | https://www.goodfire.com/research/why-larger-models-learn-more | goodfire  (missing from queue)
+- [x] Model Diff Amplification | 2026 | https://www.goodfire.com/research/model-diff-amplification | goodfire | DONE (111 = goodfire-com-research-model-diff-amplification; whole page + α appendix, no figures; LDA = logits_after + α(logits_after − logits_before) resampled every token; Llama 3.2 1B 10-300x rare-misalignment surfacing, OLMo 2 1B 5%-checkpoint shows latent behaviour, sleeper-agent backdoor found with no trigger known; detection not prevalence; post index labels the year as 2026 but the post itself is dated 2025-08-21)
+- Mixing Mechanisms | 2026 | https://www.goodfire.com/research/mixing-mechanisms | goodfire  (missing from queue)
+- Manifold Steering | 2026 | https://www.goodfire.com/research/manifold-steering | goodfire  (missing from queue)
+- A Geometric Calculator | 2026 | https://www.goodfire.com/research/a-geometric-calculator | goodfire  (missing from queue)
+- Mapping Latent Spaces in Llama | 2026 | https://www.goodfire.com/research/mapping-latent-spaces-llama | goodfire  (missing from queue)
+- Predictive Data Debugging | 2026 | https://www.goodfire.com/research/predictive-data-debugging | goodfire  (missing from queue)
+- Replicating Circuit Tracing for a Simple Mechanism | 2026 | https://www.goodfire.com/research/replicating-circuit-tracing-for-a-simple-mechanism | goodfire  (missing from queue)
+- SAE Scaling with Feature Manifolds | 2026 | https://www.goodfire.com/research/sae-scaling-with-feature-manifolds | goodfire  (missing from queue)
+- Open Problems in Mechanistic Interpretability | 2026 | https://www.goodfire.com/research/open-problems-in-mech-interp | goodfire  (missing from queue)
+- The Circuits Research Landscape | 2026 | https://www.goodfire.com/research/the-circuits-research-landscape | goodfire  (missing from queue)
