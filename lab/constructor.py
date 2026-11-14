@@ -146,9 +146,10 @@ HOW THE JUDGE TESTS A CONSTRUCTION (on prompts held out from fitting)
 3. CUTS. All residual sites you name at one depth L (resid{L}@p for several p) are tested TOGETHER as "cut{L}": the state of the computation at depth L.
    - Substitution: the named positions are replaced by your prediction (c + variables @ M) and EVERY OTHER position at that depth by its mean over the prompts; the rest of the network runs. The answers must survive (90%). So a cut must name every position that still matters at that depth, with variables that carry everything the later layers use from it. Positions that hold nothing the later layers need can be left out.
    - Necessity: removing the named subspace from the real activations must destroy the answers.
-   - Compactness: the judge reports how many principal components of the cut suffice to keep the answers; you may name at most about twice that many dimensions. A one-hot code of a quantity with many values fails this: find the few features the network actually uses for it.
+   - Compactness: the judge reports how many principal components of the cut suffice to keep 99% of the answers; the non-categorical variables you name may have at most about twice that many dimensions in total.
+     CATEGORICAL variables are exempt from this limit: the IDENTITY of one token or one quantity may be given as a one-hot vector (np.eye(K)[value]), provided each value occurs in at least 6 prompts on average (so "which number is at position n2" is fine; a one-hot of the whole input is not). A compact code with a few features (periodic, digit-wise, monotone ...) is a stronger result when you can find one, but an identity is a legitimate variable: what matters is where it lives, and what the network computes from it.
    - Interchange: the network is run on prompt B, but the part of the cut that encodes your variables is replaced by what it is on prompt A; the network's new answer must equal what model(B) returns when iv gives those variables their values from A (90%). So the causal wiring of model() must mirror the network.
-   - Partial / edit, states that no prompt produces (50% of the cases where the network's answer changes; passing either is enough): partial copies ONE variable from A while the cut's other variables stay as in B; edit copies a random half of the coordinates of everything named. Give each separately-stored part its own variable (one per position, per feature group).
+   - Partial / edit, states that no prompt produces (50% of the cases where the network's answer changes; passing either is enough): partial copies ONE variable from A while the cut's other variables stay as in B; edit copies a random half of the coordinates of everything named (not run on one-hot variables). Give each separately-stored part its own variable (one per position, per feature group). These tests put the network in states such as "the tokens of B, but with variable v as in A", so model() must say what the network does with ANY combination of its variables' values, not only the combinations the prompts contain: find that out by patching (hook) before you write it down.
    Sites of the other kinds (attn, mlp, head, neur, pattern) are tested one at a time with the same tests. They say which component carries a variable; they are welcome detail, but only cuts count toward completeness.
 4. STAGES. The model's depth is divided into stages: the embedding (resid0), then four bands of layers (for 12 layers: resid1-3, resid4-6, resid7-9, resid10-12). A stage is explained when one cut inside it is verified. The construction is COMPLETE when it behaves like the network and every stage has a verified cut: it then says what the network holds, where, from the tokens to the answer, and model() says how each stage's variables are computed from the previous stage's. That is the goal, reached one stage at a time.
 
@@ -440,8 +441,14 @@ def construct(target, variant="original", told=False, weights=True, allow_forwar
         msgs = [{"role": "system", "content": system}, {"role": "user", "content": task}]
 
     def save():
+        rec["heartbeat"], rec["pid"] = time.time(), os.getpid()
         (rdir / "run.json.tmp").write_text(json.dumps(rec, indent=1))
         os.replace(rdir / "run.json.tmp", rdir / "run.json")
+
+    (rdir / "STOP").unlink(missing_ok=True)
+    outer_cancelled = cancelled
+    cancelled = lambda: outer_cancelled() or (rdir / "STOP").exists()      # noqa: E731  (a STOP file in the run folder stops the run)
+    save()
 
     emit({"type": "start", "id": run_id, "target": target, "dir": str(rdir.relative_to(LAB.parent))})
     kernel = Kernel(target, variant, weights=weights, allow_forward=allow_forward, seed=seed)

@@ -33,6 +33,15 @@ import lm          # noqa: E402
 N_PAIRS = 400
 MAX_TEST = 400
 FD_EPS = 2e-2          # step of the finite-difference estimate used for attribution patching (float32 engine)
+PCA_KEEP = 0.99        # compactness is measured against the number of principal components that keep this share of answers
+MIN_PER_VALUE = 6      # a categorical (one-hot) variable is accepted when each value occurs in this many prompts on average
+
+
+def categorical(v):
+    """Is this variable a one-hot code (the identity of something)? Returns its number of values, or 0."""
+    if v.shape[1] < 2 or not (np.isin(v, (0.0, 1.0)).all() and (v.sum(1) == 1).all()):
+        return 0
+    return int((v.sum(0) > 0).sum())
 
 
 def stage_names(n_layers):
@@ -129,7 +138,13 @@ def judge(tid, source, variant="original", seed=0, n_pairs=N_PAIRS):
     align = {v: [s for s in where if s not in dropped] for v, where in align.items()}
     align = {v: where for v, where in align.items() if where}
 
-    rep = {"target": tid, "kind": "lm", "n_inputs": N, "n_fit": len(fit), "n_test": len(test), "source_chars": len(source),
+    cats = {v: categorical(vals[v]) for v in vals}
+    for v, k in cats.items():
+        if k and v in align and N / k < MIN_PER_VALUE:
+            raise J.ConstructionError(f'"{v}" is a one-hot code with {k} values over {N} prompts: under {MIN_PER_VALUE} prompts per value, which is '
+                                      "a table of the inputs, not a variable. A categorical variable must abstract over the other inputs "
+                                      "(the identity of ONE token or quantity); split it into separate variables, or use a compact code.")
+    rep = {"target": tid, "kind": "lm", "n_inputs": N, "categorical": {v: k for v, k in cats.items() if k}, "n_fit": len(fit), "n_test": len(test), "source_chars": len(source),
            "variables": {v: {"dim": int(vals[v].shape[1]), "sites": align.get(v, [])} for v in vals},
            "unaligned_variables": [v for v in vals if v not in align], "constant_sites_ignored": dropped}
     const = np.broadcast_to(out_n[fit].mean(0), out_n[test].shape)
@@ -196,7 +211,7 @@ def judge(tid, source, variant="original", seed=0, n_pairs=N_PAIRS):
         lo, hi = 1, max(full, 1)
         while lo < hi:
             mid = (lo + hi) // 2
-            if J.match(u.run(test, c + (At - c) @ Vt[:mid].T @ Vt[:mid]), clean) >= 0.9:
+            if J.match(u.run(test, c + (At - c) @ Vt[:mid].T @ Vt[:mid]), clean) >= PCA_KEEP:
                 hi = mid
             else:
                 lo = mid + 1
@@ -215,7 +230,7 @@ def judge(tid, source, variant="original", seed=0, n_pairs=N_PAIRS):
         tests = [("interchange", names, None)]
         if len(names) > 1:
             tests += [("partial", [v], None) for v in names]
-        if K >= 2:
+        if K >= 2 and not all(cats[v] for v in names):       # a one-hot code has no separable coordinates to edit
             tests.append(("edit", names, "half"))
         live = []
         for mode, vs, how in tests:
@@ -248,8 +263,11 @@ def judge(tid, source, variant="original", seed=0, n_pairs=N_PAIRS):
             if len(vs) == 1 and changed.mean() >= 0.05:
                 live.append(vs[0])
         live = [v for v in names if v in live]
-        Jl = np.concatenate([cols[v] for v in live]) if live else np.array([], int)
+        # size: categorical variables (identities) are exempt; the rest is compared with the principal components that suffice
+        sized = [v for v in live if not cats[v]]
+        Jl = np.concatenate([cols[v] for v in sized]) if sized else np.array([], int)
         r["used_rank"] = int(np.linalg.matrix_rank(M[Jl], tol=tol)) if len(Jl) else 0
+        r["categorical"] = {v: cats[v] for v in names if cats[v]}
         r["unused_variables"] = [v for v in names if v not in live]
 
     names_, _ = stage_names(nL)
@@ -279,7 +297,10 @@ def judge(tid, source, variant="original", seed=0, n_pairs=N_PAIRS):
 
 def render(rep):
     text = J.render(rep)
-    notes = ["UNITS  cutL = every residual site you named at depth L (resid{L}@...), tested together. Its 'substitute' number replaces "
+    notes = []
+    if rep.get("categorical"):
+        notes.append("Categorical (one-hot) variables, exempt from the size limit: " + ", ".join(f"{v} ({k} values)" for v, k in rep["categorical"].items()))
+    notes += ["UNITS  cutL = every residual site you named at depth L (resid{L}@...), tested together. Its 'substitute' number replaces "
              "the named positions by your prediction AND every other position at that depth by its mean: the cut must hold everything "
              "the later layers need. Sites of other kinds (attn, mlp, head, neur, pattern) are tested alone; they add detail but only a "
              "verified cut explains a stage."]

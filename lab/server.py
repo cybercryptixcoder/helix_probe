@@ -270,10 +270,41 @@ def run_summary(rec):
 CONS = LAB / "constructions"
 
 
+def run_status(rec):
+    """A run whose record says "running" but whose process is gone (or silent for 40 minutes) was interrupted."""
+    if rec["status"] != "running":
+        return rec["status"]
+    pid = rec.get("pid")
+    alive = False
+    if pid:
+        try:
+            os.kill(pid, 0); alive = True
+        except OSError:
+            alive = False
+    return "running" if alive and time.time() - rec.get("heartbeat", 0) < 2400 else "interrupted"
+
+
+def best_so_far(rdir, rec):
+    """While a run is going (or after it died) there is no final report: use the best submission's."""
+    best = None
+    for sub in rec["submissions"]:
+        f = rdir / (Path(sub["file"]).stem + ".json")
+        if f.exists() and sub.get("verdict"):
+            v = sub["verdict"]
+            key = (bool(v.get("complete")), v.get("score", 0), bool(v.get("verified")), -len(v.get("fails", [])))
+            if best is None or key >= best[0]:
+                best = (key, sub, f)
+    return best
+
+
 def construction_summary(rdir):
     rec = json.loads((rdir / "run.json").read_text())
     v = rec.get("verdict") or {}
+    if not v:
+        b = best_so_far(rdir, rec)
+        v = b[1]["verdict"] if b else {}
     c = rec["config"]
+    rec["status"] = run_status(rec)
     return {"id": rec["id"], "target": c["target"], "variant": c["variant"], "told": c["told"], "weights": c["weights"],
             "title": c.get("title", ""), "status": rec["status"], "started": rec["started"], "seconds": rec.get("seconds"),
             "steps": len(rec["steps"]), "submissions": len(rec["submissions"]), "cost": rec.get("cost", 0),
@@ -284,11 +315,41 @@ def construction_summary(rdir):
 def construction_detail(target, rid):
     rdir = CONS / target / rid
     out = {"run": json.loads((rdir / "run.json").read_text())}
+    out["run"]["status"] = run_status(out["run"])
     for key, name in (("construction", "construction.py"), ("report_text", "report.txt")):
         out[key] = (rdir / name).read_text() if (rdir / name).exists() else None
-    for key, name in (("report", "report.json"), ("predict", "predict.json"), ("questions", "questions.json")):
+    for key, name in (("report", "report.json"), ("predict", "predict.json"), ("questions", "questions.json"), ("circuit", "circuit.json")):
         out[key] = json.loads((rdir / name).read_text()) if (rdir / name).exists() else None
+    if out["report"] is None:                     # still running, or interrupted: show the best submission so far
+        b = best_so_far(rdir, out["run"])
+        if b:
+            out["construction"] = (rdir / b[1]["file"]).read_text()
+            out["report"] = json.loads(b[2].read_text())
+            out["provisional"] = b[1]["n"]
     return out
+
+
+def launch(cfg):
+    """Start (or resume) a constructor run as a detached process: it survives the browser and this server, writes
+    every step to its run folder, and the page follows it by polling."""
+    cmd = [sys.executable, str(LAB / "constructor.py"), cfg["target"], "--quiet", "--steps", str(int(cfg.get("steps", 80)))]
+    if cfg.get("resume"):
+        cmd += ["--resume", cfg["resume"]]
+    else:
+        cmd += ["--variant", cfg.get("variant", "original"), "--title", cfg.get("title", "")]
+        cmd += ["--told"] * bool(cfg.get("told")) + ["--no-weights"] * bool(cfg.get("no_weights")) + ["--one-shot"] * bool(cfg.get("one_shot"))
+    before = {f.parent.name for f in (CONS / cfg["target"]).glob("*/run.json")} if (CONS / cfg["target"]).exists() else set()
+    logdir = LAB / "runs"; logdir.mkdir(exist_ok=True)
+    log = open(logdir / f"constructor-{cfg['target']}-{int(time.time())}.log", "w")
+    subprocess.Popen(cmd, stdout=log, stderr=subprocess.STDOUT, start_new_session=True, cwd=str(LAB.parent))
+    if cfg.get("resume"):
+        return {"id": cfg["resume"]}
+    for _ in range(100):                          # wait for the run folder to appear
+        time.sleep(0.2)
+        new = {f.parent.name for f in (CONS / cfg["target"]).glob("*/run.json")} - before
+        if new:
+            return {"id": sorted(new)[-1]}
+    return {"error": "the run did not start; see lab/runs/constructor-*.log"}
 
 
 # ---------------------------------------------------------------- HTTP
@@ -330,7 +391,16 @@ class H(BaseHTTPRequestHandler):
                 return self.send(200, json.loads(f.read_text()) if f.exists() else {})
             if p == "/api/targets":
                 ids = json.loads((MODELS / "index.json").read_text())
-                return self.send(200, [public_meta(i) for i in ids])
+                return self.send(200, [public_meta(i) for i in ids if q.get("kind") != "weights" or meta(i).get("forward") != "lm"])
+            if p == "/api/lm_tasks":       # task files in lab/lm_tasks and whether each has been built into a target
+                out = []
+                for f in sorted((LAB / "lm_tasks").glob("*.py")):
+                    txt = f.read_text()
+                    tid = (re.search(r'^ID\s*=\s*"([\w-]+)"', txt, re.M) or [None, f.stem])[1]
+                    model = (re.search(r'^MODEL\s*=\s*"([^"]+)"', txt, re.M) or [None, "?"])[1]
+                    out.append({"file": f.name, "id": tid, "model": model, "built": (MODELS / tid / "meta.json").exists(),
+                                "doc": (re.search(r'^"""(.*?)"""', txt, re.S) or [None, ""])[1].strip().split("\n\n")[0]})
+                return self.send(200, out)
             m = re.match(r"^/api/tensor/([\w-]+)/(\w+)$", p)
             if m:
                 a = weights(m.group(1), q.get("variant", "original"))[m.group(2)]
@@ -396,6 +466,19 @@ class H(BaseHTTPRequestHandler):
             if m:       # a specific question put to the reader about this network (lab/ask.py); saved in the run folder
                 import ask
                 return self.send(200, ask.ask(m.group(1), m.group(2), self.body().get("question", "").strip()))
+            if p == "/api/launch":
+                return self.send(200, launch(self.body()))
+            m = re.match(r"^/api/constructions/([\w-]+)/([\w-]+)/stop$", p)
+            if m:
+                (CONS / m.group(1) / m.group(2) / "STOP").write_text("stop requested from the page\n")
+                return self.send(200, {"ok": True})
+            m = re.match(r"^/api/constructions/([\w-]+)/([\w-]+)/circuit$", p)
+            if m:       # which components write each verified variable (lab/lm_circuit.py); cached in the run folder
+                import lm_circuit
+                return self.send(200, lm_circuit.for_run(m.group(1), m.group(2)))
+            if p == "/api/lm_tasks/build":
+                import lm_build
+                return self.send(200, {"id": lm_build.build(str(LAB / "lm_tasks" / Path(self.body()["file"]).name))})
             if p == "/api/construct":
                 import constructor
                 cfg = self.body()
