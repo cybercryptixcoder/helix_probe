@@ -47,6 +47,7 @@
    "remove_random_match": null,
    "used_rank": 2,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   }
  },
@@ -105,6 +106,26 @@
    "baseline_no_change": 0.678,
    "baseline_source_output": 0.677,
    "control_random_subspace": 0.372,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "u",
+    "v"
+   ],
+   "site": "h1",
+   "mode": "edit",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.313,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.687,
+   "baseline_source_output": 0.699,
+   "control_random_subspace": 0.699,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true

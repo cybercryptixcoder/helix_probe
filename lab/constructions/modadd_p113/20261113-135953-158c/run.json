@@ -1218,5 +1218,6 @@
  "pruned_sites": [
   "resid_mid",
   "mlp_pre"
- ]
+ ],
+ "rejudged_with": "judge v3.1"
 }

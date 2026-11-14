@@ -37,6 +37,7 @@
  "unaligned_variables": [
   "mid"
  ],
+ "constant_sites_ignored": [],
  "behaviour": {
   "match": 1.0,
   "r2": 0.6684307425420577,
@@ -51,6 +52,8 @@
    ],
    "named_dims": 10,
    "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
    "explained": 0.944078052746613,
    "substitute_match": 1.0,
    "substitute_kl": 0.0001461586264020938,
@@ -60,6 +63,9 @@
    "keep_named_match": 1.0,
    "remove_named_match": 0.007204385277995302,
    "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "embed.1": {
@@ -69,6 +75,8 @@
    ],
    "named_dims": 10,
    "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
    "explained": 0.9442244053916218,
    "substitute_match": 1.0,
    "substitute_kl": 7.713922122317633e-05,
@@ -78,6 +86,9 @@
    "keep_named_match": 1.0,
    "remove_named_match": 0.007517619420516836,
    "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "mlp_post": {
@@ -87,6 +98,8 @@
    ],
    "named_dims": 10,
    "named_rank": 10,
+   "pca_sufficient_rank": 17,
+   "activation_rank": 512,
    "explained": 0.15523528113252028,
    "substitute_match": 1.0,
    "substitute_kl": 0.0001939328415867743,
@@ -96,6 +109,9 @@
    "keep_named_match": 0.986530931871574,
    "remove_named_match": 0.017854346123727487,
    "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "mlp_out": {
@@ -105,6 +121,8 @@
    ],
    "named_dims": 10,
    "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
    "explained": 0.9002362076987397,
    "substitute_match": 1.0,
    "substitute_kl": 0.00019393284158677446,
@@ -114,6 +132,9 @@
    "keep_named_match": 1.0,
    "remove_named_match": 0.013625685199686766,
    "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "resid_post": {
@@ -123,6 +144,8 @@
    ],
    "named_dims": 10,
    "named_rank": 10,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
    "explained": 0.863860657940989,
    "substitute_match": 1.0,
    "substitute_kl": 0.00019185828087422955,
@@ -132,12 +155,18 @@
    "keep_named_match": 1.0,
    "remove_named_match": 0.011746280344557557,
    "remove_random_match": 1.0,
+   "used_rank": 10,
+   "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   }
  },
  "interventions": [
   {
    "variable": "emb0",
+   "variables": [
+    "emb0"
+   ],
    "site": "embed.0",
    "mode": "interchange",
    "dim": 10,
@@ -148,10 +177,15 @@
    "baseline_no_change": 0.007,
    "baseline_source_output": 0.009,
    "control_random_subspace": 0.007,
+   "attribution_patching": 0.361,
+   "attribution_patching_when_changed": 0.3564954682779456,
    "pass": true
   },
   {
    "variable": "emb0",
+   "variables": [
+    "emb0"
+   ],
    "site": "embed.0",
    "mode": "edit",
    "dim": 10,
@@ -162,10 +196,15 @@
    "baseline_no_change": 0.196,
    "baseline_source_output": 0.01,
    "control_random_subspace": 0.2095,
+   "attribution_patching": 0.4325,
+   "attribution_patching_when_changed": 0.31654228855721395,
    "pass": true
   },
   {
    "variable": "emb1",
+   "variables": [
+    "emb1"
+   ],
    "site": "embed.1",
    "mode": "interchange",
    "dim": 10,
@@ -176,10 +215,15 @@
    "baseline_no_change": 0.009,
    "baseline_source_output": 0.007,
    "control_random_subspace": 0.009,
+   "attribution_patching": 0.327,
+   "attribution_patching_when_changed": 0.32088799192734613,
    "pass": true
   },
   {
    "variable": "emb1",
+   "variables": [
+    "emb1"
+   ],
    "site": "embed.1",
    "mode": "edit",
    "dim": 10,
@@ -190,10 +234,15 @@
    "baseline_no_change": 0.182,
    "baseline_source_output": 0.0075,
    "control_random_subspace": 0.2005,
+   "attribution_patching": 0.4,
+   "attribution_patching_when_changed": 0.28422982885085574,
    "pass": true
   },
   {
    "variable": "mlp",
+   "variables": [
+    "mlp"
+   ],
    "site": "mlp_post",
    "mode": "interchange",
    "dim": 10,
@@ -204,10 +253,15 @@
    "baseline_no_change": 0.012,
    "baseline_source_output": 1.0,
    "control_random_subspace": 0.012,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   },
   {
    "variable": "mlp",
+   "variables": [
+    "mlp"
+   ],
    "site": "mlp_post",
    "mode": "edit",
    "dim": 10,
@@ -218,10 +272,15 @@
    "baseline_no_change": 0.2195,
    "baseline_source_output": 0.2015,
    "control_random_subspace": 0.2245,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   },
   {
    "variable": "mlp",
+   "variables": [
+    "mlp"
+   ],
    "site": "mlp_out",
    "mode": "interchange",
    "dim": 10,
@@ -232,10 +291,15 @@
    "baseline_no_change": 0.012,
    "baseline_source_output": 1.0,
    "control_random_subspace": 0.012,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   },
   {
    "variable": "mlp",
+   "variables": [
+    "mlp"
+   ],
    "site": "mlp_out",
    "mode": "edit",
    "dim": 10,
@@ -246,10 +310,15 @@
    "baseline_no_change": 0.223,
    "baseline_source_output": 0.19,
    "control_random_subspace": 0.2195,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   },
   {
    "variable": "resid",
+   "variables": [
+    "resid"
+   ],
    "site": "resid_post",
    "mode": "interchange",
    "dim": 10,
@@ -260,10 +329,15 @@
    "baseline_no_change": 0.012,
    "baseline_source_output": 1.0,
    "control_random_subspace": 0.012,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   },
   {
    "variable": "resid",
+   "variables": [
+    "resid"
+   ],
    "site": "resid_post",
    "mode": "edit",
    "dim": 10,
@@ -274,6 +348,8 @@
    "baseline_no_change": 0.206,
    "baseline_source_output": 0.221,
    "control_random_subspace": 0.2095,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   }
  ],
@@ -342,5 +418,5 @@
   "complete": false,
   "score": 0.75
  },
- "seconds": 15.02
+ "seconds": 26.37
 }

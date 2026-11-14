@@ -26,8 +26,9 @@ The judge measures, on inputs held out from fitting:
                     into a base input's run (read with a linear probe, written along the alignment directions), and
                     the network's new output is compared with what the construction predicts when those variables
                     take their source values. Then two stricter tests that make states no input produces:
-                    partial (one variable copied while the site's other variables stay) and, for a variable alone
-                    at its site, edit (a random half of its coordinates copied).
+                    partial (one variable copied while the site's other variables stay) and edit (a random half of
+                    the coordinates of everything named at the site copied). Where both apply, passing either one
+                    is enough, so that splitting a variable into parts never lowers a construction's score.
                     Controls: the same swap in a random subspace; predicting "no change"; predicting the source
                     output; attribution patching (the first-order estimate of the same change, on the real network).
 
@@ -288,7 +289,7 @@ def judge(kind, W, X, source, seed=0, n_pairs=2000, groups=None):
         tests = [("interchange", names, None)]
         if len(names) > 1:
             tests += [("partial", [v], None) for v in names]
-        elif V.shape[1] >= 2:
+        if V.shape[1] >= 2:
             tests.append(("edit", names, "half"))
         allJ = np.arange(V.shape[1])
         for mode, vs, how in tests:
@@ -363,9 +364,9 @@ def verdict(rep):
         that suffice to keep 90% of decisions (variables that the construction correctly marks as unused, i.e. whose
         interventions change nothing, are not counted);
       - its interchange predictions hold (everything named at the site copied from another input: 90%), and so do
-        its predictions for states that no input produces: one variable copied while the others stay (partial), or,
-        for a variable alone at its site, half of its coordinates copied (edit): 50% of the cases where the network's
-        decision changed (where "no change" scores 0 and a random class about 1/classes).
+        its predictions for states that no input produces: EITHER each variable copied while the others stay
+        (partial) OR a random half of the coordinates of everything named at the site copied (edit): 50% of the
+        cases where the network's decision changed (where "no change" scores 0 and a random class about 1/classes).
     A site with no effect on the output cannot be verified. A construction is VERIFIED when it behaves
     like the network and every site it names is verified, and COMPLETE when, in addition, every stage of the
     network has a verified site. The thresholds are PASS (top of this file)."""
@@ -389,26 +390,40 @@ def verdict(rep):
             if r["used_rank"] > limit:
                 mine.append(f"size at {s}: you named {r['used_rank']} dimensions, but the {r['pca_sufficient_rank']} largest principal components "
                             f"of this site already keep 90% of decisions (limit {limit}): the variables must be more compact")
+        off = []                    # failures of the tests that make states no input produces (partial, edit)
         for t in rep["interventions"]:
             if t["site"] != s:
                 continue
             score = t["agreement_when_changed"] if t["agreement_when_changed"] is not None else t["agreement"]
             if t["network_changed"] < 0.05 and t["agreement"] >= 0.95:
-                t["pass"] = True        # the construction correctly predicts that this variable is inert at this site
+                t["pass"] = True        # the construction correctly predicts that this changes nothing at this site
             elif t["network_changed"] < 0.05:
                 t["pass"] = False
-                mine.append(f"{t['mode']} of {t['variable']} at {s}: the network's output changed in only {t['network_changed']:.1%} of cases, but "
-                            "the construction predicted changes: at this site the network's output does not depend on this variable")
+                msg = (f"{t['mode']} of {t['variable']} at {s}: the network's output changed in only {t['network_changed']:.1%} of cases, but "
+                       "the construction predicted changes: at this site the network's output does not depend on this variable")
+                (off if t["mode"] == "edit" else mine).append(msg)
             elif t["mode"] in ("edit", "partial"):
                 t["pass"] = bool(score >= PASS["edit"])
                 if not t["pass"]:
-                    mine.append(f"{t['mode']} of {t['variable']} at {s}: prediction right in {score:.1%} of the cases where the network's output "
-                                f"changed (need {PASS['edit']:.0%}; guessing 'no change' gets 0% of these)")
+                    off.append(f"{t['mode']} of {t['variable']} at {s}: prediction right in {score:.1%} of the cases where the network's output "
+                               f"changed (need {PASS['edit']:.0%}; guessing 'no change' gets 0% of these)")
             else:
                 t["pass"] = bool(score >= PASS["interchange"])
                 if not t["pass"]:
                     mine.append(f"interchange of {t['variable']} at {s}: prediction right in {score:.1%} of the cases where the network's "
                                 f"output changed (need {PASS['interchange']:.0%})")
+        # The off-manifold requirement can be met in either of two ways: every single-variable swap (partial) passes,
+        # or the coordinate edit of everything named at the site passes. So splitting a variable into parts never
+        # makes a construction score worse than the same content kept as one variable.
+        here = [t for t in rep["interventions"] if t["site"] == s]
+        partial_ok = all(t["pass"] for t in here if t["mode"] == "partial")
+        edit_ok = all(t["pass"] for t in here if t["mode"] == "edit")
+        has_partial, has_edit = any(t["mode"] == "partial" for t in here), any(t["mode"] == "edit" for t in here)
+        r["off_manifold"] = "partial" if has_partial and partial_ok else ("edit" if has_edit and edit_ok else ("none needed" if not (has_partial or has_edit) else "fails"))
+        if r["off_manifold"] == "fails":
+            mine += off
+            if has_partial and has_edit:
+                mine.append(f"(at {s} it is enough that EITHER every partial test OR the edit of all variables passes)")
         r["pass"] = not mine
         fails += mine
     if not rep["sites"]:
@@ -435,11 +450,12 @@ def render(rep):
                  f"substitute {r['substitute_match']:.1%} | keep {r['keep_named_match']:.1%} | remove {r['remove_named_match']:.1%} "
                  f"(random {rr}) | mean-ablate {r['mean_ablate_match']:.1%}")
     L.append("4. INTERVENTIONS   interchange = everything named at the site is copied from another input's run (need 90%). "
-             "partial = one variable is copied while the site's other variables stay; edit (for a variable alone at its site) = a "
-             "random half of its coordinates are copied: both make states that no input produces (need 50% of the cases where "
-             "the decision changed). right = the construction predicted the network's new decision (all cases / cases where "
-             "the decision changed).  controls: the same swap in a random subspace; guessing 'no change'; guessing the source "
-             "input's output; attribution patching (a first-order estimate computed on the network itself)")
+             "Then tests that make states no input produces (need 50% of the cases where the decision changed): partial = one "
+             "variable is copied while the site's other variables stay; edit = a random half of the coordinates of everything "
+             "named at the site are copied. Where both are run, it is enough that all partial tests pass OR the edit passes. "
+             "right = the construction predicted the network's new decision (all cases / cases where the decision changed).  "
+             "controls: the same swap in a random subspace; guessing 'no change'; guessing the source input's output; "
+             "attribution patching (a first-order estimate computed on the network itself)")
     for t in rep["interventions"]:
         w = "n/a" if t["agreement_when_changed"] is None else f"{t['agreement_when_changed']:.1%}"
         L.append(f"  {t['mode']:11s} {t['variable']} @ {t['site']}: right {t['agreement']:.1%} / {w} when changed (network changed in "

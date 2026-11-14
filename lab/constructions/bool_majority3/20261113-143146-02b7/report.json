@@ -53,14 +53,38 @@
    "remove_random_match": null,
    "used_rank": 2,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   }
  },
  "interventions": [
   {
-   "variable": "h1",
+   "variable": "all variables",
+   "variables": [
+    "h1",
+    "h2"
+   ],
    "site": "h1",
    "mode": "interchange",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.51,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.49,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "h1",
+   "variables": [
+    "h1"
+   ],
+   "site": "h1",
+   "mode": "partial",
    "dim": 1,
    "agreement": 1.0,
    "r2": 1.0,
@@ -69,12 +93,17 @@
    "baseline_no_change": 0.5565,
    "baseline_source_output": 0.9335,
    "control_random_subspace": 0.5565,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   },
   {
    "variable": "h2",
+   "variables": [
+    "h2"
+   ],
    "site": "h1",
-   "mode": "interchange",
+   "mode": "partial",
    "dim": 1,
    "agreement": 1.0,
    "r2": 1.0,
@@ -82,7 +111,29 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.9425,
    "baseline_source_output": 0.5475,
-   "control_random_subspace": 0.5475,
+   "control_random_subspace": 0.614,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "h1",
+    "h2"
+   ],
+   "site": "h1",
+   "mode": "edit",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.2445,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.7555,
+   "baseline_source_output": 0.7345,
+   "control_random_subspace": 0.7345,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   }
  ],

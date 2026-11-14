@@ -54,14 +54,39 @@
    "remove_random_match": null,
    "used_rank": 3,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   }
  },
  "interventions": [
   {
-   "variable": "u0",
+   "variable": "all variables",
+   "variables": [
+    "u0",
+    "u1",
+    "u2"
+   ],
    "site": "h1",
    "mode": "interchange",
+   "dim": 3,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.499,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.501,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "u0",
+   "variables": [
+    "u0"
+   ],
+   "site": "h1",
+   "mode": "partial",
    "dim": 1,
    "agreement": 1.0,
    "r2": 1.0,
@@ -69,13 +94,18 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.686,
    "baseline_source_output": 0.624,
-   "control_random_subspace": 0.8455,
+   "control_random_subspace": 0.3455,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   },
   {
    "variable": "u1",
+   "variables": [
+    "u1"
+   ],
    "site": "h1",
-   "mode": "interchange",
+   "mode": "partial",
    "dim": 1,
    "agreement": 1.0,
    "r2": 1.0,
@@ -83,13 +113,18 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.6175,
    "baseline_source_output": 0.6795,
-   "control_random_subspace": 0.3035,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   },
   {
    "variable": "u2",
+   "variables": [
+    "u2"
+   ],
    "site": "h1",
-   "mode": "interchange",
+   "mode": "partial",
    "dim": 1,
    "agreement": 1.0,
    "r2": 1.0,
@@ -97,7 +132,30 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.8135,
    "baseline_source_output": 0.5875,
-   "control_random_subspace": 0.768,
+   "control_random_subspace": 0.8135,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "u0",
+    "u1",
+    "u2"
+   ],
+   "site": "h1",
+   "mode": "edit",
+   "dim": 3,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.324,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.676,
+   "baseline_source_output": 0.666,
+   "control_random_subspace": 0.666,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   }
  ],

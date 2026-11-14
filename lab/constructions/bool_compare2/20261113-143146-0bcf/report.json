@@ -49,14 +49,38 @@
    "unused_variables": [
     "u1"
    ],
+   "off_manifold": "partial",
    "pass": true
   }
  },
  "interventions": [
   {
-   "variable": "u0",
+   "variable": "all variables",
+   "variables": [
+    "u0",
+    "u1"
+   ],
    "site": "h1",
    "mode": "interchange",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.4615,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.5385,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "u0",
+   "variables": [
+    "u0"
+   ],
+   "site": "h1",
+   "mode": "partial",
    "dim": 1,
    "agreement": 1.0,
    "r2": 1.0,
@@ -64,13 +88,18 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.4915,
    "baseline_source_output": 0.953,
-   "control_random_subspace": 0.964,
+   "control_random_subspace": 0.6715,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   },
   {
    "variable": "u1",
+   "variables": [
+    "u1"
+   ],
    "site": "h1",
-   "mode": "interchange",
+   "mode": "partial",
    "dim": 1,
    "agreement": 1.0,
    "r2": 1.0,
@@ -78,7 +107,29 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.951,
    "baseline_source_output": 0.4895,
-   "control_random_subspace": 0.951,
+   "control_random_subspace": 0.4425,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "u0",
+    "u1"
+   ],
+   "site": "h1",
+   "mode": "edit",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.284,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.716,
+   "baseline_source_output": 0.7215,
+   "control_random_subspace": 0.7215,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": true
   }
  ],
