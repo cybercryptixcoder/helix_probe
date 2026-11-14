@@ -6,7 +6,7 @@ MODEL = "gpt2"
 ANSWERS = [" is", " are", " was", " were"]
 X_NAMES = ["cue", "noun"]
 PAST = ["Yesterday", "Earlier", "Previously", "Once", "Before", "Originally"]
-PRES = ["Today", "Now", "Currently", "Nowadays", "Presently", "Still"]
+PRES = ["Now", "Currently", "Usually", "Often", "Always", "Sometimes"]
 CUES = PRES + PAST
 SING = ["boy", "girl", "man", "woman", "dog", "teacher", "doctor", "king", "child", "car", "house", "book", "cat", "student", "player", "bird",
         "tree", "table", "room", "road", "queen", "judge", "driver", "writer", "farmer", "soldier", "river", "window", "door", "letter"]

@@ -34,7 +34,7 @@
   373,
   547
  ],
- "n_prompts": 600,
+ "n_prompts": 720,
  "n_tokens": 5,
  "split_by": "noun",
  "roles": {
@@ -45,16 +45,16 @@
   "end": 4
  },
  "example_prompts": [
-  "<|endoftext|>Today, the boy",
-  "<|endoftext|>Now, the houses",
-  "<|endoftext|>Still, the queen",
-  "<|endoftext|>Earlier, the boy",
-  "<|endoftext|>Previously, the houses",
-  "<|endoftext|>Before, the queen"
+  "<|endoftext|>Now, the boy",
+  "<|endoftext|>Usually, the boy",
+  "<|endoftext|>Always, the boy",
+  "<|endoftext|>Yesterday, the boy",
+  "<|endoftext|>Previously, the boy",
+  "<|endoftext|>Before, the boy"
  ],
  "domain": {
   "file": "inputs.npy",
-  "text": "Each prompt is \"<cue>, the <noun>\": a one-word time cue, a comma, \"the\", and a noun. x[:, 0] = which cue (index into a list of 12 cue words), x[:, 1] = which noun (index into a list of 60 nouns). Token positions: 0 <|endoftext|>, 1 the cue, 2 comma, 3 \" the\", 4 the noun (the last token). Roles: cue = 1, comma = 2, the = 3, noun = end = 4. The cue words, in index order: Today, Now, Currently, Nowadays, Presently, Still, Yesterday, Earlier, Previously, Once, Before, Originally. The nouns, in index order: boy, girl, man, woman, dog, teacher, doctor, king, child, car, house, book, cat, student, player, bird, tree, table, room, road, queen, judge, driver, writer, farmer, soldier, river, window, door, letter, boys, girls, men, women, dogs, teachers, doctors, kings, children, cars, houses, books, cats, students, players, birds, trees, tables, rooms, roads, queens, judges, drivers, writers, farmers, soldiers, rivers, windows, doors, letters."
+  "text": "Each prompt is \"<cue>, the <noun>\": a one-word time cue, a comma, \"the\", and a noun. x[:, 0] = which cue (index into a list of 12 cue words), x[:, 1] = which noun (index into a list of 60 nouns). Token positions: 0 <|endoftext|>, 1 the cue, 2 comma, 3 \" the\", 4 the noun (the last token). Roles: cue = 1, comma = 2, the = 3, noun = end = 4. The cue words, in index order: Now, Currently, Usually, Often, Always, Sometimes, Yesterday, Earlier, Previously, Once, Before, Originally. The nouns, in index order: boy, girl, man, woman, dog, teacher, doctor, king, child, car, house, book, cat, student, player, bird, tree, table, room, road, queen, judge, driver, writer, farmer, soldier, river, window, door, letter, boys, girls, men, women, dogs, teachers, doctors, kings, children, cars, houses, books, cats, students, players, birds, trees, tables, rooms, roads, queens, judges, drivers, writers, farmers, soldiers, rivers, windows, doors, letters."
  },
  "context": "Half of the cue words point to the present and half to the past; half of the nouns are singular and half plural.",
  "answer": {
