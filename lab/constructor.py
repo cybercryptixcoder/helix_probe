@@ -168,7 +168,7 @@ YOUR TOOLS
 - submit(code): sends a construction file to the judge and returns its report (it takes a minute or two). The report is the fastest way to learn what is right: unit by unit, variable by variable, what passes and what fails, next to controls.
 
 SUBMIT EARLY, THEN IMPROVE STAGE BY STAGE
-Do not try to understand everything before you submit. A construction with one cut is a valid submission, and partial constructions are expected. Make your first submission within your first 8 steps. After that, submit whenever you have changed something; if you go 6 steps without submitting you will be required to submit what you have. Start where it is easiest (usually a late cut at the end position, or a middle cut), then extend toward the embedding and toward the output.
+Do not try to understand everything before you submit. A construction with one cut is a valid submission, and partial constructions are expected. Make your first submission within your first 8 steps. After that, submit whenever you have changed something; if you go 6 steps without submitting you will be required to submit what you have. WORK BACKWARDS FROM THE ANSWER: first the last stage (what the end position holds just before the unembedding), then the stage before it (what must be present, and at which positions, for the last stage's variables to be computed), and so on down. Each stage you verify tells you what the stage below has to deliver. Leave the embedding stage for LAST: it is usually the hardest, because its partial tests ask what the model does when one input token is exchanged for another, which needs a full model of the behaviour off the prompts. Do not spend many steps on one failing stage while a later stage is still unverified. Keep verified cuts in every submission; a cut that fails costs judge time, so include only the failing cut you are working on.
 
 HOW TO WORK
 1. Find out WHAT the model does on these prompts: which answer it picks as a function of x. Write model(x) for the behaviour first.
@@ -296,6 +296,17 @@ class Kernel:
             pass
 
 
+def next_focus(rep):
+    """One mechanical line appended to an LM report: which stage to work on next (the unverified stage nearest the output)."""
+    st = list(rep["stages"].items())
+    todo = [n for n, s in st if not s["verified"]]
+    if not todo:
+        return ""
+    done = [n for n, s in st if s["verified"]]
+    return (f"\nWHERE TO WORK NEXT: verified stages: {', '.join(done) or 'none'}. Work on \"{todo[-1]}\" now (the unverified stage nearest "
+            f"the answer; sites {', '.join(rep['stages'][todo[-1]]['sites'])}), and submit it together with the verified cuts only.")
+
+
 def run_judge(target, variant, path, seed=0, timeout=1500):
     """Judge a construction file in a separate process. Returns (text shown to the reader, report dict or None)."""
     out_json = path.with_suffix(".json")
@@ -315,6 +326,8 @@ def run_judge(target, variant, path, seed=0, timeout=1500):
         return f"The judge timed out after {timeout} s: model(x, iv) is too slow. It must run on a few thousand inputs in seconds.", None
     text = (p.stdout or "").strip() or ("The judge crashed:\n" + (p.stderr or "")[-1500:])
     rep = json.loads(out_json.read_text()) if p.returncode == 0 and out_json.exists() else None
+    if rep and rep.get("kind") == "lm":
+        text += next_focus(rep)
     return text, rep
 
 
