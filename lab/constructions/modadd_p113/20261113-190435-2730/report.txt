@@ -1,0 +1,33 @@
+JUDGE REPORT   (6385 held-out inputs; construction 15,904 chars)
+1. BEHAVIOUR  construction vs network output: same decision on 99.3% of inputs (a constant output would get 96.6%); output R2 0.987; KL 0.000
+2-3. SITES   explained = share of the activation's variance the variables explain;  substitute = network decision kept when the activation is replaced by the construction's prediction;  keep = when only the named subspace of the real activation is kept;  remove = when the named subspace is removed (should be LOW) vs a random subspace of equal size;  mean-ablate = when the whole site is replaced by its mean
+  embed.0     (112 dims named of 128; 1 principal components suffice; ti): explained 1.000 | substitute 100.0% | keep 100.0% | remove 96.6% (random 96.6%) | mean-ablate 96.6%
+  embed.1     (112 dims named of 128; 1 principal components suffice; tj): explained 1.000 | substitute 100.0% | keep 100.0% | remove 96.6% (random 96.6%) | mean-ablate 96.6%
+  attn_out    (128 dims named of 128; 1 principal components suffice; ti, tj): explained 1.000 | substitute 100.0% | keep 100.0% | remove 96.6% (random n/a) | mean-ablate 96.6%
+  mlp_pre     (128 dims named of 512; 1 principal components suffice; ti, tj): explained 1.000 | substitute 100.0% | keep 100.0% | remove 97.3% (random 98.3%) | mean-ablate 97.3%
+  resid_post  (128 dims named of 128; 1 principal components suffice; ti, tj): explained 0.991 | substitute 99.3% | keep 100.0% | remove 96.6% (random n/a) | mean-ablate 96.6%
+4. INTERVENTIONS   interchange = everything named at the site is copied from another input's run (need 90%). partial = one variable is copied while the site's other variables stay; edit (for a variable alone at its site) = a random half of its coordinates are copied: both make states that no input produces (need 50% of the cases where the decision changed). right = the construction predicted the network's new decision (all cases / cases where the decision changed).  controls: the same swap in a random subspace; guessing 'no change'; guessing the source input's output; attribution patching (a first-order estimate computed on the network itself)
+  interchange ti @ embed.0: right 99.0% / 88.1% when changed (network changed in 6.7%); output R2 0.987 | controls: random subspace 96.8%, no-change 93.3%, source-output 92.5%, attribution patching 98.8%
+  edit        ti @ embed.0: right 99.1% / 93.8% when changed (network changed in 4.8%); output R2 0.985 | controls: random subspace 93.5%, no-change 95.2%, source-output 92.3%, attribution patching 99.2%
+  interchange tj @ embed.1: right 98.9% / 91.2% when changed (network changed in 6.2%); output R2 0.987 | controls: random subspace 97.0%, no-change 93.8%, source-output 93.7%, attribution patching 98.5%
+  edit        tj @ embed.1: right 99.2% / 90.0% when changed (network changed in 5.0%); output R2 0.985 | controls: random subspace 94.9%, no-change 95.0%, source-output 92.7%, attribution patching 99.2%
+  interchange all variables @ attn_out: right 99.2% / 92.2% when changed (network changed in 7.7%); output R2 0.987 | controls: random subspace 99.2%, no-change 92.3%, source-output 100.0%, attribution patching 97.7%
+  partial     ti @ attn_out: right 95.7% / 75.3% when changed (network changed in 3.9%); output R2 0.285 | controls: random subspace 93.7%, no-change 96.2%, source-output 96.0%, attribution patching 99.8%
+  partial     tj @ attn_out: right 96.7% / 87.2% when changed (network changed in 3.9%); output R2 0.284 | controls: random subspace 94.3%, no-change 96.1%, source-output 95.9%, attribution patching 99.8%
+  interchange all variables @ mlp_pre: right 93.3% / 53.5% when changed (network changed in 4.3%); output R2 -0.585 | controls: random subspace 92.9%, no-change 95.7%, source-output 93.2%, attribution patching 97.9%
+  partial     ti @ mlp_pre: right 94.5% / 66.7% when changed (network changed in 2.2%); output R2 0.023 | controls: random subspace 93.4%, no-change 97.8%, source-output 93.7%, attribution patching 99.2%
+  partial     tj @ mlp_pre: right 94.8% / 66.7% when changed (network changed in 2.7%); output R2 0.035 | controls: random subspace 94.0%, no-change 97.3%, source-output 93.7%, attribution patching 99.0%
+  interchange all variables @ resid_post: right 99.5% / 95.3% when changed (network changed in 7.5%); output R2 0.987 | controls: random subspace 99.2%, no-change 92.5%, source-output 99.4%, attribution patching 100.0%
+  partial     ti @ resid_post: right 95.9% / 77.6% when changed (network changed in 3.8%); output R2 -0.048 | controls: random subspace 94.0%, no-change 96.2%, source-output 96.0%, attribution patching 100.0%
+  partial     tj @ resid_post: right 96.4% / 82.9% when changed (network changed in 3.8%); output R2 -0.047 | controls: random subspace 93.1%, no-change 96.2%, source-output 96.0%, attribution patching 100.0%
+STAGES   embedding: named but failing;  attention: named but failing;  mlp neurons: named but failing;  readout: named but failing
+VERDICT: NOT VERIFIED (0 of 4 stages verified). Failing:
+  - embed.0 has almost no effect on the output (replacing the whole site by its mean changes 3.4% of decisions), so nothing can be verified here; use another site of this stage
+  - interchange of ti at embed.0: prediction right in 88.1% of the cases where the network's output changed (need 90%)
+  - embed.1 has almost no effect on the output (replacing the whole site by its mean changes 3.4% of decisions), so nothing can be verified here; use another site of this stage
+  - attn_out has almost no effect on the output (replacing the whole site by its mean changes 3.4% of decisions), so nothing can be verified here; use another site of this stage
+  - mlp_pre has almost no effect on the output (replacing the whole site by its mean changes 2.7% of decisions), so nothing can be verified here; use another site of this stage
+  - interchange of all variables at mlp_pre: the network's output changed in only 4.3% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable
+  - partial of ti at mlp_pre: the network's output changed in only 2.2% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable
+  - partial of tj at mlp_pre: the network's output changed in only 2.7% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable
+  - resid_post has almost no effect on the output (replacing the whole site by its mean changes 3.4% of decisions), so nothing can be verified here; use another site of this stage

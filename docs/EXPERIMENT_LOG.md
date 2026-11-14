@@ -283,18 +283,24 @@ on mod-add again, this time on a frozen judge.
 `modadd_p113` and `tracr_hist`; the other four were never run before this batch. Run folders:
 `lab/constructions/<target>/20261113-1904*`. Entry updated as runs finish (status at 19:40 below).
 
-**What happened so far.**
+**What happened** (all eight runs finished; 40 minutes for the longest; $0.03 to $0.39 each).
 
 | Network | Held out? | Result | Steps | What the reader found |
 |---|---|---|---|---|
 | `tracr_reverse` (4 layers) | yes | **VERIFIED AND COMPLETE**, 9 of 9 stages | 9 | One token code per position; layers 0–2 add only constants on this input set; layer 3's attention has a fixed pattern (position p attends to position 4-p) and copies the token code; the output head reads it. Interchange and partial tests 100%. |
-| `tracr_first_match` | yes | **VERIFIED AND COMPLETE**, 4 of 4 | 23 | (see the run's README) |
-| `tracr_count_greater` | yes | **VERIFIED AND COMPLETE**, 4 of 4 | 47 | (see the run's README) |
-| `modmul_p113` | yes | in progress: embedding verified at submission 2 (step 13) | 39+ | The task (i·j mod 113) at step 3. At step 9: "embedding involves dlog (discrete log base 3) frequencies 4, 28, 31, 41". At step 34: the MLP output is a code of the product built from product-clock features cos(2πm(dlog i + dlog j)/112). |
-| `modadd_p113` replicate A | no | in progress: 0 stages at submission 5 | 35+ | Frequencies found; split into one variable per frequency; partial tests at 38–47%, just under the 50% mark |
-| `modadd_p113` shuffled | control | in progress: 0 stages | 30+ | |
-| `modadd_p113` untrained | control | in progress: 0 stages | 45+ | |
-| `modadd_p113` permuted | control | in progress: 2 stages at one point | 46+ | |
+| `tracr_first_match` | yes | **VERIFIED AND COMPLETE**, 4 of 4 | 23 | Attention copies the first token's code to every position; the MLP compares it with the position's own token (see the run's README). |
+| `tracr_count_greater` | yes | **VERIFIED AND COMPLETE**, 4 of 4 | 47 | Attention weight on BOS encodes the count of greater tokens; the MLP converts it (see the run's README). |
+| `modmul_p113` (Mystery C) | yes | **VERIFIED AND COMPLETE**, 4 of 4, on submission 14 | 76 | Embedding: cos/sin of 2πm·dlog₃(t)/112 at m = 4, 28, 31, 41. Attention is nearly uniform, so `attn_out`/`resid_mid` hold an additive code h(i) + h(j) (17 dims, including the doubled frequencies 8, 56, 30, 50 and one difference clock). MLP: the product's clock by angle addition on the sum, cos(a+b) = (C² − S²)/2 − C₂ₘ/2, which is why the doubled frequencies are in the embedding. Readout from the 8-dim product clock. Behaviour match 97.3% (the misses are rows with token 0, which has no discrete log). |
+| `modadd_p113` replicate A | no | 3 of 4 stages (embedding at `embed.1`, MLP neurons, readout); attention not verified | 80 | Same mechanism as E3. 0 stages until submission 6 (step 44): its per-frequency variables scored 38–47% on partial tests until the amplitudes were measured. |
+| `modadd_p113` permuted | control | 3 of 4 stages | 80 | The same construction as on the original weights, as it should be: permuting units does not change the function. |
+| `modadd_p113` shuffled | control | **0 stages, not verified** | 79 | The shuffled network's output is nearly constant (a constant output matches 96.6% of decisions). The reader reported "an additive per-token score plus a thin ReLU remainder ... not a compact construct" and named no mechanism. |
+| `modadd_p113` untrained | control | **not verified** (behaviour 94.8%); 1 stage passes | 80 | The one passing stage is a 112-dimensional lookup of each token at the embedding, which is what a random embedding is (69 principal components are needed there, against 7 on the trained network). The reader wrote that it "could not compress" the rest. Construction length 7,176 characters, against 1,576 for the trained network's. |
+
+Mod-mul run in more detail (`lab/constructions/modmul_p113/20261113-190435-ec84`): the task at step 3; the discrete-log
+frequencies at step 9; embedding verified at submission 2; two crashed submissions (a shape bug); attention and
+readout verified at submissions 10–12; complete at submission 14. A second check of its claims: the three doubled
+frequencies 30, 56 and 50 are the 5th, 6th and 7th strongest frequencies of `W_E` in discrete-log order (4.1%, 3.5%,
+2.4% of the power), which fits the reader's explanation of why they are there.
 
 **Independent check of the mod-mul finding.** I computed the Fourier power of `W_E` with the 112 non-zero tokens ordered
 by discrete logarithm base 3: the top frequencies are 4, 41, 28, 31 (75% of the power; the next is 4%), and `W_U`
@@ -310,7 +316,14 @@ structure only appears after reordering the tokens by discrete log, which the re
   on them, the reader's 38–47% with rougher amplitudes. A lumped 10-dimensional variable faces the easier coordinate
   edit (67–76% in E3). "Splitting must never raise the bar" is therefore still not true in practice.
 
-**Planned change after this batch (not applied while runs are in flight).** Judge v3.1: at a site with several
+**Conclusion.** Level 2 holds on this batch: with nothing changed, the constructor produced complete, intervention-
+verified constructions of four networks it was not developed on, including a trained network (mod-mul) whose
+mechanism differs from the development network's. The weight controls behave: shuffled and untrained weights give no
+verified construction and no claimed mechanism, permuted weights give the same construction. The caveats: one run per
+held-out network so far; the compiled networks are small and have fixed input length; mod-add itself is still at 3 of
+4 stages.
+
+**Planned change after this batch (applied in E10).** Judge v3.1: at a site with several
 variables, the off-manifold requirement is met if every single-variable swap passes OR the coordinate edit of
 everything named at the site passes. These are two protocols for the same question, so a split construction can
 never score worse than the same content lumped. The change only relaxes; constructions that pass v3 still pass.
