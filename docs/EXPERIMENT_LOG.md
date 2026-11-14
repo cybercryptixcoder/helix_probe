@@ -346,6 +346,13 @@ constructor page. A decision counts as right only if every output position is ri
 | `tracr_first_match` | 84.9% (30.8%) | 79.0% (0%) | 75.5% | 93.7% (79.1%) |
 | `tracr_count_greater` | 45.6% (21.0%) | 32.0% (0%) | 23.6% | 49.2% (25.3%) |
 | `tracr_hist` | 36.4% (5.5%) | 39.8% (0%) | 23.9% | 59.6% (32.9%) |
+| `modmul_p113` (added 20:50) | 74.1% (28.4%) | 77.3% (0%) | 72.5% | 90.3% (59.9%) |
+
+Mod-mul by site (construction / attribution patching / no change): `embed.0` 76.4 / 76.5 / 67.2, `embed.1`
+82.6 / 84.3 / 79.2, `attn_out` 50.9 / 85.4 / 80.1, `resid_mid` 38.7 / 80.3 / 63.6, `mlp_post` 70.3 / 100 / 70.5,
+`mlp_out` 81.9 / 100 / 75.2, `resid_post` 90.0 / 100 / 85.1. The construction is below "no change" overall because of
+the two attention-stage sites: its model squares the additive code there, so an arbitrary edit of the code is
+amplified in the prediction but not in the network.
 
 **Conclusion.** Same shape as on mod-add. The construction beats the behaviour-only surrogate and the statistics
 regressor on three of four networks (on `tracr_hist` it is below "no change"), and attribution patching is ahead on

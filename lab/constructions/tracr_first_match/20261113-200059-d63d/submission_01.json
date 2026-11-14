@@ -1,0 +1,569 @@
+{
+ "n_inputs": 1024,
+ "n_fit": 512,
+ "n_test": 512,
+ "source_chars": 1504,
+ "variables": {
+  "e": {
+   "dim": 30,
+   "sites": [
+    "embed"
+   ]
+  },
+  "t1": {
+   "dim": 6,
+   "sites": []
+  },
+  "att": {
+   "dim": 36,
+   "sites": [
+    "attn0.out"
+   ]
+  },
+  "mid": {
+   "dim": 66,
+   "sites": [
+    "resid0.mid"
+   ]
+  },
+  "pre": {
+   "dim": 66,
+   "sites": [
+    "mlp0.pre"
+   ]
+  },
+  "post": {
+   "dim": 66,
+   "sites": [
+    "mlp0.post"
+   ]
+  },
+  "mout": {
+   "dim": 66,
+   "sites": [
+    "mlp0.out",
+    "resid0.post"
+   ]
+  },
+  "fin": {
+   "dim": 66,
+   "sites": []
+  }
+ },
+ "unaligned_variables": [
+  "t1",
+  "fin"
+ ],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": 1.0,
+  "kl": 1.800266282725418e-18,
+  "baseline_constant_match": 0.310546875
+ },
+ "sites": {
+  "embed": {
+   "width": 108,
+   "variables": [
+    "e"
+   ],
+   "named_dims": 30,
+   "named_rank": 15,
+   "pca_sufficient_rank": 13,
+   "activation_rank": 15,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": -1.49246148605696e-17,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.03515625,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.013671875,
+   "remove_random_match": 0.9895833333333334,
+   "used_rank": 15,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "attn0.out": {
+   "width": 108,
+   "variables": [
+    "att"
+   ],
+   "named_dims": 36,
+   "named_rank": 3,
+   "pca_sufficient_rank": 3,
+   "activation_rank": 3,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": -4.876632416749394e-18,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.0,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.0,
+   "remove_random_match": 1.0,
+   "used_rank": 3,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "resid0.mid": {
+   "width": 108,
+   "variables": [
+    "mid"
+   ],
+   "named_dims": 66,
+   "named_rank": 15,
+   "pca_sufficient_rank": 13,
+   "activation_rank": 15,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": -1.696460749191176e-17,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.0,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.013671875,
+   "remove_random_match": 0.9342447916666666,
+   "used_rank": 15,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "mlp0.pre": {
+   "width": 96,
+   "variables": [
+    "pre"
+   ],
+   "named_dims": 66,
+   "named_rank": 15,
+   "pca_sufficient_rank": 14,
+   "activation_rank": 15,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": -1.648257080640795e-17,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.03515625,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.03515625,
+   "remove_random_match": 0.7486979166666666,
+   "used_rank": 15,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "mlp0.post": {
+   "width": 96,
+   "variables": [
+    "post"
+   ],
+   "named_dims": 66,
+   "named_rank": 15,
+   "pca_sufficient_rank": 42,
+   "activation_rank": 51,
+   "explained": 0.4469379082683934,
+   "substitute_match": 0.310546875,
+   "substitute_kl": 0.07075864068101012,
+   "substitute_r2": -0.03909490640542934,
+   "mean_ablate_match": 0.310546875,
+   "recovered": 0.0,
+   "keep_named_match": 0.310546875,
+   "remove_named_match": 1.0,
+   "remove_random_match": 0.9537760416666666,
+   "used_rank": 0,
+   "unused_variables": [
+    "post"
+   ],
+   "off_manifold": "edit",
+   "pass": false
+  },
+  "mlp0.out": {
+   "width": 108,
+   "variables": [
+    "mout"
+   ],
+   "named_dims": 66,
+   "named_rank": 4,
+   "pca_sufficient_rank": 4,
+   "activation_rank": 4,
+   "explained": -0.03788246352313762,
+   "substitute_match": 0.310546875,
+   "substitute_kl": 0.0707586406810101,
+   "substitute_r2": -0.03909490640542912,
+   "mean_ablate_match": 0.310546875,
+   "recovered": 0.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.310546875,
+   "remove_random_match": 1.0,
+   "used_rank": 0,
+   "unused_variables": [
+    "mout"
+   ],
+   "off_manifold": "edit",
+   "pass": false
+  },
+  "resid0.post": {
+   "width": 108,
+   "variables": [
+    "mout"
+   ],
+   "named_dims": 66,
+   "named_rank": 15,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 19,
+   "explained": 0.8256705225923885,
+   "substitute_match": 0.310546875,
+   "substitute_kl": 0.0707586406810101,
+   "substitute_r2": -0.03909490640542934,
+   "mean_ablate_match": 0.310546875,
+   "recovered": 0.0,
+   "keep_named_match": 0.310546875,
+   "remove_named_match": 1.0,
+   "remove_random_match": 1.0,
+   "used_rank": 0,
+   "unused_variables": [
+    "mout"
+   ],
+   "off_manifold": "edit",
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "e",
+   "variables": [
+    "e"
+   ],
+   "site": "embed",
+   "mode": "interchange",
+   "dim": 30,
+   "agreement": 0.149,
+   "r2": -1.0122711140023446,
+   "network_changed": 0.851,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.149,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.853,
+   "attribution_patching": 0.2565,
+   "attribution_patching_when_changed": 0.2573443008225617,
+   "pass": false
+  },
+  {
+   "variable": "e",
+   "variables": [
+    "e"
+   ],
+   "site": "embed",
+   "mode": "edit",
+   "dim": 30,
+   "agreement": 0.243,
+   "r2": -0.8579114277496158,
+   "network_changed": 0.757,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.243,
+   "baseline_source_output": 0.2365,
+   "control_random_subspace": 0.8275,
+   "attribution_patching": 0.3955,
+   "attribution_patching_when_changed": 0.3038309114927345,
+   "pass": false
+  },
+  {
+   "variable": "att",
+   "variables": [
+    "att"
+   ],
+   "site": "attn0.out",
+   "mode": "interchange",
+   "dim": 36,
+   "agreement": 0.2565,
+   "r2": -1.360053052344965,
+   "network_changed": 0.7435,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.2565,
+   "baseline_source_output": 0.0375,
+   "control_random_subspace": 0.9625,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": false
+  },
+  {
+   "variable": "att",
+   "variables": [
+    "att"
+   ],
+   "site": "attn0.out",
+   "mode": "edit",
+   "dim": 36,
+   "agreement": 0.561,
+   "r2": -0.34903089324810344,
+   "network_changed": 0.439,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.561,
+   "baseline_source_output": 0.081,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 0.893,
+   "attribution_patching_when_changed": 0.816628701594533,
+   "pass": false
+  },
+  {
+   "variable": "mid",
+   "variables": [
+    "mid"
+   ],
+   "site": "resid0.mid",
+   "mode": "interchange",
+   "dim": 66,
+   "agreement": 0.149,
+   "r2": -1.0122711140023468,
+   "network_changed": 0.851,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.149,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.7565,
+   "attribution_patching": 0.2565,
+   "attribution_patching_when_changed": 0.2573443008225617,
+   "pass": false
+  },
+  {
+   "variable": "mid",
+   "variables": [
+    "mid"
+   ],
+   "site": "resid0.mid",
+   "mode": "edit",
+   "dim": 66,
+   "agreement": 0.25,
+   "r2": -1.3995080392873307,
+   "network_changed": 0.75,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.25,
+   "baseline_source_output": 0.253,
+   "control_random_subspace": 0.7625,
+   "attribution_patching": 0.3975,
+   "attribution_patching_when_changed": 0.32466666666666666,
+   "pass": false
+  },
+  {
+   "variable": "pre",
+   "variables": [
+    "pre"
+   ],
+   "site": "mlp0.pre",
+   "mode": "interchange",
+   "dim": 66,
+   "agreement": 0.149,
+   "r2": -1.0122711140023468,
+   "network_changed": 0.851,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.149,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.428,
+   "attribution_patching": 0.2565,
+   "attribution_patching_when_changed": 0.2573443008225617,
+   "pass": false
+  },
+  {
+   "variable": "pre",
+   "variables": [
+    "pre"
+   ],
+   "site": "mlp0.pre",
+   "mode": "edit",
+   "dim": 66,
+   "agreement": 0.2555,
+   "r2": -1.4339326994716992,
+   "network_changed": 0.7445,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.2555,
+   "baseline_source_output": 0.2585,
+   "control_random_subspace": 0.4305,
+   "attribution_patching": 0.4015,
+   "attribution_patching_when_changed": 0.3331094694425789,
+   "pass": false
+  },
+  {
+   "variable": "post",
+   "variables": [
+    "post"
+   ],
+   "site": "mlp0.post",
+   "mode": "interchange",
+   "dim": 66,
+   "agreement": 1.0,
+   "r2": 0.9741497946012154,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.149,
+   "control_random_subspace": 0.6595,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "post",
+   "variables": [
+    "post"
+   ],
+   "site": "mlp0.post",
+   "mode": "edit",
+   "dim": 66,
+   "agreement": 1.0,
+   "r2": 0.9897893163756712,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.149,
+   "control_random_subspace": 0.7635,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "mout",
+   "variables": [
+    "mout"
+   ],
+   "site": "mlp0.out",
+   "mode": "interchange",
+   "dim": 66,
+   "agreement": 1.0,
+   "r2": 0.9995045551148649,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.149,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "mout",
+   "variables": [
+    "mout"
+   ],
+   "site": "mlp0.out",
+   "mode": "edit",
+   "dim": 66,
+   "agreement": 1.0,
+   "r2": 0.989486890503043,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.149,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "mout",
+   "variables": [
+    "mout"
+   ],
+   "site": "resid0.post",
+   "mode": "interchange",
+   "dim": 66,
+   "agreement": 1.0,
+   "r2": 0.9741497946012155,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.149,
+   "control_random_subspace": 0.981,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  },
+  {
+   "variable": "mout",
+   "variables": [
+    "mout"
+   ],
+   "site": "resid0.post",
+   "mode": "edit",
+   "dim": 66,
+   "agreement": 1.0,
+   "r2": 0.9896125489024131,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.149,
+   "control_random_subspace": 0.9845,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": true
+  }
+ ],
+ "uncovered_sites": [],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed"
+   ],
+   "named": [
+    "embed"
+   ],
+   "verified": []
+  },
+  "layer 0 attention": {
+   "sites": [
+    "attn0.out",
+    "resid0.mid"
+   ],
+   "named": [
+    "attn0.out",
+    "resid0.mid"
+   ],
+   "verified": []
+  },
+  "layer 0 mlp neurons": {
+   "sites": [
+    "mlp0.pre",
+    "mlp0.post"
+   ],
+   "named": [
+    "mlp0.pre",
+    "mlp0.post"
+   ],
+   "verified": []
+  },
+  "layer 0 output": {
+   "sites": [
+    "mlp0.out",
+    "resid0.post"
+   ],
+   "named": [
+    "mlp0.out",
+    "resid0.post"
+   ],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "interchange of e at embed: prediction right in 0.0% of the cases where the network's output changed (need 90%)",
+   "edit of e at embed: prediction right in 0.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "interchange of att at attn0.out: prediction right in 0.0% of the cases where the network's output changed (need 90%)",
+   "edit of att at attn0.out: prediction right in 0.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "interchange of mid at resid0.mid: prediction right in 0.0% of the cases where the network's output changed (need 90%)",
+   "edit of mid at resid0.mid: prediction right in 0.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "interchange of pre at mlp0.pre: prediction right in 0.0% of the cases where the network's output changed (need 90%)",
+   "edit of pre at mlp0.pre: prediction right in 0.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "substitution at mlp0.post: 31.1% (need 90%)",
+   "removal at mlp0.post: removing the named subspace leaves 100.0% of decisions, while mean-ablating the whole site leaves 31.1%: what you named is not what the output depends on here",
+   "substitution at mlp0.out: 31.1% (need 90%)",
+   "substitution at resid0.post: 31.1% (need 90%)",
+   "removal at resid0.post: removing the named subspace leaves 100.0% of decisions, while mean-ablating the whole site leaves 31.1%: what you named is not what the output depends on here"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 2.14
+}
