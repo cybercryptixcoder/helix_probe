@@ -358,7 +358,15 @@ class Task:
         return out
 
     def acts(self, x, sites):
-        return self.run(x, sites=list(sites))[1]
+        sites = list(sites)
+        if self._use_cache and all(parse_site(s)[0] == "resid" for s in sites):      # residual sites are read from the cache: no forward pass
+            idx = self.index(x)
+            out = {}
+            for s in sites:
+                _, layer, _, pos = self.check_site(s)
+                out[s] = self.resid(layer, idx).reshape(len(idx), -1) if pos == "*" else self.resid(layer, idx, pos)
+            return out
+        return self.run(x, sites=sites)[1]
 
     def run_tokens(self, tokens, hook=None, sites=(), answers_only=False):
         """Any token sequences [B, T'] (not only the task's prompts): returns (logits at the last position [B, n_vocab],
