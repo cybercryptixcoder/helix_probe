@@ -1,0 +1,49 @@
+# Using Interpretability to Identify a Novel Class of Alzheimer's Biomarkers
+
+- **Key:** goodfire-com-research-interpretability-for-alzheimers-detection
+- **Authors / organisation:** Nicholas Wang, Ching Fang, Mark Bissell, Dron Hazra, Michael Pearce, Archa Jain, Daniel Balsam, Christoforos Nalmpantis, Pouya Niki, Pooja Kathail, Andrey Karailiev, Javkhlan-Ochir Ganbat, Luca Giacomoni, Jonathan Wan, Ravi Solanki; Goodfire Research with Prima Mente (and University of Oxford)
+- **Date:** 2026-01-28
+- **Link:** https://www.goodfire.com/research/interpretability-for-alzheimers-detection
+- **Kind:** blog/research post
+- **Read from:** full text — the whole post, from the author block through the Limitations and Discussion, plus the reference list. **No figure inspected**: the fragment-length manifold, the SAE-feature attribution panel and the classifier ROC panels are described only from the prose that explains them, so no curve shape or plotted value is quoted here. The Pleiades paper (bioRxiv), the OPTIMA cohort and the code were not fetched or run.
+- **Relevance to us:** 2 (useful)
+
+## What they wanted, and why
+
+The post's thesis is that interpretability of a scientific foundation model can be used as a *prioritiser for experiments*, not just as an audit: it narrows an enormous space of candidate biological signals down to one worth testing first, and then the test is run cheaply and independently of the model. Concretely, they wanted to know *how* a methylation-aware genomic foundation model detects Alzheimer's disease (AD) from a blood draw, and they came in expecting the answer to be methylation — that is what the literature emphasises. The stated contribution is "interpretability as a tool for hypothesis triage": inspect what the model learned, use it to pick a signal, build a simple model to check the signal on its own, and report whether it survives. It is a step toward treating model internals as a source of falsifiable scientific hypotheses about a domain in which the analyst cannot read the raw data.
+
+## What they studied
+
+**Pleiades**, Prima Mente's 7B-parameter epigenetic foundation model, pretrained on 1.9 trillion tokens of human genomic and cell-free DNA (cfDNA) sequence with methylation state encoded in the tokens, in two stages (next-token prediction, then a reconstruction objective). The downstream task is patient-level AD classification from blood cfDNA: a hierarchical attention model aggregates Pleiades embeddings from many fragments into one per differentially-methylated region (DMR), then DMRs into a patient embedding. Training cohort: 81 individuals from an Oxford University study, roughly half diagnosed with AD, matched on age and sex, over 30 billion cfDNA fragments; independent test cohort: 25 individuals from OPTIMA, differing mainly in age, diagnostic method and possible batch effects. Unit of analysis is heterogeneous by stage: **individual fragments** for the probes, **SAE features of the last-layer representation** for the attribution, **per-DMR fragment-length statistics** for the distilled classifier, and **patients** for the AUROCs.
+
+## How they did it
+
+Three stages, each answering a different question. (1) *What is in the representation?* Lightweight supervised probes on single-fragment last-layer embeddings test whether methylation, fragment length and genomic locus identity are recoverable. (2) *What does the model actually use?* A BatchTopK sparse autoencoder is trained on last-layer representations over cfDNA pretraining data, and gradient attribution from the classifier's disease logit identifies the features responsible for most of the decision — nine features account for "the majority" of it, and all of them correlate strongly with fragment length. (3) *Does the signal stand on its own?* Fragment embeddings are projected into a 3D PCA space, fragment length maps onto a smooth U-shaped trajectory, and local curvature along that trajectory is measured to find lengths encoded with more precision than their neighbours; known nucleosome lengths (147 bp core, 167 bp with linker) come out at curvature minima. Those curvature-defined ranges become features: seven fragment-length statistics (mean, median, percentiles, fractions in the privileged size bands) over 354 DMRs in four cell types, rank-normalised *within each individual across DMRs* to blunt batch effects, then feature selection over 100 bootstraps of the training set keeping only features chosen in ≥90% of bootstraps — 11 of 2,478 candidates survive — into a logistic regression scored on the independent cohort. The same pipeline is rerun with methylation-derived features and with cell-type-deconvolution features as comparison arms, and finally with all three families combined. A Parkinson's cohort serves as a specificity test.
+
+## What counts as an explanation here
+
+A **feature dictionary plus an attribution ranking plus an interpretable surrogate**: the mechanistic story is "these nine SAE features, all reading fragment length, carry most of the classifier's decision", and the operational form of the explanation is a *simple model built out of the biological quantities the dictionary pointed at* — 11 explicit DMR × fragment-length-statistic features in a logistic regression. It is deliberately partial and deliberately testable: they do not claim to explain the model, they claim to have extracted a hypothesis from it and then validated the hypothesis *without* the model. The geometric piece (curvature of the fragment-length manifold, with minima at 147 and 167 bp) is offered as a second, weaker kind of explanation — a claim about where the model spends representational precision.
+
+## How they judged success
+
+Held-out AUROC with 95% confidence intervals on the independent OPTIMA cohort, per feature family — fragmentomics alone, methylation alone, deconvolution alone, pairwise combinations, all three — plus the same statistic on a Parkinson's dataset as a disease-specificity control. The bootstrap-stability criterion (feature retained in ≥90% of 100 training-set bootstraps) is the only internal control on feature selection, and the cell-type and DMR-gene annotations are used as plausibility checks rather than as scores. No ablation of the SAE features inside Pleiades, no random-direction or random-feature-set control, and no calibration or decision-threshold analysis is reported.
+
+## What they found
+
+Fragmentomics alone generalised: AUROC 0.78 (95% CI 0.56–0.95). Methylation-derived features alone did not (0.55, CI 0.29–0.79), nor did cell-type deconvolution alone (0.54, CI 0.31–0.78), but the three families were *additive*: all three together reached 0.84 (CI 0.66–0.97), fragmentomics plus methylation 0.84 (CI 0.67–0.99), fragmentomics plus deconvolution 0.83 (CI 0.65–0.96). On the Parkinson's data the final classifier gave 0.51 (CI 0.41–0.62), i.e. no transfer — their reading is that the signal may support differential diagnosis. The selected features draw on all four cell types, are dominated by a "< nucleosomal core" fraction type (with thresholds taken from the Pleiades manifold), and cluster near genes they describe as plausibly AD-related plus known risk genes; they explicitly say the functional and causal status of those DMRs is unconfirmed. The probe result is the internal contrast that makes the story interesting: the representation *contains* methylation, length and (less well) locus, yet attribution says the classifier leans on length.
+
+## Limits and open problems they name
+
+Small single-cohort discovery set (81 patients) with a narrow demographic and geographic base, wide confidence intervals, and validation in larger cohorts merely "underway". The interpretability-to-biology gap is stated plainly: interpretability says which features drive the prediction, not whether those features track disease biology — fragment length could be predictive through a confounder. Establishing a mechanism needs wet-lab work they did not do. They also flag the DMR-to-gene associations as unconfirmed.
+
+## What we take from it
+
+Three things, in order of value. (a) **A template for turning a read-out into a prediction and scoring the prediction outside the model** — the pipeline "SAE + gradient attribution → name the quantity → rebuild the quantity from raw inputs as an explicit feature set → test on a *held-out cohort*" is the cheapest available answer to the objection that an interpretability claim is unfalsifiable, and it is exactly the discipline our own entries keep asking for. (b) **A caution about the frame, not the numbers**: the surrogate is validated on its own merits, so a success proves the *signal* is real and says nothing about whether Pleiades' features are faithful — the model is a hypothesis generator, and the hypothesis check bypasses it entirely. Worth copying: say which of the two claims a result supports. (c) **A reusable trick for tiny-n with many features** — rank-normalise each feature type across regions *within each sample* so absolute level differences between samples (batch) are removed while the within-sample profile is preserved, then bootstrap-select and keep only stable features; the 11-of-2478 retention rate is the honest price of this and should be reported everywhere we do the same. Marked as **mine, not theirs**: no random-feature-set arm, so the bootstrap stability criterion is selection on the training set measured on the training set; every AUROC CI below 0.97 brackets both worthless and excellent, and the "majority of decisions" attribution claim is never quantified; and the 0.84 blended models differ by one or two patients at n=25, so the ordering of feature families is not established by these intervals.
+
+## Tags
+
+unit: feature | layer
+form: dictionary | probe | replacement-model
+method: SAE | probing | attribution | other
+eval: downstream-task | prediction/simulation
+goal: science | understanding

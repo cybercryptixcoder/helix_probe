@@ -106,7 +106,7 @@ Read all of these (they were triaged as useful or minor, not essential). Title |
 - Using Interpretability to Identify a Novel Class of Alzheimer's Biomarkers | 2026-01 | https://www.goodfire.com/research/interpretability-for-alzheimers-detection | goodfire
 - Features as Rewards: Using Interpretability to Reduce Hallucinations (RLFR) | 2026-02 | https://www.goodfire.com/research/rlfr | goodfire
 - Features as Rewards: Scalable Supervision for Open-Ended Tasks via Interpretability (arXiv) | 2026-02 | https://arxiv.org/abs/2602.10067 | goodfire
-- Interpretability Infrastructure at Frontier Scale: Harvesting Activations from a Trillion-Parameter Model | 2026-02 | https://www.goodfire.com/blog/interpretability-infra-at-frontier-scale | goodfire
+- [x] Interpretability Infrastructure at Frontier Scale: Harvesting Activations from a Trillion-Parameter Model | 2026-02 | https://www.goodfire.com/blog/interpretability-infra-at-frontier-scale | goodfire
 - Intentionally Designing the Future of AI | 2026-02 | https://www.goodfire.com/blog/intentional-design | goodfire
 - Understanding, Learning From, and Designing AI: Our Series B | 2026-02 | https://www.goodfire.com/blog/our-series-b | goodfire
 - Reasoning Theater: Probing for Performative Chain-of-Thought | 2026-03 | https://www.goodfire.com/research/reasoning-theater | goodfire
