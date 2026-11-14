@@ -1,0 +1,223 @@
+{
+ "n_inputs": 12769,
+ "n_fit": 6384,
+ "n_test": 6385,
+ "source_chars": 1063,
+ "variables": {
+  "e0": {
+   "dim": 8,
+   "sites": [
+    "embed.0"
+   ]
+  },
+  "e1": {
+   "dim": 8,
+   "sites": [
+    "embed.1"
+   ]
+  },
+  "e2": {
+   "dim": 1,
+   "sites": []
+  }
+ },
+ "unaligned_variables": [
+  "e2"
+ ],
+ "constant_sites_ignored": [
+  "embed.2"
+ ],
+ "behaviour": {
+  "match": 1.0,
+  "r2": -0.17245316119181586,
+  "kl": 0.0006365965407001192,
+  "baseline_constant_match": 0.010649960845732186
+ },
+ "sites": {
+  "embed.0": {
+   "width": 128,
+   "variables": [
+    "e0"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.8740015220660664,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0005979130215883268,
+   "substitute_r2": 0.9806445249871725,
+   "mean_ablate_match": 0.008927173061863743,
+   "recovered": 1.0,
+   "keep_named_match": 0.9996867658574785,
+   "remove_named_match": 0.005794831636648395,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "embed.1": {
+   "width": 128,
+   "variables": [
+    "e1"
+   ],
+   "named_dims": 8,
+   "named_rank": 8,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
+   "explained": 0.8734991795601484,
+   "substitute_match": 1.0,
+   "substitute_kl": 0.0005909586808026731,
+   "substitute_r2": 0.9804388584666874,
+   "mean_ablate_match": 0.00845732184808144,
+   "recovered": 1.0,
+   "keep_named_match": 0.9993735317149569,
+   "remove_named_match": 0.004698512137823023,
+   "remove_random_match": 1.0,
+   "used_rank": 8,
+   "unused_variables": [],
+   "off_manifold": "fails",
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "e0",
+   "variables": [
+    "e0"
+   ],
+   "site": "embed.0",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 0.007,
+   "r2": -0.24350154632017507,
+   "network_changed": 0.993,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.007,
+   "baseline_source_output": 0.009,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 0.339,
+   "attribution_patching_when_changed": 0.33434038267875127,
+   "pass": false
+  },
+  {
+   "variable": "e0",
+   "variables": [
+    "e0"
+   ],
+   "site": "embed.0",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.209,
+   "r2": -0.2139115936773699,
+   "network_changed": 0.791,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.209,
+   "baseline_source_output": 0.0055,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 0.4295,
+   "attribution_patching_when_changed": 0.3053097345132743,
+   "pass": false
+  },
+  {
+   "variable": "e1",
+   "variables": [
+    "e1"
+   ],
+   "site": "embed.1",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 0.009,
+   "r2": -0.2355624670103429,
+   "network_changed": 0.991,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.009,
+   "baseline_source_output": 0.007,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 0.31,
+   "attribution_patching_when_changed": 0.30373360242179614,
+   "pass": false
+  },
+  {
+   "variable": "e1",
+   "variables": [
+    "e1"
+   ],
+   "site": "embed.1",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.1825,
+   "r2": -0.20878848293957808,
+   "network_changed": 0.8175,
+   "agreement_when_changed": 0.0,
+   "baseline_no_change": 0.1825,
+   "baseline_source_output": 0.008,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 0.422,
+   "attribution_patching_when_changed": 0.309480122324159,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [
+  "attn_pattern",
+  "attn_out",
+  "resid_mid",
+  "mlp_pre",
+  "mlp_post",
+  "mlp_out",
+  "resid_post"
+ ],
+ "stages": {
+  "embedding": {
+   "sites": [
+    "embed.0",
+    "embed.1"
+   ],
+   "named": [
+    "embed.0",
+    "embed.1"
+   ],
+   "verified": []
+  },
+  "attention": {
+   "sites": [
+    "attn_pattern",
+    "attn_out",
+    "resid_mid"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "mlp neurons": {
+   "sites": [
+    "mlp_pre",
+    "mlp_post"
+   ],
+   "named": [],
+   "verified": []
+  },
+  "readout": {
+   "sites": [
+    "mlp_out",
+    "resid_post"
+   ],
+   "named": [],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "interchange of e0 at embed.0: prediction right in 0.0% of the cases where the network's output changed (need 90%)",
+   "edit of e0 at embed.0: prediction right in 0.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "interchange of e1 at embed.1: prediction right in 0.0% of the cases where the network's output changed (need 90%)",
+   "edit of e1 at embed.1: prediction right in 0.0% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)"
+  ],
+  "stages_total": 4,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 10.7
+}

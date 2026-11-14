@@ -1,0 +1,244 @@
+{
+ "n_inputs": 6000,
+ "n_fit": 3000,
+ "n_test": 3000,
+ "source_chars": 2177,
+ "variables": {
+  "sel_a": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "sel_b": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "h2": {
+   "dim": 8,
+   "sites": [
+    "h2"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 0.4673333333333333,
+  "r2": -0.27149377455765955,
+  "kl": 15.979999999994238,
+  "baseline_constant_match": 0.4673333333333333
+ },
+ "sites": {
+  "h1": {
+   "width": 32,
+   "variables": [
+    "sel_a",
+    "sel_b"
+   ],
+   "named_dims": 2,
+   "named_rank": 2,
+   "pca_sufficient_rank": 5,
+   "activation_rank": 6,
+   "explained": 0.36554453351196237,
+   "substitute_match": 0.4673333333333333,
+   "substitute_kl": 15.97999999999706,
+   "substitute_r2": -0.2714937745578392,
+   "mean_ablate_match": 0.4673333333333333,
+   "recovered": 0.0,
+   "keep_named_match": 0.2763333333333333,
+   "remove_named_match": 0.4673333333333333,
+   "remove_random_match": 0.5487777777777777,
+   "used_rank": 1,
+   "unused_variables": [
+    "sel_b"
+   ],
+   "off_manifold": "edit",
+   "pass": false
+  },
+  "h2": {
+   "width": 32,
+   "variables": [
+    "h2"
+   ],
+   "named_dims": 8,
+   "named_rank": 3,
+   "pca_sufficient_rank": 5,
+   "activation_rank": 8,
+   "explained": 0.08719298571919143,
+   "substitute_match": 0.4673333333333333,
+   "substitute_kl": 5.865735442297453,
+   "substitute_r2": 0.06402322773031954,
+   "mean_ablate_match": 0.4673333333333333,
+   "recovered": 0.0,
+   "keep_named_match": 0.7243333333333334,
+   "remove_named_match": 1.0,
+   "remove_random_match": 1.0,
+   "used_rank": 0,
+   "unused_variables": [
+    "h2"
+   ],
+   "off_manifold": "fails",
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "all variables",
+   "variables": [
+    "sel_a",
+    "sel_b"
+   ],
+   "site": "h1",
+   "mode": "interchange",
+   "dim": 2,
+   "agreement": 0.663,
+   "r2": -0.23378377742846324,
+   "network_changed": 0.423,
+   "agreement_when_changed": 0.7375886524822695,
+   "baseline_no_change": 0.577,
+   "baseline_source_output": 0.4235,
+   "control_random_subspace": 0.354,
+   "attribution_patching": 0.577,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "sel_a",
+   "variables": [
+    "sel_a"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 0.663,
+   "r2": -0.23275697036719367,
+   "network_changed": 0.423,
+   "agreement_when_changed": 0.7375886524822695,
+   "baseline_no_change": 0.577,
+   "baseline_source_output": 0.4225,
+   "control_random_subspace": 0.373,
+   "attribution_patching": 0.577,
+   "attribution_patching_when_changed": 0.0,
+   "pass": true
+  },
+  {
+   "variable": "sel_b",
+   "variables": [
+    "sel_b"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 0.461,
+   "r2": -0.2774132924244759,
+   "network_changed": 0.0045,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.9955,
+   "baseline_source_output": 0.357,
+   "control_random_subspace": 0.4225,
+   "attribution_patching": 0.9955,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "sel_a",
+    "sel_b"
+   ],
+   "site": "h1",
+   "mode": "edit",
+   "dim": 2,
+   "agreement": 0.4855,
+   "r2": -0.2743077010664132,
+   "network_changed": 0.154,
+   "agreement_when_changed": 0.5487012987012987,
+   "baseline_no_change": 0.846,
+   "baseline_source_output": 0.386,
+   "control_random_subspace": 0.3425,
+   "attribution_patching": 0.846,
+   "attribution_patching_when_changed": 0.0,
+   "pass": true
+  },
+  {
+   "variable": "h2",
+   "variables": [
+    "h2"
+   ],
+   "site": "h2",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 0.4565,
+   "r2": -0.2993186097591296,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.3555,
+   "control_random_subspace": 0.4565,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": false
+  },
+  {
+   "variable": "h2",
+   "variables": [
+    "h2"
+   ],
+   "site": "h2",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.4565,
+   "r2": -0.2880984994984386,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.3555,
+   "control_random_subspace": 0.4565,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [],
+ "stages": {
+  "hidden layer 1": {
+   "sites": [
+    "h1"
+   ],
+   "named": [
+    "h1"
+   ],
+   "verified": []
+  },
+  "hidden layer 2": {
+   "sites": [
+    "h2"
+   ],
+   "named": [
+    "h2"
+   ],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "behaviour: the construction's output agrees with the network on 46.7% of inputs (need 95%)",
+   "substitution at h1: 46.7% (need 90%)",
+   "interchange of all variables at h1: prediction right in 73.8% of the cases where the network's output changed (need 90%)",
+   "partial of sel_b at h1: the network's output changed in only 0.4% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
+   "substitution at h2: 46.7% (need 90%)",
+   "removal at h2: removing the named subspace leaves 100.0% of decisions, while mean-ablating the whole site leaves 46.7%: what you named is not what the output depends on here",
+   "interchange of h2 at h2: the network's output changed in only 0.0% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
+   "edit of h2 at h2: the network's output changed in only 0.0% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable"
+  ],
+  "stages_total": 2,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 0.34
+}

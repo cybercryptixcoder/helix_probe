@@ -1,0 +1,247 @@
+{
+ "n_inputs": 6000,
+ "n_fit": 3000,
+ "n_test": 3000,
+ "source_chars": 1702,
+ "variables": {
+  "u4": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "u5": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "h2a": {
+   "dim": 8,
+   "sites": [
+    "h2"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 0.17566666666666667,
+  "r2": -27.8139907678466,
+  "kl": 86.95218365812036,
+  "baseline_constant_match": 0.4673333333333333
+ },
+ "sites": {
+  "h1": {
+   "width": 32,
+   "variables": [
+    "u4",
+    "u5"
+   ],
+   "named_dims": 2,
+   "named_rank": 2,
+   "pca_sufficient_rank": 5,
+   "activation_rank": 6,
+   "explained": 0.36554453351196237,
+   "substitute_match": 0.4673333333333333,
+   "substitute_kl": 15.97999999999706,
+   "substitute_r2": -0.2714937745578392,
+   "mean_ablate_match": 0.4673333333333333,
+   "recovered": 0.0,
+   "keep_named_match": 0.2763333333333333,
+   "remove_named_match": 0.4673333333333333,
+   "remove_random_match": 0.5487777777777777,
+   "used_rank": 1,
+   "unused_variables": [
+    "u5"
+   ],
+   "off_manifold": "fails",
+   "pass": false
+  },
+  "h2": {
+   "width": 32,
+   "variables": [
+    "h2a"
+   ],
+   "named_dims": 8,
+   "named_rank": 1,
+   "pca_sufficient_rank": 5,
+   "activation_rank": 8,
+   "explained": 0.08121865722705979,
+   "substitute_match": 0.4673333333333333,
+   "substitute_kl": 5.525220058502562,
+   "substitute_r2": 0.06467281529507585,
+   "mean_ablate_match": 0.4673333333333333,
+   "recovered": 0.0,
+   "keep_named_match": 0.6263333333333333,
+   "remove_named_match": 1.0,
+   "remove_random_match": 1.0,
+   "used_rank": 0,
+   "unused_variables": [
+    "h2a"
+   ],
+   "off_manifold": "fails",
+   "pass": false
+  }
+ },
+ "interventions": [
+  {
+   "variable": "all variables",
+   "variables": [
+    "u4",
+    "u5"
+   ],
+   "site": "h1",
+   "mode": "interchange",
+   "dim": 2,
+   "agreement": 0.395,
+   "r2": -34.236079901387036,
+   "network_changed": 0.423,
+   "agreement_when_changed": 0.3900709219858156,
+   "baseline_no_change": 0.577,
+   "baseline_source_output": 0.4235,
+   "control_random_subspace": 0.278,
+   "attribution_patching": 0.577,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "u4",
+   "variables": [
+    "u4"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 0.397,
+   "r2": -34.258640138801965,
+   "network_changed": 0.423,
+   "agreement_when_changed": 0.39243498817966904,
+   "baseline_no_change": 0.577,
+   "baseline_source_output": 0.4225,
+   "control_random_subspace": 0.272,
+   "attribution_patching": 0.577,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "u5",
+   "variables": [
+    "u5"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 0.178,
+   "r2": -27.061047841200338,
+   "network_changed": 0.0045,
+   "agreement_when_changed": 0.4444444444444444,
+   "baseline_no_change": 0.9955,
+   "baseline_source_output": 0.357,
+   "control_random_subspace": 0.2055,
+   "attribution_patching": 0.9955,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "u4",
+    "u5"
+   ],
+   "site": "h1",
+   "mode": "edit",
+   "dim": 2,
+   "agreement": 0.214,
+   "r2": -24.359175904257967,
+   "network_changed": 0.154,
+   "agreement_when_changed": 0.2012987012987013,
+   "baseline_no_change": 0.846,
+   "baseline_source_output": 0.386,
+   "control_random_subspace": 0.3425,
+   "attribution_patching": 0.846,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
+   "variable": "h2a",
+   "variables": [
+    "h2a"
+   ],
+   "site": "h2",
+   "mode": "interchange",
+   "dim": 8,
+   "agreement": 0.3795,
+   "r2": -27.260931047295898,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.3555,
+   "control_random_subspace": 0.3795,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": false
+  },
+  {
+   "variable": "h2a",
+   "variables": [
+    "h2a"
+   ],
+   "site": "h2",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.2265,
+   "r2": -21.431649475318345,
+   "network_changed": 0.0,
+   "agreement_when_changed": null,
+   "baseline_no_change": 1.0,
+   "baseline_source_output": 0.3555,
+   "control_random_subspace": 0.2265,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": null,
+   "pass": false
+  }
+ ],
+ "uncovered_sites": [],
+ "stages": {
+  "hidden layer 1": {
+   "sites": [
+    "h1"
+   ],
+   "named": [
+    "h1"
+   ],
+   "verified": []
+  },
+  "hidden layer 2": {
+   "sites": [
+    "h2"
+   ],
+   "named": [
+    "h2"
+   ],
+   "verified": []
+  }
+ },
+ "verdict": {
+  "verified": false,
+  "fails": [
+   "behaviour: the construction's output agrees with the network on 17.6% of inputs (need 95%)",
+   "substitution at h1: 46.7% (need 90%)",
+   "interchange of all variables at h1: prediction right in 39.0% of the cases where the network's output changed (need 90%)",
+   "partial of u5 at h1: the network's output changed in only 0.4% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
+   "partial of u4 at h1: prediction right in 39.2% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "edit of all variables at h1: prediction right in 20.1% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
+   "(at h1 it is enough that EITHER every partial test OR the edit of all variables passes)",
+   "substitution at h2: 46.7% (need 90%)",
+   "removal at h2: removing the named subspace leaves 100.0% of decisions, while mean-ablating the whole site leaves 46.7%: what you named is not what the output depends on here",
+   "interchange of h2a at h2: the network's output changed in only 0.0% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
+   "edit of h2a at h2: the network's output changed in only 0.0% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable"
+  ],
+  "stages_total": 2,
+  "stages_verified": 0,
+  "complete": false,
+  "score": 0.0
+ },
+ "seconds": 0.35
+}
