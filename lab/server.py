@@ -266,6 +266,31 @@ def run_summary(rec):
             "answer_head": (rec.get("answer") or "")[:240], "title": c.get("title", ""), "started": rec.get("started")}
 
 
+# ---------------------------------------------------------------- the constructor (lab/constructor.py)
+CONS = LAB / "constructions"
+
+
+def construction_summary(rdir):
+    rec = json.loads((rdir / "run.json").read_text())
+    v = rec.get("verdict") or {}
+    c = rec["config"]
+    return {"id": rec["id"], "target": c["target"], "variant": c["variant"], "told": c["told"], "weights": c["weights"],
+            "title": c.get("title", ""), "status": rec["status"], "started": rec["started"], "seconds": rec.get("seconds"),
+            "steps": len(rec["steps"]), "submissions": len(rec["submissions"]), "cost": rec.get("cost", 0),
+            "verified": v.get("verified"), "complete": v.get("complete"),
+            "stages_verified": v.get("stages_verified"), "stages_total": v.get("stages_total")}
+
+
+def construction_detail(target, rid):
+    rdir = CONS / target / rid
+    out = {"run": json.loads((rdir / "run.json").read_text())}
+    for key, name in (("construction", "construction.py"), ("report_text", "report.txt")):
+        out[key] = (rdir / name).read_text() if (rdir / name).exists() else None
+    for key, name in (("report", "report.json"), ("predict", "predict.json")):
+        out[key] = json.loads((rdir / name).read_text()) if (rdir / name).exists() else None
+    return out
+
+
 # ---------------------------------------------------------------- HTTP
 class H(BaseHTTPRequestHandler):
     def log_message(self, *a):
@@ -286,6 +311,23 @@ class H(BaseHTTPRequestHandler):
         try:
             if p == "/":
                 return self.send(200, (STATIC / "index.html").read_bytes(), "text/html; charset=utf-8")
+            if p == "/constructor":
+                return self.send(200, (STATIC / "constructor.html").read_bytes(), "text/html; charset=utf-8")
+            if p == "/api/constructions":
+                recs = []
+                for f in sorted(CONS.glob("*/*/run.json"), key=lambda f: f.parent.name, reverse=True):
+                    try:
+                        recs.append(construction_summary(f.parent))
+                    except Exception:  # noqa: BLE001
+                        pass
+                return self.send(200, recs)
+            m = re.match(r"^/api/constructions/([\w-]+)/([\w-]+)$", p)
+            if m:
+                return self.send(200, construction_detail(m.group(1), m.group(2)))
+            m = re.match(r"^/api/constructions/([\w-]+)/([\w-]+)/submission/(\d+)$", p)
+            if m:       # the judge's report for one submission of a run (used while the run is still going)
+                f = CONS / m.group(1) / m.group(2) / f"submission_{int(m.group(3)):02d}.json"
+                return self.send(200, json.loads(f.read_text()) if f.exists() else {})
             if p == "/api/targets":
                 ids = json.loads((MODELS / "index.json").read_text())
                 return self.send(200, [public_meta(i) for i in ids])
@@ -341,6 +383,36 @@ class H(BaseHTTPRequestHandler):
                 rec["grade"], rec["note"] = b.get("grade"), b.get("note", "")
                 f.write_text(json.dumps(rec, indent=1))
                 return self.send(200, {"ok": True})
+            m = re.match(r"^/api/constructions/([\w-]+)/([\w-]+)/predict$", p)
+            if m:       # the held-out intervention benchmark for a finished construction (about a minute); cached in the run folder
+                import predict
+                rdir = CONS / m.group(1) / m.group(2)
+                variant = json.loads((rdir / "run.json").read_text())["config"]["variant"]
+                res = predict.run(m.group(1), (rdir / "construction.py").read_text(), variant=variant)
+                res["text"] = predict.render(res)
+                (rdir / "predict.json").write_text(json.dumps(res, indent=1))
+                return self.send(200, res)
+            if p == "/api/construct":
+                import constructor
+                cfg = self.body()
+                self.send_response(200)
+                self.send_header("Content-Type", "text/event-stream"); self.send_header("Cache-Control", "no-store")
+                self.send_header("X-Accel-Buffering", "no"); self.end_headers()
+                lock, holder = threading.Lock(), {}
+
+                def emit(ev):
+                    if ev["type"] == "start":
+                        holder["id"] = ev["id"]
+                    with lock:
+                        try:
+                            self.wfile.write(f"data: {json.dumps(ev)}\n\n".encode()); self.wfile.flush()
+                        except (BrokenPipeError, ConnectionResetError):
+                            pass        # the browser went away; the run continues and is saved
+                constructor.construct(cfg["target"], cfg.get("variant", "original"), told=bool(cfg.get("told")),
+                                      weights=not cfg.get("no_weights"), max_steps=int(cfg.get("steps", 80)),
+                                      one_shot=bool(cfg.get("one_shot")), title=cfg.get("title", ""), emit=emit,
+                                      cancelled=lambda: CANCEL.get(holder.get("id"), False))
+                return
             if p == "/api/run":
                 cfg = self.body()
                 self.send_response(200)

@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constructor · Weight Reading Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEDCC2; --card:#F7ECDC; --ink:#1C1A17; --yellow:#F6C744; --teal:#4FA596; --orange:#F0692A;
+  --blue:#7F9CE2; --green:#62BE76; --grey:#AEB4B5; --field:#FFF8EF; --shadow:#1C1A17;
+  --thick:3px solid var(--ink); --thin:2px solid var(--ink);
+  --mono:"Space Mono",ui-monospace,monospace; --serif:"Instrument Serif",Georgia,serif; --sans:"Archivo",system-ui,sans-serif;
+}
+:root[data-theme=dark]{
+  --paper:#13110F; --card:#1D1A17; --ink:#ECDFCB; --yellow:#F2C14E; --teal:#5BB5A5; --orange:#F07A3D; --blue:#94ADEC;
+  --green:#6BC27F; --grey:#8C9293; --field:#26221E; --shadow:rgb(236 223 203 / .45);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;overflow:hidden}
+button,select,input{font:inherit;color:inherit}
+button{cursor:pointer}
+.app{display:grid;grid-template-rows:64px 1fr;height:100vh}
+.top{display:flex;align-items:center;gap:14px;padding:0 18px;border-bottom:var(--thick);background:var(--card)}
+.wm{font-family:var(--serif);font-style:italic;font-size:30px;line-height:1}
+.wm b{font-family:var(--sans);font-style:normal;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;vertical-align:middle;margin-right:10px;padding:4px 8px;border:var(--thin);background:var(--yellow);color:#1C1A17}
+.spacer{flex:1}
+.pill{font-family:var(--mono);font-size:12px;padding:6px 10px;border:var(--thin);background:var(--field);white-space:nowrap}
+.btn{border:var(--thin);background:var(--card);padding:7px 12px;font-weight:600;box-shadow:3px 3px 0 var(--shadow);text-decoration:none;color:inherit}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--shadow)}
+.btn.orange{background:var(--orange);color:#1C1A17}.btn.teal{background:var(--teal);color:#1C1A17}
+.btn.sm{padding:4px 8px;font-size:12px;box-shadow:2px 2px 0 var(--shadow)}
+.btn.ghost{box-shadow:none;background:transparent}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.main{display:grid;grid-template-columns:300px minmax(380px,1fr) minmax(440px,1.15fr);gap:16px;padding:16px;min-height:0}
+.col{display:flex;flex-direction:column;gap:14px;min-height:0}
+.frame{background:var(--card);border:var(--thick);box-shadow:5px 5px 0 var(--shadow);display:flex;flex-direction:column;min-height:0}
+.frame>h2{margin:0;padding:10px 14px;border-bottom:var(--thin);font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;display:flex;align-items:center;gap:8px}
+.frame>h2 small{font-family:var(--mono);font-style:normal;font-size:11px;opacity:.7;margin-left:auto}
+.scroll{overflow:auto;min-height:0}
+.pad{padding:12px 14px}
+label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin:10px 0 4px}
+select,input[type=number]{width:100%;border:var(--thin);background:var(--field);padding:6px 8px}
+.row{display:flex;gap:8px;align-items:center}
+.chip{border:var(--thin);padding:4px 9px;font-family:var(--mono);font-size:11.5px;background:var(--field);cursor:pointer;user-select:none}
+.chip.on{background:var(--ink);color:var(--card)}
+.hint{font-family:var(--mono);font-size:11px;opacity:.7;line-height:1.45}
+.runitem{margin:6px 10px;padding:8px 10px;border:var(--thin);background:var(--field);cursor:pointer}
+.runitem:hover{background:var(--card)}
+.runitem.on{background:var(--yellow);color:#1C1A17;box-shadow:3px 3px 0 var(--shadow)}
+.runitem .t{font-weight:700;font-size:13px}
+.runitem .m{font-family:var(--mono);font-size:11px;opacity:.75}
+.badge{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:1px 6px;border:1.5px solid var(--ink);margin-left:4px;color:#1C1A17}
+.badge.ok{background:var(--green)}.badge.part{background:var(--yellow)}.badge.no{background:var(--orange)}.badge.run{background:var(--blue)}
+.step{border-bottom:1px dashed var(--ink);padding:10px 14px}
+.step .hd{font-family:var(--mono);font-size:11px;opacity:.65;margin-bottom:4px}
+.think{font-size:12.5px;opacity:.72;white-space:pre-wrap;max-height:120px;overflow:auto;border-left:3px solid var(--grey);padding-left:8px;margin:4px 0}
+.say{white-space:pre-wrap;margin:4px 0}
+pre{font-family:var(--mono);font-size:11.5px;line-height:1.45;margin:6px 0;padding:8px 10px;background:var(--field);border:var(--thin);overflow:auto;max-height:260px;white-space:pre}
+pre.out{border-style:dashed;max-height:180px}
+pre.rep{border-color:var(--teal);max-height:320px;white-space:pre-wrap}
+pre.code{max-height:none}
+.stages{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.stage{border:var(--thin);padding:5px 9px;font-size:12px;font-weight:600;color:#1C1A17}
+.stage.ok{background:var(--green)}.stage.fail{background:var(--orange)}.stage.none{background:var(--grey)}
+.stage small{display:block;font-family:var(--mono);font-weight:400;font-size:10.5px}
+table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:11.5px;margin:6px 0 12px}
+th,td{border:1px solid var(--ink);padding:3px 6px;text-align:right;white-space:nowrap}
+th{background:var(--field);font-weight:700}
+td:first-child,th:first-child,td.l,th.l{text-align:left}
+tr.bad td{background:rgb(240 105 42 / .22)}
+h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:19px;margin:14px 0 2px}
+.verdict{font-weight:800;font-size:15px;padding:8px 10px;border:var(--thin);color:#1C1A17}
+.verdict.ok{background:var(--green)}.verdict.part{background:var(--yellow)}.verdict.no{background:var(--orange)}
+.desc{font-family:var(--serif);font-size:17px;line-height:1.35;margin:8px 0}
+.note{font-size:12.5px;line-height:1.45;opacity:.8;margin:2px 0 6px}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="wm"><b>helix probe</b>constructor</div>
+    <div class="spacer"></div>
+    <span class="pill" id="usage">idle</span>
+    <a class="btn sm" href="/">Weight reading lab</a>
+    <button class="btn sm ghost" id="themeBtn" title="Light / dark">◐</button>
+  </div>
+  <div class="main">
+    <div class="col">
+      <div class="frame">
+        <h2>Run</h2>
+        <div class="pad">
+          <label>Network</label>
+          <select id="target"></select>
+          <label>Weights</label>
+          <div class="row" id="variants"></div>
+          <label>Step budget</label>
+          <input type="number" id="steps" value="80" min="5" max="200">
+          <label>What the reader is told</label>
+          <div class="row" id="modes"></div>
+          <div class="hint" id="modeHint" style="margin-top:6px"></div>
+          <div class="row" style="margin-top:12px">
+            <button class="btn orange" id="go">Construct</button>
+            <button class="btn" id="stop" disabled>Stop</button>
+          </div>
+        </div>
+      </div>
+      <div class="frame" style="flex:1">
+        <h2>Runs <small id="runCount"></small></h2>
+        <div class="scroll" id="runs"></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="frame" style="flex:1">
+        <h2>The reader at work <small id="stepInfo"></small></h2>
+        <div class="scroll" id="log"><div class="pad hint">Pick a network and press Construct, or open a past run on the left. The reader investigates the network with its own code, submits constructions, and reads the judge's reports.</div></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="frame" style="flex:1">
+        <h2>Construction <small id="consInfo"></small></h2>
+        <div class="scroll pad" id="cons"><div class="hint">The best construction and its test scores appear here.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const pct = v => v == null ? 'n/a' : (100 * v).toFixed(1) + '%';
+const api = async (u, o) => (await fetch(u, o)).json();
+const S = {variant: 'original', mode: 'blinded', running: null, sel: null, live: null};
+const setTheme = t => { document.documentElement.dataset.theme = t; localStorage.wrlTheme = t; };
+setTheme(localStorage.wrlTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+$('themeBtn').onclick = () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+
+const MODES = {
+  blinded: ['Blinded', 'The reader gets the architecture, the weights and the inputs. It is not told what the network does.'],
+  told: ['Task named', 'The reader is also told what the network was trained to do.'],
+  prior: ['Prior only', 'Control: the task is named, but the reader gets no weights and cannot run the network. One submission, no report back.'],
+};
+function chips(el, items, cur, on) {
+  el.innerHTML = '';
+  for (const [k, label] of items) {
+    const c = document.createElement('span'); c.className = 'chip' + (k === cur ? ' on' : ''); c.textContent = label;
+    c.onclick = () => on(k); el.appendChild(c);
+  }
+}
+function drawOptions() {
+  chips($('variants'), [['original','trained'],['shuffled','shuffled'],['untrained','untrained'],['permuted','permuted']], S.variant, k => { S.variant = k; drawOptions(); });
+  chips($('modes'), Object.entries(MODES).map(([k, v]) => [k, v[0]]), S.mode, k => { S.mode = k; drawOptions(); });
+  $('modeHint').textContent = MODES[S.mode][1];
+}
+
+function badge(r) {
+  if (r.status === 'running') return '<span class="badge run">running</span>';
+  if (r.complete) return '<span class="badge ok">complete</span>';
+  if (r.stages_total == null) return '<span class="badge no">no construction</span>';
+  return `<span class="badge ${r.stages_verified ? 'part' : 'no'}">${r.stages_verified}/${r.stages_total} stages</span>`;
+}
+async function loadRuns() {
+  const all = await api('/api/constructions');
+  const t = $('target').value;
+  const mine = all.filter(r => r.target === t);
+  $('runCount').textContent = mine.length + ' for this network';
+  $('runs').innerHTML = mine.map(r => `<div class="runitem ${S.sel === r.id ? 'on' : ''}" data-id="${r.id}">
+      <div class="t">${esc(r.title || r.id)} ${badge(r)}</div>
+      <div class="m">${r.variant}${r.weights ? '' : ' · no weights'}${r.told ? ' · task named' : ''} · ${r.steps} steps · ${r.submissions} submissions · $${(r.cost || 0).toFixed(2)}</div>
+    </div>`).join('') || '<div class="pad hint">No runs yet for this network.</div>';
+  for (const el of $('runs').querySelectorAll('.runitem')) el.onclick = () => openRun(t, el.dataset.id);
+}
+
+function stepHtml(s) {
+  let h = `<div class="step"><div class="hd">step ${s.step + 1}${s.context_tokens ? ' · context ' + s.context_tokens.toLocaleString() + ' tokens' : ''}</div>`;
+  if (s.thinking) h += `<div class="think">${esc(s.thinking)}</div>`;
+  if (s.content) h += `<div class="say">${esc(s.content)}</div>`;
+  for (const t of s.tools || []) {
+    if (t.tool === 'submit') h += `<div class="hd">submission ${t.n}</div><pre>${esc(t.code)}</pre><pre class="rep">${esc(t.output)}</pre>`;
+    else h += `<pre>${esc(t.code)}</pre><pre class="out">${esc(t.output)}</pre>`;
+  }
+  return h + '</div>';
+}
+async function openRun(target, id) {
+  S.sel = id; S.live = null;
+  const d = await api(`/api/constructions/${target}/${id}`);
+  $('log').innerHTML = d.run.steps.map(stepHtml).join('') + (d.run.final_message ? `<div class="step"><div class="hd">final summary</div><div class="say">${esc(d.run.final_message)}</div></div>` : '');
+  $('stepInfo').textContent = `${d.run.steps.length} steps · ${d.run.status}`;
+  drawConstruction(d, target, id);
+  loadRuns();
+}
+
+function drawConstruction(d, target, id) {
+  const rep = d.report;
+  if (!rep) { $('cons').innerHTML = '<div class="hint">This run produced no construction that the judge could test.</div>'; $('consInfo').textContent = ''; return; }
+  const v = rep.verdict, b = rep.behaviour;
+  const cls = v.complete ? 'ok' : (v.stages_verified ? 'part' : 'no');
+  const head = v.complete ? 'Verified and complete: every stage has a verified site'
+    : `${v.stages_verified} of ${v.stages_total} stages verified` + (v.verified ? ' (everything it names passes)' : '');
+  const desc = (d.construction.match(/DESCRIPTION\s*=\s*(?:\(\s*)?("""[\s\S]*?"""|"(?:[^"\\]|\\.)*"(?:\s*"(?:[^"\\]|\\.)*")*)/) || [])[1];
+  let h = `<div class="verdict ${cls}">${head}</div>`;
+  if (desc) h += `<div class="desc">${esc(desc.replace(/^"""|"""$/g, '').replace(/"\s*\n?\s*"/g, '').replace(/^"|"$/g, '').replace(/\\n/g, ' '))}</div>`;
+  h += '<div class="stages">' + Object.entries(rep.stages).map(([name, st]) =>
+    `<div class="stage ${st.verified.length ? 'ok' : (st.named.length ? 'fail' : 'none')}">${esc(name)}<small>${st.verified.length ? 'verified at ' + st.verified.join(', ') : (st.named.length ? 'named, failing' : 'not explained')}</small></div>`).join('') + '</div>';
+  h += `<div class="note">Run in place of the network: same decision on <b>${pct(b.match)}</b> of ${rep.n_test} held-out inputs (a constant output: ${pct(b.baseline_constant_match)}). Construction length: ${rep.source_chars.toLocaleString()} characters.</div>`;
+  h += '<h3>Sites</h3><div class="note">Substitute: decisions kept when the site is replaced by the construction\'s prediction. Remove: decisions kept when the named subspace is removed (should fall to the mean-ablate level).</div>';
+  h += '<table><tr><th>site</th><th class="l">variables</th><th>dims / PCs that suffice</th><th>explained</th><th>substitute</th><th>remove</th><th>mean-ablate</th></tr>' +
+    Object.entries(rep.sites).map(([s, r]) => `<tr class="${r.pass ? '' : 'bad'}"><td>${esc(s)}</td><td class="l" title="${esc(r.variables.join(', '))}">${esc(r.variables.length > 3 ? r.variables.slice(0, 3).join(', ') + ' +' + (r.variables.length - 3) : r.variables.join(', '))}</td><td>${r.named_rank} / ${r.pca_sufficient_rank}</td><td>${r.explained.toFixed(2)}</td><td>${pct(r.substitute_match)}</td><td>${pct(r.remove_named_match)}</td><td>${pct(r.mean_ablate_match)}</td></tr>`).join('') + '</table>';
+  h += '<h3>Interventions</h3><div class="note">Share of cases where the construction predicted the network\'s new decision, among cases where the decision changed, next to predictors that understand nothing. Attribution patching is a first-order estimate computed on the network itself.</div>';
+  h += '<table><tr><th>test</th><th class="l">variable</th><th>site</th><th>construction</th><th>no change</th><th>source output</th><th>attribution patching</th></tr>' +
+    rep.interventions.map(t => `<tr class="${t.pass ? '' : 'bad'}"><td>${t.mode}</td><td class="l">${esc(t.variable)}</td><td>${esc(t.site)}</td><td><b>${pct(t.agreement_when_changed ?? t.agreement)}</b></td><td>${t.agreement_when_changed == null ? pct(t.baseline_no_change) : '0.0%'}</td><td>${pct(t.baseline_source_output)}</td><td>${pct(t.attribution_patching_when_changed ?? t.attribution_patching)}</td></tr>`).join('') + '</table>';
+  if (v.fails.length) h += '<h3>What fails</h3><div class="note">' + v.fails.map(esc).join('<br>') + '</div>';
+  h += `<h3>Held-out interventions</h3><div class="note">Interventions drawn without looking at the construction (subspaces removed or patched in at every site), predicted by the construction and by baselines.</div>`;
+  h += d.predict ? `<pre class="rep">${esc(d.predict.text || '')}</pre>` : `<button class="btn sm teal" id="predBtn">Run the benchmark (about a minute)</button>`;
+  h += `<h3>The construction</h3><pre class="code">${esc(d.construction)}</pre>`;
+  $('cons').innerHTML = h;
+  $('consInfo').textContent = `${target} / ${id}`;
+  if ($('predBtn')) $('predBtn').onclick = async () => {
+    $('predBtn').disabled = true; $('predBtn').textContent = 'running…';
+    await fetch(`/api/constructions/${target}/${id}/predict`, {method: 'POST'});
+    openRun(target, id);
+  };
+}
+
+async function start() {
+  const target = $('target').value;
+  const body = {target, variant: S.variant, steps: +$('steps').value, told: S.mode !== 'blinded', no_weights: S.mode === 'prior', one_shot: S.mode === 'prior',
+                title: MODES[S.mode][0].toLowerCase() + (S.variant === 'original' ? '' : ', ' + S.variant)};
+  $('go').disabled = true; $('stop').disabled = false; $('log').innerHTML = ''; S.sel = null;
+  $('cons').innerHTML = '<div class="hint">Waiting for the first submission…</div>';
+  let cur = null, think = null, say = null;
+  const newStep = n => { cur = document.createElement('div'); cur.className = 'step'; cur.innerHTML = `<div class="hd">step ${n + 1}</div>`; $('log').appendChild(cur); think = say = null; };
+  const add = (cls, tag = 'pre') => { const e = document.createElement(tag); e.className = cls; cur.appendChild(e); return e; };
+  const resp = await fetch('/api/construct', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
+  const reader = resp.body.getReader(), dec = new TextDecoder(); let buf = '';
+  for (;;) {
+    const {value, done} = await reader.read(); if (done) break;
+    buf += dec.decode(value, {stream: true});
+    const parts = buf.split('\n\n'); buf = parts.pop();
+    for (const p of parts) {
+      if (!p.startsWith('data: ')) continue;
+      const ev = JSON.parse(p.slice(6));
+      const stick = $('log').scrollTop + $('log').clientHeight >= $('log').scrollHeight - 40;
+      if (ev.type === 'start') { S.running = ev.id; S.live = ev.id; }
+      else if (ev.type === 'step') { newStep(ev.step); $('stepInfo').textContent = `step ${ev.step + 1} of ${ev.of}`; }
+      else if (ev.type === 'thinking') { think = think || add('think', 'div'); think.textContent += ev.text; think.scrollTop = think.scrollHeight; }
+      else if (ev.type === 'content') { say = say || add('say', 'div'); say.textContent += ev.text; }
+      else if (ev.type === 'tool_call') { if (ev.tool === 'submit') add('hd', 'div').textContent = 'submission ' + ev.n; add('').textContent = ev.code; think = say = null; }
+      else if (ev.type === 'tool_result') add('out').textContent = ev.output;
+      else if (ev.type === 'report') { add('rep').textContent = ev.text; if (ev.best === ev.n) liveBest(target, S.running); }
+      else if (ev.type === 'usage') $('usage').textContent = `${ev.usage.calls} calls · $${ev.cost.toFixed(3)} · context ${(ev.context || 0).toLocaleString()}`;
+      else if (ev.type === 'note' || ev.type === 'error') add('hd', 'div').textContent = ev.text || ev.message;
+      else if (ev.type === 'done') { $('stepInfo').textContent = `${ev.status} · ${ev.seconds} s`; }
+      if (stick) $('log').scrollTop = $('log').scrollHeight;
+    }
+  }
+  $('go').disabled = false; $('stop').disabled = true;
+  if (S.running) openRun(target, S.running);
+  S.running = null;
+}
+async function liveBest(target, id) {       // show the best submission so far while the run continues
+  try {
+    const d = await api(`/api/constructions/${target}/${id}`);
+    const best = d.run.best; if (!best) return;
+    const sub = d.run.steps.flatMap(s => s.tools || []).find(t => t.tool === 'submit' && t.n === best);
+    const rep = await api(`/api/constructions/${target}/${id}/submission/${best}`);
+    if (sub && rep && rep.verdict) drawConstruction({construction: sub.code, report: rep, predict: null}, target, id);
+  } catch (e) {}
+}
+$('go').onclick = start;
+$('stop').onclick = () => S.running && fetch('/api/stop/' + S.running, {method: 'POST'});
+
+(async () => {
+  const targets = await api('/api/targets');
+  $('target').innerHTML = targets.filter(t => t.domain).map(t => `<option value="${t.id}">${esc(t.name)} · ${t.id} (${t.params.toLocaleString()} weights)</option>`).join('');
+  $('target').onchange = () => { S.sel = null; loadRuns(); };
+  drawOptions(); loadRuns();
+  setInterval(() => { if (!S.running) loadRuns(); }, 15000);
+})();
+</script>
+</body>
+</html>

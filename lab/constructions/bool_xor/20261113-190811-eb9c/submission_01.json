@@ -1,0 +1,136 @@
+{
+ "n_inputs": 4,
+ "n_fit": 4,
+ "n_test": 4,
+ "source_chars": 395,
+ "variables": {
+  "u": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  },
+  "v": {
+   "dim": 1,
+   "sites": [
+    "h1"
+   ]
+  }
+ },
+ "unaligned_variables": [],
+ "constant_sites_ignored": [],
+ "behaviour": {
+  "match": 1.0,
+  "r2": 1.0,
+  "kl": null,
+  "baseline_constant_match": 0.5
+ },
+ "sites": {
+  "h1": {
+   "width": 2,
+   "variables": [
+    "u",
+    "v"
+   ],
+   "named_dims": 2,
+   "named_rank": 2,
+   "pca_sufficient_rank": 2,
+   "activation_rank": 2,
+   "explained": 1.0,
+   "substitute_match": 1.0,
+   "substitute_kl": null,
+   "substitute_r2": 1.0,
+   "mean_ablate_match": 0.5,
+   "recovered": 1.0,
+   "keep_named_match": 1.0,
+   "remove_named_match": 0.25,
+   "remove_random_match": null,
+   "used_rank": 2,
+   "unused_variables": [],
+   "pass": true
+  }
+ },
+ "interventions": [
+  {
+   "variable": "all variables",
+   "variables": [
+    "u",
+    "v"
+   ],
+   "site": "h1",
+   "mode": "interchange",
+   "dim": 2,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.491,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.509,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 1.0,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "u",
+   "variables": [
+    "u"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.306,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.694,
+   "baseline_source_output": 0.695,
+   "control_random_subspace": 0.695,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "v",
+   "variables": [
+    "v"
+   ],
+   "site": "h1",
+   "mode": "partial",
+   "dim": 1,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.322,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.678,
+   "baseline_source_output": 0.677,
+   "control_random_subspace": 0.372,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  }
+ ],
+ "uncovered_sites": [],
+ "stages": {
+  "hidden layer 1": {
+   "sites": [
+    "h1"
+   ],
+   "named": [
+    "h1"
+   ],
+   "verified": [
+    "h1"
+   ]
+  }
+ },
+ "verdict": {
+  "verified": true,
+  "fails": [],
+  "stages_total": 1,
+  "stages_verified": 1,
+  "complete": true,
+  "score": 1.0
+ },
+ "seconds": 0.0
+}

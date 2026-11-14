@@ -1,0 +1,10 @@
+JUDGE REPORT   (4 held-out inputs; construction 395 chars)
+1. BEHAVIOUR  construction vs network output: same decision on 100.0% of inputs (a constant output would get 50.0%); output R2 1.000
+2-3. SITES   explained = share of the activation's variance the variables explain;  substitute = network decision kept when the activation is replaced by the construction's prediction;  keep = when only the named subspace of the real activation is kept;  remove = when the named subspace is removed (should be LOW) vs a random subspace of equal size;  mean-ablate = when the whole site is replaced by its mean
+  h1          (2 dims named of 2; 2 principal components suffice; u, v): explained 1.000 | substitute 100.0% | keep 100.0% | remove 25.0% (random n/a) | mean-ablate 50.0%
+4. INTERVENTIONS   interchange = everything named at the site is copied from another input's run (need 90%). partial = one variable is copied while the site's other variables stay; edit (for a variable alone at its site) = a random half of its coordinates are copied: both make states that no input produces (need 50% of the cases where the decision changed). right = the construction predicted the network's new decision (all cases / cases where the decision changed).  controls: the same swap in a random subspace; guessing 'no change'; guessing the source input's output; attribution patching (a first-order estimate computed on the network itself)
+  interchange all variables @ h1: right 100.0% / 100.0% when changed (network changed in 49.1%); output R2 1.000 | controls: random subspace 100.0%, no-change 50.9%, source-output 100.0%, attribution patching 100.0%
+  partial     u @ h1: right 100.0% / 100.0% when changed (network changed in 30.6%); output R2 1.000 | controls: random subspace 69.5%, no-change 69.4%, source-output 69.5%, attribution patching 100.0%
+  partial     v @ h1: right 100.0% / 100.0% when changed (network changed in 32.2%); output R2 1.000 | controls: random subspace 37.2%, no-change 67.8%, source-output 67.7%, attribution patching 100.0%
+STAGES   hidden layer 1: VERIFIED at h1
+VERDICT: VERIFIED AND COMPLETE: every stage of the network has a verified site.
