@@ -271,3 +271,46 @@ wins clearly, and it is exact at every site after the MLP. The construction rare
 an arbitrary subspace edit changes it (14–18%).
 
 **Changed as a result.** The judge reports attribution patching beside every intervention test.
+
+## 2026-11-13 19:04. E8: the frozen constructor (v1, commit `391998c0`) on held-out networks and controls
+
+**Why.** Level 2 of the bar: the same constructor, unchanged, on networks it was not developed on; and the controls
+on mod-add again, this time on a frozen judge.
+
+**Setup.** Eight blinded runs started together, 80 steps each, reader DeepSeek V4.1 Flash, effort high:
+`modadd_p113` (replicate A), `modmul_p113`, `tracr_reverse`, `tracr_first_match`, `tracr_count_greater`, and
+`modadd_p113` with shuffled, untrained and permuted weights. Development networks were the Boolean nets,
+`modadd_p113` and `tracr_hist`; the other four were never run before this batch. Run folders:
+`lab/constructions/<target>/20261113-1904*`. Entry updated as runs finish (status at 19:40 below).
+
+**What happened so far.**
+
+| Network | Held out? | Result | Steps | What the reader found |
+|---|---|---|---|---|
+| `tracr_reverse` (4 layers) | yes | **VERIFIED AND COMPLETE**, 9 of 9 stages | 9 | One token code per position; layers 0–2 add only constants on this input set; layer 3's attention has a fixed pattern (position p attends to position 4-p) and copies the token code; the output head reads it. Interchange and partial tests 100%. |
+| `tracr_first_match` | yes | **VERIFIED AND COMPLETE**, 4 of 4 | 23 | (see the run's README) |
+| `tracr_count_greater` | yes | **VERIFIED AND COMPLETE**, 4 of 4 | 47 | (see the run's README) |
+| `modmul_p113` | yes | in progress: embedding verified at submission 2 (step 13) | 39+ | The task (i·j mod 113) at step 3. At step 9: "embedding involves dlog (discrete log base 3) frequencies 4, 28, 31, 41". At step 34: the MLP output is a code of the product built from product-clock features cos(2πm(dlog i + dlog j)/112). |
+| `modadd_p113` replicate A | no | in progress: 0 stages at submission 5 | 35+ | Frequencies found; split into one variable per frequency; partial tests at 38–47%, just under the 50% mark |
+| `modadd_p113` shuffled | control | in progress: 0 stages | 30+ | |
+| `modadd_p113` untrained | control | in progress: 0 stages | 45+ | |
+| `modadd_p113` permuted | control | in progress: 2 stages at one point | 46+ | |
+
+**Independent check of the mod-mul finding.** I computed the Fourier power of `W_E` with the 112 non-zero tokens ordered
+by discrete logarithm base 3: the top frequencies are 4, 41, 28, 31 (75% of the power; the next is 4%), and `W_U`
+gives the same four. In plain token order the embedding has no such structure (top five frequencies hold 9.6%).
+So the reader's blinded reading of this held-out network is correct, and it is not the mod-add recipe replayed: the
+structure only appears after reordering the tokens by discrete log, which the reader had to find.
+
+**Notes.**
+- `tracr_reverse` is easier than its name suggests: the networks are compiled for one input length, so the program's
+  length computation is constant here and the judge ignores constant sites. The run tests routing by attention.
+- Mod-add under judge v3 is harder for the reader than under v1 (E3), because the frozen prompt advises one variable
+  per part, and single-frequency swaps are knife-edge cases: the hand-written oracle split by frequency scores 51–90%
+  on them, the reader's 38–47% with rougher amplitudes. A lumped 10-dimensional variable faces the easier coordinate
+  edit (67–76% in E3). "Splitting must never raise the bar" is therefore still not true in practice.
+
+**Planned change after this batch (not applied while runs are in flight).** Judge v3.1: at a site with several
+variables, the off-manifold requirement is met if every single-variable swap passes OR the coordinate edit of
+everything named at the site passes. These are two protocols for the same question, so a split construction can
+never score worse than the same content lumped. The change only relaxes; constructions that pass v3 still pass.
