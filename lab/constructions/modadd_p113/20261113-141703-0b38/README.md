@@ -43,13 +43,13 @@ Substitute: decisions kept when the site is replaced by the construction's predi
 
 | Site | Named dims / PCs that suffice | Variance explained | Substitute | Remove | Mean-ablate | Pass |
 |---|---|---|---|---|---|---|
-| `embed.0` | 16 / n/a | 0.26 | 5.7% | 45.1% | 0.9% | no |
-| `embed.1` | 16 / n/a | 0.26 | 5.8% | 42.9% | 0.8% | no |
-| `attn_out` | 32 / n/a | 0.31 | 3.7% | 0.9% | 0.9% | no |
-| `resid_mid` | 32 / n/a | 0.31 | 3.7% | 0.9% | 0.9% | no |
-| `mlp_pre` | 32 / n/a | 0.33 | 5.6% | 1.6% | 1.6% | no |
-| `mlp_out` | 16 / n/a | 0.38 | 9.7% | 2.5% | 1.7% | no |
-| `resid_post` | 16 / n/a | 0.37 | 6.1% | 1.9% | 1.1% | no |
+| `embed.0` | 16 / 7 | 0.26 | 5.7% | 45.1% | 0.9% | no |
+| `embed.1` | 16 / 7 | 0.26 | 5.8% | 42.9% | 0.8% | no |
+| `attn_out` | 32 / 10 | 0.31 | 3.7% | 0.9% | 0.9% | no |
+| `resid_mid` | 32 / 10 | 0.31 | 3.7% | 0.9% | 0.9% | no |
+| `mlp_pre` | 32 / 9 | 0.33 | 5.6% | 1.6% | 1.6% | no |
+| `mlp_out` | 16 / 7 | 0.38 | 9.7% | 2.5% | 1.7% | no |
+| `resid_post` | 16 / 7 | 0.37 | 6.1% | 1.9% | 1.1% | no |
 
 ## Intervention tests
 
@@ -57,44 +57,51 @@ Share of cases where the predictor named the network's new decision, among cases
 
 | Test | Variable | Site | Construction | Source output | Attribution patching | Pass |
 |---|---|---|---|---|---|---|
-| interchange | `tok0` | `embed.0` | 7.6% | 0.8% | n/a | no |
-| edit | `tok0` | `embed.0` | 1.6% | 0.9% | n/a | no |
-| interchange | `tok1` | `embed.1` | 6.5% | 0.8% | n/a | no |
-| edit | `tok1` | `embed.1` | 2.1% | 0.7% | n/a | no |
-| interchange | `ab_last` | `attn_out` | 2.3% | 1.9% | n/a | no |
-| edit | `ab_last` | `attn_out` | 1.7% | 1.4% | n/a | no |
-| interchange | `ab_last` | `resid_mid` | 2.3% | 1.9% | n/a | no |
-| edit | `ab_last` | `resid_mid` | 1.6% | 1.4% | n/a | no |
-| interchange | `ab_last` | `mlp_pre` | 2.6% | 2.1% | n/a | no |
-| edit | `ab_last` | `mlp_pre` | 2.3% | 1.4% | n/a | no |
-| interchange | `sum_feats` | `mlp_out` | 7.0% | 5.6% | n/a | no |
-| edit | `sum_feats` | `mlp_out` | 1.1% | 2.5% | n/a | no |
-| interchange | `sum_feats` | `resid_post` | 7.2% | 5.9% | n/a | no |
-| edit | `sum_feats` | `resid_post` | 2.7% | 2.5% | n/a | no |
+| interchange | `tok0` | `embed.0` | 7.6% | 0.8% | 25.9% | no |
+| edit | `tok0` | `embed.0` | 1.6% | 0.9% | 26.3% | no |
+| interchange | `tok1` | `embed.1` | 6.5% | 0.8% | 26.8% | no |
+| edit | `tok1` | `embed.1` | 2.1% | 0.7% | 28.9% | no |
+| interchange | `ab_last` | `attn_out` | 2.3% | 1.9% | 17.6% | no |
+| edit | `ab_last` | `attn_out` | 1.7% | 1.4% | 23.1% | no |
+| interchange | `ab_last` | `resid_mid` | 2.3% | 1.9% | 17.6% | no |
+| edit | `ab_last` | `resid_mid` | 1.6% | 1.4% | 26.0% | no |
+| interchange | `ab_last` | `mlp_pre` | 2.6% | 2.1% | 15.9% | no |
+| edit | `ab_last` | `mlp_pre` | 2.3% | 1.4% | 19.9% | no |
+| interchange | `sum_feats` | `mlp_out` | 7.0% | 5.6% | 100.0% | no |
+| edit | `sum_feats` | `mlp_out` | 1.1% | 2.5% | 100.0% | no |
+| interchange | `sum_feats` | `resid_post` | 7.2% | 5.9% | 100.0% | no |
+| edit | `sum_feats` | `resid_post` | 2.7% | 2.5% | 100.0% | no |
 
 ## What fails
 
 - substitution at embed.0: 5.7% (need 90%)
+- size at embed.0: you named 16 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact
 - interchange of tok0 at embed.0: prediction right in 7.6% of the cases where the network's output changed (need 90%)
-- edit of tok0 at embed.0: prediction right in 1.6% of the cases where the network's output changed (need 50% and twice the random-subspace control, 19.6%)
+- edit of tok0 at embed.0: prediction right in 1.6% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
 - substitution at embed.1: 5.8% (need 90%)
+- size at embed.1: you named 16 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact
 - interchange of tok1 at embed.1: prediction right in 6.5% of the cases where the network's output changed (need 90%)
-- edit of tok1 at embed.1: prediction right in 2.1% of the cases where the network's output changed (need 50% and twice the random-subspace control, 19.1%)
+- edit of tok1 at embed.1: prediction right in 2.1% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
 - substitution at attn_out: 3.7% (need 90%)
+- size at attn_out: you named 32 dimensions, but the 10 largest principal components of this site already keep 90% of decisions (limit 20): the variables must be more compact
 - interchange of ab_last at attn_out: prediction right in 2.3% of the cases where the network's output changed (need 90%)
-- edit of ab_last at attn_out: prediction right in 1.7% of the cases where the network's output changed (need 50% and twice the random-subspace control, 5.4%)
+- edit of ab_last at attn_out: prediction right in 1.7% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
 - substitution at resid_mid: 3.7% (need 90%)
+- size at resid_mid: you named 32 dimensions, but the 10 largest principal components of this site already keep 90% of decisions (limit 20): the variables must be more compact
 - interchange of ab_last at resid_mid: prediction right in 2.3% of the cases where the network's output changed (need 90%)
-- edit of ab_last at resid_mid: prediction right in 1.6% of the cases where the network's output changed (need 50% and twice the random-subspace control, 4.8%)
+- edit of ab_last at resid_mid: prediction right in 1.6% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
 - substitution at mlp_pre: 5.6% (need 90%)
+- size at mlp_pre: you named 32 dimensions, but the 9 largest principal components of this site already keep 90% of decisions (limit 18): the variables must be more compact
 - interchange of ab_last at mlp_pre: prediction right in 2.6% of the cases where the network's output changed (need 90%)
-- edit of ab_last at mlp_pre: prediction right in 2.3% of the cases where the network's output changed (need 50% and twice the random-subspace control, 5.5%)
+- edit of ab_last at mlp_pre: prediction right in 2.3% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
 - substitution at mlp_out: 9.7% (need 90%)
+- size at mlp_out: you named 16 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact
 - interchange of sum_feats at mlp_out: prediction right in 7.0% of the cases where the network's output changed (need 90%)
-- edit of sum_feats at mlp_out: prediction right in 1.1% of the cases where the network's output changed (need 50% and twice the random-subspace control, 19.1%)
+- edit of sum_feats at mlp_out: prediction right in 1.1% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
 - substitution at resid_post: 6.1% (need 90%)
+- size at resid_post: you named 16 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact
 - interchange of sum_feats at resid_post: prediction right in 7.2% of the cases where the network's output changed (need 90%)
-- edit of sum_feats at resid_post: prediction right in 2.7% of the cases where the network's output changed (need 50% and twice the random-subspace control, 20.1%)
+- edit of sum_feats at resid_post: prediction right in 2.7% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)
 
 ## Files
 

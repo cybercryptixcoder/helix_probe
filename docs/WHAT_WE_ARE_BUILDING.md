@@ -53,7 +53,7 @@ The same tests for every network; nothing in it knows any task. Half the inputs 
 | Necessity | Remove the named subspace; compare with mean-ablating the whole site | at least half of the damage of mean-ablation | "Removing only what it names destroys it" |
 | Compactness | Count the named dimensions the output depends on against the number of principal components of the site that keep 90% of decisions | at most twice that number (or 4 more) | The variables are not a lookup table |
 | Interchange | Copy everything named at the site from another input's run; compare the network's new decision with `model` run with those variables replaced | 90% of changed cases | Level 2: interchange intervention accuracy |
-| Partial / edit | Copy one variable while the site's others stay, or (lone variable) half of its coordinates: states no input produces | 50% of changed cases | A stricter level 2, off the data manifold |
+| Partial / edit | Two protocols that make states no input produces: copy one variable while the site's others stay (partial), or copy a random half of the coordinates of everything named at the site (edit) | 50% of changed cases on either protocol | A stricter level 2, off the data manifold; passing either is enough, so splitting a variable into parts never lowers the score |
 
 Every intervention number is reported next to predictors that understand nothing: the same swap in a random
 subspace, "no change", "the source input's output", and attribution patching (a first-order estimate computed on the
@@ -61,7 +61,7 @@ network itself). A site is **verified** when it passes substitution, necessity, 
 partial/edit. Sites that are identical for every input are ignored, and a site whose mean-ablation changes under 5%
 of decisions cannot be verified. A construction is **verified** when it behaves like the network and every site it
 names is verified, and **complete** when every stage of the network has a verified site. Thresholds: `PASS` in
-`judge.py`. How each rule was arrived at is in `EXPERIMENT_LOG.md` (E0, E5, E6).
+`judge.py`. How each rule was arrived at is in `EXPERIMENT_LOG.md` (E0, E5, E6, E10).
 
 ### 3. The constructor (`lab/constructor.py`)
 

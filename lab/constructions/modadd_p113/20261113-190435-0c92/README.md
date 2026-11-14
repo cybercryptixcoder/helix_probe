@@ -77,18 +77,21 @@ Share of cases where the predictor named the network's new decision, among cases
 | partial | `jf22` | `embed.1` | 100.0% | 1.2% | n/a | yes |
 | partial | `jf23` | `embed.1` | 88.0% | 0.8% | 39.3% | yes |
 | partial | `jf25` | `embed.1` | 50.2% | 0.9% | 23.9% | yes |
+| edit | `all variables` | `embed.1` | 54.2% | 0.9% | 29.9% | yes |
 | interchange | `all variables` | `mlp_post` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `tf8` | `mlp_post` | 57.8% | 5.4% | 100.0% | yes |
 | partial | `tf11` | `mlp_post` | 80.8% | 3.0% | 100.0% | yes |
 | partial | `tf22` | `mlp_post` | 100.0% | 1.2% | n/a | yes |
 | partial | `tf23` | `mlp_post` | 90.6% | 3.1% | 100.0% | yes |
 | partial | `tf25` | `mlp_post` | 53.7% | 3.0% | 100.0% | yes |
+| edit | `all variables` | `mlp_post` | 75.7% | 21.1% | 100.0% | yes |
 | interchange | `all variables` | `resid_post` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `tf8` | `resid_post` | 58.5% | 5.9% | 100.0% | yes |
 | partial | `tf11` | `resid_post` | 82.5% | 3.1% | 100.0% | yes |
 | partial | `tf22` | `resid_post` | 100.0% | 1.2% | n/a | yes |
 | partial | `tf23` | `resid_post` | 90.1% | 3.1% | 100.0% | yes |
 | partial | `tf25` | `resid_post` | 53.1% | 3.0% | 100.0% | yes |
+| edit | `all variables` | `resid_post` | 73.3% | 20.8% | 100.0% | yes |
 
 Sites the reader's best submission named that failed, and that the delivered construction therefore does not claim: embed.0, resid_mid.
 

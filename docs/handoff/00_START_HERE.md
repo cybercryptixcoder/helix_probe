@@ -66,12 +66,14 @@ All runs blinded unless stated. "Complete" means every stage of the network has 
 | `modadd_p113`, Mystery transformer A | yes | 3 of 4 stages: Fourier features at frequencies {8, 11, 22, 23, 25} at the embeddings, cos/sin of k(i+j) in the MLP neurons, cosine readout with amplitudes [12.5, 6.2, 0.3, 9.8, 6.7] (E3). The attention stage is not verified, and a hand-written oracle fails there too. |
 | `tracr_hist` (compiled, rotated) | yes | Complete, 21 steps: attention weight on BOS = 1/(count+1), MLP turns it into the count (E6) |
 | `tracr_reverse`, `tracr_first_match`, `tracr_count_greater` | **no** | Complete, in 9, 23 and 47 steps (E8) |
-| `modmul_p113`, Mystery transformer C | **no** | Running. The reader found Fourier features over the discrete log base 3 at frequencies {4, 28, 31, 41}; confirmed independently (E8). Embedding verified so far. |
+| `modmul_p113`, Mystery transformer C | **no** | **Complete**, 76 steps: Fourier features over the discrete log base 3 at frequencies {4, 28, 31, 41} (confirmed independently), an additive code after the near-uniform attention, the product's clock by angle addition in the MLP, readout from that clock (E8) |
 
 Controls on mod-add:
 - **Prior-only** (task named, no weights, one submission): 0 stages; substitution at the embedding 5.7% (E4).
-- **Shuffled, untrained**: 0 stages so far on the frozen judge (E8, running).
-- **Permuted**: 3 stages so far (E8, running), as expected for the same function.
+- **Shuffled**: 0 stages, not verified; the reader named no mechanism (E8).
+- **Untrained**: not verified (behaviour 94.8%); the one stage that passes is a 112-dimensional lookup of the tokens,
+  which is what a random embedding is; the reader wrote that it could not compress the rest (E8).
+- **Permuted**: 3 of 4 stages, the same construction as on the original weights (E8).
 - **Judge calibration**: a hand-written oracle passes; the same file with wrong frequencies and a lookup table fail;
   all three match the network's behaviour on 100% of inputs (E0, and re-checked after every judge change).
 
@@ -79,19 +81,18 @@ Held-out interventions (E7), mod-add: the construction beats "no change", the st
 construction (82% against 80%, 75% and 34% decision accuracy), and beats attribution patching on interventions on
 its own variables through the nonlinear part of the network (100% against 36% at the embedding). On arbitrary
 subspace interventions attribution patching wins (91%) and is exact after the MLP, where the network is linear.
+The compiled networks show the same shape (E9): the construction beats "no change" and the statistics regressor on
+three of four, and attribution patching is ahead on all four. Level 3 as stated in the bar is therefore not met.
 
-### Working on right now (updated 2026-11-13 19:45)
+### Working on right now (updated 2026-11-13 20:45)
 
-1. The official batch on the frozen constructor (commit `391998c0`) is finishing: mod-add replicate A, mod-mul, and
-   the shuffled / untrained / permuted controls. E8 in the experiment log is updated as they end.
-2. Next, judge v3.1 (planned in E8, not yet applied because runs are in flight): at a site with several variables,
-   the off-manifold requirement is met if every single-variable swap passes OR the coordinate edit of everything
-   named at the site passes. Reason: single-frequency swaps on mod-add are knife-edge even for the oracle (51–90%),
-   so a split construction currently faces a harder test than the same content lumped.
-3. Then: rerun mod-add and mod-mul on v3.1, rejudge every delivered construction (the change only relaxes, so
-   nothing that passes can fail), and regenerate the results.
-4. `modsub_p113` is training (`lab/targets/train_modadd.py --op sub`, log in `/tmp/logs/train_modsub.log` on the
-   session machine; about 25,000 epochs). When done: `python3 lab/targets/build_registry.py`, then a held-out run.
+1. Judge v3.1 is applied (E10) and every delivered construction was re-judged with it; no verdict changed.
+2. A second batch is running on the constructor frozen at the E10 commit: mod-add replicates B and C, mod-mul
+   replicate B, replicates of two compiled networks, and prior-only controls (mod-add twice, mod-mul once). Logs on
+   the session machine are `/tmp/logs/v2_*.log`; the run folders are pushed every 4 minutes while they run.
+3. `modsub_p113` is training (`lab/targets/train_modadd.py --op sub`; about 25,000 epochs; the log is
+   `/tmp/logs/train_modsub.log` on the session machine). When it ends: `python3 lab/targets/build_registry.py`, then
+   a held-out run. If the session machine is gone, retrain with the same command (about 1.5 hours on 2 CPUs).
 
 ### Tried and failed, and why
 
@@ -109,16 +110,15 @@ subspace interventions attribution patching wins (91%) and is exact after the ML
 
 ### Exact next steps
 
-1. When the five remaining runs end: `python3 lab/results.py`, finish E8, push.
-2. Apply judge v3.1 (see above), re-check the calibration constructions
-   (`lab/constructions/_oracle/modadd_p113.py` must pass 3 stages; a wrong-frequency copy and a lookup table must
-   fail), rejudge delivered constructions, update the prompt's test description to match.
-3. Rerun `modadd_p113` twice and `modmul_p113` twice on v3.1; rerun the three weight controls and two more prior-only.
-4. Run `lab/predict.py` on each verified construction and add the table to the results.
-5. Held-out `modsub_p113` when trained. More compiled programs with variable-length inputs if time allows.
-6. The mod-add attention stage: test the hypothesis in `CONVERSATION_LOG.md` (variables are attention weight times
-   Fourier features) with a hand-written oracle first.
-7. Stretch: sites for a transformer with LayerNorm, and one behaviour in a small open language model.
+1. When the second batch ends: `python3 lab/results.py`, add the outcomes to E10, push.
+2. Run `lab/predict.py` on the mod-mul construction and add it to E9's table.
+3. Held-out `modsub_p113` when trained.
+4. Level 3: try a causal read map for the alignment (E9, "idea not yet tried").
+5. Compiled programs with variable-length inputs, so that length-dependent parts are exercised.
+6. The mod-add attention stage is open (see `CONVERSATION_LOG.md`, 19:55): it needs a compact model of how the ReLU
+   layer treats mixed states.
+7. MIT's game policies need an input set (no environment is released).
+8. Stretch: sites for a transformer with LayerNorm, and one behaviour in a small open language model.
 
 ### How work is persisted
 

@@ -56,6 +56,8 @@
    ],
    "named_dims": 16,
    "named_rank": 16,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
    "explained": 0.2596078774789228,
    "substitute_match": 0.05685199686765857,
    "substitute_kl": 6.715835207563418,
@@ -65,6 +67,9 @@
    "keep_named_match": 0.7019577133907596,
    "remove_named_match": 0.4505873140172279,
    "remove_random_match": 0.9999477943095797,
+   "used_rank": 16,
+   "unused_variables": [],
+   "off_manifold": "fails",
    "pass": false
   },
   "embed.1": {
@@ -74,6 +79,8 @@
    ],
    "named_dims": 16,
    "named_rank": 16,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 112,
    "explained": 0.25880744358133767,
    "substitute_match": 0.05794831636648395,
    "substitute_kl": 6.694005428597417,
@@ -83,6 +90,9 @@
    "keep_named_match": 0.7055599060297573,
    "remove_named_match": 0.4285043069694597,
    "remove_random_match": 0.9999477943095797,
+   "used_rank": 16,
+   "unused_variables": [],
+   "off_manifold": "fails",
    "pass": false
   },
   "attn_out": {
@@ -92,6 +102,8 @@
    ],
    "named_dims": 32,
    "named_rank": 32,
+   "pca_sufficient_rank": 10,
+   "activation_rank": 128,
    "explained": 0.3051580921496694,
    "substitute_match": 0.03743148003132341,
    "substitute_kl": 5.677191725495001,
@@ -101,6 +113,9 @@
    "keep_named_match": 1.0,
    "remove_named_match": 0.008927173061863743,
    "remove_random_match": 0.984912555468546,
+   "used_rank": 32,
+   "unused_variables": [],
+   "off_manifold": "fails",
    "pass": false
   },
   "resid_mid": {
@@ -110,6 +125,8 @@
    ],
    "named_dims": 32,
    "named_rank": 32,
+   "pca_sufficient_rank": 10,
+   "activation_rank": 128,
    "explained": 0.3051580921496694,
    "substitute_match": 0.03743148003132341,
    "substitute_kl": 5.677191725495001,
@@ -119,6 +136,9 @@
    "keep_named_match": 1.0,
    "remove_named_match": 0.008927173061863743,
    "remove_random_match": 0.9764030279300444,
+   "used_rank": 32,
+   "unused_variables": [],
+   "off_manifold": "fails",
    "pass": false
   },
   "mlp_pre": {
@@ -128,6 +148,8 @@
    ],
    "named_dims": 32,
    "named_rank": 32,
+   "pca_sufficient_rank": 9,
+   "activation_rank": 125,
    "explained": 0.3317950912604144,
    "substitute_match": 0.05591229444009397,
    "substitute_kl": 5.054469822412067,
@@ -137,6 +159,9 @@
    "keep_named_match": 1.0,
    "remove_named_match": 0.01597494126859828,
    "remove_random_match": 1.0,
+   "used_rank": 32,
+   "unused_variables": [],
+   "off_manifold": "fails",
    "pass": false
   },
   "mlp_out": {
@@ -146,6 +171,8 @@
    ],
    "named_dims": 16,
    "named_rank": 16,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
    "explained": 0.3763524766309525,
    "substitute_match": 0.09694596711041503,
    "substitute_kl": 4.775060960857712,
@@ -155,6 +182,9 @@
    "keep_named_match": 1.0,
    "remove_named_match": 0.024588880187940487,
    "remove_random_match": 1.0,
+   "used_rank": 16,
+   "unused_variables": [],
+   "off_manifold": "fails",
    "pass": false
   },
   "resid_post": {
@@ -164,6 +194,8 @@
    ],
    "named_dims": 16,
    "named_rank": 16,
+   "pca_sufficient_rank": 7,
+   "activation_rank": 128,
    "explained": 0.3653067192807248,
    "substitute_match": 0.06139389193422083,
    "substitute_kl": 5.151855106713367,
@@ -173,12 +205,18 @@
    "keep_named_match": 1.0,
    "remove_named_match": 0.01895066562255286,
    "remove_random_match": 1.0,
+   "used_rank": 16,
+   "unused_variables": [],
+   "off_manifold": "fails",
    "pass": false
   }
  },
  "interventions": [
   {
    "variable": "tok0",
+   "variables": [
+    "tok0"
+   ],
    "site": "embed.0",
    "mode": "interchange",
    "dim": 16,
@@ -189,10 +227,15 @@
    "baseline_no_change": 0.3425,
    "baseline_source_output": 0.008,
    "control_random_subspace": 0.0075,
+   "attribution_patching": 0.497,
+   "attribution_patching_when_changed": 0.25931558935361215,
    "pass": false
   },
   {
    "variable": "tok0",
+   "variables": [
+    "tok0"
+   ],
    "site": "embed.0",
    "mode": "edit",
    "dim": 16,
@@ -203,10 +246,15 @@
    "baseline_no_change": 0.683,
    "baseline_source_output": 0.009,
    "control_random_subspace": 0.1955,
+   "attribution_patching": 0.748,
+   "attribution_patching_when_changed": 0.2634069400630915,
    "pass": false
   },
   {
    "variable": "tok1",
+   "variables": [
+    "tok1"
+   ],
    "site": "embed.1",
    "mode": "interchange",
    "dim": 16,
@@ -217,10 +265,15 @@
    "baseline_no_change": 0.341,
    "baseline_source_output": 0.0075,
    "control_random_subspace": 0.009,
+   "attribution_patching": 0.4975,
+   "attribution_patching_when_changed": 0.26783004552352047,
    "pass": false
   },
   {
    "variable": "tok1",
+   "variables": [
+    "tok1"
+   ],
    "site": "embed.1",
    "mode": "edit",
    "dim": 16,
@@ -231,10 +284,15 @@
    "baseline_no_change": 0.644,
    "baseline_source_output": 0.007,
    "control_random_subspace": 0.191,
+   "attribution_patching": 0.724,
+   "attribution_patching_when_changed": 0.2893258426966292,
    "pass": false
   },
   {
    "variable": "ab_last",
+   "variables": [
+    "ab_last"
+   ],
    "site": "attn_out",
    "mode": "interchange",
    "dim": 32,
@@ -245,10 +303,15 @@
    "baseline_no_change": 0.676,
    "baseline_source_output": 0.0195,
    "control_random_subspace": 0.013,
+   "attribution_patching": 0.543,
+   "attribution_patching_when_changed": 0.17592592592592593,
    "pass": false
   },
   {
    "variable": "ab_last",
+   "variables": [
+    "ab_last"
+   ],
    "site": "attn_out",
    "mode": "edit",
    "dim": 32,
@@ -259,10 +322,15 @@
    "baseline_no_change": 0.7385,
    "baseline_source_output": 0.014,
    "control_random_subspace": 0.054,
+   "attribution_patching": 0.712,
+   "attribution_patching_when_changed": 0.23135755258126195,
    "pass": false
   },
   {
    "variable": "ab_last",
+   "variables": [
+    "ab_last"
+   ],
    "site": "resid_mid",
    "mode": "interchange",
    "dim": 32,
@@ -273,10 +341,15 @@
    "baseline_no_change": 0.676,
    "baseline_source_output": 0.0195,
    "control_random_subspace": 0.0095,
+   "attribution_patching": 0.543,
+   "attribution_patching_when_changed": 0.17592592592592593,
    "pass": false
   },
   {
    "variable": "ab_last",
+   "variables": [
+    "ab_last"
+   ],
    "site": "resid_mid",
    "mode": "edit",
    "dim": 32,
@@ -287,10 +360,15 @@
    "baseline_no_change": 0.746,
    "baseline_source_output": 0.014,
    "control_random_subspace": 0.048,
+   "attribution_patching": 0.7155,
+   "attribution_patching_when_changed": 0.25984251968503935,
    "pass": false
   },
   {
    "variable": "ab_last",
+   "variables": [
+    "ab_last"
+   ],
    "site": "mlp_pre",
    "mode": "interchange",
    "dim": 32,
@@ -301,10 +379,15 @@
    "baseline_no_change": 0.6755,
    "baseline_source_output": 0.0205,
    "control_random_subspace": 0.0115,
+   "attribution_patching": 0.536,
+   "attribution_patching_when_changed": 0.15870570107858242,
    "pass": false
   },
   {
    "variable": "ab_last",
+   "variables": [
+    "ab_last"
+   ],
    "site": "mlp_pre",
    "mode": "edit",
    "dim": 32,
@@ -315,10 +398,15 @@
    "baseline_no_change": 0.7585,
    "baseline_source_output": 0.014,
    "control_random_subspace": 0.0545,
+   "attribution_patching": 0.7235,
+   "attribution_patching_when_changed": 0.19875776397515527,
    "pass": false
   },
   {
    "variable": "sum_feats",
+   "variables": [
+    "sum_feats"
+   ],
    "site": "mlp_out",
    "mode": "interchange",
    "dim": 16,
@@ -329,10 +417,15 @@
    "baseline_no_change": 0.3695,
    "baseline_source_output": 0.056,
    "control_random_subspace": 0.012,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": false
   },
   {
    "variable": "sum_feats",
+   "variables": [
+    "sum_feats"
+   ],
    "site": "mlp_out",
    "mode": "edit",
    "dim": 16,
@@ -343,10 +436,15 @@
    "baseline_no_change": 0.6755,
    "baseline_source_output": 0.025,
    "control_random_subspace": 0.191,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": false
   },
   {
    "variable": "sum_feats",
+   "variables": [
+    "sum_feats"
+   ],
    "site": "resid_post",
    "mode": "interchange",
    "dim": 16,
@@ -357,10 +455,15 @@
    "baseline_no_change": 0.353,
    "baseline_source_output": 0.0585,
    "control_random_subspace": 0.012,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": false
   },
   {
    "variable": "sum_feats",
+   "variables": [
+    "sum_feats"
+   ],
    "site": "resid_post",
    "mode": "edit",
    "dim": 16,
@@ -371,6 +474,8 @@
    "baseline_no_change": 0.681,
    "baseline_source_output": 0.0255,
    "control_random_subspace": 0.2005,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
    "pass": false
   }
  ],
@@ -428,31 +533,38 @@
   "verified": false,
   "fails": [
    "substitution at embed.0: 5.7% (need 90%)",
+   "size at embed.0: you named 16 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact",
    "interchange of tok0 at embed.0: prediction right in 7.6% of the cases where the network's output changed (need 90%)",
-   "edit of tok0 at embed.0: prediction right in 1.6% of the cases where the network's output changed (need 50% and twice the random-subspace control, 19.6%)",
+   "edit of tok0 at embed.0: prediction right in 1.6% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
    "substitution at embed.1: 5.8% (need 90%)",
+   "size at embed.1: you named 16 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact",
    "interchange of tok1 at embed.1: prediction right in 6.5% of the cases where the network's output changed (need 90%)",
-   "edit of tok1 at embed.1: prediction right in 2.1% of the cases where the network's output changed (need 50% and twice the random-subspace control, 19.1%)",
+   "edit of tok1 at embed.1: prediction right in 2.1% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
    "substitution at attn_out: 3.7% (need 90%)",
+   "size at attn_out: you named 32 dimensions, but the 10 largest principal components of this site already keep 90% of decisions (limit 20): the variables must be more compact",
    "interchange of ab_last at attn_out: prediction right in 2.3% of the cases where the network's output changed (need 90%)",
-   "edit of ab_last at attn_out: prediction right in 1.7% of the cases where the network's output changed (need 50% and twice the random-subspace control, 5.4%)",
+   "edit of ab_last at attn_out: prediction right in 1.7% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
    "substitution at resid_mid: 3.7% (need 90%)",
+   "size at resid_mid: you named 32 dimensions, but the 10 largest principal components of this site already keep 90% of decisions (limit 20): the variables must be more compact",
    "interchange of ab_last at resid_mid: prediction right in 2.3% of the cases where the network's output changed (need 90%)",
-   "edit of ab_last at resid_mid: prediction right in 1.6% of the cases where the network's output changed (need 50% and twice the random-subspace control, 4.8%)",
+   "edit of ab_last at resid_mid: prediction right in 1.6% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
    "substitution at mlp_pre: 5.6% (need 90%)",
+   "size at mlp_pre: you named 32 dimensions, but the 9 largest principal components of this site already keep 90% of decisions (limit 18): the variables must be more compact",
    "interchange of ab_last at mlp_pre: prediction right in 2.6% of the cases where the network's output changed (need 90%)",
-   "edit of ab_last at mlp_pre: prediction right in 2.3% of the cases where the network's output changed (need 50% and twice the random-subspace control, 5.5%)",
+   "edit of ab_last at mlp_pre: prediction right in 2.3% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
    "substitution at mlp_out: 9.7% (need 90%)",
+   "size at mlp_out: you named 16 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact",
    "interchange of sum_feats at mlp_out: prediction right in 7.0% of the cases where the network's output changed (need 90%)",
-   "edit of sum_feats at mlp_out: prediction right in 1.1% of the cases where the network's output changed (need 50% and twice the random-subspace control, 19.1%)",
+   "edit of sum_feats at mlp_out: prediction right in 1.1% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)",
    "substitution at resid_post: 6.1% (need 90%)",
+   "size at resid_post: you named 16 dimensions, but the 7 largest principal components of this site already keep 90% of decisions (limit 14): the variables must be more compact",
    "interchange of sum_feats at resid_post: prediction right in 7.2% of the cases where the network's output changed (need 90%)",
-   "edit of sum_feats at resid_post: prediction right in 2.7% of the cases where the network's output changed (need 50% and twice the random-subspace control, 20.1%)"
+   "edit of sum_feats at resid_post: prediction right in 2.7% of the cases where the network's output changed (need 50%; guessing 'no change' gets 0% of these)"
   ],
   "stages_total": 4,
   "stages_verified": 0,
   "complete": false,
   "score": 0.0
  },
- "seconds": 20.3
+ "seconds": 38.11
 }

@@ -46,6 +46,7 @@
    "remove_random_match": 0.636909423127121,
    "used_rank": 112,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "embed.1": {
@@ -68,6 +69,7 @@
    "remove_random_match": 0.6367006003654399,
    "used_rank": 112,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   }
  },
@@ -209,5 +211,5 @@
   "complete": false,
   "score": 0.2369
  },
- "seconds": 57.98
+ "seconds": 11.13
 }

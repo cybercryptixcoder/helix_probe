@@ -154,6 +154,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "mlp_post": {
@@ -179,6 +180,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "mlp_out": {
@@ -204,6 +206,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "resid_post": {
@@ -229,6 +232,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   }
  },
@@ -334,6 +338,28 @@
   {
    "variable": "all variables",
    "variables": [
+    "j8",
+    "j11",
+    "j23",
+    "j25"
+   ],
+   "site": "embed.1",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.172,
+   "r2": -0.18944085450972437,
+   "network_changed": 0.8045,
+   "agreement_when_changed": 0.15102548166563082,
+   "baseline_no_change": 0.1955,
+   "baseline_source_output": 0.005,
+   "control_random_subspace": 0.088,
+   "attribution_patching": 0.426,
+   "attribution_patching_when_changed": 0.3057799875699192,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
     "k8",
     "k11",
     "k23",
@@ -425,6 +451,28 @@
    "baseline_no_change": 0.54,
    "baseline_source_output": 0.03,
    "control_random_subspace": 0.524,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "k8",
+    "k11",
+    "k23",
+    "k25"
+   ],
+   "site": "mlp_post",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.7755,
+   "r2": 0.6193977822879955,
+   "network_changed": 0.7875,
+   "agreement_when_changed": 0.7511111111111111,
+   "baseline_no_change": 0.2125,
+   "baseline_source_output": 0.191,
+   "control_random_subspace": 0.203,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -535,6 +583,28 @@
     "k23",
     "k25"
    ],
+   "site": "mlp_out",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.7605,
+   "r2": 0.6235913154924977,
+   "network_changed": 0.797,
+   "agreement_when_changed": 0.7289836888331243,
+   "baseline_no_change": 0.203,
+   "baseline_source_output": 0.2155,
+   "control_random_subspace": 0.201,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "k8",
+    "k11",
+    "k23",
+    "k25"
+   ],
    "site": "resid_post",
    "mode": "interchange",
    "dim": 8,
@@ -624,6 +694,28 @@
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "k8",
+    "k11",
+    "k23",
+    "k25"
+   ],
+   "site": "resid_post",
+   "mode": "edit",
+   "dim": 8,
+   "agreement": 0.776,
+   "r2": 0.6282193007168604,
+   "network_changed": 0.78,
+   "agreement_when_changed": 0.7442307692307693,
+   "baseline_no_change": 0.22,
+   "baseline_source_output": 0.2095,
+   "control_random_subspace": 0.2135,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
   }
  ],
  "uncovered_sites": [
@@ -690,5 +782,5 @@
   "complete": false,
   "score": 0.75
  },
- "seconds": 55.87
+ "seconds": 28.51
 }

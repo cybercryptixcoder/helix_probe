@@ -84,6 +84,7 @@
    "remove_random_match": 0.007161458333333333,
    "used_rank": 15,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "attn0.out": {
@@ -103,9 +104,10 @@
    "recovered": 1.0,
    "keep_named_match": 1.0,
    "remove_named_match": 0.0,
-   "remove_random_match": 0.6725260416666666,
+   "remove_random_match": 0.6653645833333334,
    "used_rank": 5,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "resid0.mid": {
@@ -125,9 +127,10 @@
    "recovered": 1.0,
    "keep_named_match": 0.09765625,
    "remove_named_match": 0.009765625,
-   "remove_random_match": 0.40234375,
+   "remove_random_match": 0.4375,
    "used_rank": 5,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "mlp0.pre": {
@@ -150,6 +153,7 @@
    "remove_random_match": 0.0,
    "used_rank": 5,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "mlp0.post": {
@@ -172,6 +176,7 @@
    "remove_random_match": 0.0,
    "used_rank": 20,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "mlp0.out": {
@@ -194,6 +199,7 @@
    "remove_random_match": 1.0,
    "used_rank": 20,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "resid0.post": {
@@ -216,6 +222,7 @@
    "remove_random_match": 1.0,
    "used_rank": 20,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   }
  },
@@ -339,6 +346,29 @@
    "pass": true
   },
   {
+   "variable": "all variables",
+   "variables": [
+    "tok1",
+    "tok2",
+    "tok3",
+    "tok4",
+    "tok5"
+   ],
+   "site": "embed",
+   "mode": "edit",
+   "dim": 20,
+   "agreement": 0.11,
+   "r2": -0.33351130890041447,
+   "network_changed": 0.979,
+   "agreement_when_changed": 0.09193054136874361,
+   "baseline_no_change": 0.021,
+   "baseline_source_output": 0.0185,
+   "control_random_subspace": 0.007,
+   "attribution_patching": 0.021,
+   "attribution_patching_when_changed": 0.0,
+   "pass": false
+  },
+  {
    "variable": "inv",
    "variables": [
     "inv"
@@ -367,12 +397,12 @@
    "dim": 6,
    "agreement": 1.0,
    "r2": 1.0,
-   "network_changed": 0.9165,
+   "network_changed": 0.918,
    "agreement_when_changed": 1.0,
-   "baseline_no_change": 0.0835,
-   "baseline_source_output": 0.081,
-   "control_random_subspace": 0.0655,
-   "attribution_patching": 0.0835,
+   "baseline_no_change": 0.082,
+   "baseline_source_output": 0.0835,
+   "control_random_subspace": 0.052,
+   "attribution_patching": 0.082,
    "attribution_patching_when_changed": 0.0,
    "pass": true
   },
@@ -405,12 +435,12 @@
    "dim": 6,
    "agreement": 1.0,
    "r2": 1.0,
-   "network_changed": 0.91,
+   "network_changed": 0.9125,
    "agreement_when_changed": 1.0,
-   "baseline_no_change": 0.09,
-   "baseline_source_output": 0.0825,
-   "control_random_subspace": 0.0305,
-   "attribution_patching": 0.09,
+   "baseline_no_change": 0.0875,
+   "baseline_source_output": 0.0845,
+   "control_random_subspace": 0.024,
+   "attribution_patching": 0.0875,
    "attribution_patching_when_changed": 0.0,
    "pass": true
   },
@@ -443,12 +473,12 @@
    "dim": 6,
    "agreement": 1.0,
    "r2": 1.0,
-   "network_changed": 0.917,
+   "network_changed": 0.9115,
    "agreement_when_changed": 1.0,
-   "baseline_no_change": 0.083,
-   "baseline_source_output": 0.072,
+   "baseline_no_change": 0.0885,
+   "baseline_source_output": 0.078,
    "control_random_subspace": 0.0035,
-   "attribution_patching": 0.083,
+   "attribution_patching": 0.0885,
    "attribution_patching_when_changed": 0.0,
    "pass": true
   },
@@ -479,91 +509,91 @@
    "site": "mlp0.post",
    "mode": "edit",
    "dim": 20,
-   "agreement": 0.7035,
-   "r2": 0.7183570754446053,
-   "network_changed": 0.9575,
-   "agreement_when_changed": 0.7023498694516971,
-   "baseline_no_change": 0.0425,
-   "baseline_source_output": 0.058,
-   "control_random_subspace": 0.0035,
-   "attribution_patching": 0.702,
-   "attribution_patching_when_changed": 0.6986945169712794,
-   "pass": true
-  },
-  {
-   "variable": "lvl",
-   "variables": [
-    "lvl"
-   ],
-   "site": "mlp0.out",
-   "mode": "interchange",
-   "dim": 20,
-   "agreement": 1.0,
-   "r2": 1.0,
-   "network_changed": 0.9965,
-   "agreement_when_changed": 1.0,
-   "baseline_no_change": 0.0035,
-   "baseline_source_output": 1.0,
-   "control_random_subspace": 0.0035,
-   "attribution_patching": 1.0,
-   "attribution_patching_when_changed": 1.0,
-   "pass": true
-  },
-  {
-   "variable": "lvl",
-   "variables": [
-    "lvl"
-   ],
-   "site": "mlp0.out",
-   "mode": "edit",
-   "dim": 20,
-   "agreement": 0.6905,
-   "r2": 0.720896443735132,
-   "network_changed": 0.957,
-   "agreement_when_changed": 0.6891327063740856,
-   "baseline_no_change": 0.043,
-   "baseline_source_output": 0.053,
-   "control_random_subspace": 0.0415,
-   "attribution_patching": 0.7245,
-   "attribution_patching_when_changed": 0.725705329153605,
-   "pass": true
-  },
-  {
-   "variable": "lvl",
-   "variables": [
-    "lvl"
-   ],
-   "site": "resid0.post",
-   "mode": "interchange",
-   "dim": 20,
-   "agreement": 1.0,
-   "r2": 1.0,
-   "network_changed": 0.9965,
-   "agreement_when_changed": 1.0,
-   "baseline_no_change": 0.0035,
-   "baseline_source_output": 1.0,
-   "control_random_subspace": 0.0035,
-   "attribution_patching": 1.0,
-   "attribution_patching_when_changed": 1.0,
-   "pass": true
-  },
-  {
-   "variable": "lvl",
-   "variables": [
-    "lvl"
-   ],
-   "site": "resid0.post",
-   "mode": "edit",
-   "dim": 20,
-   "agreement": 0.683,
-   "r2": 0.7217315260495225,
-   "network_changed": 0.952,
-   "agreement_when_changed": 0.6764705882352942,
-   "baseline_no_change": 0.048,
+   "agreement": 0.7045,
+   "r2": 0.7186873047492417,
+   "network_changed": 0.948,
+   "agreement_when_changed": 0.6993670886075949,
+   "baseline_no_change": 0.052,
    "baseline_source_output": 0.051,
-   "control_random_subspace": 0.0515,
-   "attribution_patching": 0.6945,
-   "attribution_patching_when_changed": 0.6890756302521008,
+   "control_random_subspace": 0.0035,
+   "attribution_patching": 0.6905,
+   "attribution_patching_when_changed": 0.685126582278481,
+   "pass": true
+  },
+  {
+   "variable": "lvl",
+   "variables": [
+    "lvl"
+   ],
+   "site": "mlp0.out",
+   "mode": "interchange",
+   "dim": 20,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.9965,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.0035,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.0035,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "lvl",
+   "variables": [
+    "lvl"
+   ],
+   "site": "mlp0.out",
+   "mode": "edit",
+   "dim": 20,
+   "agreement": 0.697,
+   "r2": 0.7221112204654918,
+   "network_changed": 0.952,
+   "agreement_when_changed": 0.6922268907563025,
+   "baseline_no_change": 0.048,
+   "baseline_source_output": 0.0625,
+   "control_random_subspace": 0.05,
+   "attribution_patching": 0.731,
+   "attribution_patching_when_changed": 0.726890756302521,
+   "pass": true
+  },
+  {
+   "variable": "lvl",
+   "variables": [
+    "lvl"
+   ],
+   "site": "resid0.post",
+   "mode": "interchange",
+   "dim": 20,
+   "agreement": 1.0,
+   "r2": 1.0,
+   "network_changed": 0.9965,
+   "agreement_when_changed": 1.0,
+   "baseline_no_change": 0.0035,
+   "baseline_source_output": 1.0,
+   "control_random_subspace": 0.0035,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "lvl",
+   "variables": [
+    "lvl"
+   ],
+   "site": "resid0.post",
+   "mode": "edit",
+   "dim": 20,
+   "agreement": 0.6845,
+   "r2": 0.7237677661872322,
+   "network_changed": 0.9485,
+   "agreement_when_changed": 0.6789667896678967,
+   "baseline_no_change": 0.0515,
+   "baseline_source_output": 0.0425,
+   "control_random_subspace": 0.0535,
+   "attribution_patching": 0.691,
+   "attribution_patching_when_changed": 0.6889826041117554,
    "pass": true
   }
  ],
@@ -634,5 +664,5 @@
   "complete": true,
   "score": 1.0
  },
- "seconds": 1.46
+ "seconds": 1.44
 }

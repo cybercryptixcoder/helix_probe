@@ -118,6 +118,7 @@
    "unused_variables": [
     "tok0"
    ],
+   "off_manifold": "partial",
    "pass": true
   },
   "attn0.out": {
@@ -140,6 +141,7 @@
    "remove_random_match": 1.0,
    "used_rank": 3,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "mlp0.post": {
@@ -163,11 +165,12 @@
    "recovered": 1.0,
    "keep_named_match": 1.0,
    "remove_named_match": 0.310546875,
-   "remove_random_match": 0.529296875,
+   "remove_random_match": 0.482421875,
    "used_rank": 51,
    "unused_variables": [
     "mlp1"
    ],
+   "off_manifold": "partial",
    "pass": true
   },
   "mlp0.out": {
@@ -196,6 +199,7 @@
    "unused_variables": [
     "mlp1"
    ],
+   "off_manifold": "partial",
    "pass": true
   }
  },
@@ -339,6 +343,30 @@
    "pass": true
   },
   {
+   "variable": "all variables",
+   "variables": [
+    "tok0",
+    "tok1",
+    "tok2",
+    "tok3",
+    "tok4",
+    "tok5"
+   ],
+   "site": "embed",
+   "mode": "edit",
+   "dim": 36,
+   "agreement": 0.6055,
+   "r2": 0.7634001386356278,
+   "network_changed": 0.756,
+   "agreement_when_changed": 0.5562169312169312,
+   "baseline_no_change": 0.244,
+   "baseline_source_output": 0.2535,
+   "control_random_subspace": 0.2255,
+   "attribution_patching": 0.4155,
+   "attribution_patching_when_changed": 0.3306878306878307,
+   "pass": true
+  },
+  {
    "variable": "v1",
    "variables": [
     "v1"
@@ -365,15 +393,15 @@
    "site": "attn0.out",
    "mode": "edit",
    "dim": 6,
-   "agreement": 0.8345,
-   "r2": 0.8910678451980459,
-   "network_changed": 0.5205,
-   "agreement_when_changed": 0.7454370797310279,
-   "baseline_no_change": 0.4795,
-   "baseline_source_output": 0.071,
-   "control_random_subspace": 0.506,
-   "attribution_patching": 0.849,
-   "attribution_patching_when_changed": 0.7521613832853026,
+   "agreement": 0.825,
+   "r2": 0.8866041535030623,
+   "network_changed": 0.532,
+   "agreement_when_changed": 0.7208646616541353,
+   "baseline_no_change": 0.468,
+   "baseline_source_output": 0.07,
+   "control_random_subspace": 0.5045,
+   "attribution_patching": 0.842,
+   "attribution_patching_when_changed": 0.731203007518797,
    "pass": true
   },
   {
@@ -394,7 +422,7 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.149,
    "baseline_source_output": 1.0,
-   "control_random_subspace": 0.3335,
+   "control_random_subspace": 0.312,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -413,7 +441,7 @@
    "agreement_when_changed": null,
    "baseline_no_change": 1.0,
    "baseline_source_output": 0.149,
-   "control_random_subspace": 0.9785,
+   "control_random_subspace": 0.9795,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": null,
    "pass": true
@@ -432,7 +460,7 @@
    "agreement_when_changed": 0.9124183006535947,
    "baseline_no_change": 0.6175,
    "baseline_source_output": 0.227,
-   "control_random_subspace": 0.4695,
+   "control_random_subspace": 0.507,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -451,7 +479,7 @@
    "agreement_when_changed": 0.913375796178344,
    "baseline_no_change": 0.6075,
    "baseline_source_output": 0.217,
-   "control_random_subspace": 0.5165,
+   "control_random_subspace": 0.5595,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -470,7 +498,7 @@
    "agreement_when_changed": 0.9197930142302717,
    "baseline_no_change": 0.6135,
    "baseline_source_output": 0.23,
-   "control_random_subspace": 0.4785,
+   "control_random_subspace": 0.4315,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -489,7 +517,30 @@
    "agreement_when_changed": 0.9225888324873096,
    "baseline_no_change": 0.606,
    "baseline_source_output": 0.232,
-   "control_random_subspace": 0.476,
+   "control_random_subspace": 0.4435,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "mlp1",
+    "mlp2",
+    "mlp3",
+    "mlp4",
+    "mlp5"
+   ],
+   "site": "mlp0.post",
+   "mode": "edit",
+   "dim": 80,
+   "agreement": 0.6205,
+   "r2": 0.7122345577234729,
+   "network_changed": 0.63,
+   "agreement_when_changed": 0.5603174603174603,
+   "baseline_no_change": 0.37,
+   "baseline_source_output": 0.383,
+   "control_random_subspace": 0.246,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -611,6 +662,29 @@
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "mlp1",
+    "mlp2",
+    "mlp3",
+    "mlp4",
+    "mlp5"
+   ],
+   "site": "mlp0.out",
+   "mode": "edit",
+   "dim": 80,
+   "agreement": 0.6025,
+   "r2": 0.708483791524424,
+   "network_changed": 0.6505,
+   "agreement_when_changed": 0.547271329746349,
+   "baseline_no_change": 0.3495,
+   "baseline_source_output": 0.388,
+   "control_random_subspace": 0.3125,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
   }
  ],
  "uncovered_sites": [
@@ -675,5 +749,5 @@
   "complete": true,
   "score": 1.0
  },
- "seconds": 7.34
+ "seconds": 1.73
 }

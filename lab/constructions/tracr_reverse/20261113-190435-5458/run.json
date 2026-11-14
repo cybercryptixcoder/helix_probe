@@ -220,5 +220,6 @@
   "stages_verified": 9,
   "complete": true,
   "score": 1.0
- }
+ },
+ "rejudged_with": "judge v3.1"
 }

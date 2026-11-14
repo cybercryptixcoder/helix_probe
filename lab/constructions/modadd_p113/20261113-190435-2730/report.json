@@ -52,6 +52,7 @@
    "remove_random_match": 0.965909684155573,
    "used_rank": 112,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": false
   },
   "embed.1": {
@@ -74,6 +75,7 @@
    "remove_random_match": 0.966327329678935,
    "used_rank": 112,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": false
   },
   "attn_out": {
@@ -100,6 +102,7 @@
     "ti",
     "tj"
    ],
+   "off_manifold": "partial",
    "pass": false
   },
   "mlp_pre": {
@@ -120,12 +123,13 @@
    "recovered": 1.0,
    "keep_named_match": 1.0,
    "remove_named_match": 0.9733750978856696,
-   "remove_random_match": 0.9825110937092143,
+   "remove_random_match": 0.9829809449229966,
    "used_rank": 0,
    "unused_variables": [
     "ti",
     "tj"
    ],
+   "off_manifold": "fails",
    "pass": false
   },
   "resid_post": {
@@ -152,6 +156,7 @@
     "ti",
     "tj"
    ],
+   "off_manifold": "partial",
    "pass": false
   }
  },
@@ -296,6 +301,26 @@
     "ti",
     "tj"
    ],
+   "site": "attn_out",
+   "mode": "edit",
+   "dim": 228,
+   "agreement": 0.988,
+   "r2": 0.982813845836963,
+   "network_changed": 0.069,
+   "agreement_when_changed": 0.8695652173913043,
+   "baseline_no_change": 0.931,
+   "baseline_source_output": 0.9205,
+   "control_random_subspace": 0.9225,
+   "attribution_patching": 0.9825,
+   "attribution_patching_when_changed": 0.8478260869565217,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "ti",
+    "tj"
+   ],
    "site": "mlp_pre",
    "mode": "interchange",
    "dim": 228,
@@ -305,7 +330,7 @@
    "agreement_when_changed": 0.5348837209302325,
    "baseline_no_change": 0.957,
    "baseline_source_output": 0.9315,
-   "control_random_subspace": 0.929,
+   "control_random_subspace": 0.9305,
    "attribution_patching": 0.9785,
    "attribution_patching_when_changed": 0.6976744186046512,
    "pass": false
@@ -324,7 +349,7 @@
    "agreement_when_changed": 0.6666666666666666,
    "baseline_no_change": 0.9775,
    "baseline_source_output": 0.937,
-   "control_random_subspace": 0.934,
+   "control_random_subspace": 0.9355,
    "attribution_patching": 0.9925,
    "attribution_patching_when_changed": 0.8666666666666667,
    "pass": false
@@ -343,9 +368,29 @@
    "agreement_when_changed": 0.6666666666666666,
    "baseline_no_change": 0.973,
    "baseline_source_output": 0.9365,
-   "control_random_subspace": 0.9405,
+   "control_random_subspace": 0.94,
    "attribution_patching": 0.99,
    "attribution_patching_when_changed": 0.7222222222222222,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "ti",
+    "tj"
+   ],
+   "site": "mlp_pre",
+   "mode": "edit",
+   "dim": 228,
+   "agreement": 0.937,
+   "r2": 0.22110320861596644,
+   "network_changed": 0.0315,
+   "agreement_when_changed": 0.6190476190476191,
+   "baseline_no_change": 0.9685,
+   "baseline_source_output": 0.9255,
+   "control_random_subspace": 0.9185,
+   "attribution_patching": 0.986,
+   "attribution_patching_when_changed": 0.7301587301587301,
    "pass": false
   },
   {
@@ -382,7 +427,7 @@
    "agreement_when_changed": 0.7763157894736842,
    "baseline_no_change": 0.962,
    "baseline_source_output": 0.9605,
-   "control_random_subspace": 0.94,
+   "control_random_subspace": 0.9405,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -401,7 +446,27 @@
    "agreement_when_changed": 0.8289473684210527,
    "baseline_no_change": 0.962,
    "baseline_source_output": 0.9595,
-   "control_random_subspace": 0.931,
+   "control_random_subspace": 0.932,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "ti",
+    "tj"
+   ],
+   "site": "resid_post",
+   "mode": "edit",
+   "dim": 228,
+   "agreement": 0.9905,
+   "r2": 0.9859239235426367,
+   "network_changed": 0.0645,
+   "agreement_when_changed": 0.9147286821705426,
+   "baseline_no_change": 0.9355,
+   "baseline_source_output": 0.929,
+   "control_random_subspace": 0.9315,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -468,6 +533,8 @@
    "interchange of all variables at mlp_pre: the network's output changed in only 4.3% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
    "partial of ti at mlp_pre: the network's output changed in only 2.2% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
    "partial of tj at mlp_pre: the network's output changed in only 2.7% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
+   "edit of all variables at mlp_pre: the network's output changed in only 3.1% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
+   "(at mlp_pre it is enough that EITHER every partial test OR the edit of all variables passes)",
    "resid_post has almost no effect on the output (replacing the whole site by its mean changes 3.4% of decisions), so nothing can be verified here; use another site of this stage"
   ],
   "stages_total": 4,
@@ -475,5 +542,5 @@
   "complete": false,
   "score": 0.0
  },
- "seconds": 27.61
+ "seconds": 27.97
 }

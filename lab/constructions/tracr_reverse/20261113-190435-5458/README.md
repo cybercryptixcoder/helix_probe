@@ -83,51 +83,61 @@ Share of cases where the predictor named the network's new decision, among cases
 | partial | `tok2` | `embed` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok3` | `embed` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok4` | `embed` | 100.0% | 3.7% | 100.0% | yes |
+| edit | `all variables` | `embed` | 39.7% | 14.8% | 39.7% | no |
 | interchange | `all variables` | `resid0.mid` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `tok1` | `resid0.mid` | 100.0% | 4.2% | 100.0% | yes |
 | partial | `tok2` | `resid0.mid` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok3` | `resid0.mid` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok4` | `resid0.mid` | 100.0% | 3.7% | 100.0% | yes |
+| edit | `all variables` | `resid0.mid` | 39.4% | 14.3% | 37.6% | no |
 | interchange | `all variables` | `resid0.post` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `tok1` | `resid0.post` | 100.0% | 4.2% | 100.0% | yes |
 | partial | `tok2` | `resid0.post` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok3` | `resid0.post` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok4` | `resid0.post` | 100.0% | 3.7% | 100.0% | yes |
+| edit | `all variables` | `resid0.post` | 38.4% | 14.8% | 39.8% | no |
 | interchange | `all variables` | `resid1.mid` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `tok1` | `resid1.mid` | 100.0% | 4.2% | 100.0% | yes |
 | partial | `tok2` | `resid1.mid` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok3` | `resid1.mid` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok4` | `resid1.mid` | 100.0% | 3.7% | 100.0% | yes |
+| edit | `all variables` | `resid1.mid` | 41.1% | 14.4% | 38.5% | no |
 | interchange | `all variables` | `resid1.post` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `tok1` | `resid1.post` | 100.0% | 4.2% | 100.0% | yes |
 | partial | `tok2` | `resid1.post` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok3` | `resid1.post` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok4` | `resid1.post` | 100.0% | 3.7% | 100.0% | yes |
+| edit | `all variables` | `resid1.post` | 40.2% | 14.1% | 36.1% | no |
 | interchange | `all variables` | `resid2.mid` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `tok1` | `resid2.mid` | 100.0% | 4.2% | 100.0% | yes |
 | partial | `tok2` | `resid2.mid` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok3` | `resid2.mid` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok4` | `resid2.mid` | 100.0% | 3.7% | 100.0% | yes |
+| edit | `all variables` | `resid2.mid` | 40.7% | 13.4% | 38.0% | no |
 | interchange | `all variables` | `resid2.post` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `tok1` | `resid2.post` | 100.0% | 4.2% | 100.0% | yes |
 | partial | `tok2` | `resid2.post` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok3` | `resid2.post` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `tok4` | `resid2.post` | 100.0% | 3.7% | 100.0% | yes |
+| edit | `all variables` | `resid2.post` | 40.4% | 13.6% | 38.4% | no |
 | interchange | `all variables` | `attn3.out` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `need0` | `attn3.out` | 100.0% | 3.7% | 100.0% | yes |
 | partial | `need1` | `attn3.out` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `need2` | `attn3.out` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `need3` | `attn3.out` | 100.0% | 4.2% | 100.0% | yes |
+| edit | `all variables` | `attn3.out` | 35.3% | 13.7% | 38.5% | no |
 | interchange | `all variables` | `resid3.mid` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `need0` | `resid3.mid` | 100.0% | 3.7% | 100.0% | yes |
 | partial | `need1` | `resid3.mid` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `need2` | `resid3.mid` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `need3` | `resid3.mid` | 100.0% | 4.2% | 100.0% | yes |
+| edit | `all variables` | `resid3.mid` | 32.6% | 15.7% | 38.1% | no |
 | interchange | `all variables` | `resid3.post` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `need0` | `resid3.post` | 100.0% | 3.7% | 100.0% | yes |
 | partial | `need1` | `resid3.post` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `need2` | `resid3.post` | 100.0% | 3.9% | 100.0% | yes |
 | partial | `need3` | `resid3.post` | 100.0% | 4.2% | 100.0% | yes |
+| edit | `all variables` | `resid3.post` | 36.0% | 15.8% | 39.3% | no |
 
 ## Files
 

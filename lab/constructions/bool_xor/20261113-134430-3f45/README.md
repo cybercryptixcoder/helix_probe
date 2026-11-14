@@ -47,7 +47,7 @@ Substitute: decisions kept when the site is replaced by the construction's predi
 
 | Site | Named dims / PCs that suffice | Variance explained | Substitute | Remove | Mean-ablate | Pass |
 |---|---|---|---|---|---|---|
-| `h1` | 2 / n/a | 1.00 | 100.0% | 25.0% | 50.0% | yes |
+| `h1` | 2 / 2 | 1.00 | 100.0% | 25.0% | 50.0% | yes |
 
 ## Intervention tests
 
@@ -55,8 +55,10 @@ Share of cases where the predictor named the network's new decision, among cases
 
 | Test | Variable | Site | Construction | Source output | Attribution patching | Pass |
 |---|---|---|---|---|---|---|
-| interchange | `s_lin` | `h1` | 100.0% | 69.5% | n/a | yes |
-| interchange | `s_big` | `h1` | 100.0% | 67.7% | n/a | yes |
+| interchange | `all variables` | `h1` | 100.0% | 100.0% | 100.0% | yes |
+| partial | `s_lin` | `h1` | 100.0% | 69.5% | 100.0% | yes |
+| partial | `s_big` | `h1` | 100.0% | 67.7% | 100.0% | yes |
+| edit | `all variables` | `h1` | 100.0% | 69.9% | 100.0% | yes |
 
 ## Files
 

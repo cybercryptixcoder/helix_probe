@@ -61,6 +61,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "embed.1": {
@@ -83,6 +84,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "attn_out": {
@@ -105,6 +107,7 @@
    "remove_random_match": 0.9993735317149569,
    "used_rank": 17,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "resid_mid": {
@@ -127,6 +130,7 @@
    "remove_random_match": 0.9998955886191595,
    "used_rank": 17,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "mlp_post": {
@@ -149,6 +153,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "mlp_out": {
@@ -171,6 +176,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   },
   "resid_post": {
@@ -193,6 +199,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "edit",
    "pass": true
   }
  },
@@ -533,5 +540,5 @@
   "complete": true,
   "score": 0.9726
  },
- "seconds": 60.69
+ "seconds": 36.64
 }

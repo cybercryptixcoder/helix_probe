@@ -1652,11 +1652,14 @@
    "interchange of all variables at mlp_pre: the network's output changed in only 4.3% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
    "partial of ti at mlp_pre: the network's output changed in only 2.2% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
    "partial of tj at mlp_pre: the network's output changed in only 2.7% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
+   "edit of all variables at mlp_pre: the network's output changed in only 3.1% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable",
+   "(at mlp_pre it is enough that EITHER every partial test OR the edit of all variables passes)",
    "resid_post has almost no effect on the output (replacing the whole site by its mean changes 3.4% of decisions), so nothing can be verified here; use another site of this stage"
   ],
   "stages_total": 4,
   "stages_verified": 0,
   "complete": false,
   "score": 0.0
- }
+ },
+ "rejudged_with": "judge v3.1"
 }

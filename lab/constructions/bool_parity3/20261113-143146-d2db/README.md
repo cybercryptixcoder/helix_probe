@@ -58,9 +58,11 @@ Share of cases where the predictor named the network's new decision, among cases
 
 | Test | Variable | Site | Construction | Source output | Attribution patching | Pass |
 |---|---|---|---|---|---|---|
-| interchange | `u0` | `h1` | 100.0% | 62.4% | n/a | yes |
-| interchange | `u1` | `h1` | 100.0% | 68.0% | n/a | yes |
-| interchange | `u2` | `h1` | 100.0% | 58.8% | n/a | yes |
+| interchange | `all variables` | `h1` | 100.0% | 100.0% | 100.0% | yes |
+| partial | `u0` | `h1` | 100.0% | 62.4% | 100.0% | yes |
+| partial | `u1` | `h1` | 100.0% | 68.0% | 100.0% | yes |
+| partial | `u2` | `h1` | 100.0% | 58.8% | 100.0% | yes |
+| edit | `all variables` | `h1` | 100.0% | 66.6% | 100.0% | yes |
 
 ## Files
 

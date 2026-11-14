@@ -81,18 +81,19 @@ Share of cases where the predictor named the network's new decision, among cases
 | partial | `tok3` | `embed` | 100.0% | 0.6% | 0.0% | yes |
 | partial | `tok4` | `embed` | 100.0% | 0.9% | 0.0% | yes |
 | partial | `tok5` | `embed` | 100.0% | 0.9% | 0.0% | yes |
+| edit | `all variables` | `embed` | 9.2% | 1.8% | 0.0% | no |
 | interchange | `inv` | `attn0.out` | 100.0% | 100.0% | 0.0% | yes |
-| edit | `inv` | `attn0.out` | 100.0% | 8.1% | 0.0% | yes |
+| edit | `inv` | `attn0.out` | 100.0% | 8.3% | 0.0% | yes |
 | interchange | `inv` | `resid0.mid` | 100.0% | 100.0% | 0.0% | yes |
-| edit | `inv` | `resid0.mid` | 100.0% | 8.2% | 0.0% | yes |
+| edit | `inv` | `resid0.mid` | 100.0% | 8.5% | 0.0% | yes |
 | interchange | `inv` | `mlp0.pre` | 100.0% | 100.0% | 0.0% | yes |
-| edit | `inv` | `mlp0.pre` | 100.0% | 7.2% | 0.0% | yes |
+| edit | `inv` | `mlp0.pre` | 100.0% | 7.8% | 0.0% | yes |
 | interchange | `lvl` | `mlp0.post` | 100.0% | 100.0% | 100.0% | yes |
-| edit | `lvl` | `mlp0.post` | 70.2% | 5.8% | 69.9% | yes |
+| edit | `lvl` | `mlp0.post` | 69.9% | 5.1% | 68.5% | yes |
 | interchange | `lvl` | `mlp0.out` | 100.0% | 100.0% | 100.0% | yes |
-| edit | `lvl` | `mlp0.out` | 68.9% | 5.3% | 72.6% | yes |
+| edit | `lvl` | `mlp0.out` | 69.2% | 6.2% | 72.7% | yes |
 | interchange | `lvl` | `resid0.post` | 100.0% | 100.0% | 100.0% | yes |
-| edit | `lvl` | `resid0.post` | 67.6% | 5.1% | 68.9% | yes |
+| edit | `lvl` | `resid0.post` | 67.9% | 4.2% | 68.9% | yes |
 
 ## Files
 

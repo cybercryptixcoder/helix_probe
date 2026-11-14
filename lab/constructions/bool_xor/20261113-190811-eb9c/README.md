@@ -54,6 +54,7 @@ Share of cases where the predictor named the network's new decision, among cases
 | interchange | `all variables` | `h1` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `u` | `h1` | 100.0% | 69.5% | 100.0% | yes |
 | partial | `v` | `h1` | 100.0% | 67.7% | 100.0% | yes |
+| edit | `all variables` | `h1` | 100.0% | 69.9% | 100.0% | yes |
 
 ## Files
 

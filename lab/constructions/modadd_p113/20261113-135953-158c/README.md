@@ -59,11 +59,11 @@ Substitute: decisions kept when the site is replaced by the construction's predi
 
 | Site | Named dims / PCs that suffice | Variance explained | Substitute | Remove | Mean-ablate | Pass |
 |---|---|---|---|---|---|---|
-| `embed.0` | 10 / n/a | 0.94 | 100.0% | 0.7% | 0.9% | yes |
-| `embed.1` | 10 / n/a | 0.94 | 100.0% | 0.8% | 0.8% | yes |
-| `mlp_post` | 10 / n/a | 0.16 | 100.0% | 1.8% | 1.7% | yes |
-| `mlp_out` | 10 / n/a | 0.90 | 100.0% | 1.4% | 1.7% | yes |
-| `resid_post` | 10 / n/a | 0.86 | 100.0% | 1.2% | 1.1% | yes |
+| `embed.0` | 10 / 7 | 0.94 | 100.0% | 0.7% | 0.9% | yes |
+| `embed.1` | 10 / 7 | 0.94 | 100.0% | 0.8% | 0.8% | yes |
+| `mlp_post` | 10 / 17 | 0.16 | 100.0% | 1.8% | 1.7% | yes |
+| `mlp_out` | 10 / 7 | 0.90 | 100.0% | 1.4% | 1.7% | yes |
+| `resid_post` | 10 / 7 | 0.86 | 100.0% | 1.2% | 1.1% | yes |
 
 ## Intervention tests
 
@@ -71,16 +71,16 @@ Share of cases where the predictor named the network's new decision, among cases
 
 | Test | Variable | Site | Construction | Source output | Attribution patching | Pass |
 |---|---|---|---|---|---|---|
-| interchange | `emb0` | `embed.0` | 100.0% | 0.9% | n/a | yes |
-| edit | `emb0` | `embed.0` | 67.0% | 1.0% | n/a | yes |
-| interchange | `emb1` | `embed.1` | 100.0% | 0.7% | n/a | yes |
-| edit | `emb1` | `embed.1` | 66.1% | 0.8% | n/a | yes |
-| interchange | `mlp` | `mlp_post` | 100.0% | 100.0% | n/a | yes |
-| edit | `mlp` | `mlp_post` | 75.3% | 20.2% | n/a | yes |
-| interchange | `mlp` | `mlp_out` | 100.0% | 100.0% | n/a | yes |
-| edit | `mlp` | `mlp_out` | 77.1% | 19.0% | n/a | yes |
-| interchange | `resid` | `resid_post` | 100.0% | 100.0% | n/a | yes |
-| edit | `resid` | `resid_post` | 76.6% | 22.1% | n/a | yes |
+| interchange | `emb0` | `embed.0` | 100.0% | 0.9% | 35.6% | yes |
+| edit | `emb0` | `embed.0` | 67.0% | 1.0% | 31.7% | yes |
+| interchange | `emb1` | `embed.1` | 100.0% | 0.7% | 32.1% | yes |
+| edit | `emb1` | `embed.1` | 66.1% | 0.8% | 28.4% | yes |
+| interchange | `mlp` | `mlp_post` | 100.0% | 100.0% | 100.0% | yes |
+| edit | `mlp` | `mlp_post` | 75.3% | 20.2% | 100.0% | yes |
+| interchange | `mlp` | `mlp_out` | 100.0% | 100.0% | 100.0% | yes |
+| edit | `mlp` | `mlp_out` | 77.1% | 19.0% | 100.0% | yes |
+| interchange | `resid` | `resid_post` | 100.0% | 100.0% | 100.0% | yes |
+| edit | `resid` | `resid_post` | 76.6% | 22.1% | 100.0% | yes |
 
 Sites the reader's best submission named that failed, and that the delivered construction therefore does not claim: resid_mid, mlp_pre.
 

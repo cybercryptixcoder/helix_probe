@@ -358,3 +358,25 @@ variables through nonlinear stages (E7).
 **Idea not yet tried.** Give the construction's alignment a causal read map (fit how downstream variables respond to
 small perturbations at a site, once, on the fit inputs) instead of the pseudo-inverse of the write map. That would use
 the network at alignment time, not at prediction time.
+
+## 2026-11-13 20:40. E10: judge v3.1 (either off-manifold protocol is enough) and a second batch
+
+**Why.** E6 and E8 showed that a construction split into one variable per part faces a harder off-manifold test than
+the same content kept as one variable (single-frequency swaps on mod-add: 51–90% for the oracle, against 67–76% for
+the coordinate edit of the lumped variable). The reader's granularity should not decide the verdict.
+
+**Change.** At every site the judge now runs both protocols: partial (each variable copied alone; needs several
+variables) and edit (a random half of the coordinates of everything named at the site). The off-manifold requirement
+is met if all partial tests pass OR the edit passes. Nothing else changed. The prompt's description of the tests
+was updated to say the same. This can only relax the verdict.
+
+**Checks after the change.**
+- Calibration on mod-add: oracle lumped 3 stages, oracle split by frequency 3 stages, lookup table 0, wrong
+  frequencies 0. Compiled oracle unchanged.
+- Every delivered construction was re-judged (`report.json`/`report.txt` in each run folder now come from v3.1):
+  no verdict changed (mod-add 3 of 4 in three runs; mod-mul and the four compiled networks complete; shuffled 0;
+  untrained not verified; prior-only 0).
+
+**Second batch, on the constructor frozen at this commit** (reader, prompt and judge unchanged from here): mod-add
+replicates B and C, mod-mul replicate B, compiled replicates (`tracr_first_match`, `tracr_count_greater`), and
+prior-only controls (mod-add twice, mod-mul once). Results are added below when the runs end.

@@ -78,26 +78,32 @@ Share of cases where the predictor named the network's new decision, among cases
 
 | Test | Variable | Site | Construction | Source output | Attribution patching | Pass |
 |---|---|---|---|---|---|---|
-| interchange | `c1` | `embed` | 100.0% | 6.0% | n/a | yes |
-| interchange | `c2` | `embed` | 100.0% | 4.8% | n/a | yes |
-| interchange | `c3` | `embed` | 100.0% | 5.2% | n/a | yes |
-| interchange | `c4` | `embed` | 100.0% | 5.1% | n/a | yes |
-| interchange | `c5` | `embed` | 100.0% | 4.5% | n/a | yes |
-| interchange | `q` | `attn0.out` | 100.0% | 100.0% | n/a | yes |
-| edit | `q` | `attn0.out` | 100.0% | 13.0% | n/a | yes |
-| interchange | `r1` | `resid0.mid` | 100.0% | 4.6% | n/a | yes |
-| interchange | `r2` | `resid0.mid` | 100.0% | 4.6% | n/a | yes |
-| interchange | `r3` | `resid0.mid` | 100.0% | 4.6% | n/a | yes |
-| interchange | `r4` | `resid0.mid` | 100.0% | 4.6% | n/a | yes |
-| interchange | `r5` | `resid0.mid` | 100.0% | 4.6% | n/a | yes |
-| interchange | `q` | `resid0.mid` | 100.0% | 100.0% | n/a | yes |
-| interchange | `q` | `mlp0.pre` | 100.0% | 100.0% | n/a | yes |
-| edit | `q` | `mlp0.pre` | 100.0% | 12.4% | n/a | yes |
-| interchange | `v1` | `mlp0.out` | 96.4% | 4.6% | n/a | yes |
-| interchange | `v2` | `mlp0.out` | 96.2% | 4.6% | n/a | yes |
-| interchange | `v3` | `mlp0.out` | 95.8% | 4.6% | n/a | yes |
-| interchange | `v4` | `mlp0.out` | 96.2% | 4.6% | n/a | yes |
-| interchange | `v5` | `mlp0.out` | 96.2% | 4.6% | n/a | yes |
+| interchange | `all variables` | `embed` | 100.0% | 100.0% | 0.0% | yes |
+| partial | `c1` | `embed` | 100.0% | 6.0% | 0.0% | yes |
+| partial | `c2` | `embed` | 100.0% | 4.8% | 0.0% | yes |
+| partial | `c3` | `embed` | 100.0% | 5.2% | 0.0% | yes |
+| partial | `c4` | `embed` | 100.0% | 5.1% | 0.0% | yes |
+| partial | `c5` | `embed` | 100.0% | 4.5% | 0.0% | yes |
+| edit | `all variables` | `embed` | 72.7% | 11.4% | 0.0% | yes |
+| interchange | `q` | `attn0.out` | 100.0% | 100.0% | 0.0% | yes |
+| edit | `q` | `attn0.out` | 100.0% | 12.4% | 0.0% | yes |
+| interchange | `all variables` | `resid0.mid` | 100.0% | 100.0% | 0.0% | yes |
+| partial | `r1` | `resid0.mid` | 100.0% | 4.6% | n/a | yes |
+| partial | `r2` | `resid0.mid` | 100.0% | 4.6% | n/a | yes |
+| partial | `r3` | `resid0.mid` | 100.0% | 4.6% | n/a | yes |
+| partial | `r4` | `resid0.mid` | 100.0% | 4.6% | n/a | yes |
+| partial | `r5` | `resid0.mid` | 100.0% | 4.6% | n/a | yes |
+| partial | `q` | `resid0.mid` | 100.0% | 100.0% | 0.0% | yes |
+| edit | `all variables` | `resid0.mid` | 100.0% | 14.8% | 0.0% | yes |
+| interchange | `q` | `mlp0.pre` | 100.0% | 100.0% | 0.0% | yes |
+| edit | `q` | `mlp0.pre` | 100.0% | 11.7% | 0.0% | yes |
+| interchange | `all variables` | `mlp0.out` | 100.0% | 100.0% | 100.0% | yes |
+| partial | `v1` | `mlp0.out` | 96.4% | 4.6% | 100.0% | yes |
+| partial | `v2` | `mlp0.out` | 96.2% | 4.6% | 100.0% | yes |
+| partial | `v3` | `mlp0.out` | 95.8% | 4.6% | 100.0% | yes |
+| partial | `v4` | `mlp0.out` | 96.2% | 4.6% | 100.0% | yes |
+| partial | `v5` | `mlp0.out` | 96.2% | 4.6% | 100.0% | yes |
+| edit | `all variables` | `mlp0.out` | 3.7% | 4.9% | 100.0% | no |
 
 ## Files
 

@@ -171,6 +171,7 @@
    "unused_variables": [
     "jf22"
    ],
+   "off_manifold": "partial",
    "pass": true
   },
   "mlp_post": {
@@ -199,6 +200,7 @@
    "unused_variables": [
     "tf22"
    ],
+   "off_manifold": "partial",
    "pass": true
   },
   "resid_post": {
@@ -227,6 +229,7 @@
    "unused_variables": [
     "tf22"
    ],
+   "off_manifold": "partial",
    "pass": true
   }
  },
@@ -347,6 +350,29 @@
    "control_random_subspace": 0.548,
    "attribution_patching": 0.6215,
    "attribution_patching_when_changed": 0.238562091503268,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "jf8",
+    "jf11",
+    "jf22",
+    "jf23",
+    "jf25"
+   ],
+   "site": "embed.1",
+   "mode": "edit",
+   "dim": 10,
+   "agreement": 0.585,
+   "r2": 0.4860652941560615,
+   "network_changed": 0.793,
+   "agreement_when_changed": 0.5416141235813366,
+   "baseline_no_change": 0.207,
+   "baseline_source_output": 0.0095,
+   "control_random_subspace": 0.186,
+   "attribution_patching": 0.4265,
+   "attribution_patching_when_changed": 0.2988650693568726,
    "pass": true
   },
   {
@@ -476,6 +502,29 @@
     "tf23",
     "tf25"
    ],
+   "site": "mlp_post",
+   "mode": "edit",
+   "dim": 10,
+   "agreement": 0.7905,
+   "r2": 0.6586160990802584,
+   "network_changed": 0.789,
+   "agreement_when_changed": 0.7572877059569075,
+   "baseline_no_change": 0.211,
+   "baseline_source_output": 0.2105,
+   "control_random_subspace": 0.2165,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tf8",
+    "tf11",
+    "tf22",
+    "tf23",
+    "tf25"
+   ],
    "site": "resid_post",
    "mode": "interchange",
    "dim": 10,
@@ -584,6 +633,29 @@
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tf8",
+    "tf11",
+    "tf22",
+    "tf23",
+    "tf25"
+   ],
+   "site": "resid_post",
+   "mode": "edit",
+   "dim": 10,
+   "agreement": 0.761,
+   "r2": 0.6655733029144244,
+   "network_changed": 0.793,
+   "agreement_when_changed": 0.7326607818411097,
+   "baseline_no_change": 0.207,
+   "baseline_source_output": 0.2085,
+   "control_random_subspace": 0.2035,
+   "attribution_patching": 1.0,
+   "attribution_patching_when_changed": 1.0,
+   "pass": true
   }
  ],
  "uncovered_sites": [
@@ -649,5 +721,5 @@
   "complete": false,
   "score": 0.75
  },
- "seconds": 42.3
+ "seconds": 21.41
 }

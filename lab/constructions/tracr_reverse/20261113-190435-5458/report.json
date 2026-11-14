@@ -117,6 +117,7 @@
    "remove_random_match": 0.5925925925925926,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "resid0.mid": {
@@ -139,9 +140,10 @@
    "recovered": 1.0,
    "keep_named_match": 1.0,
    "remove_named_match": 0.0,
-   "remove_random_match": 0.5349794238683128,
+   "remove_random_match": 0.625514403292181,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "resid0.post": {
@@ -167,6 +169,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "resid1.mid": {
@@ -192,6 +195,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "resid1.post": {
@@ -217,6 +221,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "resid2.mid": {
@@ -242,6 +247,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "resid2.post": {
@@ -267,6 +273,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "attn3.out": {
@@ -292,6 +299,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "resid3.mid": {
@@ -317,6 +325,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   },
   "resid3.post": {
@@ -342,6 +351,7 @@
    "remove_random_match": 1.0,
    "used_rank": 8,
    "unused_variables": [],
+   "off_manifold": "partial",
    "pass": true
   }
  },
@@ -452,6 +462,28 @@
     "tok3",
     "tok4"
    ],
+   "site": "embed",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.4305,
+   "r2": 1.0,
+   "network_changed": 0.778,
+   "agreement_when_changed": 0.39652956298200515,
+   "baseline_no_change": 0.222,
+   "baseline_source_output": 0.1475,
+   "control_random_subspace": 0.1265,
+   "attribution_patching": 0.437,
+   "attribution_patching_when_changed": 0.397172236503856,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tok1",
+    "tok2",
+    "tok3",
+    "tok4"
+   ],
    "site": "resid0.mid",
    "mode": "interchange",
    "dim": 12,
@@ -461,7 +493,7 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.0135,
    "baseline_source_output": 1.0,
-   "control_random_subspace": 0.0205,
+   "control_random_subspace": 0.014,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -480,7 +512,7 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.32,
    "baseline_source_output": 0.0425,
-   "control_random_subspace": 0.2885,
+   "control_random_subspace": 0.2385,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -499,7 +531,7 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.3395,
    "baseline_source_output": 0.0385,
-   "control_random_subspace": 0.2795,
+   "control_random_subspace": 0.303,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -518,7 +550,7 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.3385,
    "baseline_source_output": 0.039,
-   "control_random_subspace": 0.2685,
+   "control_random_subspace": 0.3285,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
@@ -537,10 +569,32 @@
    "agreement_when_changed": 1.0,
    "baseline_no_change": 0.3375,
    "baseline_source_output": 0.037,
-   "control_random_subspace": 0.185,
+   "control_random_subspace": 0.2315,
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tok1",
+    "tok2",
+    "tok3",
+    "tok4"
+   ],
+   "site": "resid0.mid",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.433,
+   "r2": 1.0,
+   "network_changed": 0.799,
+   "agreement_when_changed": 0.39424280350438046,
+   "baseline_no_change": 0.201,
+   "baseline_source_output": 0.143,
+   "control_random_subspace": 0.086,
+   "attribution_patching": 0.4025,
+   "attribution_patching_when_changed": 0.3760951188986233,
+   "pass": false
   },
   {
    "variable": "all variables",
@@ -648,6 +702,28 @@
     "tok3",
     "tok4"
    ],
+   "site": "resid0.post",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.422,
+   "r2": 1.0,
+   "network_changed": 0.8025,
+   "agreement_when_changed": 0.3844236760124611,
+   "baseline_no_change": 0.1975,
+   "baseline_source_output": 0.148,
+   "control_random_subspace": 0.1615,
+   "attribution_patching": 0.416,
+   "attribution_patching_when_changed": 0.3975077881619938,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tok1",
+    "tok2",
+    "tok3",
+    "tok4"
+   ],
    "site": "resid1.mid",
    "mode": "interchange",
    "dim": 12,
@@ -737,6 +813,28 @@
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tok1",
+    "tok2",
+    "tok3",
+    "tok4"
+   ],
+   "site": "resid1.mid",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.4395,
+   "r2": 1.0,
+   "network_changed": 0.7935,
+   "agreement_when_changed": 0.4114681789540013,
+   "baseline_no_change": 0.2065,
+   "baseline_source_output": 0.144,
+   "control_random_subspace": 0.1645,
+   "attribution_patching": 0.41,
+   "attribution_patching_when_changed": 0.38500315059861373,
+   "pass": false
   },
   {
    "variable": "all variables",
@@ -844,6 +942,28 @@
     "tok3",
     "tok4"
    ],
+   "site": "resid1.post",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.437,
+   "r2": 1.0,
+   "network_changed": 0.803,
+   "agreement_when_changed": 0.40224159402241594,
+   "baseline_no_change": 0.197,
+   "baseline_source_output": 0.141,
+   "control_random_subspace": 0.157,
+   "attribution_patching": 0.3835,
+   "attribution_patching_when_changed": 0.36114570361145704,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tok1",
+    "tok2",
+    "tok3",
+    "tok4"
+   ],
    "site": "resid2.mid",
    "mode": "interchange",
    "dim": 12,
@@ -942,6 +1062,28 @@
     "tok3",
     "tok4"
    ],
+   "site": "resid2.mid",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.4415,
+   "r2": 1.0,
+   "network_changed": 0.785,
+   "agreement_when_changed": 0.4070063694267516,
+   "baseline_no_change": 0.215,
+   "baseline_source_output": 0.134,
+   "control_random_subspace": 0.1685,
+   "attribution_patching": 0.3925,
+   "attribution_patching_when_changed": 0.3796178343949045,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tok1",
+    "tok2",
+    "tok3",
+    "tok4"
+   ],
    "site": "resid2.post",
    "mode": "interchange",
    "dim": 12,
@@ -1031,6 +1173,28 @@
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "tok1",
+    "tok2",
+    "tok3",
+    "tok4"
+   ],
+   "site": "resid2.post",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.438,
+   "r2": 1.0,
+   "network_changed": 0.7755,
+   "agreement_when_changed": 0.40425531914893614,
+   "baseline_no_change": 0.2245,
+   "baseline_source_output": 0.136,
+   "control_random_subspace": 0.165,
+   "attribution_patching": 0.408,
+   "attribution_patching_when_changed": 0.3842682140554481,
+   "pass": false
   },
   {
    "variable": "all variables",
@@ -1138,6 +1302,28 @@
     "need2",
     "need3"
    ],
+   "site": "attn3.out",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.3925,
+   "r2": 1.0,
+   "network_changed": 0.807,
+   "agreement_when_changed": 0.35254027261462206,
+   "baseline_no_change": 0.193,
+   "baseline_source_output": 0.137,
+   "control_random_subspace": 0.1705,
+   "attribution_patching": 0.431,
+   "attribution_patching_when_changed": 0.3853779429987608,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "need0",
+    "need1",
+    "need2",
+    "need3"
+   ],
    "site": "resid3.mid",
    "mode": "interchange",
    "dim": 12,
@@ -1236,6 +1422,28 @@
     "need2",
     "need3"
    ],
+   "site": "resid3.mid",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.364,
+   "r2": 1.0,
+   "network_changed": 0.8,
+   "agreement_when_changed": 0.32625,
+   "baseline_no_change": 0.2,
+   "baseline_source_output": 0.157,
+   "control_random_subspace": 0.1705,
+   "attribution_patching": 0.4145,
+   "attribution_patching_when_changed": 0.380625,
+   "pass": false
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "need0",
+    "need1",
+    "need2",
+    "need3"
+   ],
    "site": "resid3.post",
    "mode": "interchange",
    "dim": 12,
@@ -1325,6 +1533,28 @@
    "attribution_patching": 1.0,
    "attribution_patching_when_changed": 1.0,
    "pass": true
+  },
+  {
+   "variable": "all variables",
+   "variables": [
+    "need0",
+    "need1",
+    "need2",
+    "need3"
+   ],
+   "site": "resid3.post",
+   "mode": "edit",
+   "dim": 12,
+   "agreement": 0.394,
+   "r2": 1.0,
+   "network_changed": 0.8105,
+   "agreement_when_changed": 0.36027143738433065,
+   "baseline_no_change": 0.1895,
+   "baseline_source_output": 0.158,
+   "control_random_subspace": 0.1645,
+   "attribution_patching": 0.4155,
+   "attribution_patching_when_changed": 0.3929673041332511,
+   "pass": false
   }
  ],
  "uncovered_sites": [],
@@ -1440,5 +1670,5 @@
   "complete": true,
   "score": 1.0
  },
- "seconds": 26.88
+ "seconds": 19.06
 }

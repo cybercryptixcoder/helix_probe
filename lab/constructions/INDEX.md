@@ -1,6 +1,6 @@
 # Constructor runs
 
-*Written by `lab/results.py` on 2026-11-13 19:54. Every run of `lab/constructor.py`, grouped by network, best first. Each run id links to that run's page.*
+*Written by `lab/results.py` on 2026-11-13 20:00. Every run of `lab/constructor.py`, grouped by network, best first. Each run id links to that run's page.*
 
 ## `bool_compare2`: (2*x1 + x2) > (2*x3 + x4): is the 2-bit number a1a0 greater than b1b0
 

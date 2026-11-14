@@ -73,12 +73,15 @@ Share of cases where the predictor named the network's new decision, among cases
 | interchange | `all variables` | `attn_out` | 92.2% | 100.0% | 79.2% | yes |
 | partial | `ti` | `attn_out` | 75.3% | 96.0% | 97.4% | yes |
 | partial | `tj` | `attn_out` | 87.2% | 95.9% | 97.4% | yes |
+| edit | `all variables` | `attn_out` | 87.0% | 92.0% | 84.8% | yes |
 | interchange | `all variables` | `mlp_pre` | 53.5% | 93.2% | 69.8% | no |
 | partial | `ti` | `mlp_pre` | 66.7% | 93.7% | 86.7% | no |
 | partial | `tj` | `mlp_pre` | 66.7% | 93.7% | 72.2% | no |
+| edit | `all variables` | `mlp_pre` | 61.9% | 92.5% | 73.0% | no |
 | interchange | `all variables` | `resid_post` | 95.3% | 99.4% | 100.0% | yes |
 | partial | `ti` | `resid_post` | 77.6% | 96.0% | 100.0% | yes |
 | partial | `tj` | `resid_post` | 82.9% | 96.0% | 100.0% | yes |
+| edit | `all variables` | `resid_post` | 91.5% | 92.9% | 100.0% | yes |
 
 ## What fails
 
@@ -90,6 +93,8 @@ Share of cases where the predictor named the network's new decision, among cases
 - interchange of all variables at mlp_pre: the network's output changed in only 4.3% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable
 - partial of ti at mlp_pre: the network's output changed in only 2.2% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable
 - partial of tj at mlp_pre: the network's output changed in only 2.7% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable
+- edit of all variables at mlp_pre: the network's output changed in only 3.1% of cases, but the construction predicted changes: at this site the network's output does not depend on this variable
+- (at mlp_pre it is enough that EITHER every partial test OR the edit of all variables passes)
 - resid_post has almost no effect on the output (replacing the whole site by its mean changes 3.4% of decisions), so nothing can be verified here; use another site of this stage
 
 ## Files

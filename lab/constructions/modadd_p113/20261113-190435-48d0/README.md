@@ -74,21 +74,25 @@ Share of cases where the predictor named the network's new decision, among cases
 | partial | `j11` | `embed.1` | 64.7% | 1.1% | 25.2% | yes |
 | partial | `j23` | `embed.1` | 88.0% | 0.8% | 39.4% | yes |
 | partial | `j25` | `embed.1` | 51.5% | 0.9% | 23.8% | yes |
+| edit | `all variables` | `embed.1` | 15.1% | 0.5% | 30.6% | no |
 | interchange | `all variables` | `mlp_post` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `k8` | `mlp_post` | 58.2% | 5.4% | 100.0% | yes |
 | partial | `k11` | `mlp_post` | 81.8% | 3.0% | 100.0% | yes |
 | partial | `k23` | `mlp_post` | 90.6% | 3.1% | 100.0% | yes |
 | partial | `k25` | `mlp_post` | 55.8% | 3.0% | 100.0% | yes |
+| edit | `all variables` | `mlp_post` | 75.1% | 19.1% | 100.0% | yes |
 | interchange | `all variables` | `mlp_out` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `k8` | `mlp_out` | 59.5% | 5.5% | 100.0% | yes |
 | partial | `k11` | `mlp_out` | 82.7% | 3.0% | 100.0% | yes |
 | partial | `k23` | `mlp_out` | 91.3% | 3.1% | 100.0% | yes |
 | partial | `k25` | `mlp_out` | 55.6% | 3.0% | 100.0% | yes |
+| edit | `all variables` | `mlp_out` | 72.9% | 21.6% | 100.0% | yes |
 | interchange | `all variables` | `resid_post` | 100.0% | 100.0% | 100.0% | yes |
 | partial | `k8` | `resid_post` | 60.0% | 5.9% | 100.0% | yes |
 | partial | `k11` | `resid_post` | 83.1% | 3.1% | 100.0% | yes |
 | partial | `k23` | `resid_post` | 90.1% | 3.1% | 100.0% | yes |
 | partial | `k25` | `resid_post` | 55.8% | 3.0% | 100.0% | yes |
+| edit | `all variables` | `resid_post` | 74.4% | 20.9% | 100.0% | yes |
 
 Sites the reader's best submission named that failed, and that the delivered construction therefore does not claim: embed.0, attn_out, resid_mid.
 
