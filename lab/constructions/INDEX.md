@@ -1,6 +1,12 @@
 # Constructor runs
 
-*Written by `lab/results.py` on 2026-11-13 20:00. Every run of `lab/constructor.py`, grouped by network, best first. Each run id links to that run's page.*
+*Written by `lab/results.py` on 2026-11-14 00:35. Every run of `lab/constructor.py`, grouped by network, best first. Each run id links to that run's page.*
+
+## `astra_breakout`: a policy for MinAtar Breakout: move the paddle under where the ball will land
+
+| Run | Reader | Title | Status | Result | Behaviour match | Steps | Submissions | Cost |
+|---|---|---|---|---|---|---|---|---|
+| [`20261113-200650-1904`](astra_breakout/20261113-200650-1904/README.md) | blinded | v1.1: blinded, held-out game policy | interrupted | no construction | n/a | 14 | 2 | $0.02 |
 
 ## `bool_compare2`: (2*x1 + x2) > (2*x3 + x4): is the 2-bit number a1a0 greater than b1b0
 
@@ -37,9 +43,13 @@
 | [`20261113-135657-e428`](modadd_p113/20261113-135657-e428/README.md) | blinded | dev2 blinded, submit-early rule | interrupted | no construction | n/a | 23 | 0 | $0.02 |
 | [`20261113-141703-4d1e`](modadd_p113/20261113-141703-4d1e/README.md) | blinded | blinded replicate 2 | interrupted | no construction | n/a | 33 | 4 | $0.11 |
 | [`20261113-143146-4fc2`](modadd_p113/20261113-143146-4fc2/README.md) | blinded | dev4 blinded, judge v2 (necessity, compactness, per-variable interchange) | interrupted | no construction | n/a | 28 | 3 | $0.05 |
+| [`20261113-200059-7f3a`](modadd_p113/20261113-200059-7f3a/README.md) | blinded | v1.1: blinded, replicate B | interrupted | no construction | n/a | 26 | 3 | $0.06 |
+| [`20261113-200059-b4d8`](modadd_p113/20261113-200059-b4d8/README.md) | blinded | v1.1: blinded, replicate C | interrupted | no construction | n/a | 30 | 4 | $0.07 |
 | [`20261113-190435-48d0`](modadd_p113/20261113-190435-48d0/README.md) | permuted | v1 official: control permuted | done | 3 of 4 stages | 100.0% | 80 | 12 | $0.36 |
 | [`20261113-190435-9b22`](modadd_p113/20261113-190435-9b22/README.md) | untrained | v1 official: control untrained | done | 1 of 4 stages | 94.8% | 80 | 12 | $0.38 |
 | [`20261113-141703-0b38`](modadd_p113/20261113-141703-0b38/README.md) | prior-only | control: prior-only (task named, no weights, one submission) | done | 0 of 4 stages | 100.0% | 2 | 1 | $0.05 |
+| [`20261113-200059-4f94`](modadd_p113/20261113-200059-4f94/README.md) | prior-only | v1.1: prior-only B | done | 0 of 4 stages | 100.0% | 2 | 1 | $0.07 |
+| [`20261113-200059-9cb3`](modadd_p113/20261113-200059-9cb3/README.md) | prior-only | v1.1: prior-only C | done | 0 of 4 stages | 100.0% | 4 | 1 | $0.05 |
 | [`20261113-190435-2730`](modadd_p113/20261113-190435-2730/README.md) | shuffled | v1 official: control shuffled | done | 0 of 4 stages | 99.3% | 79 | 15 | $0.40 |
 | [`20261113-141703-0114`](modadd_p113/20261113-141703-0114/README.md) | untrained | control: untrained, blinded | interrupted | no construction | n/a | 53 | 8 | $0.12 |
 | [`20261113-141703-5649`](modadd_p113/20261113-141703-5649/README.md) | shuffled | control: shuffled, blinded | interrupted | no construction | n/a | 30 | 4 | $0.10 |
@@ -50,18 +60,22 @@
 | Run | Reader | Title | Status | Result | Behaviour match | Steps | Submissions | Cost |
 |---|---|---|---|---|---|---|---|---|
 | [`20261113-190435-ec84`](modmul_p113/20261113-190435-ec84/README.md) | blinded | v1 official: blinded, held-out | done | **complete** | 97.3% | 76 | 14 | $0.32 |
+| [`20261113-200059-7bdc`](modmul_p113/20261113-200059-7bdc/README.md) | blinded | v1.1: blinded, replicate B | interrupted | no construction | n/a | 34 | 5 | $0.07 |
+| [`20261113-200059-1652`](modmul_p113/20261113-200059-1652/README.md) | prior-only | v1.1: prior-only | interrupted | no construction | n/a | 5 | 0 | $0.07 |
 
 ## `tracr_count_greater`: output i is the number of tokens greater than token i
 
 | Run | Reader | Title | Status | Result | Behaviour match | Steps | Submissions | Cost |
 |---|---|---|---|---|---|---|---|---|
 | [`20261113-190435-53c5`](tracr_count_greater/20261113-190435-53c5/README.md) | blinded | v1 official: blinded, held-out | done | **complete** | 100.0% | 47 | 8 | $0.18 |
+| [`20261113-200059-cb04`](tracr_count_greater/20261113-200059-cb04/README.md) | blinded | v1.1: blinded, replicate B | done | **complete** | 100.0% | 33 | 5 | $0.08 |
 
 ## `tracr_first_match`: output i is 1 if token i equals the first token, else 0
 
 | Run | Reader | Title | Status | Result | Behaviour match | Steps | Submissions | Cost |
 |---|---|---|---|---|---|---|---|---|
 | [`20261113-190435-e5f5`](tracr_first_match/20261113-190435-e5f5/README.md) | blinded | v1 official: blinded, held-out | done | **complete** | 100.0% | 23 | 5 | $0.09 |
+| [`20261113-200059-d63d`](tracr_first_match/20261113-200059-d63d/README.md) | blinded | v1.1: blinded, replicate B | done | **complete** | 100.0% | 22 | 4 | $0.08 |
 
 ## `tracr_hist`: histogram: output i is the number of tokens equal to token i
 

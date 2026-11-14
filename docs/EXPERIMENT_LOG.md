@@ -412,3 +412,12 @@ environments from the prompt text would put the networks off their training dist
 **Next.** A blinded constructor run on `astra_breakout` (held out: it was never used in development).
 A small, function-preserving change was made to `nets.domain_inputs` while batch 2 was in flight: input sets stored in
 a file are cast to 64-bit on load. No in-flight run uses a file-based input set.
+
+**E10 and E11, status after a second session interruption (2026-11-14 00:40).** The interruption killed every process
+at about 20:10. Finished before it: `tracr_first_match` replicate B (complete, 22 steps), `tracr_count_greater`
+replicate B (complete, 33 steps), and two prior-only controls on mod-add (0 of 4 stages each). Killed part-way and
+marked "interrupted": mod-add replicates B and C (26 and 30 steps, 0 stages at that point), mod-mul replicate B (34
+steps), the mod-mul prior-only control, and the first `astra_breakout` run (14 steps). The `modsub_p113` training
+job was also killed at epoch 11,750 of 25,000 (test accuracy 23%, not yet generalised); its weights are only saved
+at the end, so nothing was kept, and it is not being retrained in this session (about 1.5 hours of CPU).
+All five interrupted runs were relaunched at 00:40 on the same frozen constructor, titled "(rerun)".

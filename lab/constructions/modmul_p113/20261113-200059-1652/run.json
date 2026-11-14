@@ -99,7 +99,8 @@
   "calls": 5
  },
  "cost": 0.068324412,
- "status": "running",
+ "status": "interrupted",
  "best": null,
- "final_message": ""
+ "final_message": "",
+ "note": "The process was killed by a session interruption before the run ended; the record is partial."
 }
