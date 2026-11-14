@@ -567,3 +567,21 @@ A 10-step blinded run: the reader found the behaviour (n4 + (n4 - n3)) in 2 step
 mean-ablation in step 3 (n4 matters at depths 0-6, the end position from depth 9), and submitted a 1-dimensional
 "next number" variable at depth 12, which failed as it should. Cost $0.017. The pipeline (session, hooks, judge,
 report) works end to end. Judge time: 35 s for one cut, 2.5 min for five cuts with identity variables.
+
+## 2026-11-14 11:45-12:40. E18, first real runs after the interruption; two operational failures and their fixes
+
+Relaunched after a six-hour interruption (the 05:37 runs had died at step 4 and step 0): blinded run A and
+prior-only control 1 on `gpt2_countdown`, blinded run A on the new target `gpt2_be_verb`
+(is / are / was / were; 720 prompts, the model follows the rule on 100%).
+
+- **Judges killed for memory.** Two LM runs plus a hand-started judge at once: the kernel killed judges (about 2 GB
+  each; the machine's limit is 8 GB). The prior-only control's only submission was lost this way. **Fix:** judges
+  take a machine-wide lock (`/tmp/helix_judge.lock`) and a judge that dies silently is retried once; the loader
+  frees Hugging Face's copy of the weights. **Rule for this machine: one LM constructor run at a time.**
+- **I broke the engine for ten minutes** by editing `lab/lm.py` (a too-wide key filter) while runs were using it; four
+  submissions (countdown 4-5, be-verb 2-3) got a crash instead of a report. **Rule: test every edit of
+  `lm.py` / `lmjudge.py` with one judge call before leaving it on disk while runs are in flight.**
+- Speed with three processes on two CPUs: a depth-by-position scan took 220-320 s. Session timeout raised to 600 s;
+  residual sites are now read from the cache without a forward pass.
+- State at 12:40: countdown run A 1 of 5 stages after 6 submissions; be-verb run A 2 of 5 after 4 (then paused with a
+  STOP file to give the countdown run the machine; resume it with `--resume 20261114-114450-62b2`).
