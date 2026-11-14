@@ -134,17 +134,23 @@ class LM:
 
         def site(key, x):
             """Apply hooks and reads for site `key` on x [B, Ta, width]."""
+            def read(pos):
+                return x.reshape(B, -1).clone() if pos is None else x[ar, pos].clone()
             if key in want and key not in hooks:
                 for k, pos in enumerate(want[key]):
-                    got[key + (k,)] = x[ar, pos].clone()
+                    got[key + (k,)] = read(pos)
             if key in hooks:
                 x = x.clone()
                 for pos, val in hooks[key]:
-                    cur = x[ar, pos]
-                    x[ar, pos] = val(cur) if callable(val) else val.to(cur.dtype).expand_as(cur)
+                    cur = read(pos)
+                    new = val(cur) if callable(val) else val.to(cur.dtype).expand_as(cur)
+                    if pos is None:                 # every position at once, flattened [B, T * width]
+                        x = new.reshape(x.shape).clone()
+                    else:
+                        x[ar, pos] = new
                 if key in want:                     # reads report the value actually used
                     for k, pos in enumerate(want[key]):
-                        got[key + (k,)] = x[ar, pos].clone()
+                        got[key + (k,)] = read(pos)
             return x
 
         n = cfg["n_layers"]
@@ -250,6 +256,8 @@ class Task:
             raise ValueError(f"input row {e.args[0]} is not one of the task's prompts (rows of X)") from None
 
     def pos(self, spec, idx):
+        if spec == "*":                     # every position, flattened
+            return None
         if spec in self.roles:
             return torch.as_tensor(self.roles[spec][idx])
         try:
@@ -261,8 +269,9 @@ class Task:
         return torch.full((len(idx),), p % self.T, dtype=torch.long)
 
     def width(self, site):
-        what = parse_site(site)[0]
-        return {"neur": self.cfg["d_mlp"], "pattern": self.T}.get(what, self.cfg["d_model"])
+        what, _, _, pos = parse_site(site)
+        w = {"neur": self.cfg["d_mlp"], "pattern": self.T}.get(what, self.cfg["d_model"])
+        return w * self.T if pos == "*" else w
 
     def check_site(self, site):
         what, layer, head, pos = parse_site(site)
@@ -271,8 +280,17 @@ class Task:
             raise ValueError(f'"{site}": this model has layers 0..{n - 1}' + (f" (resid0..resid{n})" if what == "resid" else ""))
         if head is not None and head >= self.cfg["n_heads"]:
             raise ValueError(f'"{site}": this model has heads 0..{self.cfg["n_heads"] - 1}')
+        if pos == "*" and what == "pattern":
+            raise ValueError(f'"{site}": pattern sites need one position')
         self.pos(pos, np.arange(1))
         return what, layer, head, pos
+
+    def resid(self, layer, idx, pos=None):
+        """Cached residual stream entering block `layer` for prompts idx: [B, T, d], or [B, d] at position spec pos."""
+        r = self.cache()[layer, torch.as_tensor(np.asarray(idx))]
+        if pos is None:
+            return r.numpy().astype(np.float64)
+        return r[torch.arange(len(idx)), self.pos(pos, np.asarray(idx))].numpy().astype(np.float64)
 
     # ---- cache
     def cache(self):
@@ -308,7 +326,7 @@ class Task:
             b = idx[i:i + batch]
             tb = torch.as_tensor(b)
             pos_of = {s: self.pos(p[3], b) for s, p in parsed.items()}
-            pm = int(min([int(p.min()) for p in pos_of.values()], default=0)) if C is not None else 0   # nothing before pm changes
+            pm = int(min([0 if p is None else int(p.min()) for p in pos_of.values()], default=0)) if C is not None else 0   # nothing before pm changes
             hooks, want = {}, {}
             for s, (what, layer, head, pos) in parsed.items():
                 key = (what, layer, head)
@@ -319,9 +337,9 @@ class Task:
                     else:
                         v = np.asarray(v, dtype=np.float32)
                         val = torch.as_tensor(v[i:i + batch] if v.ndim == 2 and len(v) == len(idx) else np.broadcast_to(v, (len(b), self.width(s))).copy())
-                    hooks.setdefault(key, []).append((pos_of[s] - pm, val))
+                    hooks.setdefault(key, []).append((None if pos_of[s] is None else pos_of[s] - pm, val))
                 if s in sites:
-                    want.setdefault(key, []).append(pos_of[s] - pm)
+                    want.setdefault(key, []).append(None if pos_of[s] is None else pos_of[s] - pm)
             resid = C[first, tb][:, pm:] if C is not None else self.lm.embed(self.tokens[b])
             if first < n or ("resid", n, None) in hooks or ("resid", n, None) in want:
                 prefix = (lambda l: C[l, tb][:, :pm]) if pm else None

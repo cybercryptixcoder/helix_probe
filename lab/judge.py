@@ -494,6 +494,16 @@ if __name__ == "__main__":
     ap.add_argument("target"); ap.add_argument("construction")
     ap.add_argument("--variant", default="original"); ap.add_argument("--json"); ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
+    if json.loads((LAB / "models" / a.target / "meta.json").read_text()).get("forward") == "lm":     # a language-model target
+        import lmjudge
+        try:
+            rep = lmjudge.judge(a.target, Path(a.construction).read_text(), a.variant, a.seed)
+        except ConstructionError as e:
+            print("CONSTRUCTION ERROR:", e); sys.exit(1)
+        print(lmjudge.render(rep))
+        if a.json:
+            Path(a.json).write_text(json.dumps(rep, indent=1))
+        sys.exit(0)
     meta, W, X = load_target(a.target, a.variant)
     try:
         rep = judge(meta["forward"], W, X, Path(a.construction).read_text(), seed=a.seed, groups=meta.get("out_groups"))

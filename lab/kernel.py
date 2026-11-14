@@ -24,6 +24,38 @@ def _guarded_import(name, globals=None, locals=None, fromlist=(), level=0):
     return _real_import(name, globals, locals, fromlist, level)
 
 
+def lm_env(cfg, env):
+    """The session for a language-model target (see lm.py for the sites and constructor.py, LM_SYSTEM, for the tools)."""
+    import numpy as np
+    meta = json.load(open(cfg["meta"]))
+    env["X_NAMES"], env["ANSWERS"] = meta["x_names"], meta["answers"]
+    if not cfg.get("weights"):
+        return
+    import lm
+    task = lm.get_task(meta["id"], cfg["variant"], cfg.get("seed", 0))
+    tk = task.lm.tok
+    env.update(W=task.lm.weights_numpy(), CFG=dict(task.cfg), X=task.X.copy(), TOKENS=task.tokens.copy(),
+               PROMPTS=[tk.decode(t) for t in task.tokens], ANSWER_IDS=task.answer_ids.copy(),
+               ROLES={r: (int(p[0]) if len(set(p.tolist())) == 1 else p.copy()) for r, p in task.roles.items()},
+               tok=lambda text: tk.encode(text), detok=lambda ids: [tk.decode([int(i)]) for i in np.atleast_1d(ids)])
+    if not cfg.get("allow_forward", True):
+        return
+    import torch
+    env["run"] = lambda x, hook=None: task.run(x, hook=hook)
+    env["logits"] = lambda x, hook=None: task.run(x, hook=hook, full=True)
+    env["acts"] = lambda x, sites: task.acts(x, [sites] if isinstance(sites, str) else list(sites))
+    env["run_tokens"] = lambda tokens, hook=None, sites=(): task.run_tokens(tokens, hook=hook, sites=[sites] if isinstance(sites, str) else list(sites))
+    env["unembed"] = lambda v: task.lm.unembed(torch.as_tensor(np.atleast_2d(np.asarray(v, dtype=np.float32)))).numpy()
+
+    def top(v, k=10):
+        v = np.asarray(v).ravel()
+        if v.shape[0] != task.cfg["n_vocab"]:
+            raise ValueError(f"top() takes a vector over the vocabulary ({task.cfg['n_vocab']} entries); got {v.shape[0]}")
+        i = np.argsort(-v)[:k]
+        return [(tk.decode([int(j)]), round(float(v[j]), 2)) for j in i]
+    env["top"] = top
+
+
 def main():
     cfg = json.loads(sys.stdin.readline())
     sys.path.insert(0, cfg["lab_dir"])
@@ -31,7 +63,9 @@ def main():
     import nets
     np.set_printoptions(precision=4, suppress=True, linewidth=160, threshold=600, edgeitems=6)
     env = {"__name__": "__sandbox__", "np": np, "show": lambda a, **k: print(np.array2string(np.asarray(a), **k))}
-    if cfg.get("weights"):
+    if cfg.get("lm"):
+        lm_env(cfg, env)
+    elif cfg.get("weights"):
         meta = json.load(open(cfg["meta"]))
         W = dict(np.load(cfg["weights"]))
         W = {k: v.astype(np.float64) for k, v in nets.variant(W, cfg["variant"], meta.get("perm_groups", []), cfg.get("seed", 0), meta.get("protected", [])).items()}
