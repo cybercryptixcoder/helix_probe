@@ -7,7 +7,7 @@
   "weights": true,
   "allow_forward": true,
   "effort": "high",
-  "max_steps": 100,
+  "max_steps": 120,
   "max_tokens": 12000,
   "seed": 0,
   "title": "blinded run A",
@@ -421,11 +421,11 @@
   "calls": 22
  },
  "cost": 0.04452127200000001,
- "status": "stopped",
+ "status": "running",
  "best": 4,
  "final_message": "",
- "heartbeat": 1794677637.6550224,
- "pid": 321,
+ "heartbeat": 1794679480.2779884,
+ "pid": 3102,
  "seconds": 2638.2,
  "verdict": {
   "verified": false,
@@ -438,5 +438,11 @@
   "stages_verified": 2,
   "complete": false,
   "score": 0.4
- }
+ },
+ "resumed": [
+  {
+   "at_step": 22,
+   "time": 1794679480.2775397
+  }
+ ]
 }
