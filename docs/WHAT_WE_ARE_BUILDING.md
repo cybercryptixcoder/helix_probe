@@ -1,6 +1,6 @@
 # What we are building
 
-*Living file: it describes the system as it actually is on the branch `constructor-attempt`. Last updated 2026-11-13, 19:20.*
+*Living file: it describes the system as it actually is on the branch `constructor-attempt`. Last updated 2026-11-14, 06:20 (section 7, language models, is new).*
 
 **The constructor**: a system that takes a neural network and produces a verified **construction** of it: a small
 program that computes what the network computes, the way the network computes it, with a statement of where each of
@@ -116,6 +116,52 @@ submission and the judge's report. Right: the best construction so far: verdict,
 stage, the per-site table, the intervention table with its controls, what fails, a button that runs the held-out
 intervention benchmark, and the construction's source. `lab/GUIDE.md` walks through it.
 
+### 7. Real language models (added 2026-11-14)
+
+The same constructor, with a different network layer underneath.
+
+**Engine (`lab/lm.py`).** GPT-2-family checkpoints from Hugging Face, run by our own forward pass (it matches
+Hugging Face's logits to 1e-4). A *site* is one vector per prompt at one token position:
+
+| Site | What it is |
+|---|---|
+| `resid{L}@p` | the residual stream entering block L at position p (L = 0 is the embedding, L = n_layers the final stream) |
+| `attn{L}@p`, `head{L}.{H}@p` | what attention layer L, or its head H, adds at p |
+| `mlp{L}@p`, `neur{L}@p` | what MLP L adds at p; its hidden neurons |
+| `pattern{L}.{H}@p` | head H's attention weights from p to every position |
+
+`p` is a role of the task or a token index; `@*` is every position at once. Any site can be read or replaced
+(`hook`). The residual stream of every prompt at every layer is cached, an intervention at layer L restarts from
+layer L, and only positions at or after the earliest changed position are recomputed.
+
+**Task (`lab/lm_tasks/*.py`, `lab/lm_build.py`).** One behaviour of one model: prompts of equal token length, integer
+features `x` describing each prompt (the construction's input), roles (named positions), answer tokens (the
+network's "output" is their logits at the end position). See `lab/lm_tasks/README.md`.
+
+**Judge (`lab/lmjudge.py`).** The tests of section 2, applied to two kinds of unit:
+- a **cut**: all residual sites the construction names at one depth, tested together. Substitution replaces the
+  named positions by the construction's prediction and every other position at that depth by its mean, so a cut
+  that passes holds everything the later layers need;
+- a **component site** (attn, mlp, head, neur, pattern), tested alone.
+
+Stages are depth bands: the embedding, then four bands of layers (12 layers: 0-2, 3-5, 6-8, 9-11). A stage is
+explained when a cut inside it is verified; **complete** means every stage is. Two rules differ from section 2:
+the size limit is measured against the principal components that keep 99% of answers (not 90%), and a
+**categorical variable** (a one-hot identity of one quantity, with at least 6 prompts per value) is exempt from it.
+Why: with hundreds of answer classes the 90% rule rejected even the best possible linear code (E16).
+
+**Reader (`LM_SYSTEM` in `lab/constructor.py`, `lm_env` in `lab/kernel.py`).** Tools in the python session: `X`,
+`PROMPTS`, `TOKENS`, `ROLES`, `ANSWERS`; `run(x, hook)`, `logits(x, hook)`, `acts(x, sites)`, `run_tokens(tokens)`
+for prompts outside the task; the weights `W` under uniform names (`W_E`, `W_U`, `L3.W_Q` ...); `unembed`, `top`.
+`hook` is how the reader runs its own ablation and patching experiments.
+
+**Circuit (`lab/lm_circuit.py`).** The residual stream is a sum of what the heads and MLPs wrote, so the read-out
+of a verified variable splits exactly into a share per component. The tool lists the top components for each
+variable and site, where the heads attend, and what mean-ablating each does to the variable and to the answers.
+
+**Runs.** The page launches runs as detached processes and follows them by polling `run.json`; `--resume` continues
+a dead run from the reader's notes (saved every 12 steps) and best submission.
+
 ## How to use it
 
 ```bash
@@ -143,7 +189,8 @@ python3 lab/predict.py <target id> <construction.py> [--also name=other_construc
 
 - Whether one conversation is enough for the harder networks, or whether stage-by-stage sub-tasks are needed.
 - Input sets for networks whose inputs are not enumerable (MIT's game policies).
-- How to extend sites to a real language model (LayerNorm, many positions).
+- For language models: whether "one verified cut per depth band" is the right grain for "complete" (finer: every
+  layer; coarser: three bands), and how to grade compact codes against identity variables.
 
 ## Where the rest lives
 

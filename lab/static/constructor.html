@@ -118,14 +118,14 @@ h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:19px;mar
           </div>
         </div>
       </div>
-      <div class="frame" style="flex:1">
+      <div class="frame" style="flex:1;min-height:150px">
         <h2>Runs <small id="runCount"></small></h2>
         <div class="scroll" id="runs"></div>
       </div>
-      <div class="frame" style="max-height:30%">
-        <h2>Language-model tasks <small>lab/lm_tasks</small></h2>
-        <div class="scroll" id="tasks"></div>
-      </div>
+      <details class="frame" style="max-height:34%;display:block;overflow:auto">
+        <summary style="padding:8px 14px;font-family:var(--serif);font-style:italic;font-size:19px;cursor:pointer">Language-model tasks <small class="hint" style="float:right;margin-top:6px">add or rebuild a target</small></summary>
+        <div id="tasks"></div>
+      </details>
     </div>
     <div class="col">
       <div class="frame" style="flex:1">

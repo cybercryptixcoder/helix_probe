@@ -1,9 +1,118 @@
 # Helix Probe: start here
 
-*Living entry point, kept current after every working session. Last updated Nov 13, 2026 (branch `constructor-attempt`). Anyone handed
+*Living entry point, kept current after every working session. Last updated Nov 14, 2026 (branch `constructor-attempt`). Anyone handed
 this repo should be able to continue from these files alone, with no separate handoff.*
 
-## CURRENT STATE (2026-11-13, branch `constructor-attempt`). Read this first.
+## CURRENT STATE (2026-11-14, session 3, branch `constructor-attempt`). Read this first.
+
+> **This branch** is a separate attempt at the main goal, the constructor. `main` continues independently; never
+> push this branch's work to `main`, and never edit `main`. Every substep is committed and pushed
+> (`bash /home/claude/push.sh "message"`; recreate that script from "How work is persisted" below if it is gone).
+
+### The goal of this session
+
+Turn the constructor into a **discovery-grade tool**: one that works on real language models, and use it to make a
+previously unexplained mechanism interpretable (a verified construction, controls, prior-only control, a new
+checkable claim). The tool is the deliverable; the discovery proves it.
+
+### What was added in this session (all in `lab/`; details in [`docs/WHAT_WE_ARE_BUILDING.md`](../WHAT_WE_ARE_BUILDING.md) §7)
+
+| Piece | File | What it does |
+|---|---|---|
+| LM engine | `lab/lm.py` | GPT-2-family models (from Hugging Face) with named, replaceable activation sites at any token position: `resid{L}@p`, `attn{L}@p`, `head{L}.{H}@p`, `mlp{L}@p`, `neur{L}@p`, `pattern{L}.{H}@p`. Caches the residual stream, recomputes only what an intervention can change. Matches Hugging Face's logits to 1e-4. |
+| LM task | `lab/lm_tasks/*.py`, `lab/lm_build.py` | A task file names the model, the prompts, the input features, the roles (named positions) and the answer tokens. `python3 lab/lm_build.py lab/lm_tasks/<file>.py` turns it into a target in `lab/models/<id>/`. How to write one: `lab/lm_tasks/README.md`. |
+| LM judge | `lab/lmjudge.py` | The same tests as `judge.py`, with **cuts** (all residual sites named at one depth, tested together, the other positions mean-ablated) and **stages by depth band** (embedding + four bands of layers). Categorical identity variables allowed. `python3 lab/judge.py <lm target> <file>` dispatches here. |
+| Reader session for LMs | `lab/kernel.py` (`lm_env`), `LM_SYSTEM` in `lab/constructor.py` | The reader gets `run`, `logits`, `acts`, `hook=` (its own patching experiments), `run_tokens`, the weights `W`, `unembed`, `top`. |
+| Resume, notes, stop | `lab/constructor.py` | `--resume <run id>` continues a dead or stopped run from the reader's last notes (written to disk every 12 steps) and its best submission. A `STOP` file in the run folder stops a run. |
+| Circuit | `lab/lm_circuit.py` | From a verified construction: which heads and MLPs write each variable (exact linear split of the read-out), where those heads attend, and a mean-ablation check of each. |
+| Web page | `lab/server.py`, `lab/static/constructor.html` | Runs are launched as **detached processes** and followed by polling (they survive the page and the server); Stop and Resume buttons; language-model targets; a "what is held where" map; the circuit view; a panel that builds targets from task files. |
+
+```bash
+pip install torch --index-url https://download.pytorch.org/whl/cpu && pip install transformers   # once; GPT-2 is downloaded on first use
+python3 lab/server.py                                          # http://localhost:8765/constructor
+python3 lab/lm_build.py lab/lm_tasks/countdown.py              # build (or rebuild) an LM target
+python3 lab/constructor.py gpt2_countdown --steps 150          # a blinded run (needs lab/.env with LUMINAL_API_KEY)
+python3 lab/constructor.py gpt2_countdown --resume <run id> --steps 250    # continue a dead or stopped run
+python3 lab/constructor.py gpt2_countdown --told --no-weights --one-shot   # the prior-only control
+python3 lab/judge.py gpt2_countdown <construction.py>          # judge any construction file
+python3 lab/lm_circuit.py gpt2_countdown <run id>              # which components write each variable
+```
+
+### The target chosen: how GPT-2 small counts down (`gpt2_countdown`)
+
+GPT-2 small continues "41, 42, 43, 44," with 45 and "44, 43, 42, 41," with 40: 100% on both, over 800 prompts (last
+number 20 to 119, four prefixes), choosing among 362 number tokens. Counting **up** is in the literature (successor
+heads, Gould et al. 2023; the increasing-sequence circuit, Lan & Barez 2024). How the model decides the direction
+and how it counts **down** is not (searched 2026-11-14; nothing found). Why this target, and what was rejected:
+`docs/EXPERIMENT_LOG.md` E13-E15.
+
+### Latest results
+
+See "Working on right now" and `docs/RESULTS_CONSTRUCTOR.md`. Judge calibration on this target
+(`lab/constructions/_oracle/gpt2_countdown_first_guess.py`, hand-written, E17): the two late stages verify (the end
+position holds the identity of n4 and the direction at depth 9; the answer's identity at depth 12); my guesses for
+the early and middle stages fail, which shows the judge discriminates and that the middle of the network is the
+open question (in particular: the direction is NOT a linear variable at the n4 position at depth 6).
+
+### Working on right now (updated 2026-11-14 06:20)
+
+- **In flight (detached):** blinded run A on `gpt2_countdown` (150 steps) and prior-only control 1. Logs:
+  `/home/claude/logs/`; run folders: `lab/constructions/gpt2_countdown/`. If they are dead when you read this,
+  resume with `--resume <run id>`.
+- An auto-commit loop pushes every 10 minutes (`/home/claude/autopush.sh`; it does not survive the session).
+- Next: read what run A does, fix what blocks the reader, launch replicates; second LM target; write-up.
+
+### Tried and failed in this session, and why
+
+- **The ordinal suffix (23 -> "rd") as a target** (E13). GPT-2 small does it at 98.6%, but the suffix class is linearly
+  present in the number's token embedding and stays so at every layer: nothing is computed, and a know-nothing
+  construction would pass. Kept as the small demo target `gpt2_ordinal`.
+- **Arithmetic progressions with a step above 1** (E14): GPT-2 small cannot continue them (it says last + 1), so
+  there is no capability to explain.
+- **TransformerLens** as the engine: version 4 removed `HookedTransformer`; a 250-line engine of our own was faster
+  to write than to learn the new API, and gives the restart-from-layer and changed-positions-only speedups.
+- **The size limit as judge v3 had it** (at most twice the principal components that keep 90% of answers): with 362
+  answer classes even the best possible linear code needs about 20 dimensions to pass interchange while 7 "suffice"
+  (E16). For LM targets the limit is now measured at 99% of answers, and one-hot identities of single quantities
+  are exempt.
+
+### Exact next steps
+
+1. Follow run A; relaunch or resume as needed; run two more blinded replicates and two more prior-only controls.
+2. When a construction verifies the middle stages: `lm_circuit.py` on it, then state its new claim (what the model
+   does on sequences the prompts do not contain) and test that claim on fresh prompts.
+3. A stricter pass without identity variables (compact codes only): E16 shows a 29-dimensional Fourier code over
+   period 100 passes at depth 9, so it exists to be found.
+4. A second LM target with all-binary variables (number x tense of "is / are / was / were"; E15 shows GPT-2 does it).
+5. A second model family in `lm.py` (Pythia / GPT-NeoX): add a loader that fills the same weight names.
+
+### How work is persisted
+
+- `bash /home/claude/push.sh "message"`: checks the branch, refuses if the Luminal key is in the diff, commits as
+  `cybercryptixcoder`, pushes. The script (recreate if missing):
+  ```bash
+  cd <repo> && [ "$(git rev-parse --abbrev-ref HEAD)" = constructor-attempt ] && git add -A && \
+  ! git diff --cached | grep -q "<first 12 characters of the key>" && \
+  git -c user.name=cybercryptixcoder -c user.email=official.shreyas28@gmail.com commit -q -m "$1" && git push -q origin constructor-attempt
+  ```
+- The Luminal key lives only in `lab/.env` (gitignored). A new session must create that file again.
+- Long work is started detached (`setsid nohup ... &`), writes its state at every step, and can be resumed.
+
+### Map of files added in this session
+
+| File | What it holds |
+|---|---|
+| `lab/lm.py` | The LM engine and the LM task loader |
+| `lab/lm_build.py`, `lab/lm_tasks/` | Building LM targets from task files; `README.md` there explains the format |
+| `lab/lmjudge.py` | The judge for LM targets (cuts, depth stages) |
+| `lab/lm_circuit.py` | Components that write each verified variable |
+| `lab/models/gpt2_countdown/`, `lab/models/gpt2_ordinal/` | The two LM targets (prompts, features, roles; no weights) |
+| `lab/constructions/_oracle/gpt2_countdown_first_guess.py` | Hand-written calibration construction for the LM judge |
+| `lab/constructions/gpt2_countdown/<run id>/` | Constructor runs on the countdown target |
+
+> **EARLIER STATE (session 2, Nov 13).** Still accurate for everything that is not a language model.
+
+## STATE AT THE END OF SESSION 2 (2026-11-13)
 
 > **This branch** is a separate attempt at the main goal, the constructor. `main` continues independently; never
 > push this branch's work to `main`, and never edit `main`. The rule for the repo still holds: it is a living

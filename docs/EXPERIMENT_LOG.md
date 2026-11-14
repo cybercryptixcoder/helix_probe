@@ -482,3 +482,88 @@ specific question, and it needs the input semantics. The constructor gives the f
 - The compiled networks completed in every run (two runs each for first-match and count-greater).
 - Prior-only fails on both trained networks every time (4 runs), so naming the task does not supply the mechanism.
 - Step budgets matter: both 3-of-4 runs used all 80 steps and reached their third stage on a late submission.
+
+---
+
+# Session 3 (2026-11-14): from toy networks to a real language model
+
+All experiments below are on GPT-2 small (124M weights) through `lab/lm.py`, on a 2-CPU machine with no GPU.
+
+## 2026-11-14 04:55. E13, a first candidate target: the ordinal suffix (rejected)
+
+**Why.** A behaviour of a real model with crisp, low-cardinality structure: after a number, GPT-2 small continues
+with "st", "nd", "rd" or "th". **What.** 505 single-token numbers x 4 templates (`gpt2_ordinal`).
+**Result.** The model follows the rule on 98.6% of prompts (errors are specific numbers: 213, 223, 247, 312, 313, ...).
+But replacing the number's residual stream by the mean of its suffix class (4 vectors) keeps 98.5% of answers at
+*every* depth, including depth 0, the token embedding; interchange of "units digit + teen flag" works at 85-93% at
+every depth. Only MLP 0 matters when single components are mean-ablated (81% kept; every other component 98-100%).
+**Conclusion.** The suffix class is a feature of the number's embedding; nothing is computed along the way. A
+construction "the class is linearly present everywhere" is true and passes, so a prior-only reader would pass too.
+Not a discovery. **Changed:** require a target whose answer depends on a *combination* of tokens.
+
+## 2026-11-14 05:05. E14, arithmetic progressions (rejected: no capability)
+
+"7, 9, 11, 13," -> 15? Top-1 accuracy by step: 1: 98-100%; 2: 0-4%; 3: 0-5%; 5: 1-12%; 10: 3-12%. With step 2 or 3
+the model answers last + 1 in 80-99% of cases. GPT-2 small does not continue progressions with a step above 1.
+
+## 2026-11-14 05:10. E15, a battery of two-variable behaviours
+
+| Behaviour | Result |
+|---|---|
+| Counting down ("56, 55, 54, 53," -> 52), comma-separated, 4 or 5 numbers | 89% / 96% top-1 without BOS; **100% for last numbers 20-119 with BOS and a prefix**, both directions |
+| Year rollover ("December 1999, January" -> 2000; other months keep the year) | 100% / 93% |
+| is / are / was / were by subject number x tense cue | 81-100% per cell |
+| Correlatives (either-or, neither-nor, both-and, between-and) | 81-100% |
+| Reflexives (himself / herself / themselves / itself) | 67-100% |
+
+**Chosen: counting down.** It needs two things combined (the direction, from several tokens; the last number), the
+behaviour is perfect, and published work covers only increasing sequences (successor heads: Gould et al. 2023;
+"increasing sequences" circuit: Lan & Barez 2024). Target `gpt2_countdown`: 800 prompts (last number 20-119, both
+directions, four neutral prefixes), output = the logits of the 362 number tokens " 0".." 361".
+
+## 2026-11-14 05:20. E16, what a code for a number must look like to pass the judge
+
+At `resid9@end` (which, by substitution, holds the last number n4 and the direction):
+
+| Code for n4 (plus a 1-dim direction) | Dims | Substitute | Interchange | Partial n4 |
+|---|---|---|---|---|
+| top principal components of the per-number means: 7 / 10 / 14 / 20 | 8-21 | 50% / 89% / 99% / 100% | 18% / 47% / 81% / 95% | 25% / 55% / 79% / 93% |
+| units one-hot + tens one-hot | 19 | 89% | 65% | 66% |
+| Fourier over period 100, harmonics {1,2,5,10,20,50} | 13 | 84% | 35% | 33% |
+| ... harmonics {1..5,10,20,30,40,50} | 21 | 100% | 81% | 80% |
+| ... harmonics {1..10,20,30,40,50} | 29 | 100% | **91%** | 88% |
+| one-hot identity | 100 | 100% | 96% | 95% |
+
+The direction variable passes its partial test at 98-99% with every code. **Conclusions.** (1) The direction is a
+clean one-dimensional variable at the end position by depth 9. (2) The number is held in a code that a Fourier
+basis over period 100 describes: 28 dimensions reach the interchange bar. (3) The old size limit (twice the
+principal components that keep 90% of answers: 14 here) cannot be met by *any* linear code that passes interchange.
+**Changed:** for LM targets the limit is measured at 99% of answers, and one-hot identities of single quantities
+(at least 6 prompts per value) are exempt. A compact code is left as the stricter, second-pass goal.
+
+## 2026-11-14 05:45. E17, calibrating the LM judge with a hand-written guess
+
+`lab/constructions/_oracle/gpt2_countdown_first_guess.py`: identities of n3 and n4 at their positions (depths 0, 3);
+n4 and the direction at the n4 position (depth 6); n4 and the direction at the end position (depth 9); the answer's
+identity (depth 12); direction = sign(n4 - n3).
+
+| Cut | Substitute | Interchange | Partial tests | Verdict |
+|---|---|---|---|---|
+| cut0 (n3, n4) | 95.5% | 70.7% | n3: 0%, n4: 40% | fails |
+| cut3 (n3, n4) | 81.2% | 68.7% | n3: 0% | fails |
+| cut6 (n4, dir at the n4 position) | 97.2% | 32.2% | dir: the output does not depend on it (1% changed) | fails |
+| cut9 (n4, dir at the end) | 100% | 95.9% | n4 95.3%, dir 99.0% | **verified** |
+| cut12 (answer) | 98.0% | 99.7% | | **verified** |
+
+**Conclusions.** The judge separates what is right from what is guessed: 2 of 5 stages. What my guess gets wrong
+is the interesting part: (a) at depth 6 the n4 position is sufficient alone (97%), so the direction information is
+there, but not as a linear "direction" variable; (b) the model's direction is not sign(n4 - n3) when n3 is swapped
+for an arbitrary number (0% of the changed cases predicted). The middle of the network is the open question the
+constructor has to answer.
+
+## 2026-11-14 05:15-06:10. Smoke tests of the LM constructor (live)
+
+A 10-step blinded run: the reader found the behaviour (n4 + (n4 - n3)) in 2 steps, scanned depth x position by
+mean-ablation in step 3 (n4 matters at depths 0-6, the end position from depth 9), and submitted a 1-dimensional
+"next number" variable at depth 12, which failed as it should. Cost $0.017. The pipeline (session, hooks, judge,
+report) works end to end. Judge time: 35 s for one cut, 2.5 min for five cuts with identity variables.
