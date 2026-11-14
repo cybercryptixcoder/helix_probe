@@ -47,3 +47,25 @@ The idea: put some of a network's weights "on the slide", ask the reader (DeepSe
 5. **One attention head or one MLP neuron** of the transformer: "explain this unit".
 
 Adding a new specimen: put `weights.npz` and a `meta.json` in `lab/models/<id>/`. The easiest way is to add a builder to `lab/targets/build_registry.py` and run it.
+
+
+## The constructor page
+
+Open `http://localhost:8765/constructor` (or press **Constructor** in the top bar). It runs `lab/constructor.py`: the
+reader investigates a network with its own code and writes a *construction* of it, which the judge tests.
+
+1. **Run** (left): choose the network, the weights (trained, or a control: shuffled, untrained, permuted), the step
+   budget, and what the reader is told. *Blinded* is the default: it is not told what the network does. *Prior only*
+   is the control with the task named and no weights. Press **Construct**. **Stop** ends the run and keeps what it has.
+2. **The reader at work** (middle): each step shows the reader's reasoning (grey), its code and the output, and, for a
+   submission, the construction it sent and the judge's report.
+3. **Construction** (right): the best submission so far. The coloured bar is the verdict; the chips are the network's
+   stages (green: verified, orange: named but failing, grey: not explained). The *Sites* table gives, per site, how
+   many dimensions were named against how many principal components suffice, the variance explained, and the
+   decisions kept under substitution, removal and mean-ablation. The *Interventions* table gives how often the
+   construction predicted the network's new decision, next to "no change", "source output" and attribution patching.
+   Rows that fail are tinted. **Run the benchmark** scores the construction on held-out interventions
+   (`lab/predict.py`, about a minute). The construction's source is at the bottom.
+4. **Runs** (left, below): every past run for the selected network; click one to load it.
+
+Everything shown is read from `lab/constructions/<network>/<run id>/`, which is committed to the repository.

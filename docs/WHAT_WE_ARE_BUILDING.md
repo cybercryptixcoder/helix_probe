@@ -1,6 +1,6 @@
 # What we are building
 
-*Living file: it describes the system as it actually is on the branch `constructor-attempt`. Last updated 2026-11-13.*
+*Living file: it describes the system as it actually is on the branch `constructor-attempt`. Last updated 2026-11-13, 19:20.*
 
 **The constructor**: a system that takes a neural network and produces a verified **construction** of it: a small
 program that computes what the network computes, the way the network computes it, with a statement of where each of
@@ -19,6 +19,9 @@ its variables lives in the network. Everything is in `lab/`.
         |   submit tool  -> judge.py: tests the submitted construction, returns a text report
         v
  lab/constructions/<id>/<run id>/   run.json, every submission and report, the best construction
+        |
+        +--> predict.py: held-out interventions, construction vs baselines
+        +--> server.py + static/constructor.html: run and inspect all of this in the browser
 ```
 
 ### 1. A construction (the thing produced)
@@ -42,19 +45,23 @@ ALIGN = {"name": ["site", ...]}     # the activation sites where each variable l
 
 The same tests for every network; nothing in it knows any task. Half the inputs are used to fit, half to test.
 
-| Test | What is done | What it shows |
-|---|---|---|
-| Behaviour | Compare `model(x)` with the network's output | Level 1: can it run in place of the network? |
-| Alignment | At each site, fit one affine map from the variables placed there to the activations | Where each variable lives (the map class is declared and restricted: affine) |
-| Substitution | Replace the site's activation with the construction's prediction and run the rest of the network | "Keeping only what it names preserves behaviour"; this is also the embedding or readout rebuilt from the construction |
-| Removal | Remove the named subspace; compare with removing a random subspace of the same size and with mean-ablating the site | "Removing only what it names destroys it", and the variables are specific |
-| Interchange | Copy a variable (read by a linear probe) from another input's run; compare the network's new output with `model` run with that variable replaced | Level 2: same response to interventions (interchange intervention accuracy) |
-| Edit | Set a random half of a variable's coordinates to another input's values, a state no input produces | A stricter level 2, off the data manifold |
+| Test | What is done | Pass mark | What it shows |
+|---|---|---|---|
+| Behaviour | Compare `model(x)` with the network's output | same decision on 95% of inputs | Level 1: can it run in place of the network? |
+| Alignment | At each site, fit one affine map from the variables placed there to the activations (a write map M and a linear probe D) | reported | Where each variable lives; the map class is declared and restricted |
+| Substitution | Replace the site's activation with the construction's prediction and run the rest of the network | 90% of decisions kept | "Keeping only what it names preserves behaviour"; at the embedding this is the embedding rebuilt from the construction |
+| Necessity | Remove the named subspace; compare with mean-ablating the whole site | at least half of the damage of mean-ablation | "Removing only what it names destroys it" |
+| Compactness | Count the named dimensions the output depends on against the number of principal components of the site that keep 90% of decisions | at most twice that number (or 4 more) | The variables are not a lookup table |
+| Interchange | Copy everything named at the site from another input's run; compare the network's new decision with `model` run with those variables replaced | 90% of changed cases | Level 2: interchange intervention accuracy |
+| Partial / edit | Copy one variable while the site's others stay, or (lone variable) half of its coordinates: states no input produces | 50% of changed cases | A stricter level 2, off the data manifold |
 
-Every number is reported next to controls that understand nothing (a constant output, a random subspace, "no change",
-"the source input's output", mean-ablation). A site is **verified** when it passes substitution, removal, interchange
-and edit. A construction is **verified** when it also behaves like the network and every site it names is verified,
-and **complete** when every stage of the network has a verified site. Thresholds: `PASS` in `judge.py`.
+Every intervention number is reported next to predictors that understand nothing: the same swap in a random
+subspace, "no change", "the source input's output", and attribution patching (a first-order estimate computed on the
+network itself). A site is **verified** when it passes substitution, necessity, compactness, interchange and
+partial/edit. Sites that are identical for every input are ignored, and a site whose mean-ablation changes under 5%
+of decisions cannot be verified. A construction is **verified** when it behaves like the network and every site it
+names is verified, and **complete** when every stage of the network has a verified site. Thresholds: `PASS` in
+`judge.py`. How each rule was arrived at is in `EXPERIMENT_LOG.md` (E0, E5, E6).
 
 ### 3. The constructor (`lab/constructor.py`)
 
@@ -77,21 +84,46 @@ no network: with `--told` this is the prior-only control).
 Each network's `meta.json` keeps apart the architecture text, the task context (hidden when blinded), the hidden
 answer, and `domain`, the set of inputs the network is used on, which names no task. Sites:
 - MLPs: `h1`, `h2`, ... (hidden layers after the activation), `out`.
-- The one-layer transformers: `embed.0..2`, `attn_pattern`, `attn_out`, `resid_mid`, `mlp_pre`, `mlp_post`,
-  `mlp_out`, `resid_post`, `out`, in four stages: embedding, attention, MLP neurons, readout.
+- The one-layer transformers (mod-add, mod-mul): `embed.0..2`, `attn_pattern`, `attn_out`, `resid_mid`, `mlp_pre`,
+  `mlp_post`, `mlp_out`, `resid_post`, `out`, in four stages: embedding, attention, MLP neurons, readout.
+- General transformers (`nets.transformer`, any number of layers, no LayerNorm): `embed`, and per layer
+  `attn{l}.pattern`, `attn{l}.out`, `resid{l}.mid`, `mlp{l}.pre`, `mlp{l}.post`, `mlp{l}.out`, `resid{l}.post`, each
+  holding all positions flattened.
 
-MIT's game policies and shape generators have no `domain` yet (their inputs are game states and noisy images, which
-the released logs do not include), so the judge cannot run on them yet.
+Networks with a `domain` (the constructor can run on these): the 4 Boolean nets, `modadd_p113`, `modmul_p113`, and
+four programs compiled with Tracr by `lab/targets/build_tracr.py` (`tracr_hist`, `tracr_reverse`,
+`tracr_first_match`, `tracr_count_greater`). The compiled networks have their residual stream rotated and their MLP
+neurons permuted and rescaled, so the weights are dense; `weights_raw.npz` keeps the un-rotated weights. They are
+compiled for one input length, so parts of a program that only react to length are constant and need no explanation.
+
+MIT's game policies and shape generators have no `domain`: their inputs are game states and noisy images, and the
+released logs (`github.com/RikiyaT/lm_understand-logs`) contain the weights and prompts but not the environments.
+
+### 5. Held-out interventions (`lab/predict.py`)
+
+A benchmark of interventions drawn without looking at any construction: at every site, subspaces (random, random
+units, principal components) are removed or patched in from another input. The construction with its alignment
+predicts each outcome without running the network, next to "no change", a regressor on statistics of the
+intervention, attribution patching, and any other construction (for example the prior-only one).
+
+### 6. The web page
+
+`python3 lab/server.py`, then open `http://localhost:8765/constructor` (or press **Constructor** in the lab's top
+bar). Left: pick a network, the weights variant (trained, shuffled, untrained, permuted), the step budget and what the
+reader is told (blinded, task named, or the prior-only control), press **Construct**; past runs for the network are
+listed below with their stage counts. Middle: the reader at work, live: its reasoning, its code and outputs, each
+submission and the judge's report. Right: the best construction so far: verdict, the mechanism in words, a chip per
+stage, the per-site table, the intervention table with its controls, what fails, a button that runs the held-out
+intervention benchmark, and the construction's source. `lab/GUIDE.md` walks through it.
 
 ## How to use it
 
 ```bash
-python3 lab/constructor.py <target id> [--steps 60] [--variant ...] [--told] [--no-weights]
+python3 lab/server.py                                   # web app; the constructor is at /constructor
+python3 lab/constructor.py <target id> [--steps 80] [--variant ...] [--told] [--no-weights] [--one-shot]
 python3 lab/judge.py <target id> <construction.py> [--variant ...]
+python3 lab/predict.py <target id> <construction.py> [--also name=other_construction.py]
 ```
-
-The lab's web app (`python3 lab/server.py`, see `lab/GUIDE.md`) still offers only the earlier hand-driven weight
-reading. Wiring the constructor into it is a next step.
 
 ## Decided on this branch
 
@@ -101,12 +133,17 @@ reading. Wiring the constructor into it is a next step.
 - The reader may run the network and record activations (a construction is about *how*, and the tests score the how).
   Blinding hides the task, not the network.
 - One reader with code and a judge, no roles or agents, until evidence shows more is needed.
+- The loop, not the reader, sets the pace: after 6 steps without a submission the reader's next turn can only submit.
+- The delivered `construction.py` claims only what passed: sites that failed in the best submission are removed from
+  `ALIGN` by a footer the constructor appends, and the file is judged again.
+- The constructor is frozen (prompt, tools, judge) before it is run on networks it was not developed on. Development
+  networks: the Boolean nets, `modadd_p113`, `tracr_hist`. Everything else is held out.
 
 ## Not decided
 
 - Whether one conversation is enough for the harder networks, or whether stage-by-stage sub-tasks are needed.
-- Input sets for networks whose inputs are not enumerable.
-- How to extend sites to deeper transformers and a real language model.
+- Input sets for networks whose inputs are not enumerable (MIT's game policies).
+- How to extend sites to a real language model (LayerNorm, many positions).
 
 ## Where the rest lives
 
