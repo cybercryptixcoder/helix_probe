@@ -116,7 +116,7 @@ Read all of these (they were triaged as useful or minor, not essential). Title |
 - Using Self-Correcting Search to Accelerate Materials Discovery | 2026-04 | https://www.goodfire.com/research/self-correcting-search | goodfire
 - Silico (agentic interpretability and model-debugging platform) | 2026-04 | https://www.goodfire.com/ | goodfire
 - Predicting Rare LLM Failures with 30x Fewer Rollouts | 2026-05 | https://www.goodfire.com/research/predicting-rare-llm-failures-with-30x-fewer-rollouts | goodfire
-- Paper Summary: Interpreting Language Model Parameters | 2026-05 | https://www.goodfire.com/research/vpd-explainer | goodfire
+- [x] Paper Summary: Interpreting Language Model Parameters | 2026-05 | https://www.goodfire.com/research/vpd-explainer | goodfire | DONE (115 = goodfire-com-research-vpd-explainer; full summary read from both the rendered HTML and the author markdown behind its "markdown version" anchor, three footnotes; underlying paper not fetched, no figure inspected, zero metrics — written as a method+warning entry cross-referencing core/goodfire-research-interpreting-lm-parameters for numbers)
 - Verbalized Eval Awareness Inflates Measured Safety | 2026-05 | https://www.goodfire.com/research/verbalized-eval-awareness-inflates-measured-safety | goodfire
 - Announcing our SOC 2 Type II Certification | 2026-05 | https://www.goodfire.com/blog/soc-2-type-ii | goodfire
 - Meandering on Manifolds: The Neural Geometry of Stories Over Time | 2026-06 | https://www.goodfire.com/research/stories-in-space | goodfire
