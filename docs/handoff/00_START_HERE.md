@@ -59,45 +59,45 @@ its judge report, the best one as `construction.py` with `report.txt`, and a `RE
 ### Latest results (numbers and run links: [`docs/RESULTS_CONSTRUCTOR.md`](../RESULTS_CONSTRUCTOR.md))
 
 All runs blinded unless stated. "Complete" means every stage of the network has a site that passes every test.
+"Held out" means the network was first run after the constructor (prompt, tools, judge) was frozen.
 
-| Network | Used in development? | Result |
-|---|---|---|
-| XOR, 3-bit parity, 2-bit compare, majority (tiny MLPs) | yes | Complete, 2 steps each |
-| `modadd_p113`, Mystery transformer A | yes | 3 of 4 stages: Fourier features at frequencies {8, 11, 22, 23, 25} at the embeddings, cos/sin of k(i+j) in the MLP neurons, cosine readout with amplitudes [12.5, 6.2, 0.3, 9.8, 6.7] (E3). The attention stage is not verified, and a hand-written oracle fails there too. |
-| `tracr_hist` (compiled, rotated) | yes | Complete, 21 steps: attention weight on BOS = 1/(count+1), MLP turns it into the count (E6) |
-| `tracr_reverse`, `tracr_first_match`, `tracr_count_greater` | **no** | Complete, in 9, 23 and 47 steps (E8) |
-| `tracr_first_match`, `tracr_count_greater`, second runs | **no** | Complete again, in 22 and 33 steps (E10) |
-| `modmul_p113`, Mystery transformer C | **no** | **Complete**, 76 steps: Fourier features over the discrete log base 3 at frequencies {4, 28, 31, 41} (confirmed independently), an additive code after the near-uniform attention, the product's clock by angle addition in the MLP, readout from that clock (E8) |
+| Network | Held out? | Result | Runs |
+|---|---|---|---|
+| XOR, 3-bit parity, 2-bit compare, majority (tiny MLPs) | no | Complete, 2 steps each | 1 each |
+| `modadd_p113`, Mystery transformer A | no | 3 of 4 stages every time: Fourier features at {8, 11, 22, 23, 25} at the embeddings, cos/sin of k(i+j) in the MLP neurons, cosine readout with amplitudes [12.5, 6.2, 0.3, 9.8, 6.7]. Attention never verified; a hand-written oracle fails there too. | 5 (E3, E8, E10) |
+| `tracr_hist` (compiled, rotated) | no | Complete, 21 steps | 1 (E6) |
+| `tracr_reverse` | **yes** | Complete, 9 steps | 1 (E8) |
+| `tracr_first_match`, `tracr_count_greater` | **yes** | Complete both times (23 and 22 steps; 47 and 33 steps) | 2 each (E8, E10) |
+| `modmul_p113`, Mystery transformer C | **yes** | Complete once (76 steps): Fourier over the discrete log base 3 at {4, 28, 31, 41}, confirmed independently; additive code after attention; product clock by a squaring identity in the MLP. Second run: 3 of 4 (attention unnamed). | 2 (E8, E10) |
+| `astra_breakout`, MIT's hand-written MinAtar Breakout policy | **yes** | Complete, 32 steps, 100% behaviour, every intervention test 100%; matches the known design unit for unit. Asked a specific question afterwards, the reader named Breakout (E12). | 1 (E12) |
 
-Controls on mod-add:
-- **Prior-only** (task named, no weights, one submission): 0 stages; substitution at the embedding 5.7% (E4).
-- **Shuffled**: 0 stages, not verified; the reader named no mechanism (E8).
-- **Untrained**: not verified (behaviour 94.8%); the one stage that passes is a 112-dimensional lookup of the tokens,
-  which is what a random embedding is; the reader wrote that it could not compress the rest (E8).
-- **Permuted**: 3 of 4 stages, the same construction as on the original weights (E8).
-- **Judge calibration**: a hand-written oracle passes; the same file with wrong frequencies and a lookup table fail;
-  all three match the network's behaviour on 100% of inputs (E0, and re-checked after every judge change).
+Controls (E4, E8, E10):
+- **Prior-only** (task named, no weights, one submission): 0 of 4 stages on mod-add (3 runs) and on mod-mul (1 run).
+- **Shuffled weights**: 0 stages, no mechanism claimed. **Untrained weights**: not verified (behaviour 94.8%); the
+  one passing stage is a 112-dimensional token lookup, which is what a random embedding is.
+- **Permuted weights**: 3 of 4 stages, the same construction as on the original weights.
+- **Judge calibration** on mod-add, repeated after every judge change: the hand-written oracle passes 3 stages; the
+  same file with wrong frequencies and a lookup table get 0; all three match behaviour on 100% of inputs.
 
-Held-out interventions (E7), mod-add: the construction beats "no change", the statistics regressor and the prior-only
-construction (82% against 80%, 75% and 34% decision accuracy), and beats attribution patching on interventions on
-its own variables through the nonlinear part of the network (100% against 36% at the embedding). On arbitrary
-subspace interventions attribution patching wins (91%) and is exact after the MLP, where the network is linear.
-The compiled networks show the same shape (E9): the construction beats "no change" and the statistics regressor on
-three of four, and attribution patching is ahead on all four. Level 3 as stated in the bar is therefore not met.
+Held-out interventions (E7, E9): the construction beats "no change", the statistics regressor and the prior-only
+construction on mod-add and on 3 of 4 compiled networks, and beats attribution patching on interventions on its own
+variables in nonlinear stages (mod-add embedding 100% against 36%; mod-mul embedding and attention 93–98% against
+3–30%). On arbitrary subspace interventions attribution patching is ahead on every network, and it is exact
+wherever the path to the output is linear. **Level 3 as the bar states it is not met.**
 
-### Working on right now (updated 2026-11-14 00:45)
+Where the bar stands: level 1 (blinded replication of mod-add, with controls) met at 3 of 4 stages; level 2 (same
+constructor on unseen networks) met on six held-out networks, with one of two mod-mul runs incomplete; level 3
+partly; level 4 (a real language model) not attempted.
 
-1. Five runs are in flight on the constructor frozen at commit `b8a40aaa` (judge v3.1), relaunched after a second
-   session interruption killed them: `astra_breakout` (blinded, held out; MIT's hand-written MinAtar Breakout policy
-   with 6,000 real game states, E11), mod-add replicates B and C, mod-mul replicate B, and the mod-mul prior-only
-   control. Their folders are `lab/constructions/<target>/20261114-00*`; they are pushed every 4 minutes.
-   **If you find them with status "running" and no process alive, they were interrupted: rerun them**
-   (`python3 lab/constructor.py <target>`; prior-only: add `--told --no-weights --one-shot --steps 20`).
-2. Already finished in batch 2 (E10): `tracr_first_match` and `tracr_count_greater` replicates, both complete again;
-   two more prior-only controls on mod-add, both 0 of 4 stages.
-3. `modsub_p113` is NOT trained: the training job was killed at epoch 11,750 of 25,000. To get it:
-   `python3 lab/targets/train_modadd.py --op sub --p 113 --seed 0 --out lab/models/modsub_p113` (about 1.5 hours on
-   2 CPUs), then `python3 lab/targets/build_registry.py`.
+### Working on right now (updated 2026-11-14 01:40)
+
+- The last run of batch 2, mod-add replicate B (`lab/constructions/modadd_p113/20261114-003532-8fe7`), was at step
+  63 with 3 of 4 stages. If its `run.json` still says "running" and no process is alive, it was interrupted: it adds
+  nothing new and need not be rerun.
+- Nothing else is in flight. The constructor is frozen at `b8a40aaa`; it may be edited again now.
+- `modsub_p113` is NOT trained (the job was killed at epoch 11,750 of 25,000). To get it:
+  `python3 lab/targets/train_modadd.py --op sub --p 113 --seed 0 --out lab/models/modsub_p113` (about 1.5 hours on
+  2 CPUs), then `python3 lab/targets/build_registry.py`, then a blinded run.
 
 ### Tried and failed, and why
 
@@ -111,19 +111,25 @@ three of four, and attribution patching is ahead on all four. Level 3 as stated 
 - Editing the judge while runs were in flight (E4): the runs had to be discarded.
 - Translating an arbitrary activation edit into variable changes with the linear probe in `predict.py` (E7): worse
   than "no change". The pseudo-inverse of the alignment map is the faithful translation there.
-- MIT's game policies: no environment or states are released, so there is no input set to judge on. Not attempted.
+- MIT's PPO game policies (experiment 1): no environment or states are released, so there is no input set to judge
+  on. Their experiment-5 Breakout policy uses public MinAtar and was used instead (E11, E12).
 
-### Exact next steps
+### Exact next steps (what I would try next, in order)
 
-1. When the second batch ends: `python3 lab/results.py`, add the outcomes to E10, push.
-2. Run `lab/predict.py` on the mod-mul construction and add it to E9's table.
-3. Held-out `modsub_p113` when trained.
-4. Level 3: try a causal read map for the alignment (E9, "idea not yet tried").
-5. Compiled programs with variable-length inputs, so that length-dependent parts are exercised.
-6. The mod-add attention stage is open (see `CONVERSATION_LOG.md`, 19:55): it needs a compact model of how the ReLU
-   layer treats mixed states.
-7. MIT's game policies need an input set (no environment is released).
-8. Stretch: sites for a transformer with LayerNorm, and one behaviour in a small open language model.
+1. **Make runs resumable.** Two session interruptions killed runs part-way. `constructor.py` saves every step but
+   cannot continue a run: add `--resume <run id>` (rebuild the conversation from `run.json`, restart the Python
+   session, tell the reader its variables are gone).
+2. **Reliability on mod-mul and mod-add.** Both 3-of-4 runs ran out of steps on a late stage. Try a 120-step budget,
+   and a final "which stages are still unexplained" turn that names the uncovered stage and its sites.
+3. **The attention stage of mod-add.** It needs a compact model of how the ReLU layer treats mixed token features
+   (`CONVERSATION_LOG.md`, 19:55). Write the oracle first; if no oracle passes, say so and stop.
+4. **Level 3.** Fit a causal read map for the alignment (how the output-relevant variables respond to small
+   perturbations at a site, on the fit inputs) and rerun `predict.py`; report against attribution patching again.
+5. **More held-out networks**: `modsub_p113` (train it); compiled programs with variable-length inputs, so the length
+   computation is exercised; MinAtar policies for other games from MIT's experiment 5 (`build_minatar.py` is written
+   for Breakout; Seaquest and Asterix need their channel mappings from MIT's prompts).
+6. **MIT's PPO game policies** need an input set; MIT did not release their environments.
+7. **Stretch**: sites for a transformer with LayerNorm, then one behaviour in a small open language model.
 
 ### How work is persisted
 
@@ -146,7 +152,8 @@ three of four, and attribution patching is ahead on all four. Level 3 as stated 
 | `lab/targets/build_tracr.py`, `lab/models/tracr_*` | Compiled targets |
 | `lab/constructions/_oracle/` | Hand-written reference constructions used to calibrate the judge (not made by the constructor) |
 | `lab/constructions/<target>/<run id>/` | Constructor runs; `lab/constructions/INDEX.md` lists them |
-| `docs/EXPERIMENT_LOG.md` | Every experiment on this branch (E0–E8), with failures |
+| `docs/EXPERIMENT_LOG.md` | Every experiment on this branch (E0–E12), with failures |
+| `lab/targets/build_minatar.py`, `lab/models/astra_breakout` | MIT's hand-written Breakout policy with real game states |
 | `docs/RESULTS_CONSTRUCTOR.md` | The results table (generated) |
 
 ### Map of the docs
